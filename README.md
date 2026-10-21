@@ -11,3 +11,35 @@ npm --prefix tools/browser install
 
 GitHub authentication comes from the existing `gh` login. No token is stored
 in this repository.
+
+## Global config
+
+`global/` tracks the active OpenCode config directory reported by
+`opencode debug paths`:
+
+```text
+global/opencode.jsonc
+global/cli.json
+global/commands/
+global/agents/
+```
+
+Credentials and generated runtime files are never tracked. The global
+`skills/` directory is managed separately and is not deployed by this script.
+
+Preview a deployment (the default) or apply it:
+
+```sh
+./scripts/deploy-global-config.sh
+./scripts/deploy-global-config.sh --apply
+```
+
+The script validates the tracked JSON, refuses symlinked paths, backs up any
+replaced files to `<target>/backup-YYYYMMDD-HHMMSS/`, and verifies the copy.
+The target defaults to `$OPENCODE_GLOBAL_CONFIG_DIR`, then
+`$OPENCODE_V2_CONFIG_DIR`, then `$OPENCODE_V2_PILOT_DIR/config`, then
+`~/.opencode-v2-pilot/config`; `--config-dir DIR` overrides all of them.
+
+After applying, restart OpenCode from the TUI: press `Ctrl+P`, type
+`service.restart`, and press `Enter`. The same flow is available as the
+`/deploy-global` command.

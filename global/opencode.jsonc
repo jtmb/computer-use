@@ -1,0 +1,218 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "deepseek/deepseek-v4-flash",
+  "providers": {
+    "lmstudio": {
+      "name": "LM Studio",
+      "settings": {
+        "baseURL": "http://192.168.0.13:1234/v1"
+      },
+      "models": {
+        "gemma4-26b-a4b-uncensored-hauhaucs-balanced": {
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "google/gemma-4-26b-a4b-qat": {
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "qwen2.5-coder-3b-instruct": {
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3.8-27b-uncensored": {
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "qwen3.8-9b-distill": {
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "qwen/qwen3.5-9b": {
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "qwen/qwen3.8-27b": {
+          "limit": { "context": 128000, "output": 8192 }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "github": {
+        "type": "local",
+        "command": [
+          "/home/james/repos/computer-use/scripts/github-mcp.sh"
+        ],
+        "disabled": false,
+        "timeout": {
+          "startup": 30000
+        }
+      },
+      "playwright": {
+        "type": "local",
+        "command": [
+          "/home/james/repos/computer-use/scripts/playwright-mcp.sh"
+        ],
+        "disabled": false,
+        "timeout": {
+          "startup": 90000
+        }
+      }
+    }
+  },
+  "agents": {
+    "build": {
+      "model": "openai/gpt-6-luna#max",
+      "permissions": [
+        {
+          "action": "*",
+          "resource": "*",
+          "effect": "allow"
+        },
+        {
+          "action": "github_*",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "repo_commit",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "repo_push",
+          "resource": "*",
+          "effect": "ask"
+        }
+      ]
+    },
+    "plan": {
+      "model": "openai/gpt-6-sol#max",
+      "permissions": [
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "subagent",
+          "resource": "explore",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "git commit *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git push *",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_commit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_push",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    "architect": {
+      "description": "Plan architecture and design changes without modifying repository files",
+      "mode": "subagent",
+      "model": "openai/gpt-6-sol#max",
+      "permissions": [
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_commit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_push",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    "explore": {
+      "mode": "subagent",
+      "model": "openai/gpt-6-luna#max",
+      "permissions": [
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git commit *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git push *",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_commit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_push",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    "general": {
+      "mode": "subagent",
+      "model": "openai/gpt-6-luna#max",
+      "permissions": [
+        {
+          "action": "subagent",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git commit *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git push *",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_commit",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "repo_push",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    }
+  },
+  "plugins": [
+    "@prevalentware/opencode-goal-plugin@0.1.67"
+  ]
+}
