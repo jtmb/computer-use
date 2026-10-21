@@ -1,0 +1,132 @@
+# GitHub Operations Usage
+
+This guide explains how to use the `github-operations` skill. The agent-facing
+rules remain in [SKILL.md](./SKILL.md); OpenCode does not automatically load
+this usage guide when the skill is loaded.
+
+Category: `applications`
+
+Tags: `github`, `mcp`, `repositories`, `issues`, `pull-requests`, `automation`
+
+## Purpose and when to use it
+
+Use `github-operations` to inspect GitHub repositories, code, issues, pull
+requests, checks, or releases, and to prepare or perform explicitly approved
+remote changes.
+
+Appropriate requests include:
+
+- "Summarize the open issues in this GitHub repository."
+- "Review pull request 42 and report blocking concerns."
+- "Check why the latest GitHub Actions run failed."
+- "Create a draft pull request from this branch after showing me the diff."
+
+## Prerequisites and setup verification
+
+The repository setup installs the pinned official GitHub MCP Server below the
+selected profile and registers the canonical local wrapper. Authenticate the
+GitHub CLI yourself with `gh auth login --hostname github.com`. At server start,
+the wrapper obtains a transient token from that saved login and passes it only
+in the child environment. Do not paste a token into `opencode.json`, a
+repository file, chat, logs, or task memory.
+
+The agent can verify installation and connection without displaying a token:
+
+```bash
+opencode mcp list
+```
+
+The local MCP must report `connected`; `needs_auth` and `failed` are not
+accepted results.
+
+## How to request it
+
+Ask in ordinary language and name the exact repository or GitHub URL whenever
+possible.
+
+Example requests:
+
+- "Use GitHub to list open pull requests in owner/repository."
+- "Compare issue 17 with the current implementation."
+- "Show me the failed checks on this pull request."
+- "Prepare an issue comment, but do not publish it."
+
+Read-only requests normally use MCP tools. Mutations also use MCP tools now
+that the wrapper enables write toolsets, but only after the agent inspects the
+target and asks immediately before the action. The authenticated `gh` CLI
+remains the fallback for functionality the MCP does not cover.
+
+## Worked workflow and expected result
+
+A representative pull-request inspection is:
+
+1. Confirm the owner, repository, and pull request number.
+2. Read pull request metadata, changed files, commits, and relevant checks.
+3. Inspect only the repository content needed to assess the change.
+4. Report findings by severity with canonical GitHub links.
+5. Leave reviews, comments, labels, merge state, and branches unchanged.
+
+For a requested remote mutation, the agent first presents the exact target and
+content, asks immediately before the final action, performs it once after
+confirmation, and re-reads the resulting remote object.
+
+Expected result: the user receives verified GitHub state or one specifically
+approved remote change plus its canonical URL.
+
+## Verification and known limitations
+
+The default MCP surface is restricted to `context`, `repos`, `issues`,
+`pull_requests`, `actions`, and `users`, with lockdown mode enabled. Write
+operations are enabled so mutations are MCP tool calls behind the confirmation
+gate. The bounded toolset list keeps context size and blast radius controlled
+and filters some untrusted public issue content.
+
+Known limitations:
+
+- The wrapper resolves its credential when the MCP starts; running sessions do
+  not reload the saved `gh` login or MCP configuration, so restart OpenCode
+  after changing authentication.
+- Read-only mode does not reduce the token's underlying account permissions.
+- Lockdown mode is a best-effort content filter, not a security boundary.
+- GitHub Actions, releases, discussions, projects, and security toolsets are not
+  exposed by the default MCP wrapper; the agent may use `gh` when requested.
+- Organization SSO and policy can restrict an otherwise valid credential.
+
+## Troubleshooting
+
+- MCP says authentication is not configured: the operator checks `gh auth
+  status --hostname github.com` or runs `gh auth login` outside the agent, then
+  restarts OpenCode. Never add a token or header to the config.
+- `401` or `403`: check token expiration, selected repositories, permissions,
+  organization SSO authorization, and organization MCP policy without printing
+  the token.
+- Tools are missing: verify the request belongs to one of the six configured
+  toolsets. Widening the list is a deliberate change that needs explicit
+  approval.
+- Repository content is hidden: lockdown mode may filter public contributions
+  from users without push access.
+- Mutation is available through the MCP, but only after the agent inspects the
+  target and asks immediately before the action; use `gh` only for
+  functionality the MCP does not cover.
+
+## Safety, confirmation, and elevation
+
+Authentication, token creation, SSO authorization, OAuth/App authorization, and
+permission changes require the user's participation and immediate approval.
+The agent never asks for, displays, types, logs, or stores the credential; the
+wrapper alone reads it from the authenticated `gh` session at process start.
+
+The agent also asks immediately before publishing or sending GitHub content,
+merging, pushing, triggering deployments or workflows, deleting remote data, or
+changing repository/account/security settings. Local installation is
+user-owned and needs no administrator elevation.
+
+## Related skills and documents
+
+- [`browser-assistant`](../browser-assistant/README.md) supports visible GitHub
+  web workflows when the user must take over authentication.
+- [`task-memory`](../task-memory/README.md) may retain approved workflow choices
+  but never credentials or private repository content.
+- [`skill-maintenance`](../skill-maintenance/README.md) maintains this skill and
+  its catalog registration.
+- The canonical catalog entry is in `skills/README.md`.
