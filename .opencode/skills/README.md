@@ -1,6 +1,6 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
 loaded directly from `./<name>/`; the global config points at
 `~/repos/computer-use/.opencode/skills`.
 
@@ -26,7 +26,9 @@ comma-separated tags; the category/tag index below is derived from each
 
 ## How they fit together
 
-- `desktop-vision` gives the assistant eyes. `desktop-control` gives it hands.
+- `desktop-vision` gives the assistant eyes when its capture path is available.
+  `desktop-control` gives it hands through `scripts/desktop-control.py`, its
+  AT-SPI CLI; neither is an MCP tool.
   Every GUI mutation follows observe, act, verify with a fresh screenshot.
 - `browser-assistant` uses the user's visible browser: an explicitly launched
   native Ubuntu browser (for example Chrome), or the Windows default browser
@@ -48,6 +50,8 @@ comma-separated tags; the category/tag index below is derived from each
 - `app-setup`, `system-troubleshooting`, `files-and-documents`, and
   `routine-automation` are the task workflows that combine vision, control,
   browser, and memory.
+- Email management inventories and sorts IMAP mailboxes with read-only
+  discovery, sender-level classification, and approval before bulk changes.
 - `opencode-db-maintenance` keeps OpenCode itself healthy.
 - `development-conventions` supplies focused source, test, documentation, API,
   language, UI, and computer-use operational conventions.
@@ -91,15 +95,18 @@ comma-separated tags; the category/tag index below is derived from each
 | [`handoff`](./handoff/SKILL.md) | [`README.md`](./handoff/README.md) | `maintenance` | `handoff,session,continuity,verification,planning` |
 | [`agent-orchestration`](./agent-orchestration/SKILL.md) | [`README.md`](./agent-orchestration/README.md) | `automation` | `agents,orchestration,delegation,verification,git-safety` |
 | [`vscode-management`](./vscode-management/SKILL.md) | [`README.md`](./vscode-management/README.md) | `editor` | `editor,vscode,extensions,workspaces,browser,testing` |
+| [`email-management`](./email-management/SKILL.md) | [`README.md`](./email-management/README.md) | `email` | `email,imap,gmail,mailbox,triage,labels,spam,sorting` |
 
 ## Catalog
 
 ### desktop-vision
 
 Let the assistant see a GNOME or WSL/Windows desktop through the bounded
-`vision_capture` tool. Native GNOME uses a trusted screenshot shortcut and
-deletes its one new PNG; WSL uses a validated in-memory PNG from the checked-in
-Windows host and creates no screenshot file.
+`vision_capture` tool when its host backend is available. Native GNOME uses a
+trusted screenshot shortcut and deletes its one new PNG; WSL uses a validated
+in-memory PNG from the checked-in Windows host and creates no screenshot file.
+Where `vision_capture` or `ydotool` is unavailable, report that visual capture
+cannot be performed instead of substituting another route.
 
 Use when the user says see the screen, screenshot, look at my display, what's
 on my screen, verify visually, or when GUI work needs eyes on the result.
@@ -110,9 +117,11 @@ Example requests:
 - "Verify visually that the installer window is closed."
 - "Look at this dialog and tell me which button is focused."
 
-Requires: on native GNOME, the screenshot shortcut plus the private ydotool
-service or a user keypress fallback; on WSL2, trusted Windows PowerShell and the
-checked-in interop host. No permission changes are made from this skill.
+Requires: on native GNOME, `vision_capture` plus its screenshot backend when
+present (a private user-owned ydotool service or a user keypress fallback); on
+WSL2, trusted Windows PowerShell and the checked-in interop host. When the
+capture backend is absent, report that visual capture is unavailable. No
+permission changes are made from this skill.
 
 ### desktop-control
 
@@ -131,16 +140,20 @@ Example requests:
 - "Dismiss the unsaved-changes dialog without saving."
 - "Type this address into the compose field."
 
-Requires: `scripts/desktop-control.py`, `python3-pyatspi`, GNOME toolkit
-accessibility, plus `desktop-vision` for verification. Mutations require
-`--apply`. Protected fields are redacted and cannot be read or written.
-Ambiguous targets stop and list candidates instead of guessing.
+Requires: `scripts/desktop-control.py`, GNOME toolkit accessibility, and either
+`python3-pyatspi` or the PyGObject Atspi 2.0 fallback in
+`scripts/pyatspi_compat.py`. Visual verification needs `desktop-vision`'s
+capture backend when present; otherwise report that visual verification is
+unavailable and rely on AT-SPI readback. Mutations require `--apply`. Protected
+fields are redacted and cannot be read or written. Ambiguous targets stop and
+list candidates instead of guessing.
 
 Observed limits: some GTK4 controls expose only a window frame; custom
 canvases and sandboxed apps may expose little AT-SPI data; advertised dialog
 actions do not always dismiss the dialog; `default.activate` may be accepted
 without raising the window. Fall back to documented keyboard navigation and
-verify with a fresh screenshot.
+verify with a fresh screenshot when capture is available, otherwise with AT-SPI
+readback.
 
 ### browser-assistant
 
