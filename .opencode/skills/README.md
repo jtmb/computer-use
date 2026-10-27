@@ -1,6 +1,6 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
 loaded directly from `./<name>/`; the global config points at
 `~/repos/computer-use/.opencode/skills`.
 
@@ -53,6 +53,8 @@ comma-separated tags; the category/tag index below is derived from each
   language, UI, and computer-use operational conventions.
 - `skill-maintenance` keeps skill source, routing, catalogs, and generated
   deployment consistent without automatic commits or deletions.
+- `readme-maintenance` keeps the root README aligned with verified source and
+  setup changes while preserving approved branding and the LLM setup prompt.
 - `handoff` keeps the current work directory's `HANDOFF.md` and plan current for
   a fresh session, with verified live state and explicit blockers.
 - `agent-orchestration` coordinates explicitly authorized, bounded subagents
@@ -88,6 +90,7 @@ comma-separated tags; the category/tag index below is derived from each
 | [`repo-onboarding`](./repo-onboarding/SKILL.md) | [`README.md`](./repo-onboarding/README.md) | `maintenance` | `onboarding,downstream,opencode,mcp,memory,integration` |
 | [`development-conventions`](./development-conventions/SKILL.md) | [`README.md`](./development-conventions/README.md) | `maintenance` | `development,conventions,source-editing,testing,documentation,operations` |
 | [`skill-maintenance`](./skill-maintenance/SKILL.md) | [`README.md`](./skill-maintenance/README.md) | `skills` | `skills,documentation,deployment,catalog` |
+| [`readme-maintenance`](./readme-maintenance/SKILL.md) | [`README.md`](./readme-maintenance/README.md) | `maintenance` | `readme,documentation,branding,setup,links,verification` |
 | [`handoff`](./handoff/SKILL.md) | [`README.md`](./handoff/README.md) | `maintenance` | `handoff,session,continuity,verification,planning` |
 | [`agent-orchestration`](./agent-orchestration/SKILL.md) | [`README.md`](./agent-orchestration/README.md) | `automation` | `agents,orchestration,delegation,verification,git-safety` |
 | [`vscode-management`](./vscode-management/SKILL.md) | [`README.md`](./vscode-management/README.md) | `editor` | `editor,vscode,extensions,workspaces,browser,testing` |
@@ -471,6 +474,25 @@ Requires: root `AGENTS.md` as routing authority, canonical source under this
 directory, explicit reading of the relevant bundled reference, recursive
 verification through `./scripts/health-check.sh`, and a fresh OpenCode
 session for runtime discovery. It never commits or deletes automatically.
+
+### readme-maintenance
+
+Maintain the root README against verified setup, configuration, scripts, and
+skill changes while preserving its approved branding and copyable LLM setup
+prompt.
+
+Use when the user requests a README refresh or drift audit, or when a changed
+capability or setup step affects the README.
+
+Example requests:
+
+- "Audit the README against setup.md without changing anything."
+- "Update the skill summary while preserving the mascot and setup prompt."
+- "Verify README links, commands, and the light/dark hero before review."
+
+Requires: a repository checkout, root `AGENTS.md` as authority, the actual source
+behind changed claims, and read-only validation. It does not run onboarding,
+install dependencies, rebrand, or publish automatically.
 
 ### agent-orchestration
 
