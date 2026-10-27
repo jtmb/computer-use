@@ -5,15 +5,28 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE="$ROOT/global"
-TARGET="${OPENCODE_GLOBAL_CONFIG_DIR:-${OPENCODE_V2_CONFIG_DIR:-${OPENCODE_V2_PILOT_DIR:-$HOME/.opencode-v2-pilot}/config}}"
+if [ -n "${OPENCODE_GLOBAL_CONFIG_DIR:-}" ]; then
+  TARGET="$OPENCODE_GLOBAL_CONFIG_DIR"
+elif [ -n "${OPENCODE_V2_CONFIG_DIR:-}" ]; then
+  TARGET="$OPENCODE_V2_CONFIG_DIR"
+elif [ -n "${OPENCODE_V2_PILOT_DIR:-}" ]; then
+  TARGET="$OPENCODE_V2_PILOT_DIR/config"
+else
+  TARGET="$(opencode debug paths 2>/dev/null | awk '$1 == "config" { print $2; exit }' || true)"
+  TARGET="${TARGET:-$HOME/.opencode-v2-pilot/config}"
+fi
 APPLY=0
+ONLY=""
 
 usage() {
   cat <<'EOF'
-Usage: deploy-global-config.sh [--apply] [--config-dir DIR]
+Usage: deploy-global-config.sh [--apply] [--config-dir DIR] [--only NAME[,NAME]]
 
 Without --apply, prints the planned file changes and validates the source.
 With --apply, backs up the target files and copies the tracked global config.
+
+--only restricts the deployment to comma-separated entries from:
+  opencode.jsonc, cli.json, commands, agents
 EOF
 }
 
@@ -34,10 +47,33 @@ while [ "$#" -gt 0 ]; do
       TARGET="${1#*=}"
       shift
       ;;
+    --only)
+      [ "$#" -ge 2 ] || fail "--only requires a value"
+      ONLY="$2"
+      shift 2
+      ;;
+    --only=*)
+      ONLY="${1#*=}"
+      shift
+      ;;
     -h|--help) usage; exit 0 ;;
     *) usage >&2; fail "unknown option: $1" ;;
   esac
 done
+
+NAMES=()
+if [ -z "$ONLY" ]; then
+  NAMES=(opencode.jsonc cli.json commands agents)
+else
+  IFS=',' read -r -a requested <<<"$ONLY"
+  for name in "${requested[@]}"; do
+    case "$name" in
+      opencode.jsonc|cli.json|commands|agents) NAMES+=("$name") ;;
+      *) fail "unknown --only entry: $name" ;;
+    esac
+  done
+  [ "${#NAMES[@]}" -gt 0 ] || fail "--only requires at least one entry"
+fi
 
 [ -d "$SOURCE" ] || fail "tracked global config is missing: $SOURCE"
 [ -n "$TARGET" ] || fail "target config directory is empty"
@@ -97,7 +133,7 @@ print(f"target={target}")
 PY
 
 changed=0
-for name in opencode.jsonc cli.json commands agents; do
+for name in "${NAMES[@]}"; do
   src="$SOURCE/$name"
   dst="$TARGET/$name"
   if [ -e "$dst" ] && diff -qr --exclude='*.bak.*' "$src" "$dst" >/dev/null 2>&1; then
@@ -121,7 +157,7 @@ fi
 stamp="$(date +%Y%m%d-%H%M%S)"
 backup="$TARGET/backup-$stamp"
 mkdir -p "$backup"
-for name in opencode.jsonc cli.json commands agents; do
+for name in "${NAMES[@]}"; do
   if [ -e "$TARGET/$name" ]; then
     cp -a "$TARGET/$name" "$backup/$name"
   fi
@@ -129,17 +165,22 @@ done
 printf 'backup=%s\n' "$backup"
 
 mkdir -p "$TARGET"
-cp -a "$SOURCE/opencode.jsonc" "$TARGET/opencode.jsonc"
-cp -a "$SOURCE/cli.json" "$TARGET/cli.json"
-for name in commands agents; do
-  dst="$TARGET/$name"
-  if [ -e "$dst" ]; then
-    rm -rf -- "${dst:?}"
-  fi
-  cp -a "$SOURCE/$name" "$dst"
+for name in "${NAMES[@]}"; do
+  case "$name" in
+    commands|agents)
+      dst="$TARGET/$name"
+      if [ -e "$dst" ]; then
+        rm -rf -- "${dst:?}"
+      fi
+      cp -a "$SOURCE/$name" "$dst"
+      ;;
+    *)
+      cp -a "$SOURCE/$name" "$TARGET/$name"
+      ;;
+  esac
 done
 
-for name in opencode.jsonc cli.json commands agents; do
+for name in "${NAMES[@]}"; do
   diff -qr --exclude='*.bak.*' "$SOURCE/$name" "$TARGET/$name" >/dev/null || fail "verification failed for $name"
 done
 

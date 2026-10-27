@@ -5,7 +5,7 @@ Read this file explicitly before completing any new or changed skill bundle.
 ## Structure and frontmatter
 
 - [ ] Canonical source is under
-      `platforms/linux/ubuntu/computer-use/skills/<name>/`.
+      `.opencode/skills/<name>/`.
 - [ ] The skill directory is a direct child of `skills/`.
 - [ ] The entry file is exactly `SKILL.md`.
 - [ ] `name` matches the directory and official naming regex.

@@ -1,11 +1,12 @@
 # Skills
 
-Twenty OpenCode skills. Complete source bundles live in `./<name>/` and are
-recursively deployed to the selected v2 config directory, defaulting to
-`~/.opencode-v2-pilot/config/skills/<name>/`, by
-`../scripts/setup-opencode.sh --apply` (idempotent and content-aware).
+Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+loaded directly from `./<name>/`; the global config points at
+`~/repos/computer-use/.opencode/skills`.
 
-Restart OpenCode after deployment. Running sessions do not hot-reload skills.
+OpenCode watches skills and configuration. If a change is not picked up in a
+running session, start a fresh session or restart the service with `Ctrl+P` >
+`service.restart`.
 
 ## Using skills
 
@@ -31,6 +32,9 @@ comma-separated tags; the category/tag index below is derived from each
   native Ubuntu browser (for example Chrome), or the Windows default browser
   through the WSL interop tools. `browser-headless` handles explicitly requested
   invisible Firefox work.
+- `websearch` owns OpenCode v2 search provider configuration, verification, and
+  `websearch`/`webfetch` research behavior; prefer it over driving a browser for
+  read-only lookups.
 - `game-playtest` adds canvas/WebGL screenshots, bounded gameplay input, and
   browser diagnostics for game QA.
 - `github-operations` uses the GitHub MCP for context and approved mutations,
@@ -46,9 +50,11 @@ comma-separated tags; the category/tag index below is derived from each
   browser, and memory.
 - `opencode-db-maintenance` keeps OpenCode itself healthy.
 - `development-conventions` supplies focused source, test, documentation, API,
-  language, UI, and Open Rig operational conventions.
+  language, UI, and computer-use operational conventions.
 - `skill-maintenance` keeps skill source, routing, catalogs, and generated
   deployment consistent without automatic commits or deletions.
+- `handoff` keeps the current work directory's `HANDOFF.md` and plan current for
+  a fresh session, with verified live state and explicit blockers.
 - `agent-orchestration` coordinates explicitly authorized, bounded subagents
   while keeping ownership, verification, and commit/push gates with the main
   agent.
@@ -66,7 +72,9 @@ comma-separated tags; the category/tag index below is derived from each
 | [`desktop-control`](./desktop-control/SKILL.md) | [`README.md`](./desktop-control/README.md) | `desktop` | `desktop,at-spi,gui,gnome` |
 | [`browser-assistant`](./browser-assistant/SKILL.md) | [`README.md`](./browser-assistant/README.md) | `browser` | `browser,live,linux,ubuntu,wsl,windows,default-browser,accessibility` |
 | [`browser-headless`](./browser-headless/SKILL.md) | [`README.md`](./browser-headless/README.md) | `browser` | `browser,headless,playwright,automation` |
+| [`websearch`](./websearch/SKILL.md) | [`README.md`](./websearch/README.md) | `browser` | `websearch,webfetch,opencode,providers,research,web` |
 | [`game-playtest`](./game-playtest/SKILL.md) | [`README.md`](./game-playtest/README.md) | `browser` | `games,playtesting,playwright,canvas,webgl` |
+| [`fanduel-parlay-research`](./fanduel-parlay-research/SKILL.md) | [`README.md`](./fanduel-parlay-research/README.md) | `browser` | `fanduel,sportsbook,parlay,odds,player-props,playwright` |
 | [`task-memory`](./task-memory/SKILL.md) | [`README.md`](./task-memory/README.md) | `memory` | `memory,preferences,decisions,pending` |
 | [`session-context`](./session-context/SKILL.md) | [`README.md`](./session-context/README.md) | `memory` | `opencode,sessions,context,handoff,memory` |
 | [`app-setup`](./app-setup/SKILL.md) | [`README.md`](./app-setup/README.md) | `applications` | `applications,installation,updates,removal` |
@@ -80,6 +88,7 @@ comma-separated tags; the category/tag index below is derived from each
 | [`repo-onboarding`](./repo-onboarding/SKILL.md) | [`README.md`](./repo-onboarding/README.md) | `maintenance` | `onboarding,downstream,opencode,mcp,memory,integration` |
 | [`development-conventions`](./development-conventions/SKILL.md) | [`README.md`](./development-conventions/README.md) | `maintenance` | `development,conventions,source-editing,testing,documentation,operations` |
 | [`skill-maintenance`](./skill-maintenance/SKILL.md) | [`README.md`](./skill-maintenance/README.md) | `skills` | `skills,documentation,deployment,catalog` |
+| [`handoff`](./handoff/SKILL.md) | [`README.md`](./handoff/README.md) | `maintenance` | `handoff,session,continuity,verification,planning` |
 | [`agent-orchestration`](./agent-orchestration/SKILL.md) | [`README.md`](./agent-orchestration/README.md) | `automation` | `agents,orchestration,delegation,verification,git-safety` |
 | [`vscode-management`](./vscode-management/SKILL.md) | [`README.md`](./vscode-management/README.md) | `editor` | `editor,vscode,extensions,workspaces,browser,testing` |
 
@@ -176,8 +185,28 @@ Example requests:
 
 Requires: an explicitly requested headless task, the direct pinned `playwright`
 package, an existing Firefox executable, and
-`../scripts/run-bounded-command.sh`. Headless tasks launch an isolated context;
+`scripts/playwright-headless-mcp.sh`. Headless tasks launch an isolated context;
 they do not register an MCP or provide a visible-browser fallback.
+
+### websearch
+
+Configure and use OpenCode v2 web search across the Exa, Firecrawl, Parallel,
+Tavily, and TinyFish providers, and research with `websearch` and `webfetch`.
+
+Use when the user asks for current information, web search, provider setup,
+search failures, or when a question needs sources newer than the model.
+
+Example requests:
+
+- "Search the web for the latest OpenCode v2 release notes and cite them."
+- "Why is web search missing, and can you enable all providers?"
+- "Which provider answered this search?"
+
+Requires: OpenCode v2, a healthy service, and at least one reachable provider.
+`provider: "random"` rotates across all available providers and retries after
+HTTP 429. Provider accounts connect through `/connect` or their environment
+variables; no key is stored in this repository. Call the native tools directly,
+not from inside the Code Mode `execute` sandbox.
 
 ### game-playtest
 
@@ -256,7 +285,7 @@ session, or recovering decisions from a session title or ID.
 Example requests:
 
 - "List the other sessions in this project."
-- "Align this work with the session named Finish Open Rig v2 harness."
+- "Align this work with the session named Finish OpenCode v2 harness."
 - "Continue from `ses_example`, but verify its claims first."
 
 Requires: the `rig-tools` server plugin's `session_context` tool. The plugin
@@ -406,7 +435,7 @@ backup and integrity checks.
 ### development-conventions
 
 Apply focused conventions for source code, tests, documentation, APIs,
-Next.js, Python, Go/Rust, regex, Mermaid, gitignore, web/UI, and Open Rig v2
+Next.js, Python, Go/Rust, regex, Mermaid, gitignore, web/UI, and OpenCode v2
 operations.
 
 Use when implementing or reviewing work in one of those domains and load only
@@ -416,11 +445,11 @@ Example requests:
 
 - "Review this API handler against our development conventions."
 - "Apply the Python and testing conventions to this fix."
-- "Check these Open Rig deployment docs for source-of-truth drift."
+- "Check these computer-use deployment docs for source-of-truth drift."
 
 Requires: repository-root `AGENTS.md` as authority, the mandatory references
 named by the skill, only the domain references needed for the task, and
-deployment through `../scripts/setup-opencode.sh` rather than direct edits to
+verification through `./scripts/health-check.sh` rather than direct edits to
 generated skill copies.
 
 ### skill-maintenance
@@ -440,7 +469,7 @@ Example requests:
 
 Requires: root `AGENTS.md` as routing authority, canonical source under this
 directory, explicit reading of the relevant bundled reference, recursive
-deployment through `../scripts/setup-opencode.sh --apply`, and a fresh OpenCode
+verification through `./scripts/health-check.sh`, and a fresh OpenCode
 session for runtime discovery. It never commits or deletes automatically.
 
 ### agent-orchestration
@@ -471,7 +500,7 @@ never treated as evidence, and destructive Git actions are forbidden.
 ### repo-onboarding
 
 Onboard downstream consumer repositories to OpenCode v2 using the canonical
-Open Rig checkout, reusing its deployed skills, commands, agents, and MCP
+computer-use checkout, reusing its deployed skills, commands, agents, and MCP
 wrappers while keeping consumer-specific behavior local.
 
 Use when a repository needs its provider/model and agent configuration checked,
@@ -483,7 +512,7 @@ Example requests:
 - "Reuse the global harness tools and verify the consumer's model and MCP setup."
 - "Check the repo-local plugin boundary and keep live claims pending until host evidence exists."
 
-Requires: the actual Open Rig checkout path, an OpenCode v2 target, verified
+Requires: the actual computer-use checkout path, an OpenCode v2 target, verified
 provider/model IDs, explicit write approval, target-scoped `--apply`, and a
 restart before claiming new skill behavior.
 
@@ -511,3 +540,12 @@ tools for local web-app testing and use repository browser skills when those
 tools are unavailable or browser-specific coverage is required. Repository,
 security, sign-in, publishing, and deletion changes retain their normal
 confirmation gates.
+
+### handoff
+
+Refresh the current work directory's `HANDOFF.md` and plan so a new OpenCode v2 session can continue.
+The skill records the prompt, live state, Work In Progress, blockers, and exact
+verification results without committing, pushing, or editing deployed copies.
+
+Requires: the current working directory, its `HANDOFF.md` and plan or report
+files, and explicit separation of commit and push approvals.

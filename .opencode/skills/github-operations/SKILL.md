@@ -29,7 +29,7 @@ the confirmation gate before it runs.
 ## Tool Choice
 
 - Prefer the `github` MCP for repository, issue, pull request, Actions, and
-  user-context reads and mutations. Open Rig fixes its toolsets and lockdown
+  user-context reads and mutations. computer-use fixes its toolsets and lockdown
   flags in the canonical wrapper; inherited GitHub controls are rejected.
 - For a mutation, inspect the exact target, present it, and ask immediately
   before the final action, then perform it once and re-read the result. Use

@@ -50,7 +50,7 @@ Computer Use skill.
    in full and follow its command ordering, timeout, auto-execution, and script
    rules.
 5. Probe an existing scene before editing with
-   [scripts/scene_probe.py](./scripts/scene_probe.py). It is a read-only Blender
+   [.opencode/skills/blender/scripts/scene_probe.py](./.opencode/skills/blender/scripts/scene_probe.py). It is a read-only Blender
    Python script that writes a new JSON inventory and must be run by Blender,
    not by `python3`.
 6. Review every task-specific Python script before execution. Bound its inputs

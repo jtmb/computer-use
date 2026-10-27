@@ -31,13 +31,13 @@ Before maintaining a skill, the agent should inspect:
 - Repository-root `AGENTS.md`.
 - `skills/README.md`.
 - The complete canonical skill bundle.
-- Deployment behavior in `scripts/setup-opencode.sh`.
+- Skill discovery through the global config and `./scripts/health-check.sh`.
 - Relevant existing references and outside files affected by the change.
 
 Canonical sources are:
 
 ```text
-platforms/linux/ubuntu/computer-use/skills/<name>/
+.opencode/skills/<name>/
 ```
 
 Deployed copies are generated state:
@@ -88,13 +88,13 @@ A representative agent workflow is:
 5. Preview deployment without changing the system:
 
    ```bash
-   ./platforms/linux/ubuntu/computer-use/scripts/setup-opencode.sh --verify-only
+   ./scripts/health-check.sh
    ```
 
 6. Deploy only the approved complete bundle, then verify parity:
 
    ```bash
-   ./platforms/linux/ubuntu/computer-use/scripts/setup-opencode.sh --apply
+   ./scripts/health-check.sh
    ```
 
 7. Validate frontmatter, links, documentation, catalog, deployment, and exact

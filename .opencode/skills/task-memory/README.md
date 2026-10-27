@@ -35,7 +35,7 @@ application state.
 - The wrapper's resolved limiter and budget can be checked read-only:
 
   ```bash
-  platforms/linux/ubuntu/computer-use/scripts/basic-memory-mcp.sh --verify-only
+  scripts/basic-memory-mcp.sh --verify-only
   ```
 
 - Registration and connection:

@@ -17,11 +17,11 @@ keeping changes bounded, reviewable, and consistent with repository policy.
 - Read the repository-root `AGENTS.md` first. It is the routing and operating
   authority for skills in this repository.
 - Canonical sources live at
-  `platforms/linux/ubuntu/computer-use/skills/<name>/`.
+  `.opencode/skills/<name>/`.
 - The selected v2 config directory's `skills/<name>/` is a generated deployed
   copy (default `~/.opencode-v2-pilot/config/skills/<name>/`). Never edit it
   directly.
-- Use `platforms/linux/ubuntu/computer-use/skills/README.md` as the skill
+- Use `.opencode/skills/README.md` as the skill
   catalog. Do not introduce or maintain `SKILL-INDEX.md`.
 - Do not assume project-specific MCP servers, databases, agents, companion
   skills, or a `learnings.md` workflow exist.

@@ -20,7 +20,7 @@ Planning, reconnaissance, implementation, and review use the identities
 selected by the active project's OpenCode configuration. The reusable plugin
 accepts project-defined and namespaced identities; never invent an identity the
 active project does not support.
-Open Rig's project profile maps `plan` and the read-only `architect` design
+this project's project profile maps `plan` and the read-only `architect` design
 subagent to `openai/gpt-6-sol#max`, while `build`, `explore`, and `general`
 select `openai/gpt-6-luna#max`. External repositories retain their own agent
 and model choices.
@@ -56,7 +56,7 @@ Before delegation, establish:
   are parent-only tracking in the parent's plan-file child registry and
   follow-up records; they never appear in shared todo text. Pass shared
   contracts verbatim to every dependent child.
-- The optional Open Rig `agent_memory_capacity` diagnostic from rig-tools. Its
+- The optional computer-use `agent_memory_capacity` diagnostic from rig-tools. Its
   bounded estimate may be inspected when available, but it does not approve or
   gate launches; low, invalid, or unavailable results do not change configured
   admission.

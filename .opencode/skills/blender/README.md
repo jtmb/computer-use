@@ -62,7 +62,7 @@ For a representative read-only scene inspection, the agent:
 1. Confirms Blender 5.0 and the exact source path.
 2. Reads
    [the background workflow](./references/background-workflows.md).
-3. Runs the deployed [scene probe](./scripts/scene_probe.py) through Blender
+3. Runs the deployed [scene probe](./.opencode/skills/blender/scripts/scene_probe.py) through Blender
    with safe global options and a bounded timeout.
 4. Reads the new JSON report and checks objects, transforms, materials, images,
    libraries, cameras, animation, and missing external files.

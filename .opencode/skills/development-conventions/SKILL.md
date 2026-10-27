@@ -1,6 +1,6 @@
 ---
 name: development-conventions
-description: "Apply action-oriented conventions for source code, tests, documentation, APIs, Next.js, Python, Go/Rust, regex, Mermaid, gitignore, web/UI, and Open Rig v2 operations. Use for implementation or review in those domains."
+description: "Apply action-oriented conventions for source code, tests, documentation, APIs, Next.js, Python, Go/Rust, regex, Mermaid, gitignore, web/UI, and OpenCode v2 operations. Use for implementation or review in those domains."
 metadata:
   schema-version: "1"
   category: "maintenance"
@@ -28,7 +28,7 @@ Before acting, read [`references/useful-comments/guidelines.md`](references/usef
 - Testing work: writing, changing, reviewing, or running unit, integration, E2E, Playwright, or pytest tests; read the testing reference and any matching domain reference.
 - Web/UI work: reviewing or changing layout, responsive behavior, accessibility, visual consistency, overlays, cards, or browser-facing behavior; read the web-design and matching visual/UI references.
 - Message-like UI work: changing a message list, sync status, cache, settings, or assistant response behavior; read the message UI source index and only its matching linked references.
-- Open Rig v2 work: changing MCP/plugin/configuration layering, deployment, skill bundles, commands, scripts, or bounded verification; read the Open Rig operations references and the repository-root `AGENTS.md`.
+- OpenCode v2 work: changing MCP/plugin/configuration layering, deployment, skill bundles, commands, scripts, or bounded verification; read the computer-use operations references and the repository-root `AGENTS.md`.
 
 ## Reference Files
 
@@ -106,27 +106,26 @@ Before acting, read [`references/useful-comments/guidelines.md`](references/usef
 | Source | Description |
 |--------|-------------|
 | [`references/sources/api-aggregation-patterns/`](references/sources/api-aggregation-patterns/source-index.md) | Aggregated API endpoints for dashboard views |
-| [`references/sources/open-rig-operations/`](references/sources/open-rig-operations/source-index.md) | Open Rig v2 MCP/plugin/configuration layering, deployment, and parity |
+| [`references/sources/computer-use-operations/`](references/sources/computer-use-operations/source-index.md) | OpenCode v2 MCP/plugin/configuration layering, deployment, and parity |
 | [`references/sources/language-conventions/`](references/sources/language-conventions/source-index.md) | Go and Rust idioms, error handling, formatting, and testing |
 | [`references/sources/message-ui-conventions/`](references/sources/message-ui-conventions/source-index.md) | Message-like UI sync, progress, explicit UI, cache, and settings rules |
-| [`references/sources/visual-standards-conventions/`](references/sources/visual-standards-conventions/source-index.md) | Open Rig UI, accessibility, and visual verification standards |
+| [`references/sources/visual-standards-conventions/`](references/sources/visual-standards-conventions/source-index.md) | computer-use UI, accessibility, and visual verification standards |
 
-## Open Rig operating boundary
+## computer-use operating boundary
 
 - Read the repository-root `AGENTS.md` before acting. It is the authority for
   OpenCode v2, canonical paths, safety, and verification.
 - Canonical source lives under
-  `platforms/linux/ubuntu/computer-use/`; do not edit generated user config or
+  `~/repos/computer-use/`; do not edit generated user config or
   deployed skill copies directly.
 - Verification is read-only by default. Any setup or deployment write requires
   an explicit `--apply` and an explicitly selected target.
-- Deploy skill bundles only through
-  `platforms/linux/ubuntu/computer-use/scripts/setup-opencode.sh`; it copies the
-  complete canonical bundle and preserves unrelated target files.
+- Skills load directly from `.opencode/skills` through the global config;
+  verify discovery with `./scripts/health-check.sh`.
 - Preserve unrelated files. Refuse symlinked paths, symlink ancestors, and
   source entries that are not regular files during deployment.
-- Run expensive checks through
-  `platforms/linux/ubuntu/computer-use/scripts/run-bounded-command.sh`.
+- Use `scripts/playwright-headless-mcp.sh` for explicitly requested
+  headless work.
 
 ## Cross-References
 

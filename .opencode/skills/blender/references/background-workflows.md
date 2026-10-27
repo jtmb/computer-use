@@ -57,7 +57,7 @@ timeout 120s blender \
   --disable-autoexec \
   --python-exit-code 1 \
   "/absolute/path/source.blend" \
-  --python "$HOME/.config/opencode/skills/blender/scripts/scene_probe.py" \
+  --python "$HOME/.config/opencode/skills/blender/.opencode/skills/blender/scripts/scene_probe.py" \
   -- --output "/tmp/opencode/source-probe-v001.json"
 ```
 

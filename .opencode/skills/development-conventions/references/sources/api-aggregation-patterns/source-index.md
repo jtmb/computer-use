@@ -20,7 +20,7 @@ created: 2026-07-11T19:01:12.550Z
 ## Description
 The bundled example is a generic detail-view pattern. Adapt its fields to the
 actual API contract; do not copy project, skill, or observation names into an
-unrelated Open Rig surface.
+unrelated computer-use surface.
 
 ## Reference Files
 

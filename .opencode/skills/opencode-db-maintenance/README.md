@@ -28,9 +28,9 @@ ordinary OpenCode use.
 The relevant scripts are:
 
 ```text
-platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py
-platforms/linux/ubuntu/computer-use/scripts/opencode-chat-backup.py
-platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh
+scripts/opencode-db-maintain.py
+scripts/opencode-chat-backup.py
+scripts/opencode-maintenance-cron.sh
 ```
 
 The database is normally:
@@ -71,8 +71,8 @@ request.
 Representative commands are:
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --stats
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --dry-run --keep 20
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --stats
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --dry-run --keep 20
 ```
 
 `--stats` reports storage health. `--dry-run` reports orphaned and superseded
@@ -88,8 +88,8 @@ Close OpenCode before any `--apply` operation. Representative maintenance
 commands are:
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --apply --keep 20
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --keep 20
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
 ```
 
 Expected result: the script checks integrity, creates and verifies an online
@@ -102,7 +102,7 @@ before/after sizes.
 A representative preview is:
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-chat-backup.py --dry-run
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --dry-run
 ```
 
 The backup utility writes by default. `--dry-run` prevents writes, while
@@ -112,7 +112,7 @@ read-only option.
 A representative actual backup is:
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-chat-backup.py --force
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --force
 ```
 
 `--prune-deleted` is a separate destructive option. It removes only
@@ -127,7 +127,7 @@ The weekly wrapper normally performs backup and then attempts database
 cleanup. Its read-only status form is:
 
 ```bash
-~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh --verify-only
+~/repos/computer-use/scripts/opencode-maintenance-cron.sh --verify-only
 ```
 
 Do not use `--dry-run` with this wrapper: it does not recognize that option.

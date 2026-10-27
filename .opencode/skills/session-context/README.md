@@ -33,7 +33,7 @@ project. A successful result contains `schema`, `status`, `sessions`, and
 
 Natural-language examples:
 
-- "Find the session named Finish Open Rig v2 harness and align this work with it."
+- "Find the session named Finish OpenCode v2 harness and align this work with it."
 - "Continue from session `ses_example`, but verify its claims first."
 - "List the other sessions in this project."
 - "Compare this task with the trackpad calibration session."
@@ -42,7 +42,7 @@ Plugin command examples:
 
 ```text
 /session-context
-/session-context Finish Open Rig v2 harness
+/session-context Finish OpenCode v2 harness
 /session-context ses_example
 ```
 
@@ -77,7 +77,7 @@ The agent tool accepts:
 no model generation. Both are read-only with respect to source sessions.
 
 `/session-context` is registered by `rig-tools` through the OpenCode CLI plugin
-API, not deployed from `platforms/linux/ubuntu/computer-use/commands/`. With no
+API, not deployed from `global/commands/`. With no
 argument it shows the list; with an ID or unique title it shows the selected
 context. The command calls the bounded RPC and renders its result through the
 supported v2.0.7 `context.ui.dialog.alert` API. It does not start model
@@ -130,4 +130,4 @@ remain unchanged.
 - `agent-orchestration` coordinates explicitly authorized child sessions.
 - `skill-maintenance` owns skill creation, cataloging, deployment, and audit.
 - Canonical plugin documentation is in
-  `platforms/linux/ubuntu/computer-use/plugins-v2/rig-tools/README.md`.
+  `plugins/rig-tools/README.md`.

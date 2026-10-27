@@ -1,6 +1,6 @@
-# Open Rig v2 Ownership Boundaries
+# OpenCode v2 Ownership Boundaries
 
-Open Rig uses a small, explicit v2 runtime boundary:
+computer-use uses a small, explicit v2 runtime boundary:
 
 ## Layer 1: OpenCode v2 configuration
 
@@ -10,10 +10,10 @@ Open Rig uses a small, explicit v2 runtime boundary:
 
 ## Layer 2: Canonical repository source
 
-- Skills: `platforms/linux/ubuntu/computer-use/skills/`
-- Plugins: `platforms/linux/ubuntu/computer-use/plugins-v2/`
+- Skills: `.opencode/skills/`
+- Plugins: `plugins/`
 - Commands, examples, scripts, and checks: siblings below
-  `platforms/linux/ubuntu/computer-use/`.
+  `~/repos/computer-use/`.
 - Source files are regular, non-symlink files and are never replaced by live
   user configuration.
 

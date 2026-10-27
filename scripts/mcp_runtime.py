@@ -34,9 +34,9 @@ MAX_GITHUB_BINARY_BYTES = 64 * 1024 * 1024
 MAX_GITHUB_METADATA_BYTES = 2 * 1024 * 1024
 NATIVE_NOTES = Path.home() / "Documents" / "computer-assistant" / "basic-memory"
 NATIVE_ROOT = Path.home() / ".local" / "share" / "opencode" / "mcp"
-NATIVE_BASIC_COMMAND = "./platforms/linux/ubuntu/computer-use/scripts/basic-memory-mcp.sh"
-NATIVE_GITHUB_COMMAND = "./platforms/linux/ubuntu/computer-use/scripts/github-mcp.sh"
-NATIVE_CHATGPT_COMMAND = "./platforms/linux/ubuntu/computer-use/scripts/chatgpt-mcp.sh"
+NATIVE_BASIC_COMMAND = "./scripts/basic-memory-mcp.sh"
+NATIVE_GITHUB_COMMAND = "./scripts/github-mcp.sh"
+NATIVE_CHATGPT_COMMAND = "./scripts/chatgpt-mcp.sh"
 
 
 class McpRuntimeError(RuntimeError):

@@ -17,7 +17,7 @@ Automate only a workflow that is understood and has succeeded manually.
 and ownership of generated data.
 2. Inspect existing scripts, cron entries, and user/system timers to avoid
 duplicates or conflicting jobs.
-3. Put standalone utilities in `~/scripts/`. Use Bash with
+3. Put standalone utilities in a local utilities directory. Use Bash with
 `#!/usr/bin/env bash` + `set -euo pipefail`, or Python standard library.
 4. Default destructive behavior to `--dry-run`; require `--apply` for writes.
 5. Make reruns idempotent. Add locking for scheduled jobs, bounded retries,

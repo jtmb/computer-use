@@ -1,6 +1,6 @@
 ---
 name: repo-onboarding
-description: "The repo-onboarding skill helps agents onboard downstream consumer repositories: OpenCode v2, opencode.json, MCP servers, Basic Memory, and set up a safe integration. Use for consumer-repository migration, agent/model setup, or verification against the Open Rig harness."
+description: "The repo-onboarding skill helps agents onboard downstream consumer repositories: OpenCode v2, opencode.json, MCP servers, Basic Memory, and set up a safe integration. Use for consumer-repository migration, agent/model setup, or verification against the computer-use harness."
 metadata:
   schema-version: "1"
   category: "maintenance"
@@ -9,7 +9,7 @@ metadata:
 
 # Repo Onboarding
 
-Onboard a downstream repository against the canonical Open Rig source without
+Onboard a downstream repository against the canonical computer-use source without
 guessing paths, duplicating integrations, or treating source checks as live
 acceptance.
 
@@ -18,9 +18,9 @@ acceptance.
 1. Identify the consumer repository and its active OpenCode v2 installation.
    Confirm the selected binary reports v2; do not migrate a different runtime
    by assumption.
-2. Locate the canonical Open Rig checkout. Do not assume a fixed path: it is the
+2. Locate the canonical computer-use checkout. Do not assume a fixed path: it is the
    checkout containing both root `bootstrap.sh` and
-   `platforms/linux/ubuntu/computer-use/`. Record its actual absolute path.
+   `~/repos/computer-use/`. Record its actual absolute path.
 3. Inventory the consumer's `opencode.json`, `.opencode/` tree, plugins, agent
    declarations, skills, and `mcp.servers`. Inspect existing global v2 config
    only at its selected path. Run `git status --short` and preserve all dirty
@@ -42,7 +42,7 @@ acceptance.
 - Run the canonical `bootstrap.sh` in verify-only mode first. It is verify-only
   by default; it writes only when explicitly given `--apply`.
 - When deploying the v2 skills, commands, and agents, run
-  `platforms/linux/ubuntu/computer-use/scripts/setup-opencode.sh --apply` with
+  the global config skills path, with
   the intended v2 config directory selected (use `--config-dir` when needed).
   It recursively deploys those bundles to that selected directory. Review the
   target and dirty state before every apply.
@@ -71,7 +71,7 @@ acceptance.
 
 - Declare MCP entries under `mcp.servers`. For Basic Memory and GitHub, set the
   `command` to the absolute path of the canonical checkout's
-  `platforms/linux/ubuntu/computer-use/scripts/basic-memory-mcp.sh` or
+  `scripts/basic-memory-mcp.sh` or
   `github-mcp.sh`; resolve the checkout path during preflight rather than
   copying a guessed home directory.
 - The GitHub wrapper reads the saved `gh` login and deliberately rejects
@@ -93,7 +93,7 @@ plugin's memory context:
    `memoryBindings` to one or more tag bindings. Configure all three together.
 2. Separately register `basic-memory` under `mcp.servers`, with `command` set to
    the absolute path of the canonical checkout's
-   `platforms/linux/ubuntu/computer-use/scripts/basic-memory-mcp.sh`. This MCP
+   `scripts/basic-memory-mcp.sh`. This MCP
    registration supplies the agent's note tools; it does not replace the plugin
    options.
 

@@ -69,7 +69,7 @@ browser will not fix it.
 
 ## Math
 
-Use [scripts/parlay_math.py](./scripts/parlay_math.py) for the arithmetic.
+Use [.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py](./.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py) for the arithmetic.
 
 - Decimal odds: positive American `1 + A/100`; negative `1 + 100/|A|`.
 - Straight payout: `stake × product of decimal odds`.
