@@ -1,96 +1,190 @@
-# README Maintenance Usage
+# OpenCode DB Maintenance Usage
+
+This guide explains how to use the `opencode-db-maintenance` skill. The
+agent-facing operating rules remain in [SKILL.md](./SKILL.md); OpenCode does
+not automatically load this usage guide when the skill is loaded.
 
 Category: `maintenance`
 
-Tags: `readme,documentation,branding,setup,links,verification`
+Tags: `maintenance`, `sqlite`, `backup`, `cron`
 
 ## Purpose and when to use it
 
-Keep the computer-use root README aligned with verified repository changes
-without losing its approved mascot, visual identity, or copyable LLM setup
-prompt. Use it after setup, configuration, scripts, or skill coverage changes,
-or when you want a read-only documentation audit.
+Use this skill only for OpenCode database growth, chat backup, and scheduled
+maintenance.
 
-The [agent workflow](./SKILL.md) defines behavior and safety. This usage guide
-and linked references are not loaded automatically when that skill is loaded.
+Appropriate requests include:
+
+- "Diagnose why `opencode.db` is using so much disk space."
+- "Show prune candidates without changing the database."
+- "Back up all chats before we prune anything."
+- "Check whether weekly maintenance is scheduled."
+
+Do not use it for unrelated SQLite databases, general disk cleanup, or
+ordinary OpenCode use.
 
 ## Prerequisites and setup verification
 
-- A checkout containing `AGENTS.md`, `README.md`, `setup.md`, and the source
-  relevant to the requested update.
-- A readable diff or description of the change; no OpenCode runtime is needed
-  for source and link checks. Runtime health checks do need the configured tools.
-- A Markdown preview for visual review; use a GitHub-rendered preview when
-  available and label local previews honestly.
+The relevant scripts are:
 
-Check the working tree first so existing edits remain intact. This workflow
-does not install or configure the project.
+```text
+scripts/opencode-db-maintain.py
+scripts/opencode-chat-backup.py
+scripts/opencode-maintenance-cron.sh
+```
+
+The database is normally:
+
+```text
+~/.local/share/opencode/opencode.db
+```
+
+Chat backups normally use:
+
+```text
+~/Documents/opencode-backups/
+```
+
+The user should say whether OpenCode is open, whether deletion is permitted,
+and whether `.backup` files and exported chats may consume additional disk
+space.
 
 ## How to request it
 
-- "Audit the README against setup.md and the current scripts. Report drift only."
-- "Update the README for the new skill, keeping the mascot and setup prompt."
-- "Check README links and the light/dark hero before I review the diff."
+Ask in ordinary language and name one of the skill's trigger terms, such as
+`opencode.db`, disk usage, `VACUUM`, prune, chat backup, or maintenance cron.
 
-Ask in ordinary language; no invented slash command or internal loader call is
-needed. An audit request produces findings, not automatic edits.
+Example requests:
+
+- "`opencode.db` is huge. Diagnose it read-only."
+- "Preview prune candidates while keeping the newest 20 sessions."
+- "Export all chats without pruning."
+- "Check the maintenance status and recent log."
+
+The agent must not infer approval for database writes from a diagnostic
+request.
 
 ## Worked workflow and expected result
 
-After a skill is added, ask to refresh the README's skill summary. The agent
-reads policy, the current README, the canonical bundles, and catalog; derives
-the actual count; changes only the affected README text; checks links and
-rendering; and returns the diff plus verification results. Catalog or skill
-changes belong to [skill-maintenance](../skill-maintenance/README.md) and need
-their own authorized scope.
+### Read-only diagnosis
 
-## Tools and commands
+Representative commands are:
 
-These are documented representative terminal checks from the repository root,
-not commands executed by loading the skill:
-
-```sh
-git status --short
-find .opencode/skills -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l
-git diff --check
-git diff -- README.md
-./scripts/health-check.sh
+```bash
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --stats
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --dry-run --keep 20
 ```
 
-They inspect state; they do not apply setup changes. The agent also reads source
-files and uses an available Markdown renderer or browser for previews. Read
-`setup.md` and the current scripts to explain their preview/write modes; do not
-run onboarding, `--apply`, or dependency installation as documentation checks.
+`--stats` reports storage health. `--dry-run` reports orphaned and superseded
+candidates without changing anything. Do not combine these read-only flags
+with `--apply`.
+
+Expected result: the agent identifies whether the problem is freelist bloat,
+live event-table bloat, another issue, and the approximate recoverable space.
+
+### Targeted database maintenance
+
+Close OpenCode before any `--apply` operation. Representative maintenance
+commands are:
+
+```bash
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --keep 20
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
+```
+
+Expected result: the script checks integrity, creates and verifies an online
+backup unless explicitly disabled, removes only eligible event rows or
+performs only physical reclamation, runs `VACUUM` and hardening, and reports
+before/after sizes.
+
+### Chat backup
+
+A representative preview is:
+
+```bash
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --dry-run
+```
+
+The backup utility writes by default. `--dry-run` prevents writes, while
+`--force` only skips the confirmation prompt. Do not describe `--force` as a
+read-only option.
+
+A representative actual backup is:
+
+```bash
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --force
+```
+
+`--prune-deleted` is a separate destructive option. It removes only
+script-owned exports recorded in the backup manifest: exports for deleted
+sessions and stale renamed exports after a successful replacement. It does
+not prune when any export fails, and it preserves files that the manifest
+does not identify.
+
+### Scheduling and status
+
+The weekly wrapper normally performs backup and then attempts database
+cleanup. Its read-only status form is:
+
+```bash
+~/repos/computer-use/scripts/opencode-maintenance-cron.sh --verify-only
+```
+
+Do not use `--dry-run` with this wrapper: it does not recognize that option.
+The default wrapper invocation performs work; `--backup-only` still performs
+backup work. Successful backup and cleanup update separate markers. A failed
+cleanup does not update the cleanup marker, while a skipped cleanup preserves
+the successful backup marker without claiming full maintenance success.
 
 ## Verification and known limitations
 
-Expected evidence includes resolved local links and anchors, checked external
-destinations, a verified skill count, accurate command flags, a readable hero,
-and a clean whitespace check. A local render is not proof of GitHub rendering.
-A passing source check does not prove a working OpenCode service or MCP session.
+The agent must verify integrity results, backup location, before/after size,
+maintenance logs, and cron status. A zero exit status is not enough when data
+can be lost.
+
+Known limitations:
+
+- Maintenance can require substantial temporary disk space.
+- A large database can take significant time to prune and vacuum.
+- A bare filesystem copy made while OpenCode runs may omit WAL data.
+- Lock bypass and backup-skipping options exist and must not be used
+  routinely.
+- Version-specific upstream behavior and issue numbers can become stale.
 
 ## Troubleshooting
 
-- **Source and setup disagree:** report both locations and the conflict; do not
-  choose an unsupported promise or silently expand the edit scope.
-- **Health check fails on an unconfigured machine:** report which runtime checks
-  failed and which source checks passed; do not install tools to hide the result.
-- **External link or renderer is unavailable:** report the unverified check
-  explicitly and finish the checks that remain possible.
+- OpenCode is running: close it before `--apply`; do not routinely bypass the
+  lock check.
+- Integrity failure: stop and restore from the verified timestamped backup.
+- Export failure: inspect the failing session ID, available disk space, and
+  `opencode export` error.
+- Cron has no entry: inspect the user crontab and installed script path.
+- Unexpected size change: compare stats, candidate report, logs, and backup
+  before rerunning maintenance.
 
 ## Safety, confirmation, and elevation
 
-Preserve branding unless a redesign is requested. The setup one-liner must stay
-an instruction to read and follow setup with prerequisites and approval gates,
-not a blind shell installer. Do not expose credentials, alter system permissions,
-or elevate access to make a documentation check pass. Editing does not authorize
-commit, push, PR creation, or merge; follow `AGENTS.md` and the separately approved
-publication scope.
+The agent must:
+
+- Keep diagnosis read-only until deletion is explicitly approved.
+- Close OpenCode before database writes.
+- Preserve a verified backup until OpenCode is working.
+- Ask before pruning, vacuuming, pruning deleted backups, deleting data, or
+  changing schedules.
+- Avoid lock bypasses and backup skipping unless the user explicitly accepts
+  the added risk.
+- Never store database credentials or unrelated private chat content outside
+  the approved backup location.
+
+This skill does not require administrator elevation for its normal database
+and backup operations.
 
 ## Related skills and documents
 
-- [Development conventions](../development-conventions/README.md)
-- [Skill maintenance](../skill-maintenance/README.md)
-- [GitHub operations](../github-operations/README.md)
-- Repository policy: `AGENTS.md`; onboarding source: `setup.md`;
-  skill catalog: `.opencode/skills/README.md`.
+- [`routine-automation`](../routine-automation/README.md) provides general
+  scheduling, logging, locking, and rollback practices.
+- [`files-and-documents`](../files-and-documents/README.md) handles
+  preservation and organization of exported artifacts.
+- [`system-troubleshooting`](../system-troubleshooting/README.md) diagnoses
+  storage or application failures outside this narrow maintenance workflow.
+- The canonical catalog entry is in `skills/README.md`.
