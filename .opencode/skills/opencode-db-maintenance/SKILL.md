@@ -10,7 +10,7 @@ metadata:
 # OpenCode DB Maintenance
 
 Operator guide for the maintenance scripts in
-`~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/`
+`~/repos/computer-use/scripts/`
 (stdlib-only, no deps), which handle OpenCode's known unbounded SQLite growth at
 `~/.local/share/opencode/opencode.db`:
 
@@ -38,8 +38,8 @@ There are two distinct bloat mechanisms. Diagnose before fixing -
 ## Diagnose (read-only, safe while OpenCode runs)
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --stats
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --dry-run [--keep N]
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --stats
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --dry-run [--keep N]
 ```
 
 How to read the output:
@@ -68,11 +68,11 @@ if another process holds the DB (override: `--skip-lock-check`).
 
 ```bash
 # Full fix: prune orphaned + superseded event rows, then VACUUM + harden
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --apply [--keep N]
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply [--keep N]
 
 # Physical reclaim only: no row deletes, just checkpoint + VACUUM +
 # auto_vacuum=INCREMENTAL + restore journal_mode=WAL
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
+python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
 ```
 
 Every `--apply` automatically: SQLite online backup to a timestamped copy
@@ -102,8 +102,8 @@ batched deletes (default `--batch 2000`) -> `VACUUM` ->
 ## Backup (all current chats)
 
 ```bash
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-chat-backup.py --dry-run   # preview
-python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-chat-backup.py --force     # write
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --dry-run   # preview
+python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --force     # write
 ```
 
 - Exports every session via `opencode export <id>` (full fidelity,
@@ -120,7 +120,7 @@ python3 ~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencod
 
 ## Scheduling (cron)
 
-`~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh`
+`~/repos/computer-use/scripts/opencode-maintenance-cron.sh`
 runs both halves under a lock:
 
 1. Chat backup (always safe, runs every time).
@@ -130,17 +130,17 @@ runs both halves under a lock:
 Crontab (installed):
 
 ```cron
-0 3 * * 0 /home/james/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh
-@reboot sleep 120 && /home/james/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh --catch-up
+0 3 * * 0 /home/shak/repos/computer-use/scripts/opencode-maintenance-cron.sh
+@reboot sleep 120 && /home/shak/repos/computer-use/scripts/opencode-maintenance-cron.sh --catch-up
 ```
 
 - Weekly Sunday 03:00 plus a boot catch-up: `--catch-up` runs immediately
   only if the last cleanup marker is >7 days old (covers machine-off).
 - Status:
-  `~/repos/opencode-rig/platforms/linux/ubuntu/computer-use/scripts/opencode-maintenance-cron.sh --verify-only`.
+  `~/repos/computer-use/scripts/opencode-maintenance-cron.sh --verify-only`.
   Full log: `~/Documents/opencode-backups/maintenance.log`. Status reports
   separate backup and cleanup markers; the legacy success marker is ignored.
-- Cron PATH must include `/home/james/.opencode/bin` (where the
+- Cron PATH must include `/home/shak/.opencode/bin` (where the
   `opencode` binary lives) - already set in the installed crontab.
 
 ## Usage guide

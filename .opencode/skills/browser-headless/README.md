@@ -28,7 +28,7 @@ stop and report the unavailable bridge rather than switching browser modes.
 An explicitly requested headless task requires:
 
 - The pinned repository runtime, with `playwright` imported from
-  `platforms/linux/ubuntu/browser-tools/node_modules` and invoked through the
+  `tools/browser/node_modules` and invoked through the
   bounded-command wrapper.
 - An existing Firefox executable available to the active environment and an
   isolated headless Firefox context with no shared browser state.

@@ -13,8 +13,8 @@ Inspect first, preserve originals, and save only in approved locations.
 
 ## Locations
 
-- Project code and checkouts: `~/repos/<project>`.
-- Standalone runnable utilities: `~/scripts/`.
+- Project code and checkouts: the project's actual checkout directory.
+- Standalone runnable utilities: a local utilities directory.
 - Notes, reports, exports, and final documents: `~/Documents/`.
 - Temporary downloads only: `~/Downloads/`.
 - Session scratch: `/tmp/opencode/`.

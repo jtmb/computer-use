@@ -13,7 +13,7 @@ replacement for the repository-root `AGENTS.md`.
 ## Prerequisites and setup verification
 
 Read `AGENTS.md`, inspect the current working tree, and identify the canonical
-source under `platforms/linux/ubuntu/computer-use/`. Read only the relevant
+source under `~/repos/computer-use/`. Read only the relevant
 reference files before acting. Verification is read-only by default.
 
 ## How to request it
@@ -58,4 +58,4 @@ the repository setup script, which preserves unrelated target files.
   — comment guidance.
 - [`references/testing/patterns.md`](./references/testing/patterns.md) — test
   selection and failure-focused checks.
-- Repository-root `AGENTS.md` — Open Rig v2 operating authority.
+- Repository-root `AGENTS.md` — OpenCode v2 operating authority.

@@ -12,8 +12,8 @@ metadata:
 This direct, exact-pinned Playwright package is only for explicitly requested
 headless Firefox work; it is not a visible-browser MCP. Use a bounded `node`
 script that imports `playwright` from
-`platforms/linux/ubuntu/browser-tools/node_modules`, invoked through
-`platforms/linux/ubuntu/computer-use/scripts/run-bounded-command.sh`. The
+`tools/browser/node_modules`, invoked through
+`scripts/playwright-headless-mcp.sh`. The
 script must launch an isolated headless Firefox context, share no state with
 any visible browser or the user's normal browser, and close the context when
 finished. Do not install or select Chrome/Chromium for this runtime.

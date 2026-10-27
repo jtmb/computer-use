@@ -37,8 +37,8 @@ The agent should first understand:
 
 Approved destination classes are:
 
-- `~/repos/<project>` for project code and checkouts.
-- `~/scripts/` for standalone utilities.
+- The project's actual checkout directory for project code.
+- A local utilities directory for standalone scripts.
 - `~/Documents/` for notes, reports, exports, and final documents.
 - `~/Downloads/` for temporary downloads.
 - `/tmp/opencode/` for session scratch.

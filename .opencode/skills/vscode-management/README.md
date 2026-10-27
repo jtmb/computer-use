@@ -75,7 +75,7 @@ details.
 A representative command is:
 
 ```bash
-code --new-window /home/james/repos/example-project
+code --new-window /path/to/example-project
 ```
 
 Use an isolated new window when avoiding interference with an existing

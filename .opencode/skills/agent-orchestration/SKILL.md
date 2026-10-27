@@ -22,7 +22,7 @@ independent verification, and the final report.
 - Project `opencode.json` may define agent identities and model choices. Do not
   claim a model is available without checking the active configuration, and do
   not impose a global identity restriction on another consuming repository.
-  In Open Rig's project profile, `plan` and the read-only `architect` subagent
+  In this project's project profile, `plan` and the read-only `architect` subagent
   use `openai/gpt-6-sol#max` for planning, architecture, design, and
   orchestration while `build`, `explore`, and `general` use
   `openai/gpt-6-luna#max` for implementation and exploration. A child inherits

@@ -4,7 +4,7 @@ Read this file explicitly after creating, renaming, materially changing, or
 retiring a skill, or when catalog drift is reported.
 
 This repository uses
-`platforms/linux/ubuntu/computer-use/skills/README.md` as its skill catalog.
+`.opencode/skills/README.md` as its skill catalog.
 Do not create `SKILL-INDEX.md`.
 
 ## Procedure

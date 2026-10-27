@@ -222,7 +222,7 @@ EV                   = p * profit - (1 - p) * stake
 Use the helper:
 
 ```bash
-python3 scripts/parlay_math.py \
+python3 .opencode/skills/fanduel-parlay-research/scripts/parlay_math.py \
   --stake 25 \
   --leg "Carolina -1.5|-118|0.55" \
   --leg "Aho 1+ point|-265|0.73" \

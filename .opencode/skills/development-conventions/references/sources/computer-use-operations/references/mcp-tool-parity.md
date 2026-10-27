@@ -9,10 +9,10 @@ computer-use tree.
 
 | v2 surface | Canonical source | Verification |
 |--------------|----------|--------|
-| Skills | `platforms/linux/ubuntu/computer-use/skills/` | complete recursive copy |
-| v2 plugins | `platforms/linux/ubuntu/computer-use/plugins-v2/` | catalog + package check |
-| Local MCP wrappers | `platforms/linux/ubuntu/computer-use/scripts/` | exact command path |
-| Commands | `platforms/linux/ubuntu/computer-use/commands/` | source/target parity |
+| Skills | `.opencode/skills/` | complete recursive copy |
+| v2 plugins | `plugins/` | catalog + package check |
+| Local MCP wrappers | `scripts/` | exact command path |
+| Commands | `global/commands/` | source/target parity |
 
 ## Rule
 

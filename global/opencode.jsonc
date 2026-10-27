@@ -1,6 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "deepseek/deepseek-v4-flash",
+  "model": "deepseek/deepseek-flash",
+  "skills": [
+    "~/repos/computer-use/.opencode/skills"
+  ],
+  "websearch": {
+    "provider": "random"
+  },
   "providers": {
     "lmstudio": {
       "name": "LM Studio",
@@ -37,7 +43,7 @@
       "github": {
         "type": "local",
         "command": [
-          "/home/james/repos/computer-use/scripts/github-mcp.sh"
+          "/home/shak/repos/computer-use/scripts/github-mcp.sh"
         ],
         "disabled": false,
         "timeout": {
@@ -47,7 +53,7 @@
       "playwright": {
         "type": "local",
         "command": [
-          "/home/james/repos/computer-use/scripts/playwright-mcp.sh"
+          "/home/shak/repos/computer-use/scripts/playwright-mcp.sh"
         ],
         "disabled": false,
         "timeout": {
@@ -58,7 +64,7 @@
   },
   "agents": {
     "build": {
-      "model": "openai/gpt-6-luna#max",
+      "model": "deepseek/deepseek-flash",
       "permissions": [
         {
           "action": "*",
@@ -83,7 +89,7 @@
       ]
     },
     "plan": {
-      "model": "openai/gpt-6-sol#max",
+      "model": "deepseek/deepseek-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -120,7 +126,7 @@
     "architect": {
       "description": "Plan architecture and design changes without modifying repository files",
       "mode": "subagent",
-      "model": "openai/gpt-6-sol#max",
+      "model": "deepseek/deepseek-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -151,7 +157,7 @@
     },
     "explore": {
       "mode": "subagent",
-      "model": "openai/gpt-6-luna#max",
+      "model": "deepseek/deepseek-flash",
       "permissions": [
         {
           "action": "subagent",
@@ -182,7 +188,7 @@
     },
     "general": {
       "mode": "subagent",
-      "model": "openai/gpt-6-luna#max",
+      "model": "deepseek/deepseek-flash",
       "permissions": [
         {
           "action": "subagent",

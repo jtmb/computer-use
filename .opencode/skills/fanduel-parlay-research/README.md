@@ -178,7 +178,7 @@ resolve it in their own session.
   as stake, sport, and risk tier, but never credentials or account data.
 - [references/fanduel-workflow.md](./references/fanduel-workflow.md) contains
   the exact FanDuel URL, tab, accordion, evidence, and math workflow.
-- [scripts/parlay_math.py](./scripts/parlay_math.py) calculates independent
+- [.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py](./.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py) calculates independent
   parlay math and prints the SGP-price warning.
 - The canonical catalog is `skills/README.md`; it is outside the deployed skill
   bundle and is therefore shown as a plain repository path.

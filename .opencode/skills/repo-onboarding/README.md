@@ -1,7 +1,7 @@
 # Repo Onboarding Usage
 
 Use the [agent-facing workflow](./SKILL.md) to onboard a downstream consumer
-repository to OpenCode v2 with the canonical Open Rig harness.
+repository to OpenCode v2 with the canonical computer-use harness.
 
 Category: `maintenance`
 
@@ -12,14 +12,14 @@ Tags: onboarding,downstream,opencode,mcp,memory,integration
 Use `repo-onboarding` when an agent must set up a downstream repository,
 migrate its OpenCode v2 configuration, choose between deployed global
 capabilities and repo-local behavior, or verify an existing integration. It
-keeps consumer configuration grounded in the actual Open Rig checkout and
+keeps consumer configuration grounded in the actual computer-use checkout and
 target runtime.
 
 ## Prerequisites and setup verification
 
 - Identify the consumer repo and preserve its dirty work.
-- Locate the Open Rig checkout by finding both root `bootstrap.sh` and
-  `platforms/linux/ubuntu/computer-use/`; do not assume a path.
+- Locate the computer-use checkout by finding both root `bootstrap.sh` and
+  `~/repos/computer-use/`; do not assume a path.
 - Confirm the selected OpenCode binary reports v2.
 - Inventory `opencode.json`, `.opencode/`, plugins, agents, skills, and
   `mcp.servers`; inspect provider/model availability in the selected target.
@@ -31,7 +31,7 @@ Ask for the repository and desired integration outcome, for example:
 
 - "Onboard this consumer repo to our OpenCode v2 harness; inspect first and
   preserve all dirty work."
-- "Compare this repo's MCP and plugin setup with the canonical Open Rig
+- "Compare this repo's MCP and plugin setup with the canonical computer-use
   checkout; reuse existing global capabilities."
 - "Set up only the consumer-specific agent and verify the model IDs against the
   provider catalog."
@@ -46,7 +46,8 @@ Ask for the repository and desired integration outcome, for example:
    declarations before editing `opencode.json`; preserve existing settings and
    migrate selectively to the v2 schema.
 4. For a global deployment, verify first, select the intended v2 config
-   directory, then use `setup-opencode.sh --apply`. Restart OpenCode before
+   directory, then confirm the global config points at `.opencode/skills`.
+   Restart OpenCode before
    expecting newly deployed skills to load.
 5. Declare Basic Memory and GitHub under `mcp.servers` using the absolute paths
    to the canonical `basic-memory-mcp.sh` and `github-mcp.sh` wrappers. Keep
@@ -72,7 +73,8 @@ ledger when available.
 ## Verification and known limitations
 
 `bootstrap.sh` is verify-only by default and writes only with `--apply`;
-`setup-opencode.sh --apply` recursively deploys skills, commands, and agents to
+The global config loads `.opencode/skills` directly; verify with
+`./scripts/health-check.sh`. It does not copy skills to a separate target.
 the selected v2 config directory. Skills do not hot-reload. Run the consumer
 repository's own gates and perform fresh live checks after restart. Source and
 test evidence alone are not live acceptance; keep visible claims pending until
@@ -146,5 +148,5 @@ selection.
 - [`skill-maintenance`](../skill-maintenance/README.md) covers canonical skill
   source, indexing, and validation.
 - [`development-conventions`](../development-conventions/README.md) routes
-  Open Rig v2 configuration and documentation work.
+  OpenCode v2 configuration and documentation work.
 - [`OpenCode skills catalog`](../README.md) lists the canonical skill bundle.

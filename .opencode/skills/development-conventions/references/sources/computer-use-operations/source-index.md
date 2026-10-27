@@ -1,6 +1,6 @@
-# Open Rig Operations
+# computer-use Operations
 
-Operational patterns for the Open Rig Ubuntu computer-use and OpenCode v2
+Operational patterns for the computer-use Ubuntu computer-use and OpenCode v2
 harness: canonical source, complete bundle deployment, bounded checks, and
 MCP/plugin parity.
 
@@ -9,7 +9,7 @@ MCP/plugin parity.
 - **OpenCode v2 is the only current runtime target** — do not add legacy
   configuration, migration, or rollback instructions to current guidance.
 - **Canonical sources stay in the repository** — skills, v2 plugins, examples,
-  commands, and scripts live below `platforms/linux/ubuntu/computer-use/`.
+  commands, and scripts live below `~/repos/computer-use/`.
 - **Verification is read-only by default** — setup and deployment writes need
   an explicit `--apply` and an explicitly selected target.
 - **Deploy complete bundles** — preserve unrelated target files and verify every
@@ -40,12 +40,12 @@ performing verification, and must not skip the target's safety checks.
   fields and unrelated entries.
 - Config: seed only when missing unless the selected setup operation explicitly
   owns a field; write atomically and retain existing modes where applicable.
-- Skills: deploy complete canonical bundles through `setup-opencode.sh`, reject
+- Skills: load complete canonical bundles from `.opencode/skills`, verify with `./scripts/health-check.sh`, reject
   symlinks and non-regular files, and preserve unrelated target entries.
 
 ## References
 
 - See `references/mcp-tool-parity.md` for keeping v2 tool declarations and
   local wrappers aligned.
-- See `references/layered-crud.md` for the Open Rig v2 ownership boundaries.
+- See `references/layered-crud.md` for the OpenCode v2 ownership boundaries.
 - See `references/dashboard-ui.md` for accessible interactive-surface patterns.
