@@ -1,0 +1,166 @@
+name: Docker validation and publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+      - compose.yaml
+      - .dockerignore
+      - tests/test_docker_static.py
+      - docs/docker.md
+      - .github/workflows/docker.yml
+      - .github/dependabot.yml
+      - scripts/**
+      - tests/**
+      - deploy/kubernetes/**
+      - .opencode/skills/**
+  pull_request:
+    paths:
+      - Dockerfile
+      - compose.yaml
+      - .dockerignore
+      - tests/test_docker_static.py
+      - docs/docker.md
+      - .github/workflows/docker.yml
+      - .github/dependabot.yml
+      - scripts/**
+      - tests/**
+      - deploy/kubernetes/**
+      - .opencode/skills/**
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish immutable version and commit-SHA tags to GHCR
+        type: boolean
+        required: true
+        default: false
+      revision:
+        description: Derivative revision (1-9999); increase for changes at the same Tailscale version
+        type: string
+        required: true
+        default: "1"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Prepare synthetic test scratch on a clean runner
+        run: PYTHONDONTWRITEBYTECODE=1 python3 scripts/prepare_test_scratch.py
+
+      - name: Run source tests
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+
+      - name: Validate Compose without reading a project env file
+        env:
+          TS_AUTHKEY: validation-placeholder
+          OPENCODE_PASSWORD: validation-placeholder
+        run: docker compose --env-file /dev/null --profile opencode config --quiet
+
+      - name: Build local image without publishing
+        run: docker build --target tailscale --tag jtmb/tailscale:dev .
+
+      - name: Build isolated non-root OpenCode profile
+        run: docker build --target opencode --tag jtmb/tailscale-opencode:dev .
+
+      - name: Run network-isolated container regression tests
+        run: RUN_DOCKER_TESTS=1 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_docker_runtime.py' -v
+
+  publish:
+    if: github.event_name == 'workflow_dispatch' && inputs.publish == true && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    concurrency:
+      group: tailscale-ghcr-publication
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Read upstream version from the pinned base reference
+        id: version
+        env:
+          RELEASE_REVISION: ${{ inputs.revision }}
+        run: |
+          version="$(sed -nE 's#^FROM ghcr\.io/tailscale/tailscale:(v[0-9]+\.[0-9]+\.[0-9]+)@sha256:[a-f0-9]{64} AS tailscale$#\1#p' Dockerfile)"
+          test -n "$version"
+          case "$RELEASE_REVISION" in
+            ''|0*|*[!0-9]*) exit 1 ;;
+          esac
+          test "${#RELEASE_REVISION}" -le 4
+          printf 'value=%s-r%s\n' "$version" "$RELEASE_REVISION" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
+
+      - uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Refuse to overwrite existing version or commit tags
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IMAGE_VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          import urllib.error
+          import urllib.request
+
+          authorization = base64.b64encode(
+              (os.environ['GITHUB_ACTOR'] + ':' + os.environ['GHCR_TOKEN']).encode()
+          ).decode()
+          request = urllib.request.Request(
+              'https://ghcr.io/token?service=ghcr.io&scope=repository%3Ajtmb%2Ftailscale%3Apull',
+              headers={'Authorization': 'Basic ' + authorization},
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  credentials = json.loads(response.read(1048576))
+          except (OSError, ValueError):
+              raise SystemExit('Registry authentication failed; no credentials displayed.')
+          token = credentials.get('token') or credentials.get('access_token')
+          if not isinstance(token, str) or not token:
+              raise SystemExit('Registry did not provide a bearer token.')
+          for tag in (os.environ['IMAGE_VERSION'], 'sha-' + os.environ['GITHUB_SHA']):
+              request = urllib.request.Request(
+                  'https://ghcr.io/v2/jtmb/tailscale/manifests/' + tag,
+                  method='HEAD',
+                  headers={
+                      'Authorization': 'Bearer ' + token,
+                      'Accept': 'application/vnd.oci.image.index.v1+json, application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.list.v2+json, application/vnd.docker.distribution.manifest.v2+json',
+                  },
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=30):
+                      raise SystemExit('Refusing to overwrite existing immutable tag: ' + tag)
+              except urllib.error.HTTPError as error:
+                  if error.code != 404:
+                      raise SystemExit('Registry tag check failed; publication refused.') from None
+              except OSError:
+                  raise SystemExit('Registry unavailable; publication refused.') from None
+          PY
+
+      - uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
+        with:
+          context: .
+          target: tailscale
+          platforms: linux/amd64,linux/arm64
+          build-args: RELEASE_REVISION=${{ inputs.revision }}
+          push: true
+          tags: |
+            ghcr.io/jtmb/tailscale:${{ steps.version.outputs.value }}
+            ghcr.io/jtmb/tailscale:sha-${{ github.sha }}
+          provenance: mode=max
+          sbom: true

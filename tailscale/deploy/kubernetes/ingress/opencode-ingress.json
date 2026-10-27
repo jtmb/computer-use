@@ -1,0 +1,41 @@
+{
+  "apiVersion": "networking.k8s.io/v1",
+  "kind": "Ingress",
+  "metadata": {
+    "name": "opencode-tailnet",
+    "namespace": "choose-existing-app-namespace",
+    "annotations": {
+      "tailscale.com/tags": "tag:opencode-ingress-proxy"
+    }
+  },
+  "spec": {
+    "ingressClassName": "tailscale-disabled-until-reviewed",
+    "tls": [
+      {
+        "hosts": [
+          "replace-with-approved-hostname"
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "http": {
+          "paths": [
+            {
+              "path": "/",
+              "pathType": "Prefix",
+              "backend": {
+                "service": {
+                  "name": "replace-with-existing-opencode-service",
+                  "port": {
+                    "name": "replace-me"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

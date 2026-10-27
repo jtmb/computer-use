@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "owner": "goal-docs",
+  "files": {
+    "de7a3326-f322-4077-b7f5-a5bf997dbeab/plan.md": "bc42dbce3219538a465efc7e40acc1c49da4c3e0974964aa081e88cb27462665",
+    "de7a3326-f322-4077-b7f5-a5bf997dbeab/HANDOFF.md": "9464446e68aa6644fa8869dba546e38ede54ad06dac67fb34aea1f7deec0bcd7",
+    "de7a3326-f322-4077-b7f5-a5bf997dbeab/work-history.md": "073e2650c52ebed835371337e890334c3c7db32016f05efee1199021db18c887",
+    "de7a3326-f322-4077-b7f5-a5bf997dbeab/snapshot.json": "70d56cf0d0649c8643fb5ba9e3e12803d62a3b2a575932d6574371159b5069c3",
+    "558a9f79-0183-4c51-bcac-e42cffb01b51/plan.md": "6c7e2a938355be601b0eef11b9b088b472bd0eeb66af63d8103d1192d47ab272",
+    "558a9f79-0183-4c51-bcac-e42cffb01b51/HANDOFF.md": "962a4068753d40945cd010726faac514f1760d10c485310257acf50b65c78dc0",
+    "558a9f79-0183-4c51-bcac-e42cffb01b51/work-history.md": "35a9475172928f2585af2945b5dbfc83f65f88218b9bb3fd480599e51c8a497d",
+    "558a9f79-0183-4c51-bcac-e42cffb01b51/snapshot.json": "29232d52e9cf62dce6a9e915f93a0e1cb628f394786d2d85c7971cbebe55bdb2",
+    "README.md": "f1a98ff7e6e613299430daf622cfc4688fd364d95bbf94ace7d882b02dbb3f16"
+  },
+  "goals": {
+    "de7a3326-f322-4077-b7f5-a5bf997dbeab": {
+      "goalID": "de7a3326-f322-4077-b7f5-a5bf997dbeab",
+      "sourceSessionID": "ses_e82032444ffeP7hG18Zqr3hsp3",
+      "sourceDirectory": "/home/james/repos/computer-use/tailscale",
+      "status": "unmet",
+      "planRevision": 29,
+      "title": "Create and verify a hardened tailscale project at /home/james/repos/computer-use/tailscale, move this session there, and publish an explicitly approved GitHub repository …",
+      "contentFingerprint": "be5dc16e050e44a6e21fb892c9a36947b6028db3fb7c9392d9f0d9da417866ae",
+      "planFingerprint": "1b37b87037cb006f3964d47e71f02596b84d4dbbd8de9f4b33dc9cfe8530c830"
+    },
+    "558a9f79-0183-4c51-bcac-e42cffb01b51": {
+      "goalID": "558a9f79-0183-4c51-bcac-e42cffb01b51",
+      "sourceSessionID": "ses_e82032444ffeP7hG18Zqr3hsp3",
+      "sourceDirectory": "/home/james/repos/computer-use/tailscale",
+      "status": "active",
+      "planRevision": 6,
+      "title": "Finish the hardened Tailscale deployment at /home/james/repos/computer-use/tailscale, reinstating the previously closed scope without dropping any deliverable: (a) keep t…",
+      "contentFingerprint": "789cde34292f09d2a2c267e6bb2cbd22a609b271d24a270d8cdcabbfc807ecec",
+      "planFingerprint": "a5c533316a0d423c5ce7afd28e7c1446e4ad49d8e2e962aada790e331207ee04"
+    }
+  },
+  "transfers": {},
+  "integrity": "5e31badf21236d25dab5e3daed484191effd1cf9ad7d9373431706a1cfabee37"
+}

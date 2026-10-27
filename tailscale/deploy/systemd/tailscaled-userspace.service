@@ -1,0 +1,18 @@
+[Unit]
+Description=Unprivileged Tailscale userspace daemon for OpenCode Serve
+Documentation=https://github.com/jtmb/tailscale/blob/main/docs/docker.md
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/repos/computer-use/tailscale/.local/native-tailscale
+Environment=HOME=%h/repos/computer-use/tailscale/.local/native-tailscale
+Environment=XDG_CACHE_HOME=%h/repos/computer-use/tailscale/.local/native-tailscale/cache
+Environment=XDG_CONFIG_HOME=%h/repos/computer-use/tailscale/.local/native-tailscale/config
+Environment=XDG_STATE_HOME=%h/repos/computer-use/tailscale/.local/native-tailscale/state
+ExecStart=%h/repos/computer-use/tailscale/.local/native-tailscale/bin/tailscaled --tun=userspace-networking --port=0 --socket=%h/repos/computer-use/tailscale/.local/native-tailscale/run/tailscaled.sock --statedir=%h/repos/computer-use/tailscale/.local/native-tailscale/state --state=%h/repos/computer-use/tailscale/.local/native-tailscale/state/tailscaled.state
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

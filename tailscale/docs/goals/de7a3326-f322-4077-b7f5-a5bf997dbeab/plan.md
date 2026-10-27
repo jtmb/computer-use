@@ -1,0 +1,158 @@
+# Plan — `de7a3326-f322-4077-b7f5-a5bf997dbeab`
+
+- Goal ID: `de7a3326-f322-4077-b7f5-a5bf997dbeab`
+- Source session ID: `ses_e82032444ffeP7hG18Zqr3hsp3`
+- Source directory: `/home/james/repos/computer-use/tailscale`
+- Exported at: `2026-10-27T22:17:04.468Z`
+- Repository identity: `github.com/jtmb/computer-use`
+- Worktree identity: `main`
+- Relative scope: `tailscale`
+- Repository metadata status: `git`
+- Repository metadata gaps: `none`
+- Status: `unmet`
+- Plan revision: `29`
+- Record: `archive`
+
+## Goal objective
+
+> Create and verify a hardened tailscale project at /home/james/repos/computer-use/tailscale, move this session there, and publish an explicitly approved GitHub repository and versioned Docker image to the user's GitHub/GHCR without committing secrets\. Support Docker and deployment to the user's Kubernetes cluster at 192\.168\.0\.4, implement a least\-privilege Kubernetes MCP and associated canonical skills, securely provision necessary credentials without exposing them in chat/tool output, and verify private authenticated OpenCode V2 web access through Tailscale\. Obtain required confirmations for account/security changes, credentials, cluster mutations, commits, pushes, remote publishing and schedules; record verified evidence, blockers, and rollback\.
+
+## Persisted plan
+
+Plan revision: `29` · updated 2026-10-27T18:58:09.000Z
+
+> Publish verified Tailscale source and image after separate approvals, then complete live private OpenCode and Kubernetes acceptance\. Bortus MCP is an external handoff dependency, not code to implement in this session\. No more subagents\.
+
+### Completion criteria
+
+- Repository exists at /home/james/repos/computer-use/tailscale and session is moved there; approved GitHub repository is verified remotely with no committed secrets\.
+- Version\-pinned hardened Docker image and Docker Compose deployment build and pass relevant tests; approved GHCR publication and maintenance workflow are verified\.
+- Kubernetes configuration targets an authenticated TLS\-verified cluster at 192\.168\.0\.4 with scoped RBAC; deployment succeeds only after context and changes are approved\.
+- Kubernetes MCP exposes bounded read\-only tools and preview/approval\-gated deployment without arbitrary execution or secret disclosure; associated canonical skills validate and integration is verified or explicitly blocked\.
+- Necessary secrets are collected through user\-controlled secure local entry, excluded from Git and Docker build contexts, and never exposed in chat, logs or artifacts\.
+- OpenCode V2 web UI is authenticated and accessible over tailnet\-only HTTPS from an independent authorized device; unauthorized access is denied, Funnel is disabled, restart persistence and rollback are documented\.
+
+### Phase `preflight` — completed
+
+> Discover instructions, tools, identity, environment and cluster access; create project location and move session\.
+
+**Verification:**
+
+> Environment, project location, access methods and approval boundaries established with read\-only checks\. Unavailable authentication is explicitly carried to live work, never claimed working\.
+
+- **`inspect` · completed:**
+  > Inspect project and canonical harness instructions, active config, installed tools and safe cluster metadata without reading secret values\.
+  - Evidence:
+    > Verified OpenCode2\.1\.1, Docker29\.1\.3/Compose2\.40\.3, missing installed Tailscale/kubectl/Helm, selected config and GitHub identityjtmb\. Kubeconfig filename search empty; public cluster certificate metadata inspected without trusting its CA\.
+- **`location` · completed:**
+  > Create the tailscale project directory and move this session into it\.
+  - Evidence:
+    > Directory0700 created; session\_move returned this session at /home/james/repos/computer-use/tailscale and harness confirmed directory\.
+- **`choices` · completed:**
+  > Confirm GitHub visibility, image publishing scope, intended browser, cluster access and secure credential\-entry method\.
+  - Evidence:
+    > User approved both exact empty public GitHub repos, Chrome, user\-private local credential entry and dedicated SSH\-key generation\. Actual cluster login details/trust and separate publishing approvals remain live prerequisites\.
+
+### Phase `build` — completed
+
+> Finish and independently verify Tailscale Docker/Kubernetes source, deployment skill and secret\-entry safeguards\.
+
+**Verification:**
+
+> Correction reviewed and40/40 tests pass locally; both local image targets remain verified, source/secret safeguards preserved\. Exact fix committed/pushed after separate approvals\. Hosted validation still pending in publication phase; no live deployment claim\.
+
+- **`docker` · completed:**
+  > Implement hardened Docker image, Compose configuration, publication workflow and tests\.
+  - Evidence:
+    > Both digest\-pinned local Docker targets build offline and run UID65532\. Full35 tests pass without skips when runtime enabled\. Tests cover named\-state persistence, NeedsLogin readiness failure and OpenCode401/200 auth\. Workflow has verified action SHAs, manual revisioned serialized publication and credentials kept out of argv\.
+- **`skills` · completed:**
+  > Create canonical deployment skills and repo documentation, credential helper and validation\.
+  - Evidence:
+    > Project Tailscale skill/catalog verified with5 tests; helper12 tests pass\. Root docs and docs/acceptance\.md map scope, actual checks and live gaps; all local Markdown links resolve\. Bortus skills remain external\.
+- **`review` · completed:**
+  > Independently review and verify all changes and secret exclusion before requesting publication\.
+  - Evidence:
+    > Prepared safe clean\-runner scratch bootstrap and5 regressions after CI40557690636 failed; all40 local tests pass incl3 containers, source scan0 and diff\-\-check\. User separately approved six\-file commit1a41a1e1078991472712e042b895aa27f14ece22 and exact push; staged scope/parent/remote reverified, commit/push performed and remote main independently matches1a41a1e\. No new subagents\. Browser private\-entry pause cleared by user; they confirm Chrome now foreground\.
+
+### Phase `publish` — completed
+
+> Publish approved source and container artifacts using separate action confirmations\.
+
+**Verification:**
+
+> Approved source and versioned GHCR image independently verified remotely, actual build/runtime CI passed, exact4 SHA\-pinned actions permitted\. Both published tags resolve to same multiarch digest\. Local main clean at1a41a1e\. No registry\-enforced immutability or live deployment claimed\.
+
+- **`github` · completed:**
+  > Create the approved GitHub repository and separately confirm commit, push, workflow activation and GHCR publication\.
+  - Evidence:
+    > Initial669139f and fix1a41a1e separately approved/committed/pushed, public main independently verified; restricted4\-action setup and actual Docker validation40562230662 verified\. User separately approved publish=true/revision1 at1a41a1e; run40563651852 validate/publish passed\. Independent MCP job122399249080 confirms publication\. Registry inspection of version and source\-SHA tags confirms same index sha256:80c4a9a3b327475b330e76f9c31b52b7038e44963c58f2a90a3493f28dcac993 with amd64/arm64 and2attestation manifests\. No package visibility change/deployment\.
+
+### Phase `live` — blocked
+
+> Authenticate Tailscale, deploy safely to approved environments and test private OpenCode web access\.
+
+**Blocker:**
+
+> Fresh metadata audit confirms \.env absent and native daemon NeedsLogin with zero tailnet IPs\. Key generation was dispatched once, but user\-private entry and screen clearance remain unconfirmed; cannot inspect browser/clipboard, retrieve key or register host\. Cluster trust/authentication and exact SSH port/console are unavailable\. Independent authorized device and controlled negative clients are unavailable\. All remaining live steps require user input/external access and separate mutation approvals\.
+
+- **`auth` · blocked:**
+  > Guide visible\-browser Google sign\-in and scoped Tailscale credentials with user handling all protected fields\.
+  - Evidence:
+    > Native daemon independently reverified running under expected user/executable and status NeedsLogin with0tailnetIPs; clean main\. Installed1\.104\.2 up \-\-help confirms auth\-key=file: support, allowing eventual registration without a key in argv\. No secret values read and no registration/exposure/security setting changed\.
+  - Blocker:
+    > Rechecked \.env remains absent; daemon still NeedsLogin\. User has not completed private noecho entry or confirmed key display cleared\. Terminal launcher returned success but no helper persisted\. Need user to run python3 /home/james/repos/computer-use/tailscale/scripts/secret\_setup\.py \-\-apply \-\-key TS\_AUTHKEY and privately enter key, then close display/clear clipboard; do not observe/retrieve secret or generate another key\.
+- **`deploy` · blocked:**
+  > Preview and apply approved Docker and Kubernetes deployment using TLS\-verified authenticated access\.
+  - Blocker:
+    > Need node SSH username/port or trusted kubeconfig/context, issuing CA/authentication, selected backend and explicit bootstrap/deployment approval\. Port22 was unreachable; no credentials available\.
+- **`webtest` · blocked:**
+  > Verify OpenCode V2 tailnet\-only HTTPS, application authentication, denial tests, persistence and rollback\.
+  - Blocker:
+    > Existing HOST chosen, not Docker example; approved native userspace daemon remains unregistered\. Need private key entry, separate exact registration/HTTPS/Serve approval, device expiry review, second\-device/negative tests and approved restart window for0\.0\.0\.0 binding hardening\.
+
+### Phase `external_mcp` — blocked
+
+> Track the explicitly delegated Bortus MCP implementation and integration dependency without duplicating its work here\.
+
+**Blocker:**
+
+> Bortus session reports budget\-limited and functional MCP remains unimplemented\. User restricts further work to this Tailscale session/repo and forbids new/resumed subagents\.
+
+- **`mcp` · blocked:**
+  > Implement bounded Kubernetes MCP with explicit context, credential isolation, safe read tools, and approval\-gated deployments\.
+  - Blocker:
+    > Delegated to /home/james/repos/bortus\-mcp, session renamed Bortus MCP — Kubernetes\. Only mcp/config\.py and \_\_init\_\_\.py moved; no server/tests/RBAC/skills yet\. External progress requires separate user authorization/state change\.
+
+### Decisions
+
+- Preserve original objective and all immutable completion criteria; MCP moved to an external dependency phase because user explicitly handed it off, not removed from scope\.
+- Latest user constraint: no additional subagents or resumes; all existing children are terminal and parent continues directly in tailscale only\. Do not work in Bortus or global deployed skills\.
+- Architecture and foundation children independently verified/accepted\. Docker initial report required correction; parent fixed and verified readiness, nonroot OpenCode, persistent Serve instructions, workflow credential handling, publication serialization and derivative revisions\. All27 source files reviewed\.
+- No task\_declare/todo/followup/memory tools available in active profile; goal plan records ownership and parent verification\. Standing maxConcurrent10 was respected during prior batches; no further delegation\.
+- Public jtmb/tailscale and jtmb/bortus\-mcp creation each had exact separate approval and independent API readback; both remotes remain empty\. No commit/push/publication or schedule activation approved yet\.
+- Keep secrets out of chat, command argv, logs, Git and image contexts\. User\-only local no\-echo entry writes \.env0600, which does not yet exist\. No automatic credential sharing across projects; no Google/SSH password storage unnecessarily\.
+- Dedicated repo\-local SSH key generation approved\. File metadata showed0644; parent tightened exact regular owned nlink1 file to0600 without reading it\. Public \.pub validates as Ed25519; no private/public matching, passphrase verification or node authorization claimed\.
+- Cluster192\.168\.0\.4:6443 reachable; kube\-apiserver certificate SAN includes IP but kubernetes CA not trusted\. Port443 is Traefik default, not a proven admin console\. Port22 unreachable; username/alternate port still needed\. Unrelated signal\-ledger SSH keys not reused\.
+- Current host OpenCode2\.1\.1 listens0\.0\.0\.0:49374 with unauthenticated API401 and remote=false\. No binding/password/service restart changed\. Dedicated nonroot Compose2\.0\.0 instance tested separately, not substituted for existing\-session acceptance without user choice\.
+- Tailnet\-only HTTPS and OpenCode application auth mandatory; never Funnel/OpenTunnel, no allow\-all grants, hostNetwork, privileged mode or host Docker socket\. Bootstrap admin distinct from scoped ongoing deployment identity; official operator broad RBAC documented for approval\.
+- Offline Helm3\.22\.1 was checksum/signature verified against release signer208DD36ED5BB3745A16743A4C7C6FBB5B91C1155 from independent Keybase key\. Chart1\.104\.2 digest cf215d52f3a20fae4c77b14a191957ccb12e46b0f2ff2263c6f51c8a472cd505 independently matched index/archive\. Lint/render succeeded; no install/server dryrun or cluster compatibility proof\.
+- No permanent autonomous maintenance promise: draft weekly Dependabot proposes updates only; manual GHCR workflow publishes version\-revision and source\-SHA tags with attestations\. Registry\-level tag immutability is not guaranteed; deploy a verified digest after publication\.
+- Exact initial local commit approved after user reviewed27\-file scope\. Parent staged only explicit approved paths, verified staged set/secret scan0 and diff\-\-check, then created 669139f0c8833cdf9bf2b19f8de6cb630d057aa5 on main using James/GitHub noreply identity\. Independent show/status verifies commit and clean tree\. No push, CI/schedule activation or GHCR publication approved/performed\.
+- User selected EXISTING HOST OpenCode service for live test, not separate Docker instance\. User confirmed private entry finished and explicitly approved narrowly scoped temporary GNOME screenshots in Pictures/Screenshots, each deleted immediately\. Parent captured/viewed/deleted two exact new screenshots, launched real google\-chrome to official Tailscale login and verified11 Chrome processes and visible page\.
+- Visible Tailscale login has Sign in with Google and a notice that clicking accepts Tailscale Terms/Privacy\. Chrome AT\-SPI exposes only window frames, no page controls; no blind coordinates/Playwright fallback and no sign\-in click\. Need user\-controlled sign\-in/terms handling or separately approved accessibility restart\. No passwords/MFA/tokens observed\.
+- User supplied candidate SSH usernames james or brajam, but no port\. Parent bounded recheck found ports22 and2222 unreachable\. Do not guess credentials, reuse unrelated keys, or scan broadly\. Need exact port/console access\. Dedicated private\-key file remains0600 and only public fingerprint was read\.
+- User explicitly approved pushing single commit669139f to empty public origin/main, activating validation CI and weekly Dependabot proposals, but not GHCR publication or deployment\. Parent reverified exact remote/branch/HEAD/clean tree before push\. GitHub rejected workflow upload because saved OAuth App token lacks workflow scope\. Independent ls\-remote still shows no heads\. Do not remove workflow, retry blindly, or widen credentials without fresh account/security approval\.
+- User approved test\-only unprivileged native Tailscale userspace client for EXISTING HOST test\. Parent extracted tailscale/tailscaled from verified pinned local image into ignored \.local/native\-tailscale/bin, verified both1\.104\.2 and recorded binary hashes, then started daemon with private state/socket/logs, no root, OS routes/DNS changes or OpenCode restart\. Local status confirms UID1000, NeedsLogin, zero tailnet IPs\. No registration/Serve configured; private logs not inspected or streamed\. This is a test process, not an installed persistent boot service\.
+- User chose enabling browser accessibility rather than manual sign\-in\. Chrome still at Tailscale login; no Google action/terms accepted, no protected entry observed\. Need explicit safe graceful Chrome restart approval to apply \-\-force\-renderer\-accessibility to existing profile, preserving unrelated work and sandbox\. Browser remains visible, no Playwright/headless fallback\.
+- User requested communication with existing session ses\_e8275dbd2ffe5vkgrWh4gVCnVB to compare GitHub authentication, a narrow exception to otherwise staying in this repo/session\. No new subagent created or resumed\. Bounded session\_context tool unavailable; parent read only exact session metadata via documented authenticated V2 API, identifying computer\-use project/title, and queued a nonsecret read\-only diagnostic using session\.prompt delivery=queue,resume=false\. Inbox receipt msg\_17e4ca750001NI9OAvFuDqwLyG\. No history/token values fetched; response pending\.
+- Independent nonsecret authentication comparison: tailscale and computer\-use both use HTTPS GitHub remotes and effective URL\-scoped GitHub CLI credential helper, with no extra auth header\. Current environment has no GH\_TOKEN/GITHUB\_TOKEN overrides\. Authenticated GitHub CLI /user response reports loginjtmb and scopes gist,read:org,repo, excluding workflow\. General source pushes may work while workflow\-file pushes are specifically rejected; do not assume other chat uploaded an Actions file until its diagnostic arrives\.
+- User explicitly approved graceful Chrome restart with same profile and \-\-force\-renderer\-accessibility\. Parent safely identified single true browser process after accounting for Chrome process\-title formatting, sent SIGTERM, verified graceful exit without force\-kill, relaunched requested Chrome, and verified accessibility traversal now finds Sign in with Google button\. Post\-restart temporary screenshot viewed/deleted exact file\. No sandbox weakening, password observation, Google sign\-in click or legal acceptance performed yet\.
+- User explicitly approved Tailscale Sign in with Google button and its stated Terms/Privacy action\. Parent used fresh AT\-SPI preview and matching single\-use token to dispatch button press\. Tool reports dispatched/unverified; no post\-click browser inspection or screenshot because Google may show protected fields\. Browser observation is paused pending user's explicit confirmation authentication is finished and fields cleared\. No login/token/credential completion claimed\.
+- User explicitly authorized continuing existing Google sign\-in flow\. Parent targeted account chooser via fresh complete AT\-SPI, selected the unique saved Gmail identity without passwords, then inspected actual consent fields: name/profile picture/email only\. Separate immediate consent approval obtained; fresh preview/token Continue applied\. Independent fresh AT\-SPI verified Machines \- Tailscale frame and Machines heading: authenticated admin\-console sign\-in achieved\. No password/MFA/CAPTCHA/saved\-password access, auth\-key creation, device registration or Serve changes\.
+- Two temporary native captures during account chooser work captured the foreground terminal rather than background Chrome; exact new files viewed and deleted immediately and not used as proof of browser state\. AT\-SPI targeted correct browser account/consent controls independently\. Do not claim visual Machines verification yet or reuse unrelated terminal content as instructions\.
+- Goal continuation independently rechecked clean local main, GitHub CLI scopes gist/read:org/repo \(still no workflow\), no remote heads and no pending own\-session inbox reply\. No push retry or credential change\. Exact\-session bounded diagnostic message read returned an unsupported response and was suppressed rather than dumping transcript; previous queued read\-only coordination remains pending\.
+- Authenticated browser read\-only policy review: expanded Access controls, opened Policies via fresh AT\-SPI preview/token actions, independently read rendered rule table\. Current grant is All users and devices \-&gt; All users and devices \-&gt; All ports and protocols\. Tailscale grants additive; a new owner\-only443 rule alone does NOT narrow this blanket grant\. Do not register/expose host as hardened until user approves and reviews a replacement/removal policy that preserves unrelated required access; no policy mutation or key creation yet\.
+- User approved drafting owner\-only policy and separately approved adding workflow scope to existing GitHub CLI credential\. Parent navigated read\-only JSON editor and reconstructed only visible nonsecret policy lines through AT\-SPI; exact unrestricted grant confirmed in source\. Proposed minimal diff shown: add tagOwners tag:opencode owned by autogroup:admin; replace \*/\*/\* grant with signed\-in Google identity \-&gt; tag:opencode tcp443, preserving other sections\. No editor mutation or save; need final exact policy approval, including possible impact on other tailnet traffic\.
+- After checking gh auth refresh documented flags, parent launched user\-owned Ptyxis terminal running gh auth refresh \-\-hostname github\.com \-\-scopes workflow, with no clipboard/insecure\-storage flags and no captured device code/token\. Private terminal/browser authorization is now user\-controlled; pause all browser/desktop observation until user confirms completed and protected fields cleared\. Scope upgrade not yet verified; no push retry\.
+- Fresh continuation audit: git main clean; remote heads empty; GitHub CLI reported gist/read:org/repo without workflow; native test daemon still running NeedsLogin, unregistered\. User explicitly said they will finish the private authorization now\. All desktop/browser observation remains paused until they confirm protected entry cleared\.
+- User separately APPROVED exact tailnet policy save: remove blanket all\-to\-all grant, add tag:opencode owned by autogroup:admin, allow only signed\-in Google identity to tag on TCP443, preserve other sections and acknowledge interruption of traffic relying on blanket rule\. Apply only after private authentication pause ends and current policy/diff reverified\. No registration/key/Serve included in approval; no policy save performed yet\.

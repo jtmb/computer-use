@@ -1,0 +1,84 @@
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+.envrc
+.env.lock
+.env.tmp.*
+
+# Credentials and Kubernetes configuration
+credentials
+credentials.*
+credentials/
+**/credentials/
+*-credentials*
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+.kube/
+*.secret
+*.credentials
+*.credentials.*
+
+# Private key and certificate material
+.ssh/
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+id_ecdsa
+id_ecdsa.*
+id_dsa
+id_dsa.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+*.der
+
+# Local state, approvals, and runtime artifacts
+.local/
+.state/
+state/
+.terraform/
+*.tfstate
+*.tfstate.*
+.approvals/
+approvals/
+*.approval
+*.approved
+*.state
+*.log
+.cache/
+.tmp/
+tmp/
+
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.next/
+coverage/
+htmlcov/
+
+# Dependencies and build output
+.venv/
+venv/
+dist/
+build/
+out/
+target/
+node_modules/
+vendor/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,15 @@
+{
+  "installCRDs": true,
+  "operatorConfig": {
+    "defaultTags": [
+      "tag:k8s-operator"
+    ]
+  },
+  "proxyConfig": {
+    "defaultTags": "tag:k8s-proxy"
+  },
+  "apiServerProxyConfig": {
+    "mode": "false",
+    "allowImpersonation": "false"
+  }
+}

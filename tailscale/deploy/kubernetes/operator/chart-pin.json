@@ -1,0 +1,12 @@
+{
+  "chart": "tailscale-operator",
+  "repository": "https://pkgs.tailscale.com/helmcharts",
+  "indexUrl": "https://pkgs.tailscale.com/helmcharts/index.yaml",
+  "version": "1.104.2",
+  "appVersion": "v1.104.2",
+  "archive": "tailscale-operator-1.104.2-1792591623-cf215d52f3a20fae4c77b14a191957ccb12e46b0f2ff2263c6f51c8a472cd505.tgz",
+  "archiveUrl": "https://pkgs.tailscale.com/helmcharts/tailscale-operator-1.104.2-1792591623-cf215d52f3a20fae4c77b14a191957ccb12e46b0f2ff2263c6f51c8a472cd505.tgz",
+  "indexDigest": "cf215d52f3a20fae4c77b14a191957ccb12e46b0f2ff2263c6f51c8a472cd505",
+  "archiveSha256": "cf215d52f3a20fae4c77b14a191957ccb12e46b0f2ff2263c6f51c8a472cd505",
+  "verifiedAt": "2026-10-27"
+}

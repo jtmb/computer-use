@@ -1,0 +1,103 @@
+services:
+  tailscale:
+    image: ghcr.io/jtmb/tailscale:${TAILSCALE_VERSION:-v1.104.2-r1}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: tailscale
+    hostname: tailscale-docker
+    user: "65532:65532"
+    environment:
+      TS_AUTHKEY: ${TS_AUTHKEY:-}
+      TS_AUTH_ONCE: "true"
+      TS_HOSTNAME: tailscale-docker
+      TS_STATE_DIR: /var/lib/tailscale
+      TS_USERSPACE: "true"
+      TS_ENABLE_HEALTH_CHECK: "true"
+      TS_LOCAL_ADDR_PORT: "127.0.0.1:9002"
+    volumes:
+      - type: volume
+        source: tailscale-state
+        target: /var/lib/tailscale
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 67108864
+          mode: 1777
+      - type: tmpfs
+        target: /var/run/tailscale
+        tmpfs:
+          size: 16777216
+          mode: 1777
+      - type: tmpfs
+        target: /var/cache/tailscale
+        tmpfs:
+          size: 33554432
+          mode: 1777
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    cpus: 1.0
+    mem_limit: 256m
+    pids_limit: 128
+    restart: unless-stopped
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:9002/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  opencode:
+    profiles:
+      - opencode
+    image: jtmb/tailscale-opencode:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: opencode
+    user: "65532:65532"
+    command: ["serve", "--hostname", "127.0.0.1", "--port", "4096"]
+    environment:
+      OPENCODE_PASSWORD: ${OPENCODE_PASSWORD:-}
+    network_mode: service:tailscale
+    depends_on:
+      tailscale:
+        condition: service_started
+    volumes:
+      - type: volume
+        source: opencode-data
+        target: /home/opencode/.local/share/opencode
+      - type: volume
+        source: opencode-config
+        target: /home/opencode/.config/opencode
+      - type: volume
+        source: opencode-state
+        target: /home/opencode/.local/state/opencode
+      - type: volume
+        source: opencode-workspace
+        target: /workspace
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 67108864
+          mode: 1777
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    cpus: 1.0
+    mem_limit: 1g
+    pids_limit: 128
+    restart: unless-stopped
+
+volumes:
+  tailscale-state:
+  opencode-data:
+  opencode-config:
+  opencode-state:
+  opencode-workspace:
