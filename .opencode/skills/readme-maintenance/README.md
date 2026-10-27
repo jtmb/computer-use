@@ -1,6 +1,7 @@
 # README Maintenance Usage
 
-Category: `maintenance`  
+Category: `maintenance`
+
 Tags: `readme,documentation,branding,setup,links,verification`
 
 ## Purpose and when to use it
