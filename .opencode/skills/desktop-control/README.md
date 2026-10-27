@@ -39,8 +39,11 @@ it.
 Normal use requires:
 
 - GNOME with toolkit accessibility enabled.
-- AT-SPI Python support.
-- `desktop-vision` for visual verification.
+- AT-SPI Python support through `python3-pyatspi` or the PyGObject Atspi 2.0
+  fallback in `scripts/pyatspi_compat.py`.
+- `desktop-vision`'s capture backend for visual verification, when present. If
+  it is absent, report that visual verification is unavailable and rely on
+  AT-SPI readback.
 - The repository's `desktop-control.py` utility.
 
 The agent should inspect current applications read-only before acting:
@@ -98,7 +101,8 @@ python3 ~/repos/computer-use/scripts/desktop-control.py focus \
 ```
 
 Expected result: one named control is affected, the post-action screenshot
-shows the intended change, and no other application or document is changed.
+(when visual capture is available) shows the intended change, and no other
+application or document is changed.
 
 ## Tools and command behavior
 
@@ -138,7 +142,8 @@ Important behavior:
 
 The agent must verify the visible consequence. A successful command response
 does not prove that GNOME raised, focused, edited, or dismissed the intended
-window.
+window. When no capture backend is available, verify through AT-SPI readback
+and report that visual verification was not possible.
 
 Known accessibility limitations include:
 
@@ -150,10 +155,12 @@ Known accessibility limitations include:
   scaling.
 
 When accessibility data are insufficient for a non-browser desktop app, use
-documented keyboard navigation through the existing private `ydotool` service
-and visually verify the result. Coordinate input is a last resort for
-non-browser applications only. Browser pages must follow the Browser boundary
-above and fail closed when required UIA capabilities are unavailable.
+documented keyboard navigation through the private `ydotool` service when it is
+present, otherwise ask the user to perform the keyboard action, and verify the
+result with AT-SPI readback or a screenshot when capture is available.
+Coordinate input is a last resort for non-browser applications only. Browser
+pages must follow the Browser boundary above and fail closed when required UIA
+capabilities are unavailable.
 
 ## Troubleshooting
 

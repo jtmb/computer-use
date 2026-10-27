@@ -34,7 +34,9 @@ scaling, so screenshot pixels are not reliable click coordinates.
 
 ## Workflow
 
-1. Load `desktop-vision`, announce a capture, and inspect the current UI.
+1. Load `desktop-vision`, announce a capture, and inspect the current UI. Visual
+   verification depends on that skill's capture backend; when it is unavailable,
+   say so rather than implying a visual check happened.
 2. Inventory accessible apps:
 
 ```bash
@@ -78,7 +80,9 @@ when the first outcome is uncertain. `focus` verifies the focused state, and
 `set-text` verifies focus plus exact text readback, but both still require
 visible verification when appearance or window state matters.
 6. Capture again and verify the visible result. Do not infer success from a
-zero exit code alone.
+   zero exit code alone. If the capture backend is unavailable, state that
+   visual confirmation was not possible and rely on AT-SPI readback; never
+   claim a visual result you did not observe.
 
 ## Application launch
 
@@ -89,8 +93,9 @@ Wait for the app to appear in `desktop-control.py apps` before querying it.
 ## Fallbacks
 
 - Some non-browser custom canvases and sandboxed apps expose little AT-SPI data.
-  Use documented keyboard navigation (Tab, arrows, Enter, Escape) and
-  GNOME shortcuts through the existing user-owned `ydotool` service.
+  Use documented keyboard navigation (Tab, arrows, Enter, Escape) and GNOME
+  shortcuts through the user-owned `ydotool` service when it is present and
+  active; otherwise ask the user to perform the keyboard action.
 - For non-browser desktop applications only, coordinate clicks are a last resort
   and require a fresh screenshot,
   known scaling transform, and immediate visual verification. Never map

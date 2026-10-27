@@ -16,6 +16,11 @@ Install the Playwright MCP dependency with:
 npm --prefix tools/browser install
 ```
 
+The Playwright MCP is disabled by default and installing its dependency does
+not enable it. When enabled, it is an isolated automation browser with its own
+throwaway profile; it is never the user's browser and is not used for the
+user's accounts.
+
 GitHub authentication comes from the existing `gh` login. No token is stored
 in this repository.
 

@@ -22,11 +22,14 @@ arbitrary callers get `AccessDenied: Screenshot is not allowed`
 (verified on this machine, Shell 50). Do not try unsafe mode,
 extensions, or permission changes to bypass it.
 
-This machine already has a user-owned `ydotool` service and the owner
-approved agent-initiated captures. Sending GNOME's configured screenshot
-shortcut through that service works and keeps the capture inside GNOME's
-built-in screenshot implementation. Announce every capture first. Never
-install, enable, or broaden input permissions just for this skill.
+Agent-initiated captures are approved on this machine. When a user-owned
+`ydotool` service is present and active with its private socket, sending GNOME's
+configured screenshot shortcut through that service works and keeps the capture
+inside GNOME's built-in screenshot implementation. Announce every capture first.
+If that service or socket is absent, do not modify the system: ask the user to
+press the shortcut, and report that visual capture is unavailable until a
+screenshot exists. Never install, enable, or broaden input permissions just for
+this skill.
 
 On WSL2, the tool does not require ydotool. It validates the expected Windows
 PowerShell executable and checked-in host source, calls only the fixed

@@ -29,8 +29,9 @@ redistributing the adaptation. The applicable license text is in
 - Use only browser actions and evidence actually exposed by those tools. If the
   connector, a required action, or a required evidence surface is unavailable,
   stop and report the test as blocked or incomplete. Do not use Chrome/Chromium,
-  the retired project Playwright MCP, Linux desktop-control, or
-  coordinate clicking as a fallback for browser work.
+  the project Playwright MCP (disabled by default; enable only for an explicitly
+  requested isolated task, never for the user's accounts), Linux
+  desktop-control, or coordinate clicking as a fallback for browser work.
 - Load `browser-headless` and use its isolated Firefox runtime only when the
   user explicitly requests a headless/background test. Headless visual output
   and input timing may differ, so identify that mode in the report.

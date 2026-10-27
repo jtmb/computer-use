@@ -13,8 +13,9 @@ From the repository root:
 
 That deploys the tracked global configuration and, with `--apply`, verifies web
 search with one live query. Add `--with-browser` to install the Playwright MCP
-dependency as well. Omit `--apply` at any time for a dry run that writes
-nothing; a dry run also skips the live search unless you add `--search`.
+dependency as well; it does not enable that MCP. Omit `--apply` at any time for
+a dry run that writes nothing; a dry run also skips the live search unless you
+add `--search`.
 
 ## What setup needs
 
@@ -36,7 +37,8 @@ search account, or store secrets; those remain interactive actions you own.
    config; the backup keeps a copy.
 4. Optionally sets the global model.
 5. Reports GitHub CLI authentication.
-6. Optionally installs `tools/browser` dependencies.
+6. Optionally installs `tools/browser` dependencies; the Playwright MCP itself
+   stays disabled.
 7. Verifies the websearch provider list and runs one live query on `--apply`.
 
 Deployment backs up replaced files to
@@ -97,6 +99,51 @@ opencode api get /api/websearch/provider
 opencode api post /api/websearch -d '{"query":"OpenCode v2 websearch"}'
 ```
 
+## Playwright MCP (disabled by default)
+
+`opencode.json` keeps the `playwright` server entry but sets
+`"disabled": true`. It is an isolated automation Firefox with its own throwaway
+profile at `~/.local/share/opencode/playwright-firefox`. It is never the user's
+browser: it holds no user logins, and Google rejects sign-in from it at
+`accounts.google.com/v3/signin/rejected` ("This browser or app may not be
+secure").
+
+For the user's own signed-in browser, launch the browser explicitly and drive it
+with `scripts/desktop-control.py` (`browser-assistant` documents the commands).
+That CLI is the real-browser path; there is no desktop-control or desktop-vision
+MCP tool.
+
+Re-enable the Playwright MCP only for explicitly requested isolated or
+public-site automation:
+
+1. Set `"disabled": false` on the `playwright` entry in the project
+   `opencode.json` — never in `global/opencode.jsonc`.
+2. Install its dependency with `npm --prefix tools/browser install` if needed.
+3. Reload with `Ctrl+P` > `service.restart`.
+4. Set `"disabled": true` again when the isolated task is finished.
+
+The project `playwright` entry is the only place that may carry
+`"disabled": false`. The global config must never declare `playwright`: the
+tracked `global/opencode.jsonc` omits it, `scripts/deploy-global-config.sh`
+copies that file verbatim (so `./scripts/onboard.sh --apply` cannot re-enable
+the server machine-wide), and `verify_global_mcp_servers` in
+`scripts/mcp_runtime.py` rejects any global config that contains the retired
+project-only Playwright server.
+
+A stale global Playwright entry is removed by deploying the tracked global
+config and reloading:
+
+```sh
+./scripts/deploy-global-config.sh --only opencode.jsonc          # dry run
+./scripts/deploy-global-config.sh --only opencode.jsonc --apply
+cfg="$(opencode debug paths | awk '$1 == "config" { print $2; exit }')"
+grep -n '"playwright"' "$cfg/opencode.jsonc" || echo "global playwright entry absent"
+```
+
+Removal takes effect only after that deploy plus a service reload or restart
+(`Ctrl+P` > `service.restart`). Until then, running sessions keep the previously
+loaded global tools.
+
 ## Verification
 
 ```sh
@@ -124,9 +171,13 @@ the active ones, then restart the service.
   provider list with the API command above.
 - **GitHub tools fail** — run `gh auth status`; if unauthenticated, run
   `gh auth login`.
-- **Browser MCP fails to start** — run
-  `./scripts/onboard.sh --apply --with-browser` or
-  `npm --prefix tools/browser install`.
+- **Playwright MCP not offered** — expected; it is disabled for personal
+  browsing. Enable it only for explicitly requested isolated or public-site
+  automation as described above, and disable it afterwards. It never signs in
+  to the user's accounts.
+- **Playwright MCP fails to start after enabling it** — install the dependency
+  with `npm --prefix tools/browser install` or
+  `./scripts/onboard.sh --apply --with-browser`.
 - **Config not picked up** — reload with `Ctrl+P` > `service.restart`.
 
 ## Safety

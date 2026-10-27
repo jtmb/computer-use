@@ -49,16 +49,6 @@
         "timeout": {
           "startup": 30000
         }
-      },
-      "playwright": {
-        "type": "local",
-        "command": [
-          "/home/shak/repos/computer-use/scripts/playwright-mcp.sh"
-        ],
-        "disabled": false,
-        "timeout": {
-          "startup": 90000
-        }
       }
     }
   },

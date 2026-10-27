@@ -19,11 +19,14 @@ from typing import Iterable
 
 try:
     import pyatspi
-except ImportError as exc:  # pragma: no cover - environment diagnostic
-    raise SystemExit(
-        "desktop-control: python3-pyatspi is required "
-        "(sudo apt-get install python3-pyatspi)"
-    ) from exc
+except ImportError:
+    try:
+        from pyatspi_compat import pyatspi
+    except (ImportError, ValueError) as exc:  # pragma: no cover - environment diagnostic
+        raise SystemExit(
+            "desktop-control: AT-SPI support is unavailable: neither "
+            "python3-pyatspi nor the PyGObject Atspi 2.0 typelib could be imported"
+        ) from exc
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 

@@ -19,11 +19,35 @@ default association:
    choose a browser on the user's behalf.
 2. Verify the intended process is running (`pgrep -af google-chrome`) before
    claiming the page opened.
-3. Inspect and operate the window with `desktop-control` (AT-SPI) when
-   interaction is needed, and use `desktop-vision` for visual verification.
-4. If the named browser is not installed or will not start, stop and report it.
+3. Inspect and operate the window with the AT-SPI CLI when interaction is
+   needed:
+
+   ```bash
+   python3 ~/repos/computer-use/scripts/desktop-control.py apps
+   python3 ~/repos/computer-use/scripts/desktop-control.py tree --app firefox
+   python3 ~/repos/computer-use/scripts/desktop-control.py find --app firefox \
+     --name "<name from tree>" --role "<role from tree>" --showing
+   ```
+
+   Use the app name reported by `apps`; `firefox` above stands for the browser
+   the user named. Mutation commands need a dry run first, then `--expect-token`
+   with the returned token and `--apply`.
+4. Verify visually with the `desktop-vision` skill when its capture path is
+   available; if it is not, report that limitation rather than claiming success.
+5. If the named browser is not installed or will not start, stop and report it.
    Do not silently substitute Firefox, headless Playwright, or the embedded
    browser.
+
+## Native Ubuntu boundaries
+
+- No `desktop-control` or `desktop-vision` MCP tools exist in this project. The
+  control path is `scripts/desktop-control.py`.
+- The project Playwright MCP is an isolated automation browser with its own
+  throwaway profile. Google rejects sign-in from it
+  (`accounts.google.com/v3/signin/rejected`), so it can never stand in for the
+  user's browser.
+- If `scripts/desktop-control.py` cannot reach the target app, stop and report
+  the blocker. Do not substitute another browser or automation route.
 
 The WSL instructions below apply only when the WSL interop bridge is present.
 
