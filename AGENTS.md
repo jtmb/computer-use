@@ -33,11 +33,11 @@ in this repository.
 - Cluster and backup plan: `/home/shak/audits/k8s-cve-20261026T225036Z/plan.md` (with the audit evidence)
 - Cluster handoff: `/home/shak/audits/k8s-cve-20261026T225036Z/HANDOFF.md`
 
-The project `opencode.json` registers the `github` local MCP from `./scripts/`.
-It also carries a `playwright` server entry that is deliberately disabled. That
-entry is an isolated automation browser with its own throwaway profile; it is
-never the user's browser and must never be used for the user's logged-in
-accounts or personal browsing. The global config points skills at
+The project `opencode.json` registers the `github` and `playwright` local MCPs
+from `./scripts/`. The `playwright` server is an isolated automation browser
+with its own throwaway profile; it is never the user's browser and must never
+be used for the user's logged-in accounts or personal browsing. The global
+config enables the same server and points skills at
 `~/repos/computer-use/.opencode/skills`.
 
 The native-Ubuntu real-browser path is `scripts/desktop-control.py`, an AT-SPI
@@ -82,10 +82,10 @@ git status --short
 git diff --check
 ```
 
-A healthy setup reports OpenCode v2, a running service, `github` connected, the
-`playwright` MCP absent or disabled, `scripts/desktop-control.py apps` exiting
-0, the repository skill path in the effective config, and the required local
-scripts present.
+A healthy setup reports OpenCode v2, a running service, `github` and
+`playwright` connected, `scripts/desktop-control.py apps` exiting 0, the
+repository skill path in the effective config, and the required local scripts
+present.
 
 ## Handoff and the cluster plan
 

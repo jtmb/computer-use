@@ -31,29 +31,19 @@ else
   bad "MCP not connected: github"
 fi
 
-# The Playwright MCP is an isolated automation browser, never the user's browser.
-# It must stay disabled in every state; absence of the line is fine, but any
-# state other than "disabled" (connected, starting, error, unrecognised) is a
-# defect. Matching is case-insensitive so a capitalised state cannot slip past.
-pw_bad="$(printf '%s\n' "$mcp_list" | grep -Ei 'playwright' | grep -Eiv 'disabled' || true)"
-if [ -n "$pw_bad" ]; then
-  bad "MCP playwright is not disabled: $(printf '%s' "$pw_bad" | tr '\n' ' ' | cut -c1-200)"
-  printf '      hint: keep "disabled": true and remove the global playwright server\n' >&2
+# The Playwright MCP is an isolated automation browser, never the user's
+# personal browser. It is expected to be enabled and connected. A disabled,
+# missing, starting, or errored server is a failure.
+if printf '%s\n' "$mcp_list" | grep -Eq '^[^[:alnum:]]*playwright[[:space:]]+connected'; then
+  ok "MCP connected: playwright"
 else
-  ok "MCP playwright absent or disabled"
+  bad "MCP not connected: playwright"
 fi
 
 # Config-level assertion on the raw config documents, not the merged view.
-# A playwright server outside this repository is the retired global server.
-if config_check="$(opencode debug config 2>/dev/null | ROOT="$ROOT" python3 -c '
+# Every playwright entry must be enabled and point at the tracked launcher.
+if config_check="$(opencode debug config 2>/dev/null | python3 -c '
 import json, os, sys
-
-root = os.path.realpath(os.environ["ROOT"])
-prefix = root + os.sep
-
-def under_root(path):
-    p = os.path.realpath(path)
-    return p == root or p.startswith(prefix)
 
 try:
     docs = json.load(sys.stdin)
@@ -66,6 +56,7 @@ if not isinstance(docs, list):
     sys.exit(1)
 
 problems = []
+seen = False
 for doc in docs:
     if not isinstance(doc, dict):
         continue
@@ -74,18 +65,27 @@ for doc in docs:
     servers = (info.get("mcp") or {}).get("servers") or {}
     if "playwright" not in servers:
         continue
+    seen = True
     entry = servers["playwright"]
-    disabled = entry.get("disabled") if isinstance(entry, dict) else None
-    if not under_root(path):
-        problems.append("retired global playwright MCP server in " + path)
-    elif disabled is not True:
-        problems.append("project playwright MCP server not disabled in " + path)
+    if not isinstance(entry, dict):
+        problems.append("invalid playwright entry in " + path)
+        continue
+    if entry.get("disabled") is True:
+        problems.append("playwright disabled in " + path)
+    command = entry.get("command") or []
+    if isinstance(command, list):
+        command = " ".join(str(part) for part in command)
+    if "playwright-mcp.sh" not in str(command):
+        problems.append("unexpected playwright command in " + path)
+
+if not seen:
+    problems.append("no playwright MCP server in effective config")
 
 if problems:
     print("; ".join(problems))
     sys.exit(1)
 
-print("playwright MCP confined to disabled project entry")
+print("playwright MCP enabled and points at the tracked launcher")
 ')"; then
   ok "$config_check"
 else

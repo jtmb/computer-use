@@ -23,7 +23,7 @@
         "command": [
           "./scripts/playwright-mcp.sh"
         ],
-        "disabled": true,
+        "disabled": false,
         "timeout": {
           "startup": 90000
         }
