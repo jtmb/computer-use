@@ -93,6 +93,13 @@ the confirmation gate before it runs.
 - Releases and workflow actions: verify the resulting release, run, or job state
   rather than trusting command exit status alone.
 
+## PR continuation
+
+When continuing, reviewing, or merging an open pull request that includes a
+handoff bundle, read
+[`references/pr-continuation.md`](references/pr-continuation.md). It defines the
+handoff files to load, merge/conflict rules, and post-merge verification.
+
 ## Usage guide
 
 When the user asks how to use this skill, also read
