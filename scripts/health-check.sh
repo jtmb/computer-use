@@ -23,9 +23,28 @@ else
   bad "background service is unavailable"
 fi
 
-mcp_list="$(opencode mcp list 2>/dev/null || true)"
+mcp_connected() {
+  printf '%s\n' "$1" | grep -Eq "^[^[:alnum:]]*$2[[:space:]]+connected"
+}
+
+# MCP servers start asynchronously. A first query can legitimately return
+# before both servers finish connecting, so retry briefly instead of reporting
+# a false failure. The wait is bounded and does not skip the check.
+mcp_list=""
+for _ in {1..15}; do
+  mcp_list="$(opencode mcp list 2>/dev/null || true)"
+  if mcp_connected "$mcp_list" github && mcp_connected "$mcp_list" playwright; then
+    break
+  fi
+  # A reported failure is terminal for this run; only cold starts are retried.
+  if printf '%s\n' "$mcp_list" | grep -q 'failed'; then
+    break
+  fi
+  sleep 2
+done
+
 for mcp in github playwright; do
-  if printf '%s\n' "$mcp_list" | grep -Eq "^[^[:alnum:]]*$mcp[[:space:]]+connected"; then
+  if mcp_connected "$mcp_list" "$mcp"; then
     ok "MCP connected: $mcp"
   else
     bad "MCP not connected: $mcp"
