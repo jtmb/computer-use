@@ -1,0 +1,3 @@
+[submodule "voice-assistant"]
+	path = voice-assistant
+	url = https://github.com/jtmb/opencode-voice-assistant.git
