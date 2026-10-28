@@ -13,7 +13,7 @@ computer-use uses a small, explicit v2 runtime boundary:
 - Skills: `.opencode/skills/`
 - Plugins: `plugins/`
 - Commands, examples, scripts, and checks: siblings below
-  `~/repos/computer-use/`.
+  the repository root.
 - Source files are regular, non-symlink files and are never replaced by live
   user configuration.
 

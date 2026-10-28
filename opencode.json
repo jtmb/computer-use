@@ -3,9 +3,6 @@
   "plugins": [
     "@prevalentware/opencode-goal-plugin@0.1.67"
   ],
-  "skills": [
-    "./.opencode/skills"
-  ],
   "mcp": {
     "servers": {
       "github": {

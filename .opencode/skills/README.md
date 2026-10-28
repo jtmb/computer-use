@@ -1,8 +1,8 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
-loaded directly from `./<name>/`; the global config points at
-`~/repos/computer-use/.opencode/skills`.
+Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
+deployed to the native global directory (by default
+`~/.config/opencode/skills/`); the repository copy is the source of truth.
 
 OpenCode watches skills and configuration. If a change is not picked up in a
 running session, start a fresh session or restart the service with `Ctrl+P` >
@@ -48,6 +48,8 @@ comma-separated tags; the category/tag index below is derived from each
 - `app-setup`, `system-troubleshooting`, `files-and-documents`, and
   `routine-automation` are the task workflows that combine vision, control,
   browser, and memory.
+- `kubernetes-rancher-operations` covers cluster, storage, GitOps, upgrade, and
+  migration diagnosis; `system-troubleshooting` remains the host-level skill.
 - `opencode-db-maintenance` keeps OpenCode itself healthy.
 - `development-conventions` supplies focused source, test, documentation, API,
   language, UI, and computer-use operational conventions.
@@ -81,6 +83,7 @@ comma-separated tags; the category/tag index below is derived from each
 | [`github-operations`](./github-operations/SKILL.md) | [`README.md`](./github-operations/README.md) | `applications` | `github,mcp,repositories,issues,pull-requests,automation` |
 | [`blender`](./blender/SKILL.md) | [`README.md`](./blender/README.md) | `applications` | `blender,3d,bpy,rendering,export` |
 | [`system-troubleshooting`](./system-troubleshooting/SKILL.md) | [`README.md`](./system-troubleshooting/README.md) | `troubleshooting` | `troubleshooting,diagnostics,services,performance` |
+| [`kubernetes-rancher-operations`](./kubernetes-rancher-operations/SKILL.md) | [`README.md`](./kubernetes-rancher-operations/README.md) | `troubleshooting` | `kubernetes,rancher,cluster,gitops,longhorn,backup,troubleshooting` |
 | [`files-and-documents`](./files-and-documents/SKILL.md) | [`README.md`](./files-and-documents/README.md) | `files` | `files,documents,organization,pdf` |
 | [`web-3d-asset-pipeline`](./web-3d-asset-pipeline/SKILL.md) | [`README.md`](./web-3d-asset-pipeline/README.md) | `files` | `3d,gltf,glb,assets,web` |
 | [`routine-automation`](./routine-automation/SKILL.md) | [`README.md`](./routine-automation/README.md) | `automation` | `automation,scheduling,scripts,idempotence` |
@@ -255,7 +258,7 @@ permission changes retain explicit user handling and confirmation gates.
 ### task-memory
 
 Store and retrieve durable user preferences, verified computer facts,
-workflow decisions, and pending tasks in the local Basic Memory knowledge base.
+workflow decisions, and pending tasks in a local Markdown task-memory store.
 
 Use when the user says remember, forget, continue later, what did we decide,
 or when durable context would prevent repeated setup. Never store credentials
@@ -267,12 +270,11 @@ Example requests:
 - "What did we decide about screenshots?"
 - "Continue where we left off yesterday."
 
-Requires: the `basic-memory` MCP tools (`search_notes`, `build_context`,
-`read_note`, `write_note`, `edit_note`, `delete_note`) served by
-`scripts/basic-memory-mcp.sh` under an adaptive memory budget, with the
-owner-only project at `~/Documents/computer-assistant/basic-memory/` (dir
-`700`). Writes apply directly, so confirm durable personal facts first;
-deletion always needs an explicit confirmation.
+Requires: a local Markdown store at
+`${XDG_DATA_HOME:-$HOME/.local/share}/opencode/task-memory/` (directory `700`,
+notes `600`) and `rg` for search. No MCP server is needed. Writes apply
+directly, so confirm durable personal facts first; deletion always needs an
+explicit confirmation.
 
 ### session-context
 
@@ -351,6 +353,31 @@ Example requests:
 Requires: read-only evidence first (versions, processes, resources, service
 status, journals, devices, config, free space), one testable cause, smallest
 reversible fix, and a repeated reproduction plus regression check.
+
+### kubernetes-rancher-operations
+
+Diagnose and operate Kubernetes and Rancher clusters across distributions,
+including nodes, control plane, etcd, storage, GitOps, networking, secrets,
+upgrades, backups, restores, and production migrations.
+
+Use when a cluster is unhealthy, an upgrade or migration is planned, or Fleet,
+Flux, Longhorn, ingress, or node behavior needs evidence-based diagnosis and
+rollback.
+
+Example requests:
+
+- "This node is NotReady after a reboot. Diagnose it without deleting data."
+- "A pod is stuck in ContainerCreating on a Longhorn volume."
+- "Flux reports a Kustomization that is not ready."
+- "Plan a supported Kubernetes and Rancher upgrade path."
+- "Prove our Longhorn backups would actually restore."
+- "We committed a token by mistake. Contain it and say what to rotate."
+
+Requires: a confirmed kubeconfig context and cluster identity, read-only
+baseline evidence, one testable cause, a defined rollback and data-safety gate,
+and before/after comparison of object identities, storage, GitOps, and ingress.
+State-changing cluster work, commits, pushes, and repository visibility changes
+each keep their own approval.
 
 ### files-and-documents
 

@@ -129,4 +129,6 @@ user-owned and needs no administrator elevation.
   but never credentials or private repository content.
 - [`skill-maintenance`](../skill-maintenance/README.md) maintains this skill and
   its catalog registration.
+- [`references/pr-continuation.md`](./references/pr-continuation.md) covers PR
+  handoff, merge/conflict handling, and post-merge verification.
 - The canonical catalog entry is in `skills/README.md`.

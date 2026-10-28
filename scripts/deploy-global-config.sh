@@ -5,16 +5,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE="$ROOT/global"
-if [ -n "${OPENCODE_GLOBAL_CONFIG_DIR:-}" ]; then
-  TARGET="$OPENCODE_GLOBAL_CONFIG_DIR"
-elif [ -n "${OPENCODE_V2_CONFIG_DIR:-}" ]; then
-  TARGET="$OPENCODE_V2_CONFIG_DIR"
-elif [ -n "${OPENCODE_V2_PILOT_DIR:-}" ]; then
-  TARGET="$OPENCODE_V2_PILOT_DIR/config"
-else
-  TARGET="$(opencode debug paths 2>/dev/null | awk '$1 == "config" { print $2; exit }' || true)"
-  TARGET="${TARGET:-$HOME/.opencode-v2-pilot/config}"
-fi
+. "$ROOT/scripts/opencode-paths.sh"
+TARGET=""
 APPLY=0
 ONLY=""
 
@@ -27,6 +19,9 @@ With --apply, backs up the target files and copies the tracked global config.
 
 --only restricts the deployment to comma-separated entries from:
   opencode.jsonc, cli.json, commands, agents
+
+A full deployment (no --only) also deploys the repository skill bundles to the
+active global skills directory.
 EOF
 }
 
@@ -61,6 +56,10 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+if [ -z "$TARGET" ]; then
+  TARGET="$(resolve_global_config_dir)"
+fi
+
 NAMES=()
 if [ -z "$ONLY" ]; then
   NAMES=(opencode.jsonc cli.json commands agents)
@@ -80,6 +79,24 @@ fi
 case "$TARGET" in
   /|//|.) fail "refusing unsafe target: $TARGET" ;;
 esac
+
+WANT_SKILLS=0
+if [ -z "$ONLY" ]; then
+  WANT_SKILLS=1
+else
+  case ",$ONLY," in
+    *",opencode.jsonc,"*) WANT_SKILLS=1 ;;
+  esac
+fi
+
+deploy_skills() {
+  [ "$WANT_SKILLS" -eq 1 ] || return 0
+  if [ "$APPLY" -eq 1 ]; then
+    "$ROOT/scripts/deploy-skills.sh" --apply --target "${TARGET%/}/skills"
+  else
+    "$ROOT/scripts/deploy-skills.sh" --target "${TARGET%/}/skills"
+  fi
+}
 
 python3 - "$SOURCE" "$TARGET" <<'PY'
 import json
@@ -146,11 +163,13 @@ done
 
 if [ "$changed" -eq 0 ]; then
   printf 'deploy-global-config: tracked config already matches %s\n' "$TARGET"
+  deploy_skills
   exit 0
 fi
 
 if [ "$APPLY" -eq 0 ]; then
   printf 'deploy-global-config: dry run only; rerun with --apply to write\n'
+  deploy_skills
   exit 0
 fi
 
@@ -185,4 +204,5 @@ for name in "${NAMES[@]}"; do
 done
 
 printf 'deploy-global-config: deployed %s\n' "$TARGET"
+deploy_skills
 printf 'Next: in the TUI press Ctrl+P and run service.restart to restart OpenCode.\n'

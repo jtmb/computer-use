@@ -20,7 +20,7 @@ acceptance.
    by assumption.
 2. Locate the canonical computer-use checkout. Do not assume a fixed path: it is the
    checkout containing both root `bootstrap.sh` and
-   `~/repos/computer-use/`. Record its actual absolute path.
+   the computer-use checkout that contains `AGENTS.md`. Record its actual absolute path.
 3. Inventory the consumer's `opencode.json`, `.opencode/` tree, plugins, agent
    declarations, skills, and `mcp.servers`. Inspect existing global v2 config
    only at its selected path. Run `git status --short` and preserve all dirty

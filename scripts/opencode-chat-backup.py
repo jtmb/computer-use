@@ -10,7 +10,8 @@ Layout:
   <backup-root>/<repo>/<slug>__<sanitized-title>.json
 
 - <repo> is the git remote name when the session directory is a checkout,
-  else the directory basename (e.g. sessions in /home/shak land in `james/`).
+  else the directory basename (for example, sessions opened from a home
+  directory land in `<home>/`).
 - The slug identifies the session. Repeat exports with the same title
   overwrite in place. A changed title creates another filename; the manifest
   records script-owned exports so successful replacements and deleted sessions

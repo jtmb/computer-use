@@ -38,14 +38,14 @@ scaling, so screenshot pixels are not reliable click coordinates.
 2. Inventory accessible apps:
 
 ```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py apps
+python3 ./scripts/desktop-control.py apps
 ```
 
 3. Inspect only the relevant app or element:
 
 ```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py tree --app gnome-text-editor
-python3 ~/repos/computer-use/scripts/desktop-control.py find --app gnome-text-editor \
+python3 ./scripts/desktop-control.py tree --app gnome-text-editor
+python3 ./scripts/desktop-control.py find --app gnome-text-editor \
   --name "Open" --role "push button" --showing
 ```
 
@@ -54,14 +54,14 @@ preview emits a short-lived `target_token`; repeat the same mutation promptly
 with that exact token and `--apply`:
 
 ```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py action --app APP --name NAME \
+python3 ./scripts/desktop-control.py action --app APP --name NAME \
   --action default.activate --showing
-python3 ~/repos/computer-use/scripts/desktop-control.py action --app APP --name NAME \
+python3 ./scripts/desktop-control.py action --app APP --name NAME \
   --action default.activate --showing --expect-token 'TOKEN_FROM_PREVIEW' --apply
 
-python3 ~/repos/computer-use/scripts/desktop-control.py set-text --app APP --role text \
+python3 ./scripts/desktop-control.py set-text --app APP --role text \
   --showing --text "harmless text"
-python3 ~/repos/computer-use/scripts/desktop-control.py set-text --app APP --role text \
+python3 ./scripts/desktop-control.py set-text --app APP --role text \
   --showing --text "harmless text" --expect-token 'TOKEN_FROM_PREVIEW' --apply
 ```
 

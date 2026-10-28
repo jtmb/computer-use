@@ -31,8 +31,17 @@ global/commands/
 global/agents/
 ```
 
-Credentials and generated runtime files are never tracked. The global
-`skills/` directory is managed separately and is not deployed by this script.
+Credentials and generated runtime files are never tracked. Global skills are
+deployed to the active global skills directory (by default
+`~/.config/opencode/skills/`) and discovered natively by OpenCode; the
+repository `.opencode/skills/` directory is the source. A full
+`deploy-global-config.sh` run and onboarding refresh the deployed bundles, and
+`scripts/deploy-skills.sh --apply` can update them independently. The global
+config no longer points at the repository skill path.
+
+The global MCP launchers resolve
+`${COMPUTER_USE_ROOT:-$HOME/repos/computer-use}`. Set `COMPUTER_USE_ROOT` when
+this repository is cloned somewhere other than the default location.
 
 Preview a deployment (the default) or apply it:
 
@@ -57,8 +66,9 @@ After applying, restart OpenCode from the TUI: press `Ctrl+P`, type
 
 ## Session handoff
 
-- The cluster handoff and CVE/backup plan live with the audit evidence at
-  `/home/shak/audits/k8s-cve-20261026T225036Z/`.
+- The cluster handoff and CVE/backup plan live with the audit evidence in a
+  local audit directory outside this repository (for example
+  `$CLUSTER_AUDIT_DIR`).
 - The global `handoff` skill in `.opencode/skills/handoff/` refreshes the
   `HANDOFF.md` in whichever directory the work lives, without committing or
   pushing.

@@ -1,20 +1,32 @@
 ---
-description: Validate the canonical skills and confirm the active v2 skill path.
+description: Validate and deploy the canonical skills to the global directory.
 agent: build
 ---
 
-Validate the canonical skills in this repository; no copy deployment is needed
-because the global config points at `.opencode/skills`.
+Deploy the canonical skills to the native global skills directory and verify
+the result.
 
 1. Read `AGENTS.md` and the `skill-maintenance` skill. Preserve unrelated dirty
    work.
-2. Run the read-only health check:
+2. Treat `.opencode/skills/` as the source of truth.
+3. Preview, then deploy with the tracked script:
 
    ```bash
-   /home/shak/repos/computer-use/scripts/health-check.sh
+   ./scripts/deploy-skills.sh
+   ./scripts/deploy-skills.sh --apply
    ```
 
-3. Confirm the global config `skills` path points at
-   `~/repos/computer-use/.opencode/skills`.
-4. Restart OpenCode only if the configuration or skill source changed.
-5. Never edit deployed copies, delete preserved user files, or commit changes.
+   Add `--prune` to remove global skill directories that are no longer in the
+   source. Without it, the script reports them but leaves them in place.
+
+4. Verify the deployed tree matches the source and run the read-only health
+   check from the repository root:
+
+   ```bash
+   ./scripts/health-check.sh
+   ```
+
+5. Confirm OpenCode discovers the global skills; restart the service with
+   `Ctrl+P` > `service.restart` only if discovery does not refresh.
+6. Never edit deployed copies by hand, delete preserved user files, commit, or
+   push.
