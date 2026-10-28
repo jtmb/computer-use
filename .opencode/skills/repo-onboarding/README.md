@@ -19,7 +19,7 @@ target runtime.
 
 - Identify the consumer repo and preserve its dirty work.
 - Locate the computer-use checkout by finding both root `bootstrap.sh` and
-  `~/repos/computer-use/`; do not assume a path.
+  the computer-use checkout that contains `AGENTS.md`; do not assume a path.
 - Confirm the selected OpenCode binary reports v2.
 - Inventory `opencode.json`, `.opencode/`, plugins, agents, skills, and
   `mcp.servers`; inspect provider/model availability in the selected target.

@@ -4,13 +4,15 @@ set -euo pipefail
 umask 077
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-NODE_BIN="$HOME/.local/share/fnm/aliases/default/bin"
+NODE="${OPENCODE_NODE_BIN:-$(command -v node 2>/dev/null || true)}"
+[ -n "$NODE" ] || NODE="$HOME/.opencode/bin/node"
+NODE_BIN="$(dirname "$NODE")"
 PROJECT="$(cd "$SCRIPT_DIR/../tools/browser" && pwd)"
 MCP="$PROJECT/node_modules/.bin/playwright-mcp"
-OUTPUT="/tmp/opencode/playwright-headless"
+OUTPUT="${OPENCODE_HEADLESS_OUTPUT_DIR:-${TMPDIR:-/tmp}/opencode/playwright-headless}"
 
-if [ ! -x "$NODE_BIN/node" ]; then
-  echo "playwright-headless: fnm default Node is unavailable: $NODE_BIN/node" >&2
+if [ ! -x "$NODE" ]; then
+  echo "playwright-headless: Node.js is unavailable: $NODE" >&2
   exit 1
 fi
 if [ ! -x "$MCP" ]; then

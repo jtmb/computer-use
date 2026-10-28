@@ -1,8 +1,8 @@
 # Task Memory Usage
 
-This guide explains how to use the `task-memory` skill. The agent-facing
-operating rules remain in [SKILL.md](./SKILL.md); OpenCode does not
-automatically load this usage guide when the skill is loaded.
+This guide explains how to use the `task-memory` skill. The agent-facing rules
+remain in [SKILL.md](./SKILL.md); OpenCode does not load this guide
+automatically.
 
 Category: `memory`
 
@@ -10,10 +10,10 @@ Tags: `memory`, `preferences`, `decisions`, `pending`
 
 ## Purpose and when to use it
 
-Use `task-memory` to preserve durable context across sessions in Basic Memory,
-a local-first Markdown knowledge base shared by the user and the assistant.
+Use `task-memory` to preserve durable context across sessions in a local
+Markdown store. It replaces Basic Memory and needs no MCP server or database.
 
-Appropriate requests include:
+Appropriate requests:
 
 - "Remember that I prefer direct automation with verification."
 - "What did we decide about screenshots?"
@@ -21,119 +21,96 @@ Appropriate requests include:
 - "Forget that outdated hardware fact."
 - "Show pending work that still has a concrete next step."
 
-Do not use memory as a substitute for inspecting current system, project, or
-application state.
+Do not use memory instead of inspecting current system, project, or application
+state.
 
-## Prerequisites and setup verification
+## Prerequisites
 
-- The `basic-memory` MCP server is registered in the v2 config and launched
-  through `scripts/basic-memory-mcp.sh`, which applies an adaptive user-cgroup
-  memory budget and fails closed without a limiter.
-- The project is `computer-assistant` at
-  `~/Documents/computer-assistant/basic-memory/` (owner-only, `700`), with its
-  SQLite index and the FastEmbed `bge-small-en-v1.5` model cached locally.
-- The wrapper's resolved limiter and budget can be checked read-only:
+- The store lives at
+  `${XDG_DATA_HOME:-$HOME/.local/share}/opencode/task-memory/`.
+- The account running OpenCode must be able to create and write that directory.
+- `rg` (ripgrep) should be available for search; `find` is enough to list notes.
 
-  ```bash
-  scripts/basic-memory-mcp.sh --verify-only
-  ```
+Verify read-only:
 
-- Registration and connection:
-
-  ```bash
-  opencode mcp list   # basic-memory connected
-  ```
-
-Only the core nine tools are exposed (`search_notes`, `read_note`,
-`write_note`, `edit_note`, `delete_note`, `build_context`, `recent_activity`,
-`list_directory`, `basic_memory_diagnostics`); the project/workspace managers,
-schema tools, `move_note`, `view_note`, `read_content`, and the compatibility
-`search`/`fetch` tools are hidden by `permissions` deny entries.
+```bash
+root="${XDG_DATA_HOME:-$HOME/.local/share}/opencode/task-memory"
+ls -ld "$root" 2>/dev/null || echo "store not created yet"
+find "$root" -name '*.md' 2>/dev/null | head
+```
 
 ## How to request it
 
-Ask in ordinary language. The user does not need to know titles, folders, or
-tool names.
-
-Example requests:
+Ask in ordinary language; no tool names or paths are required.
 
 - "Remember this durable preference."
 - "Search memory for microphone setup."
 - "List pending items."
 - "Remove the obsolete note about the old printer."
 
-The agent should read narrowly with `search_notes`/`build_context` and avoid
-dumping the whole knowledge base into a conversation.
+The agent should search narrowly and read only the matching note.
 
-## Worked workflow and expected result
+## Worked workflow
 
-A representative retrieval workflow:
+Write:
 
-1. `recent_activity` to see recently changed notes.
-2. `search_notes` with task-relevant terms.
-3. `read_note` the best hit, or `build_context` to pull in related notes.
+1. Decide whether the fact is durable and appropriate.
+2. Confirm before recording personal facts or decisions.
+3. Choose the directory and a lowercase hyphenated filename.
+4. Create the directory with mode `700`, write the note with `title`, `type`,
+   `tags`, and `updated`, then set the note to mode `600`.
+5. Read it back and confirm a distinctive search term finds it.
 
-A representative write workflow:
+Read:
 
-1. Decide whether the fact is durable and appropriate (see the rules below).
-2. Confirm with the user before recording personal facts or decisions.
-3. `write_note` with a short title, a `directory` such as `preferences` or
-   `decisions`, a `note_type`, tags, and a concise body. Relations use
-   `[[Other note title]]`.
+1. List recent notes or search with `rg -il`.
+2. Read the best match once identified.
+3. Follow `[[slug]]` links only when the task needs broader context.
 
-Corrections use `edit_note` (append, replace a section, or find-replace).
-Deletion uses `delete_note` only after an explicit confirmation in the moment;
-the tool deletes files, so never bulk-delete a directory.
+## Note types and directories
 
-Expected result: the relevant note is retrieved or changed deliberately, and
-the agent reports the note title and its location (permalink) when useful
-without exposing unrelated notes.
+- `preferences/` - explicit durable user choices.
+- `systems/` - verified hardware, OS, or application facts.
+- `workflows/` - tested procedures that succeeded on this machine.
+- `decisions/` - user-approved implementation or policy choices.
+- `pending/` - unfinished work with a concrete next step.
 
-## Note types and tags
+### Example note
 
-- `preference` — explicit durable user choices.
-- `system` — verified hardware, OS, or application facts.
-- `workflow` — tested procedures that succeeded on this machine.
-- `decision` — user-approved implementation or policy choices.
-- `pending` — unfinished work with a concrete next step.
+```markdown
+---
+title: End-of-run summaries
+type: preference
+tags: [preferences, reporting]
+updated: 2026-10-28
+---
 
-Keep notes short and link related notes by title so `build_context` can follow
-the graph.
+Append a compact summary (maximum 15 lines) after every goal run, phase,
+consolidation, or compaction, in addition to the technical report.
+```
 
-## Verification and known limitations
+## Verification and limitations
 
-The agent verifies writes by reading the note back with `read_note` or by
-finding it again with `search_notes`.
-
-Known limitations:
-
-- Search is hybrid (semantic plus keyword) and can miss differently worded
-  notes; try several terms or `build_context` from a related note.
-- Notes have no expiry field; retire stale pending items with `edit_note` or
-  `delete_note` instead of leaving contradictions.
-- Writes apply directly with no preview; the confirmation rule below is the
-  guardrail.
-- The legacy JSON store and `assistant-memory.py` were removed on 2026-09-18;
-  do not recreate them.
+- Search is literal or regex, not semantic. Try several distinctive terms.
+- `rg` is preferred; `grep -Ril` works as a fallback.
+- There is no automatic indexing or sync; notes are plain files.
+- Notes have no expiry. Replace stale notes instead of leaving contradictions.
+- Writes apply directly; confirmation is the guardrail.
+- Basic Memory and the legacy JSON store are retired and must not be recreated.
 
 ## Troubleshooting
 
-- `basic-memory` not connected: check `opencode mcp list`, then the wrapper
-  with `--verify-only`; a missing limiter or binary exits `2` with a reason.
-- Permission error: confirm the project directory is owned by the user with
-  mode `700`; do not broaden permissions.
-- Empty search result: try broader terms, `recent_activity`, or
-  `list_directory`.
-- Wrong note edited: `read_note` first; `edit_note` requires an exact title,
-  permalink, or memory URL.
-- Startup slow or memory pressure: the wrapper bounds the server; report the
-  symptom instead of removing the limiter.
+- Store missing: create it with mode `700` when the first note is written.
+- Search finds nothing: try broader terms or list recent files.
+- Wrong note: read it first; then edit or replace it.
+- Permission denied: confirm ownership and mode on the store, and do not
+  broaden permissions beyond the user.
 
-## Safety, confirmation, and elevation
+## Safety and confirmation
 
-The agent must never store:
+Never store:
 
-- Passwords.
+- Passwords or passphrases.
 - API keys or access tokens.
 - Private keys.
 - Payment details.
@@ -141,16 +118,13 @@ The agent must never store:
 - Dictated private content.
 - Whole chats or unrelated personal details.
 
-Ask before deleting a note, and ask before recording sensitive personal
-context even when it is not on the forbidden list. This skill does not require
-administrator elevation for normal memory operations.
+Ask before deleting a note, and before recording sensitive personal context
+even when it is not on the forbidden list.
 
 ## Related skills and documents
 
-- [`routine-automation`](../routine-automation/README.md) can use a remembered
-  tested workflow as automation input.
-- [`system-troubleshooting`](../system-troubleshooting/README.md) can verify
-  or replace stale system facts.
-- The bounded launcher is documented in `docs/scripts/basic-memory-mcp.md`
-  in the repository.
-- The canonical catalog entry is in `skills/README.md`.
+- [`session-context`](../session-context/README.md) retrieves read-only context
+  from another session.
+- [`handoff`](../handoff/README.md) records live work state for the next
+  session.
+- The catalog entry is in [`skills/README.md`](../README.md).

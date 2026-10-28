@@ -115,8 +115,7 @@ Before acting, read [`references/useful-comments/guidelines.md`](references/usef
 
 - Read the repository-root `AGENTS.md` before acting. It is the authority for
   OpenCode v2, canonical paths, safety, and verification.
-- Canonical source lives under
-  `~/repos/computer-use/`; do not edit generated user config or
+- Canonical source lives in this checkout; do not edit generated user config or
   deployed skill copies directly.
 - Verification is read-only by default. Any setup or deployment write requires
   an explicit `--apply` and an explicitly selected target.

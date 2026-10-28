@@ -9,7 +9,7 @@ MCP/plugin parity.
 - **OpenCode v2 is the only current runtime target** — do not add legacy
   configuration, migration, or rollback instructions to current guidance.
 - **Canonical sources stay in the repository** — skills, v2 plugins, examples,
-  commands, and scripts live below `~/repos/computer-use/`.
+  commands, and scripts live below the repository root.
 - **Verification is read-only by default** — setup and deployment writes need
   an explicit `--apply` and an explicitly selected target.
 - **Deploy complete bundles** — preserve unrelated target files and verify every

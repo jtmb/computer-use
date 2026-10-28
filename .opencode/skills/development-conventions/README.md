@@ -13,7 +13,7 @@ replacement for the repository-root `AGENTS.md`.
 ## Prerequisites and setup verification
 
 Read `AGENTS.md`, inspect the current working tree, and identify the canonical
-source under `~/repos/computer-use/`. Read only the relevant
+source in this checkout's repository root. Read only the relevant
 reference files before acting. Verification is read-only by default.
 
 ## How to request it

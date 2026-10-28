@@ -4,7 +4,9 @@ This is the canonical repository for the local OpenCode v2 computer-use setup:
 project/global configuration, skills, MCP wrappers, browser tooling, and the
 supporting scripts.
 
-Canonical repository: `~/repos/computer-use`
+Canonical repository: the checkout that contains this file (commonly cloned at
+`~/repos/computer-use`). Scripts and docs resolve paths from the repository
+root; do not assume a specific home directory.
 
 ## Start Here
 
@@ -30,12 +32,14 @@ in this repository.
 - Project config: `opencode.json`
 - MCP version pins: `config/mcp-versions.json`
 - Browser tooling: `tools/browser/`
-- Cluster and backup plan: `/home/shak/audits/k8s-cve-20261026T225036Z/plan.md` (with the audit evidence)
-- Cluster handoff: `/home/shak/audits/k8s-cve-20261026T225036Z/HANDOFF.md`
+- Cluster work (CVE assessment, plan, evidence, handoff) lives in a local audit
+  directory outside this repository. Set `CLUSTER_AUDIT_DIR` in your local
+  environment or notes; do not hardcode one user's path in this repo.
 
-The project `opencode.json` registers `github` and `playwright` local MCPs from
-`./scripts/`. The global config points skills at
-`~/repos/computer-use/.opencode/skills`.
+The project `opencode.json` registers the `github` and `playwright` local MCPs
+from `./scripts/`. Global skills are deployed to the active global skills
+directory (by default `~/.config/opencode/skills/`) and discovered natively;
+the repository `.opencode/skills` directory is the source of truth.
 
 ## Skills
 
@@ -58,10 +62,10 @@ Important skills:
 
 ## Verification
 
-Run the read-only health check:
+Run the read-only health check from the repository root:
 
 ```bash
-/home/shak/repos/computer-use/scripts/health-check.sh
+./scripts/health-check.sh
 ```
 
 Supporting checks:
@@ -78,16 +82,16 @@ git diff --check
 ```
 
 A healthy setup reports OpenCode v2, a running service, `github` and
-`playwright` connected, the repository skill path in the effective config, and
-the required local scripts present.
+`playwright` connected, skills deployed in the active global skills directory,
+and the required local scripts present.
 
 ## Handoff and the cluster plan
 
 - Use the global `handoff` skill in the directory where the work lives. Refresh
   that directory's `HANDOFF.md` with the current state, blockers, and next
   steps; preserve its prompt and live-state structure.
-- Keep the cluster plan at `/home/shak/audits/k8s-cve-20261026T225036Z/plan.md` synchronized with the remediation and
-  backup state.
+- Keep the cluster plan at `$CLUSTER_AUDIT_DIR/plan.md` synchronized with the
+  remediation and backup state.
 - The cluster recovery gate is open until a fresh Longhorn backup and a tested
   restore are observed. A scheduled backup is not proof that a backup works.
 

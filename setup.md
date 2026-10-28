@@ -33,7 +33,9 @@ search account, or store secrets; those remain interactive actions you own.
 3. Deploys `global/opencode.jsonc`, `global/cli.json`, `global/commands/`, and
    `global/agents/` with `scripts/deploy-global-config.sh`. This replaces the
    tracked entries, so local-only agents or commands are removed from the active
-   config; the backup keeps a copy.
+   config; the backup keeps a copy. A full deployment also deploys the
+   repository skill bundles to the active global skills directory with
+   `scripts/deploy-skills.sh`; the repository copy remains the source.
 4. Optionally sets the global model.
 5. Reports GitHub CLI authentication.
 6. Optionally installs `tools/browser` dependencies.

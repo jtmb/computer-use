@@ -89,7 +89,8 @@ you did not request it.
 ## Node and kernel upgrades
 
 - Installed package version is not the running kernel. Check `uname -r` against
-  the installed `linux-image-*`.
+  the installed kernel package (`linux-image-*` on Debian/Ubuntu, `kernel-core`
+  on Fedora/RHEL).
 - A kernel or container-runtime change needs a reboot to take effect.
 - Drain one node at a time; verify storage replicas and PDBs first.
 - After reboot, confirm the runtime socket is serving, the node is Ready, etcd

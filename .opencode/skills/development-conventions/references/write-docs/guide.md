@@ -13,7 +13,7 @@ tags: [documentation, readme, adr, api-docs, getting-started]
 Every maintained project or platform surface should have one discoverable setup
 guide covering prerequisites, installation, build steps, configuration,
 verification, and troubleshooting. In computer-use, route this through the existing
-`docs/` and `~/repos/computer-use/` documentation; do not invent
+`docs/` and repository-root documentation; do not invent
 parallel documentation trees.
 
 ### Configuration guidance

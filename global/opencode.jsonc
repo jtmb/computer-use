@@ -1,9 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "deepseek/deepseek-flash",
-  "skills": [
-    "~/repos/computer-use/.opencode/skills"
-  ],
   "websearch": {
     "provider": "random"
   },
@@ -43,7 +40,9 @@
       "github": {
         "type": "local",
         "command": [
-          "/home/shak/repos/computer-use/scripts/github-mcp.sh"
+          "bash",
+          "-c",
+          "exec \"${COMPUTER_USE_ROOT:-$HOME/repos/computer-use}/scripts/github-mcp.sh\""
         ],
         "disabled": false,
         "timeout": {
@@ -53,7 +52,9 @@
       "playwright": {
         "type": "local",
         "command": [
-          "/home/shak/repos/computer-use/scripts/playwright-mcp.sh"
+          "bash",
+          "-c",
+          "exec \"${COMPUTER_USE_ROOT:-$HOME/repos/computer-use}/scripts/playwright-mcp.sh\""
         ],
         "disabled": false,
         "timeout": {

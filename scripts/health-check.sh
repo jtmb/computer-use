@@ -3,6 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+. "$ROOT/scripts/opencode-paths.sh"
 cd "$ROOT"
 fail=0
 
@@ -51,18 +52,18 @@ for mcp in github playwright; do
   fi
 done
 
-config="$(opencode debug config 2>/dev/null || true)"
-if printf '%s' "$config" | grep -Fq '.opencode/skills'; then
-  ok "effective config includes the repository skill path"
+skill_root="${OPENCODE_GLOBAL_SKILLS_DIR:-$(resolve_global_config_dir)/skills}"
+if [ -f "$skill_root/handoff/SKILL.md" ]; then
+  ok "global skills deployed: $skill_root"
 else
-  bad "effective config does not include .opencode/skills"
+  bad "global skills directory is missing or incomplete: $skill_root"
 fi
 
 for f in \
   scripts/github-mcp.sh \
   scripts/playwright-mcp.sh \
   scripts/desktop-control.py \
-  scripts/assistant-memory.py \
+  scripts/deploy-skills.sh \
   scripts/opencode-db-maintain.py \
   scripts/opencode-chat-backup.py \
   scripts/opencode-maintenance-cron.sh; do
@@ -81,11 +82,39 @@ for f in AGENTS.md .opencode/skills/README.md .opencode/skills/handoff/SKILL.md;
   fi
 done
 
-skill_count="$(find .opencode/skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')"
+skill_count="$(find "$skill_root" -name SKILL.md -type f 2>/dev/null | wc -l | tr -d ' ')"
 if [ "$skill_count" -ge 20 ]; then
-  ok "skills present: $skill_count"
+  ok "global skills present: $skill_count"
 else
-  bad "skill count is unexpectedly low: $skill_count"
+  bad "global skill count is unexpectedly low: $skill_count"
+fi
+
+skills_ready() {
+  printf '%s' "$1" | python3 -c '
+import json, sys
+try:
+    data = json.load(sys.stdin).get("data", [])
+except Exception:
+    sys.exit(1)
+ids = {item.get("id", "") for item in data if isinstance(item, dict)}
+required = {"handoff"}
+sys.exit(0 if required <= ids else 1)
+' 2>/dev/null
+}
+
+skill_api=""
+for _ in {1..5}; do
+  skill_api="$(opencode api get /api/skill 2>/dev/null || true)"
+  if skills_ready "$skill_api"; then
+    break
+  fi
+  sleep 2
+done
+
+if skills_ready "$skill_api"; then
+  ok "OpenCode discovers deployed skills"
+else
+  bad "OpenCode did not report the deployed skills"
 fi
 
 if [ "$fail" -eq 0 ]; then

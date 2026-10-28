@@ -46,7 +46,7 @@ Normal use requires:
 The agent should inspect current applications read-only before acting:
 
 ```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py apps
+python3 ./scripts/desktop-control.py apps
 ```
 
 A missing application means that either the app is not running, its
@@ -75,8 +75,8 @@ A representative agent workflow is:
 3. Inspect only the relevant application or element:
 
    ```bash
-   python3 ~/repos/computer-use/scripts/desktop-control.py tree --app EXAMPLE_APP
-   python3 ~/repos/computer-use/scripts/desktop-control.py find --app EXAMPLE_APP \
+   python3 ./scripts/desktop-control.py tree --app EXAMPLE_APP
+   python3 ./scripts/desktop-control.py find --app EXAMPLE_APP \
      --name "Open" --role "push button" --showing
    ```
 
@@ -90,9 +90,9 @@ A representative agent workflow is:
 A representative focus example is:
 
 ```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py focus \
+python3 ./scripts/desktop-control.py focus \
   --app EXAMPLE_APP --name "Address" --showing
-python3 ~/repos/computer-use/scripts/desktop-control.py focus \
+python3 ./scripts/desktop-control.py focus \
   --app EXAMPLE_APP --name "Address" --showing \
   --expect-token 'TOKEN_FROM_PREVIEW' --apply
 ```

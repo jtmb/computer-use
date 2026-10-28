@@ -49,19 +49,35 @@ if [ "$MODE" = "verify-only" ] && [ "$CATCH_UP" -eq 1 ]; then
   exit 2
 fi
 
-log() { printf '%s %s\n' "$(date '+%F %T')" "$*" | tee -a "$LOG"; }
+log() { printf '%s %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" | tee -a "$LOG"; }
+
+mtime_epoch() {
+  stat -c %Y "$1" 2>/dev/null || stat -f %m "$1" 2>/dev/null
+}
+
+mtime_text() {
+  local stamp
+  stamp="$(stat -c %y "$1" 2>/dev/null)" && {
+    printf '%s\n' "${stamp%%.*}"
+    return 0
+  }
+  stat -f '%Sm' -t '%Y-%m-%d %H:%M:%S' "$1" 2>/dev/null
+}
 
 days_since_marker() {
   local marker="$1"
+  local mtime
   [ -f "$marker" ] || { echo 99999; return 0; }
-  echo $(( ($(date +%s) - $(stat -c %Y "$marker")) / 86400 ))
+  mtime="$(mtime_epoch "$marker")"
+  [ -n "$mtime" ] || { echo 99999; return 0; }
+  echo $(( ($(date +%s) - mtime) / 86400 ))
 }
 
 marker_status() {
   local label="$1"
   local marker="$2"
   if [ -f "$marker" ]; then
-    echo "$label: $(stat -c %y "$marker" | cut -d. -f1) ($(days_since_marker "$marker") days ago)"
+    echo "$label: $(mtime_text "$marker") ($(days_since_marker "$marker") days ago)"
   else
     echo "$label: never"
   fi

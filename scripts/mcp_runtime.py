@@ -806,9 +806,20 @@ def _runner_candidates(kind: str, *, profile: str, profile_root: Path | None = N
         if profile_root is None:
             raise McpRuntimeError("WSL2 runner resolution requires an isolated profile root")
         node_bin = profile_paths(profile_root)["node_root"] / "bin"
+    brew_bin = Path(os.environ.get("HOMEBREW_PREFIX", "/opt/homebrew")) / "bin"
     values = {
-        "uvx": (home / ".local/bin/uvx", Path("/usr/local/bin/uvx"), Path("/usr/bin/uvx")),
-        "gh": (home / ".local/bin/gh", Path("/usr/local/bin/gh"), Path("/usr/bin/gh")),
+        "uvx": (
+            home / ".local/bin/uvx",
+            brew_bin / "uvx",
+            Path("/usr/local/bin/uvx"),
+            Path("/usr/bin/uvx"),
+        ),
+        "gh": (
+            home / ".local/bin/gh",
+            brew_bin / "gh",
+            Path("/usr/local/bin/gh"),
+            Path("/usr/bin/gh"),
+        ),
         "npx": (node_bin / "npx",),
         "npm": (node_bin / "npm",),
         "node": (node_bin / "node",),

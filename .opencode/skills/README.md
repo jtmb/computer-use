@@ -1,8 +1,8 @@
 # Skills
 
 Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
-loaded directly from `./<name>/`; the global config points at
-`~/repos/computer-use/.opencode/skills`.
+deployed to the native global directory (by default
+`~/.config/opencode/skills/`); the repository copy is the source of truth.
 
 OpenCode watches skills and configuration. If a change is not picked up in a
 running session, start a fresh session or restart the service with `Ctrl+P` >
@@ -258,7 +258,7 @@ permission changes retain explicit user handling and confirmation gates.
 ### task-memory
 
 Store and retrieve durable user preferences, verified computer facts,
-workflow decisions, and pending tasks in the local Basic Memory knowledge base.
+workflow decisions, and pending tasks in a local Markdown task-memory store.
 
 Use when the user says remember, forget, continue later, what did we decide,
 or when durable context would prevent repeated setup. Never store credentials
@@ -270,12 +270,11 @@ Example requests:
 - "What did we decide about screenshots?"
 - "Continue where we left off yesterday."
 
-Requires: the `basic-memory` MCP tools (`search_notes`, `build_context`,
-`read_note`, `write_note`, `edit_note`, `delete_note`) served by
-`scripts/basic-memory-mcp.sh` under an adaptive memory budget, with the
-owner-only project at `~/Documents/computer-assistant/basic-memory/` (dir
-`700`). Writes apply directly, so confirm durable personal facts first;
-deletion always needs an explicit confirmation.
+Requires: a local Markdown store at
+`${XDG_DATA_HOME:-$HOME/.local/share}/opencode/task-memory/` (directory `700`,
+notes `600`) and `rg` for search. No MCP server is needed. Writes apply
+directly, so confirm durable personal facts first; deletion always needs an
+explicit confirmation.
 
 ### session-context
 

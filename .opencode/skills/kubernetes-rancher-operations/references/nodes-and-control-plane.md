@@ -162,8 +162,13 @@ Check the layer the distribution does not own:
 
 ```bash
 uname -r
+# Debian/Ubuntu
 apt list --installed 2>/dev/null | grep -E 'linux-image|containerd|runc' || true
+# Fedora/RHEL
+rpm -qa 2>/dev/null | grep -E '^kernel-|containerd|runc' || true
 test -f /var/run/reboot-required && cat /var/run/reboot-required || true
+test -f /run/reboot-required && cat /run/reboot-required || true
+command -v needs-restarting >/dev/null 2>&1 && needs-restarting -r || true
 systemd-analyze 2>/dev/null | head
 ```
 

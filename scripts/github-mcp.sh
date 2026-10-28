@@ -81,21 +81,20 @@ unset TOKEN
 if [ "$HOST" != "github.com" ]; then
   export GITHUB_HOST="$HOST"
 fi
-export PATH="/usr/local/bin:/usr/bin:/bin"
+export PATH="${PATH:-/usr/local/bin:/usr/bin:/bin}"
 export LANG="${LANG:-C.UTF-8}"
 
 # Exec directly after reducing the exported environment. This keeps the token
 # out of argv while preventing unrelated provider credentials from reaching the
 # server. Flags remain authoritative because inherited GITHUB_* controls were
 # rejected before credential resolution.
-mapfile -t EXPORTED_NAMES < <(compgen -e)
-for NAME in "${EXPORTED_NAMES[@]}"; do
+while IFS= read -r NAME; do
   case "$NAME" in
     HOME|PATH|LANG|LC_*|HTTPS_PROXY|https_proxy|ALL_PROXY|all_proxy|NO_PROXY|no_proxy|SSL_CERT_FILE|SSL_CERT_DIR|GITHUB_PERSONAL_ACCESS_TOKEN|GITHUB_HOST) ;;
     *) unset "$NAME" ;;
   esac
-done
-unset EXPORTED_NAMES NAME
+done < <(compgen -e)
+unset NAME
 
 exec "$MCP" stdio \
   --toolsets=context,repos,issues,pull_requests,actions,users \
