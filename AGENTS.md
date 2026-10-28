@@ -51,6 +51,8 @@ Important skills:
 - `github-operations` — bounded GitHub reads and approved mutations.
 - `task-memory` — durable private context.
 - `opencode-db-maintenance` — chat backup and database maintenance.
+- `kubernetes-rancher-operations` — cluster, Rancher, storage, GitOps, upgrade,
+  and migration diagnosis.
 - `repo-onboarding`, `development-conventions`, `agent-orchestration`, and the
   task-domain skills.
 

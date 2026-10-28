@@ -1,6 +1,6 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
 loaded directly from `./<name>/`; the global config points at
 `~/repos/computer-use/.opencode/skills`.
 
@@ -48,6 +48,8 @@ comma-separated tags; the category/tag index below is derived from each
 - `app-setup`, `system-troubleshooting`, `files-and-documents`, and
   `routine-automation` are the task workflows that combine vision, control,
   browser, and memory.
+- `kubernetes-rancher-operations` covers cluster, storage, GitOps, upgrade, and
+  migration diagnosis; `system-troubleshooting` remains the host-level skill.
 - `opencode-db-maintenance` keeps OpenCode itself healthy.
 - `development-conventions` supplies focused source, test, documentation, API,
   language, UI, and computer-use operational conventions.
@@ -81,6 +83,7 @@ comma-separated tags; the category/tag index below is derived from each
 | [`github-operations`](./github-operations/SKILL.md) | [`README.md`](./github-operations/README.md) | `applications` | `github,mcp,repositories,issues,pull-requests,automation` |
 | [`blender`](./blender/SKILL.md) | [`README.md`](./blender/README.md) | `applications` | `blender,3d,bpy,rendering,export` |
 | [`system-troubleshooting`](./system-troubleshooting/SKILL.md) | [`README.md`](./system-troubleshooting/README.md) | `troubleshooting` | `troubleshooting,diagnostics,services,performance` |
+| [`kubernetes-rancher-operations`](./kubernetes-rancher-operations/SKILL.md) | [`README.md`](./kubernetes-rancher-operations/README.md) | `troubleshooting` | `kubernetes,rancher,cluster,gitops,longhorn,backup,troubleshooting` |
 | [`files-and-documents`](./files-and-documents/SKILL.md) | [`README.md`](./files-and-documents/README.md) | `files` | `files,documents,organization,pdf` |
 | [`web-3d-asset-pipeline`](./web-3d-asset-pipeline/SKILL.md) | [`README.md`](./web-3d-asset-pipeline/README.md) | `files` | `3d,gltf,glb,assets,web` |
 | [`routine-automation`](./routine-automation/SKILL.md) | [`README.md`](./routine-automation/README.md) | `automation` | `automation,scheduling,scripts,idempotence` |
@@ -351,6 +354,31 @@ Example requests:
 Requires: read-only evidence first (versions, processes, resources, service
 status, journals, devices, config, free space), one testable cause, smallest
 reversible fix, and a repeated reproduction plus regression check.
+
+### kubernetes-rancher-operations
+
+Diagnose and operate Kubernetes and Rancher clusters across distributions,
+including nodes, control plane, etcd, storage, GitOps, networking, secrets,
+upgrades, backups, restores, and production migrations.
+
+Use when a cluster is unhealthy, an upgrade or migration is planned, or Fleet,
+Flux, Longhorn, ingress, or node behavior needs evidence-based diagnosis and
+rollback.
+
+Example requests:
+
+- "This node is NotReady after a reboot. Diagnose it without deleting data."
+- "A pod is stuck in ContainerCreating on a Longhorn volume."
+- "Flux reports a Kustomization that is not ready."
+- "Plan a supported Kubernetes and Rancher upgrade path."
+- "Prove our Longhorn backups would actually restore."
+- "We committed a token by mistake. Contain it and say what to rotate."
+
+Requires: a confirmed kubeconfig context and cluster identity, read-only
+baseline evidence, one testable cause, a defined rollback and data-safety gate,
+and before/after comparison of object identities, storage, GitOps, and ingress.
+State-changing cluster work, commits, pushes, and repository visibility changes
+each keep their own approval.
 
 ### files-and-documents
 
