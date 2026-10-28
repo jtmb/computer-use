@@ -24,6 +24,7 @@
     "sound": false
   },
   "plugins": [
-    "@prevalentware/opencode-goal-plugin@0.1.67"
+    "@prevalentware/opencode-goal-plugin@0.1.67",
+    "/home/james/repos/computer-use/voice-assistant"
   ]
 }
