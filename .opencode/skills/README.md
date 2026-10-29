@@ -1,6 +1,6 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+Twenty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
 loaded directly from `./<name>/`; the global config points at
 `~/repos/computer-use/.opencode/skills`.
 
@@ -48,6 +48,9 @@ comma-separated tags; the category/tag index below is derived from each
 - `app-setup`, `system-troubleshooting`, `files-and-documents`, and
   `routine-automation` are the task workflows that combine vision, control,
   browser, and memory.
+- `email-management` handles IMAP inbox inventory and approved sender-level
+  labeling or moves; read-only discovery comes first, and secrets stay in
+  `secret-tool`.
 - `opencode-db-maintenance` keeps OpenCode itself healthy.
 - `development-conventions` supplies focused source, test, documentation, API,
   language, UI, and computer-use operational conventions.
@@ -82,6 +85,7 @@ comma-separated tags; the category/tag index below is derived from each
 | [`blender`](./blender/SKILL.md) | [`README.md`](./blender/README.md) | `applications` | `blender,3d,bpy,rendering,export` |
 | [`system-troubleshooting`](./system-troubleshooting/SKILL.md) | [`README.md`](./system-troubleshooting/README.md) | `troubleshooting` | `troubleshooting,diagnostics,services,performance` |
 | [`files-and-documents`](./files-and-documents/SKILL.md) | [`README.md`](./files-and-documents/README.md) | `files` | `files,documents,organization,pdf` |
+| [`email-management`](./email-management/SKILL.md) | [`README.md`](./email-management/README.md) | `email` | `email,imap,gmail,mailbox,triage,labels,spam,sorting` |
 | [`web-3d-asset-pipeline`](./web-3d-asset-pipeline/SKILL.md) | [`README.md`](./web-3d-asset-pipeline/README.md) | `files` | `3d,gltf,glb,assets,web` |
 | [`routine-automation`](./routine-automation/SKILL.md) | [`README.md`](./routine-automation/README.md) | `automation` | `automation,scheduling,scripts,idempotence` |
 | [`opencode-db-maintenance`](./opencode-db-maintenance/SKILL.md) | [`README.md`](./opencode-db-maintenance/README.md) | `maintenance` | `maintenance,sqlite,backup,cron` |
@@ -368,6 +372,24 @@ Example requests:
 
 Requires: Glob/Grep plus targeted reads, old-to-new manifest for batch
 operations, and verification of counts, names, sizes, and readability.
+
+### email-management
+
+Inventory, classify, label, and move IMAP mail with read-only discovery first
+and explicit approval before bulk changes.
+
+Use when the user asks to clean up an inbox, sort mail by sender, label or
+archive messages, or diagnose IMAP access.
+
+Example requests:
+
+- "Show me which senders fill my inbox, without changing anything."
+- "Sort promotional mail into a label, but keep receipts and security mail."
+- "Archive these senders after showing me the plan."
+
+Requires: Python 3 `imaplib`, IMAP with 2FA and an app password, `secret-tool`
+or a supported password source, TLS to port 993 or STARTTLS on 143, and a
+dry-run plus explicit approval for any bulk move, label, archive, or delete.
 
 ### web-3d-asset-pipeline
 
