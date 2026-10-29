@@ -20,9 +20,9 @@ Planning, reconnaissance, implementation, and review use the identities
 selected by the active project's OpenCode configuration. The reusable plugin
 accepts project-defined and namespaced identities; never invent an identity the
 active project does not support.
-this project's project profile maps `plan` and the read-only `architect` design
-subagent to `openai/gpt-6-sol#max`, while `build`, `explore`, and `general`
-select `openai/gpt-6-luna#max`. External repositories retain their own agent
+When `opencode-go-model-index.yaml` exists at the repository root, read its
+`.routing` section before selecting a model or effort, then read only the
+selected `.models["<ref>"]` record. External repositories retain their own agent
 and model choices.
 
 Appropriate requests include:
