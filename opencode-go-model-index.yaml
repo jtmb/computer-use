@@ -1,19 +1,24 @@
-schema_version: "1.0"
+schema_version: "1.1"
 
 metadata:
   purpose: "Deterministic model routing for OpenCode Go builders and planners, optimized for reliable task completion per token consumed."
   provider: "opencode-go"
-  subscription: "OpenCode Go / Go Plus"
+  subscription: "OpenCode Go"
+  plan: "go"
+  plan_source: "user-confirmed"
   plan_verified: false
-  plan_note: "Stored OpenCode Console credentials are present, but the CLI does not expose whether the plan is Go or Go Plus; both plans share the catalogue below."
+  plan_note: "The user identified the subscription as OpenCode Go, so allowances use the Go table; the CLI does not independently expose the plan tier. Go Plus and Go Teams are not assumed."
   verification_date: "2026-10-28"
   opencode_version: "2.2.0"
+  docs_source: "https://raw.githubusercontent.com/anomalyco/opencode/dev/services/www/src/docs/content/console/go.mdx"
+  docs_checked: "2026-10-28"
   catalogue:
     go_models: 30
     verified_against:
-      - "official OpenCode Go documentation"
+      - "official docs source: console/go.mdx"
       - "public Go models endpoint"
-      - "installed OpenCode CLI and model catalog"
+      - "installed OpenCode CLI and variant snapshot"
+      - "models.dev metadata (secondary)"
     wider_provider_excluded: "opencode"
   retrieval_tags:
     - "opencode-go"
@@ -25,7 +30,13 @@ metadata:
     - "fallback"
   comparison_basis: "Public benchmark and vendor-reported results; cross-harness comparisons are directional and are not capability-equivalence claims."
   alias_policy: "No separate alias IDs were observed; use the exact opencode-go/<model-id> values in this file."
-  change_summary: "Initial index: 30 Go models verified, three builder tiers and three planning tiers selected, three role fallbacks recorded."
+  change_summary: "Schema 1.1: pinned the Go plan and added deterministic maintenance support."
+
+change_log:
+  - date: "2026-10-28"
+    action: "schema"
+    models: []
+    reason: "Pin the Go plan and add change-log support for proposal-based maintenance."
 
 routing:
   policy: "least_resource_intensive_model_likely_to_complete"
@@ -806,7 +817,7 @@ models:
       values: ["none", "thinking"]
       default: "none"
       escalate: "use thinking for reasoning-heavy tasks"
-    context_tokens: 512000
+    context_tokens: 1000000
     pricing:
       standard: {input: 0.30, output: 1.20, cache_read: 0.06}
       long_context: {threshold: 512000, input: 0.60, output: 2.40, cache_read: 0.12}
