@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deploying to PRD"
+  short_description: "Deploy to James's Kubernetes cluster and verify"
+  default_prompt: "Use $deploying-to-prd to deploy the requested application to my Kubernetes cluster and verify the live result."
