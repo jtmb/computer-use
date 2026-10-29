@@ -22,11 +22,12 @@ independent verification, and the final report.
 - Project `opencode.json` may define agent identities and model choices. Do not
   claim a model is available without checking the active configuration, and do
   not impose a global identity restriction on another consuming repository.
-  In this project's project profile, `plan` and the read-only `architect` subagent
-  use `openai/gpt-6-sol#max` for planning, architecture, design, and
-  orchestration while `build`, `explore`, and `general` use
-  `openai/gpt-6-luna#max` for implementation and exploration. A child inherits
-  a model only when its own agent has no configured model.
+  When `opencode-go-model-index.yaml` exists at the repository root, read its
+  `.routing` section before selecting a model or effort, then read only the
+  selected `.models["<ref>"]` record. Use a route fallback only after one
+  in-model effort retry; variants are not independent fallbacks. Do not hardcode
+  provider or model IDs in this skill. A child inherits a model only when its
+  own agent has no configured model.
 - Use the active project's `orchestration-policy.options.maxConcurrent` as the
   sole enforced child-concurrency admission gate. Its supported range is `1..10`
   and the standing project setting is `10`; respect any explicit lower,

@@ -46,7 +46,10 @@ for f in \
   scripts/assistant-memory.py \
   scripts/opencode-db-maintain.py \
   scripts/opencode-chat-backup.py \
-  scripts/opencode-maintenance-cron.sh; do
+  scripts/opencode-maintenance-cron.sh \
+  scripts/go-model-index-maintain.py \
+  scripts/go-model-index-maintain.sh \
+  scripts/install-go-model-index-timer.sh; do
   if [ -f "$ROOT/$f" ]; then
     ok "present: $f"
   else
@@ -54,7 +57,13 @@ for f in \
   fi
 done
 
-for f in AGENTS.md .opencode/skills/README.md .opencode/skills/handoff/SKILL.md; do
+for f in \
+  AGENTS.md \
+  .opencode/skills/README.md \
+  .opencode/skills/handoff/SKILL.md \
+  opencode-go-model-index.yaml \
+  config/go-model-index-variants.json \
+  docs/go-model-index-maintenance.md; do
   if [ -f "$ROOT/$f" ]; then
     ok "present: $f"
   else

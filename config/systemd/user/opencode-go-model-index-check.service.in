@@ -1,0 +1,14 @@
+[Unit]
+Description=Check OpenCode Go model index for drift
+Documentation=file://@ROOT@/docs/go-model-index-maintenance.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@ROOT@
+ExecStart=@ROOT@/scripts/go-model-index-maintain.sh check
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=5min
+SuccessExitStatus=0 2 3
