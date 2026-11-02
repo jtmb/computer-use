@@ -1,0 +1,86 @@
+# Delivery status — 2026-11-02
+
+Current, evidence-based state of this delivery. It records what is verified and
+what is blocked; it is not a completion claim. Layer words mean exactly what they
+say: **source** (code and tests inspected and run), **runtime** (loaded in the
+running service), **model** (a real model produced the outcome), **GUI/audio**
+(observed on the user's desktop), **human/device** (a person or second machine
+participated).
+
+## Commits
+
+| Repository | Commit | Contents |
+| --- | --- | --- |
+| computer-use | `aae88a0` | Ten verified fixes: browser crash diagnostics, desktop cancellation wording, handoff readiness validation, title absent-title guard, corpus target-overlap validation, demo recorder root hardening, private staging publish ordering, browser isolation tests, stale expectation updates, portability fixes |
+| computer-use | `7fbe891` | Gateway state backup/restore module and its offline tests |
+| computer-use | `bf44ee1` | 75-identifier evidence map with layer and staleness flags |
+| computer-use/voice-assistant | `a9990d8` | Queued voice request no longer starts a readout turn early |
+
+All four are pushed; both remotes are in sync.
+
+## Checks that actually ran after integration
+
+| Check | Result |
+| --- | --- |
+| `./scripts/health-check.sh` | PASSED |
+| `node scripts/ci-offline.mjs` | PASS — 12 groups, 0 failed |
+| computer-use plugin suite | 249/249 |
+| goal-docs suite | 227/227 |
+| voice-assistant suites | 115/115 |
+| gateway backup/restore | 91/91 |
+| corpus validator and tests | 165/165, validator `valid` |
+| browser package tests / typecheck | 57/57, `tsc` clean |
+| demo suites | 37/37 |
+| private staging (Python / Node) | 35/35, 13/13 |
+
+Type coverage: runtime and browser packages pass their own `tsconfig`; the 13
+plugin modules pass `tsconfig.benchmark.json` at a 2 GiB heap. The 24 plugin
+**test** files are still outside every project — a documented gap, not a pass.
+
+## Met at the required layer
+
+- Inbox removal: canonical config selects no inbox plugin, the retired entrypoints
+  refuse before registering anything, stored history is untouched, and the loaded
+  plugin inventory contains no inbox entry.
+- Decision memory: both current decisions recall correctly in fresh contexts, and
+  two live negative controls return explicit no-match/missing rather than a guess.
+- Source-level criteria for voice, image, browser isolation, clipboard, desktop
+  bridge, private entry, gateway, titles, handoff and corpus now have real tests
+  and, where a genuine defect existed, a fix with a failing-first regression.
+- Preservation: the frozen native pin is unchanged and unrelated dirty work was
+  not rewritten.
+
+## Blocked, with the exact dependency
+
+| Item | Dependency |
+| --- | --- |
+| Full compiler diagnostics (2827 inputs) | Needs 2816 MiB free at the supervisor's own check; last attempt saw 2257 MiB. Even then, two earlier runs died just above the 1536 MiB ceiling. |
+| Fused build and installed selector | Needs more memory than the frozen flags allow; the TUI half exists in no runnable client until that build succeeds. |
+| SDK-facing title type chain | Aborts when authentic 2.1.1 types load; native staging also refuses the 5,855,270-byte models snapshot against a 2 MiB per-file cap. |
+| Native memory deny/pending/cancel | Needs an admissible in-process host; public clients cannot execute a registered tool or supply the tool call signal. |
+| Archive repair | The archive is being written live by another process; apply is API-only with no wired authorizer. |
+| Document stack | 20 pinned packages absent; the converter supervisor (`systemd-run --user`) is denied. |
+| Matched benchmark | Isolation now qualifies; blocked because no provider is authenticated inside the private root and no local model server runs. |
+| Demo review | `ffprobe` is absent and installing it needs the user's password. |
+| Human/device items | Unlocked desktop, a real device, and the user's participation. |
+
+## Deviations and incidents (not hidden)
+
+1. **Private text exposure.** A broad search by one helper matched the ignored
+   private history file, so message bodies were printed into a tool log
+   (62,236 bytes). The log and the private file were left intact; nothing from the
+   output was copied into evidence. Removal is the user's call.
+2. **Staged work was committed.** The user's pre-existing 179-byte staged rename
+   (`resume.md` → `handoff_resume.md`) was included in `7fbe891` because that
+   commit was made without a pathspec. It is now in history and pushed; the raw
+   index hash therefore no longer matches the earlier baseline. Undoing it would
+   require a history rewrite, which is not authorized.
+3. **Monitor test semantics.** One monitor test could not pass as written: the
+   entry bound is genuinely enforced during cleanup, while sampling exhausts the
+   100 ms budget first. The assertion now requires both refusals rather than a
+   single phase, which keeps coverage rather than loosening it.
+
+## What remains for the user
+
+Three items were reserved for last and still need a person: a real private value,
+a second device for the gateway, and the simultaneous demo recording.
