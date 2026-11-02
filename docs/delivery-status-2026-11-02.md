@@ -23,7 +23,7 @@ All four are pushed; both remotes are in sync.
 | Check | Result |
 | --- | --- |
 | `./scripts/health-check.sh` | PASSED |
-| `node scripts/ci-offline.mjs` | PASS — 15 groups, 0 failed |
+| `node scripts/ci-offline.mjs` | PASS — 16 groups, 0 failed, 714 tests in the plugin/tool step |
 | computer-use plugin suite | 249/249 |
 | goal-docs suite | 227/227 |
 | voice-assistant suites | 115/115 |
