@@ -16,22 +16,18 @@
     "pdfplumber": "0.11.10",
     "reportlab": "5.1.0",
     "openpyxl": "3.1.5",
-    "xlsxwriter": "3.3.1"
-  },
-  "missing": {
+    "xlsxwriter": "3.3.1",
     "pandas": "3.1.0"
   },
+  "missing": {},
   "preflight": {
     "command": "docvenv/bin/python scripts/document_authoring_preflight.py",
     "installStates": {
-      "installed": 8,
-      "missing": 1
+      "installed": 9
     },
     "authoringReady": false,
-    "openGates": [
-      "pandas:missing",
-      "license/format/runtime/transitive gates remain unverified by design"
-    ]
+    "openGates": [],
+    "interpretation": "All nine pinned distributions are installed and discoverable. authoringReady and hardenedXmlReady stay false because inspect-only mode never sets the licence, format, runtime and transitive gates; that is by design, not a missing install."
   },
   "roundTrips": [
     {
@@ -71,6 +67,14 @@
         "bytes": 1362,
         "sha256": "15a0b57a12af048aa88f0fa087d6b99c8271146f8450e7e7423755778fa174a9"
       }
+    },
+    {
+      "case": "pandas read of the authored workbook",
+      "author": "pandas 3.1.0",
+      "shape": [1, 2],
+      "columns": ["Metric", "Value"],
+      "row": ["Closure", "42"],
+      "note": "The formula row carries no cached value and is not returned; that is spreadsheet behaviour, not a pandas defect."
     }
   ],
   "xmlSafety": {
