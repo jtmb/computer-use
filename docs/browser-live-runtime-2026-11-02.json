@@ -38,6 +38,17 @@
         "bytes": 1908,
         "sha256": "1b491ed8d5710e8e81dbd8630a73eb3e02fd42e1695a1eac14fc603bd79d1702"
       }
+    },
+    "screenshot": {
+      "outcome": "registered web.screenshot returned a valid PNG",
+      "detail": "Opened a loopback page through the real tool, called web.screenshot, and decoded the returned data URI: PNG signature valid, 2036x1798 pixels, 19,023 bytes, sha256 0a0eae834fa620bce92cbb25b2dc98126f85eaa341ec7c905ee8c676c2c9dc26. web.close then discarded the worker and tabs.",
+      "artifacts": {
+        "script": "/tmp/opencode/verify-shot.mjs"
+      }
+    },
+    "screenshotFirstRun": {
+      "outcome": "first screenshot call also succeeded",
+      "detail": "A prior probe returned a 32,598-character base64 data URI of mime image/png, confirming the path is repeatable rather than a single lucky call."
     }
   },
   "environment": {
