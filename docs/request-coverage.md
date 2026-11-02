@@ -570,3 +570,23 @@ genuine simultaneous action preview/final media; and separately authorized
 runtime/security/publication actions.
 The missing original worker report remains unaccepted with its file ownership
 retained; independent export verification does not assert delivery or inactivity.
+
+## 2026-11-02 evidence crosswalk (citations only)
+
+This section cites records written on 2026-11-02 so the rows above stop pointing
+at 2026-10-31 evidence alone. Citing a record **does not promote a row's layer**:
+a source or fixture record never becomes runtime, model, GUI or human acceptance.
+Where a record itself reports a failure or a limit, that limit is the evidence.
+
+| Identifiers | Record | What it adds |
+| --- | --- | --- |
+| O02, O11, O12, O14, O15, P02, P04, P09 | [scroll and placement](desktop-scroll-placement-verification-2026-11-02.json), [zero-duration click](desktop-zero-duration-click-verification-2026-11-02.json) | Physical wheel/scrollbar movement, exact-window placement restore, and the source-level zero-duration click contract with its three conformance cases and three fault controls. Pointer click on the original image is still unobserved. |
+| O17, N05, N08 | [RPC cancellation](rpc-cancellation-verification-2026-11-02.json) | Router-level cancellation and delivery boundaries, still source only. |
+| O18 | [GitHub policy read](github-policy-connector-review-2026-11-02.json) | The 46-tool connector limitation plus three authenticated same-account reads: 404 "Branch not protected", and empty inherited/effective rule lists. Not hosted enforcement. |
+| O20, N03, C03, T04 | [inbox/memory runtime](inbox-memory-runtime-verification-2026-11-02.json), [native memory permission](memory-native-permission-verification-2026-11-02.json) | Loaded plugin inventory with no inbox entry, inert history metadata, and the public-client versus plugin-only assertion boundary. Native deny/pending/cancel remain unverified. |
+| O28, N04 | [title receipt](title-receipt-verification-2026-11-02.json) | Conditional-title receipt regression, fault controls, and the 2026-11-02 absent-title controller fix. |
+| P03 | [browser startup diagnostic](browser-startup-diagnostic-verification-2026-11-02.json) | Inactive-main transitive import, fenced library import, host prerequisites with the EACCES presence unknown, and the applied 16-case diagnostic. No browser relaunch or cause. |
+| P10 | [native git index](native-git-index-verification-2026-11-02.json), [model-index original](model-index-original-investigation-2026-11-02.json) | The index-rewrite failure is verified; the original before-bytes were never retained, so cause stays unknown. |
+| F06 | [compiler late probe](compiler-late-global-probe-verification-2026-11-02.json), [lower GOGC](lower-gogc-verification-2026-11-02.json), [verification follow-up](verification-follow-up-2026-11-02.json) | Full-stage inventory and three pre-spawn refusals against the unchanged 2816 MiB gate; the 1536 MiB ceiling remains unaddressed. |
+| Document lane | [pinned stack](document-authoring-stack-2026-11-02.json) | Nine pinned distributions installed in a disposable environment, real author-render-reopen round trips, and hardened-XML refusal behaviour. Licence, notice, ABI and transitive audit still absent. |
+| All rows | [coverage status map](request-coverage-status-2026-11-02.json), [delivery status](delivery-status-2026-11-02.md) | Current disposition per identifier (14 complete, 6 retained, 55 blocked) with each stale, superseded or missing citation flagged explicitly. |
