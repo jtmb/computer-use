@@ -1864,6 +1864,9 @@ regressions and synthetic controls without installs, credentials, network or
 desktop/service access. [`ci-offline.test.mjs`](../scripts/ci-offline.test.mjs)
 checks that binding and fail-closed prerequisite reporting. Optional extra commands
 require independent review; this runner is not a sandbox. Health remains separate.
+[`run-plugin-suites.mjs`](../scripts/run-plugin-suites.mjs) supplies the two plugin
+test suites to that runner by explicit directory discovery, because those
+directories have no package manifest for a test glob.
 
 The [reference/exemplar collections](golden-corpus/README.md) and
 [behavioral evaluation package](../evals/agent-rules/README.md) contain 30 candidate

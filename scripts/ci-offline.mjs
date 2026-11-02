@@ -126,6 +126,13 @@ export function buildSteps(options) {
       commands: [[process.execPath, ["--test", "--test-reporter=spec", ...REPO_CONTRACT_TESTS]]],
     },
     {
+      id: "plugin-suites",
+      title: "Computer-use and goal-docs plugin test suites",
+      kind: "required",
+      dependencies: ["node"],
+      commands: [[process.execPath, ["scripts/run-plugin-suites.mjs"]]],
+    },
+    {
       id: "checkout-safety-tests",
       title: "Checkout prompt and isolated Git preflight safety checks",
       kind: "required",
