@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "purpose": "Dated preservation and verification receipt for handoff. It records identities only; it is not a completion claim and not runtime acceptance.",
+  "repository": {
+    "root": "/home/james/repos/computer-use",
+    "head": "d2ee83571d260a94c74a932e7d4ebd54b6b35f83",
+    "headSubject": "Run the ChatGPT connector suites in offline CI",
+    "unpushed": "0",
+    "dirtyEntries": 390,
+    "stagedDiffBytes": 0,
+    "stagedDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stagedNote": "The original 179-byte staged rename was committed in 7fbe891 under the user's gate approval, so the index is intentionally empty now; its content is preserved in history."
+  },
+  "frozenNative": {
+    "pin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "matchesObjective": true
+  },
+  "voiceRepository": {
+    "head": "a9990d83fcb6f8c35d3782125dd5ac0223cf04d6",
+    "note": "Separate repository; its own commit a9990d8 carries the queue readout fix."
+  },
+  "checks": {
+    "health": "PASSED (scripts/health-check.sh)",
+    "offlineCI": "PASS 17 groups, 0 failed",
+    "pluginAndToolTests": 1246,
+    "pythonSuites": 14,
+    "typeProjects": [
+      "computer-use",
+      "goal-docs",
+      "personality",
+      "self-learning",
+      "chatgpt-connector"
+    ]
+  },
+  "artifacts": {
+    "crashDiagnosticTest": {
+      "bytes": 9785,
+      "sha256": "841bd9113b477ffeeaca84e29610c30ff180723e7b88fd46bb9b7db427040423"
+    }
+  },
+  "limits": [
+    "A green offline matrix is not runtime, model, GUI/audio or human acceptance.",
+    "The compiler diagnostics remain blocked on the user decision about the mandated 1536 MiB envelope.",
+    "Docker, ffprobe and a provider are still absent, so the gateway, demo and benchmark cannot run here."
+  ]
+}
