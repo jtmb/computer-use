@@ -88,5 +88,17 @@
     "result": "Succeeded: web.open returned tabId/url/title and web.close discarded the worker and tabs.",
     "interpretation": "A non-node execPath alone does not reproduce the service failure. Combined with earlier successes under the exact service environment values, the remaining difference is the service's long-lived module state loaded on 2026-11-01, before today's fixes and the cache repair. That is consistent with the new pre-ready deferral not being present in the running copy.",
     "nextStep": "The improved pre-ready detail will appear after a plugin reload or restart; both were deliberately not performed mid-session."
+  },
+  "reloadAttempt": {
+    "endpoint": "POST /api/plugin/update?location[directory]=... with body {\"targets\":[...]}",
+    "attempts": [
+      "computer-use.desktop",
+      "/home/james/repos/computer-use/.opencode/plugins/computer-use",
+      ".opencode/plugins/computer-use",
+      "computer-use"
+    ],
+    "result": "Every target is rejected with \"Plugin packages are not in the current server inventory\".",
+    "interpretation": "The update endpoint addresses declared plugin packages, and the computer-use plugin is discovered from the .opencode/plugins directory rather than declared as a package, so it cannot be reloaded this way. Loading the current code requires a service restart, which was not performed mid-session.",
+    "safety": "No plugin state changed; the existing inventory still lists all five local plugins active."
   }
 }
