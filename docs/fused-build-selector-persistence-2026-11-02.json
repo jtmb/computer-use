@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "scope": "Fused build of the frozen native checkout with the selector TUI changes, and the instructions-entry persistence round trip in that built client. Source and loaded-storage evidence only; no GUI click, no service replacement, no deployment.",
+  "build": {
+    "cwd": "/home/james/repos/opencode-native-row/packages/cli",
+    "command": "bun script/build.ts --single --skip-install --skip-web-ui --outdir=<tmp>",
+    "bun": "tools/opencode-orchestration/runtime/bun-1.4.2-linux-x64/bun",
+    "exit": 0,
+    "withinBound": "completed inside a 300s bound",
+    "artifact": {
+      "path": "/tmp/opencode/build-attempt-1793653177/cli-linux-x64/bin/opencode",
+      "bytes": 189646304,
+      "sha256": "bd088f34e89bf9a5cf73ef3009ba76776eb22e33e3fdd3628ad4ca67631b0d68"
+    },
+    "packageJsonVersion": "0.0.0-detached-202611022059",
+    "fileType": "ELF 64-bit LSB executable, x86-64, dynamically linked, not stripped",
+    "previousBlocker": "Retained 2026-10-29/30 runs were oom-killed near 960MiB peak with no artifact. The same frozen flag set completes on a quiet machine with about 2.5GiB available, so that failure was capacity pressure rather than a flag or source defect."
+  },
+  "binarySmoke": {
+    "command": "built binary --version in an isolated HOME/XDG tree",
+    "result": "opencode v0.0.0-detached-202611022059",
+    "exit": 0,
+    "note": "No shared service, config or state was touched; the isolated tree is /tmp/opencode/build-home."
+  },
+  "selectorContent": {
+    "greps": {
+      "Foreground subagent": 2,
+      "Background subagents": 3,
+      "orchestration-method": 2,
+      "orchestration": 9
+    },
+    "interpretation": "Selector strings are present in the built client, so the TUI half is no longer source-only."
+  },
+  "persistenceRoundTrip": {
+    "route": "PUT/GET /api/experimental/session/:sessionID/instructions/entries",
+    "session": "ses_e61eed3ecffeHJCL2AVl3P9Mt6",
+    "written": {
+      "key": "orchestration-method",
+      "value": "Foreground subagent"
+    },
+    "readBack": "key orchestration-method, value Foreground subagent",
+    "restart": "service stop, then a fresh service pid (235551 -> 236056) answered the same GET with the identical entry",
+    "interpretation": "Write, service restart and read-back succeeded inside the built client. This is the storage/persistence half of the selector criterion, not the visible chooser, click, wheel cycling or per-chat navigation."
+  },
+  "cleanup": "Isolated service stopped; process scan finds zero processes for the built binary path.",
+  "limits": [
+    "No GUI chooser, palette entry, wheel cycling or per-chat switching was observed.",
+    "No deployment or replacement of the user service, and no shared restart.",
+    "Peak memory was not instrumented; only completion and artifact identity are claimed.",
+    "The build used the frozen checkout with its existing dirty entries; no source was edited for this run."
+  ]
+}
