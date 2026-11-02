@@ -1872,7 +1872,8 @@ directories have no package manifest for a test glob: computer-use (249),
 goal-docs (227), memory (38), the offline personality suites (32),
 self-learning (69), the browser package (57) and the runtime package (42), plus
 the top-level browser, runtime and GNOME-window-control suites and the ChatGPT
-direct focus suite, and the voice-assistant plugin suites — 1073 tests in total. Personality's native-host and
+direct focus suite, the voice-assistant plugin suites and the ChatGPT connector
+package — 1246 tests in total. Personality's native-host and
 model-fixture suites are excluded because they need real hosts.
 
 The [reference/exemplar collections](golden-corpus/README.md) and

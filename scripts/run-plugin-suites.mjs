@@ -27,6 +27,7 @@ const suites = [
   { directory: "tools/gnome-window-control", extension: ".test.mjs" },
   { directory: "tools/chatgpt-direct/test", extension: ".test.mjs" },
   { directory: "voice-assistant/test", extension: ".test.ts" },
+  { directory: "tools/chatgpt-connector/test", extension: ".test.ts" },
 ]
 let failed = 0
 
