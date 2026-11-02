@@ -23,7 +23,7 @@ All four are pushed; both remotes are in sync.
 | Check | Result |
 | --- | --- |
 | `./scripts/health-check.sh` | PASSED |
-| `node scripts/ci-offline.mjs` | PASS — 12 groups, 0 failed |
+| `node scripts/ci-offline.mjs` | PASS — 15 groups, 0 failed |
 | computer-use plugin suite | 249/249 |
 | goal-docs suite | 227/227 |
 | voice-assistant suites | 115/115 |
@@ -39,7 +39,12 @@ plugin modules pass `tsconfig.benchmark.json` at a 2 GiB heap. The plugin
 directory now also has its own strict project covering all sources and the 24 test
 files — it reports **zero errors** after annotating the test doubles, and the
 249-test suite still passes. `index.ts` is type-checked against the real 2.1.1
-declarations through an explicit path mapping.
+declarations through an explicit path mapping. The same treatment now covers the
+goal-docs plugin, the personality and self-learning tools and the ChatGPT
+connector host project; all five run as required CI steps. The title-cas and
+native-row packages are deliberately excluded: their tests need the frozen
+native toolchain (bun:test, effect and four @opencode/core paths), so a project
+here would require fake stubs.
 
 ## Met at the required layer
 
