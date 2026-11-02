@@ -942,5 +942,17 @@
       "flags": []
     }
   ],
-  "remaining": "Blocked rows need one of: an admissible native host or memory window, package authority, a quiet archive, a provider connection inside the isolated benchmark root, or the user at the unlocked desktop with a device. Complete and retained rows cite source evidence only and are not runtime or human acceptance."
+  "remaining": "Blocked rows need one of: an admissible native host or memory window, package authority, a quiet archive, a provider connection inside the isolated benchmark root, or the user at the unlocked desktop with a device. Complete and retained rows cite source evidence only and are not runtime or human acceptance.",
+  "latestAudit": {
+    "date": "2026-11-02",
+    "command": "node scripts/request-coverage-audit.mjs --checkpoint <live goal checkpoint>",
+    "freshness": "compared with supplied supported-tool checkpoint, not a live query",
+    "errors": [
+      "archive hash mismatch: 483f6755-70a7-4912-aee3-816fbe0b7546/plan.md",
+      "archive hash mismatch: 3c15c374-cdb3-4af1-a767-d81398605f63/snapshot.json",
+      "stale/missing selected archive: 3c15c374-cdb3-4af1-a767-d81398605f63"
+    ],
+    "bundles": 46,
+    "interpretation": "The checkpoint comparison is real: the archive recorded an older revision for this goal, so the auditor now reports staleness instead of an unverified freshness. Dispositions in counts/rows above are unchanged by this run; they describe evidence layers, not archive health."
+  }
 }
