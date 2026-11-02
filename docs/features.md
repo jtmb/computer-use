@@ -1866,6 +1866,10 @@ checks that binding and fail-closed prerequisite reporting. Optional extra comma
 require independent review; this runner is not a sandbox. Fourteen offline Python
 suites for config editing, deployment, window control, memory retirement and the
 demo tooling run in the same runner. Health remains separate.
+[`verification-receipt.mjs`](../scripts/verification-receipt.mjs) with its
+[two fixture tests](../scripts/verification-receipt.test.mjs) writes a dated
+commit/pin/staged/dirty receipt with the caller-supplied check results; it records
+identities only and never implies runtime acceptance.
 [`run-plugin-suites.mjs`](../scripts/run-plugin-suites.mjs) supplies the plugin and
 tool test suites to that runner by explicit directory discovery, because those
 directories have no package manifest for a test glob: computer-use (249),

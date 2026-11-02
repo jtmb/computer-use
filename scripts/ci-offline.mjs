@@ -46,6 +46,7 @@ export const REPO_CONTRACT_TESTS = [
   "scripts/inbox-guidance.test.mjs",
   "scripts/copy-session-id.test.mjs",
   "scripts/github-permissions.test.mjs",
+  "scripts/verification-receipt.test.mjs",
 ]
 
 const NEW_TESTS = ["scripts/ci-offline.test.mjs", "scripts/codeowners-contract.test.mjs"]
