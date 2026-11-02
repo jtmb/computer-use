@@ -1,0 +1,946 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "scope": "Condensed map of the retained 75 identifiers against the layer each row actually cites. Derived from the read-only auditor run (68 requirements, 7 findings, 75 identifiers, 10 lanes) plus the evidence map built in the same session. Dispositions describe the evidence layer only; no row is waived by cancellation, fixture success or worker report.",
+  "sourceArtifact": {
+    "directory": "/tmp/opencode/coverage-audit-fkOMeM",
+    "evidenceMap": {
+      "bytes": 35027,
+      "sha256": "3733a0bfa2dc4c33cd0a81c232413413d3fb40ac24538e1c0bffe63b7c3128b8"
+    },
+    "auditorExit": 1,
+    "auditorErrors": [
+      "review bytes changed: tools/gnome-window-control/extension.js (since re-pinned to the current reviewed file)",
+      "archive hash mismatch: 483f6755-70a7-4912-aee3-816fbe0b7546/plan.md",
+      "archive hash mismatch: 3c15c374-cdb3-4af1-a767-d81398605f63/snapshot.json (live writer)"
+    ]
+  },
+  "counts": {
+    "rows": 75,
+    "byDisposition": {
+      "blocked": 55,
+      "retained": 6,
+      "complete": 14
+    },
+    "byCitedLayer": {
+      "source": 71,
+      "deployed": 1,
+      "none": 3
+    },
+    "byOutstanding": {
+      "GUI/device": 5,
+      "runtime": 12,
+      "source": 20,
+      "model/human": 3,
+      "GUI": 5,
+      "runtime/GUI": 4,
+      "human/authority": 6,
+      "GUI/human": 4,
+      "runtime/human": 1,
+      "runtime/model": 2,
+      "runtime/archive": 1,
+      "GUI/model": 1,
+      "model/GUI": 1,
+      "source/archive": 3,
+      "human": 4,
+      "model": 3
+    },
+    "byFlag": {
+      "STALE: later memory-native-permission-2026-11-02.json uncited": 3,
+      "SUPERSEDED: D-code-mode": 2,
+      "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)": 7,
+      "STALE: later desktop-scroll-placement-2026-11-02.json uncited": 3,
+      "SUPERSEDED: D-no-pr": 1,
+      "SUPERSEDED: D-handoff": 1,
+      "STALE: later rpc-cancellation-verification-2026-11-02.json uncited": 3,
+      "STALE: later github-policy-connector-review-2026-11-02.json uncited": 1,
+      "STALE: 483f plan.md archive hash mismatch (auditor)": 6,
+      "STALE: later title-receipt-verification-2026-11-02.json uncited": 2,
+      "SUPERSEDED: inbox-removal": 7,
+      "STALE: later inbox-memory-runtime-verification-2026-11-02.json uncited": 2,
+      "MISSING: no evidence layer cited": 3,
+      "SUPERSEDED: D-current-chat": 2,
+      "SUPERSEDED: D-retirement": 1,
+      "STALE: later browser-startup-diagnostic-verification-2026-11-02.json uncited": 1,
+      "STALE: later desktop-zero-duration-click-verification-2026-11-02.json uncited": 1,
+      "STALE: later native-git-index-verification-2026-11-02.json uncited": 2,
+      "SUPERSEDED: D-cancelled": 1,
+      "SUPERSEDED: D-reviewer": 2,
+      "STALE: later verification-follow-up-2026-11-02.json uncited": 1
+    }
+  },
+  "lanes": [
+    {
+      "lane": "Retain verified source; integrate and audit",
+      "ids": [
+        "O07",
+        "O08",
+        "O19",
+        "O21",
+        "O22",
+        "O25",
+        "O27",
+        "N01",
+        "N02",
+        "N04",
+        "N06",
+        "F01",
+        "F03",
+        "F05",
+        "F06",
+        "F07"
+      ],
+      "citedLayer": "source",
+      "note": "source complete/retained; F02 archive drift is in the archive lane"
+    },
+    {
+      "lane": "Archive/lineage",
+      "ids": [
+        "O26",
+        "C11",
+        "S01",
+        "N07",
+        "N08",
+        "F02"
+      ],
+      "citedLayer": "source/archive",
+      "note": "STALE: moving archive; 483f plan + 3c15c374 snapshot hash mismatches on rerun"
+    },
+    {
+      "lane": "Authority/native permissions",
+      "ids": [
+        "O02",
+        "O13",
+        "O18",
+        "S06",
+        "F04"
+      ],
+      "citedLayer": "runtime/human",
+      "note": "MISSING runtime: no deployed native permission/policy acceptance; Nov-2 permission record is source/refusal only"
+    },
+    {
+      "lane": "Coordination/transfer",
+      "ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C04",
+        "C05",
+        "C06",
+        "C07",
+        "C08",
+        "C09",
+        "C10",
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "citedLayer": "runtime/GUI/human",
+      "note": "runtime registration observed 2026-11-02; visible participant/ACK/retirement still missing"
+    },
+    {
+      "lane": "Desktop/window/deployment",
+      "ids": [
+        "O11",
+        "O12",
+        "P02",
+        "P04",
+        "P09"
+      ],
+      "citedLayer": "GUI",
+      "note": "STALE: extension.js bytes changed and Nov-2 desktop records uncited"
+    },
+    {
+      "lane": "Browser/private entry/runtime",
+      "ids": [
+        "P01",
+        "P03",
+        "P05",
+        "P06",
+        "P07",
+        "S03"
+      ],
+      "citedLayer": "GUI/human",
+      "note": "MISSING: retained loaded web.open crash; no browser acceptance or private sign-in"
+    },
+    {
+      "lane": "Handoff/OFF/continuation",
+      "ids": [
+        "O09",
+        "O17",
+        "N05",
+        "S02"
+      ],
+      "citedLayer": "model/human",
+      "note": "MISSING model: no actual receiver continuation/compaction acceptance"
+    },
+    {
+      "lane": "Real model efficiency",
+      "ids": [
+        "P08",
+        "S04"
+      ],
+      "citedLayer": "model",
+      "note": "MISSING: no matched exposure/usage/recovery runs"
+    },
+    {
+      "lane": "Memory/imports/native panel",
+      "ids": [
+        "O20",
+        "O23",
+        "O24",
+        "O28",
+        "N03"
+      ],
+      "citedLayer": "runtime/model",
+      "note": "STALE: Nov-2 memory tests/retrieval and title metadata uncited; loaded panel rows still missing"
+    },
+    {
+      "lane": "Legacy capture/media/PR/final preservation",
+      "ids": [
+        "O01",
+        "O03",
+        "O04",
+        "O05",
+        "O06",
+        "O10",
+        "O14",
+        "O15",
+        "O16",
+        "P10",
+        "S05"
+      ],
+      "citedLayer": "GUI/human/device",
+      "note": "MISSING: no accepted demo footage; PR acceptance superseded; final preservation open"
+    }
+  ],
+  "additionalLanes": [
+    {
+      "lane": "Selector/voice (criterion 3)",
+      "citedLayer": "runtime/GUI",
+      "evidence": "source + native fixture only; installed persistence and physical key/clipboard/dictation unobserved",
+      "flag": "MISSING runtime/GUI/device"
+    },
+    {
+      "lane": "Self-learning (criterion 6)",
+      "citedLayer": "runtime/model",
+      "evidence": "catalog34 + two eligible messages; no learned skill, denial/cancellation or rollback",
+      "flag": "MISSING model"
+    },
+    {
+      "lane": "Image focus (criterion 7)",
+      "citedLayer": "GUI/human",
+      "evidence": "keyboard/open Loupe visible once; original pointer click and regeneration unaccepted",
+      "flag": "STALE: image-focus-source-verification-2026-11-02.json uncited"
+    },
+    {
+      "lane": "Titles (criterion 5)",
+      "citedLayer": "runtime/GUI",
+      "evidence": "direct renames succeeded; CAS/race/loaded conditional support unverified",
+      "flag": "STALE: title-receipt-verification-2026-11-02.json uncited"
+    },
+    {
+      "lane": "Archive/final preservation (criteria 4,8)",
+      "citedLayer": "source/archive",
+      "evidence": "index/staged patch match; archive hash mismatches and 46-bundle moving set",
+      "flag": "STALE/MISSING"
+    }
+  ],
+  "rows": [
+    {
+      "id": "O01",
+      "requirement": "Request-owned screenshots, concurrent/staggered ownership",
+      "cited": "source",
+      "outstanding": "GUI/device",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O02",
+      "requirement": "Native permission before effects, denial reaches caller",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later memory-native-permission-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O03",
+      "requirement": "Truthful cleanup and retained-file results",
+      "cited": "source",
+      "outstanding": "GUI/device",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O04",
+      "requirement": "Full genuine PNG; truncated/corrupt rejection",
+      "cited": "source",
+      "outstanding": "GUI/device",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O05",
+      "requirement": "Pre-allocation and growing-file byte bounds",
+      "cited": "source",
+      "outstanding": "GUI/device",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O06",
+      "requirement": "Trigger/timeout/cancel/post-trigger lifecycle",
+      "cited": "source",
+      "outstanding": "GUI/device",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O07",
+      "requirement": "Every desktop_tree schema argument implemented or refused",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "retained",
+      "flags": []
+    },
+    {
+      "id": "O08",
+      "requirement": "Bounded stdout candidates plus stderr; ambiguity/nth safety",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "retained",
+      "flags": []
+    },
+    {
+      "id": "O09",
+      "requirement": "Exact source-qualified handoff and safe inaccessible/missing fallback",
+      "cited": "source",
+      "outstanding": "model/human",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O10",
+      "requirement": "Independent checks/health/syntax/preservation and fresh image interpretation",
+      "cited": "source",
+      "outstanding": "GUI",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-code-mode"
+      ]
+    },
+    {
+      "id": "O11",
+      "requirement": "Installed bridge identity, active discovery and typed live inventory",
+      "cited": "deployed",
+      "outstanding": "runtime/GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)",
+        "STALE: later desktop-scroll-placement-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O12",
+      "requirement": "v2 exact target restore/place/tile/layout/readback/visual and stale/replay safety",
+      "cited": "source",
+      "outstanding": "GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)",
+        "STALE: later desktop-scroll-placement-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O13",
+      "requirement": "Consequential gates with routine no-repeat approvals",
+      "cited": "source",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O14",
+      "requirement": "Genuine simultaneous OpenCode/tool and app-action demo with preview approval",
+      "cited": "source",
+      "outstanding": "GUI/human",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)"
+      ]
+    },
+    {
+      "id": "O15",
+      "requirement": "Final media decode/loop/still/text/privacy/Splice/README/render checks",
+      "cited": "source",
+      "outstanding": "GUI/human",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)"
+      ]
+    },
+    {
+      "id": "O16",
+      "requirement": "Pinned PR2/PR3 review and local combined-tree/index preservation",
+      "cited": "source",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-no-pr"
+      ]
+    },
+    {
+      "id": "O17",
+      "requirement": "Source-qualified exports/planning and safe explicit retained continuation",
+      "cited": "source",
+      "outstanding": "runtime/human",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-handoff",
+        "STALE: later rpc-cancellation-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O18",
+      "requirement": "Exact read-only GitHub policy and runtime acceptance, writes gated",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later github-policy-connector-review-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O19",
+      "requirement": "Durable parent-only goals, Build-auto no questions, consumer-neutral skills",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "O20",
+      "requirement": "Repo-default/explicit-global bounded scoped RAG/citations/preview/revisions/permissions",
+      "cited": "source",
+      "outstanding": "runtime/model",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later memory-native-permission-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "O21",
+      "requirement": "External-memory retirement without data loss, explicit active-repo/nested/worktree helper",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "O22",
+      "requirement": "Efficient stale/pruning plan with scope/protection/expiry/archive/exact authority, no schedule",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "O23",
+      "requirement": "Only pinned fallback/CPU-RAM minimal imports, additive slots/default sidebar preserved",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O24",
+      "requirement": "Optional default-off custom ChatGPT/companion, only real accompanying skills",
+      "cited": "source",
+      "outstanding": "runtime/model",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "O25",
+      "requirement": "Actual LLM onboarding questions/defaults/progress/opt-ins/credential/preview/rollback/auto",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "retained",
+      "flags": []
+    },
+    {
+      "id": "O26",
+      "requirement": "Current source-qualified goal docs, full checklist, historical goals and worker owners",
+      "cited": "source",
+      "outstanding": "runtime/archive",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: 483f plan.md archive hash mismatch (auditor)"
+      ]
+    },
+    {
+      "id": "O27",
+      "requirement": "Meaningful periodic test-quality audit with distinct failure coverage",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "O28",
+      "requirement": "Native Task/Model/Effort/Status, requested versus effective metadata",
+      "cited": "source",
+      "outstanding": "GUI/model",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later title-receipt-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "C01",
+      "requirement": "Unmistakable peer provenance; no task/user/goal impersonation",
+      "cited": "source",
+      "outstanding": "model/GUI",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "C02",
+      "requirement": "Reusable coordination skill/guide/catalog with distinct retrieval/handoff/orchestration routes",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "retained",
+      "flags": []
+    },
+    {
+      "id": "C03",
+      "requirement": "Durable bounded threaded native room, visible post/read/reply/seen-ACK/status",
+      "cited": "source",
+      "outstanding": "GUI",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: inbox-removal",
+        "STALE: later inbox-memory-runtime-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "C04",
+      "requirement": "Native permission/tool-bound sender and exact scope/move/spoof/path refusal",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: inbox-removal"
+      ]
+    },
+    {
+      "id": "C05",
+      "requirement": "Stable-ID idempotence/admission versus ACK versus acceptance, restart/concurrency/loop bounds",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: inbox-removal"
+      ]
+    },
+    {
+      "id": "C06",
+      "requirement": "Serialized explicit ownership; expiry or missing report never releases it",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "C07",
+      "requirement": "Meaningful progress/liveness/waits/deadlines; event-driven missing-result recovery",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "C08",
+      "requirement": "Observation distinct from authorized interrupt/retry/transfer, stop/background proof",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "C09",
+      "requirement": "Realistic provenance/race/storage/deadline tests and native/user-visible evidence",
+      "cited": "source",
+      "outstanding": "runtime/GUI",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: inbox-removal"
+      ]
+    },
+    {
+      "id": "C10",
+      "requirement": "Relevant procedure notices only after verified activation; admission/ACK honest",
+      "cited": "none",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": [
+        "MISSING: no evidence layer cited",
+        "SUPERSEDED: inbox-removal"
+      ]
+    },
+    {
+      "id": "C11",
+      "requirement": "Historical unmet/cancelled goals, owners/staged work/holds/separate gates",
+      "cited": "source",
+      "outstanding": "source/archive",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: 483f plan.md archive hash mismatch (auditor)"
+      ]
+    },
+    {
+      "id": "T01",
+      "requirement": "Exact source/destination/execution/goal/owner scope with receiver acceptance",
+      "cited": "source",
+      "outstanding": "model/human",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-current-chat"
+      ]
+    },
+    {
+      "id": "T02",
+      "requirement": "Convey selected work/blockers/owners/limits/next actions with actual processing",
+      "cited": "source",
+      "outstanding": "human",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "T03",
+      "requirement": "Non-destructive exact-session retirement only after safe accepted transfer",
+      "cited": "none",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": [
+        "MISSING: no evidence layer cited",
+        "SUPERSEDED: D-retirement"
+      ]
+    },
+    {
+      "id": "T04",
+      "requirement": "Reversible activation, native room/settings/running/idle/wake/recovery chain",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: inbox-removal",
+        "STALE: later inbox-memory-runtime-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "T05",
+      "requirement": "Bounded notices and historical reassessment, goals/holds/gates preserved",
+      "cited": "none",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": [
+        "MISSING: no evidence layer cited",
+        "SUPERSEDED: inbox-removal"
+      ]
+    },
+    {
+      "id": "P01",
+      "requirement": "Stock standalone OpenCode v2, no fork/Codex runtime/process/credential reuse",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "P02",
+      "requirement": "Request-owned in-memory per-window full-PNG capture, bounds/chunks/stale/late/release",
+      "cited": "source",
+      "outstanding": "GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)"
+      ]
+    },
+    {
+      "id": "P03",
+      "requirement": "Two-session browser/profile/tab isolation, refs/locks/sandbox/TLS, no arbitrary JS/CDP",
+      "cited": "source",
+      "outstanding": "runtime/GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later browser-startup-diagnostic-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "P04",
+      "requirement": "Input target/mapping/serialize/cancel/disconnect/release/bounds; no ydotool/protected dialog",
+      "cited": "source",
+      "outstanding": "GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)",
+        "STALE: later desktop-zero-duration-click-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "P05",
+      "requirement": "Human private sign-in, status only/no secrets, origin/death/cancel races; separate file stage/callback",
+      "cited": "source",
+      "outstanding": "human",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "P06",
+      "requirement": "Minimal child environment, no vault/export/Codex reads",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "P07",
+      "requirement": "Code Mode/direct-tools rollback, nested model image, no legacy auth bypass",
+      "cited": "source",
+      "outstanding": "runtime",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-code-mode"
+      ]
+    },
+    {
+      "id": "P08",
+      "requirement": "Independent security/outcome review and actual tokens/turns/latency/recovery",
+      "cited": "source",
+      "outstanding": "model/human",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "P09",
+      "requirement": "Reviewed deployment/fresh GNOME/tool discovery, visible GUI/browser results and real rollback",
+      "cited": "source",
+      "outstanding": "GUI/human",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: reviewed bytes changed (extension.js 03e21d4d != 91b4751a)",
+        "STALE: later desktop-scroll-placement-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "P10",
+      "requirement": "Preserve dirty/staged/untracked/owners/closed exports, separate consequential gates",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later native-git-index-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "S01",
+      "requirement": "Current source/worker/post-export reconciliation with source history and no overlap",
+      "cited": "source",
+      "outstanding": "source/archive",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-cancelled",
+        "STALE: 483f plan.md archive hash mismatch (auditor)"
+      ]
+    },
+    {
+      "id": "S02",
+      "requirement": "One explicit resume continues, passive seed does not, exact identity/lifecycle/gates",
+      "cited": "source",
+      "outstanding": "model",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "S03",
+      "requirement": "Remaining p9 live requirements complete or exact external blockers retained",
+      "cited": "source",
+      "outstanding": "GUI/human",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "S04",
+      "requirement": "Observed efficiency tokens/turns/latency/recovery with actual model dispatch",
+      "cited": "source",
+      "outstanding": "model",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "S05",
+      "requirement": "Independent verification, old named-parent ceremony explicitly superseded",
+      "cited": "source",
+      "outstanding": "human",
+      "disposition": "blocked",
+      "flags": [
+        "SUPERSEDED: D-reviewer"
+      ]
+    },
+    {
+      "id": "S06",
+      "requirement": "No unapproved commit/push/publication/deployment/session/security change",
+      "cited": "source",
+      "outstanding": "human/authority",
+      "disposition": "blocked",
+      "flags": []
+    },
+    {
+      "id": "N01",
+      "requirement": "Research-backed concise index at most500 lines, visible safeguards",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "N02",
+      "requirement": "Portable authoring skill, doc owners/index, clause migration and conflict handling",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "N03",
+      "requirement": "Bounded task-specific new-chat memory, no automatic write/global/resume hook",
+      "cited": "source",
+      "outstanding": "model",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later memory-native-permission-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "N04",
+      "requirement": "Semantic main/full-ID title and actual launch model/effort, no child rename/ID suffix",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": [
+        "STALE: later title-receipt-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "N05",
+      "requirement": "Automatic handoff current-context/milestone, visible disable, native same-chat OFF, honest compaction limits",
+      "cited": "source",
+      "outstanding": "runtime/GUI",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: later rpc-cancellation-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "N06",
+      "requirement": "Removed reviewer ceremony, parent-only planning/ordinary independent verification/handoff retained",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": [
+        "SUPERSEDED: D-reviewer"
+      ]
+    },
+    {
+      "id": "N07",
+      "requirement": "Reviewable consolidated plan opened, approval then exactly one scoped execution owner",
+      "cited": "source",
+      "outstanding": "human",
+      "disposition": "retained",
+      "flags": [
+        "SUPERSEDED: D-current-chat",
+        "STALE: 483f plan.md archive hash mismatch (auditor)"
+      ]
+    },
+    {
+      "id": "N08",
+      "requirement": "Audit omissions/supported causes/prevention and repo decision/action/evidence trail",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "retained",
+      "flags": [
+        "STALE: 483f plan.md archive hash mismatch (auditor)",
+        "STALE: later rpc-cancellation-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "F01",
+      "requirement": "Review combined local tree/owners/bytes and preserve original index",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": [
+        "STALE: later native-git-index-verification-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "F02",
+      "requirement": "Diagnose archive corruption/freshness and recover only proven-owned bytes",
+      "cited": "source",
+      "outstanding": "source/archive",
+      "disposition": "blocked",
+      "flags": [
+        "STALE: 483f plan.md archive hash mismatch (auditor)"
+      ]
+    },
+    {
+      "id": "F03",
+      "requirement": "Separate installed input-microsecond and launch-millisecond contracts",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "F04",
+      "requirement": "Reuse exact authority/no repeat while retaining native and consequential gates",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "F05",
+      "requirement": "Structural extraction tolerant of harmless prose/numbering, five safety mutations",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    },
+    {
+      "id": "F06",
+      "requirement": "Fresh layered integration/type/syntax/health/preservation and quality audit",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": [
+        "STALE: later verification-follow-up-2026-11-02.json uncited"
+      ]
+    },
+    {
+      "id": "F07",
+      "requirement": "Full68-row/decision/source/layer omission prevention with distinct negative fixtures",
+      "cited": "source",
+      "outstanding": "source",
+      "disposition": "complete",
+      "flags": []
+    }
+  ],
+  "remaining": "Blocked rows need one of: an admissible native host or memory window, package authority, a quiet archive, a provider connection inside the isolated benchmark root, or the user at the unlocked desktop with a device. Complete and retained rows cite source evidence only and are not runtime or human acceptance."
+}
