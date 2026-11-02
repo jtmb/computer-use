@@ -71,9 +71,18 @@
     {
       "case": "pandas read of the authored workbook",
       "author": "pandas 3.1.0",
-      "shape": [1, 2],
-      "columns": ["Metric", "Value"],
-      "row": ["Closure", "42"],
+      "shape": [
+        1,
+        2
+      ],
+      "columns": [
+        "Metric",
+        "Value"
+      ],
+      "row": [
+        "Closure",
+        "42"
+      ],
       "note": "The formula row carries no cached value and is not returned; that is spreadsheet behaviour, not a pandas defect."
     }
   ],
@@ -88,5 +97,65 @@
     "No licence text, notice file, wheel manifest, ABI/glibc or transitive-closure audit was performed.",
     "No human review, visual acceptance, macro blocking, form preservation or complex-layout test.",
     "pandas is absent, so the pinned pandas path and its notice refusal remain unverified."
-  ]
+  ],
+  "localStackAudit2026_11_02": {
+    "method": "Offline audit of the installed distributions only: METADATA licence fields and classifiers, WHEEL tags, and every RECORD entry hashed against the installed file. No network, no wheel download, no signature service.",
+    "packages": 22,
+    "recordIntegrity": {
+      "checked": 5057,
+      "mismatched": 0,
+      "missing": 0
+    },
+    "runtimeRequirements": {
+      "total": 20,
+      "unsatisfied": 0,
+      "note": "Extras markers are excluded; platform markers other than extra are treated as active, and version comparison is a simple numeric tuple rather than full PEP 440."
+    },
+    "licences": {
+      "withLicenseField": 10,
+      "withClassifiers": 7,
+      "total": 22
+    },
+    "abi": {
+      "wheelTags": 33,
+      "sample": [
+        {
+          "name": "cffi",
+          "tag": "cp314-cp314-manylinux_2_17_x86_64"
+        },
+        {
+          "name": "cffi",
+          "tag": "cp314-cp314-manylinux2014_x86_64"
+        },
+        {
+          "name": "charset-normalizer",
+          "tag": "cp314-cp314-manylinux_2_17_x86_64"
+        },
+        {
+          "name": "charset-normalizer",
+          "tag": "cp314-cp314-manylinux2014_x86_64"
+        },
+        {
+          "name": "charset-normalizer",
+          "tag": "cp314-cp314-manylinux_2_28_x86_64"
+        },
+        {
+          "name": "cryptography",
+          "tag": "cp311-abi3-manylinux_2_34_x86_64"
+        }
+      ]
+    },
+    "artifact": {
+      "path": "/tmp/opencode/doc-authoring/stack-audit.json",
+      "bytes": 19641,
+      "sha256": "8a9eb195275ce39e80d0eb70c35560690c8fcb73e466d11cb306381fed57e1b3"
+    },
+    "remainingGaps": [
+      "Wheel provenance and signatures are not verified; RECORD proves the installed files match what pip recorded, not that the wheel came from the publisher.",
+      "Notice files, copyright texts and bundled third-party licences were not read.",
+      "No CVE or advisory scan and no ABI symbol-level review beyond wheel tags.",
+      "Version comparison is not full PEP 440, and platform markers are treated as active.",
+      "Human review of the documents produced remains outstanding."
+    ]
+  }
 }
