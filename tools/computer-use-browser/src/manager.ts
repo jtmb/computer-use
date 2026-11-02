@@ -141,6 +141,7 @@ export class NodeWorkerHandle implements BrowserWorkerHandle {
   #intentionalExit = false;
   #stderrTail = Buffer.alloc(0);
   #readiness: "not-observed" | "observed" = "not-observed";
+  #crashed = false;
   #childEvent: "exit" | "spawn-error" | "unknown" = "unknown";
   #exitCode: number | null = null;
   #signal: string | null = null;
@@ -194,31 +195,44 @@ export class NodeWorkerHandle implements BrowserWorkerHandle {
   #markCrashed(): void {
     if (!this.#alive) return;
     this.#alive = false;
-    if (!this.#intentionalExit) {
-      // A worker that reports a startup failure then exits immediately can be
-      // observed as a crash before its frame is processed; prefer the specific
-      // startup cause when one was recorded.
-      const base = this.#startupFailure
-        ?? new BrowserBackendError("WORKER_CRASHED", "The browser worker exited unexpectedly.", {
-          readiness: this.#readiness,
-          childEvent: this.#childEvent,
-          exitCode: this.#exitCode,
-          signal: this.#signal,
-        });
-      // Surface a bounded tail of what the worker or Chrome actually said. Without
-      // this, a startup kill is reported as an unexplained crash.
-      const detail = this.#stderrDetail();
-      const error = detail && !base.message.includes(detail)
-        ? new BrowserBackendError(base.code, `${base.message} (${detail})`, base.crashMetadata)
-        : base;
-      this.#readyReject(error);
-      for (const [id, pending] of this.#pending) {
-        this.#clearPending(id, pending);
-        pending.reject(error);
-      }
-      this.#pending.clear();
-      this.#abandoned.clear();
+    if (this.#intentionalExit) return;
+    // A child that dies before its ready frame can still be delivering its final
+    // stderr bytes or a startup-error frame. Rejecting synchronously here loses
+    // that cause and reports an unexplained crash, so a pre-ready death is
+    // deferred by one turn of the event loop to let the trailing data arrive.
+    if (this.#readiness === "not-observed" && !this.#startupFailure) {
+      setImmediate(() => this.#rejectCrash());
+      return;
     }
+    this.#rejectCrash();
+  }
+
+  #rejectCrash(): void {
+    if (this.#crashed) return;
+    this.#crashed = true;
+    // A worker that reports a startup failure then exits immediately can be
+    // observed as a crash before its frame is processed; prefer the specific
+    // startup cause when one was recorded.
+    const base = this.#startupFailure
+      ?? new BrowserBackendError("WORKER_CRASHED", "The browser worker exited unexpectedly.", {
+        readiness: this.#readiness,
+        childEvent: this.#childEvent,
+        exitCode: this.#exitCode,
+        signal: this.#signal,
+      });
+    // Surface a bounded tail of what the worker or Chrome actually said. Without
+    // this, a startup kill is reported as an unexplained crash.
+    const detail = this.#stderrDetail();
+    const error = detail && !base.message.includes(detail)
+      ? new BrowserBackendError(base.code, `${base.message} (${detail})`, base.crashMetadata)
+      : base;
+    this.#readyReject(error);
+    for (const [id, pending] of this.#pending) {
+      this.#clearPending(id, pending);
+      pending.reject(error);
+    }
+    this.#pending.clear();
+    this.#abandoned.clear();
   }
 
   #clearPending(id: string, pending: PendingResponse): void {

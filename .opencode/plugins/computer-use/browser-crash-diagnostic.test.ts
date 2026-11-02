@@ -91,6 +91,21 @@ test("a child error event is recorded as spawn-error", async () => {
   })
 })
 
+test("a pre-ready exit keeps trailing startup detail that arrives just after it", async () => {
+  const child = new FakeChild()
+  const handle = new NodeWorkerHandle(child as never)
+  const waiting = handle.waitUntilReady()
+  child.emit("exit", 1, null)
+  // The child's final stderr bytes commonly arrive after the exit event but before
+  // the next macrotask; rejecting synchronously would discard the only cause.
+  process.nextTick(() => child.stderr.emit("data", Buffer.from("browser-worker-startup: native FFI missing\n")))
+  await assert.rejects(waiting, (error: any) => {
+    assert.equal(error.code, "WORKER_CRASHED")
+    assert.match(error.message, /native FFI missing/)
+    return true
+  })
+})
+
 test("a startup-error frame keeps its first code and adds no crash metadata", async () => {
   const child = new FakeChild()
   const handle = new NodeWorkerHandle(child as never)
