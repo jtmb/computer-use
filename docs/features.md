@@ -1297,6 +1297,19 @@ are unchanged. Six [security-evidence contracts](../scripts/document-security-co
 preserve input/receipt/pagination/non-promotion limits and run offline in required
 CI, not a new OSV query or installation approval.
 
+**Pinned stack exercised — 2026-11-02:** all nine pinned distributions were
+installed into a disposable virtual environment and then actually used. A DOCX
+authored with python-docx and lxml rendered through LibreOffice and reopened with
+the exact text; an XLSX round-tripped through openpyxl with the correct values; a
+reportlab PDF reopened through pypdf with the expected text; pandas read the
+workbook. Hardened XML behaves as intended: `defusedxml` refuses an
+external-entity document and the hardened lxml parser parses without resolving
+it, while the default parser still accepts entities. This is a
+disposable-environment result, not a system installation: the conversions ran
+without the cgroup supervisor because the user systemd manager is denied, and no
+licence, notice, ABI, transitive-closure or human review was performed. See the
+[pinned-stack evidence](document-authoring-stack-2026-11-02.json).
+
 A subsequent [local header observation](document-authoring-native-header-facts-2026-10-31.json)
 retains exact wheel/member hashes and8022header bytes declaring libxml2 2.14.6 and
 libxslt 1.1.43. Those are packaged declarations, **not linked binary identities**,
@@ -2141,6 +2154,13 @@ uses host networking only for containerized userspace Tailscale; this exception
 and stale-route/identity migration require separate deployment authority.
 No host Tailscale, public app port, database mount/copy, Funnel, secret read,
 global config edit or shared-service restart is part of the workflow.
+The new [state backup/restore helper](../tailscale/scripts/gateway-state-backup.mjs)
+captures the device-identity volume with per-file path/size/hash/mode/ownership,
+refuses unsafe members and mismatched manifests, restores only into vacant private
+staging, and is covered by [15 offline cases](../tailscale/tests/gateway-state-backup.test.mjs)
+inside the 91-test gateway suite. It has not been run against a real volume: the
+Docker daemon is not running here, so live backup, ownership round-trip and
+distinct-device acceptance remain unverified.
 The [guide](../tailscale/docs/web-on-demand.md) and
 [reviewed migration design](../tailscale/docs/existing-instance-gateway.md) own
 prerequisites/rollback. The [lifecycle](../tailscale/tests/web-on-demand.test.mjs),
