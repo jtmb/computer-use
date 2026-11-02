@@ -259,5 +259,13 @@
       "Admission headroom: solved by running the parent with a 64 MiB heap; the supervisor saw 2817.59 MiB."
     ],
     "remaining": "Only a reviewed change to the 1536 MiB owned-RSS ceiling, or a genuinely different compiler configuration that lowers the real peak, would let this complete. Both are change-control decisions and neither was performed."
+  },
+  "ceilingProvenance2026_11_02": {
+    "finding": "The 1536 MiB figure is not a self-imposed measurement bound invented for this experiment. The driver labels the envelope repository-mandated, and normalizeExpectations rejects any limits object that is not exactly 1536/1280/2816/90000. Raising it therefore requires a source change to both the constant and its validator, which is exactly the guard weakening the objective forbids.",
+    "sources": [
+      "tools/opencode-native-row/full-graph-diagnostics.mjs:10-13 comment and LIMITS.ownedRSSMiB",
+      "tools/opencode-native-row/full-graph-diagnostics.mjs:880 rejection message \"limits must exactly equal the mandated 1536/1280/2816/90000 envelope\""
+    ],
+    "conclusion": "No authorised path remains inside the current source. The item is blocked on an explicit user decision to change that envelope, not on missing investigation."
   }
 }
