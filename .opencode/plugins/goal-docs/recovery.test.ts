@@ -395,9 +395,9 @@ test("cancellation after transaction directory creation retains an incomplete ba
     const { readdir } = await import("node:fs/promises");
     process.stdout.write(JSON.stringify({failure, transactions: (await readdir(request.backupDirectory)).sort()}));
   `)
-  assert.equal(result.failure, "apply cancelled after transaction directory creation")
-  assert.equal(result.transactions.length, 1)
-  const transaction = path.join(fixture.backupDirectory, result.transactions[0])
+  assert.equal((result as any).failure, "apply cancelled after transaction directory creation")
+  assert.equal((result as any).transactions.length, 1)
+  const transaction = path.join(fixture.backupDirectory, (result as any).transactions[0])
   assert.equal((await readdir(transaction)).includes("journal.json"), false)
   const files = await readdir(transaction, { recursive: true, withFileTypes: true })
   assert.deepEqual(files.filter((entry) => entry.isFile()).map((entry) => entry.name), [])
@@ -410,7 +410,7 @@ test("cancellation after transaction directory creation retains an incomplete ba
     authorize: async () => { authorizations += 1 },
   }), /required file is missing/)
   assert.equal(authorizations, 0)
-  assert.deepEqual(await readdir(fixture.backupDirectory), result.transactions)
+  assert.deepEqual(await readdir(fixture.backupDirectory), (result as any).transactions)
   assert.equal((await readdir(transaction)).includes("journal.json"), false)
 })
 

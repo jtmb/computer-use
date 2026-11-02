@@ -141,6 +141,13 @@ export function buildSteps(options) {
       dependencies: ["node"],
       commands: [[process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", ".opencode/plugins/computer-use/tsconfig.json"]]],
     },
+    {
+      id: "goal-docs-types",
+      title: "Strict type check for the goal-docs plugin sources and tests",
+      kind: "required",
+      dependencies: ["node"],
+      commands: [[process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", ".opencode/plugins/goal-docs/tsconfig.json"]]],
+    },
     nodeStep("monitor-budget-tests", "Aggregate monitor accounting and cleanup guards (no compiler/process fixture)", [
       "--test", "--test-concurrency=1", "--test-reporter=spec",
       "tools/opencode-native-row/full-graph-monitor-budget.test.mjs",

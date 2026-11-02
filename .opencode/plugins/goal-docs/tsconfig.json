@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "typeRoots": ["../../../tools/computer-use-browser/node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@opencode/plugin": ["../../../tools/computer-use-browser/node_modules/@opencode/plugin/dist/promise/index.d.ts"],
+      "@opencode/plugin/rpc": ["../../../tools/computer-use-browser/node_modules/@opencode/plugin/dist/rpc.d.ts"],
+      "@opencode/plugin/tui": ["../../../tools/computer-use-browser/node_modules/@opencode/plugin/dist/tui/index.d.ts"],
+      "@opencode/plugin/tui/context": ["../../../tools/computer-use-browser/node_modules/@opencode/plugin/dist/tui/context.d.ts"],
+      "solid-js": ["../../../voice-assistant/node_modules/solid-js"]
+    }
+  },
+  "include": ["./**/*.ts"]
+}
