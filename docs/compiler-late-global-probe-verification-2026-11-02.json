@@ -249,5 +249,15 @@
     "finding": "Admission is reachable: with a smaller parent heap the supervisor saw 2817.59 MiB and started the run. The binding constraint is now the 1536 MiB owned-RSS ceiling, exceeded by only 1.85 MiB (1537.85). This is the first time the full 2827-input diagnostics run has actually spawned.",
     "interpretation": "The guard was not changed and no input was omitted. The run still produced no diagnostics. A future attempt needs either a slightly lower genuine peak (for example a smaller compiler worker heap, if the driver exposes one) or a reviewed change to the ceiling; neither is assumed here.",
     "limits": "Two guard refusals and one usage error are retained in order. The parent process used a 64 MiB heap for the successful admission so that its own footprint did not consume the window."
+  },
+  "alternativesExhausted2026_11_02": {
+    "finding": "The spawned attempt ran with the reviewed runtime expectation already set to goGcPercent 10, the most aggressive value the driver accepts (10 or 25 only). It still peaked at 1537.85 MiB against the 1536 MiB ceiling.",
+    "eliminated": [
+      "Lower Go garbage-collection target: already at the minimum accepted value, and 25 would increase rather than reduce the peak.",
+      "Worker heap or NODE_OPTIONS tuning: the worker environment is frozen and deliberately does not inherit the parent environment.",
+      "Input or library reduction: forbidden and would change what the diagnostics cover.",
+      "Admission headroom: solved by running the parent with a 64 MiB heap; the supervisor saw 2817.59 MiB."
+    ],
+    "remaining": "Only a reviewed change to the 1536 MiB owned-RSS ceiling, or a genuinely different compiler configuration that lowers the real peak, would let this complete. Both are change-control decisions and neither was performed."
   }
 }
