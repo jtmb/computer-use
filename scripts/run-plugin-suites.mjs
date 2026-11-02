@@ -22,6 +22,10 @@ const suites = [
   { directory: "tools/self-learning", extension: ".test.mjs" },
   { directory: "tools/computer-use-browser/test", extension: ".test.ts" },
   { directory: "tools/computer-use-runtime/test", extension: ".test.ts" },
+  { directory: "tools/computer-use-runtime", extension: ".test.mjs" },
+  { directory: "tools/computer-use-browser", extension: ".test.mjs" },
+  { directory: "tools/gnome-window-control", extension: ".test.mjs" },
+  { directory: "tools/chatgpt-direct/test", extension: ".test.mjs" },
 ]
 let failed = 0
 
