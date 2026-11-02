@@ -180,5 +180,29 @@
       "Files bundled under other names, or inside data directories outside the package root, are not discovered.",
       "Hashes identify the installed bytes; they do not verify provenance, signatures or licence compatibility."
     ]
+  },
+  "localProvenanceCheck2026_11_02": {
+    "method": "Cross-checked the on-disk installer evidence against the declared candidate digests: INSTALLER records, direct_url.json archive hashes, WHEEL tags and SBOM directories, compared with docs/document-authoring-candidates-2026-10-30.json.",
+    "distributions": 22,
+    "installerRecords": 22,
+    "directUrlRecords": 0,
+    "declaredDigestsAvailable": 9,
+    "locallyComparableArchiveHashes": 0,
+    "matched": 0,
+    "mismatched": 0,
+    "unverifiableLocally": 22,
+    "sbomDirectories": 2,
+    "finding": "No installed distribution retains an archive hash locally, so none of the nine declared wheel digests can be compared against installed bytes without network access. This is a measured absence, not a mismatch; the 5,057-file RECORD verification already proves the installed files match what pip recorded.",
+    "artifact": {
+      "path": "/tmp/opencode/doc-authoring/provenance-local.json",
+      "bytes": 7066,
+      "sha256": "c14e183cd095804d92cd396727428522d6c94d4c2e4c5dd713faa051b4e35a6d"
+    },
+    "parentCorrection": "The first pass read a non-existent sha256 field and reported zero declared digests; the candidates file uses sha256Declared.",
+    "limits": [
+      "pip installs from an index do not retain the wheel or a direct_url archive hash, so a declared digest can only be compared when such local evidence exists.",
+      "A missing local digest is an absence finding, not a mismatch.",
+      "Installer and SBOM records are self-reported by the installing tool and were not authenticated."
+    ]
   }
 }
