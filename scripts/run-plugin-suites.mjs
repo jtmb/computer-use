@@ -26,6 +26,7 @@ const suites = [
   { directory: "tools/computer-use-browser", extension: ".test.mjs" },
   { directory: "tools/gnome-window-control", extension: ".test.mjs" },
   { directory: "tools/chatgpt-direct/test", extension: ".test.mjs" },
+  { directory: "voice-assistant/test", extension: ".test.ts" },
 ]
 let failed = 0
 
