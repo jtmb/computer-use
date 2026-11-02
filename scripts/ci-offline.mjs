@@ -156,6 +156,7 @@ export function buildSteps(options) {
       commands: [
         [process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", "tools/personality/tsconfig.json"]],
         [process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", "tools/self-learning/tsconfig.json"]],
+        [process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", "tools/chatgpt-direct/tsconfig.host.json"]],
       ],
     },
     nodeStep("monitor-budget-tests", "Aggregate monitor accounting and cleanup guards (no compiler/process fixture)", [
