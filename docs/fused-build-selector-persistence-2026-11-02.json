@@ -50,5 +50,13 @@
     "No deployment or replacement of the user service, and no shared restart.",
     "Peak memory was not instrumented; only completion and artifact identity are claimed.",
     "The build used the frozen checkout with its existing dirty entries; no source was edited for this run."
-  ]
+  ],
+  "isolationObserved": {
+    "dataIsolated": "The instruction entry exists only in the isolated database (instruction_entry row for the test session). The shared pilot database has no such session row.",
+    "configNotIsolated": "The built binary resolves its configuration from the pilot profile: debug config printed /home/james/.opencode-v2-pilot/config/opencode.jsonc even with HOME and XDG_CONFIG_HOME pointed at an empty tree. A plugin-loading experiment through an isolated config therefore cannot run this way.",
+    "serviceStatusScope": "Built-binary service status also reported the shared endpoint regardless of the isolated HOME, so restart claims must be scoped to the data directory actually used, not to the endpoint printed.",
+    "sharedServiceUntouched": "The shared service process (pid 6628, started 2026-11-01) was never stopped. The stop/start observed during the persistence test affected only the isolated instance that wrote the isolated database.",
+    "strayServiceCleaned": "A second service started by the later config probe (pid 276414) was stopped and a process scan now finds zero processes for that built binary serve command.",
+    "limits": "This is a point-in-time process check, not proof about every descendant or about other users."
+  }
 }
