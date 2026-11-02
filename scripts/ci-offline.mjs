@@ -148,6 +148,16 @@ export function buildSteps(options) {
       dependencies: ["node"],
       commands: [[process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", ".opencode/plugins/goal-docs/tsconfig.json"]]],
     },
+    {
+      id: "tool-plugin-types",
+      title: "Strict type check for the personality and self-learning tools",
+      kind: "required",
+      dependencies: ["node"],
+      commands: [
+        [process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", "tools/personality/tsconfig.json"]],
+        [process.execPath, ["tools/computer-use-browser/node_modules/typescript/lib/tsc.js", "-p", "tools/self-learning/tsconfig.json"]],
+      ],
+    },
     nodeStep("monitor-budget-tests", "Aggregate monitor accounting and cleanup guards (no compiler/process fixture)", [
       "--test", "--test-concurrency=1", "--test-reporter=spec",
       "tools/opencode-native-row/full-graph-monitor-budget.test.mjs",
