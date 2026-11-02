@@ -35,12 +35,11 @@ All four are pushed; both remotes are in sync.
 | private staging (Python / Node) | 35/35, 13/13 |
 
 Type coverage: runtime and browser packages pass their own `tsconfig`; the 13
-plugin modules pass `tsconfig.benchmark.json` at a 2 GiB heap. The 24 plugin
-**test** files are still outside every project: a temporary strict project pointed
-at them reports 66 errors, all annotation-level (19 implicit-parameter, 17
-property-on-unknown, 8 implicit-array, 6 implicit-any variable, 4 unknown-cast,
-3 missing declaration) and none in production modules. They are recorded, not
-papered over, and the tests themselves pass.
+plugin modules pass `tsconfig.benchmark.json` at a 2 GiB heap. The plugin
+directory now also has its own strict project covering all sources and the 24 test
+files — it reports **zero errors** after annotating the test doubles, and the
+249-test suite still passes. `index.ts` is type-checked against the real 2.1.1
+declarations through an explicit path mapping.
 
 ## Met at the required layer
 
