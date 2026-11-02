@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "scope": "Loaded-registration evidence for the modified plugins in an isolated service instance. Not tool-execution, model, GUI or human acceptance.",
+  "method": "Started the built client (commit 0.0.0-detached-202611022059) with OPENCODE_CONFIG_DIR unset and HOME/XDG pointed at an empty tree, created one session at the repository location, then read the read-only plugin inventory. The shared service was never touched.",
+  "previousBlocker": "Earlier attempts returned an empty inventory because OPENCODE_CONFIG_DIR in the environment forced the pilot profile; unsetting it for the child made project configuration discovery work.",
+  "results": {
+    "totalPlugins": 94,
+    "active": 94,
+    "localPlugins": 5,
+    "localIds": [
+      "computer-use.desktop",
+      "computer-use.goal-docs",
+      "computer-use.memory",
+      "local.goal-mode.server",
+      "computer-use.self-learning"
+    ],
+    "sources": [
+      {
+        "id": "computer-use.desktop",
+        "path": "/home/james/repos/computer-use/.opencode/plugins/computer-use/index.ts",
+        "features": {
+          "server": true
+        }
+      },
+      {
+        "id": "computer-use.goal-docs",
+        "path": "/home/james/repos/computer-use/.opencode/plugins/goal-docs/index.ts",
+        "features": {
+          "server": true,
+          "tui": true,
+          "rpc": true
+        }
+      },
+      {
+        "id": "computer-use.memory",
+        "path": "/home/james/repos/computer-use/.opencode/plugins/memory/index.ts",
+        "features": {
+          "server": true
+        }
+      },
+      {
+        "id": "local.goal-mode.server",
+        "path": "/home/james/repos/opencode-goal-plugin/server.js",
+        "features": {
+          "server": true,
+          "tui": true
+        }
+      },
+      {
+        "id": "computer-use.self-learning",
+        "path": "/home/james/repos/computer-use/tools/self-learning/index.ts",
+        "features": {
+          "server": true
+        }
+      }
+    ]
+  },
+  "interpretation": "The five project plugins — computer-use.desktop, goal-docs, memory, self-learning and the goal-mode server — load from this repository and register active in a real service. Because their source files include today's edits, this is loaded-registration proof for those edits, stronger than the earlier selected-source inventory. It is still not proof that any specific new code path executed.",
+  "cleanup": "The isolated service was stopped; a process scan finds zero processes for the built binary and the shared service pid 6628 is unchanged.",
+  "artifact": {
+    "path": "/tmp/opencode/plugin-loaded.json",
+    "bytes": 11395,
+    "sha256": "e1e6241f24f55c19fc4cda4c23f2c3d9ccb4c2c19650a80ea2317527313dc814"
+  },
+  "limits": [
+    "Registration is not tool execution: the public client cannot invoke a registered tool.",
+    "No model, GUI/audio or human layer is exercised.",
+    "The isolated service used the built client, not the installed one, and its data directory is disposable."
+  ]
+}
