@@ -1863,7 +1863,9 @@ ownership guards, local whitespace and the canonical candidate corpus validator,
 regressions and synthetic controls without installs, credentials, network or
 desktop/service access. [`ci-offline.test.mjs`](../scripts/ci-offline.test.mjs)
 checks that binding and fail-closed prerequisite reporting. Optional extra commands
-require independent review; this runner is not a sandbox. Health remains separate.
+require independent review; this runner is not a sandbox. Fourteen offline Python
+suites for config editing, deployment, window control, memory retirement and the
+demo tooling run in the same runner. Health remains separate.
 [`run-plugin-suites.mjs`](../scripts/run-plugin-suites.mjs) supplies the plugin and
 tool test suites to that runner by explicit directory discovery, because those
 directories have no package manifest for a test glob: computer-use (249),
