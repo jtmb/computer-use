@@ -1684,7 +1684,10 @@ cache is root-owned mode 000 and holds no usable browser. After a private
 Chromium install, the real manager, the registered `web.open`/`web.close` tools
 and two concurrent isolated sessions all work against a local page; see the
 [live runtime record](browser-live-runtime-2026-11-02.json). That is not a retry
-inside the service or a model turn. Earlier successful browser observations below remain dated
+inside the service or a model turn. A later source fix also defers a pre-ready
+crash rejection by one macrotask so the child's trailing stderr or startup-error
+frame is kept; the running service still holds the previous copy, so that detail
+appears only after a reload or restart. Earlier successful browser observations below remain dated
 evidence, not proof this new workflow works. The synthetic server stops itself;
 session-only close reports no worker cancelled, and non-launching tab readback
 reports `SESSION_STATE`. The public no-start client identifies the active
