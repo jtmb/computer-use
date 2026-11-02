@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "headline": "The earlier WORKER_CRASHED was caused by absent Playwright browser binaries in the default cache. With a private browser install the real worker, the registered web.open tool and two-session isolation all work.",
+  "rootCause": {
+    "finding": "The default Playwright cache is root-owned with mode 000 and contains no usable browser, so the worker could not launch. Installing Chromium into a private writable cache (PLAYWRIGHT_BROWSERS_PATH=/tmp/opencode/pw-browsers) made every subsequent launch succeed.",
+    "evidence": "Three real launches succeeded after the install; the earlier single launch failed before any browser existed. The failure was environmental, not a code defect, and the diagnostic metadata added today was not needed to explain it.",
+    "limits": "This identifies the cause of the observed crash in this environment; it does not prove the service that ran on 2026-11-01 had the same environment."
+  },
+  "probes": {
+    "manager": {
+      "outcome": "start + tabs.new + navigate + snapshot",
+      "detail": "Session started running with a private profile, a tab was created, navigation returned title \"probe\", and the snapshot contained the heading with a ref.",
+      "artifacts": {
+        "name": "manager",
+        "path": "/tmp/opencode/browser-live-probe.mjs",
+        "bytes": 1748,
+        "sha256": "f18b3f42e333e375d176c15f7e769dbaa0afa6d8d2ca22c613f1da9baec5798b"
+      }
+    },
+    "tool": {
+      "outcome": "registered web.open and web.close",
+      "detail": "The real registered tool opened http://127.0.0.1 and returned tabId/url/title; web.close returned cancelled:true with discarded [\"browser worker\",\"tabs\"] and retained isolated profile data.",
+      "artifacts": {
+        "name": "tool",
+        "path": "/tmp/opencode/browser-tool-probe.mjs",
+        "bytes": 1665,
+        "sha256": "64181bb45558ab1a5d2ff780d4fe84375503934a63f84209a14c82d2353fb918"
+      }
+    },
+    "isolation": {
+      "outcome": "two concurrent sessions",
+      "detail": "Two sessions under one project key produced different profile directories and different tab ids; each listed only its own tab; navigation affected only session A.",
+      "artifacts": {
+        "name": "isolation",
+        "path": "/tmp/opencode/browser-isolation-probe.mjs",
+        "bytes": 1908,
+        "sha256": "1b491ed8d5710e8e81dbd8630a73eb3e02fd42e1695a1eac14fc603bd79d1702"
+      }
+    }
+  },
+  "environment": {
+    "playwrightBrowsersPath": "/tmp/opencode/pw-browsers",
+    "sizeBytes": 658000000,
+    "installed": [
+      "chromium-1243",
+      "chromium_headless_shell-1243",
+      "ffmpeg-1011"
+    ],
+    "note": "Signed Playwright download into a private directory; the system browser cache was not modified and no root access was used."
+  },
+  "limits": [
+    "Probes ran outside the OpenCode service against the same source modules, not through a model turn.",
+    "No screenshot, clipboard, sign-in or private profile was used.",
+    "The 200 MiB-scale browser install remains in /tmp and is disposable."
+  ]
+}

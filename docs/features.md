@@ -1679,7 +1679,12 @@ see the [audit and declaration-pin evidence](test-quality-audit.md#final-source-
 
 **Current browser check — 2026-11-02:** one new account-free loopback page
 attempt through the loaded `web.open` tool returns `WORKER_CRASHED` before a tab
-can be verified. Earlier successful browser observations below remain dated
+can be verified. The cause was subsequently identified: the default Playwright
+cache is root-owned mode 000 and holds no usable browser. After a private
+Chromium install, the real manager, the registered `web.open`/`web.close` tools
+and two concurrent isolated sessions all work against a local page; see the
+[live runtime record](browser-live-runtime-2026-11-02.json). That is not a retry
+inside the service or a model turn. Earlier successful browser observations below remain dated
 evidence, not proof this new workflow works. The synthetic server stops itself;
 session-only close reports no worker cancelled, and non-launching tab readback
 reports `SESSION_STATE`. The public no-start client identifies the active
