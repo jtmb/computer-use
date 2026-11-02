@@ -157,5 +157,28 @@
       "Version comparison is not full PEP 440, and platform markers are treated as active.",
       "Human review of the documents produced remains outstanding."
     ]
+  },
+  "noticeInventory2026_11_02": {
+    "method": "Local enumeration and SHA-256 of licence, notice, copying, authors and copyright files inside each installed dist-info, including any licenses/ directory. No network or credentials.",
+    "distributions": 22,
+    "withNoticeFiles": 22,
+    "withoutNoticeFiles": 0,
+    "fileCount": 85,
+    "totalBytes": 472317,
+    "artifact": {
+      "path": "/tmp/opencode/doc-authoring/notice-inventory.json",
+      "bytes": 14770,
+      "sha256": "c696947ebf8a2be6734e77ddbae4c42bb322cc09af9b15086939e13fad7582c3"
+    },
+    "parentCorrections": [
+      "A first pass deduplicated by relative path alone, which hid 11 licence files that share the name licenses/LICENSE; fixed by keying on distribution plus path.",
+      "A second pass missed pypdfium2 because its licences live under a licenses/ directory with version-named files; those directories are now included.",
+      "The naive pattern also missed plural LICENSES entries until the suffix was widened."
+    ],
+    "limits": [
+      "Only files whose names match LICEN[CS]E/COPYING/NOTICE/AUTHORS/COPYRIGHT inside dist-info and the installed package directory were read.",
+      "Files bundled under other names, or inside data directories outside the package root, are not discovered.",
+      "Hashes identify the installed bytes; they do not verify provenance, signatures or licence compatibility."
+    ]
   }
 }
