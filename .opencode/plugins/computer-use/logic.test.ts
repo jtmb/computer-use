@@ -337,14 +337,18 @@ test("describeDesktopFailure explains timeouts, cancellation, and stderr", () =>
 })
 
 test("appIndex binds one instance of a repeated application name", () => {
-  assert.deepEqual(buildDesktopArgs({ verb: "tree", appIndex: 9, maxDepth: 4 }).args, [
+  const treeArgs = buildDesktopArgs({ verb: "tree", appIndex: 9, maxDepth: 4 })
+  assert.ok("args" in treeArgs)
+  assert.deepEqual(treeArgs.args, [
     "tree",
     "--app-index",
     "9",
     "--max-depth",
     "4",
   ])
-  assert.deepEqual(buildDesktopArgs({ verb: "find", appIndex: 9, name: "OK" }).args, [
+  const findArgs = buildDesktopArgs({ verb: "find", appIndex: 9, name: "OK" })
+  assert.ok("args" in findArgs)
+  assert.deepEqual(findArgs.args, [
     "find",
     "--app-index",
     "9",

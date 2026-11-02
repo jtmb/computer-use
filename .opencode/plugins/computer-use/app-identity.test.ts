@@ -13,38 +13,38 @@ test("appId builds an exact selector and rejects mixed or malformed identities",
 })
 
 test("tree permissions retain exact application identity for both ID and positional selectors", async () => {
-  const tools = new Map()
-  const permissions = []
-  registerDesktopTools({ namespace() {}, add(tool) { tools.set(tool.name, tool) } }, {
+  const tools = new Map<string, any>()
+  const permissions: any[] = []
+  registerDesktopTools({ namespace() {}, add(tool: any) { tools.set(tool.name, tool) } }, {
     assertPermission: async request => { permissions.push(request) },
     executeDesktop: async () => "{}",
   })
   const context = { sessionID: "identity-test", messageID: "message", id: "call", agent: "build" }
-  await tools.get("tree").execute({ appId }, context)
-  await tools.get("tree").execute({ appIndex: 3 }, context)
+  await tools.get("tree")!.execute({ appId }, context)
+  await tools.get("tree")!.execute({ appIndex: 3 }, context)
   assert.equal(permissions[0].resources[0], `desktop/tree/${encodeURIComponent(appId)}`)
   assert.equal(permissions[1].resources[0], "desktop/tree/%233")
 })
 
 test("cancellation during permission settlement does not reach desktop backend", async () => {
-  const tools = new Map()
+  const tools = new Map<string, any>()
   const controller = new AbortController()
   let calls = 0
-  registerDesktopTools({ namespace() {}, add(tool) { tools.set(tool.name, tool) } }, {
+  registerDesktopTools({ namespace() {}, add(tool: any) { tools.set(tool.name, tool) } }, {
     assertPermission: async () => { controller.abort(new Error("stopped")) },
     executeDesktop: async () => { calls++; return "{}" },
   })
-  await assert.rejects(tools.get("tree").execute({ appId }, { sessionID: "s", messageID: "m", id: "c", agent: "build", signal: controller.signal }), /stopped/)
+  await assert.rejects(tools.get("tree")!.execute({ appId }, { sessionID: "s", messageID: "m", id: "c", agent: "build", signal: controller.signal }), /stopped/)
   assert.equal(calls, 0)
 })
 
 test("slow approval refreshes only a preview of the identical process-bound target", async () => {
-  const tools = new Map()
-  const calls = []
+  const tools = new Map<string, any>()
+  const calls: any[] = []
   const fingerprint = "a".repeat(64)
   const oldToken = `${BigInt(Date.now() - 40_000) * 1_000_000n}:${fingerprint}`
   const freshToken = `${BigInt(Date.now()) * 1_000_000n}:${fingerprint}`
-  registerDesktopTools({ namespace() {}, add(tool) { tools.set(tool.name, tool) } }, {
+  registerDesktopTools({ namespace() {}, add(tool: any) { tools.set(tool.name, tool) } }, {
     assertPermission: async () => {},
     executeDesktop: async input => { calls.push({ ...input }); return input.apply ? '{"dispatched":true}' : JSON.stringify({ dry_run: true, target_token: freshToken }) },
   })
@@ -55,10 +55,10 @@ test("slow approval refreshes only a preview of the identical process-bound targ
 })
 
 test("slow approval never refreshes into a changed target", async () => {
-  const tools = new Map()
-  const calls = []
+  const tools = new Map<string, any>()
+  const calls: any[] = []
   const oldToken = `${BigInt(Date.now() - 40_000) * 1_000_000n}:${"a".repeat(64)}`
-  registerDesktopTools({ namespace() {}, add(tool) { tools.set(tool.name, tool) } }, {
+  registerDesktopTools({ namespace() {}, add(tool: any) { tools.set(tool.name, tool) } }, {
     assertPermission: async () => {},
     executeDesktop: async input => { calls.push(input); return JSON.stringify({ dry_run: true, target_token: `${BigInt(Date.now()) * 1_000_000n}:${"b".repeat(64)}` }) },
   })
@@ -69,7 +69,7 @@ test("slow approval never refreshes into a changed target", async () => {
 })
 
 test("persistent CUA handles bind appId rather than a shifting list index", async () => {
-  const calls = []
+  const calls: any[] = []
   let current = [{ index: 1, name: "Editor", appId }]
   const session = new CuaSession({ call: async (key, input) => {
     calls.push({ key, input })

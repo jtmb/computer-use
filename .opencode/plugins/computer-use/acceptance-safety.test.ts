@@ -102,7 +102,7 @@ test("capture validates fresh target first and refuses changed IDs, app, PID, ge
   const stable = await captureWithStableTarget({
     options: options(),
     inventory: async () => inventory(),
-    capture: async (target) => {
+    capture: async (target: any) => {
       captures += 1
       assert.equal(target.id, WINDOW_ID)
       return "png-result"
@@ -142,7 +142,7 @@ test("default effect gate dispatches nothing; opt-in carries the exact launch de
   assert.equal(defaultResult, undefined)
   assert.equal(dispatched, 0)
   const optedIn = options(["--allow-effects", "--launch-desktop-id", "org.gnome.Calculator.desktop"])
-  const result = await runExplicitEffects(optedIn, async (selection) => {
+  const result = await runExplicitEffects(optedIn, async (selection: any) => {
     dispatched += 1
     return selection.launchDesktopId
   })
@@ -176,7 +176,7 @@ test("opted-in effect block runs release, refusal, and selected launch through p
     id: "call_effect_test",
   }
   const selected = options(["--allow-effects", "--launch-desktop-id", "org.gnome.Calculator.desktop"])
-  await runExplicitEffects(selected, async ({ launchDesktopId }) => {
+  await runExplicitEffects(selected, async ({ launchDesktopId }: { launchDesktopId?: any }) => {
     await tools.get("release").execute({}, context)
     const refused = await tools.get("input").execute({
       observationId: "00000000-0000-4000-8000-000000000000",
@@ -272,14 +272,14 @@ test("owned daemon cleanup resumes only its current capability after success or 
     exitCleanup = cleanup
     return () => { removed = true }
   }
-  assert.equal(await withOwnedDaemonSuspension(control, async () => "completed", registerExit), "completed")
+  assert.equal(await withOwnedDaemonSuspension(control, async () => "completed", registerExit as any), "completed")
   assert.equal(signals, 2)
   assert.equal(suspended, false)
 
   await assert.rejects(withOwnedDaemonSuspension(control, async () => {
     assert.equal(suspended, true)
     throw new Error("injected cancellation")
-  }, registerExit), /injected cancellation/)
+  }, registerExit as any), /injected cancellation/)
   assert.equal(signals, 4)
   assert.equal(suspended, false)
   assert.equal(typeof exitCleanup, "function")

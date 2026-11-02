@@ -13,19 +13,19 @@ async function entrypoint() {
 
 test("production entry keeps CUA bindings across tool-registry replay", async () => {
   const plugin = await entrypoint()
-  const transforms = []
-  let definitions = new Map()
+  const transforms: any[] = []
+  let definitions = new Map<string, any>()
   const editor = () => ({
     namespace() {},
-    add(tool) { definitions.set(`${tool.options?.namespace ?? ""}:${tool.name}`, tool) },
+    add(tool: any) { definitions.set(`${tool.options?.namespace ?? ""}:${tool.name}`, tool) },
     list() { return [...definitions.values()].map(tool => ({ ...tool, id: `${tool.options?.namespace ?? ""}_${tool.name}` })) },
-    get(id) { return [...definitions.values()].find(tool => `${tool.options?.namespace ?? ""}_${tool.name}` === id) },
-    update(id, update) { const tool = this.get(id); if (tool) update(tool) },
+    get(id: any) { return [...definitions.values()].find(tool => `${tool.options?.namespace ?? ""}_${tool.name}` === id) },
+    update(id: any, update: any) { const tool = this.get(id); if (tool) update(tool) },
   })
   const cleanup = await plugin.setup({
     options: {},
     permission: { assert: async () => {} },
-    tool: { transform: async callback => { transforms.push(callback); callback(editor()); return { dispose: async () => {} } } },
+    tool: { transform: async (callback: any) => { transforms.push(callback); callback(editor()); return { dispose: async () => {} } } },
   })
   try {
     const context = { sessionID: "entry-cua", agent: "build", messageID: "m1", id: "c1", signal: new AbortController().signal }

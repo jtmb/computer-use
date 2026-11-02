@@ -9,24 +9,24 @@ test("production registry replay preserves browser manager, refs and owner; unlo
   let factoryCalls = 0
   let applied = 0
   const cancelled: string[] = []
-  const tab = { id: "fixture-tab", ownership: "ephemeral", url: "http://127.0.0.1:1234/", title: "Fixture" }
-  globalThis[ioKey] = () => {
+  const tab: { id: string; ownership: string; url: string; title: string } = { id: "fixture-tab", ownership: "ephemeral", url: "http://127.0.0.1:1234/", title: "Fixture" }
+  ;(globalThis as any)[ioKey] = () => {
     factoryCalls++
-    const sessions = new Map()
+    const sessions = new Map<string, any>()
     return {
       listSessions: () => [...sessions.values()],
-      start: async ({ sessionId }) => { const info = { sessionId, status: "running" }; sessions.set(sessionId, info); return info },
-      execute: async (_session, operation) => {
+      start: async ({ sessionId }: { sessionId: string }) => { const info = { sessionId, status: "running" }; sessions.set(sessionId, info); return info },
+      execute: async (_session: string, operation: any): Promise<any> => {
         if (operation.method === "tabs.new" || operation.method === "navigate") return tab
         if (operation.method === "tabs.list") return [tab]
         if (operation.method === "snapshot") return { tabId: tab.id, generation: 1, snapshot: '- textbox "Note" [ref=e1]' }
         if (operation.method === "fill") { applied++; return {} }
         return {}
       },
-      cancel: async sessionId => { cancelled.push(sessionId); return sessions.delete(sessionId) },
+      cancel: async (sessionId: string) => { cancelled.push(sessionId); return sessions.delete(sessionId) },
     }
   }
-  t.after(() => { delete globalThis[ioKey] })
+  t.after(() => { delete (globalThis as any)[ioKey] })
   // Only browser I/O is replaced. The real entry, registrations, native request
   // validators and serialization wrappers execute through every replay.
   const wrapper = `import {registerBrowserTools as original} from ${JSON.stringify(new URL("./browser-tools.ts", location).href)};
@@ -36,16 +36,16 @@ test("production registry replay preserves browser manager, refs and owner; unlo
   source = source.replace('from "./browser-tools.ts"', `from ${JSON.stringify(`data:text/javascript;base64,${Buffer.from(wrapper).toString("base64")}`)}`)
   source = source.replace(/from "(\.[^"]+)"/g, (_match, relative) => `from ${JSON.stringify(new URL(relative, location).href)}`)
   const plugin = (await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString("base64")}`)).default
-  let definitions = new Map()
-  const transforms = []
+  let definitions = new Map<string, any>()
+  const transforms: any[] = []
   const editor = () => ({
     namespace() {},
-    add(tool) { definitions.set(`${tool.options?.namespace}:${tool.name}`, tool) },
+    add(tool: any) { definitions.set(`${tool.options?.namespace}:${tool.name}`, tool) },
     list() { return [...definitions.values()].map(tool => ({ ...tool, id: `${tool.options?.namespace}_${tool.name}` })) },
-    get(id) { return this.list().find(tool => tool.id === id) },
-    update(id, update) { const tool = [...definitions.values()].find(tool => `${tool.options?.namespace}_${tool.name}` === id); if (tool) update(tool) },
+    get(id: any) { return this.list().find(tool => tool.id === id) },
+    update(id: any, update: any) { const tool = [...definitions.values()].find(tool => `${tool.options?.namespace}_${tool.name}` === id); if (tool) update(tool) },
   })
-  const cleanup = await plugin.setup({ options: {}, permission: { assert: async () => {} }, tool: { transform: async callback => { transforms.push(callback); callback(editor()); return { dispose: async () => {} } } } })
+  const cleanup = await plugin.setup({ options: {}, permission: { assert: async () => {} }, tool: { transform: async (callback: any) => { transforms.push(callback); callback(editor()); return { dispose: async () => {} } } } })
   const context = { sessionID: "browser-entry", agent: "build", messageID: "m", id: "c" }
   try {
     const open = await definitions.get("web:open").execute({ url: tab.url }, context)

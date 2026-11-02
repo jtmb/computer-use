@@ -8,12 +8,12 @@ const APPS = [
   { index: 3, appId: `app:${"3".repeat(64)}`, name: "Google Chrome", role: "application", children: 3 },
 ]
 
-function json(value) {
+function json(value: unknown) {
   return { content: [{ type: "text", text: JSON.stringify(value) }] }
 }
 
-function makeSession(calls = []) {
-  const call = async (key, input) => {
+function makeSession(calls: Array<{ key: string; input: any }> = []) {
+  const call = async (key: string, input: any): Promise<any> => {
     calls.push({ key, input })
     switch (key) {
       case "desktop:apps":
@@ -80,6 +80,7 @@ test("app.tree displays the tree and returns it", async () => {
   const out = await session.execute("const app = await cua.getApp(1); await app.tree({ maxDepth: 5 })", ctx)
   assert.match(out.text, /push button/)
   const tree = calls.find((c) => c.key === "desktop:tree")
+  assert.ok(tree)
   assert.equal(tree.input.appId, APPS[0].appId)
   assert.equal(tree.input.maxDepth, 5)
 })
@@ -209,7 +210,7 @@ function sessionWith(
   const session = new CuaSession({
     call: async (key, input) => {
       calls.push({ key, input })
-      return await handler(key, input)
+      return (await handler(key, input)) as any
     },
     ...options,
   })

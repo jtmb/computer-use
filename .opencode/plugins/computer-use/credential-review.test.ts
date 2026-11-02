@@ -66,7 +66,7 @@ function browserFixture(options: {
   registerBrowserTools<Tool>(
     {
       namespace() {},
-      add(tool) { tools.set(tool.name, tool) },
+      add(tool: any) { tools.set(tool.name, tool) },
     },
     {
       assertPermission: async () => {},
@@ -97,7 +97,7 @@ function captureFixture(credentialSafety: ReturnType<typeof createCredentialSafe
   registerCaptureTools<Tool>(
     {
       namespace() {},
-      add(tool) { tools.set(tool.name, tool) },
+      add(tool: any) { tools.set(tool.name, tool) },
     } as never,
     {
       assertPermission: async () => {},

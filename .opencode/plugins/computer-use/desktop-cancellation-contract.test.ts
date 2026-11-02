@@ -20,7 +20,7 @@ const MAX_PROMPT_MS = 3000
 function aborted() {
   const failure = new Error("The operation was aborted")
   failure.name = "AbortError"
-  failure.code = "ABORT_ERR"
+  ;(failure as any).code = "ABORT_ERR"
   return failure
 }
 
