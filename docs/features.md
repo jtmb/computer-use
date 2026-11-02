@@ -1867,9 +1867,10 @@ require independent review; this runner is not a sandbox. Health remains separat
 [`run-plugin-suites.mjs`](../scripts/run-plugin-suites.mjs) supplies the plugin and
 tool test suites to that runner by explicit directory discovery, because those
 directories have no package manifest for a test glob: computer-use (249),
-goal-docs (227), memory (38), the offline personality suites (32) and
-self-learning (69). Personality's native-host and model-fixture suites are
-excluded because they need real hosts.
+goal-docs (227), memory (38), the offline personality suites (32),
+self-learning (69), the browser package (57) and the runtime package (42) — 714
+tests in total. Personality's native-host and model-fixture suites are excluded
+because they need real hosts.
 
 The [reference/exemplar collections](golden-corpus/README.md) and
 [behavioral evaluation package](../evals/agent-rules/README.md) contain 30 candidate

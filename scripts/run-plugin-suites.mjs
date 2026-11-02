@@ -20,6 +20,8 @@ const suites = [
   // the offline unit suites run here.
   { directory: "tools/personality", extension: ".test.mjs", only: ["core.test.mjs", "entry.test.mjs", "wiring.test.mjs"] },
   { directory: "tools/self-learning", extension: ".test.mjs" },
+  { directory: "tools/computer-use-browser/test", extension: ".test.ts" },
+  { directory: "tools/computer-use-runtime/test", extension: ".test.ts" },
 ]
 let failed = 0
 
