@@ -82,5 +82,11 @@
       "No service restart was performed.",
       "The symlink changes where the default cache resolves; it does not place browsers at the root-owned path itself."
     ]
+  },
+  "nonNodeRuntimeAttempt": {
+    "attempt": "Ran the registered-tool probe under Bun 1.4.2 so process.execPath was not a Node binary, matching the service's non-node execPath more closely.",
+    "result": "Succeeded: web.open returned tabId/url/title and web.close discarded the worker and tabs.",
+    "interpretation": "A non-node execPath alone does not reproduce the service failure. Combined with earlier successes under the exact service environment values, the remaining difference is the service's long-lived module state loaded on 2026-11-01, before today's fixes and the cache repair. That is consistent with the new pre-ready deferral not being present in the running copy.",
+    "nextStep": "The improved pre-ready detail will appear after a plugin reload or restart; both were deliberately not performed mid-session."
   }
 }
