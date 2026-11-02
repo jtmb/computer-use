@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "3c15c374-cdb3-4af1-a767-d81398605f63",
+  "purpose": "Acquire a static ffprobe without root or system package changes, and confirm the demo preflight detects it.",
+  "source": "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz",
+  "archive": {
+    "bytes": 41888096,
+    "note": "downloaded once, XZ CRC64 verified by tar extraction"
+  },
+  "binary": {
+    "path": "/tmp/opencode/ffmpeg-static/ffprobe",
+    "bytes": 79665792,
+    "modeOctal": "755",
+    "version": "ffprobe 7.0.2-static"
+  },
+  "detection": {
+    "withPath": "shutil.which(\"ffprobe\") resolves to /tmp/opencode/ffmpeg-static/ffprobe",
+    "withoutPath": "shutil.which(\"ffprobe\") returns None",
+    "toolReference": "scripts/demo-preflight.py:411 records ffprobe_executable from shutil.which"
+  },
+  "whatThisUnblocks": "The demo review stage no longer fails closed for a missing ffprobe. It still needs a real recorded run and the user's preview approval before any README or asset replacement.",
+  "limits": [
+    "Static third-party build downloaded over the network; no signature or checksum from the maintainer was verified beyond the archive integrity check.",
+    "Nothing was installed system-wide; the binary lives under /tmp and is disposable.",
+    "No recording, review run, preview or replacement was performed."
+  ]
+}
