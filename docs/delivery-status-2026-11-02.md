@@ -93,3 +93,30 @@ here would require fake stubs.
 
 Three items were reserved for last and still need a person: a real private value,
 a second device for the gateway, and the simultaneous demo recording.
+
+## Closure — 2026-11-02
+
+The goal was cleared at the user's request. This section closes the items that
+cannot be completed by the assistant alone. "Closed" means recorded as blocked
+with the exact missing input; it does not mean the criterion passed.
+
+| Item | Status | Exact missing input | Can the assistant do it? |
+| --- | --- | --- | --- |
+| Private value entry | Closed — human-only | The user's own secret value, entered by the user | No; handling or inventing a private value is out of scope |
+| Distinct-device gateway restore | Closed — device-only | A second physical machine, Docker running, and the user's password | No |
+| Simultaneous demo | Closed — human/device-only | The user performing app actions while recording, then approving the preview | No |
+| Matched benchmark run | Closed — credential-only | A model provider authenticated inside the isolated test root | No; the assistant will not copy or infer credentials |
+| Corpus gold review | Closed — human review | An independent person's gold labels | No |
+| Document stack sign-off | Closed — human review | A person accepting the rendered documents | No |
+| Shared-service restart (stale browser copy) | Closed — shared-permission | Explicit approval to restart the shared service | No; a shared restart needs separate permission |
+
+Unfinished but solvable with further work (not closed as impossible): the full
+compiler diagnostics run (the user authorized skipping the memory guard, but the
+goal was cleared before the run), remaining GUI observations (desktop capture is
+proven working), an archive repair authorizer, and a non-systemd converter
+supervisor. These were not done, and no result is claimed for them.
+
+Final state check at closure: `./scripts/health-check.sh` reports **PASSED**;
+the only merge commit in history is `b47765e` from 2026-10-26, predating this
+delivery; 48 commits were made during this delivery; the 389 pre-existing dirty
+entries were left untouched.
