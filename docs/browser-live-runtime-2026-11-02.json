@@ -65,5 +65,22 @@
     "Probes ran outside the OpenCode service against the same source modules, not through a model turn.",
     "No screenshot, clipboard, sign-in or private profile was used.",
     "The 200 MiB-scale browser install remains in /tmp and is disposable."
-  ]
+  ],
+  "serviceContext2026_11_02": {
+    "changes": "Installed Chromium into /home/james/.cache/opencode-browsers and pointed the default cache at it: the root-owned mode-000 directory was renamed to ms-playwright.root-owned-20261009 (preserved, not deleted) and ms-playwright now symlinks to the working install.",
+    "serviceResult": "The live service still returns WORKER_CRASHED with readiness=not-observed, child=exit, exit=1, signal=null on every web.open, including after web.close cleared the slot.",
+    "standaloneResult": "The identical worker command, with the service's own environment values (HOME, PATH, no PLAYWRIGHT_BROWSERS_PATH, DISPLAY=:0, WAYLAND_DISPLAY=wayland-0, XDG_RUNTIME_DIR=/run/user/1000) and the real session profile directory, prints \"browser-worker-ready: channel=chrome\" and stays alive.",
+    "finding": "The failure is specific to the service context, not the browser install, the profile path or the environment values we can see. Only three data points exist because the crash path rejects before the startup frame is processed and the stderr tail is empty, so the actual cause is still hidden.",
+    "likelyGap": "A pre-ready exit races the startup-error frame and stderr flush: markCrashed builds the error with an empty stderr tail, which is exactly why no detail appears. Surfacing the child stderr on a pre-ready exit would expose the cause.",
+    "environmentChange": {
+      "preservedOriginal": "/home/james/.cache/ms-playwright.root-owned-20261009",
+      "symlink": "/home/james/.cache/ms-playwright -> /home/james/.cache/opencode-browsers",
+      "sizeBytes": 658000000,
+      "reversible": "rm the symlink and mv the preserved directory back"
+    },
+    "limits": [
+      "No service restart was performed.",
+      "The symlink changes where the default cache resolves; it does not place browsers at the root-owned path itself."
+    ]
+  }
 }
