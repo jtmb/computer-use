@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only independent title receipt verification; the coordinator remains inbox-decisions/inbox-memory-acceptance. No whole title task, phase or goal completion.",
+  "production": {
+    "path": ".opencode/plugins/goal-docs/goal-tool-titles.ts",
+    "bytes": 4870,
+    "sha256": "e6542839d4887b8f9f3e816b8373b5fbf9ecef8935f32b59deaf4d3f8fe68ac3",
+    "changed": false
+  },
+  "existingTests": {
+    "path": ".opencode/plugins/goal-docs/goal-tool-titles.test.ts",
+    "bytes": 10912,
+    "sha256": "042da98410be084f268ed2b4773518755838596832a818cf95faa4947b58a7a7",
+    "previousObservedResult": "2/2 pass, zero skips, 414.065076ms",
+    "rerun": false,
+    "changed": false
+  },
+  "focusedTests": {
+    "path": ".opencode/plugins/goal-docs/goal-tool-titles-budget.test.ts",
+    "beforeBytes": 8180,
+    "beforeSHA256": "f4a1ec36a43e32a77ce408b6ea88c3aeb3fc53dd205fe1f8e03636454709c2b5",
+    "afterBytes": 8500,
+    "afterSHA256": "a65005404cc9251531f9c387c123572fbe6641675a04472c76e7d3af51ffdb1d",
+    "command": "node --max-old-space-size=256 --experimental-strip-types --test --test-concurrency=1 .opencode/plugins/goal-docs/goal-tool-titles-budget.test.ts",
+    "result": { "exitStatus": 0, "tests": 8, "passed": 8, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 657.273675 },
+    "evidence": "Actual functions.shell result in this continuation, not a fabricated TAP file or repeated unchanged baseline.",
+    "coverage": "Nonnull error wrappers; oversized ASCII/UTF8 classifier text before trim; bounded failure markers; exact single-string UTF8 limits; 129-part rejection before reads; 128-part separators before join; multibyte per-part bytes before join; completed mutations/session bounds/unload. The actual production hook runs with a recording controller boundary, not a substituted receipt implementation.",
+    "strengthening": "Only the seventh test changes. Retain the oversized-text-first case, and add oversized text last after null, nontext and empty-text slots. The prejoin trap covers either position. All three exact-boundary counterparts are also accepted, for four positive cases. The other seven tests are byte-identical to all six original scratch copies."
+  },
+  "strictTypes": {
+    "compilerVersion": "6.0.3",
+    "command": "node --max-old-space-size=256 /home/james/repos/opencode-goal-plugin/node_modules/typescript/bin/tsc --ignoreConfig --strict --noEmit --skipLibCheck false --module nodenext --target es2022 --allowImportingTsExtensions --types node --typeRoots /home/james/repos/opencode-goal-plugin/node_modules/@types .opencode/plugins/goal-docs/goal-tool-titles.ts .opencode/plugins/goal-docs/goal-tool-titles-budget.test.ts",
+    "exitStatus": 0,
+    "diagnostics": "none",
+    "qualification": "The actual two roots and dependency/library graph only; not the full native/current-controller/SDK graph or a compiler-input omission presented as full acceptance. The 256MiB V8 setting is not measured whole-process RSS. No packages are installed."
+  },
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/title-verification-corrected-zsii1m9w/controls.json",
+    "receiptBytes": 9482,
+    "receiptSHA256": "f10df0c47b88ebd0107eb362487af20c4a1cda45162425b50fa5cda41f540ec9",
+    "originalArtifacts": "/home/james/Documents/computer-use-native-host-20261029/title-verification-lms33id9/",
+    "originalSourceCopies": "/tmp/opencode/title-receipt-controls-tpi8agy0/",
+    "firstFive": "Recovered without rerunning: nonnull-error and string-UTF8-bound fail assertions; normalization-before-bound, part-count-before-read and separators-before-join hit their exact deliberate forbidden-operation traps. Each saved TAP has one test/one failure. Each saved mutant equals the exact original production transformation, and every original test copy matches f4a1ec36. Original individual exit statuses were not separately persisted; the old driver continued only after validating them. The consolidated receipt does not invent fresh process results.",
+    "originalSixth": {
+      "mutantSHA256": "b3d335a6de25a0d727b39f9527e10159f432caec1683a1f4c2d2f2845d3f4df7",
+      "outputBytes": 342,
+      "outputSHA256": "b8cdfbc790cc7d78ba1e95239c9c8c1237c4c406b112b01fd65a13aee646441b",
+      "observedOutcome": "exit0, one test/one pass: a genuine coverage failure, not a production bug. Removing the per-part UTF8 guard still rejected overflow-first input when the next slot met a negative remaining-character allowance. The original driver aborted before writing controls.json; no missing receipt is fabricated."
+    },
+    "correctedSixth": {
+      "sameMutantSHA256": "b3d335a6de25a0d727b39f9527e10159f432caec1683a1f4c2d2f2845d3f4df7",
+      "testSHA256": "a65005404cc9251531f9c387c123572fbe6641675a04472c76e7d3af51ffdb1d",
+      "scratch": "/tmp/opencode/title-receipt-sixth-corrected-aupeojvp/",
+      "log": "/home/james/Documents/computer-use-native-host-20261029/title-verification-corrected-zsii1m9w/UTF8-parts-before-join-corrected.tap",
+      "exitStatus": 1,
+      "tests": 1,
+      "failed": 1,
+      "stop": "eof",
+      "outputBytes": 1277,
+      "outputSHA256": "3cc40d0575841b4174bff7ea63f7250a2126362f16164d69aadd2d3b5e964f33",
+      "error": "UTF8-overflow receipt reached join",
+      "classification": "Expected forbidden-join trap, not an assertion/setup/import failure. This is the only fault control rerun after strengthening."
+    },
+    "captureLimits": { "perControlBytes": 65536, "maximumRawReadBytes": 4096, "ownedProcessDeadlineSeconds": 10, "recoveryJobBytes": 2097152 },
+    "qualification": "The quota limits captured pipe reads, not all host buffering. Scratch processes are owned and cleaned up with bounded waits. No source swap, resource guard relaxation, model/child agent, native goal call, deployment or live title generation."
+  },
+  "adjacentDocumentation": {
+    "memoryProtocol": "Updated the existing protocol with the current source-tested status and the later verification supersession; keep the dated no-tests and original source-only observations as history, not live prohibitions. No note/store/schema or plugin code is changed.",
+    "memoryProtocolBefore": { "path": "docs/memory/README.md", "bytes": 12569, "sha256": "9612ac7333f058d2543ae76602c8f194e6bc380a0d5f4c2fa4340b413b622230" },
+    "checks": [
+      { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/repo-memory.test.mjs scripts/decision-memory-contract.test.mjs", "tests": 17, "passed": 17, "failed": 0, "skipped": 0, "durationMs": 487.019335 },
+      { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/features-contract.test.mjs", "tests": 7, "passed": 7, "failed": 0, "skipped": 0, "durationMs": 283.003328 }
+    ],
+    "qualification": "Documentation/schema/link/inventory contracts, not live model compliance or execution of the independent computer/browser integration."
+  },
+  "documentationPreimages": [
+    { "path": ".opencode/plugins/goal-docs/README.md", "bytes": 36884, "sha256": "3bffbda7088bedd1cf3b8a4f2eab2f7a1bb9b09eac973e5d793803c967588e3e" },
+    { "path": "docs/features.md", "bytes": 174326, "sha256": "bf1173ac2397f7e1cd3d18eda4ab1b637ca6a7f3dd693f12b8c439372d250e62" }
+  ],
+  "preservation": {
+    "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "stagedBytes": 179,
+    "stagedSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "HEAD": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "priorDirectVerification": "docs/direct-verification-2026-11-02.json remains 16336B/SHA19c7cb3d73cbea3728f8384848cc5ec5898e6daff8b32afcc25b0b102b57c99f."
+  },
+  "sdkTypeCheckEvidence2026_11_02": {
+    "scope": "Parent re-ran the five title TypeScript projects from the reviewed scratch set with a 2048 MiB V8 heap instead of the 256 MiB budget that previously aborted.",
+    "compiler": "tools/computer-use-browser/node_modules/typescript 5.9.3 (the reviewed set was authored against 6.0.3; both are strict, noEmit, skipLibCheck settings taken from the configs)",
+    "results": [
+      { "config": "tsconfig.sdk-installed-2.1.1.json", "exit": 0, "diagnostics": 0 },
+      { "config": "tsconfig.sdk-rpc-probe.json", "exit": 0, "diagnostics": 0 },
+      { "config": "tsconfig.sdk-rpc-skiplib.json", "exit": 0, "diagnostics": 0 },
+      { "config": "tsconfig.title-sdk-assignability.json", "exit": 0, "diagnostics": 0 },
+      { "config": "tsconfig.controller-only.json", "exit": 0, "diagnostics": 0 }
+    ],
+    "interpretation": "The earlier title type failures were a heap limit, not a source error: every project that loads authentic 2.1.1 declarations now compiles cleanly at 2 GiB with zero output. This closes the SDK-facing type portion only. Native conditional-CAS behaviour, the 5,855,270-byte models snapshot against the 2 MiB staging cap, the fused build and loaded manual-title races remain open."
+  },
+  "remaining": "Full conditional native/current-controller integration, full required build and loaded/manual-title race acceptance remain unverified. The SDK-facing type projects now pass at a 2 GiB heap, so that part is no longer a type blocker; the native staging preflight still refuses the 5,855,270-byte models snapshot against its 2 MiB per-file cap, and the fused build still needs more memory than the frozen flags allow. Existing oversized asset/dist review refusals and full-input resource failures remain; no unchanged retries, missing inputs or relaxed caps. All changes remain committed and pushed."
+}
