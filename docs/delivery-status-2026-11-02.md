@@ -28,6 +28,7 @@ All four are pushed; both remotes are in sync.
 | goal-docs suite | 227/227 |
 | voice-assistant suites | 115/115 |
 | gateway backup/restore | 91/91 |
+| document author-render-reopen (disposable venv) | DOCX, XLSX, PDF and pandas round trips pass with all nine pinned versions |
 | corpus validator and tests | 165/165, validator `valid` |
 | browser package tests / typecheck | 57/57, `tsc` clean |
 | demo suites | 37/37 |
@@ -59,7 +60,7 @@ plugin modules pass `tsconfig.benchmark.json` at a 2 GiB heap. The 24 plugin
 | SDK-facing title type chain | Aborts when authentic 2.1.1 types load; native staging also refuses the 5,855,270-byte models snapshot against a 2 MiB per-file cap. |
 | Native memory deny/pending/cancel | Needs an admissible in-process host; public clients cannot execute a registered tool or supply the tool call signal. |
 | Archive repair | The archive is being written live by another process; apply is API-only with no wired authorizer. |
-| Document stack | 20 pinned packages absent; the converter supervisor (`systemd-run --user`) is denied. |
+| Document stack | All nine pinned distributions now install and the author-render-reopen round trips pass in a disposable venv; remaining gaps are licence/notice/ABI/transitive-closure audit and the converter supervisor (`systemd-run --user` denied), plus human review. |
 | Matched benchmark | Isolation now qualifies; blocked because no provider is authenticated inside the private root and no local model server runs. |
 | Demo review | `ffprobe` is absent and installing it needs the user's password. |
 | Human/device items | Unlocked desktop, a real device, and the user's participation. |
