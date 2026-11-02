@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "caseId": "AGR-ROUTE-002",
+  "evidenceClass": "parent-observed actual model run; structural summary, not replayable raw events",
+  "identity": {
+    "sessionID": "ses_e71392021ffeijgYRr5IDcqC9B",
+    "parentID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "projectID": "3e1e6f73bded105bf412f16b6aea04e05f44d605",
+    "directory": "/home/james/repos/computer-use",
+    "executionID": "evt_18ec6e1b3001ODyMbtHSVVg7V9",
+    "sdkVersion": "2.1.1",
+    "serverVersion": "2.1.1",
+    "nativeAssistantModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "providerEffectiveModel": null,
+    "providerEffectiveEffort": null
+  },
+  "input": {
+    "synthetic": true,
+    "containsPrivateData": false,
+    "task": "Research the latest stable Python3 release using official public sources, with version/date/URL and stable versus prerelease distinction.",
+    "promptLimit": "Supervised read-only child; normal mandatory consumer startup rules apply, no exact skill IDs prescribed. No shell, GitHub/PR, writes, install, settings or lifecycle actions."
+  },
+  "capture": {
+    "transport": "authenticated live /api/event; connected before dispatch",
+    "binding": "exact parent/project/directory session.created, independently matched native launch ID and later session metadata",
+    "upstreamScope": "global feed; nonmatching and ephemeral frames discarded",
+    "bytesAcquiredAcrossClientReads": 230904,
+    "byteLimit": 2097152,
+    "selectedDurableRecords": 69,
+    "recordLimit": 2048,
+    "discardedFrames": 122,
+    "durationLimitMs": 120000,
+    "rawRecordsSha256": "9615661905d0443f29843b6f72e55c5aa3af51563d4699a20b346e6de644b2c8",
+    "captureScriptSha256": "32cb21d6b076170be788e466b76628a24b893755583c88793ee800ad23b555bc",
+    "structuralReportSha256": "87c085e8ef4502782224ddc1c4a6d42d3210a1f46eb6f8cbb737863335ae1095",
+    "durableSelectedSnapshot": "/home/james/Documents/computer-use-native-host-20261029/routing-calibration-20261030-6t4adbap/",
+    "durableReceiptSha256": "64504e3c9b97262b9c3511663c2b0e8205188e1a6141edd72d514059ebfb4e1d",
+    "rawEventsPersisted": false,
+    "privateTextPersisted": false,
+    "reasoningTextPersisted": false,
+    "credentialsPersisted": false,
+    "unrelatedFramesPersisted": false
+  },
+  "native": {
+    "terminal": "session.execution.succeeded",
+    "modelSteps": 5,
+    "toolCalls": 9,
+    "completedTools": 9,
+    "toolNames": ["skill", "read", "skill", "read", "read", "execute", "webfetch", "webfetch", "webfetch"],
+    "rawExecutedFlags": [false, false, false, false, false, false, false, false, false],
+    "projectedReview": { "assistantMessages": 5, "bytesAcquired": 105935, "byteLimit": 1048576, "pageLimit": 20 }
+  },
+  "adapter": {
+    "compatibility": "accepted actual live v2.1.1 records",
+    "authenticatesOrigin": false,
+    "semanticMapping": "generic read:file and webfetch research:external_fetch only; no exact-source, current-answer or assistant-report inference",
+    "trace": {
+      "caseId": "AGR-ROUTE-002",
+      "actions": [
+        { "tool": "read", "effect": "read", "target": "file", "source": "tool", "recorded": true },
+        { "tool": "read", "effect": "read", "target": "file", "source": "tool", "recorded": true },
+        { "tool": "read", "effect": "read", "target": "file", "source": "tool", "recorded": true },
+        { "tool": "webfetch", "effect": "research", "target": "external_fetch", "source": "tool", "recorded": true },
+        { "tool": "webfetch", "effect": "research", "target": "external_fetch", "source": "tool", "recorded": true },
+        { "tool": "webfetch", "effect": "research", "target": "external_fetch", "source": "tool", "recorded": true }
+      ],
+      "claims": []
+    },
+    "unmappedCalls": 3
+  },
+  "parentReviewBindings": {
+    "reviewer": "parent agent; not independent human review",
+    "sources": [
+      { "callID": "call_01_4GlBXQnUxjF6aL3ceYDz5353", "messageID": "msg_18ec70c9d001YL8FY7iCwz9RG1", "url": "https://www.python.org/downloads/", "truncated": true, "assessment": "Visible latest-version heading supports3.15.2; index also labels3.16 prerelease. Truncation does not support a complete-page claim." },
+      { "callID": "call_00_m0ScVglbhAyEoyq2NXSk8976", "messageID": "msg_18ec755fb001N5Il8K7W8BhNln", "url": "https://www.python.org/downloads/release/python-3152/", "truncated": false, "assessment": "Python3.15.2, release date Oct25,2026, second maintenance release." },
+      { "callID": "call_01_d2CCWgNlpkoXpjmsneQI2492", "messageID": "msg_18ec755fb001N5Il8K7W8BhNln", "url": "https://www.python.org/downloads/latest/prerelease/", "truncated": false, "assessment": "Python3.16.0a1, Oct13,2026, early developer preview, not stable." }
+    ],
+    "answer": {
+      "messageID": "msg_18ec78e9d001krXgfQynoDmQsy",
+      "stableVersion": "3.15.2",
+      "releaseDate": "2026-10-25",
+      "prereleaseVersion": "3.16.0a1",
+      "assessment": "Correct cited stable version/date and prerelease distinction; this narrow answer does not validate all ancillary claims or startup compliance."
+    },
+    "independentSourceCheck": {
+      "checkedOn": "2026-10-30",
+      "publisherCount": 1,
+      "urls": ["https://www.python.org/downloads/", "https://www.python.org/downloads/release/python-3152/", "https://www.python.org/downloads/release/python-3160a1/"],
+      "latestStableAgrees": true,
+      "ancillaryConflict": "Downloads active-release table says planned3.16 first release2027-10-06; prerelease page says final plannedOctober5,2027. The child volunteered the latter and claimed no source conflict. No additional PEP fetch or resolution was performed."
+    },
+    "negativeCoverage": "Parent reviewed all9tool inputs/statuses plus final answer against complete69-event execution. CodeMode execute calls repo-scoped memory search only. No shell, GitHub/PR, write, publish, settings, permission or lifecycle action appears.",
+    "reviewedTrace": "2026-10-30-routing-reviewed-trace.json"
+  },
+  "broaderInstructionCompliance": {
+    "status": "failed",
+    "observedSkillRouting": ["websearch", "task-memory"],
+    "observedLocalReads": ["MEMORY.md", "docs/memory/interaction-preferences.md", ".opencode/skills/websearch/references/research-quality.md"],
+    "repoMemorySearch": { "op": "search", "scope": "repo", "limit": 3, "matches": 0, "scanned": 3, "skipped": 1, "truncated": false },
+    "requiredExplicitReadsNotObserved": ["docs/memory/README.md", "docs/maintainer-policy.md"],
+    "reportingFailures": ["Final answer calls content complete despite native downloads metadata truncated:true.", "Final answer says no source conflict while a volunteered future-release date differs between the two observed official pages."],
+    "interpretation": "Research skill routing and basic startup retrieval improved relative to the earlier injection run, but broader explicit-read and reporting requirements are not passed. Different tasks/prompts are not a controlled comparison or general enforcement proof."
+  },
+  "measurements": {
+    "basis": "native execution timestamps and five session.step.ended token/cost fields",
+    "runLatencyMs": 66368,
+    "stepLatencyMs": [4593, 5697, 18381, 13823, 21504],
+    "tokens": { "input": 28539, "output": 1293, "reasoning": 844, "cache": { "read": 125568, "write": 0 } },
+    "costUSDRecorded": 0.005939754,
+    "nativeTotalTokens": null,
+    "providerBillingVerified": false,
+    "matchedBenchmark": false
+  }
+}

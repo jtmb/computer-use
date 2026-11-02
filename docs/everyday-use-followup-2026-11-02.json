@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Narrow fresh-context decision recall, live negative memory controls, an actual controlled loaded-browser failure, non-launching prerequisite checks, an inert diagnostic proposal and completed fixture teardown. Installed Bun help and authenticated GitHub policy-read follow-ups are bound without replaying their commands. This supplements, not replaces, the original everyday-use resume record or full75ID/additional-lane requirements.",
+  "priorRecord": "docs/everyday-use-resume-2026-11-02.json",
+  "compilerRecord": "docs/compiler-late-global-probe-verification-2026-11-02.json",
+  "decisionRecall": {
+    "orchestration": {
+      "child": "ses_e63a88e0cfferyF6UA48zuiOoA",
+      "context": "Genuinely new subagent context; parent supplied no note ID, body or expected revision.",
+      "returnedRevision": "bc2438b2c35e917886910430e7003d2de3fd94a92de15cb666e08afbd06ac000",
+      "currentChoice": "Bounded disjoint parallel DeepSeek Flash work for the resumed everyday-use priority; parent owns goal planning, integration and independent acceptance. This supersedes old solo/no-helper direction, not permissions or consequential gates.",
+      "parentVerification": "Current2005-byte docs/memory/orchestration-method.md hashes exactly to the returned revision. The selected new consolidation source section agrees.",
+      "childReportedCoverage": "Two note bodies including interaction preferences,53-line consolidation excerpt,5notes scanned/1skipped; native return was observed, but this is not a complete independent startup trace audit."
+    },
+    "inbox": {
+      "child": "ses_e63785eeeffeaSetaaElwSrxuF",
+      "context": "A different genuinely new subagent context; parent supplied no note ID, body or expected revision. No independent root chat or inbox fixture was used.",
+      "returnedRevision": "427972496092b0b5dbb142b47622578cfcc71ceb2c957aa478395f7c31230293",
+      "currentChoice": "Remove the custom mailbox feature/UI/delivery/settings/automatic injection/mandatory reads, preserve existing message bytes inert, and use native child-completion returns. Later removal supersedes optional-feature retention, not history preservation.",
+      "decisionDate": "2026-10-30",
+      "noteUpdated": "2026-10-31",
+      "noteVerified": "2026-10-30",
+      "parentVerification": "Parent reads actual1589-byte docs/memory/agent-inbox.md and the relevant consolidation438-447 excerpt; the raw note hash exactly matches the returned revision. The2026-10-29deployment source remains older history, not the current feature-retention choice.",
+      "childReportedCoverage": "One actual repository decision search,limit3,2results,5notes scanned/14421bytes charged/1skipped/not truncated. Two note bodies total including interaction preferences; selected80-line consolidation excerpt and targeted deployment matches."
+    },
+    "acceptanceBoundary": "Both required topics have narrowly observed fresh-context SUBAGENT retrieval and native child completion matching current source. This does not establish fresh-primary/general startup compliance, native deny/pending/caller-cancel behavior, complete store coverage, unchanged stored-history runtime verification or whole-goal acceptance. One skipped note is unknown, not silently cleared. No decision note or global memory was changed by these retrieval checks."
+  },
+  "liveNegativeMemoryControls": {
+    "scope": "Two new actual exposed-tool read-only controls, repo scope only. No synthetic note, private store, global scope, alternate query or policy change.",
+    "search": { "query": "obsidian-quokka-mosaic-6eaf37c4", "kind": "decision", "limit": 3, "promiseStatus": "fulfilled", "results": 0, "scanned": 5, "chargedBytes": 14421, "failedReadChargeBytes": 0, "skipped": 1, "truncated": false },
+    "exactMissingRead": { "id": "control-no-saved-decision-6eaf37c4", "promiseStatus": "fulfilled", "results": 0, "missingScopes": ["repo"] },
+    "interpretation": "The current loaded tool explicitly returns no match/missing, rather than a saved choice. Parent does not invent a decision or write one to fill the gap. The skipped note remains unknown; lexical search is not exhaustive semantic recall. This is not native deny/pending/caller cancellation or general fresh-primary behavior.",
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/memory-live-negative-CzzuW9/controls.json", "bytes": 1409, "sha256": "517031f4b7f71d39409349c8c4ff81e6fa367fff0787b3cec5cb641bfe7e3384" },
+    "preservation": "The prior10902-byte/9cde14cf follow-up is preserved as followup-before.json in the same receipt directory. Structured result values are copied from the actual tool outputs, not claimed raw HTTP bytes or independent native traces."
+  },
+  "selectedModelHeader": {
+    "requested": "deepseek/deepseek-flash#high",
+    "catalog": "Current exposed catalog lists DeepSeek V4.1 Flash1017,deepseek/deepseek-flash,including high. A requested label/catalog entry is not an independently measured child execution header.",
+    "attempt": "Direct installed native binary, not the credential-importing wrapper: service status succeeds23bytes. One same-explicit-loopback GET/api/session/ses_e63a88e0cfferyF6UA48zuiOoA exits1 with zero stdout and594-byte stderr/cf9fc0c873f11e741e635e08186b23a8874e44191c991c6dd43fb1ec8625e4bf, matching the retained authentication-unavailable diagnostic.",
+    "receipt": { "bytes": 963, "sha256": "004c64e83d88a7657a9b6e12039fc0e475efe9e16ad1732ecd668716bd7b4395" },
+    "notPerformedDuringCliAttempt": "No active-map follow-up, session messages/history read, credential lookup/copy, guessed flags, auth/config/permission change, model dispatch or service start/restart. That CLI attempt remains a real authentication failure.",
+    "supportedSdkFollowup": "Parent independently opens official public-client documentation and installed2.1.1discover implementation, then uses only the documented no-start Service.discover/Service.headers path with normal authentication kept inside the client. Exact same-endpoint hash passes; four selected children match parent/project/directory and deepseek/deepseek-flash#high, none running at the snapshot. No password is requested, exposed or copied. Saved-selection metadata is now verified, not effective provider-request identity. See docs/native-readonly-metadata-verification-2026-11-02.json."
+  },
+  "memoryCleanup": {
+    "source": "/home/james/Documents/computer-use-native-host-20261029/memory-helper-release-ffvgrdcw",
+    "actualToolResult": "cua session reset",
+    "beforeAvailableKiB": 2528132,
+    "afterAvailableKiB": 2516620,
+    "afterAvailableMiB": 2457.63671875,
+    "interpretation": "The supported current-session reset reports success but the paired measurements do not isolate a causal memory effect and provide no new2816MiB admission basis. Later higher headroom is not attributed to this reset. No user app, shared service, browser profile or unrelated process was closed/evicted."
+  },
+  "bunResearchLimit": {
+    "reportedBy": "Reused read-only DeepSeek build child",
+    "reportedVersionBinding": "bun-v1.4.2 to744846f844374847c902b5e7fd59b4342a51ef99, compared by the child with the retained local1.4.2+744846f84 evidence; not independently upgraded here to binary/source equivalence.",
+    "reportedSources": ["docs/runtime/index.mdx complete", "src/jsc/lib.rs lines1-1247of1579,transport truncated", "src/runtime/jsc_hooks.rs lines1-1012of4858,transport truncated"],
+    "findingBoundary": "The child found no officially supported semantics-preserving memory candidate in its inspected portions. It reports --smol JS-GC scope, native allocator distinctions and unstable BUN_JSC_* controls; two source bodies are incomplete and the transport did not enforce the required acquisition bounds. Parent accepts no new flag, allocator tuning, memory-floor claim, complete-source review or universal impossibility from this report. The failed960MiB fused build is not replayed."
+  },
+  "bunInstalledHelpFollowup": {
+    "status": "The revision330scheduled lead has returned; parent reads all three complete captures and verifies their stored lengths/hashes. No command is rerun for this binding.",
+    "binaryPath": "/home/james/repos/computer-use/tools/opencode-orchestration/runtime/bun-1.4.2-linux-x64/bun",
+    "identityLimit": "Path comes from the existing bootstrap inventory; --version reports1.4.2 and runtime help reports1.4.2+744846f84. The79500640-byte binary body/hash is not reacquired; the inventory digest is not independently reverified.",
+    "captures": [
+      { "command": "--version", "bytes": 6, "sha256": "b99b4c7cdf236f59bc9f65d963deaecae3b16a7dad87939cacb9057f7664daee" },
+      { "command": "--help", "bytes": 12020, "sha256": "5ce368e19a66c07b6d58ecc86353bb6b151305a6b1ed5ecf555cda0cf2de0aea" },
+      { "command": "build --help", "bytes": 8037, "sha256": "658463d4330df33c5d63c280613d2f02fafa555e6f88f08db4e281a68de44183" }
+    ],
+    "finding": "The inspected build help exposes no memory/GC/allocator/heap option. Runtime --smol says it uses less memory by collecting more often; it is already known and exercised. Heap profiling, expose-gc and zero-fill options do not establish a new build-memory candidate. No flag or artifact semantics change is accepted.",
+    "limits": "Exactly three read-only help/version invocations;5second per-command deadline,29-31ms observed and20063raw output bytes retained. No Bun.build, script, entry file, compiler or native host runs. Help coverage is not fit/savings proof or universal impossibility; the earlier truncated source reads and960MiB fused failure remain unchanged.",
+    "durableDirectory": "/home/james/Documents/computer-use-native-host-20261029/continuation-binding-UsA6J9",
+    "receipt": { "file": "bun-receipt.json", "bytes": 2500, "sha256": "f83079522ed7042fb50aeb206c298d02acb46be6d7d9ef29558ccea43956d53e" }
+  },
+  "browserAttempt": {
+    "fixture": "/tmp/opencode/browser-isolation-4fkrXV",
+    "preparation": "A returned child writes only server.mjs/server.test.mjs in the previously empty scratch directory; no browser actions. Parent independently reads both files and runs the new focused real-loopback HTTP cases.",
+    "httpChecks": { "passed": 8, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 2463.1817, "scope": "Exact loopback binding/routes/content/method/size/close/short lifetime/abort behavior, not browser storage." },
+    "admission": { "availableMiB": 3081.00390625, "newBrowserFixtureMinimumMiB": 1792, "retainedFullGraphPrelaunchMiB": 2816, "qualification": "One specific browser prelaunch snapshot, not a continuous browser memory guarantee, compiler admission observation or resource-guard change." },
+    "url": "http://127.0.0.1:41867/",
+    "syntheticMarker": "synthetic-ea1d76bb85907c247337260e",
+    "tool": "tools.web.open",
+    "actualResponse": "Browser error (WORKER_CRASHED): The browser worker stopped unexpectedly; reopen the browser session.",
+    "tabIdReturned": false,
+    "browserStorageOrCookieOutcome": "Unverified; no successful page/tab/snapshot/click/reload/new-tab/reopen observation.",
+    "screenshotsTaken": 0,
+    "subsequentLaunches": 0,
+    "failedWorkerCleanup": "Supported web.close returns cancelled:false,discarded:[],retained isolated profile data; subsequent nonlaunching tabs(list) returns SESSION_STATE. No current usable slot is observed, not whole-process quiescence.",
+    "desktopObservation": "The subsequent read-only accessible-app inventory has no browser entry. This does not prove browser-process cleanup, memory release or absence of inaccessible windows.",
+    "sourceFinding": "manager.ts retains a bounded stderr tail, while browser-tools.ts deliberately withholds WORKER_CRASHED details. The generic response does not identify a Node/module/sandbox/profile/OOM cause. A separate read-only child investigates exact entry/module/Node prerequisites using resolution/parse/version checks only, without browser launch or private logs/profiles.",
+    "safety": "No alternate browser/provider/headless/direct-script/CDP fallback, arbitrary page evaluation, private field/account/credential work, screenshot, blind input, user-owned tab closure, profile deletion or unchanged failed launch replay. Browser close itself cannot prove no unregistered manual tab/unsaved draft exists; that known source limitation is not waived.",
+    "fixtureTeardown": { "backgroundShell": "sh_19c8efb0c001dtdWEvXrgP2Yym", "pid": 119449, "startedAt": "2026-11-02T13:59:38.719Z", "stoppedAt": "2026-11-02T14:04:38.748Z", "method": "Its own300second lifetime", "toolCompletionObserved": true, "listeningAfterClose": false, "qualification": "Owned fixture listener only; not whole-host/browser quiescence." }
+  },
+  "browserDiagnosticFollowup": "docs/browser-startup-diagnostic-verification-2026-11-02.json binds the actual inactive-main transitive import, fenced installed-library import, exact sandbox/executable metadata with EACCES presence UNKNOWN, and parent-corrected16-case INERT proposal. No diagnostic canonical/runtime application or new browser launch is claimed; new focused type/integration review remains separate.",
+  "nativeMemoryInterfaceFollowup": "docs/memory-native-permission-verification-2026-11-02.json records the source-verified public-client versus plugin-only assertion/executor/caller-signal boundary. A synthetic permission request or model turn does not substitute for the prepared real-tool no-model matrix. Existing owned-host testing authority is not re-asked; its genuine resource admission dependency remains.",
+  "authenticatedGithubPolicyFollowup": "docs/github-policy-connector-review-2026-11-02.json now binds the existing same-account CLI's three actual authenticated GETs: main protection404/Branch not protected, inherited rulesets200/[] and effective branch rules200/[]. Original MCP limitation/public401 remain historical; no setting or hosted workflow is changed.",
+  "binding": {
+    "directory": "/home/james/Documents/computer-use-native-host-20261029/everyday-followup-62XRrh",
+    "manifest": { "path": "binding.json", "bytes": 3039, "sha256": "cc9b027244e67d00836f78b235ba1248d7225f951e30de0bc46952074b25f6c9" },
+    "snapshotCount": 8,
+    "acquiredBytes": 19722,
+    "contents": "Exact fixture source/tests as inert .source.txt, admission/ready/stopped JSON, the two current decision notes and the header-attempt metadata. Structured browser response records its actual parent tool result; it is not recovered worker stderr or a private log."
+  },
+  "continuationBinding": { "path": "/home/james/Documents/computer-use-native-host-20261029/continuation-binding-UsA6J9/binding.json", "bytes": 3887, "sha256": "d49e026a5a264d3cdf21c9149c28092107e39cf92a3beb778a4bc0f5c83565ba", "scope": "Pre-edit source snapshots, durable verified Bun captures, authenticated policy response readback, all16diagnostic artifact hashes and fresh original index/staged/native-pin preservation. The old binding above covers its historical eight snapshots, not this changed follow-up's current bytes." },
+  "remaining": "All earlier source investigations and the installed Bun help lead have returned; one new bounded DeepSeek review examines the corrected inert diagnostic's type/integration boundary. Static transitive ESM and fenced Playwright module initialization pass for the tested copy, not a browser launch. The actual crash cause remains unknown, with no unchanged relaunch. Selected child metadata is verified via the no-start client, not effective provider execution. Three authenticated policy reads are now performed, not hosted enforcement. A third tiny compiler request still refuses2774.1171875<2816before spawn. Native deny/pending/caller cancellation, fresh-primary behavior, complete runtime preservation/completion matrices, valid full build/types/diagnostics/current CI-health, browser storage/two-session isolation and remaining UI/audio/original/human/device/exact consequential gates remain unfinished. All75IDs/additional lanes, completed work and genuine failures remain retained; no goal completion, external impossibility, deployment, activation, shared restart, credential/permission/security change, commit or push is claimed."
+}

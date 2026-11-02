@@ -1,34 +1,34 @@
-# OpenCode v2 Ownership Boundaries
+# OpenCode Integration Ownership Boundaries
 
-computer-use uses a small, explicit v2 runtime boundary:
+Inspect the consumer project's actual runtime boundary and ownership model.
+Use these layers as a checklist, not as claims about a specific repository:
 
 ## Layer 1: OpenCode v2 configuration
 
-- Declares local MCP servers and plugin packages in the v2 config examples.
-- Uses canonical absolute plugin paths and prompt-gated session permissions.
-- Is changed only by the selected setup/deployment operation.
+- Declares the MCP servers, plugin packages, or skills the active loader uses.
+- Applies the consumer's permission and path-resolution rules.
+- Is changed only through the operation that owns the relevant configuration.
 
 ## Layer 2: Canonical repository source
 
-- Skills: `.opencode/skills/`
-- Plugins: `plugins/`
-- Commands, examples, scripts, and checks: siblings below
-  `~/repos/computer-use/`.
-- Source files are regular, non-symlink files and are never replaced by live
-  user configuration.
+- Skills, plugins, commands, examples, scripts, and checks live in paths
+  discovered from the consumer's project instructions and configuration.
+- Identify whether a source entry is generated, user-owned, or maintained
+  before editing it.
 
 ## Layer 3: Selected runtime target
 
-- A target is supplied explicitly, such as a test directory or v2 config
-  directory; it is never inferred for a write.
-- Verification reads the target and reports drift without modifying it.
-- Apply writes atomically, refuses symlink ancestors, and preserves unrelated
-  files and configuration fields.
+- A write target follows the consumer's explicit target-selection and
+  authorization rules; do not infer it from a source path.
+- Prefer the project's read-only verification path when available.
+- Apply the consumer's path-safety and preservation guarantees; do not claim
+  atomicity or symlink protection unless the implementation provides it.
 
 ## NEVER
 
-- Treat a generated user copy as canonical source.
-- Write during a default verification pass.
-- Follow a symlink or path escape from source or target.
-- Treat generated runtime files as canonical source.
+- Treat a generated copy as canonical source when project policy identifies a
+  separate maintained source.
+- Write during a read-only verification pass.
+- Assume path-safety, atomicity, or preservation guarantees that were not
+  verified in the actual tooling.
 - Delete unrelated target files while reconciling a bundle.

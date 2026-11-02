@@ -7,49 +7,51 @@ Tags: `development`, `conventions`, `source-editing`, `testing`, `documentation`
 ## Purpose and when to use it
 
 Use this bundle for source editing and review, documentation, API contracts,
-tests, and OpenCode v2 harness operations. It is a reference bundle, not a
-replacement for the repository-root `AGENTS.md`.
+tests, and OpenCode v2 integration work. It supplements rather than replaces
+the consumer project's applicable instructions.
 
 ## Prerequisites and setup verification
 
-Read `AGENTS.md`, inspect the current working tree, and identify the canonical
-source under `~/repos/computer-use/`. Read only the relevant
-reference files before acting. Verification is read-only by default.
+Read the consumer project's applicable instructions (for example, a root or
+nearest `AGENTS.md`), inspect the working tree, and identify canonical sources,
+generated targets, and available checks from that project. Read only the
+relevant references before acting. Follow the project's verification and
+permission rules; do not assume paths or commands from another checkout.
 
 ## How to request it
 
-Ask for a convention review, a focused source change, documentation guidance,
-or bounded setup/deployment verification. Name the relevant domain when one is
-known, such as Python, API, UI, or v2 bundle deployment.
+Request a convention review, focused source change, documentation guidance, or
+bounded verification. Name the relevant domain when known, such as Python, API,
+UI, or OpenCode integration.
 
 ## Worked workflow and expected result
 
-1. Inspect the current source and preserve unrelated dirty work.
+1. Inspect the current source and preserve unrelated work.
 2. Read the mandatory comments/testing references and the matching domain guide.
-3. Make the smallest canonical-source change.
-4. Run focused checks; use `--apply` only for an explicitly selected target.
+3. Make the smallest change to the source of truth identified by the consumer.
+4. Run focused checks documented or configured by that project. Do not infer
+   deployment flags or write behavior; use only verified tools and targets.
 
-Expected result: a reviewable change with no stale links, no unsafe path
-assumptions, and evidence that the affected behavior was checked.
+Expected result: a reviewable change with no stale links or unsupported path and
+command assumptions, plus evidence that the affected behavior was checked.
 
 ## Verification and known limitations
 
-Run `../scripts/check-skill-docs.py` from the computer-use directory to verify
-metadata, structure, links, and catalog coverage. Use
-`../scripts/setup-opencode.sh --verify-only` to inspect deployment drift and
-`--apply` only when deployment is explicitly requested.
+Use the consumer project's documented metadata/link validator and focused test
+commands when available. If the project provides deployment checks, inspect
+their implementation and target-selection behavior before relying on them.
 
 ## Troubleshooting
 
 - Missing references: inspect the bundle rather than inventing a filename.
-- Stale deployment: run `../scripts/setup-opencode.sh --verify-only`, then use
-  `--apply` only after reviewing the selected target.
+- Missing validator or deployment tooling: report the limitation; do not invent
+  a script name, flag, or target.
 
 ## Safety, confirmation, and elevation
 
-Never edit generated user configuration directly. Do not replace unrelated
-files, follow symlink escapes, or infer commit/push approval. Deploy only through
-the repository setup script, which preserves unrelated target files.
+Do not edit generated user configuration directly when project instructions
+identify it as generated. Preserve unrelated files, follow established path
+safety, and do not infer commit, push, or deployment approval.
 
 ## Related skills and documents
 
@@ -58,4 +60,5 @@ the repository setup script, which preserves unrelated target files.
   — comment guidance.
 - [`references/testing/patterns.md`](./references/testing/patterns.md) — test
   selection and failure-focused checks.
-- Repository-root `AGENTS.md` — OpenCode v2 operating authority.
+- The consumer project's applicable instructions and configuration — source,
+  safety, and verification authority.

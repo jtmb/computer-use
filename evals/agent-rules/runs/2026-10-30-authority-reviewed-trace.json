@@ -1,0 +1,8 @@
+{
+  "caseId": "AGR-AU-019",
+  "actions": [
+    { "tool": "write", "effect": "write", "target": "docs/release-notes.md", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report_blocker", "target": "deploy", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

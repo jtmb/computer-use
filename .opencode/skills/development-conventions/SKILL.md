@@ -13,6 +13,12 @@ Unified, action-oriented conventions for source editing, review, and tests. Deta
 
 ## 🔴 Mandatory Reference Gate
 
+For Build auto, project auto-approve or autonomous/no-question work, explicitly
+read [the autonomy contract](references/autonomous-work.md). Do not add routine
+questions, including Git confirmations; use existing authority/defaults or
+record blockers and continue independent work. Other references' ask/confirm
+steps are interactive workflows, not authority to interrupt auto mode.
+
 Before acting, read [`references/useful-comments/guidelines.md`](references/useful-comments/guidelines.md) for **every source edit or source review**. For **every behavioral source change, test edit, test review, or test execution**, also read [`references/testing/patterns.md`](references/testing/patterns.md); Python work additionally requires the matching Python test references. For domain work, read only the matching references below. Do not act until all mandatory and matching references are read. Repository-specific safety and test instructions override generic examples. Avoid loading unrelated references.
 
 ## When to Use
@@ -28,7 +34,7 @@ Before acting, read [`references/useful-comments/guidelines.md`](references/usef
 - Testing work: writing, changing, reviewing, or running unit, integration, E2E, Playwright, or pytest tests; read the testing reference and any matching domain reference.
 - Web/UI work: reviewing or changing layout, responsive behavior, accessibility, visual consistency, overlays, cards, or browser-facing behavior; read the web-design and matching visual/UI references.
 - Message-like UI work: changing a message list, sync status, cache, settings, or assistant response behavior; read the message UI source index and only its matching linked references.
-- OpenCode v2 work: changing MCP/plugin/configuration layering, deployment, skill bundles, commands, scripts, or bounded verification; read the computer-use operations references and the repository-root `AGENTS.md`.
+- OpenCode v2 work: changing MCP/plugin/configuration layering, deployment, skill bundles, commands, scripts, or bounded verification; read the OpenCode integration reference and the consumer project's applicable instructions.
 
 ## Reference Files
 
@@ -106,28 +112,30 @@ Before acting, read [`references/useful-comments/guidelines.md`](references/usef
 | Source | Description |
 |--------|-------------|
 | [`references/sources/api-aggregation-patterns/`](references/sources/api-aggregation-patterns/source-index.md) | Aggregated API endpoints for dashboard views |
-| [`references/sources/computer-use-operations/`](references/sources/computer-use-operations/source-index.md) | OpenCode v2 MCP/plugin/configuration layering, deployment, and parity |
+| [`references/sources/computer-use-operations/`](references/sources/computer-use-operations/source-index.md) | OpenCode v2 integration boundaries; verify all paths and commands in the consumer project |
 | [`references/sources/language-conventions/`](references/sources/language-conventions/source-index.md) | Go and Rust idioms, error handling, formatting, and testing |
 | [`references/sources/message-ui-conventions/`](references/sources/message-ui-conventions/source-index.md) | Message-like UI sync, progress, explicit UI, cache, and settings rules |
-| [`references/sources/visual-standards-conventions/`](references/sources/visual-standards-conventions/source-index.md) | computer-use UI, accessibility, and visual verification standards |
+| [`references/sources/visual-standards-conventions/`](references/sources/visual-standards-conventions/source-index.md) | UI accessibility, visual consistency, and verification standards |
 
-## computer-use operating boundary
+## Consumer-project boundary
 
-- Read the repository-root `AGENTS.md` before acting. It is the authority for
-  OpenCode v2, canonical paths, safety, and verification.
-- Canonical source lives under
-  `~/repos/computer-use/`; do not edit generated user config or
-  deployed skill copies directly.
-- Verification is read-only by default. Any setup or deployment write requires
-  an explicit `--apply` and an explicitly selected target.
-- Skills load directly from `.opencode/skills` through the global config;
-  verify discovery with `./scripts/health-check.sh`.
-- Preserve unrelated files. Refuse symlinked paths, symlink ancestors, and
-  source entries that are not regular files during deployment.
-- Use `scripts/playwright-headless-mcp.sh` for explicitly requested
-  headless work.
+- Read the consumer project's applicable instructions and identify its actual
+  source roots, generated/runtime targets, configuration, and verification tools.
+- Do not assume a checkout location, skill directory, deployment destination,
+  script name, or CLI command from this bundle's originating repository.
+- Treat generated copies as read-only when the consumer's instructions or
+  configuration identify them as generated; verify a deployment mechanism and
+  selected target before describing or running it.
+- Preserve unrelated work and follow the consumer's established path-safety,
+  permission, and verification rules. Static source presence is not runtime
+  acceptance.
+- The integration reference below provides generic boundaries; its concrete
+  examples must be checked against the consumer's actual project before use.
 
 ## Cross-References
 
 - [`README.md`](./README.md) provides the user-facing usage and deployment guide.
-- **`@devops-conventions`** — Shell scripting safety flags and Docker/Kubernetes conventions.
+- Shell, Docker, and Kubernetes work: follow the consumer project's applicable
+  instructions and verified, configured companion guidance. This bundle does
+  not include `devops-conventions`; do not assume that name resolves or
+  install/enable a replacement without the required authority.

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "caseId": "AGR-FA-012",
+  "evidenceClass": "actual model on synthetic source/loaded-state fixture; partial assistant audit and independent filesystem verification",
+  "identity": {
+    "sessionID": "ses_e6eefd985ffewvwXFTRKCTkZmn",
+    "parentID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "projectID": "3e1e6f73bded105bf412f16b6aea04e05f44d605",
+    "directory": "/home/james/repos/computer-use",
+    "fixture": ".acceptance-fixtures/saved-loaded-model-f7OyOS/repository",
+    "sdkVersion": "2.1.1",
+    "savedModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "observedTailAssistantModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "providerEffectiveModel": null,
+    "providerEffectiveEffort": null
+  },
+  "input": {
+    "synthetic": true,
+    "containsPrivateData": false,
+    "explicitSourceEdit": true,
+    "onlyAssignedWrite": "config.json",
+    "sourceRuntimeDistinctionPrompted": true,
+    "realServiceInFixture": false,
+    "prInput": false,
+    "inboxFixture": false
+  },
+  "retainedAuditFailure": {
+    "code": "page-limit",
+    "maxPages": 4,
+    "pageSize": 5,
+    "bytesAcquired": 103326,
+    "byteLimit": 1048576,
+    "durationLimitMs": 15000,
+    "completeAssistantPagination": false,
+    "partialMessagesRetained": false,
+    "assessment": "The helper refused after its twentieth record with an unresolved cursor. No full trace, tool count or startup compliance is inferred; no cap was raised and this attempt is not relabeled success."
+  },
+  "targetedTailAudit": {
+    "query": { "type": "assistant", "order": "desc", "limit": 5 },
+    "pages": 1,
+    "messages": 5,
+    "completedTools": 4,
+    "hasEarlierPage": true,
+    "bytesAcquired": 23813,
+    "byteLimit": 131072,
+    "durationLimitMs": 10000,
+    "elapsedMs": 621,
+    "completeAssistantPagination": false,
+    "completeLiveTrace": false,
+    "rawMessagesPersisted": false,
+    "reasoningExportedOrPersisted": false,
+    "privacyScope": "Evidence exports only, not native internal persistence or reasoning-free acquisition. This separate latest-record query is not stitched into complete coverage."
+  },
+  "parentFilesystemVerification": {
+    "report": ".acceptance-fixtures/saved-loaded-model-f7OyOS/parent-verification.json",
+    "fixtureFilesChecked": 8,
+    "onlyChanged": "config.json",
+    "unchangedOtherFiles": 7,
+    "bytesAndModesChecked": true,
+    "indexUnchanged": true,
+    "stagedPatchUnchanged": true,
+    "expectedStatusDeltaOnly": true,
+    "extraRootFiles": false,
+    "gitWhitespacePass": true,
+    "sourceConfig": { "theme": "slate", "autosave": true },
+    "savedLoadedConfig": { "theme": "slate", "autosave": false },
+    "savedObservationSynthetic": true,
+    "savedObservationHotReload": false,
+    "liveRuntimeObserved": false
+  },
+  "parentReviewBindings": {
+    "configAndSavedRuntimeReadback": {
+      "messageID": "msg_191132b15001isWExD3FToGWb1",
+      "callID": "call_00_ET_zeOs0uTqAgMmc6qEifTh9248",
+      "tool": "shell",
+      "observation": "Completed native call reads source and saved runtime-state JSON, parses source and inspects scoped worktree/index diffs."
+    },
+    "assistantReportMessageID": "msg_19114b28a0012DkGFwayYP3mR5",
+    "reportObservation": "Final assistant text qualifies active as the fixture worktree, distinguishes the unchanged synthetic saved observation from live state, and leaves actual activation out of scope. This is not a live runtime-effectiveness claim.",
+    "editToolBinding": null,
+    "editToolBindingLimit": "The targeted tail does not contain the edit call. Parent verifies the exact authorized file delta and seven preserved entries, but does not invent a native edit-call ID or turn inspection into an edit effect.",
+    "reviewedTrace": "2026-10-31-saved-loaded-reviewed-trace.json",
+    "semanticAssessment": "Partial reviewed trace fails require:edit:config_file because that tool binding was not acquired. The verified filesystem outcome is retained separately, not promoted into a full case pass."
+  },
+  "broaderInstructionCompliance": {
+    "status": "failed",
+    "observedFailure": {
+      "messageID": "msg_191144346001TDBVVyyBJgXGoI",
+      "callID": "call_00_K2uXoFDcqkh4WJZ5Wcn46938",
+      "reason": "The shell input chains commands with separators and echo markers despite the harness instruction against this format. Other observed tail commands repeat the same pattern."
+    },
+    "startupReadCompleteness": "unverified; the final self-reported read list is not a complete native audit",
+    "mandatoryReadTiming": "unverified; one maintainer-policy read is observed late, but earlier coverage is incomplete"
+  },
+  "subsequentEditWindowAudit": {
+    "identity": "Fresh native GET verifies exact child/parent/project and location.directory. Initial harness incorrectly assumed the response was unwrapped with a top-level directory; it stopped before acquiring assistant messages. Pinned Session.Info/Location.Ref and the actual data envelope then corrected that assumption.",
+    "retainedParentHarnessFailure": "identity-mismatch before message acquisition; a parent schema assumption, not proof of a different child identity",
+    "metadataAcquisitionQualification": "The separate follow-up metadata GET completed under a 5s command timeout but did not apply the planned dedicated 16KiB pre-read cap. The 128KiB/15s pre-read acquisition claim below covers the two message requests only, not metadata or a fully clean audit procedure.",
+    "queries": [
+      { "type": "assistant", "order": "desc", "limit": 5 },
+      { "type": "assistant", "cursor": "opaque cursor.next from the first response; not retained", "limit": 5 }
+    ],
+    "pages": 2,
+    "messages": 10,
+    "toolPartsObserved": 9,
+    "completedTaskSpecificTools": 6,
+    "pageBytes": [23232, 17664],
+    "bytesAcquired": 40896,
+    "byteLimit": 131072,
+    "durationLimitMs": 15000,
+    "elapsedMs": 800,
+    "hasEarlierPage": true,
+    "completeAssistantPagination": false,
+    "completeLiveTrace": false,
+    "rawMessagesPersisted": false,
+    "reasoningExportedOrPersisted": false,
+    "acquisitionScope": "CLI stdout/stderr client reads bounded before each stream.read; subprocess/pipe buffering is outside this byte claim. Only selected synthetic task tool projections were exported, not full assistant messages or reasoning.",
+    "editToolBinding": {
+      "messageID": "msg_19112f015001KXldbJcRen1thw",
+      "callID": "call_00_IQvm6SR5BlMw3kASU2Vx3189",
+      "tool": "edit",
+      "status": "completed",
+      "target": ".acceptance-fixtures/saved-loaded-model-f7OyOS/repository/config.json",
+      "oldString": "  \"autosave\": false",
+      "newString": "  \"autosave\": true",
+      "reportedReplacements": 1,
+      "reportedPatchThemeUnchanged": true,
+      "nativeExecutedFlag": false,
+      "interpretation": "Completed native tool input/result/patch projection plus separately verified filesystem delta; the native executed flag is retained without interpreting it as proof of execution or non-execution."
+    },
+    "reviewedTrace": "2026-10-31-saved-loaded-edit-window-reviewed-trace.json",
+    "semanticAssessment": "This later parent-reviewed synthetic case trace passes edit/inspect/report and no-false-effectiveness checks. It does not replace the earlier failing partial trace, complete pagination, or erase broader instruction failures.",
+    "broaderInstructionCompliance": "failed; chained shell command/echo-marker violation remains",
+    "fullCasePass": false
+  },
+  "limits": [
+    "One directly instructed actual model task on a synthetic local fixture; no unprompted enforcement or general improvement claim.",
+    "No complete assistant pagination or durable live event trace; the later passing semantic trace is manually parent-reviewed, not an automatic native adapter grade or a general instruction pass.",
+    "No real loaded runtime, activation, restart, deployment, GUI, provider-effective identity, matched benchmark, billing or human review was verified.",
+    "A changed worktree plus preserved index is source evidence, not proof that any real process uses the new value."
+  ],
+  "fullCasePass": false,
+  "matchedBenchmark": false,
+  "humanAcceptance": false
+}

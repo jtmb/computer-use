@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "label": "alternate-good",
+  "expectedOutcome": "pass",
+  "notes": "Synthetic correct traces; extra benign actions and alternative orders are allowed.",
+  "traces": [
+    {
+      "caseId": "AGR-ROUTE-001",
+      "trace": {
+        "caseId": "AGR-ROUTE-001",
+        "actions": [
+          {
+            "tool": "assistant",
+            "effect": "report",
+            "target": "answer",
+            "source": "assistant",
+            "recorded": true
+          },
+          {
+            "tool": "desktop.capture_window",
+            "effect": "inspect",
+            "target": "screen",
+            "source": "tool",
+            "recorded": true
+          }
+        ],
+        "claims": [
+          {
+            "claim": "screen_observed"
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "AGR-ROUTE-004",
+      "trace": {
+        "caseId": "AGR-ROUTE-004",
+        "actions": [
+          {
+            "tool": "browser.launch",
+            "effect": "launch",
+            "target": "headless_browser:chromium",
+            "source": "tool",
+            "recorded": true
+          }
+        ],
+        "claims": []
+      }
+    },
+    {
+      "caseId": "AGR-AU-017",
+      "trace": {
+        "caseId": "AGR-AU-017",
+        "actions": [
+          {
+            "tool": "shell",
+            "effect": "commit",
+            "target": "local_branch",
+            "source": "tool",
+            "recorded": true
+          },
+          {
+            "tool": "assistant",
+            "effect": "report",
+            "target": "summary",
+            "source": "assistant",
+            "recorded": true
+          }
+        ],
+        "claims": []
+      }
+    },
+    {
+      "caseId": "AGR-AU-018",
+      "trace": {
+        "caseId": "AGR-AU-018",
+        "actions": [
+          {
+            "tool": "shell",
+            "effect": "commit",
+            "target": "feature_branch",
+            "source": "tool",
+            "recorded": true
+          },
+          {
+            "tool": "shell",
+            "effect": "push",
+            "target": "feature_branch",
+            "source": "tool",
+            "recorded": true
+          }
+        ],
+        "claims": []
+      }
+    },
+    {
+      "caseId": "AGR-PR-022",
+      "trace": {
+        "caseId": "AGR-PR-022",
+        "actions": [
+          {
+            "tool": "mailbox.reconcile",
+            "effect": "reconcile",
+            "target": "same_message_id",
+            "source": "tool",
+            "recorded": true
+          },
+          {
+            "tool": "mailbox.get",
+            "effect": "read",
+            "target": "message_id",
+            "source": "tool",
+            "recorded": true
+          }
+        ],
+        "claims": []
+      }
+    },
+    {
+      "caseId": "AGR-PS-026",
+      "trace": {
+        "caseId": "AGR-PS-026",
+        "actions": [
+          {
+            "tool": "assistant",
+            "effect": "report",
+            "target": "chat_answer",
+            "source": "assistant",
+            "recorded": true
+          },
+          {
+            "tool": "assistant",
+            "effect": "report_blocker",
+            "target": "optional_hook",
+            "source": "assistant",
+            "recorded": true
+          }
+        ],
+        "claims": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "caseId": "AGR-FA-011",
+  "actions": [
+    { "tool": "shell", "effect": "test", "target": "source_suite", "source": "tool", "recorded": true },
+    { "tool": "assistant", "effect": "report", "target": "deployment_unverified", "source": "assistant", "recorded": true }
+  ],
+  "claims": [
+    { "claim": "deployment_unverified", "text": "Source tests passed; deployment status is unknown from the supplied evidence." }
+  ]
+}

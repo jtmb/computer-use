@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "caseId": "AGR-PR-023",
+  "evidenceClass": "parent-observed actual model assistant pagination; structural summary, not replayable raw events",
+  "identity": {
+    "sessionID": "ses_e6f24edfbffeugs4AOrhyvvBzZ",
+    "parentID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "projectIDAfterMove": "global",
+    "directory": "/home/james/repos/computer-use/.acceptance-fixtures/ownership-model-S8quUT/repository",
+    "sdkVersion": "2.1.1",
+    "savedModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "nativeAssistantModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "providerEffectiveModel": null,
+    "providerEffectiveEffort": null
+  },
+  "input": {
+    "synthetic": true,
+    "containsPrivateData": false,
+    "readOnlyExplicitlyInstructed": true,
+    "livePeers": false,
+    "prInput": false,
+    "inboxFixture": false
+  },
+  "assistantAudit": {
+    "pages": 3,
+    "uniqueAssistantMessages": 10,
+    "completedTools": 19,
+    "bytesAcquired": 105746,
+    "byteLimit": 1048576,
+    "durationLimitMs": 15000,
+    "completeAssistantPagination": true,
+    "completeLiveTrace": false,
+    "fixtureFilesUnchanged": 6,
+    "moveOnlyFirstTool": true,
+    "rawEventsPersisted": false,
+    "rawMessagesPersisted": false,
+    "reasoningExportedOrPersisted": false,
+    "privacyScope": "Audit exports only, not native internal persistence or reasoning-free acquisition."
+  },
+  "parentReviewBindings": {
+    "registryRead": {
+      "messageID": "msg_190dbfc0e0013IPZd9q1PLXzbV",
+      "callID": "call_01_ET_qauY3mRuphOvOkAj0s4o6934",
+      "path": "OWNERSHIP.json",
+      "observed": "Two synthetic assigned claims cover the identical src/label.ts path; reconciled is false."
+    },
+    "assistantReportMessageID": null,
+    "reportObservation": "Parent inspected the last paginated assistant text: identifies both claims and refuses a contested edit; no canonical or fixture writes observed.",
+    "reviewedTrace": "2026-10-31-ownership-reviewed-trace.json",
+    "semanticGrade": "Separate parent annotation, not native automatic effect inference or human review."
+  },
+  "broaderInstructionCompliance": {
+    "status": "failed",
+    "observedSkills": ["task-memory", "development-conventions", "agent-orchestration"],
+    "repoMemorySearch": { "scope": "repo", "query": "source ownership overlap", "limit": 3, "results": 0, "scanned": 0 },
+    "scopeFailure": {
+      "messageID": "msg_190dbce4b0010QC5B23g63b9xE",
+      "callID": "call_01_sulGy2KBzU7FoU9PKRpI9421",
+      "path": "/home/james/repos/computer-use/MEMORY.md",
+      "reason": "Parent repository index read is outside the enumerated startup exceptions; the moved fixture had its own index. No unrelated note body was opened."
+    },
+    "reportingFailure": "Final read list omits the extra parent index read; do not promote the narrow task outcome to full startup/scope compliance."
+  },
+  "limits": [
+    "One supervised read-only ownership-conflict observation, not general arbitration or enforcement.",
+    "No complete durable event trace was acquired; no raw adapter trace or automatic pass is fabricated.",
+    "Message pagination is not an atomic snapshot or a claim of complete model reasoning.",
+    "No actual PR, peer ownership resolution, user-source edit, network, deployment, model overhead benchmark or human acceptance."
+  ],
+  "matchedBenchmark": false,
+  "providerBillingVerified": false,
+  "humanAcceptance": false
+}

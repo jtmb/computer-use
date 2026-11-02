@@ -1,7 +1,10 @@
 # Sections
 
 This file defines all sections, their ordering, impact levels, and descriptions.
-The section ID (in parentheses) is the filename prefix used to group rules.
+The section ID (in parentheses) identifies a review category, not a reliable
+filename prefix. Some inherited filenames describe a different topic from their
+current contents. Select rules by the root SKILL.md reference descriptions and
+their actual titles and bodies; do not skip a relevant rule because of its name.
 
 ---
 

@@ -1,0 +1,8 @@
+{
+  "caseId": "AGR-FA-013",
+  "actions": [
+    { "tool": "shell", "effect": "execute", "target": "cli_help", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "observed_behavior", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

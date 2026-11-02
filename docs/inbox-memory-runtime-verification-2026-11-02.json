@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Current coordinator inbox-memory-acceptance: actual native registration, deliberate repository retrieval and exact inert-history preservation. No new model/child or no-model inbox UX fixture.",
+  "runtimeRegistration": {
+    "reasonForFreshRead": "The runtime tool catalog changed during this continuation; fresh exact-location registration is a new current observation, not inherited status or an inferred reload cause.",
+    "servicePreflight": "opencode service status exits0and reports the existing loopback service URL, not running prose. No start/restart is requested.",
+    "command": "opencode api get '/api/plugin?location%5Bdirectory%5D=%2Fhome%2Fjames%2Frepos%2Fcomputer-use'",
+    "exitStatus": 0,
+    "stdoutBytes": 12156,
+    "stdoutSHA256": "3e1d0c42aadde68b592eed52b9fb4572184f5d8a0592f012254152f2f9a800e1",
+    "stderrBytes": 0,
+    "elapsedMs": 517,
+    "location": "/home/james/repos/computer-use",
+    "inventoryEntries": 98,
+    "selected": [
+      { "id": "computer-use.goal-docs", "status": "active" },
+      { "id": "computer-use.memory", "status": "active" },
+      { "id": "local.goal-mode.server", "status": "active" }
+    ],
+    "retiredCoordinationEntryPresent": false,
+    "qualification": "Exact current server registration only; not loaded-byte attestation, every TUI client, real new child completion or model compliance. Native existing profile/auth only; no credential extraction, config/permission edit, activation or requested service lifecycle action. Remaining-length-limited raw pipe capture is65536bytes/4096perread/8seconds, not an assertion about the CLI's prior full HTTP buffering."
+  },
+  "inertHistory": {
+    "baseline": "/home/james/Documents/computer-use-native-host-20261029/decision-inbox-baseline-49rxosgk/receipt.json",
+    "baselineSHA256": "086306cde22ba0689b01845f75ad381d6c196cf69343a94970d83b322a93deba",
+    "files": [
+      { "path": ".session-coordination/room.json", "bytes": 55681, "sha256": "f93cd0ea6a929c465feac325e921af414b6bc91bdf536f630b956c2d015724f5", "inode": 6586798, "mtimeNs": "1793406862561099052", "recordedBaselineMatches": true, "atimeUnchanged": true },
+      { "path": ".session-coordination/room.lock", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "inode": 6572204, "mtimeNs": "1793309413811740142", "recordedBaselineMatches": true, "atimeUnchanged": true }
+    ],
+    "bytesRead": 55681,
+    "elapsedMs": 2,
+    "method": "Owned regular single-link files, no-follow/O_NOATIME read-only descriptors, stat/fstat/final identity checks,65536per-file/131072aggregate/4096chunk/3second bounds; directory identity also stable. Streaming SHA only, no message text printed or copied, no archive/delete/write/lock acquisition or permission change.",
+    "locatorLimits": "First abbreviated Documents locator returns ENOENT; a bounded exact-name Documents glob finds the actual nested receipt. A repository room.json glob returns no files, although direct observation later finds the ignored state directory; the glob is not proof of deletion. Owning README/preflight explicitly locate .session-coordination and direct observation finds its two files. No broad home/private-store search or fabricated replacement.",
+    "qualification": "Exact retained baseline for these two files, not all original conversations, voice history/settings/media/launchers, other stores or whole-host quiescence. This is user-authorized preservation verification, not restored mandatory inbox reading or reactivated traffic."
+  },
+  "actualLoadedMemory": {
+    "operation": "Existing exposed memory tool, explicit repo scope; no note writes, global scope, schema/config changes or helper agent.",
+    "queries": [
+      { "query": "custom inbox", "kind": "decision", "limit": 1, "resultID": "agent-inbox", "currentCitationLine": 25, "secondSnippetLine": 27, "outcome": "Returns the current removal/history-preservation decision plus rationale; not incorrectly claimed to contain a supersession excerpt in this query." },
+      { "query": "optional mailbox", "kind": "decision", "limit": 1, "resultID": "agent-inbox", "currentCitationLine": 25, "secondSnippetLine": 29, "outcome": "Historical-only terms still return the leading current removal decision and explicit supersession of optional-mailbox retention, with separate correct citations." },
+      { "query": "acceptance-unmatched-20261102-6j93", "limit": 1, "resultID": "agent-inbox", "outcome": "Initial intended no-match probe is too broad: lexical token acceptance legitimately matches the implementation-limit paragraph. This is a caller query mistake, not empty-result success or a production retrieval bug." },
+      { "query": "zzunmatched6j93v20261102", "limit": 1, "results": [], "outcome": "One changed single-token query produces the actual empty result without unrelated fallback. No ranking change or unchanged retry." }
+    ],
+    "coverageForEach": { "scope": "repo", "scanned": 5, "bytes": 14344, "chargedBytes": 14344, "failedReadChargeBytes": 0, "skipped": 1, "truncated": false },
+    "notesAreUntrustedData": true,
+    "qualification": "Actual current native tool operations, not a fresh primary/model routing evaluation. One unmanaged/malformed note remains skipped and untouched; limited lexical no-match does not establish exhaustive semantic or global absence. Dated stale/poisoned/fresh-child observations and their reporting/protocol failures are not rerun or promoted."
+  },
+  "adjacentDocumentationChecks": { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/repo-memory.test.mjs scripts/decision-memory-contract.test.mjs scripts/features-contract.test.mjs", "tests": 24, "passed": 24, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 891.819268, "qualification": "Changed documentation/contracts/local links only, not another execution of completed memory source tests or independent computer/browser source." },
+  "remaining": "Complete fresh-primary/general-model startup compliance, native permission/cancellation and every loaded-client/child-completion layer remain distinct. Parent-only/no-delegation and exact consequential gates still apply; the old no-tests instruction is superseded. This unit neither recreates missing historical originals nor completes the whole current task/phase/goal. Prior memory38/source controls, title/RPC/monitor verification and their preserved strict/native failures remain separately recorded. All source changes remain uncommitted and unpushed.",
+  "closeout2026_11_02": {
+    "loadedInventory": { "command": "opencode api get /api/plugin?location[directory]=/home/james/repos/computer-use", "exit": 0, "bytes": 12156, "entries": 98, "localEntries": 9, "matchesForCoordinationInboxMailboxMessage": 0, "sha256": "3e1d0c42aadde68b592eed52b9fb4572184f5d8a0592f012254152f2f9a800e1", "sameAsPriorBaseline": true },
+    "canonicalConfig": "opencode.json sha256 dda30316 selects the goal plugin, -opencode.goal and ./tools/self-learning only; no inbox entry. Global opencode.jsonc has no plugins key.",
+    "retiredPackage": "tools/session-coordination exports only '.' and './tui'; there is no RPC subpath. index.ts and tui.ts import retired.ts and throw in setup before registering any tool/RPC/hook/palette/state. Clean source-only grep finds 0 importers of tool/service/store/inbox-ui/inbox-discovery/rpc.",
+    "inertHistory": { "room.json": { "bytes": 55681, "inode": 6586798, "mtime": "2026-10-30T20:34:22" }, "room.lock": { "bytes": 0, "inode": 6572204, "mtime": "2026-10-29T17:30:13" }, "gitignored": true, "matchesRecordedBaseline": true },
+    "criteriaNowCoveredAtSource": {
+      "staleWriteRefusal": "memory.test.ts:250,259,624 plus target-changed-after-lock case",
+      "poisonedNote": "memory.test.ts:518,597; core.ts:602,679,695,715 set notesAreUntrustedData on every response",
+      "scopeRefusal": "memory.test.ts:179,186,192,212-213; core.ts:120-124,272-292",
+      "noMatch": "already covered at memory.test.ts:197-199,1153-1155; deliberately not duplicated"
+    },
+    "supersessionGap": "grep -c supersed is 0 in core.ts, retrieval.ts and format.ts. Supersession is authored body text plus guidance, so the tool cannot mechanically refuse a superseded decision; source only proves the Current decision paragraph leads and superseded history is cited separately.",
+    "stillBlocked": ["agent refusal of a superseded decision needs a fresh model turn", "native deny/pending/caller-cancel for memory read/edit/external-directory", "loaded tool catalog and loaded-byte attestation (/api/tool returns 404)", "runtime proof that nothing opens room.json", "all TUI clients, real child completion and general startup compliance"],
+    "incidentalPrivateExposure": {
+      "what": "A broad grep for retired-inbox imports also matched text inside the ignored private history file, so stored message bodies were printed into tool output and captured in a harness shell log.",
+      "logPath": "/home/james/.opencode-v2-pilot/data/opencode/shell/3e1e6f73bded105bf412f16b6aea04e05f44d605/sh_19d7eb4140019LmvwRaqkp15Dd.out",
+      "logBytes": 62236,
+      "childActions": "Copied none of the output into its receipt; did not modify, hash, copy or delete the private file; left the harness log in place because deleting logs is not authorized; re-ran the check with the private directory excluded.",
+      "honestConsequence": "For this unit the parent cannot claim that no message bodies were read. Inertness rests on file metadata plus zero active readers, not a fresh body-free proof.",
+      "parentDecision": "Log and private file left intact. Deletion of evidence of an exposure is not performed unilaterally even under broad gate approval; the user can request removal, which would then also remove the only record of what leaked.",
+      "prevention": "Future source checks must exclude .session-coordination and other private paths by name rather than relying on gitignore-aware grep flags."
+    },
+    "artifacts": { "directory": "/tmp/opencode/inbox-memory-closeout-MZdXyf", "receiptBytes": 15170, "receiptSha256": "81a334fab4d4dc8c44b09aa006cff103ddc09319f28806161509b64c68a787c4" }
+  }
+}

@@ -12,9 +12,9 @@ tags: [documentation, readme, adr, api-docs, getting-started]
 ### Setup guidance
 Every maintained project or platform surface should have one discoverable setup
 guide covering prerequisites, installation, build steps, configuration,
-verification, and troubleshooting. In computer-use, route this through the existing
-`docs/` and `~/repos/computer-use/` documentation; do not invent
-parallel documentation trees.
+verification, and troubleshooting. Follow the consumer project's established
+documentation layout and update an existing guide when it already owns the
+workflow; do not create a parallel documentation tree.
 
 ### Configuration guidance
 Document environment variables and config files where they are actually used.
@@ -25,6 +25,20 @@ Do not put credentials or private user configuration in examples.
 Add a focused guide only when a feature is user-facing or operationally
 significant. Link it from the repository's existing documentation index rather
 than creating a duplicate catalog.
+
+### Human-readable feature inventory
+
+Maintain a concise, human-readable `docs/features.md` inventory for the
+project's user-facing and operational capabilities. Inspect implementation,
+configuration, and existing documentation before describing a feature. For each
+capability, distinguish what is present in source from what is configured,
+available at runtime, verified, blocked, or deferred; source presence alone is
+not proof of runtime availability or acceptance. Record prerequisites and
+important limits, link locally to the relevant source and owning guides, and
+resolve those links from the inventory's location. Update the inventory when a
+feature is added, removed, or materially changed, and explain the user-facing
+change in plain language. Date and scope runtime observations when useful, and
+never include credentials or private configuration.
 
 ### README.md
 
@@ -85,10 +99,12 @@ When a specific change was made, update only the affected docs:
 | Change | Docs to update |
 |--------|---------------|
 | Added/removed/modified a skill | the relevant canonical skill guide and existing documentation index |
+| Added/removed/materially changed a user-facing or operational feature | `docs/features.md`, with local links to the inspected source and owning guide |
 | Added/removed/modified an agent | the relevant agent or harness guide, when one exists |
 | Changed config | the owning v2 config example and its focused setup/verification guide |
 | Added new dependencies | the owning package manifest and setup documentation |
 | Modified a learning or memory surface | the relevant canonical skill and its existing documentation route |
 
-Repository-root `AGENTS.md` is an instruction authority. Update it only on an
-explicit request; do not use documentation work as a reason to rewrite it.
+Project instruction files (for example, `AGENTS.md`) are operational authority.
+Update them only when the request and applicable permissions include that scope;
+do not use documentation work as a reason to rewrite them.

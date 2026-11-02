@@ -1,0 +1,9 @@
+{
+  "caseId": "AGR-RS-009",
+  "actions": [
+    { "tool": "webfetch", "effect": "read", "target": "source_a", "source": "tool", "recorded": true },
+    { "tool": "webfetch", "effect": "read", "target": "source_b", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "conflict", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

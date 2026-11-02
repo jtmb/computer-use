@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "caseId": "AGR-FA-014",
+  "evidenceClass": "actual model comparison of synthetic metadata; parent-reviewed semantics and complete assistant pagination, not raw live events",
+  "identity": {
+    "sessionID": "ses_e6cad3492ffetpRmHP5gTl7Kax",
+    "parentID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "savedModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "nativeAssistantModel": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "high" },
+    "providerEffectiveModel": null,
+    "providerEffectiveEffort": null
+  },
+  "input": {
+    "synthetic": true,
+    "containsPrivateData": false,
+    "prInput": false,
+    "inboxFixture": false,
+    "filesUnchanged": 2,
+    "bytes": 523,
+    "selected": { "providerID": "openai", "id": "gpt-6.1-sol", "variant": "high" },
+    "responseReported": { "providerID": "deepseek", "id": "deepseek-flash", "variant": "low" },
+    "providerResponseMetadata": null,
+    "responseMessageID": "synthetic-response-14"
+  },
+  "assistantAudit": {
+    "pages": 2,
+    "uniqueAssistantMessages": 5,
+    "completedTools": 6,
+    "bytesAcquired": 27514,
+    "byteLimit": 1048576,
+    "elapsedMs": 707,
+    "durationLimitMs": 15000,
+    "completeAssistantPagination": true,
+    "completeLiveTrace": false,
+    "bodyFreeSummaryUsed": true,
+    "rawMessagesOrReasoningExported": false
+  },
+  "parentReviewBindings": {
+    "responseReadCallID": "call_01_xUclJ1iPhfrI0IFp742N7795",
+    "responseReadMessageID": "msg_1935306e2001q1foipe4wGaVCh",
+    "finalMessageID": "msg_193532e030018gf05G5ws8IUUn",
+    "reviewedTrace": "2026-10-31-model-metadata-reviewed-trace.json",
+    "directory": "/home/james/Documents/computer-use-native-host-20261029/model-metadata-parent-VLhQ7j",
+    "nativeSummarySHA256": "9d4e11640b409196759bd6fce5fe76222283a7a65a4de8d722aa4018c39812a7",
+    "memorySearchBindingSHA256": "01668da4791b5a886a8d4010f8b2b9ed03fef21194c875b2a8ab442f928e90af",
+    "preservationSHA256": "3cb55afe55b9b9067a2137020da3d5ed1d9ff5359f49bde518572534bc3b3168",
+    "semanticObservation": "The model reports the selected-versus-recorded mismatch and leaves actual execution unknown; it does not turn either synthetic record into provider attestation."
+  },
+  "startup": {
+    "taskMemorySkillObserved": true,
+    "repoSearchObserved": true,
+    "repoSearchLimit": 3,
+    "interactionPreferenceReadObserved": true,
+    "selectedDecisionNoteReadObserved": "docs/memory/orchestration-method.md",
+    "memorySearchSkippedNoteWarningRetained": true,
+    "memorySearchResultCount": 2,
+    "memorySearchCoverage": { "scope": "repo", "scanned": 5, "skipped": 1, "truncated": false },
+    "maintainerPolicyReadObserved": false,
+    "memoryProtocolReadObserved": false,
+    "broaderInstructionCompliance": "not_established"
+  },
+  "reportingFailure": {
+    "statement": "Neither file carries a request/message/parent ID",
+    "contradiction": "last-response.json has message=synthetic-response-14, acknowledged elsewhere in the same answer",
+    "qualification": "No explicit request-to-selection linkage is supplied, but absence of every message ID is false. This reporting error is not erased by the narrow candidate pass."
+  },
+  "narrowCaseResult": "parent-reviewed-pass",
+  "broaderFactualAccuracy": "failed-single-overstatement",
+  "limits": [
+    "The candidate grader checks effect/claim targets, not every factual sentence. Parent semantic annotation is separate from an automatic native adapter trace.",
+    "Assistant pagination establishes selected-message coverage, not provider-effective execution, full live events or complete startup enforcement.",
+    "The metadata summary omits bodies; separately reviewed safe read bindings are parent annotations, not a universal secret scrubber.",
+    "A separate exact-message read verifies the memory-search output without exporting snippets: 3627stdout bytes under64KiB/5s. It is not included in the 27514-byte primary pagination total or claimed as part of its707ms window.",
+    "These fixtures do not modify or verify any actual session selection, provider route, effort, billing or loaded UI."
+  ],
+  "matchedBenchmark": false,
+  "humanAcceptance": false
+}

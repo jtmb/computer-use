@@ -136,7 +136,7 @@ Read every file once (Mode A) or glob + classify by filename and top-level impor
 - Config (`next.config.*`, `proxy.ts`)
 - Other (utility, types)
 
-In Mode B, this tagging also feeds the Category 9 sweep (e.g. files tagged "Client Component" with hook usage that doesn't need the client become candidates for `cross-boundary-coherence`).
+In Mode B, this tagging also feeds the Category 9 sweep (e.g. files tagged "Client Component" with hook usage that doesn't need the client become candidates for `cross-extract-shared-logic`).
 
 ### Step 3 — Category-major sweeps (REQUIRED PROGRESS LINES)
 

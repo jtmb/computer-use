@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-10-31",
+  "evidenceClass": "parent-observed read-only GitHub repository metadata; not hosted enforcement acceptance",
+  "repository": { "host": "github.com", "owner": "jtmb", "name": "computer-use", "url": "https://github.com/jtmb/computer-use" },
+  "authenticatedLoginVerified": "jtmb",
+  "local": {
+    "head": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "workflowState": "untracked",
+    "codeownersState": "untracked",
+    "remoteContentImported": false
+  },
+  "mainBranch": {
+    "sha": "b47765e4a9f5c124c4716deb52962e17d7fb4a2a",
+    "protectedFlag": false,
+    "branchListPage": 1,
+    "branchListPerPage": 10,
+    "branchEntriesReturned": 3,
+    "rootListingPinnedToSha": true,
+    "rootEntriesReturned": 10,
+    "rootEntryNames": [".gitignore", ".opencode", "AGENTS.md", "README.md", "config", "global", "opencode.json", "scripts", "setup.md", "tools"],
+    "githubDirectoryPresentAtSelectedSha": false,
+    "snapshotUrl": "https://github.com/jtmb/computer-use/tree/b47765e4a9f5c124c4716deb52962e17d7fb4a2a"
+  },
+  "actions": {
+    "workflows": { "page": 1, "perPage": 10, "totalCount": 0 },
+    "retainedVisibleWorkflowRuns": { "page": 1, "perPage": 5, "totalCount": 0 },
+    "url": "https://github.com/jtmb/computer-use/actions"
+  },
+  "acquisitionLimit": "Supported GitHub MCP pages and projected root directory metadata, not a pre-read byte-bounded transport or atomic multi-call snapshot.",
+  "retainedFailure": "Direct .github path retrieval returned a generic missing-or-invalid-path error without an HTTP status. Absence at the selected commit is grounded instead in the subsequent successful commit-SHA-pinned root directory listing.",
+  "detailedRulesetsAndProtectionInspected": false,
+  "mutations": { "prAccess": false, "fetchOrCheckout": false, "commit": false, "push": false, "workflowTrigger": false, "settingsChange": false, "publication": false, "authenticationChange": false },
+  "assessment": "The selected remote main snapshot lacks .github; current visible workflow and retained-run inventories return zero, and the main branch reports protected:false. Local workflow/CODEOWNERS are still untracked. Requested hosted enforcement is not established; commit/push/settings and eligible independent human approval retain separate authority gates.",
+  "limits": [
+    "Zero visible retained runs is not proof that a workflow has never run or that older history was never deleted.",
+    "The branch protected flag is not a detailed ruleset, organization-policy or reviewer-permission audit.",
+    "Remote main and local HEAD differ; no commit count, ancestry, synchronization, merge or source import is inferred.",
+    "The Actions inventory and branch read are not asserted to be atomic with the pinned content snapshot.",
+    "No PR body, diff, review, checkout, import or merge was acquired."
+  ],
+  "hostedAcceptance": false,
+  "humanApproval": false
+}

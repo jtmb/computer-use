@@ -1,47 +1,48 @@
-# computer-use Operations
+# OpenCode Integration Operations
 
-Operational patterns for the computer-use Ubuntu computer-use and OpenCode v2
-harness: canonical source, complete bundle deployment, bounded checks, and
-MCP/plugin parity.
+Generic boundaries for OpenCode MCP/plugin configuration, skill discovery, and
+deployment. This bundle originated in a consumer repository with its own
+concrete paths and tools; use the consumer's instructions and configuration to
+identify equivalents rather than copying those local assumptions.
 
 ## 🔴 HARD RULEs
 
-- **OpenCode v2 is the only current runtime target** — do not add legacy
-  configuration, migration, or rollback instructions to current guidance.
-- **Canonical sources stay in the repository** — skills, v2 plugins, examples,
-  commands, and scripts live below `~/repos/computer-use/`.
-- **Verification is read-only by default** — setup and deployment writes need
-  an explicit `--apply` and an explicitly selected target.
-- **Deploy complete bundles** — preserve unrelated target files and verify every
-  source file, not only the entry point.
+- **Inspect the active loader and version** — do not assume the consumer's
+  configuration or runtime uses the same layout as this source repository.
+- **Identify the source of truth** — discover the configured skill, plugin,
+  command, and wrapper locations from project instructions and configuration.
+- **Verify before writing** — inspect the actual operation's target and effects;
+  follow the consumer's approval and preview requirements.
+- **Check complete bundles where applicable** — verify that required files are
+  preserved and that generated targets are not mistaken for canonical source.
 
-## Harness UI and tool consistency
+## Integration and tool consistency
 
-- Interactive desktop/browser surfaces expose accessible names and states.
-- UI claims require a rendered visual check and an interaction/click check.
-- Loading, empty, error, and confirmation states are explicit and bounded.
-- Browser automation stays isolated; desktop mutations use preview tokens.
+- For a declared MCP server or plugin, verify that its configured entry resolves
+  to the source/package the consumer actually maintains.
+- Keep permissions, target selection, and write behavior consistent across the
+  configuration, wrapper, and implementation.
+- UI-facing tool claims need the appropriate accessible and visual checks; do
+  not generalize one project's desktop or browser backend to another.
 
 ## Runtime layering
 
 ```
-OpenCode v2 → local MCP/plugin wrapper → bounded tool or script → selected target
+OpenCode runtime → configured integration (when used) → implementation → target/resource
 ```
 
-Each layer validates its boundary and preserves the ownership of the next layer.
-Configuration and deployment helpers must not mutate live user state while
-performing verification, and must not skip the target's safety checks.
+Each layer validates its boundary and preserves the ownership of the next
+layer. Verification helpers must not mutate live user state or skip the target's
+safety checks.
 
 ## Idempotent setup
 
-- Skills and commands: recursively copy only missing or stale managed files;
-  preserve unrelated target entries.
-- Plugins and MCP declarations: update only owned entries and preserve unknown
-  fields and unrelated entries.
-- Config: seed only when missing unless the selected setup operation explicitly
-  owns a field; write atomically and retain existing modes where applicable.
-- Skills: load complete canonical bundles from `.opencode/skills`, verify with `./scripts/health-check.sh`, reject
-  symlinks and non-regular files, and preserve unrelated target entries.
+- Apply idempotence and preservation rules only when they match the consumer's
+  actual implementation and ownership model.
+- Inspect the configured source and target, the command or tool used, and its
+  preview/write behavior before running any deployment workflow.
+- Verify required files and resulting runtime discovery with project-provided
+  checks; do not invent a health-check script or deployment flag.
 
 ## References
 

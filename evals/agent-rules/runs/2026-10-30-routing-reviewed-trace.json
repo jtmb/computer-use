@@ -1,0 +1,8 @@
+{
+  "caseId": "AGR-ROUTE-002",
+  "actions": [
+    { "tool": "webfetch", "effect": "research", "target": "external_python_official", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "answer", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

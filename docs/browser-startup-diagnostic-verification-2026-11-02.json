@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-verified non-launching checks after the one retained loaded web.open WORKER_CRASHED, plus an UNAPPLIED privacy-safe diagnostic proposal. This is neither the observed crash's cause nor source/runtime activation or browser acceptance.",
+  "originalFailureRecord": "docs/everyday-use-followup-2026-11-02.json",
+  "selectedEntryRecord": "docs/native-readonly-metadata-verification-2026-11-02.json",
+  "staticTransitiveImport": {
+    "outcome": "Actual canonical worker-child.ts ESM import/link/evaluation succeeds on Node22.22.2 with its run() guard inactive. No exported function is invoked.",
+    "mainGuard": "process.argv[1] is '-' and does not end with worker-child.ts; the actual worker entry, profile validation, environment scrub, Playwright dynamic import and browser initialization remain inactive.",
+    "sourceBindings": 17,
+    "sourceBytesAcquiredBeforeAndAfter": 192228,
+    "stableBeforeAndAfter": true,
+    "exports": ["buildChildEnvironment", "dispatchCredentialFill", "recoverRequestId"],
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/browser-static-link-pkfK8E/link.json", "bytes": 3600, "sha256": "d942a151b502af0dc2e98738660ceb50a0ca9fd8e9881067a52860a3cc7fb343" },
+    "limit": "This materially narrows static-link failure for this exact tested copy/runtime, not the loaded service's every module byte, selected worker path or actual launch result. A source graph review alone would not have established execution."
+  },
+  "installedLibraryImport": {
+    "entry": "tools/computer-use-browser/node_modules/playwright-core/index.mjs",
+    "outcome": "Actual public-module import succeeds in a sterile own HOME/TMP/browser-cache process; chromium launch/launchPersistentContext/connect properties are functions, never invoked.",
+    "fences": "Subprocess, network, worker-thread and filesystem-write APIs are fenced; three calibration calls are refused, then the library import observes no fenced calls. These JavaScript fences are not an operating-system sandbox or proof that all possible I/O is impossible.",
+    "limits": { "v8HeapMiB": 64, "deadlineMs": 5000, "stdoutBytes": 435, "stderrBytes": 0, "captureSettingBytes": 16384 },
+    "captureQualification": "spawnSync maxBuffer is not a hard before-read acquisition quota; the actual small output is recorded, not a stronger quota guarantee.",
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/playwright-import-pEBYyr/import.json", "bytes": 1376, "sha256": "65f43193e6e0d3ff5ea2a7a21230f8521f3be7f4dc28a18a066ed86b8d70a7e6" },
+    "sourceReviewLimits": "The old lib/inProcessFactory.js lookup returns ENOENT. Actual index.js uses bootstrap and coreBundle; the3469825-byte coreBundle body exceeds the262144-byte review ceiling and remains unread. Runtime initialization is not used to dump or reconstruct that body, nor promoted to complete source review or browser/display/profile/sandbox success."
+  },
+  "hostPrerequisites": {
+    "observedKernelSetting": { "path": "/proc/sys/kernel/apparmor_restrict_unprivileged_userns", "value": "1", "readLimitBytes": 32 },
+    "installedChrome": { "path": "/opt/google/chrome/chrome", "regularFile": true, "uid": 0, "modeOctal": "755", "executable": true },
+    "installedHelper": { "path": "/opt/google/chrome/chrome-sandbox", "regularFile": true, "uid": 0, "modeOctal": "4755", "executable": true },
+    "bundledHelper": { "path": "/home/james/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome_sandbox", "statAvailable": false, "errorCode": "EACCES", "presence": "unknown" },
+    "parentCorrection": "The original receipt ambiguously labels denied stat as present:false. It is preserved, with a separate qualification: EACCES does not establish absence. No privileged retry or alternate cache/profile access follows.",
+    "sourceSelection": "Canonical chooseChannel maps these inspected inputs to chrome. The bundled path is a documented default, not the service's observed environment/path; source selection is not actual worker selection, launch/ABI/display proof or the crash's cause.",
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/browser-host-prerequisites-oa76qL/prerequisites.json", "bytes": 1226, "sha256": "cb7d9a3661a7cb2680a496943c470566587254d26949d58df6273585cc174e4b" },
+    "qualification": { "path": "/home/james/Documents/computer-use-native-host-20261029/browser-host-prerequisites-oa76qL/qualification.json", "bytes": 1012, "sha256": "46189616d3ab79857530be8c2ed86594426571fc4f76924171a9d9991836dd81" }
+  },
+  "inertDiagnosticProposal": {
+    "status": "ACCEPTED AND APPLIED to canonical source on 2026-11-02 under the user's standing gate approval. The focused type review produced no type diagnostic before its stricter heap probe aborted; the owning browser package typecheck covers browser/runtime sources, while the plugin file has no TypeScript project (a real coverage gap, recorded not hidden).",
+    "productionCopyPaths": ["tools/computer-use-browser/src/errors.ts", "tools/computer-use-browser/src/manager.ts", ".opencode/plugins/computer-use/browser-tools.ts"],
+    "contract": "Optional copied/frozen supervisor facts: ready FRAME observed/not-observed, child exit/spawn-error/unknown, integer exit0..255/null and fixed allowlisted signal/other/null. No protocol/schema migration, retry or permission/resource change. Legacy two-argument errors remain valid. Readiness never means browser-launch phase.",
+    "privacy": "WORKER_CRASHED rendering uses validated metadata from a BrowserBackendError only. Raw crash message, stderr, URLs, paths, environment, argv, page/form/secret values stay withheld; the crash path does not acquire the raw message getter. Malformed/getter metadata is ignored without rendering unknown strings.",
+    "childBaseline": { "redPassed": 8, "redFailed": 6, "greenPassed": 14, "scope": "Intended missing-metadata/hint assertions against actual copied production modules, with only external child/browser/permission I/O faked; no native permission or browser acceptance." },
+    "parentVerification": {
+      "unchangedChildCases": { "passed": 14, "failed": 0, "durationMs": 819.321598 },
+      "additionalRegressions": { "passed": 0, "failed": 2, "durationMs": 536.592302, "findings": ["A valid foreign plain object could spoof supervisor metadata.", "The crash renderer read the raw message getter twice."] },
+      "scratchOnlyCorrection": "Require BrowserBackendError instance origin for the hint and inspect raw message only for already detail-allowed error codes.",
+      "correctedCombined": { "passed": 16, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 856.398269 },
+      "applyCheck": "Reviewed patch applies only to a fresh scratch verification tree; all three postimages match. Fresh continuation readback validates all16durable artifacts and all three canonical preimages without rerunning accepted cases."
+    },
+    "patch": { "path": "/home/james/Documents/computer-use-native-host-20261029/browser-diagnostic-review-Aq2fyt/reviewed-proposal.patch", "bytes": 10573, "sha256": "07128974c1a86e215ae0d0cfb5a290cc8383335560c73b06341da35e11fa73ff", "canonicalApplied": true, "applyCheckBeforeApply": "git apply --check passed against the unchanged canonical preimages", "postApplyHashes": { "tools/computer-use-browser/src/errors.ts": "ffa0d7c8be894018e9e0bf8ffb97a1d095c06716f99bd335ed269fbdfb971a54", "tools/computer-use-browser/src/manager.ts": "4942c8a7d24d3c61cf1e888c2247933c6ddf5f3a48fc7fe3026e021e42c02d5b", ".opencode/plugins/computer-use/browser-tools.ts": "ea2b5b7faffc1eb941ce6248440d5dae4c927c66d4ff838d34b0ec1224f0191e" } },
+    "canonicalVerification": {
+      "maintainedTest": ".opencode/plugins/computer-use/browser-crash-diagnostic.test.ts",
+      "testScope": "All16 reviewed cases adapted to canonical import paths: six supervisor cases against the real NodeWorkerHandle with faked child stdio/events, and ten renderer cases against the real registered web.open formatter with faked manager/permission only.",
+      "focusedResult": { "tests": 16, "passed": 16, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 575.714756 },
+      "browserPackageTypecheck": "tsc --noEmit exit0",
+      "browserPackageTests": { "tests": 57, "passed": 57, "failed": 0 },
+      "fullPluginSuite": { "tests": 236, "passed": 236, "failed": 0, "cancelled": 0, "note": "220 pre-existing plus16 new; the health script glob now includes the new file." },
+      "invocationMistakePreserved": "An intermediate full-suite run passed only188/236 because the parent launched node with --max-old-space-size=512, which workers inherit through execArgv and reject with ERR_WORKER_INVALID_EXEC_ARGV. The suite was not failing; the flag was wrong. Rerun without the flag passes236/236. Recorded as a real invocation limitation, not a code defect."
+    },
+    "review": { "path": "/home/james/Documents/computer-use-native-host-20261029/browser-diagnostic-review-Aq2fyt/review.json", "bytes": 6099, "sha256": "35ce4dc806f2e73cdff024984290204205ca1e7067c61d8cabdcc87b3fd2e387", "artifacts": 16 },
+    "preservedFailuresAndDeviations": "Original be34ac97 child patch and6REDs, GNU patch hunk refusal, retained scratch diagnosis leftovers and2parentREDs remain. Actual child patch8607B versus reported8635B; green log2726B versus reported2724B. An earlier read-only child created/deleted two transient redirection files outside its assignment; that is recorded in the metadata record, not erased by later correct results. No pristine compliance claim.",
+    "acceptanceLimit": "The source is applied and its tests pass, but the diagnostic has NOT been observed in a loaded runtime: no browser relaunch occurred, the original WORKER_CRASHED cause remains unknown, and browser storage/isolation/GUI acceptance is still unverified. The plugin's missing TypeScript project remains a genuine static-coverage gap. Deploying the running service is a separate step."
+  },
+  "preservation": { "path": "/home/james/Documents/computer-use-native-host-20261029/continuation-binding-UsA6J9/binding.json", "bytes": 3887, "sha256": "d49e026a5a264d3cdf21c9149c28092107e39cf92a3beb778a4bc0f5c83565ba", "facts": "Original179B staged SHA91d6022a,29854B raw index5079c677 and frozen native pin match. First oversized audit-body read refusal is preserved; no full-body retry/reconstruction, browser relaunch, host/RAM polling, restart, security change, deployment, deletion, commit or push." },
+  "remaining": "The original crash is unresolved. Complete focused type/integration review before accepting even the source proposal; then obey any actual canonical/runtime activation gate rather than silently applying it. Full browser/clipboard/private-human/callback/device/demo acceptance and all retained75IDs/additional lanes remain unchanged."
+}

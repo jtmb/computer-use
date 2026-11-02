@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only read-only policy investigation for jtmb/computer-use main. The original catalog-only stage below is preserved; a later supported same-account GitHub CLI follow-up performs three distinct authenticated policy GETs. No branch/workflow check replay, PR access, credential inspection, permission expansion, settings change or publication.",
+  "continuation": {
+    "reviewRevision": 311,
+    "scheduledRevision": 312,
+    "verdictNumber": 28,
+    "actualVerdict": "Blocker reviewer requires continued work: The resource refusals, original-evidence limitations and completed bundle/proposal preparation are supported. However, corpus-evaluation still relies on an unauthenticated protection-read HTTP401 and an empty public ruleset listing despite previously demonstrated authenticated GitHub access. The conversation shows no authenticated effective-policy read or concrete capability limitation. Discover whether the existing authorized connector supports bounded reads of main’s protection and inherited rulesets; perform those distinct reads if available, otherwise record the actual tool or permission limitation. Do not repeat completed branch/workflow checks, inspect credentials, expand permissions, access PRs or change settings/publication. This independent investigation remains unexhausted.",
+    "result": "The specific capability investigation is performed. The complete exposed GitHub catalog contains46tools, untruncated. It exposes no branch-protection, repository/inherited-ruleset, effective branch-rule, arbitrary authenticated REST request or GraphQL query tool. Exact schemas of the closest repository-read operations do not provide such a method or passthrough. Accordingly no authenticated policy request can be made through this exposed connector. This is a tool-capability limitation, not an observed denial of the credential's permissions or evidence that effective policies are absent."
+  },
+  "target": {
+    "host": "github.com",
+    "owner": "jtmb",
+    "repository": "computer-use",
+    "branch": "main",
+    "repositoryURL": "https://github.com/jtmb/computer-use",
+    "historicallyAttemptedProtectionURL": "https://api.github.com/repos/jtmb/computer-use/branches/main/protection",
+    "historicallyAttemptedInheritedListingURL": "https://api.github.com/repos/jtmb/computer-use/rulesets?includes_parents=true",
+    "qualification": "These are the exact retained target/locators. The original catalog-only stage makes no request. The later authenticated standard-client follow-up below reads these policy endpoints and the effective branch-rule endpoint; it does not repeat the older branch/workflow checks or guess a connector operation."
+  },
+  "actualDiscovery": {
+    "mechanism": "Code Mode's supported search metadata catalog, namespace github; no tools.github repository operation invoked.",
+    "calls": [
+      "Targeted metadata search for protection/rulesets/inherited/API/request support; fuzzy results include unrelated operation definitions, not PR data.",
+      "Complete namespace enumeration with limit100:46tool definitions, remaining0,nextnull; all names/descriptions inspected.",
+      "Extract exact signatures from the same complete46entry catalog for list_branches,get_file_contents,actions_get,actions_list,search_repositories; no direct policy-reader names or generic request/query interface found."
+    ],
+    "totalExposedTools": 46,
+    "remaining": 0,
+    "next": null,
+    "toolNames": [
+      "actions_get", "actions_list", "actions_run_trigger",
+      "add_comment_to_pending_review", "add_issue_comment", "add_reply_to_pull_request_comment",
+      "create_branch", "create_or_update_file", "create_pull_request", "create_repository",
+      "delete_file", "fork_repository", "get_commit", "get_file_contents", "get_job_logs",
+      "get_label", "get_latest_release", "get_me", "get_release_by_tag", "get_tag",
+      "get_team_members", "get_teams", "issue_read", "issue_write", "list_branches",
+      "list_commits", "list_issue_fields", "list_issue_types", "list_issues", "list_pull_requests",
+      "list_releases", "list_repository_collaborators", "list_tags", "merge_pull_request",
+      "pull_request_read", "pull_request_review_write", "push_files", "search_code",
+      "search_commits", "search_issues", "search_pull_requests", "search_repositories",
+      "search_users", "sub_issue_write", "update_pull_request", "update_pull_request_branch"
+    ],
+    "catalogLimit": "This is the complete tool set exposed to this session, not a claim that GitHub itself lacks these APIs or that every possible server extension is installed. Catalog discovery does not measure a fresh GitHub authentication/health state or a pre-read bounded remote HTTP transport.",
+    "noPRAccess": "PR-named tool definitions appear in the general metadata inventory only. No PR search/list/read/fetch/checkout/merge/import or other GitHub API operation is called."
+  },
+  "closestSchemas": [
+    {
+      "tool": "tools.github.list_branches",
+      "parameters": ["owner", "repo", "page", "perPage"],
+      "limit": "Branch listing only. No branch-protection/ruleset method, arbitrary endpoint or effective-policy projection. Repeating the old protected-flag listing would neither answer this question nor be permitted by this bounded lead."
+    },
+    {
+      "tool": "tools.github.get_file_contents",
+      "parameters": ["fields", "owner", "path", "ref", "repo", "sha"],
+      "limit": "Repository file/directory contents only. path/ref are repository content selectors, not authenticated REST endpoint/query passthrough. No path escape, URL injection or PR ref is attempted. A repository policy file is not effective GitHub protection."
+    },
+    {
+      "tool": "tools.github.actions_get",
+      "methods": ["get_workflow", "get_workflow_run", "get_workflow_job", "download_workflow_run_artifact", "get_workflow_run_usage", "get_workflow_run_logs_url"],
+      "limit": "Exact closed method set concerns Actions resources, not protection/rulesets. resource_id cannot legitimately substitute an unrelated authenticated endpoint. No call or repeated workflow check."
+    },
+    {
+      "tool": "tools.github.actions_list",
+      "methods": ["list_workflows", "list_workflow_runs", "list_workflow_jobs", "list_workflow_run_artifacts"],
+      "limit": "Its workflow-run event filter includes branch_protection_rule, but that filters historical run events; it is not an effective branch-policy read. No Actions call is used as a surrogate."
+    },
+    {
+      "tool": "tools.github.search_repositories",
+      "parameters": ["minimal_output", "order", "page", "perPage", "query", "sort"],
+      "limit": "Repository search metadata, not arbitrary authenticated REST/GraphQL or detailed protection/inherited rules. Neither search nor a fresh profile/permission query is needed or performed."
+    }
+  ],
+  "historicalEvidencePreserved": {
+    "path": "evals/agent-rules/runs/2026-11-01-hosted-readiness.json",
+    "bytes": 2727,
+    "sha256": "ee32e4dd8d71aafbd57169dce583f721aea9eae5db8e1cb82f05cffee2f78f1f",
+    "actualEarlierAuth": "The record verifies authenticated login jtmb and separately observed authenticated branch/workflow metadata. Those completed checks are acknowledged, not replayed, erased or reclassified as unauthenticated.",
+    "actualEarlierPublicLimits": "Its public inherited listing is visibly empty and unauthenticated main-protection read returns401. It already states these do not prove all effective policies. This investigation supplies the previously missing concrete exposed-connector capability limitation, not a retry or stronger interpretation of that401.",
+    "datedNotFresh": "The old main SHA/protected flag/workflow count, local-untracked workflow/runner and non-atomic responses remain dated observations. No current branch/workflow/deployed-policy/hosted-run state is inferred from tool discovery."
+  },
+  "alternativesInvestigated": [
+    "Direct authenticated protection/inherited/effective-rule reader: absent from the complete exposed46tool catalog.",
+    "Generic authenticated REST or GraphQL passthrough: no exposed method; no guessed tools, unsupported parameters or repository-path/resource-id misuse.",
+    "Branch/workflow/repository metadata as effective-policy surrogate: insufficient by schema and would replay completed checks, so not invoked.",
+    "Get profile/collaborator/team data: does not reveal effective protection/rules; no private or unrelated account read is justified.",
+    "Bare Code Mode fetch/webfetch: would be a new unauthenticated read, not reuse connector authentication, and would not resolve the known401 distinction; not retried.",
+    "Read credential stores/headers, expand permissions, reconfigure a connector or silently switch credential mechanisms: outside this bounded investigation and not authorized; not attempted. No claim is made that extra credential privileges are actually necessary."
+  ],
+  "operationCounts": {
+    "catalogMetadataDiscoveries": 3,
+    "githubRepositoryAPICalls": 0,
+    "authenticatedPolicyRequests": 0,
+    "unauthenticatedPolicyRetries": 0,
+    "branchWorkflowCheckReplays": 0,
+    "profilePermissionQueries": 0,
+    "prAccess": 0,
+    "credentialInspections": 0,
+    "permissionOrSettingsChanges": 0,
+    "workflowTriggers": 0,
+    "publicationCommitPush": 0
+  },
+  "authenticatedStandardClientFollowup": {
+    "scheduledRevisions": [329, 330],
+    "status": "Three authenticated policy responses observed; the MCP catalog limitation no longer blocks these reads.",
+    "client": "/usr/bin/gh, already installed; gh api --help inspected before use. No install, auth login, token/status dump, manual credential lookup, permission expansion or configuration change.",
+    "identity": {
+      "configuredMcp": { "login": "jtmb", "id": 86915618 },
+      "normalCliUserGet": { "login": "jtmb", "id": 86915618, "stdoutBytes": 31, "stderrBytes": 0, "exitCode": 0 },
+      "interpretation": "Exact same account is observed through both supported clients. Normal CLI authentication stays internal; no credential is printed or copied."
+    },
+    "responses": [
+      {
+        "method": "GET",
+        "endpoint": "repos/jtmb/computer-use/branches/main/protection",
+        "httpStatus": 404,
+        "message": "Branch not protected",
+        "stdoutBytes": 149,
+        "stderrBytes": 36,
+        "stdoutSha256": "d6020ee3b0852c3deb66c66d159cc80caabeaa66ee301778307a2a18d486450d",
+        "receipt": { "file": "main-protection.json", "bytes": 976, "sha256": "6bbc3486bdcee48e0587fe93b565eaeaf69839ba6579b3a9cf124d1da12f290e" }
+      },
+      {
+        "method": "GET",
+        "endpoint": "repos/jtmb/computer-use/rulesets?includes_parents=true&per_page=10&page=1",
+        "httpStatus": 200,
+        "body": [],
+        "stdoutBytes": 2,
+        "stderrBytes": 0,
+        "receipt": { "file": "inherited-rulesets-page1.json", "bytes": 868, "sha256": "8078a40740255616b9e4ad43472e616db9c3b84ca2759b6e7d353c7701d85bc2" }
+      },
+      {
+        "method": "GET",
+        "endpoint": "repos/jtmb/computer-use/rules/branches/main",
+        "httpStatus": 200,
+        "body": [],
+        "stdoutBytes": 2,
+        "stderrBytes": 0,
+        "receipt": { "file": "effective-branch-rules.json", "bytes": 1004, "sha256": "56ca92650c6b557834212cfeed27f07f70015d5feb130f6a4a9dd4a0bd2010a2" }
+      }
+    ],
+    "limits": "Each owned CLI request has a5000ms deadline and65536-byte shared remaining-length-limited pipe acquisition. The CLI's internal HTTP buffering is not measured. All responses fit; no limit refusal, extra page, workflow/branch replay or settings mutation. The inherited first page is empty; this is the actual dated response, not an assertion about every possible security policy.",
+    "interpretation": "The classic protection endpoint explicitly reports Branch not protected; the inherited-ruleset and effective branch-rule endpoints return empty arrays. These resolve the previously unperformed authenticated policy-read layer, not hosted CI execution/enforcement, independent reviewer eligibility or universal policy absence. No setting was changed to obtain these results.",
+    "artifactDirectory": "/home/james/Documents/computer-use-native-host-20261029/github-policy-cli-WrpLZL",
+    "readback": "Parent re-reads identity, all three structured receipts and all six raw response files; lengths and hashes match. Original catalog-only counts above, public401/[] history and MCP capability limit remain historical evidence, not current API unavailability.",
+    "preservationBinding": { "path": "/home/james/Documents/computer-use-native-host-20261029/continuation-binding-UsA6J9/binding.json", "bytes": 3887, "sha256": "d49e026a5a264d3cdf21c9149c28092107e39cf92a3beb778a4bc0f5c83565ba" }
+  },
+  "remaining": "The original311reviewer's28thcatalog investigation and the later authenticated3GET policy-read lead are performed. The complete46tool MCP limitation remains true, but a supported same-account CLI clears that particular access gap. The observed404/Branch not protected and200/[] responses are not hosted workflow execution/enforcement or complete security acceptance. Broader calibration, independent human/gold review, hosted publication/execution/enforcement and all20unfinished tasks/eight criteria/75IDs/additional lanes retain their actual evidence and separate authority requirements. No PR access, source import, credential/permission change, remote mutation, test/model replay, deployment, closed-goal reopening, staging, commit or push occurs."
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "A new scratch-only diagnostic-comparison correction, receipt protection and two parent tiny attempts based on distinct newly observed resource prerequisites. All three total tiny attempts refused before spawn. No canonical compiler, full-graph, build, schema, library or resource policy change.",
+  "hypothesis": {
+    "observation": "The canonical driver queries project-global diagnostics before the four per-file checking families. This source ordering alone does not prove the pinned compiler produces globals only after checking.",
+    "status": "Unproved: neither established nor refuted for the pinned 7.0.2 compiler/API.",
+    "notAccepted": [
+      "Longer CLI survival is not a measurement of a compiler-internal memory floor.",
+      "Reordering the existing canonical families would affect order-bound receipt decoding and is not an accepted minimal or backward-compatible patch.",
+      "Two tiny projects, even if they execute later, cannot establish complete 2,827-file positive/error/library acceptance."
+    ]
+  },
+  "comparisonCorrection": {
+    "directory": "/tmp/opencode/late-global-probe-q417WW",
+    "originalWorker": { "bytes": 3669, "sha256": "3b01105d694e626250229371eab780befbbac35f0f02aec19d0f6643e132c17e", "preservedAs": "worker.original.mjs" },
+    "problem": "Original comparison truncated diagnostic text to160 characters before equality and silently limited displayed arrays to12. A future equality result would therefore not prove complete equality.",
+    "correction": "Full canonical diagnostic data is compared before presentation, with order-independent multiset hashes/counts and preserved duplicate multiplicity. Presentation samples explicitly disclose omissions. Unsupported data is refused rather than silently discarded.",
+    "parentFindings": "The child's eight focused cases passed independently, but parent adversarial cases genuinely failed on unsupported array-own metadata and the worker's missing-argument TypeError. The parent rejected sparse/extra/symbol/accessor array data and object accessors without running getters, and checked argument types before path.isAbsolute.",
+    "testsObservedNotReplayed": {
+      "childCasesIndependentlyRun": { "passed": 8, "failed": 0, "durationMs": 234.754413 },
+      "parentNewRegressionRun": { "passed": 0, "failed": 2, "durationMs": 410.74643, "failures": ["Missing expected UnsupportedDiagnosticValueError", "Missing arguments exited1 rather than the expected structured refusal exit2"] },
+      "combinedAfterCorrection": { "passed": 10, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 264.606211 }
+    },
+    "finalWorker": { "bytes": 4378, "sha256": "14e58cfde76665bf25ef40d98f7e9482be60a58f83663b788d1c35393a95d69f" },
+    "finalHelper": { "bytes": 8833, "sha256": "095ed7ffae024c00570455e825e0b573f708acfc3a8cedb2bfd0dc56f4c4a5de" },
+    "limits": "These are pure JavaScript helper/argument regressions, not execution of the native compiler/API, full graph, native permission system or installed UI. Child-reported hashes before the parent's correction are historical, not current hashes."
+  },
+  "attempts": [
+    {
+      "directory": "/tmp/opencode/late-global-probe-q417WW",
+      "receipt": { "bytes": 2575, "sha256": "31338a64d682c575b7fba3f9d345d393d4323984400ce589bda700128a034833" },
+      "spawned": false,
+      "reason": "prelaunch-memory-guard",
+      "availableMiB": 2437.54296875,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "preserved": "Original receipt, driver and all four tiny inputs remain unchanged."
+    },
+    {
+      "directory": "/tmp/opencode/late-global-attempt-3q1bBf",
+      "schedule": "One separately planned browser-fixture admission observation found3046.5703125MiB available. Before opening any browser/server, the parent scheduled this fresh corrected tiny attempt; that earlier headroom was not treated as a replacement for the supervisor's own check.",
+      "preparation": "Explicit seven-file clone only: corrected worker, comparison helper, driver and four tiny input files. Original refusal receipt and original worker were not copied into the output path or overwritten.",
+      "command": "timeout --kill-after=1s 25s node --max-old-space-size=64 driver.mjs",
+      "exitCode": 2,
+      "receipt": { "bytes": 2197, "sha256": "0f1f75fcaae8d36abe2bda81b93612bb3f3a08bd0d24af64f8a58cc20c04ee04", "status": "incomplete" },
+      "spawned": false,
+      "reason": "prelaunch-memory-guard",
+      "availableMiB": 2428.25390625,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "cleanup": "no-child; no compiler/API process started",
+      "interpretation": "The changed resource prerequisite did not persist. No immediate unchanged retry or repeated RAM observation follows from this refusal."
+    },
+    {
+      "directory": "/tmp/opencode/late-global-attempt-WYSBXD",
+      "schedule": "A later distinct browser-fixture prelaunch observation finds3081.00390625MiB, recorded in its admission artifact. After the failed browser request and completed fixture listener, the parent schedules one additional real-guarded tiny opportunity from that changed prerequisite, with no new RAM poll or heavy build retry.",
+      "preparation": "Explicit eight-file clone of the already-tested corrected worker/helper/driver/receipt sink and four tiny inputs; no unchanged unit suites replayed and no old receipt overwritten.",
+      "exitCode": 2,
+      "receipt": { "bytes": 2196, "sha256": "a0617b194c53ba916f5195785db194002127c27db206a562d3bc7a7fe1e6ed7b", "status": "incomplete" },
+      "spawned": false,
+      "reason": "prelaunch-memory-guard",
+      "availableMiB": 2774.1171875,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "cleanup": "no-child",
+      "interpretation": "The actual supervisor again refuses below2816. No further native attempt or RAM polling is scheduled. The mechanism and full graph remain unverified."
+    }
+  ],
+  "identityAndLimits": {
+    "compilerSha256": "4f2de678286401759b3fb4475bafe35b8f32b4b3a07d92642bbf37eadc9b34a4",
+    "apiModuleSha256": "e27255574a3c1a3236c4083c769758de3327bba8d3cd19f015551b619ae783d2",
+    "prelaunchMiB": 2816,
+    "availableFloorMiB": 1280,
+    "ownedRSSMiB": 256,
+    "deadlineMs": 15000,
+    "stdoutBytes": 8192,
+    "stderrBytes": 8192,
+    "newCloneReceiptBytes": 8192,
+    "observer": "The existing supervisor's real default observer and clock; no injected availability, environment tuning or guard increase.",
+    "acquisitionDistinction": "Compiler/API identity hashing retains the existing executor's separate128MiB/16MiB bounds; those executable reads are not falsely counted as source-review bytes. The new clone's outer owned command had a25second limit."
+  },
+  "receiptProtection": {
+    "scope": "New clone only; canonical receipt schema/driver and the original scratch publisher are unchanged.",
+    "behavior": "Reserve receipt.json with exclusive creation before execution; minified JSON is bounded to8192 UTF-8 bytes. Overflow or encoding failure publishes explicit incomplete/refusal metadata. No overwrite or false successful result is permitted. Exactly one complete JSON worker value is parsed, not an arbitrary last line.",
+    "command": "timeout --kill-after=1s 10s node --max-old-space-size=64 --test receipt-output.test.mjs",
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMs": 168.422512,
+    "coverage": ["Compact exact publication and single publication", "Existing-file refusal without overwrite", "Exact8192-byte boundary and8193-byte refusal/hash", "UTF-8 bytes rather than character length", "Oversized fallback guard metadata", "Unserializable-record incomplete outcome"],
+    "limit": "The actual native attempt did not spawn, so a successful native worker/report integration remains unverified. These new focused tests are not current full CI/health or compiler acceptance."
+  },
+  "binding": {
+    "directory": "/home/james/Documents/computer-use-native-host-20261029/late-global-parent-kKep9j",
+    "manifest": { "path": "binding.json", "bytes": 5330, "sha256": "3436f74d2d64ba2ac1ff1410ba11d5e1bbdc97f94c5587ed0bd41788cc4bb796" },
+    "contents": "Eighteen exact inert snapshots preserve old/new receipts, original/corrected sources, comparison/receipt tests, copy manifest, four tiny inputs, the paired CUA measurements and exact-child header-attempt metadata. Runnable source snapshots use .source.txt names; no final artifacts depend only on scratch retention.",
+    "additionalBinding": "The separate additional-binding.json preserves the third-attempt2196B/a0617b19receipt and1259B/3596ae0dclone manifest without rewriting the original5330-byte binding. It also links the later successful public-client metadata artifacts.",
+    "localSnapshotAcquiredBytes": 198750,
+    "localSnapshotElapsedMs": 23.851086,
+    "scopeOfAccounting": "This snapshot job only, not all previous tool/HTTP acquisition or a whole-consolidation read.",
+    "canonicalDriver": { "bytes": 120527, "sha256": "a058744d7ece8474cb6af6a85cd5a9cfe7bfa46cd6dec7f911e4f5ecd63f7a60", "unchanged": true },
+    "rawIndex": { "bytes": 29854, "sha256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d", "unchanged": true },
+    "stagedPatch": { "bytes": 179, "sha256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805", "unchanged": true },
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58"
+  },
+  "latestGuardedAttempt2026_11_02": {
+    "stage": "/tmp/opencode/compiler-gc10-restage-BzpXGb",
+    "inventory": { "mirrorManifestBytes": 1857988, "mirrorManifestSha256": "73c9388316b22b0ade2417bf7fce6084f2c8dd90cf77efcc063a42caf4fadb52", "regularFiles": 8558, "sourceLinks": 43, "moduleLinks": 344, "overlays": 4, "graphInputs": 2827, "graphBytes": 22226348, "graphNamesDigest": "05d5d443...d257e1", "preflight": "2827 checked, 0 mismatches, 0 errors, content digest 6452398a...b485f4" },
+    "driver": { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 120527, "sha256": "a058744d7ece8474cb6af6a85cd5a9cfe7bfa46cd6dec7f911e4f5ecd63f7a60", "unchanged": true },
+    "command": "timeout --kill-after=2s 290s node --max-old-space-size=512 full-graph-diagnostics.mjs run --expectations <stage>/expectations.json --receipt <out>/parent-full-run.json",
+    "guards": { "ownedRssMiB": 1536, "availableFloorMiB": 1280, "prelaunchMiB": 2816, "deadlineSeconds": 90 },
+    "outcome": { "exitCode": 2, "status": "incomplete", "reason": "prelaunch-memory-guard", "availableMiB": 2257.546875, "shortByMiB": 558.453125, "spawned": false, "diagnostics": 0, "errors": 0, "warnings": 0, "families": 0, "elapsedSeconds": 0.678, "cleanup": "no-child" },
+    "interpretation": "A genuine refusal before spawn, not a compile failure and not a clean result. The criterion remains open. Admission alone would not settle the earlier two owned-RSS kills at 1537.246/1537.80078125 MiB, so a future admissible window still has to pass the memory ceiling.",
+    "artifacts": { "directory": "/tmp/opencode/compiler-full-ZUCXTb", "receiptBytes": 9037, "receiptSha256": "abfe18958cd3d58dcdabe07976c66dfcdc1c8791ac7e9d2bb6eef24870c62c76", "stdoutBytes": 330, "stdoutSha256": "d61d8b9853d161ba31afb66c4d0913a315702fe14af01b692c097beb8292fb9c", "stderrBytes": 0 },
+    "limits": "One attempt, no retry, no polling, no guard or input change. The 512MiB V8 cap applied only to the parent process and is stricter than the guard, not looser."
+  },
+  "remaining": "Full2,827-file positive/error/library diagnostics, valid full build/types/current CI-health and required native/UI/model/human/device outcomes remain unfinished. The latest attempt refused at2257.546875MiB against the unchanged2816MiB prelaunch guard. Original35/36diagnostic and model-index causal evidence gaps remain unchanged. No family reorder, receipt-schema migration, build-input omission, resource/security weakening, process kill, shared restart, deployment, installed-client replacement, staging, commit, push or publication occurred."
+}

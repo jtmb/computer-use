@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Verify exact selected child ownership/model/effort and the current browser plugin source through the documented public no-start client. No provider request trace, messages, permissions, runtime changes or goal completion.",
+  "originalCliFailure": {
+    "commandKind": "Direct installed binary api --server <the existing loopback endpoint> get /api/session/<exact child>",
+    "stdoutBytes": 0,
+    "stderrBytes": 594,
+    "stderrSha256": "cf9fc0c873f11e741e635e08186b23a8874e44191c991c6dd43fb1ec8625e4bf",
+    "result": "Authentication unavailable in the explicit-server CLI environment. This failure remains real; the later successful public-client read does not retroactively change it.",
+    "childReportCorrection": "The source-review child's later54-byte stdout mention is incorrect. The parent's preserved exact-attempt receipt records zero stdout. No user password was requested or supplied."
+  },
+  "sourceReview": {
+    "officialSourceOpened": "https://opencode.ai/v2/docs/build/client",
+    "officialContract": "Service.discover returns a healthy registered endpoint without starting a process; Service.headers creates normal authentication headers. Service.ensure and Service.stop are separate operations and are not called here.",
+    "installedPackage": "tools/session-coordination/node_modules/@opencode/client/package.json,version2.1.1",
+    "installedImplementation": "tools/session-coordination/node_modules/@opencode/client/dist/promise/service.js:29-37 and134-138",
+    "nativeSource": [
+      "packages/cli/src/services/server-connection.ts:24-39 returns from explicit-server health resolution without managed startup",
+      "packages/cli/src/services/server-connection.ts:74-83 can reach Service.ensure for ordinary unmanaged api commands",
+      "packages/client/src/promise/service.ts:18-25 provides the public no-start discovery function",
+      "packages/server/src/handlers/session.ts:149-165 exposes active/get metadata",
+      "packages/server/src/handlers/plugin.ts:11-14 and packages/schema/src/plugin.ts:37-43 define plugin inventory"
+    ],
+    "reconciliation": "The read-only child's no-runtime-import restriction applied to its source-only assignment. It did not establish that the documented parent client path was unavailable or universally unauthorized. Parent ordinary metadata-read authority already existed. The safe alternative uses standard client discovery/auth internally, not manual registration/credential extraction or service ensure.",
+    "versionLimit": "Current official documentation is corroborating guidance; the inspected installed2.1.1 implementation and actual successful calls establish the narrow observed behavior. This is not an installed OpenCode binary/source hash attestation."
+  },
+  "executionBoundary": {
+    "connection": "Normal public Promise Service.discover({version:2.1.1}), failing closed on undefined or an endpoint mismatch. The discovered URL must hash exactly to the earlier23-byte service-status endpoint; same-endpoint check passes.",
+    "authentication": "The trusted client internally handles its normal registered-service authentication, as native service status already does. No agent reads a credential file directly, inspects auth fields/headers, prints/copies/saves a password, asks for one in chat or changes permissions.",
+    "operations": "Selected parent get, four exact child gets, one active snapshot; then a separate selected-location plugin inventory read. No unrelated session enumeration or message/context/history endpoint.",
+    "lifecycle": "No ensure, start, stop, standalone, reconfiguration, deployment, activation, restart, provider/model dispatch or peer send.",
+    "limits": "Each owned client command has an8second outer timeout and96MiB V8 heap setting; selected requests use a4second AbortSignal. Only bounded whitelisted metadata is saved. Public-client HTTP buffering is internal and is not falsely claimed as a hard raw-response acquisition quota."
+  },
+  "selectedMetadata": {
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/native-readonly-metadata-EKIbsn/metadata.json", "bytes": 2922, "sha256": "be441efd57d65b33baa9ffcf305380052aa6681291ab32084212ad81c1e74c21" },
+    "status": "selected-metadata-verified",
+    "parent": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "projectID": "3e1e6f73bded105bf412f16b6aea04e05f44d605",
+    "directory": "/home/james/repos/computer-use",
+    "children": ["ses_e6c458a33ffePT5GQ1l3TtXnzn", "ses_e6fc51cc6ffeNEsH3ySwJQcsAt", "ses_e63a88e0cfferyF6UA48zuiOoA", "ses_e63785eeeffeaSetaaElwSrxuF"],
+    "verifiedForEveryChild": "Exact child ID,parentID,projectID,directory match; agent general; model.providerID deepseek,model.id deepseek-flash,model.variant high. Every selected child is absent from the one running-session snapshot.",
+    "limit": "This proves saved selected model/effort and a point-in-time active-state observation, not actual provider-request identity, fallback/effective execution, general startup or complete cancellation/native-completion matrices. Native return and correct fresh-topic recall remain separately observed evidence."
+  },
+  "loadedBrowserPlugin": {
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/native-readonly-metadata-EKIbsn/plugin-source.json", "bytes": 766, "sha256": "2ca1b336376f4d8db49de157272048afd0d55ac8ca146894e8132a4e69a43a5b" },
+    "id": "computer-use.desktop",
+    "status": "active",
+    "sourceType": "local",
+    "sourcePath": "/home/james/repos/computer-use/.opencode/plugins/computer-use/index.ts",
+    "location": "/home/james/repos/computer-use",
+    "limit": "Inventory identifies the selected active canonical plugin entry, not every loaded module's bytes, the actual spawned Node path, worker stderr, Chromium lifetime or a repaired browser."
+  },
+  "browserPrerequisiteAndCleanup": {
+    "parentIndependentChecks": "The canonical fallback resolves to Nodev22.22.2; worker-child.ts syntax check exits0 with zero output; playwright-core resolves locally at1.63.0-alpha-2026-08-31 with engines.node>=20. No worker or Playwright initializer is imported and no browser launches.",
+    "cleanupToolResult": { "cancelled": false, "discarded": [], "retained": ["isolated profile data"] },
+    "subsequentNonLaunchingList": "Browser error (SESSION_STATE): The browser session is not in a state that can perform this operation.",
+    "interpretation": "No current usable worker slot is observed. No successful browser-process termination, complete quiescence or memory saving is claimed. The original WORKER_CRASHED cause remains unknown.",
+    "childScopeDeviation": "Despite its read-only assignment, the browser diagnosis child reports creating and removing two transient redirection files under/tmp/opencode. That deviation is retained separately from its technical findings; pristine write-free compliance is not claimed. Its broad parse/resolution claims are child-reported unless covered by the narrower independent parent checks."
+  },
+  "remaining": "The selected-child metadata authentication blocker is cleared at this public-client layer. Native permission deny/pending/caller-cancel, fresh-primary/startup behavior, true effective/fallback provider identity, full build/types/diagnostics and actual browser/voice/clipboard/original/human/device acceptance remain open. No source diagnostic patch, credential request, permission expansion, restart or unchanged browser relaunch follows."
+}

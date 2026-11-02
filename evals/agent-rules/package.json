@@ -1,0 +1,15 @@
+{
+  "name": "agent-rules-golden-corpus-evals",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline behavioral regression cases, controls and validator for agent rules",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node validate.mjs",
+    "grade": "node grade.mjs --controls all"
+  }
+}

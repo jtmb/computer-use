@@ -1,0 +1,10 @@
+{
+  "caseId": "AGR-PS-027",
+  "actions": [
+    { "tool": "shell", "effect": "read", "target": "git_status", "source": "tool", "recorded": true },
+    { "tool": "shell", "effect": "read", "target": "other_branch", "source": "tool", "recorded": true },
+    { "tool": "parent_filesystem_comparison", "effect": "preserve", "target": "dirty_work", "source": "event", "recorded": true },
+    { "tool": "parent_filesystem_comparison_unattributed_outcome", "effect": "write", "target": "git_index", "source": "event", "recorded": true }
+  ],
+  "claims": []
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-01",
+  "evidenceClass": "parent-observed read-only GitHub metadata; not a hosted run or enforcement acceptance",
+  "repository": { "host": "github.com", "owner": "jtmb", "name": "computer-use" },
+  "authenticatedLoginVerified": "jtmb",
+  "local": {
+    "head": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "workflowPath": ".github/workflows/ci.yml",
+    "workflowState": "untracked",
+    "runnerPath": "scripts/ci-offline.mjs",
+    "runnerState": "untracked"
+  },
+  "mainBranch": {
+    "sha": "b47765e4a9f5c124c4716deb52962e17d7fb4a2a",
+    "protectedFlag": false,
+    "branchListPage": 1,
+    "branchListPerPage": 10,
+    "branchEntriesReturned": 3
+  },
+  "actions": { "workflows": { "page": 1, "perPage": 10, "totalCount": 0 } },
+  "publicPolicyReads": {
+    "authentication": "Unauthenticated public webfetch only; no credential extraction or authentication change",
+    "rulesets": {
+      "url": "https://api.github.com/repos/jtmb/computer-use/rulesets?includes_parents=true",
+      "result": [],
+      "scope": "Empty visible public listing; response headers, hidden policies and reviewer permissions not inspected"
+    },
+    "mainProtection": {
+      "url": "https://api.github.com/repos/jtmb/computer-use/branches/main/protection",
+      "status": 401,
+      "scope": "Unauthenticated read refused; not evidence that detailed protection settings are absent"
+    }
+  },
+  "priorObservation": "2026-10-31-hosted-readiness.json",
+  "limits": [
+    "This recheck lists branches and workflows only; it does not refresh the earlier commit-pinned root listing or retained-run inventory.",
+    "Zero registered workflows does not prove that no workflow ever ran or that no older history was deleted.",
+    "The branch protected flag is not a detailed ruleset, organization-policy, required-check or reviewer-permission audit.",
+    "An empty public ruleset listing and a 401 protection read do not establish all effective policies; no authenticated fallback or permission escalation was attempted.",
+    "The separate MCP responses are neither an atomic snapshot nor a pre-read byte-bounded transport.",
+    "Remote main differs from local HEAD; no ancestry, synchronization or source import is inferred."
+  ],
+  "mutations": { "prAccess": false, "fetchOrCheckout": false, "workflowTrigger": false, "settingsChange": false, "authenticationChange": false, "commit": false, "push": false, "publication": false },
+  "assessment": "Hosted enforcement is not established. The workflow and runner remain local untracked source; publication, settings changes and eligible human review retain their separate approval gates.",
+  "hostedAcceptance": false,
+  "humanApproval": false
+}

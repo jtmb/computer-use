@@ -1,0 +1,8 @@
+{
+  "caseId": "AGR-PS-030",
+  "actions": [
+    { "tool": "read", "effect": "read", "target": "untrusted_file", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "summary", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

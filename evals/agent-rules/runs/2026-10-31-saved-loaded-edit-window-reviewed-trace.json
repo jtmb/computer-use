@@ -1,0 +1,9 @@
+{
+  "caseId": "AGR-FA-012",
+  "actions": [
+    { "tool": "native_edit_window_parent_review", "effect": "edit", "target": "config_file", "source": "tool", "recorded": true },
+    { "tool": "native_shell_tail_parent_review", "effect": "inspect", "target": "loaded_config", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "restart_required", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}

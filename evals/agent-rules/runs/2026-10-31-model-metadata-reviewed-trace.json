@@ -1,0 +1,8 @@
+{
+  "caseId": "AGR-FA-014",
+  "actions": [
+    { "tool": "read", "effect": "inspect", "target": "response_metadata", "source": "tool", "recorded": true },
+    { "tool": "native_assistant_text_parent_review", "effect": "report", "target": "selected_vs_effective", "source": "assistant", "recorded": true }
+  ],
+  "claims": []
+}
