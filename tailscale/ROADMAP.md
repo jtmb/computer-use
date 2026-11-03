@@ -84,3 +84,17 @@ Limitations:
 
 - `loginctl` reports `Linger=no`, so the user unit starts only after a login session; enabling lingering needs an administrator decision.
 - Rollback: `systemctl --user disable --now tailscaled-userspace.service` stops supervision. The Serve mapping and node identity remain in the private state directory.
+
+## Docker deployment (current live path)
+
+The Compose stack is now the served deployment, using its own named volumes rather than the host's live database:
+
+- `tailscale` container: registered as `tailscale-docker` with `tag:opencode`, userspace networking, non-root `65532`, read-only rootfs, all capabilities dropped.
+- `opencode` profile: same network namespace, listens on `127.0.0.1:4096`, `OPENCODE_PASSWORD` enforced from the repository `.env`.
+- Serve: `https://tailscale-docker.tail3c9b71.ts.net/` → `http://127.0.0.1:4096`, reported `(tailnet only)`; Funnel is not enabled.
+- Verified from an independent tailnet node: TLS validated (`ssl_verify_result=0`) and unauthenticated requests receive `401`.
+- Container restart preserved the same node name, tag and Serve mapping; the same probe still returned `401` with a valid certificate.
+
+Fixed during this work: Compose passes `mode` to Docker as a **decimal** integer, so `mode: 1777` produced `0o3361` and tailscaled could not create its socket (`/tmp: permission denied`). The tmpfs entries now use `mode: 511` (`0o777`). `TS_EXTRA_ARGS: "--advertise-tags=tag:opencode"` supplies the required tag during interactive login.
+
+The host-native userspace daemon and its systemd unit were retired once the container path was verified. The host OpenCode service still runs for the local TUI; it is no longer exposed through Tailscale.

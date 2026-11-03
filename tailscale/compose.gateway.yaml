@@ -1,0 +1,53 @@
+# Source-only: authorize the state/Serve migration in docs/existing-instance-gateway.md before provisioning.
+name: tailscale-web
+
+services:
+  gateway:
+    profiles:
+      - gateway-reviewed
+    image: ghcr.io/jtmb/tailscale@sha256:80c4a9a3b327475b330e76f9c31b52b7038e44963c58f2a90a3493f28dcac993
+    user: "65532:65532"
+    network_mode: host
+    entrypoint: ["tailscaled"]
+    command:
+      - --tun=userspace-networking
+      - --port=0
+      - --socket=/var/run/tailscale/tailscaled.sock
+      - --statedir=/var/lib/tailscale
+      - --state=/var/lib/tailscale/tailscaled.state
+    labels:
+      io.computer-use.tailscale-web.contract: existing-instance-v1
+    volumes:
+      - type: volume
+        source: gateway-state
+        target: /var/lib/tailscale
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 67108864
+          mode: 511
+      - type: tmpfs
+        target: /var/run/tailscale
+        tmpfs:
+          size: 16777216
+          mode: 511
+      - type: tmpfs
+        target: /var/cache/tailscale
+        tmpfs:
+          size: 33554432
+          mode: 511
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    cpus: 1.0
+    mem_limit: 256m
+    pids_limit: 128
+    restart: "no"
+    stop_grace_period: 10s
+
+volumes:
+  gateway-state:
+    external: true
+    name: tailscale_tailscale-state

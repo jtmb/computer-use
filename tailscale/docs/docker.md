@@ -79,6 +79,11 @@ published HTTPS name is assigned by the tailnet and is not hard-coded here.
 
 ## Optional OpenCode V2 service
 
+The profile below is a **separate isolated OpenCode example**, not the target for
+the user's existing chats. The corrected [on-demand `/tailscale-web` integration](web-on-demand.md)
+instead uses a [reviewed Docker gateway](existing-instance-gateway.md) to the
+already-running host service. Its source exists; migration/deployment remains gated.
+
 The profile runs the pinned OpenCode V2 derivative in the Tailscale
 container's network namespace. OpenCode listens only on that shared namespace's
 loopback address; no Docker host port is published. Its data, config, and state
@@ -101,8 +106,9 @@ See the [OpenCode V2 web and authentication guide](https://opencode.ai/v2/docs/c
 
 An existing OpenCode service running on the Docker host is **not** reachable as
 `127.0.0.1` from a bridge-network Tailscale container. That address means the
-container's own network namespace. For a host-local OpenCode service, use the
-host-native Tailscale daemon and the Serve command below instead.
+container's own network namespace. The [existing-instance gateway design](existing-instance-gateway.md)
+reviews a container-only host-network exception without changing the app binding.
+Do not reactivate host-native Tailscale for this on-demand workflow.
 
 ## Tailnet-only HTTPS Serve
 
@@ -117,8 +123,9 @@ docker compose exec tailscale tailscale serve get-config --all
 
 The CLI-provided URL uses the tailnet's actual device name and HTTPS domain.
 Do not replace it with a guessed `.ts.net` hostname or use Funnel. For an
-OpenCode server already listening on host loopback, run the corresponding
-command with the host-native client instead:
+OpenCode server already listening on host loopback, the following host-native
+commands are retained as historical generic examples, **not** the selected
+Docker-only on-demand workflow:
 
 ```bash
 tailscale serve --bg --https=443 http://127.0.0.1:4096

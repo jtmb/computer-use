@@ -2,3 +2,14 @@ node_modules/
 __pycache__/
 *.pyc
 .playwright-mcp/
+
+# Local writer coordination; goal documents and their manifest remain portable.
+/docs/goals/.goal-docs-process.lock
+/docs/goals/.goal-docs.lock
+/docs/goals/.goal-docs.lock.recovery
+
+# Private peer inbox state must have no group-writable ancestors.
+/.session-coordination/
+
+# Keep generated acceptance repositories out of normal diffs and snapshots.
+/.acceptance-fixtures/

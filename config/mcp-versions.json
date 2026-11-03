@@ -1,6 +1,5 @@
 {
   "schemaVersion": 2,
-  "basicMemory": "0.23.2",
   "nodeVersion": "22.22.2",
   "nodeArchive": "node-v22.22.2-linux-x64.tar.xz",
   "nodeSha256": "88fd1ce767091fd8d4a99fdb2356e98c819f93f3b1f8663853a2dee9b438068a",

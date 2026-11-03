@@ -11,6 +11,7 @@ services:
       TS_AUTHKEY: ${TS_AUTHKEY:-}
       TS_AUTH_ONCE: "true"
       TS_HOSTNAME: tailscale-docker
+      TS_EXTRA_ARGS: "--advertise-tags=tag:opencode"
       TS_STATE_DIR: /var/lib/tailscale
       TS_USERSPACE: "true"
       TS_ENABLE_HEALTH_CHECK: "true"
@@ -23,17 +24,17 @@ services:
         target: /tmp
         tmpfs:
           size: 67108864
-          mode: 1777
+          mode: 511
       - type: tmpfs
         target: /var/run/tailscale
         tmpfs:
           size: 16777216
-          mode: 1777
+          mode: 511
       - type: tmpfs
         target: /var/cache/tailscale
         tmpfs:
           size: 33554432
-          mode: 1777
+          mode: 511
     read_only: true
     cap_drop:
       - ALL
@@ -84,7 +85,7 @@ services:
         target: /tmp
         tmpfs:
           size: 67108864
-          mode: 1777
+          mode: 511
     read_only: true
     cap_drop:
       - ALL

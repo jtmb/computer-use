@@ -1,7 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
-    "@prevalentware/opencode-goal-plugin@0.1.67"
+    {
+      "package": "/home/james/repos/opencode-goal-plugin",
+      "options": {
+        "goal_engine": "enhanced",
+        "engine_config_path": "/home/james/repos/computer-use/opencode.json",
+        "engine_package": "/home/james/repos/opencode-goal-plugin"
+      }
+    },
+    "-opencode.goal",
+    "./tools/self-learning"
   ],
   "skills": [
     "./.opencode/skills"
