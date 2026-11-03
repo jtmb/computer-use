@@ -8,6 +8,7 @@ APPLY=0
 MODEL=""
 INTERACTIVE=0
 WITH_BROWSER=0
+WITH_CHATGPT=0
 SKIP_SEARCH=0
 FORCE_SEARCH=0
 STRICT=0
@@ -16,7 +17,7 @@ WARNINGS=0
 usage() {
   cat <<'EOF'
 Usage: onboard.sh [--apply] [--model provider/model] [--interactive]
-                  [--with-browser] [--search] [--no-search] [--strict]
+                  [--with-browser] [--with-chatgpt] [--search] [--no-search] [--strict]
 
 Checks OpenCode v2, deploys the tracked global config, optionally configures a
 model, installs the browser MCP dependency, and verifies web search.
@@ -29,6 +30,7 @@ Options:
   --model ID       Set the global model without prompting
   --interactive    Prompt for a model from the available list
   --with-browser   Run npm --prefix tools/browser install
+  --with-chatgpt   Opt in to the ChatGPT package/source config before deployment
   --search         Run the live web search check even in a dry run
   --no-search      Skip the live web search check
   --strict         Exit nonzero when the run records warnings
@@ -64,6 +66,7 @@ while [ "$#" -gt 0 ]; do
       ;;
     --interactive) INTERACTIVE=1; shift ;;
     --with-browser) WITH_BROWSER=1; shift ;;
+    --with-chatgpt) WITH_CHATGPT=1; shift ;;
     --search) FORCE_SEARCH=1; shift ;;
     --no-search) SKIP_SEARCH=1; shift ;;
     --strict) STRICT=1; shift ;;
@@ -106,6 +109,23 @@ if opencode service status >/dev/null 2>&1; then
   printf 'service=ok\n'
 else
   warn "service is not healthy; configuration can still be deployed"
+fi
+
+step "Optional ChatGPT connector"
+if [ "$WITH_CHATGPT" -eq 1 ]; then
+  [ -f "$ROOT/scripts/setup-chatgpt.py" ] || fail "missing scripts/setup-chatgpt.py"
+  chatgpt_args=()
+  if [ "$APPLY" -eq 1 ]; then
+    chatgpt_args+=(--apply --install-dependencies)
+  fi
+  python3 "$ROOT/scripts/setup-chatgpt.py" "${chatgpt_args[@]}"
+  if [ "$APPLY" -eq 1 ]; then
+    printf 'chatgpt=source configured and launcher preflight passed; account/tools not tested\n'
+  else
+    printf 'chatgpt=preview only; no install, source edit, runtime check or account access\n'
+  fi
+else
+  printf 'chatgpt=not selected; no install or configuration change (existing settings preserved)\n'
 fi
 
 step "Deploy global configuration"

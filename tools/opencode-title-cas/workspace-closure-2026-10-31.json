@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-31T08:59:29.906Z",
+  "scope": "Observed manifest, tsconfig and immediate @opencode link references of selected typecheck roots; not a full program or monorepo graph.",
+  "nativeHead": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+  "selectedPackages": ["core", "server", "plugin", "client", "protocol", "schema", "util", "ai", "theme", "simulation", "httpapi-codegen", "codemode", "plugin-browser", "http-recorder", "script"],
+  "deltaFromInitialReviewedSet": [
+    { "from": "core", "field": "devDependencies", "to": "http-recorder" },
+    { "from": "ai", "field": "devDependencies", "to": "http-recorder" },
+    { "from": "root", "field": "dependencies", "to": "script" }
+  ],
+  "parentVerification": {
+    "metadataFiles": 48,
+    "metadataBytes": 38125,
+    "largestFileBytes": 7638,
+    "manifests": 16,
+    "configs": 32,
+    "immediateWorkspaceLinks": 36,
+    "distinctTargets": 14,
+    "manifestReferencesIncludingPeerDuplicates": 37,
+    "projectReferences": 3,
+    "declaredOrLinkedOutsideSelected": 0,
+    "trackedSetVerified": true,
+    "scopedGitStatusClean": true,
+    "allInputHashesAndSizesMatched": true,
+    "selectedMetadataClosureVerified": true,
+    "elapsedMs": 63
+  },
+  "retainedEvidence": {
+    "workerFacts": { "path": "/tmp/opencode/closure-AzgUhb/facts.json", "bytes": 48226, "sha256": "726e2f90410e6a7795407da516c6c5d6d535222968d2e428d6553c33a1818cb0" },
+    "workerReport": { "path": "/tmp/opencode/closure-AzgUhb/REPORT.md", "bytes": 7816, "sha256": "8fefb5a71d46e9233b16a18ff0f838fdd2134fd4042782801548eba6d06ab491" },
+    "parentVerification": { "path": "/tmp/opencode/closure-parent-GlePWG/verification.json", "bytes": 933, "sha256": "4ec78d8ad537370a44df3ec7f75c5496a068561b4f2eff37cf515d8a014f5a4e" },
+    "inputReadSetDigest": "7008c9daa7925c9653499f4fb0ee3868d868cc81f831bdbaf2b4be4e679f0a2e"
+  },
+  "qualifications": [
+    "The root package name is opencode, not the @opencode shorthand used by the worker report.",
+    "The script package has no version field; no version is fabricated.",
+    "Server is a selected graph root, not one of the 14 link targets.",
+    "No optional dependency was declared in these manifests; their absence does not justify ignoring optional edges in other inputs.",
+    "Root workspace globs declare more packages, deliberately outside this selected-root inventory.",
+    "This is a sampled dated source/link observation, not current installation attestation or compiler resolution."
+  ],
+  "remainingImportedAsset": { "path": "packages/core/src/models-dev/snapshot.txt", "bytesFromEarlierObservation": 5855270, "unchangedFileCapBytes": 2097152, "importObservedAt": "packages/core/src/models-dev.ts:16", "reacquiredByThisInventory": false },
+  "fullProgramGraphVerified": false,
+  "preservation": { "directory": "/home/james/Documents/computer-use-native-host-20261029/closure-security-parent-v593Oh", "receiptSha256": "9c894f0e07b734b0f6982509f624c65b8097977b35520c8da5fc1b63df1b112d", "copiedRecordPredatesThisPointer": true },
+  "nativeStageExecuted": false,
+  "compilerExecuted": false,
+  "fullTypesVerified": false,
+  "limitsRaised": false
+}

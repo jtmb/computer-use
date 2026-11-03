@@ -24,6 +24,7 @@ Usage: deploy-global-config.sh [--apply] [--config-dir DIR] [--only NAME[,NAME]]
 
 Without --apply, prints the planned file changes and validates the source.
 With --apply, backs up the target files and copies the tracked global config.
+Selected target aliases and unmanaged directory entries are refused before writes.
 
 --only restricts the deployment to comma-separated entries from:
   opencode.jsonc, cli.json, commands, agents
@@ -81,7 +82,7 @@ case "$TARGET" in
   /|//|.) fail "refusing unsafe target: $TARGET" ;;
 esac
 
-python3 - "$SOURCE" "$TARGET" <<'PY'
+python3 - "$SOURCE" "$TARGET" "${NAMES[@]}" <<'PY'
 import json
 import os
 import sys
@@ -89,6 +90,7 @@ from pathlib import Path
 
 source = Path(sys.argv[1])
 target = Path(os.path.abspath(os.path.expanduser(sys.argv[2])))
+selected = sys.argv[3:]
 
 def reject_symlink_or_ancestor(path: Path, label: str) -> None:
     current = Path("/")
@@ -128,6 +130,33 @@ for directory in ("commands", "agents"):
         if not path.is_file():
             raise SystemExit(f"tracked config contains a non-file: {path}")
 
+def target_file(path: Path) -> None:
+    """Refuse target aliases before any backup, deletion or copy."""
+    if path.is_symlink():
+        raise SystemExit(f"refusing target symlink: {path}")
+    info = path.lstat()
+    if not path.is_file() or info.st_nlink != 1:
+        raise SystemExit(f"target must be an unlinked regular file: {path}")
+
+for name in selected:
+    destination = target / name
+    if destination.is_symlink():
+        raise SystemExit(f"refusing target symlink: {destination}")
+    if not destination.exists():
+        continue
+    origin = source / name
+    if origin.is_file():
+        target_file(destination)
+        continue
+    if not destination.is_dir():
+        raise SystemExit(f"target config entry must be a directory: {destination}")
+    managed = {path.relative_to(origin) for path in origin.rglob("*")}
+    # Replacing a directory is not authority to retire unrelated user definitions.
+    for existing in destination.rglob("*"):
+        if existing.relative_to(destination) not in managed:
+            raise SystemExit(f"unmanaged target entry requires separate reconciliation: {existing}")
+        target_file(existing)
+
 print(f"source={source}")
 print(f"target={target}")
 PY
@@ -156,7 +185,8 @@ fi
 
 stamp="$(date +%Y%m%d-%H%M%S)"
 backup="$TARGET/backup-$stamp"
-mkdir -p "$backup"
+mkdir -p "$TARGET"
+mkdir -- "$backup" || fail "refusing to reuse backup path: $backup"
 for name in "${NAMES[@]}"; do
   if [ -e "$TARGET/$name" ]; then
     cp -a "$TARGET/$name" "$backup/$name"
@@ -164,18 +194,20 @@ for name in "${NAMES[@]}"; do
 done
 printf 'backup=%s\n' "$backup"
 
-mkdir -p "$TARGET"
 for name in "${NAMES[@]}"; do
   case "$name" in
     commands|agents)
       dst="$TARGET/$name"
-      if [ -e "$dst" ]; then
-        rm -rf -- "${dst:?}"
-      fi
-      cp -a "$SOURCE/$name" "$dst"
+      mkdir -p "$dst"
+      (
+        shopt -s dotglob nullglob
+        for entry in "$SOURCE/$name"/*; do
+          cp -a --remove-destination -- "$entry" "$dst/${entry##*/}"
+        done
+      )
       ;;
     *)
-      cp -a "$SOURCE/$name" "$TARGET/$name"
+      cp -a --remove-destination -- "$SOURCE/$name" "$TARGET/$name"
       ;;
   esac
 done

@@ -60,7 +60,17 @@ GH="$(python3 "$RUNTIME" runner --kind gh "${RUNTIME_ARGS[@]}")"
 
 # The authenticated gh store is authoritative; token-bearing environment
 # variables were rejected above so they cannot supersede the saved login.
-if ! TOKEN="$("$GH" auth token --hostname "$HOST")"; then
+# gh itself runs with a reduced environment so unrelated parent secrets are not
+# handed to this trusted helper either.
+GH_ENVIRONMENT=(/usr/bin/env -i "HOME=$HOME" "PATH=$PATH" "LANG=${LANG:-C.UTF-8}")
+if [ -n "${XDG_CONFIG_HOME:-}" ] && [[ "$XDG_CONFIG_HOME" = /* && ! "$XDG_CONFIG_HOME" =~ [[:cntrl:]] ]]; then
+  GH_ENVIRONMENT+=("XDG_CONFIG_HOME=$XDG_CONFIG_HOME")
+fi
+if [ -n "${GH_CONFIG_DIR:-}" ]; then
+  [[ "$GH_CONFIG_DIR" = /* && ! "$GH_CONFIG_DIR" =~ [[:cntrl:]] && -d "$GH_CONFIG_DIR" ]] || fail "GH_CONFIG_DIR must be an existing absolute directory without control characters"
+  GH_ENVIRONMENT+=("GH_CONFIG_DIR=$GH_CONFIG_DIR")
+fi
+if ! TOKEN="$("${GH_ENVIRONMENT[@]}" "$GH" auth token --hostname "$HOST")"; then
   fail "cannot read the authenticated gh session for $HOST; run 'gh auth login --hostname $HOST'"
 fi
 if [ -z "$TOKEN" ] || [ "${#TOKEN}" -gt 16384 ] || [[ "$TOKEN" == *$'\n'* ]] || [[ "$TOKEN" == *$'\r'* ]]; then

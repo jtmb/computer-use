@@ -1,0 +1,14 @@
+{
+  "name": "computer-use-opencode-orchestration-verification",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=26.4.0" },
+  "scripts": {
+    "test": "npm run test:source",
+    "test:all": "npm run test:source && npm run test:menu",
+    "test:source": "node --experimental-ffi --disable-warning=ExperimentalWarning --import ./test/register.mjs --experimental-strip-types --test test/orchestration.test.mjs",
+    "test:menu": "OPENCODE_REAL_DIALOG=1 node --experimental-ffi --disable-warning=ExperimentalWarning --import ./test/register.mjs --experimental-strip-types --test test/orchestration-menu.test.mjs",
+    "test:bootstrap": "node --test test/bootstrap-dependencies.test.mjs"
+  }
+}

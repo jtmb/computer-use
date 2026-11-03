@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Inspect and control accessible GNOME application widgets.
 
-Read-only commands are the default. Mutating commands require --apply.
+Read-only commands are the default. Mutating commands require --apply plus the
+target token printed by a preceding dry run, which binds the mutation to the
+element that was actually previewed.
+
 This uses GNOME's AT-SPI accessibility bus, avoiding brittle screen
 coordinates on fractionally scaled Wayland desktops.
 """
@@ -15,6 +18,7 @@ import time
 import warnings
 from collections import deque
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable
 
 try:
@@ -52,6 +56,11 @@ class Traversal:
 
 
 def safe(callable_, default=None):
+    """Call an AT-SPI accessor, falling back to `default`.
+
+    AT-SPI objects raise or disappear while an application is redrawing, so a
+    single failed property read must not abort an otherwise valid traversal.
+    """
     try:
         return callable_()
     except Exception:
@@ -87,6 +96,12 @@ def node_bounds(node):
 
 
 def is_sensitive(node, role: str | None = None, states: list[str] | None = None) -> bool:
+    """Return True when the node holds content that must never be echoed.
+
+    Password roles and AT-SPI "protected" states are redacted in name,
+    description and text previews; the element itself stays addressable so it can
+    still be focused or checked without leaking its value.
+    """
     role = (role if role is not None else node_role(node)).casefold()
     states = states if states is not None else node_states(node)
     return "password" in role or any(
@@ -120,6 +135,11 @@ def node_info(match: Match, include_text: bool = False) -> dict:
 
 
 def desktop():
+    from accessibility_bus import prepare_accessibility_bus
+    try:
+        prepare_accessibility_bus()
+    except Exception as error:
+        raise SystemExit("desktop-control: accessibility bus discovery refused: " + str(error)[:1000]) from error
     return pyatspi.Registry.getDesktop(0)
 
 
@@ -136,20 +156,82 @@ def applications() -> list:
     return [child for _, child in children(root)]
 
 
-def select_application(query: str):
+def application_identity(app: object) -> str | None:
+    """Bind a live AT-SPI connection to its non-reusable process incarnation.
+
+    Missing transport or Linux process evidence means no persistent identity,
+    never an index/name fallback. The digest avoids exposing transport details.
+    """
+    bus_name = safe(lambda: app.app.bus_name)
+    object_path = safe(lambda: app.path)
+    process_id = safe(lambda: app.get_process_id())
+    if not isinstance(bus_name, str) or not bus_name.startswith(":") or not isinstance(object_path, str):
+        return None
+    if not isinstance(process_id, int) or process_id <= 0:
+        return None
+    try:
+        with Path(f"/proc/{process_id}/stat").open("r", encoding="utf-8") as source:
+            process_stat = source.read(4097)
+        if len(process_stat) > 4096:
+            return None
+        # Field 2 may contain spaces/parentheses; fields after the last ')' start at 3.
+        fields = process_stat.rsplit(")", 1)[1].split()
+        start_time = fields[19]
+        if not start_time.isdigit():
+            return None
+        boot_id = Path("/proc/sys/kernel/random/boot_id").read_text(encoding="ascii").strip()
+    except (OSError, IndexError, UnicodeError):
+        return None
+    payload = json.dumps([boot_id, process_id, start_time, bus_name, object_path])
+    return "app:" + hashlib.sha256(payload.encode()).hexdigest()
+
+
+def select_application(query: str | None, index: int | None = None, app_id: str | None = None):
+    """Select by exact process identity, name, or point-in-time list position.
+
+    Only app_id is suitable for persistent handles. Positional indices are
+    deliberately not advertised as stable and can change as applications close.
+    """
     apps = applications()
+    if app_id is not None:
+        matches = [app for app in apps if application_identity(app) == app_id]
+        if len(matches) != 1:
+            raise SystemExit("desktop-control: application identity is stale or ambiguous; observe apps again")
+        return matches[0]
+    if index is not None:
+        if not 1 <= index <= len(apps):
+            raise SystemExit(
+                f"desktop-control: application index out of range: {index}; "
+                f"current count: {len(apps)}"
+            )
+        return apps[index - 1]
+    if query is None:
+        raise SystemExit("desktop-control: an application name or index is required")
     exact = [app for app in apps if node_name(app).casefold() == query.casefold()]
     matches = exact or [app for app in apps if query.casefold() in node_name(app).casefold()]
     if not matches:
         names = ", ".join(sorted(filter(None, (node_name(app) for app in apps))))
         raise SystemExit(f"desktop-control: application not found: {query!r}; available: {names}")
     if len(matches) > 1:
-        names = ", ".join(repr(node_name(app)) for app in matches)
-        raise SystemExit(f"desktop-control: application is ambiguous: {names}")
+        listed = ", ".join(
+            f"index {i + 1}: {node_name(app)!r}"
+            for i, app in enumerate(apps)
+            if app in matches
+        )
+        raise SystemExit(
+            "desktop-control: application is ambiguous; select one with --app-index: "
+            + listed
+        )
     return matches[0]
 
 
 def walk(root, max_depth: int, max_nodes: int) -> Traversal:
+    """Breadth-first traversal that records whether either bound was hit.
+
+    Paths are slash-separated child indexes (for example "0/3/1") and are stable
+    only for the lifetime of the current accessibility tree. Truncation is
+    reported rather than hidden so callers can refuse to act on a partial view.
+    """
     queue = deque([(root, "", 0)])
     matches = []
     visited = 0
@@ -179,7 +261,7 @@ def is_showing(node) -> bool:
 
 
 def find_matches(args) -> Traversal:
-    app = select_application(args.app)
+    app = select_application(args.app, args.app_index, args.app_id)
     matches = []
     name_query = (args.name or "").casefold()
     role_query = (args.role or "").casefold()
@@ -214,6 +296,11 @@ def traversal_info(traversal: Traversal) -> dict:
 
 
 def require_complete(traversal: Traversal) -> None:
+    """Refuse to select a mutation target from a truncated search.
+
+    A partial tree can hide a closer or more specific match, so acting on the
+    first visible candidate could hit the wrong control.
+    """
     if traversal.complete:
         return
     limits = []
@@ -229,6 +316,11 @@ def require_complete(traversal: Traversal) -> None:
 
 
 def choose_match(args) -> Match:
+    """Resolve exactly one target, or explain why the request is ambiguous.
+
+    Ambiguity is an error rather than a silent first-match: printing the
+    candidates lets the caller rerun with an explicit --nth.
+    """
     traversal = find_matches(args)
     require_complete(traversal)
     matches = traversal.matches
@@ -248,22 +340,39 @@ def choose_match(args) -> Match:
 
 
 def target_fingerprint(match: Match, verb: str) -> str:
+    """Hash the properties that identify this element for this verb.
+
+    Includes the path, accessible name, role and on-screen bounds, so a dry run
+    stops being valid if the tree reflows or the element is replaced between
+    preview and apply.
+    """
     identity = {
+        "application": application_identity(safe(lambda: match.node.get_application())),
+        "transport_path": safe(lambda: match.node.path),
         "path": match.path,
         "name": node_name(match.node),
         "role": node_role(match.node),
         "bounds": node_bounds(match.node),
         "verb": verb,
     }
+    if identity["application"] is None or identity["transport_path"] is None:
+        raise SystemExit("desktop-control: cannot verify target process identity; mutation refused")
     encoded = json.dumps(identity, sort_keys=True, separators=(",", ":")).encode()
     return hashlib.sha256(encoded).hexdigest()
 
 
 def issue_target_token(match: Match, verb: str) -> str:
+    """Return `<issued-ns>:<fingerprint>` for the preview output."""
     return f"{time.time_ns()}:{target_fingerprint(match, verb)}"
 
 
 def validate_target_token(match: Match, token: str, verb: str) -> None:
+    """Reject a token that is stale, malformed, or for a different target.
+
+    TTL and fingerprint are both checked because either alone is insufficient:
+    a fresh token can still point at a moved element, and an old token can match
+    a path that has since been reused.
+    """
     issued_raw, separator, expected_fingerprint = token.partition(":")
     try:
         issued_at = int(issued_raw) / 1_000_000_000
@@ -288,8 +397,20 @@ class NthAction(argparse.Action):
         namespace.nth_explicit = True
 
 
+def add_app_selector(parser, *, required: bool = True):
+    """Add exactly one AT-SPI identity, name, or point-in-time list index."""
+    group = parser.add_mutually_exclusive_group(required=required)
+    group.add_argument("--app", help="AT-SPI application name")
+    group.add_argument("--app-id", help="persistent process identity from `apps`; refuses after the app exits")
+    group.add_argument(
+        "--app-index",
+        type=int,
+        help="point-in-time 1-based index from `apps`; not a persistent identity",
+    )
+
+
 def add_match_args(parser, *, require_name: bool = False):
-    parser.add_argument("--app", required=True, help="AT-SPI application name")
+    add_app_selector(parser)
     parser.add_argument("--name", required=require_name, help="element name substring")
     parser.add_argument("--exact-name", action="store_true")
     parser.add_argument("--role", help="exact AT-SPI role name")
@@ -302,14 +423,20 @@ def add_match_args(parser, *, require_name: bool = False):
 
 def command_apps(_args):
     output = [
-        {"name": node_name(app), "role": node_role(app), "children": safe(lambda: app.childCount, 0)}
-        for app in applications()
+        {
+            "index": index,
+            "appId": application_identity(app),
+            "name": node_name(app),
+            "role": node_role(app),
+            "children": safe(lambda: app.childCount, 0),
+        }
+        for index, app in enumerate(applications(), start=1)
     ]
     print(json.dumps(output, indent=2, ensure_ascii=False))
 
 
 def command_tree(args):
-    app = select_application(args.app)
+    app = select_application(args.app, args.app_index, args.app_id)
     output = []
     traversal = walk(app, args.max_depth, args.max_nodes)
     for match in traversal.matches:
@@ -337,6 +464,11 @@ def command_find(args):
 
 
 def require_apply(args, verb: str, match: Match):
+    """Enforce the preview-then-apply contract for a mutating command.
+
+    Returns False after printing the dry-run payload, so the caller returns
+    without touching the UI.
+    """
     info = node_info(match)
     if not args.apply:
         token = issue_target_token(match, verb)
@@ -357,6 +489,11 @@ def require_apply(args, verb: str, match: Match):
 
 
 def wait_for_state(node, state: str, timeout: float) -> bool:
+    """Poll for an AT-SPI state until it appears or the timeout expires.
+
+    AT-SPI exposes no completion callback for focus/activation, so polling is the
+    only portable way to distinguish "applied" from "request accepted".
+    """
     deadline = time.monotonic() + timeout
     while True:
         if state in node_states(node):
@@ -387,6 +524,11 @@ def wait_for_text(node, expected: str, timeout: float) -> bool:
 
 
 def focus_and_wait(node, timeout: float) -> None:
+    """Focus an element and verify the state actually changed.
+
+    grabFocus() returning True only means the request was accepted, not that the
+    toolkit honoured it, so the result is confirmed by re-reading state.
+    """
     if "focused" in node_states(node):
         return
     component = safe(node.queryComponent)
@@ -413,6 +555,8 @@ def command_action(args):
     index = actions.index(args.action)
     if not match.node.do_action(index):
         raise SystemExit("desktop-control: action returned failure")
+    # AT-SPI gives no post-condition for an arbitrary action, so the result is
+    # reported as dispatched/unverified instead of claiming success.
     print(json.dumps({
         "dispatched": True,
         "action": args.action,
@@ -470,7 +614,7 @@ def parser() -> argparse.ArgumentParser:
     apps.set_defaults(func=command_apps)
 
     tree = sub.add_parser("tree", help="dump useful elements from one app")
-    tree.add_argument("--app", required=True)
+    add_app_selector(tree)
     tree.add_argument("--max-depth", type=int, default=12)
     tree.add_argument("--max-nodes", type=int, default=1000)
     tree.add_argument("--all", action="store_true", help="include unnamed/no-action nodes")

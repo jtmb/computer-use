@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-31T08:03:07.199Z",
+  "scope": "Existing authenticated loopback service; selected root read-only task-title status only.",
+  "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+  "directory": "/home/james/repos/computer-use",
+  "sdkVersion": "2.1.1",
+  "serverVersion": "2.1.1",
+  "diagnostic": {
+    "eligible": true,
+    "suspended": false,
+    "pending": false,
+    "publicationCapability": "unavailable",
+    "capabilityFieldPresent": true,
+    "action": "generated",
+    "currentAndRecordedTitlesMatch": true,
+    "currentAndAttemptedTasksMatch": false
+  },
+  "sampledRootTitleUnchanged": true,
+  "sampledRootTimeUnchanged": true,
+  "acquisition": {
+    "bytes": 1654,
+    "byteLimit": 65536,
+    "durationLimitMs": 10000,
+    "elapsedMs": 168
+  },
+  "actions": {
+    "readOnlyRpc": true,
+    "sourceGeneration": false,
+    "titleUpdate": false,
+    "probeWrite": false,
+    "settingsUpdate": false,
+    "serviceStart": false,
+    "reload": false,
+    "restart": false,
+    "deployment": false
+  },
+  "limits": [
+    "A present diagnostic capability field is loaded diagnostic evidence, not a supported native conditional-update contract.",
+    "No real rename/manual-race/GUI or full type check was performed.",
+    "Before/after samples are not an atomic snapshot or proof of cause; native internal persistence is outside the artifact export claim."
+  ]
+}

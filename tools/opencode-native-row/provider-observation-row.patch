@@ -1,0 +1,657 @@
+diff --git a/packages/tui/src/routes/session/composer/subagent-row.ts b/packages/tui/src/routes/session/composer/subagent-row.ts
+index e78054f..ec70758 100644
+--- a/packages/tui/src/routes/session/composer/subagent-row.ts
++++ b/packages/tui/src/routes/session/composer/subagent-row.ts
+@@ -31,6 +31,7 @@ export function subagentRow(input: {
+   const task = input.dispatch?.description ?? title ?? text(excerpt)?.slice(0, 100) ?? "Subagent task"
+   const model = input.session.model
+   const outcome = input.session.time.idle === undefined ? undefined : input.session.outcome
++  const observation = subagentObservation(input.messages)
+   return {
+     task: task.replace(/\s+/g, " "),
+     model: model ? `${model.providerID}/${model.id}` : "unknown",
+@@ -39,6 +40,9 @@ export function subagentRow(input: {
+     // A header is a selection, not proof of the provider's effective model or reasoning configuration.
+     effort: "unknown",
+     execution: "unknown",
++    responseModel: observation.model ?? "unknown",
++    responseEffort: observation.reasoningEffort ?? "unknown",
++    latestAssistantMessageID: observation.messageID ?? "unknown",
+     status:
+       input.status === "running"
+         ? "Running"
+@@ -52,6 +56,40 @@ export function subagentRow(input: {
+   }
+ }
+ 
++function subagentObservation(messages: readonly SessionMessageInfo[]) {
++  const latest = messages.findLast((message) => message.type === "assistant")
++  if (!latest || latest.type !== "assistant") return {}
++
++  const native = record(latest.native)
++  const report = record(native?.modelObservation)
++  const messageID = identifier(latest.id, 256)
++  if (!messageID?.startsWith("msg_")) return {}
++  if (!report || !Object.hasOwn(report, "source") || report.source !== "open-responses") return { messageID }
++
++  const model = field(report, "model", 256)
++  const reasoningEffort = field(report, "reasoningEffort", 64)
++  if (model === invalid || reasoningEffort === invalid) return { messageID }
++  return { model, reasoningEffort, messageID }
++}
++
++const invalid = Symbol("invalid observation field")
++
++function field(value: Record<string, unknown>, key: string, max: number) {
++  if (!Object.hasOwn(value, key)) return undefined
++  return identifier(value[key], max) ?? invalid
++}
++
++function identifier(value: unknown, max: number) {
++  if (typeof value !== "string" || value.length === 0 || value.length > max) return undefined
++  if (/[\s\p{Cc}\p{Cf}]/u.test(value)) return undefined
++  return value
++}
++
++function record(value: unknown): Record<string, unknown> | undefined {
++  if (typeof value !== "object" || value === null || Array.isArray(value)) return undefined
++  return value as Record<string, unknown>
++}
++
+ function text(value: unknown) {
+   return typeof value === "string" ? value.trim() || undefined : undefined
+ }
+diff --git a/packages/tui/src/routes/session/composer/subagents-tab.tsx b/packages/tui/src/routes/session/composer/subagents-tab.tsx
+index 3f8b3e6..3d6dc35 100644
+--- a/packages/tui/src/routes/session/composer/subagents-tab.tsx
++++ b/packages/tui/src/routes/session/composer/subagents-tab.tsx
+@@ -278,7 +278,7 @@ export function SubagentsTab(props: { sessionID: string }) {
+                       truncate
+                     >
+                       {entry.prefix}
+-                      Task: {entry.row.task}
++                      Task: {entry.row.task} ({entry.agent})
+                     </text>
+                     <text flexShrink={0} fg={active() ? theme.text.action.primary.focused : theme.text.muted}>
+                       {entry.row.status}
+@@ -286,7 +286,6 @@ export function SubagentsTab(props: { sessionID: string }) {
+                   </box>
+                   <text fg={theme.text.muted} wrapMode="word">
+                     Model (selected): {entry.row.model} · Variant: {entry.row.variant} · Effort: {entry.row.effort} ·
+-                    Agent: {entry.agent}
+                   </text>
+                   <Show when={entry.row.requested}>
+                     <text fg={theme.text.muted} wrapMode="word">
+@@ -296,6 +295,15 @@ export function SubagentsTab(props: { sessionID: string }) {
+                   <text fg={theme.text.muted} wrapMode="word">
+                     Execution-effective model/effort: {entry.row.execution}
+                   </text>
++                  <text fg={theme.text.muted} wrapMode="word">
++                    Response-reported model: {entry.row.responseModel}
++                  </text>
++                  <text fg={theme.text.muted} wrapMode="word">
++                    Response-reported effort: {entry.row.responseEffort}
++                  </text>
++                  <text fg={theme.text.muted} wrapMode="word">
++                    Latest message ID: {entry.row.latestAssistantMessageID}
++                  </text>
+                 </box>
+               )
+             }}
+diff --git a/packages/tui/test/subagent-row-observation.test.ts b/packages/tui/test/subagent-row-observation.test.ts
+new file mode 100644
+index 0000000..4e7c611
+--- /dev/null
++++ b/packages/tui/test/subagent-row-observation.test.ts
+@@ -0,0 +1,239 @@
++import { expect, test } from "bun:test"
++import type { SessionInfo, SessionMessageInfo } from "@opencode/client"
++import { subagentRow } from "../src/routes/session/composer/subagent-row"
++
++function child(input: Partial<SessionInfo> = {}): SessionInfo {
++  return {
++    id: "ses_child",
++    parentID: "ses_parent",
++    projectID: "proj_test",
++    title: "Inspect storage",
++    agent: "build",
++    location: { directory: "/tmp/opencode/packages/tui" },
++    cost: 0,
++    tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
++    time: { created: 0, updated: 0 },
++    ...input,
++  }
++}
++
++function assistant(id: string, native?: unknown, content: unknown[] = []): SessionMessageInfo {
++  return {
++    type: "assistant",
++    id,
++    agent: "build",
++    model: { providerID: "selected-provider", id: "selected-model" },
++    time: { created: 0 },
++    content,
++    ...(native === undefined ? {} : { native }),
++  } as SessionMessageInfo
++}
++
++function row(messages: readonly SessionMessageInfo[], session = child()) {
++  return subagentRow({ session, status: "idle", messages })
++}
++
++test("keeps producer-safe punctuation without inventing a narrower identifier format", () => {
++  const model = "future$model@rev=2"
++  const reasoningEffort = "ultra~v3"
++  expect(row([assistant("msg_latest", { modelObservation: { source: "open-responses", model, reasoningEffort } })])).toMatchObject({
++    responseModel: model,
++    responseEffort: reasoningEffort,
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test.each(["invalid\u0000id", "not-a-message"])("does not promote an observation without safe message provenance: %s", (id) => {
++  expect(row([assistant(id, { modelObservation: { source: "open-responses", model: "reported", reasoningEffort: "high" } })])).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "unknown",
++  })
++})
++
++test("accepts only bounded open-responses identifiers without enum assumptions", () => {
++  const model = `future_${"m".repeat(249)}`
++  const reasoningEffort = `future-${"e".repeat(57)}`
++  const messages = [assistant("msg_latest", { modelObservation: { source: "open-responses", model, reasoningEffort } })]
++  expect(row(messages)).toMatchObject({
++    responseModel: model,
++    responseEffort: reasoningEffort,
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test("keeps omitted response fields unknown and accepts future-safe identifiers", () => {
++  expect(
++    row([
++      assistant("msg_latest", {
++        modelObservation: { source: "open-responses", model: "future_β/model+v3" },
++      }),
++    ]),
++  ).toMatchObject({
++    responseModel: "future_β/model+v3",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "msg_latest",
++  })
++  expect(
++    row([
++      assistant("msg_effort", {
++        modelObservation: { source: "open-responses", reasoningEffort: "future-effort" },
++      }),
++    ]),
++  ).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "future-effort",
++    latestAssistantMessageID: "msg_effort",
++  })
++})
++
++test.each([
++  [undefined],
++  [null],
++  [true],
++  ["openai"],
++  ["open-responses "],
++  [[]],
++  [{ model: "future-model" }],
++])(
++  "rejects malformed or non-open-responses observation sources: %s",
++  (observation) => {
++    expect(
++      row([assistant("msg_latest", { modelObservation: observation })]),
++    ).toMatchObject({
++      responseModel: "unknown",
++      responseEffort: "unknown",
++      latestAssistantMessageID: "msg_latest",
++    })
++  },
++)
++
++test.each([
++  ["model", null],
++  ["model", true],
++  ["model", 1],
++  ["model", []],
++  ["model", {}],
++  ["model", ""],
++  ["model", "has whitespace"],
++  ["model", "nonbreaking\u00a0space"],
++  ["model", "line\nbreak"],
++  ["model", "control\u0007"],
++  ["model", "format\u200bchar"],
++  ["model", "line\u2028separator"],
++  ["model", "m".repeat(257)],
++  ["reasoningEffort", null],
++  ["reasoningEffort", false],
++  ["reasoningEffort", 2],
++  ["reasoningEffort", []],
++  ["reasoningEffort", {}],
++  ["reasoningEffort", "has whitespace"],
++  ["reasoningEffort", "line\nbreak"],
++  ["reasoningEffort", "control\u0007"],
++  ["reasoningEffort", "format\u200bchar"],
++  ["reasoningEffort", "e".repeat(65)],
++] as const)("rejects malformed or unsafe %s values without partial promotion", (field, value) => {
++  const observation = { source: "open-responses", model: "safe-model", reasoningEffort: "high", [field]: value }
++  expect(row([assistant("msg_latest", { modelObservation: observation })])).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test("the newest assistant message is authoritative; an older report is never reused", () => {
++  expect(
++    row([
++      assistant("msg_old", {
++        modelObservation: { source: "open-responses", model: "old-model", reasoningEffort: "high" },
++      }),
++      assistant("msg_latest"),
++    ]),
++  ).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test("a malformed latest report never falls back to an older valid observation", () => {
++  expect(
++    row([
++      assistant("msg_old", {
++        modelObservation: { source: "open-responses", model: "old-model", reasoningEffort: "high" },
++      }),
++      assistant("msg_latest", {
++        modelObservation: { source: "open-responses", model: "unsafe model", reasoningEffort: "xhigh" },
++      }),
++    ]),
++  ).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test("missing cached assistant history leaves response data and message provenance unknown", () => {
++  expect(row([])).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "unknown",
++  })
++})
++
++test("an assistant without a report stays unknown even when user or tool metadata looks similar", () => {
++  const user = {
++    type: "user",
++    id: "msg_user",
++    text: "Inspect storage",
++    time: { created: 0 },
++    native: { modelObservation: { source: "open-responses", model: "user-model", reasoningEffort: "xhigh" } },
++  } as SessionMessageInfo
++  const tool = {
++    type: "tool",
++    id: "call_tool",
++    name: "subagent",
++    time: { created: 0 },
++    state: {
++      status: "completed",
++      input: {},
++      metadata: { modelObservation: { source: "open-responses", model: "tool-model", reasoningEffort: "xhigh" } },
++      content: [],
++    },
++  }
++  expect(row([user, assistant("msg_latest", undefined, [tool])])).toMatchObject({
++    responseModel: "unknown",
++    responseEffort: "unknown",
++    latestAssistantMessageID: "msg_latest",
++  })
++})
++
++test("reported response metadata remains separate from requested and selected fields", () => {
++  const session = child({ model: { providerID: "selected-provider", id: "selected-model", variant: "high" } })
++  const request = { description: "Inspect storage", prompt: undefined, model: "requested/model#xhigh" }
++  expect(
++    subagentRow({
++      session,
++      dispatch: request,
++      status: "running",
++      messages: [
++        assistant("msg_latest", {
++          modelObservation: {
++            source: "open-responses",
++            model: "response/model-vNext",
++            reasoningEffort: "future-effort",
++          },
++        }),
++      ],
++    }),
++  ).toMatchObject({
++    model: "selected-provider/selected-model",
++    variant: "high",
++    requested: "requested/model#xhigh",
++    effort: "unknown",
++    execution: "unknown",
++    responseModel: "response/model-vNext",
++    responseEffort: "future-effort",
++    latestAssistantMessageID: "msg_latest",
++  })
++})
+diff --git a/packages/tui/test/subagent-row-observation.view.test.tsx b/packages/tui/test/subagent-row-observation.view.test.tsx
+new file mode 100644
+index 0000000..10fc83b
+--- /dev/null
++++ b/packages/tui/test/subagent-row-observation.view.test.tsx
+@@ -0,0 +1,306 @@
++/** @jsxImportSource @opentui/solid */
++import { testRender } from "@opentui/solid"
++import { expect, test } from "bun:test"
++import { onMount, Show } from "solid-js"
++import { ScrollBoxRenderable } from "@opentui/core"
++import type { SessionInfo, SessionMessageInfo } from "@opencode/client"
++import { ConfigProvider } from "../src/config"
++import { ClientProvider } from "../src/context/client"
++import { DataProvider, useData } from "../src/context/data"
++import { Keymap } from "../src/context/keymap"
++import { LocationProvider } from "../src/context/location"
++import { RouteProvider, useRoute } from "../src/context/route"
++import { TuiAppProvider } from "../src/context/runtime"
++import { StorageProvider } from "../src/context/storage"
++import { ThemeProvider } from "../src/context/theme"
++import { Composer } from "../src/routes/session/composer"
++import { DialogProvider } from "../src/ui/dialog"
++import { ToastProvider } from "../src/ui/toast"
++import { tmpdir } from "./fixture/fixture"
++import { createApi, createEventStream, createFetch, directory, json } from "./fixture/tui-client"
++import { TestTuiContexts } from "./fixture/tui-environment"
++import { createTuiResolvedConfig } from "./fixture/tui-runtime"
++
++function session(id: string, input: Partial<SessionInfo> = {}): SessionInfo {
++  return {
++    id,
++    parentID: "ses_parent",
++    projectID: "proj_test",
++    title: id,
++    agent: "build",
++    location: { directory },
++    cost: 0,
++    tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
++    time: { created: 0, updated: 0 },
++    ...input,
++  }
++}
++
++function launch(sessionID: string, description: string, model: string): SessionMessageInfo {
++  return {
++    type: "assistant",
++    id: `msg_launch_${sessionID}`,
++    agent: "build",
++    model: { providerID: "parent", id: "model" },
++    time: { created: 0 },
++    content: [
++      {
++        type: "tool",
++        id: `call_${sessionID}`,
++        name: "subagent",
++        time: { created: 0 },
++        state: { status: "running", input: { description, model }, metadata: { sessionID } },
++      },
++    ],
++  }
++}
++
++function assistant(id: string, native?: unknown): SessionMessageInfo {
++  return {
++    type: "assistant",
++    id,
++    agent: "build",
++    model: { providerID: "selected-provider", id: "selected-model" },
++    time: { created: 0 },
++    content: [],
++    ...(native === undefined ? {} : { native }),
++  } as SessionMessageInfo
++}
++
++async function fixture(input: {
++  width: number
++  children: SessionInfo[]
++  messages?: Record<string, SessionMessageInfo[]>
++  active?: string[]
++}) {
++  const state = await tmpdir()
++  const sessions = [session("ses_parent", { parentID: undefined }), ...input.children]
++  const messageLists = input.messages ?? {}
++  const events = createEventStream()
++  const calls = createFetch((url) => {
++    if (url.pathname === "/api/session/active")
++      return json({
++        data: Object.fromEntries(
++          (input.active ?? input.children.map((s) => s.id)).map((id) => [id, { type: "running" }]),
++        ),
++      })
++    const current = sessions.find((s) => url.pathname === `/api/session/${s.id}`)
++    if (current) return json({ data: current })
++    const messageSession = sessions.find((s) => url.pathname === `/api/session/${s.id}/message`)
++    if (messageSession) return json({ data: (messageLists[messageSession.id] ?? []).toReversed(), cursor: {} })
++    const interrupt = sessions.find((s) => url.pathname === `/api/session/${s.id}/interrupt`)
++    if (interrupt) return json({ interrupted: true }, { status: 200 })
++  }, events)
++  const ready = Promise.withResolvers<void>()
++  let route!: ReturnType<typeof useRoute>
++  let data!: ReturnType<typeof useData>
++  let closed = 0
++  function Content() {
++    route = useRoute()
++    data = useData()
++    onMount(() => {
++      void Promise.all([
++        ...sessions.map((s) => data.session.sync(s.id)),
++        ...sessions.map((s) => data.session.message.sync(s.id)),
++      ]).then(() => ready.resolve(), ready.reject)
++    })
++    return (
++      <Show when={route.data.type === "session" ? route.data.sessionID : undefined} keyed>
++        {(sessionID) => <Composer sessionID={sessionID} open={true} defaultTab="subagents" onClose={() => closed++} />}
++      </Show>
++    )
++  }
++  const app = await testRender(
++    () => (
++      <TestTuiContexts paths={{ state: state.path, home: state.path }}>
++        <TuiAppProvider value={{ name: "test", version: "test", channel: "test" }}>
++          <StorageProvider>
++            <ConfigProvider config={createTuiResolvedConfig()}>
++              <Keymap.Provider>
++                <ClientProvider api={createApi(calls.fetch)}>
++                  <DataProvider directory={directory}>
++                    <LocationProvider>
++                      <RouteProvider initialRoute={{ type: "session", sessionID: "ses_parent" }}>
++                        <ThemeProvider mode="dark" source={{ discover: async () => ({}) }}>
++                          <ToastProvider>
++                            <DialogProvider>
++                              <Content />
++                            </DialogProvider>
++                          </ToastProvider>
++                        </ThemeProvider>
++                      </RouteProvider>
++                    </LocationProvider>
++                  </DataProvider>
++                </ClientProvider>
++              </Keymap.Provider>
++            </ConfigProvider>
++          </StorageProvider>
++        </TuiAppProvider>
++      </TestTuiContexts>
++    ),
++    { width: input.width, height: 24, kittyKeyboard: true },
++  )
++  await ready.promise
++  await until(() => input.active?.length === 0 || input.children.every((s) => data.session.status(s.id) === "running"))
++  await app.renderOnce()
++  return {
++    ...app,
++    route: () => route.data,
++    closed: () => closed,
++    data,
++    async [Symbol.asyncDispose]() {
++      app.renderer.destroy()
++      await state[Symbol.asyncDispose]()
++    },
++  }
++}
++
++test.each([44, 120])("native Composer rows show bounded response reports and provenance at width %s", async (width) => {
++  await using app = await fixture({
++    width,
++    children: [
++      session("ses_a", {
++        title: "Renamed child",
++        model: { providerID: "chosen", id: "actual", variant: "high" },
++      }),
++    ],
++    messages: {
++      ses_parent: [launch("ses_a", "Inspect storage", "asked/model#xhigh")],
++      ses_a: [
++        assistant("msg_response_17", {
++          modelObservation: {
++            source: "open-responses",
++            model: "r",
++            reasoningEffort: "x",
++          },
++        }),
++      ],
++    },
++  })
++  const frame = app.captureCharFrame()
++  const text = frame.replaceAll("┃", "").replace(/\s+/g, " ")
++  expect(frame).toContain("Task: Inspect storage")
++  expect(frame).toContain("Running")
++  expect(text).toContain("Model (selected): chosen/actual")
++  expect(text).toContain("Variant: high")
++  expect(text).toContain("Model (requested): asked/model#xhigh")
++  expect(text).toContain("Effort: unknown")
++  expect(text).toContain("Execution-effective model/effort: unknown")
++  expect(text).toContain("Response-reported model: r")
++  expect(text).toContain("Response-reported effort: x")
++  expect(text).toContain("Latest message ID: msg_response_17")
++  expect(frame).not.toContain("Renamed child")
++  const row = app.renderer.root.findDescendantById("subagent-row-ses_a")!
++  expect(row.x + row.width).toBeLessThanOrEqual(width)
++  expect(frame.split("\n").find((line) => line.includes("Task:"))).toContain("Running")
++})
++
++test("native Composer does not fall back to an older response report when the latest assistant is unreported", async () => {
++  await using app = await fixture({
++    width: 120,
++    children: [session("ses_a")],
++    messages: {
++      ses_parent: [launch("ses_a", "Latest response", "asked/model#high")],
++      ses_a: [
++        assistant("msg_old", {
++          modelObservation: { source: "open-responses", model: "old-model", reasoningEffort: "high" },
++        }),
++        assistant("msg_latest"),
++      ],
++    },
++  })
++  const text = app.captureCharFrame().replaceAll("┃", "").replace(/\s+/g, " ")
++  expect(text).toContain("Response-reported model: unknown")
++  expect(text).toContain("Response-reported effort: unknown")
++  expect(text).toContain("Latest message ID: msg_latest")
++  expect(text).not.toContain("old-model")
++})
++
++test.each([44, 120])("response-report rows retain scrolling and navigation at width %s", async (width) => {
++  const children = Array.from({ length: 6 }, (_, i) =>
++    session(`ses_${i}`, {
++      title: `Task ${i}`,
++      model: { providerID: "selected", id: `model-${i}`, variant: "high" },
++    }),
++  )
++  await using app = await fixture({
++    width,
++    children,
++    messages: {
++      ses_parent: children.map((child) => launch(child.id, child.title ?? child.id, "requested/model#high")),
++      ...Object.fromEntries(
++        children.map((child, i) => [
++          child.id,
++          [
++            assistant(`msg_${i}`, {
++              modelObservation: {
++                source: "open-responses",
++                model: `model-${i}`,
++                reasoningEffort: "high",
++              },
++            }),
++          ],
++        ]),
++      ),
++    },
++  })
++  app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  const second = app.renderer.root.findDescendantById("subagent-row-ses_1")!
++  await app.mockMouse.click(second.x + 3, second.y)
++  expect(app.route()).toMatchObject({ sessionID: "ses_1" })
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  for (let i = 0; i < 4; i++) app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  const scroll = app.renderer.root.findDescendantById("subagents-list")
++  expect(scroll).toBeInstanceOf(ScrollBoxRenderable)
++  if (!(scroll instanceof ScrollBoxRenderable)) throw new Error("Missing subagents scrollbox")
++  expect(scroll.scrollTop).toBeGreaterThan(5)
++  expect(app.captureCharFrame()).toContain("Task: Task 5")
++  expect(app.captureCharFrame()).toContain("Response-reported model: model-5")
++  app.mockInput.pressEnter()
++  expect(app.route()).toMatchObject({ sessionID: "ses_5" })
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  const selected = app.renderer.root.findDescendantById("subagent-row-ses_5")!
++  const list = app.renderer.root.findDescendantById("subagents-list") as ScrollBoxRenderable
++  expect(selected.y).toBeGreaterThanOrEqual(list.viewport.y)
++  expect(selected.y).toBeLessThan(list.viewport.y + list.viewport.height)
++})
++
++test.each([44, 120])("long response fields keep the selected task and status visible at width %s", async (width) => {
++  await using app = await fixture({
++    width,
++    children: [session("ses_a", { model: { providerID: "selected", id: "model", variant: "high" } })],
++    messages: {
++      ses_parent: [launch("ses_a", "Long report", "requested/model#high")],
++      ses_a: [
++        assistant("msg_long_response", {
++          modelObservation: {
++            source: "open-responses",
++            model: "m".repeat(256),
++            reasoningEffort: "e".repeat(64),
++          },
++        }),
++      ],
++    },
++  })
++  await app.renderOnce()
++  await app.renderOnce()
++  const frame = app.captureCharFrame()
++  expect(frame).toContain("Task: Long report")
++  expect(frame.split("\n").find((line) => line.includes("Task:"))).toContain("Running")
++})
++
++async function until(predicate: () => boolean) {
++  const deadline = Date.now() + 2000
++  while (!predicate()) {
++    if (Date.now() > deadline) throw new Error("Timed out waiting for fixture data")
++    await Bun.sleep(5)
++  }
++}

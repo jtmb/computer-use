@@ -23,7 +23,8 @@ from urllib.request import urlopen
 CANONICAL_ROOT = Path(__file__).resolve().parent.parent
 POLICY_PATH = CANONICAL_ROOT / "config" / "mcp-versions.json"
 SCRIPT_ROOT = CANONICAL_ROOT / "scripts"
-MCP_NAMES = ("basic-memory", "github", "chatgpt")
+# Optional ChatGPT source selection belongs to setup-chatgpt.py, not provisioning defaults.
+MCP_NAMES = ("github",)
 GLOBAL_MCP_NAMES = MCP_NAMES
 MCP_PROFILES = ("native", "wsl2")
 MAX_POLICY_BYTES = 64 * 1024
@@ -32,11 +33,8 @@ MAX_NODE_ARCHIVE_BYTES = 256 * 1024 * 1024
 MAX_GITHUB_ARCHIVE_BYTES = 32 * 1024 * 1024
 MAX_GITHUB_BINARY_BYTES = 64 * 1024 * 1024
 MAX_GITHUB_METADATA_BYTES = 2 * 1024 * 1024
-NATIVE_NOTES = Path.home() / "Documents" / "computer-assistant" / "basic-memory"
 NATIVE_ROOT = Path.home() / ".local" / "share" / "opencode" / "mcp"
-NATIVE_BASIC_COMMAND = "./scripts/basic-memory-mcp.sh"
 NATIVE_GITHUB_COMMAND = "./scripts/github-mcp.sh"
-NATIVE_CHATGPT_COMMAND = "./scripts/chatgpt-mcp.sh"
 
 
 class McpRuntimeError(RuntimeError):
@@ -86,20 +84,73 @@ def ensure_safe_path(path: Path, *, allow_missing: bool = True) -> Path:
     return absolute
 
 
+def _open_regular_source(path: Path) -> int:
+    """Pin no-follow directory descriptors before opening a selected file."""
+    flags = os.O_RDONLY | os.O_NOFOLLOW | os.O_DIRECTORY | os.O_CLOEXEC
+    parent = os.open(path.anchor, flags)
+    try:
+        for part in path.parts[1:-1]:
+            child = os.open(part, flags, dir_fd=parent)
+            os.close(parent)
+            parent = child
+        return os.open(path.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC,
+                       dir_fd=parent)
+    finally:
+        os.close(parent)
+
+
 def _read_regular(path: Path, *, limit: int = MAX_POLICY_BYTES) -> bytes:
+    """Read bounded bytes without following links or waiting on a swapped FIFO."""
     absolute = _absolute(path)
     try:
+        current = Path("/")
+        for part in absolute.parts[1:-1]:
+            current /= part
+            ancestor = current.lstat()
+            if not stat.S_ISDIR(ancestor.st_mode) or stat.S_ISLNK(ancestor.st_mode):
+                raise McpRuntimeError(f"unsafe canonical MCP file ancestor: {current}")
+        if absolute.resolve() != absolute:
+            raise McpRuntimeError(f"symlinked canonical MCP path: {absolute}")
         metadata = absolute.lstat()
-    except FileNotFoundError as error:
-        raise McpRuntimeError(f"missing canonical MCP file: {absolute}") from error
+    except OSError as error:
+        raise McpRuntimeError(f"unavailable canonical MCP file: {absolute}") from error
     if not stat.S_ISREG(metadata.st_mode) or stat.S_ISLNK(metadata.st_mode):
         raise McpRuntimeError(f"canonical MCP file is not a regular file: {absolute}")
     if metadata.st_size > limit:
         raise McpRuntimeError(f"canonical MCP file exceeds {limit} bytes: {absolute}")
     try:
-        return absolute.read_bytes()
+        descriptor = _open_regular_source(absolute)
+        try:
+            opened = os.fstat(descriptor)
+            if (not stat.S_ISREG(opened.st_mode) or _file_identity(opened) != _file_identity(metadata)
+                    or absolute.resolve() != absolute):
+                raise McpRuntimeError(f"canonical MCP file changed while opening: {absolute}")
+            chunks: list[bytes] = []
+            remaining = limit + 1
+            while remaining:
+                chunk = os.read(descriptor, min(65536, remaining))
+                if not chunk:
+                    break
+                chunks.append(chunk)
+                remaining -= len(chunk)
+            content = b"".join(chunks)
+            if len(content) > limit:
+                raise McpRuntimeError(f"canonical MCP file exceeds {limit} bytes: {absolute}")
+            if (_file_identity(os.fstat(descriptor)) != _file_identity(opened)
+                    or _file_identity(absolute.lstat()) != _file_identity(opened)
+                    or absolute.resolve() != absolute):
+                raise McpRuntimeError(f"canonical MCP file changed while reading: {absolute}")
+            return content
+        finally:
+            os.close(descriptor)
     except OSError as error:
-        raise McpRuntimeError(f"cannot read canonical MCP file: {absolute}: {error}") from error
+        raise McpRuntimeError(f"cannot read canonical MCP file: {absolute}") from error
+
+
+def _file_identity(metadata: os.stat_result) -> tuple[int, ...]:
+    """Compare sampled file identity and mutation metadata, not just byte length."""
+    return (metadata.st_dev, metadata.st_ino, metadata.st_mode, metadata.st_size,
+            metadata.st_mtime_ns, metadata.st_ctime_ns, metadata.st_uid, metadata.st_gid)
 
 
 def load_policy() -> dict[str, Any]:
@@ -110,8 +161,6 @@ def load_policy() -> dict[str, Any]:
         raise McpRuntimeError(f"cannot parse canonical MCP policy: {error}") from error
     if not isinstance(value, dict) or value.get("schemaVersion") != 2:
         raise McpRuntimeError("unsupported canonical MCP policy")
-    if not isinstance(value.get("basicMemory"), str):
-        raise McpRuntimeError("canonical MCP policy has invalid package versions")
     retired_browser_fields = {"playwright", "playwrightBrowser", "playwrightBrowserRevision"}
     if retired_browser_fields.intersection(value):
         raise McpRuntimeError("retired Playwright MCP policy fields are forbidden")
@@ -166,7 +215,6 @@ def expected_marker(profile: str) -> dict[str, Any]:
     marker = {
         "schemaVersion": 2,
         "profile": profile,
-        "basicMemory": policy["basicMemory"],
         "githubVersion": policy["githubVersion"],
         "githubSha256": policy["githubSha256"],
         "nodeVersion": policy["nodeVersion"],
@@ -180,15 +228,9 @@ def profile_paths(profile_root: Path) -> dict[str, Path]:
     policy = load_policy()
     return {
         "root": root,
-        "basic": root / "mcp" / "basic-memory",
-        "basic_home": root / "mcp" / "basic-memory" / "home",
-        "basic_notes": root / "mcp" / "basic-memory" / "notes",
         "github": root / "mcp" / "github",
         "github_binary": root / "mcp" / "github" / "github-mcp-server",
         "node_root": root / "mcp" / "node" / f"node-v{policy['nodeVersion']}-linux-x64",
-        "uv_cache": root / "cache" / "uv",
-        "uv_environments": root / "cache" / "uv" / "environments-v2",
-        "uv_archive": root / "cache" / "uv" / "archive-v0",
         "marker": root / "mcp" / "provisioned.json",
     }
 
@@ -196,14 +238,10 @@ def profile_paths(profile_root: Path) -> dict[str, Path]:
 def native_paths() -> dict[str, Path]:
     """Return native user-local MCP state without borrowing WSL profile state."""
     root = ensure_safe_path(Path(os.environ.get("OPENCODE_MCP_NATIVE_ROOT", str(NATIVE_ROOT))))
-    notes = ensure_safe_path(Path(os.environ.get("BASIC_MEMORY_HOME", str(NATIVE_NOTES))))
     policy = load_policy()
     node_root = root / "node" / f"node-v{policy['nodeVersion']}-linux-x64"
     return {
         "root": root,
-        "basic": root / "basic-memory",
-        "basic_config": root / "basic-memory" / "config",
-        "basic_notes": notes,
         "github": root / "github",
         "github_binary": root / "github" / "github-mcp-server",
         "node_root": node_root,
@@ -223,14 +261,8 @@ def prepare_profile(profile_root: Path, *, apply: bool) -> None:
         paths["root"] / "data",
         paths["root"] / "state",
         paths["root"] / "cache",
-        paths["basic"],
-        paths["basic_home"],
-        paths["basic_notes"],
         paths["github"],
         paths["node_root"].parent,
-        paths["uv_cache"],
-        paths["uv_environments"],
-        paths["uv_archive"],
     )
     for directory in directories:
         ensure_safe_path(directory)
@@ -246,15 +278,13 @@ def prepare_profile(profile_root: Path, *, apply: bool) -> None:
 
 
 def prepare_native(*, apply: bool) -> None:
-    """Create or validate native user-local state and the Basic Memory notes root."""
+    """Create or validate native user-local MCP runtime state."""
     mcp_servers("native")
     paths = native_paths()
     directories = (
         paths["root"],
-        paths["basic"],
-        paths["basic_config"],
         paths["github"],
-        paths["basic_notes"],
+        paths["node_root"].parent,
     )
     for directory in directories:
         ensure_safe_path(directory)
@@ -269,87 +299,6 @@ def prepare_native(*, apply: bool) -> None:
         directory.chmod(0o700)
 
 
-def _children(path: Path, *, allow_symlinks: bool = False) -> list[Path]:
-    """Return direct children only when the parent is a real directory."""
-    try:
-        metadata = path.lstat()
-        if not stat.S_ISDIR(metadata.st_mode) or stat.S_ISLNK(metadata.st_mode):
-            return []
-        return [entry for entry in path.iterdir() if allow_symlinks or not entry.is_symlink()]
-    except (FileNotFoundError, NotADirectoryError, OSError):
-        return []
-
-
-def _has_basic_memory_runtime(profile_root: Path, version: str) -> bool:
-    """Find the pinned Basic Memory package in the profile's uv cache."""
-    paths = profile_paths(profile_root)
-    for scope in _children(paths["uv_environments"]):
-        for entry in _children(scope, allow_symlinks=True):
-            try:
-                metadata = entry.lstat()
-                if stat.S_ISLNK(metadata.st_mode):
-                    environment = entry.resolve(strict=True)
-                    if environment.parent != paths["uv_archive"]:
-                        continue
-                elif stat.S_ISDIR(metadata.st_mode):
-                    environment = entry
-                else:
-                    continue
-                ensure_safe_path(environment, allow_missing=False)
-                executable = environment / "bin" / "basic-memory"
-                executable_metadata = executable.lstat()
-                if not stat.S_ISREG(executable_metadata.st_mode) or not os.access(executable, os.X_OK):
-                    continue
-                for library in _children(environment / "lib"):
-                    package = library / "site-packages" / f"basic_memory-{version}.dist-info"
-                    if package.is_dir() and not package.is_symlink():
-                        return True
-            except (FileNotFoundError, OSError, RuntimeError):
-                continue
-    return False
-
-
-def _native_command_environment(paths: dict[str, Path]) -> dict[str, str]:
-    """Build the bounded native Basic Memory environment used by uvx checks."""
-    uvx = resolve_runner("uvx", os.environ.get("OPENCODE_MCP_UVX_BIN"))
-    environment = os.environ.copy()
-    environment.update(
-        {
-            "BASIC_MEMORY_HOME": str(paths["basic_notes"]),
-            "BASIC_MEMORY_CONFIG_DIR": str(paths["basic_config"]),
-            "BASIC_MEMORY_DEFAULT_PROJECT": "computer-assistant",
-            "BASIC_MEMORY_NO_PROMOS": "1",
-            "PATH": f"{uvx.parent}:{environment.get('PATH', '/usr/local/bin:/usr/bin:/bin')}",
-        }
-    )
-    return environment
-
-
-def _has_native_basic_memory_runtime(version: str) -> bool:
-    """Check the pinned Basic Memory package through the trusted uvx cache."""
-    paths = native_paths()
-    try:
-        result = subprocess.run(
-            [
-                str(resolve_runner("uvx", os.environ.get("OPENCODE_MCP_UVX_BIN"))),
-                "--offline",
-                "--prerelease=allow",
-                "--from",
-                f"basic-memory=={version}",
-                "basic-memory",
-                "--version",
-            ],
-            check=False,
-            capture_output=True,
-            text=True,
-            env=_native_command_environment(paths),
-            timeout=45,
-        )
-    except (McpRuntimeError, OSError, subprocess.TimeoutExpired):
-        return False
-    return result.returncode == 0 and version in f"{result.stdout}\n{result.stderr}"
-
-
 def _has_node_runtime(version: str, *, profile: str, profile_root: Path | None = None) -> bool:
     """Require the selected profile's trusted Node and npm at the pinned version."""
     try:
@@ -359,8 +308,13 @@ def _has_node_runtime(version: str, *, profile: str, profile_root: Path | None =
         npm = resolve_runner(
             "npm", os.environ.get("OPENCODE_MCP_NPM_BIN"), profile=profile, profile_root=profile_root
         )
-        environment = os.environ.copy()
-        environment["PATH"] = f"{node.parent}:{environment.get('PATH', '')}"
+        # The version probe needs no inherited credentials; pass only the
+        # minimum a Node/npm self-check requires.
+        environment = {
+            "HOME": os.environ.get("HOME", ""),
+            "PATH": f"{node.parent}:/usr/bin:/bin",
+            "LANG": os.environ.get("LANG", "C.UTF-8"),
+        }
         node_result = subprocess.run(
             [str(node), "--version"], check=False, capture_output=True, text=True, env=environment, timeout=10
         )
@@ -491,6 +445,11 @@ def _load_marker(path: Path) -> dict[str, Any]:
     return value
 
 
+def _marker_matches(marker: dict[str, Any], expected: dict[str, Any]) -> bool:
+    """Match required runtime fields while ignoring harmless legacy metadata."""
+    return all(marker.get(key) == value for key, value in expected.items())
+
+
 def _write_marker(path: Path, value: dict[str, Any]) -> None:
     ensure_safe_path(path)
     path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
@@ -527,16 +486,19 @@ def mcp_provisioning(
     validate_profile(profile)
     mcp_servers(profile, profile_root)
     expected = expected_marker(profile)
+    marker_matches = False
     if profile == "native":
         paths = native_paths()
         if profile_root is not None:
             raise McpRuntimeError("native MCP provisioning does not accept an isolated profile root")
         if apply:
             prepare_native(apply=True)
-        elif _load_marker(paths["marker"]) != expected:
+        try:
+            marker_matches = _marker_matches(_load_marker(paths["marker"]), expected)
+        except McpRuntimeError:
+            pass
+        if not apply and not marker_matches:
             raise McpRuntimeError("native MCP provisioning marker is missing or stale; rerun setup-mcps.sh --apply")
-        if not _has_native_basic_memory_runtime(str(expected["basicMemory"])):
-            raise McpRuntimeError("Basic Memory's canonical pinned native runtime is missing")
         if not _has_node_runtime(str(expected["nodeVersion"]), profile="native"):
             raise McpRuntimeError("the canonical pinned native Node.js runtime is missing")
         if not _has_github_runtime(paths["github_binary"], str(expected["githubVersion"])):
@@ -547,15 +509,17 @@ def mcp_provisioning(
         paths = profile_paths(profile_root)
         if apply:
             prepare_profile(profile_root, apply=True)
-        elif _load_marker(paths["marker"]) != expected:
+        try:
+            marker_matches = _marker_matches(_load_marker(paths["marker"]), expected)
+        except McpRuntimeError:
+            pass
+        if not apply and not marker_matches:
             raise McpRuntimeError("WSL2 MCP provisioning marker is missing or stale; rerun setup-mcps.sh --apply")
-        if not _has_basic_memory_runtime(profile_root, str(expected["basicMemory"])):
-            raise McpRuntimeError("Basic Memory's canonical pinned WSL2 runtime is missing")
         if not _has_node_runtime(str(expected["nodeVersion"]), profile="wsl2", profile_root=profile_root):
             raise McpRuntimeError("the canonical pinned WSL2 Node.js runtime is missing")
         if not _has_github_runtime(paths["github_binary"], str(expected["githubVersion"])):
             raise McpRuntimeError("the canonical pinned WSL2 GitHub MCP runtime is missing")
-    if apply:
+    if apply and not marker_matches:
         _write_marker(paths["marker"], expected)
     if not quiet:
         print(f"OK: canonical {profile} MCP runtimes are provisioned: {paths['marker']}")
@@ -579,9 +543,7 @@ def mcp_servers(profile: str = "native", profile_root: Path | None = None) -> di
     wrappers = {name: _wrapper(f"{name}-mcp.sh") for name in names}
     timeout = {"startup": 30_000}
     commands = {
-        "basic-memory": NATIVE_BASIC_COMMAND,
         "github": NATIVE_GITHUB_COMMAND,
-        "chatgpt": NATIVE_CHATGPT_COMMAND,
     }
     entries: dict[str, dict[str, Any]] = {
         name: {
@@ -589,7 +551,6 @@ def mcp_servers(profile: str = "native", profile_root: Path | None = None) -> di
             "command": [commands[name]],
             "disabled": False,
             "timeout": timeout.copy(),
-            **({"codemode": False} if name == "chatgpt" else {}),
         }
         for name in names
     }
@@ -616,6 +577,7 @@ def ensure_mcp_servers(data: dict[str, Any], *, profile: str, profile_root: Path
     mcp = data.setdefault("mcp", {})
     if not isinstance(mcp, dict):
         raise McpRuntimeError("mcp must be an object")
+    mcp.pop("basic-memory", None)
     timeout = mcp.setdefault("timeout", {})
     if not isinstance(timeout, dict):
         raise McpRuntimeError("mcp.timeout must be an object")
@@ -623,6 +585,7 @@ def ensure_mcp_servers(data: dict[str, Any], *, profile: str, profile_root: Path
     servers = mcp.setdefault("servers", {})
     if not isinstance(servers, dict):
         raise McpRuntimeError("mcp.servers must be an object")
+    servers.pop("basic-memory", None)
     if profile == "wsl2":
         mcp.pop("playwright", None)
         servers.pop("playwright", None)
@@ -662,29 +625,33 @@ def ensure_global_mcp_servers(data: dict[str, Any]) -> None:
     mcp = data.setdefault("mcp", {})
     if not isinstance(mcp, dict):
         raise McpRuntimeError("mcp must be an object")
+    mcp.pop("basic-memory", None)
     for name in MCP_NAMES:
         mcp.pop(name, None)
     mcp.pop("playwright", None)
     servers = mcp.setdefault("servers", {})
     if not isinstance(servers, dict):
         raise McpRuntimeError("mcp.servers must be an object")
+    servers.pop("basic-memory", None)
     servers.pop("playwright", None)
     servers.update(global_mcp_servers())
 
 
 def verify_global_mcp_servers(data: dict[str, Any]) -> None:
-    """Require canonical global Basic Memory/GitHub/ChatGPT entries without Playwright."""
+    """Require canonical global MCP entries without retired providers."""
     mcp = data.get("mcp")
     servers = mcp.get("servers") if isinstance(mcp, dict) else None
     if not isinstance(servers, dict):
         raise McpRuntimeError("mcp.servers must be configured")
     if "playwright" in servers:
         raise McpRuntimeError("global MCP configuration contains the retired project-only Playwright server")
+    if "basic-memory" in servers:
+        raise McpRuntimeError("global MCP configuration contains the retired Basic Memory server")
     expected = global_mcp_servers()
     for name, entry in expected.items():
         if servers.get(name) != entry:
             raise McpRuntimeError(f"global MCP server {name} is not exactly canonical")
-    if any(name in mcp for name in (*MCP_NAMES, "playwright")):
+    if any(name in mcp for name in (*MCP_NAMES, "playwright", "basic-memory")):
         raise McpRuntimeError("legacy flat MCP declarations remain in global configuration")
     serialized = json.dumps({name: servers[name] for name in expected}).lower()
     for marker in ("authorization", "personal_access_token", "api_key", "client_secret", "bearer", "token"):
@@ -693,107 +660,142 @@ def verify_global_mcp_servers(data: dict[str, Any]) -> None:
 
 
 def _config_helper() -> Any:
-    """Load the repository's strict JSONC parser without creating another parser."""
+    """Load the pure strict JSONC helper shared by file-config verification."""
     helper_path = SCRIPT_ROOT / "setup-opencode-jsonc.py"
     spec = importlib.util.spec_from_file_location("mcp_runtime_jsonc", helper_path)
     if spec is None or spec.loader is None:
         raise McpRuntimeError("cannot load strict JSONC helper")
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    try:
+        spec.loader.exec_module(module)
+    except OSError as error:
+        raise McpRuntimeError("strict JSONC helper is unavailable") from error
     return module
 
 
 def load_config(path: Path) -> dict[str, Any]:
     """Load one bounded regular OpenCode JSON/JSONC configuration object."""
+    return _parse_config_bytes(_read_regular(path, limit=MAX_CONFIG_BYTES), path)
+
+
+def _parse_config_bytes(content: bytes, path: Path) -> dict[str, Any]:
+    """Decode one already-bounded source snapshot without echoing config values."""
     try:
-        text = _read_regular(path, limit=MAX_CONFIG_BYTES).decode("utf-8")
+        text = content.decode("utf-8")
         value = _config_helper().parse_jsonc(text)
-    except (UnicodeDecodeError, ValueError) as error:
-        raise McpRuntimeError(f"cannot parse OpenCode configuration {path}: {error}") from error
+    except (UnicodeDecodeError, ValueError, RecursionError) as error:
+        raise McpRuntimeError(f"cannot parse OpenCode configuration {path}: invalid or ambiguous JSONC") from error
     if not isinstance(value, dict):
         raise McpRuntimeError(f"OpenCode configuration is not an object: {path}")
     return value
 
 
-def write_config(path: Path, value: dict[str, Any]) -> None:
-    """Atomically write one existing regular config without following symlinks."""
-    absolute = _absolute(path)
-    parent = absolute.parent
-    current = Path("/")
-    for part in parent.parts[1:]:
-        current /= part
-        metadata = current.lstat()
-        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
-            raise McpRuntimeError(f"refusing unsafe configuration path ancestor: {current}")
-    metadata = absolute.lstat()
-    if not stat.S_ISREG(metadata.st_mode) or stat.S_ISLNK(metadata.st_mode):
-        raise McpRuntimeError(f"configuration target is not a regular file: {absolute}")
-    encoded = (json.dumps(value, indent=2) + "\n").encode("utf-8")
+def _config_transaction_helper() -> Any:
+    """Load the source-only file transaction engine, never an installed profile."""
+    spec = importlib.util.spec_from_file_location("mcp_config_transaction", SCRIPT_ROOT / "mcp_config_transaction.py")
+    if spec is None or spec.loader is None:
+        raise McpRuntimeError("cannot load config transaction helper")
+    module = importlib.util.module_from_spec(spec)
+    previous = sys.modules.get(spec.name)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+    except OSError as error:
+        raise McpRuntimeError("config transaction helper is unavailable") from error
+    finally:
+        if previous is None:
+            sys.modules.pop(spec.name, None)
+        else:
+            sys.modules[spec.name] = previous
+    return module
+
+
+def _render_mcp_config(original: bytes, value: dict[str, Any], path: Path) -> bytes:
+    """Replace only the owned top-level MCP value, retaining all unrelated text."""
+    current = _parse_config_bytes(original, path)
+    other_current = {key: item for key, item in current.items() if key != "mcp"}
+    other_desired = {key: item for key, item in value.items() if key != "mcp"}
+    if (json.dumps(other_current, sort_keys=True, allow_nan=False)
+            != json.dumps(other_desired, sort_keys=True, allow_nan=False)):
+        raise McpRuntimeError("MCP configuration write would change unrelated settings")
+    if not isinstance(value.get("mcp"), dict):
+        raise McpRuntimeError("MCP configuration write requires one MCP object")
+    try:
+        rendered = _config_helper().replace_top_level(original.decode("utf-8"), "mcp", value["mcp"])
+        encoded = rendered.encode("utf-8")
+    except (UnicodeError, ValueError, RecursionError) as error:
+        raise McpRuntimeError("cannot render bounded MCP configuration") from error
     if len(encoded) > MAX_CONFIG_BYTES:
         raise McpRuntimeError("canonical MCP configuration exceeds the bounded size")
-    temporary = parent / f".{absolute.name}.{secrets.token_hex(12)}.tmp"
+    return encoded
+
+
+def _require_config_digest(value: str | None) -> str:
+    """Require an explicit lowercase SHA-256 from the selected preview."""
+    if not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
+        raise McpRuntimeError("global config writes/restore require --expect-sha256 from an exact preview")
+    return value
+
+
+def write_config(path: Path, value: dict[str, Any], *, expected_sha256: str | None = None) -> dict[str, Any]:
+    """Publish one preview-bound MCP change through reversible source handling."""
+    expected = _require_config_digest(expected_sha256)
+    original = _read_regular(path, limit=MAX_CONFIG_BYTES)
+    if hashlib.sha256(original).hexdigest() != expected:
+        raise McpRuntimeError("configuration changed since preview")
+    encoded = _render_mcp_config(original, value, path)
+    transaction = _config_transaction_helper()
     try:
-        with temporary.open("xb") as handle:
-            handle.write(encoded)
-        temporary.chmod(stat.S_IMODE(metadata.st_mode))
-        os.replace(temporary, absolute)
-    except OSError as error:
-        try:
-            temporary.unlink()
-        except FileNotFoundError:
-            pass
-        raise McpRuntimeError(f"cannot write OpenCode configuration {absolute}: {error}") from error
+        return transaction.apply(_absolute(path), encoded, expected_sha256=expected)
+    except transaction.ConfigTransactionError as error:
+        raise McpRuntimeError(str(error)) from error
 
 
-def configure_mcp_file(path: Path, *, scope: str, apply: bool) -> None:
-    """Verify or normalize one selected MCP configuration scope."""
-    data = load_config(path)
+def configure_mcp_file(
+    path: Path, *, scope: str, apply: bool, preview: bool = False,
+    expected_sha256: str | None = None, restore_receipt: Path | None = None,
+) -> dict[str, Any] | None:
+    """Verify by default; preview, guarded apply or explicit restore are separate."""
+    if preview and apply:
+        raise McpRuntimeError("--preview and --apply are mutually exclusive")
     if scope == "project":
-        if apply:
+        if apply or preview or expected_sha256 is not None or restore_receipt is not None:
             raise McpRuntimeError("the portable project configuration is verification-only")
-        verify_mcp_servers(data, profile="native")
+        verify_mcp_servers(load_config(path), profile="native")
         return
     if scope != "global":
         raise McpRuntimeError(f"unsupported MCP configuration scope: {scope}")
+    if restore_receipt is not None:
+        expected = _require_config_digest(expected_sha256)
+        transaction = _config_transaction_helper()
+        try:
+            return transaction.restore(_absolute(path), _absolute(restore_receipt),
+                                       expected_sha256=expected, apply=apply)
+        except transaction.ConfigTransactionError as error:
+            raise McpRuntimeError(str(error)) from error
+    if expected_sha256 is not None and not apply:
+        raise McpRuntimeError("--expect-sha256 is only used with --apply or --restore-receipt")
     if apply:
+        _require_config_digest(expected_sha256)
+    original = _read_regular(path, limit=MAX_CONFIG_BYTES)
+    if apply and hashlib.sha256(original).hexdigest() != expected_sha256:
+        raise McpRuntimeError("configuration changed since preview")
+    data = _parse_config_bytes(original, path)
+    if apply or preview:
         ensure_global_mcp_servers(data)
-        write_config(path, data)
+        verify_global_mcp_servers(data)
+    if apply:
+        return write_config(path, data, expected_sha256=expected_sha256)
+    if preview:
+        transaction = _config_transaction_helper()
+        try:
+            report = transaction.preview(_absolute(path), _render_mcp_config(original, data, path))
+        except transaction.ConfigTransactionError as error:
+            raise McpRuntimeError(str(error)) from error
+        if report["current_sha256"] != hashlib.sha256(original).hexdigest():
+            raise McpRuntimeError("configuration changed while preparing preview")
+        return report
     verify_global_mcp_servers(data)
-
-
-def verify_basic_memory_project(
-    config_path: Path,
-    *,
-    project: str,
-    notes: Path,
-    require_default: bool = True,
-) -> None:
-    """Require one local Basic Memory project to resolve to the selected notes root."""
-    if not project or project.strip() != project:
-        raise McpRuntimeError("Basic Memory project name must be non-empty without surrounding whitespace")
-    expected_notes = ensure_safe_path(notes, allow_missing=False)
-    try:
-        value = json.loads(
-            _read_regular(config_path, limit=MAX_CONFIG_BYTES).decode("utf-8"),
-            object_pairs_hook=_pairs,
-        )
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise McpRuntimeError(f"cannot parse Basic Memory configuration {config_path}: {error}") from error
-    if not isinstance(value, dict):
-        raise McpRuntimeError(f"Basic Memory configuration is not an object: {config_path}")
-    projects = value.get("projects")
-    entry = projects.get(project) if isinstance(projects, dict) else None
-    if not isinstance(entry, dict):
-        raise McpRuntimeError(f"Basic Memory project is not registered: {project}")
-    configured_path = entry.get("path")
-    if not isinstance(configured_path, str):
-        raise McpRuntimeError(f"Basic Memory project path is invalid: {project}")
-    if ensure_safe_path(Path(configured_path), allow_missing=False) != expected_notes:
-        raise McpRuntimeError(f"Basic Memory project {project} does not use the canonical notes root")
-    if entry.get("mode") != "local":
-        raise McpRuntimeError(f"Basic Memory project {project} is not local")
-    if require_default and value.get("default_project") != project:
-        raise McpRuntimeError(f"Basic Memory project {project} is not the default")
 
 
 def _runner_candidates(kind: str, *, profile: str, profile_root: Path | None = None) -> list[Path]:
@@ -807,7 +809,6 @@ def _runner_candidates(kind: str, *, profile: str, profile_root: Path | None = N
             raise McpRuntimeError("WSL2 runner resolution requires an isolated profile root")
         node_bin = profile_paths(profile_root)["node_root"] / "bin"
     values = {
-        "uvx": (home / ".local/bin/uvx", Path("/usr/local/bin/uvx"), Path("/usr/bin/uvx")),
         "gh": (home / ".local/bin/gh", Path("/usr/local/bin/gh"), Path("/usr/bin/gh")),
         "npx": (node_bin / "npx",),
         "npm": (node_bin / "npm",),
@@ -931,26 +932,28 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "action",
-        choices=("policy", "prepare", "mcp-runtime", "runner", "node-runtime", "github-runtime", "config", "basic-project"),
+        choices=("policy", "prepare", "mcp-runtime", "runner", "node-runtime", "github-runtime", "config"),
     )
     parser.add_argument("--profile", default="native")
     parser.add_argument("--profile-root", type=Path)
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--quiet", action="store_true")
-    parser.add_argument("--kind", choices=("uvx", "gh", "npx", "npm", "node"))
+    parser.add_argument("--kind", choices=("gh", "npx", "npm", "node"))
     parser.add_argument("--override")
     parser.add_argument("--config", type=Path)
     parser.add_argument("--scope", choices=("global", "project"))
-    parser.add_argument("--notes", type=Path)
-    parser.add_argument("--project")
-    parser.add_argument("--allow-non-default", action="store_true")
+    parser.add_argument("--preview", action="store_true", help="preview a global config normalization without writes")
+    parser.add_argument("--expect-sha256", help="exact current config SHA-256 required for apply/restore")
+    parser.add_argument("--restore-receipt", type=Path, help="preview or explicitly apply one bound config restore")
     args = parser.parse_args()
     try:
         validate_profile(args.profile)
+        if args.action != "config" and (args.preview or args.expect_sha256 is not None or args.restore_receipt is not None):
+            raise McpRuntimeError("config preview/restore options are only valid for the config action")
         if args.action == "policy":
             policy = load_policy()
             if args.kind:
-                keys = {"uvx": "basicMemory", "npm": "nodeVersion", "node": "nodeVersion"}
+                keys = {"npm": "nodeVersion", "node": "nodeVersion"}
                 if args.kind not in keys:
                     raise McpRuntimeError(f"policy has no package version for runner: {args.kind}")
                 key = keys[args.kind]
@@ -992,20 +995,13 @@ def main() -> int:
         elif args.action == "config":
             if args.config is None or args.scope is None:
                 raise McpRuntimeError("config requires --config and --scope")
-            configure_mcp_file(args.config, scope=args.scope, apply=args.apply)
-            if not args.quiet:
+            receipt = configure_mcp_file(args.config, scope=args.scope, apply=args.apply,
+                                         preview=args.preview, expected_sha256=args.expect_sha256,
+                                         restore_receipt=args.restore_receipt)
+            if receipt is not None and not args.quiet:
+                print(json.dumps(receipt, indent=2))
+            elif not args.quiet:
                 print(f"OK: canonical {args.scope} MCP configuration: {_absolute(args.config)}")
-        elif args.action == "basic-project":
-            if args.config is None or args.notes is None or args.project is None:
-                raise McpRuntimeError("basic-project requires --config, --notes, and --project")
-            verify_basic_memory_project(
-                args.config,
-                project=args.project,
-                notes=args.notes,
-                require_default=not args.allow_non_default,
-            )
-            if not args.quiet:
-                print(f"OK: Basic Memory project {args.project}: {_absolute(args.notes)}")
         else:
             mcp_provisioning(
                 args.profile_root,

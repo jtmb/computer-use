@@ -1,0 +1,7 @@
+{
+  "uuid": "opencode-window-control@computer-use.local",
+  "name": "OpenCode Window Control",
+  "description": "Bounded current-workspace window inventory and previewed focus/layout operations. No evaluation, shell commands, input injection, or window closing.",
+  "shell-version": ["50"],
+  "version": 2
+}

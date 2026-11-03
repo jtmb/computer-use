@@ -1,0 +1,17 @@
+--- a/packages/server/src/handlers/session.ts
++++ b/packages/server/src/handlers/session.ts
+@@ -241,14 +241,6 @@
+               })
+               .pipe(
+                 Effect.catchTag("Session.NotFoundError", missingSession),
+-                Effect.catchTag(
+-                  "Session.TitleConflictError",
+-                  (error) =>
+-                    new ConflictError({
+-                      resource: error.sessionID,
+-                      message: "Session title changed before the conditional rename.",
+-                    }),
+-                ),
+               )
+           }
+           if (ctx.payload.title !== undefined && ctx.payload.expectedTitle === undefined) {

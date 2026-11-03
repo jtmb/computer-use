@@ -1,0 +1,29 @@
+diff --git a/packages/core/src/plugin/host.ts b/packages/core/src/plugin/host.ts
+index 56f6afde336324ddf88bef4a0f785e2ac1e87781..641ae37a2f660c2bce3f4bc2a998aaa558bb21a5 100644
+--- a/packages/core/src/plugin/host.ts
++++ b/packages/core/src/plugin/host.ts
+@@ -548,0 +549,6 @@ export const make = Effect.fn("PluginHost.make")(function* (
++      active: () =>
++        sessions.active.pipe(
++          Effect.map((active) =>
++            Object.fromEntries(Array.from(active, (sessionID) => [sessionID, { type: "running" as const }])),
++          ),
++        ),
+diff --git a/packages/plugin/src/effect/session.ts b/packages/plugin/src/effect/session.ts
+index 91134aa451846c8e204655e1b33342c7738383fe..bef41dea734203f3859a95cacdd3ab7f1fc9c1bf 100644
+--- a/packages/plugin/src/effect/session.ts
++++ b/packages/plugin/src/effect/session.ts
+@@ -155,0 +156 @@ export type SessionDomain = Pick<
++  | "active"
+diff --git a/packages/plugin/src/promise/adapter.ts b/packages/plugin/src/promise/adapter.ts
+index f7088b4cfdc7715dbeaa6032eadc7c328827d1ac..ae922933d7950c925d82c790c76c2823566e7012 100644
+--- a/packages/plugin/src/promise/adapter.ts
++++ b/packages/plugin/src/promise/adapter.ts
+@@ -595,0 +596 @@ export function fromPromise(plugin: Plugin) {
++            active: adaptApiMethod(SessionEndpoints["session.active"], host.session.active),
+diff --git a/packages/plugin/src/promise/session.ts b/packages/plugin/src/promise/session.ts
+index e83a0e1e4cf9881c357cc47d296c7c328827d1ac..dc89300531fbc82dfffb2971bc7720652ab6fafe 100644
+--- a/packages/plugin/src/promise/session.ts
++++ b/packages/plugin/src/promise/session.ts
+@@ -155,0 +156 @@ export type SessionDomain = Pick<
++  | "active"

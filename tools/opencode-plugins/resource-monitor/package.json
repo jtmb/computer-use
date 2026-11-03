@@ -1,0 +1,33 @@
+{
+  "name": "opencode-resource-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Optional OpenCode v2 TUI CPU and RAM monitor.",
+  "exports": {
+    "./tui": "./tui.tsx"
+  },
+  "scripts": {
+    "check": "npm run typecheck && npm test",
+    "test": "timeout --kill-after=3s 60s node --experimental-strip-types --test --test-timeout=30000 --test-concurrency=1 test/*.test.ts test/*.test.mjs",
+    "typecheck": "timeout --kill-after=3s 180s node --max-old-space-size=2048 node_modules/typescript/bin/tsc --noEmit"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.1.1"
+  },
+  "peerDependencies": {
+    "@opencode/theme": "2.1.1",
+    "@opentui/core": ">=0.6.6 <0.7.0",
+    "@opentui/solid": ">=0.6.6 <0.7.0",
+    "solid-js": ">=1.9.0 <2.0.0"
+  },
+  "devDependencies": {
+    "@opencode/theme": "2.1.1",
+    "@opentui/core": "0.6.6",
+    "@opentui/solid": "0.6.6",
+    "@types/node": "24.12.2",
+    "@types/json-schema": "7.0.15",
+    "solid-js": "1.9.12",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small, private memory store for the local computer-assistant skills.
+"""Legacy JSON memory utility requiring an explicit active-repository path.
 
 Reads are safe by default. Remember/forget/prune only write with --apply.
 The JSON store is owner-only and rejects obvious credentials.
@@ -12,14 +12,16 @@ import fcntl
 import json
 import os
 import re
+import stat
+import subprocess
 import tempfile
 import uuid
-from contextlib import contextmanager
+from collections.abc import Iterator
+from contextlib import contextmanager, nullcontext
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 
-DEFAULT_PATH = Path.home() / "Documents" / "computer-assistant" / "memory.json"
 CATEGORIES = ("preference", "system", "workflow", "decision", "pending")
 SOURCES = ("user", "observed", "verified")
 SECRET_PATTERN = re.compile(
@@ -34,8 +36,85 @@ def now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-def memory_path() -> Path:
-    return Path(os.environ.get("ASSISTANT_MEMORY_PATH", DEFAULT_PATH)).expanduser()
+def _git_identity(directory: Path) -> tuple[Path, Path]:
+    """Return the resolved worktree root and shared Git directory."""
+    cwd = directory.resolve(strict=True)
+    try:
+        root_result = subprocess.run(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=cwd,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        common_result = subprocess.run(
+            ["git", "rev-parse", "--git-common-dir"],
+            cwd=cwd,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise SystemExit("assistant-memory: cannot verify the active Git repository") from exc
+    if root_result.returncode != 0 or common_result.returncode != 0:
+        raise SystemExit("assistant-memory: run this command from an active Git repository")
+    try:
+        root = Path(root_result.stdout.strip()).resolve(strict=True)
+        common = Path(common_result.stdout.strip())
+        if not common.is_absolute():
+            common = cwd / common
+        common = common.resolve(strict=True)
+    except (OSError, RuntimeError) as exc:
+        raise SystemExit("assistant-memory: cannot verify the active Git repository") from exc
+    if not root.is_dir() or not common.is_dir():
+        raise SystemExit("assistant-memory: invalid active Git repository")
+    return root, common
+
+
+def _active_repository_root() -> Path:
+    """Require and return the worktree active in the caller's current directory."""
+    root, _common = _git_identity(Path.cwd())
+    return root
+
+
+def memory_path(selected: Path | str) -> Path:
+    """Validate an explicitly selected store path inside the active Git worktree."""
+    if not str(selected).strip():
+        raise SystemExit("assistant-memory: --path must select a file")
+    root = _active_repository_root()
+    candidate = Path(selected).expanduser()
+    if not candidate.is_absolute():
+        candidate = Path.cwd() / candidate
+    candidate = Path(os.path.abspath(candidate))
+    try:
+        relative = candidate.relative_to(root)
+    except ValueError as exc:
+        raise SystemExit(
+            "assistant-memory: --path must be inside the active Git repository"
+        ) from exc
+    if not relative.parts or relative.parts[0] == ".git":
+        raise SystemExit("assistant-memory: --path must select a file outside Git metadata")
+    current = root
+    missing = False
+    for index, part in enumerate(relative.parts):
+        current = current / part
+        if missing:
+            continue
+        try:
+            metadata = current.lstat()
+        except FileNotFoundError:
+            missing = True
+            continue
+        if stat.S_ISLNK(metadata.st_mode):
+            raise SystemExit("assistant-memory: --path cannot contain symlinks")
+        final = index == len(relative.parts) - 1
+        if final and not stat.S_ISREG(metadata.st_mode):
+            raise SystemExit("assistant-memory: --path must select a regular file")
+        if not final and not stat.S_ISDIR(metadata.st_mode):
+            raise SystemExit("assistant-memory: --path ancestors must be directories")
+    return candidate
 
 
 def empty_store() -> dict:
@@ -84,15 +163,33 @@ def validate_store(data: object) -> dict:
 
 
 @contextmanager
-def store_lock(*, exclusive: bool):
+def store_lock(path: Path, *, exclusive: bool, create: bool = False) -> Iterator[None]:
     """Serialize access through a process lock beside the memory store."""
-    path = memory_path()
-    path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
-    os.chmod(path.parent, 0o700)
+    path = memory_path(path)
     lock_path = path.with_name(".memory.lock")
-    fd = os.open(lock_path, os.O_RDWR | os.O_CREAT, 0o600)
+    memory_path(lock_path)
+    if create:
+        path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+        os.chmod(path.parent, 0o700)
+        memory_path(lock_path)
+    flags = os.O_RDWR if exclusive else os.O_RDONLY
+    flags |= getattr(os, "O_NOFOLLOW", 0)
+    if create:
+        flags |= os.O_CREAT
     try:
-        os.fchmod(fd, 0o600)
+        fd = os.open(lock_path, flags, 0o600)
+    except FileNotFoundError:
+        if not create:
+            yield
+            return
+        raise SystemExit("assistant-memory: cannot create the store lock") from None
+    except OSError as exc:
+        raise SystemExit("assistant-memory: cannot safely open the store lock") from exc
+    try:
+        if not stat.S_ISREG(os.fstat(fd).st_mode):
+            raise SystemExit("assistant-memory: store lock must be a regular file")
+        if create:
+            os.fchmod(fd, 0o600)
         fcntl.flock(fd, fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH)
         yield
     finally:
@@ -102,8 +199,8 @@ def store_lock(*, exclusive: bool):
             os.close(fd)
 
 
-def load(*, create: bool = False) -> dict:
-    path = memory_path()
+def load(path: Path, *, create: bool = False) -> dict:
+    path = memory_path(path)
     if not path.exists():
         if create:
             return empty_store()
@@ -115,11 +212,12 @@ def load(*, create: bool = False) -> dict:
     return validate_store(data)
 
 
-def save(data: dict) -> None:
+def save(path: Path, data: dict) -> None:
     validate_store(data)
-    path = memory_path()
+    path = memory_path(path)
     path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
     os.chmod(path.parent, 0o700)
+    path = memory_path(path)
     fd, tmp_name = tempfile.mkstemp(prefix=".memory.", suffix=".tmp", dir=path.parent)
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as handle:
@@ -155,8 +253,8 @@ def print_entries(entries: list[dict], as_json: bool) -> None:
         )
 
 
-def filtered_entries(args) -> list[dict]:
-    entries = load()["entries"]
+def filtered_entries(args: argparse.Namespace) -> list[dict]:
+    entries = load(memory_path(args.path))["entries"]
     if not getattr(args, "all", False):
         entries = [entry for entry in entries if not is_expired(entry)]
     if getattr(args, "category", None):
@@ -166,26 +264,28 @@ def filtered_entries(args) -> list[dict]:
     return entries
 
 
-def command_init(_args) -> None:
-    with store_lock(exclusive=True):
-        path = memory_path()
+def command_init(_args: argparse.Namespace) -> None:
+    path = memory_path(_args.path)
+    with store_lock(path, exclusive=True, create=True):
         if path.exists():
-            load()
+            load(path)
             os.chmod(path, 0o600)
             os.chmod(path.parent, 0o700)
             print(f"Memory store already initialized: {path}")
             return
-        save(empty_store())
+        save(path, empty_store())
         print(f"Initialized memory store: {path}")
 
 
-def command_list(args) -> None:
-    with store_lock(exclusive=False):
+def command_list(args: argparse.Namespace) -> None:
+    path = memory_path(args.path)
+    with store_lock(path, exclusive=False):
         print_entries(filtered_entries(args), args.json)
 
 
-def command_search(args) -> None:
-    with store_lock(exclusive=False):
+def command_search(args: argparse.Namespace) -> None:
+    path = memory_path(args.path)
+    with store_lock(path, exclusive=False):
         terms = args.query.casefold().split()
         entries = [
             entry
@@ -205,15 +305,17 @@ def validate_expiry(value: str | None) -> str | None:
     return value
 
 
-def command_remember(args) -> None:
+def command_remember(args: argparse.Namespace) -> None:
     text = " ".join(args.text.split())
     if not text:
         raise SystemExit("assistant-memory: memory text cannot be empty")
     if SECRET_PATTERN.search(text):
         raise SystemExit("assistant-memory: refusing text that looks like a credential")
     expiry = validate_expiry(args.expires)
-    with store_lock(exclusive=True):
-        data = load(create=True)
+    path = memory_path(args.path)
+    lock = store_lock(path, exclusive=True, create=True) if args.apply else nullcontext()
+    with lock:
+        data = load(path, create=not args.apply)
         duplicate = next(
             (
                 entry
@@ -243,13 +345,17 @@ def command_remember(args) -> None:
             "updated_at": timestamp,
         }
         data["entries"].append(entry)
-        save(data)
+        save(path, data)
         print(json.dumps({"applied": True, "entry": entry}, indent=2))
 
 
-def command_forget(args) -> None:
-    with store_lock(exclusive=True):
-        data = load()
+def command_forget(args: argparse.Namespace) -> None:
+    path = memory_path(args.path)
+    if args.apply and not path.exists():
+        load(path)
+    lock = store_lock(path, exclusive=True, create=True) if args.apply else nullcontext()
+    with lock:
+        data = load(path)
         matching = [entry for entry in data["entries"] if entry["id"] == args.id]
         if not matching:
             raise SystemExit(f"assistant-memory: id not found: {args.id}")
@@ -257,27 +363,31 @@ def command_forget(args) -> None:
             print(json.dumps({"dry_run": True, "would_forget": matching[0]}, indent=2))
             return
         data["entries"] = [entry for entry in data["entries"] if entry["id"] != args.id]
-        save(data)
+        save(path, data)
         print(json.dumps({"applied": True, "forgot": matching[0]}, indent=2))
 
 
-def command_prune(args) -> None:
-    with store_lock(exclusive=True):
-        data = load()
+def command_prune(args: argparse.Namespace) -> None:
+    path = memory_path(args.path)
+    if args.apply and not path.exists():
+        load(path)
+    lock = store_lock(path, exclusive=True, create=True) if args.apply else nullcontext()
+    with lock:
+        data = load(path)
         expired = [entry for entry in data["entries"] if is_expired(entry)]
         if not args.apply:
             print(json.dumps({"dry_run": True, "expired": expired}, indent=2))
             return
         expired_ids = {entry["id"] for entry in expired}
         data["entries"] = [entry for entry in data["entries"] if entry["id"] not in expired_ids]
-        save(data)
+        save(path, data)
         print(json.dumps({"applied": True, "pruned": len(expired)}, indent=2))
 
 
-def command_validate(_args) -> None:
-    with store_lock(exclusive=False):
-        data = load()
-        path = memory_path()
+def command_validate(_args: argparse.Namespace) -> None:
+    path = memory_path(_args.path)
+    with store_lock(path, exclusive=False):
+        data = load(path)
         file_stat = path.stat()
         parent_stat = path.parent.stat()
         if file_stat.st_mode & 0o777 != 0o600:
@@ -294,7 +404,15 @@ def command_validate(_args) -> None:
 
 
 def parser() -> argparse.ArgumentParser:
-    result = argparse.ArgumentParser(description="Private memory store for computer-assistant skills")
+    result = argparse.ArgumentParser(
+        description="Private memory store for computer-assistant skills"
+    )
+    result.add_argument(
+        "--path",
+        type=Path,
+        required=True,
+        help="store file inside the active Git repository",
+    )
     sub = result.add_subparsers(dest="command", required=True)
 
     init = sub.add_parser("init", help="create an empty owner-only store")

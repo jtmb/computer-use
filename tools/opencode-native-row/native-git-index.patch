@@ -1,0 +1,67 @@
+diff --git a/packages/core/src/plugin/vcs/git.ts b/packages/core/src/plugin/vcs/git.ts
+--- a/packages/core/src/plugin/vcs/git.ts
++++ b/packages/core/src/plugin/vcs/git.ts
+@@ -83,10 +83,10 @@
+       const git = ctx.git
+       const ref = (yield* git.hasHead(ctx.directory)) ? "HEAD" : undefined
+       const [list, stats] = yield* Effect.all(
+-        [git.status(ctx.directory), ref ? git.stats(ctx.directory, ref) : Effect.succeed([] as Stat[])],
++        [git.status(ctx.directory), ref ? git.stats(ctx.directory, ref) : Effect.succeed({ items: [] as Stat[], valid: true })],
+         { concurrency: 2 },
+       )
+-      const map = nums(stats)
++      const map = nums(stats.items)
+       const untracked = yield* untrackedBatch(
+         ctx,
+         list.filter((item) => item.status === "added" && !map.has(item.file)).map((item) => item.file),
+@@ -163,7 +163,10 @@
+ 
+ const cfg = [
+   "--no-optional-locks",
++  // Porcelain diff can refresh the index even with optional locks disabled.
+   "-c",
++  "diff.autoRefreshIndex=false",
++  "-c",
+   "core.autocrlf=false",
+   "-c",
+   "core.fsmonitor=false",
+@@ -390,12 +393,11 @@
+   })
+ 
+   const stats = Effect.fn("VcsGit.stats")(function* (cwd: string, ref: string, target?: string) {
+-    return numstat(
+-      yield* text(
+-        ["diff", "--no-ext-diff", "--no-renames", "--numstat", "-z", ref, ...(target ? [target] : []), "--", "."],
+-        { cwd },
+-      ),
++    const result = yield* run(
++      ["diff", "--no-ext-diff", "--no-renames", "--numstat", "-z", ref, ...(target ? [target] : []), "--", "."],
++      { cwd },
+     )
++    return { items: numstat(result.text()), valid: result.exitCode === 0 && !result.truncated }
+   })
+ 
+   const patch = Effect.fn("VcsGit.patch")(function* (cwd: string, ref: string, file: string, options?: PatchOptions) {
+@@ -733,15 +735,19 @@
+     ],
+     { concurrency: 3 },
+   )
++  if (!stats.valid) return yield* new DiffError({ message: "Unable to read complete Git change statistics" })
++  // With auto-refresh disabled, name-status can include stat-only clean paths.
++  const changed = new Set(stats.items.map((item) => item.file))
++  const tracked = list.filter((item) => changed.has(item.file))
+   return yield* files(
+     ctx,
+     ref,
+     merge(
+-      list,
++      tracked,
+       extra.filter((item) => item.code === "??"),
+     ),
+-    nums(stats),
+-    yield* batchPatches(ctx, ref, list, options),
++    nums(stats.items),
++    yield* batchPatches(ctx, ref, tracked, options),
+     options,
+   )
+ })

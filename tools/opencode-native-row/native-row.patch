@@ -1,0 +1,879 @@
+diff --git a/packages/tui/src/routes/session/composer/subagent-row.ts b/packages/tui/src/routes/session/composer/subagent-row.ts
+new file mode 100644
+index 0000000..e78054f
+--- /dev/null
++++ b/packages/tui/src/routes/session/composer/subagent-row.ts
+@@ -0,0 +1,57 @@
++import type { SessionInfo, SessionMessageInfo } from "@opencode/client"
++
++export function subagentDispatch(messages: readonly SessionMessageInfo[], sessionID: string) {
++  for (const message of messages.toReversed()) {
++    if (message.type !== "assistant") continue
++    for (const part of message.content.toReversed()) {
++      if (part.type !== "tool" || part.name !== "subagent" || part.state.status === "streaming") continue
++      const metadata = part.state.metadata
++      // Progress/output identifies new children; input.sessionID identifies continuations only.
++      const id = text(metadata?.sessionID) ?? text(part.state.input.sessionID)
++      if (id !== sessionID) continue
++      return {
++        description: text(part.state.input.description),
++        prompt: text(part.state.input.prompt),
++        model: text(part.state.input.model),
++      }
++    }
++  }
++}
++
++export function subagentRow(input: {
++  session: SessionInfo
++  status: "running" | "idle"
++  dispatch?: ReturnType<typeof subagentDispatch>
++  messages: readonly SessionMessageInfo[]
++}) {
++  const title = text(input.session.title?.replace(/@(\w+) subagent/, ""))
++  const prompt = input.dispatch?.prompt ?? input.messages.find((message) => message.type === "user")?.text
++  const preamble = "You are a subagent spawned by another session."
++  const excerpt = prompt?.startsWith(preamble) ? prompt.slice(preamble.length) : prompt
++  const task = input.dispatch?.description ?? title ?? text(excerpt)?.slice(0, 100) ?? "Subagent task"
++  const model = input.session.model
++  const outcome = input.session.time.idle === undefined ? undefined : input.session.outcome
++  return {
++    task: task.replace(/\s+/g, " "),
++    model: model ? `${model.providerID}/${model.id}` : "unknown",
++    variant: model ? (model.variant ?? "not set") : "unknown",
++    requested: input.dispatch?.model,
++    // A header is a selection, not proof of the provider's effective model or reasoning configuration.
++    effort: "unknown",
++    execution: "unknown",
++    status:
++      input.status === "running"
++        ? "Running"
++        : outcome === "succeeded"
++          ? "Succeeded"
++          : outcome === "failed"
++            ? "Failed"
++            : outcome === "interrupted"
++              ? "Interrupted"
++              : "Idle (outcome unknown)",
++  }
++}
++
++function text(value: unknown) {
++  return typeof value === "string" ? value.trim() || undefined : undefined
++}
+diff --git a/packages/tui/src/routes/session/composer/subagents-tab.tsx b/packages/tui/src/routes/session/composer/subagents-tab.tsx
+index 2371be0..3f8b3e6 100644
+--- a/packages/tui/src/routes/session/composer/subagents-tab.tsx
++++ b/packages/tui/src/routes/session/composer/subagents-tab.tsx
+@@ -1,7 +1,7 @@
+ import { createMemo, For, Show, createEffect, onMount, onCleanup } from "solid-js"
+ import { createStore } from "solid-js/store"
+ import { TextAttributes, ScrollBoxRenderable } from "@opentui/core"
+-import { useRenderer } from "@opentui/solid"
++import { useRenderer, useTerminalDimensions } from "@opentui/solid"
+ import type { SessionInfo } from "@opencode/client"
+ import { useRoute, useRouteData } from "../../../context/route"
+ import { useData } from "../../../context/data"
+@@ -11,20 +11,21 @@ import { useStorage } from "../../../context/storage"
+ import { Locale } from "../../../util/locale"
+ import { Keymap } from "../../../context/keymap"
+ import { useComposerTab } from "./context"
+-import { withTimestampedFallback } from "@opencode/util/session-title-fallback"
+ import { sessionFamily } from "../../../util/session"
++import { subagentDispatch, subagentRow } from "./subagent-row"
+ 
+ interface SubagentEntry {
+   sessionID: string
+   agent: string
+-  title: string
+   status: string
++  row: ReturnType<typeof subagentRow>
+   current: boolean
+   prefix: string
+ }
+ 
+ export function SubagentsTab(props: { sessionID: string }) {
+   const renderer = useRenderer()
++  const dimensions = useTerminalDimensions()
+   const route = useRouteData("session")
+   const data = useData()
+   const client = useClient()
+@@ -44,8 +45,8 @@ export function SubagentsTab(props: { sessionID: string }) {
+ 
+     const result = sessionFamily<SessionInfo>(data.session.list(), current.id).map(
+       ({ session, prefix }): SubagentEntry => {
+-        const title = withTimestampedFallback(session)
+-        const agentMatch = title.match(/@(\w+) subagent/)
++        const agentMatch = session.title?.match(/@(\w+) subagent/)
++        const status = data.session.status(session.id)
+         return {
+           sessionID: session.id,
+           agent: session.agent
+@@ -53,8 +54,15 @@ export function SubagentsTab(props: { sessionID: string }) {
+             : agentMatch
+               ? Locale.titlecase(agentMatch[1])
+               : "Subagent",
+-          title: agentMatch ? title.replace(agentMatch[0], "").trim() || title : title,
+-          status: data.session.status(session.id),
++          status,
++          row: subagentRow({
++            session,
++            status,
++            dispatch: session.parentID
++              ? subagentDispatch(data.session.message.list(session.parentID), session.id)
++              : undefined,
++            messages: data.session.message.list(session.id),
++          }),
+           current: session.id === route.sessionID,
+           prefix,
+         }
+@@ -65,6 +73,7 @@ export function SubagentsTab(props: { sessionID: string }) {
+   })
+ 
+   let selectedSessionID = ""
++  let selectedChildID = ""
+   let wasActive = false
+   let scroll: ScrollBoxRenderable | undefined
+ 
+@@ -75,6 +84,7 @@ export function SubagentsTab(props: { sessionID: string }) {
+     if (!active) {
+       if (wasActive) {
+         selectedSessionID = ""
++        selectedChildID = ""
+         setStore("selected", 0)
+       }
+       wasActive = false
+@@ -85,6 +95,7 @@ export function SubagentsTab(props: { sessionID: string }) {
+       const currentIdx = list.findIndex((e) => e.current)
+       const next = currentIdx >= 0 ? currentIdx : 0
+       selectedSessionID = route.sessionID
++      selectedChildID = list[next].sessionID
+       setStore("selected", next)
+       const scrollCurrentIntoView = () => scrollToIndex(next, true)
+       scrollCurrentIntoView()
+@@ -92,29 +103,45 @@ export function SubagentsTab(props: { sessionID: string }) {
+       renderer.requestAnimationFrame(() => renderer.requestAnimationFrame(scrollCurrentIntoView))
+     }
+     wasActive = true
++    const retained = list.findIndex((entry) => entry.sessionID === selectedChildID)
++    if (retained >= 0 && retained !== store.selected) moveTo(retained)
+     if (store.selected >= list.length) moveTo(Math.max(0, list.length - 1))
++    selectedChildID = list[store.selected]?.sessionID ?? ""
+   })
+ 
+   function moveTo(next: number, center = false) {
++    selectedChildID = entries()[next]?.sessionID ?? ""
+     setStore("selected", next)
+     scrollToIndex(next, center)
+   }
+ 
+   function scrollToIndex(index: number, center: boolean) {
+     if (!scroll) return
++    const entry = entries()[index]
++    const row = entry && scroll.findDescendantById(`subagent-row-${entry.sessionID}`)
++    if (!row) return
++    // Rows wrap with terminal width, so indices are not content-line offsets.
++    const top = scroll.scrollTop + row.y - scroll.viewport.y
+     if (center) {
+-      scroll.scrollTo(Math.max(0, index - Math.floor(scroll.viewport.height / 2)))
++      scroll.scrollTo(Math.max(0, top - Math.floor(Math.max(0, scroll.viewport.height - row.height) / 2)))
+       return
+     }
+-    if (index >= scroll.scrollTop + scroll.viewport.height) {
+-      scroll.scrollTo(index - scroll.viewport.height + 1)
+-    }
+-    if (index < scroll.scrollTop) {
+-      scroll.scrollTo(index)
+-      if (index === 0) scroll.scrollTo(0)
++    if (row.height > scroll.viewport.height) {
++      scroll.scrollTo(top)
++      return
+     }
++    if (top < scroll.scrollTop) scroll.scrollTo(top)
++    if (top + row.height > scroll.scrollTop + scroll.viewport.height)
++      scroll.scrollTo(top + row.height - scroll.viewport.height)
+   }
+ 
++  createEffect(() => {
++    entries()
++    dimensions()
++    if (!composer.active("subagents")) return
++    renderer.requestAnimationFrame(() => renderer.requestAnimationFrame(() => scrollToIndex(store.selected, true)))
++  })
++
+   onMount(() => {
+     const cleanup = composer.register({
+       id: "subagents",
+@@ -178,7 +205,7 @@ export function SubagentsTab(props: { sessionID: string }) {
+         bind: "ctrl+a",
+         run() {
+           updateFilter((draft) => (draft.active = !draft.active))
+-          setStore("selected", 0)
++          moveTo(0)
+           scroll?.scrollTo(0)
+         },
+       },
+@@ -197,7 +224,12 @@ export function SubagentsTab(props: { sessionID: string }) {
+ 
+   return (
+     <Show when={composer.active("subagents")}>
+-      <scrollbox scrollbarOptions={{ visible: false }} maxHeight={5} ref={(r: ScrollBoxRenderable) => (scroll = r)}>
++      <scrollbox
++        id="subagents-list"
++        scrollbarOptions={{ visible: false }}
++        maxHeight={10}
++        ref={(r: ScrollBoxRenderable) => (scroll = r)}
++      >
+         <Show
+           when={entries().length > 0}
+           fallback={<text fg={theme.text.muted}> No {filter.active ? "active" : "inactive"} subagents</text>}
+@@ -205,13 +237,11 @@ export function SubagentsTab(props: { sessionID: string }) {
+           <For each={entries()}>
+             {(entry, index) => {
+               const active = createMemo(() => index() === store.selected)
+-              const status = createMemo(() => {
+-                if (entry.status === "running") return "Running"
+-                return ""
+-              })
+               return (
+                 <box
+-                  flexDirection="row"
++                  id={`subagent-row-${entry.sessionID}`}
++                  flexDirection="column"
++                  flexShrink={0}
+                   paddingLeft={1}
+                   paddingRight={1}
+                   backgroundColor={
+@@ -221,14 +251,21 @@ export function SubagentsTab(props: { sessionID: string }) {
+                         ? theme.background.action.primary.selected
+                         : theme.background.action.primary.base
+                   }
+-                  onMouseMove={() => setStore("selected", index())}
++                  onMouseMove={() => {
++                    selectedChildID = entry.sessionID
++                    setStore("selected", index())
++                  }}
+                   onMouseUp={() => {
++                    selectedChildID = entry.sessionID
+                     setStore("selected", index())
+                     navigate({ type: "session", sessionID: entry.sessionID })
+                   }}
+                 >
+-                  <box flexGrow={1} minWidth={0} flexDirection="row">
++                  <box minWidth={0} flexDirection="row" justifyContent="space-between" gap={1}>
+                     <text
++                      flexGrow={1}
++                      flexShrink={1}
++                      minWidth={0}
+                       fg={
+                         active()
+                           ? theme.text.action.primary.focused
+@@ -238,16 +275,27 @@ export function SubagentsTab(props: { sessionID: string }) {
+                       }
+                       attributes={active() ? TextAttributes.BOLD : undefined}
+                       wrapMode="none"
++                      truncate
+                     >
+                       {entry.prefix}
+-                      {entry.agent}: {entry.title}
++                      Task: {entry.row.task}
++                    </text>
++                    <text flexShrink={0} fg={active() ? theme.text.action.primary.focused : theme.text.muted}>
++                      {entry.row.status}
+                     </text>
+                   </box>
+-                  <Show when={status()}>
+-                    <text fg={active() ? theme.text.action.primary.focused : theme.text.muted} wrapMode="none">
+-                      {status()}
++                  <text fg={theme.text.muted} wrapMode="word">
++                    Model (selected): {entry.row.model} · Variant: {entry.row.variant} · Effort: {entry.row.effort} ·
++                    Agent: {entry.agent}
++                  </text>
++                  <Show when={entry.row.requested}>
++                    <text fg={theme.text.muted} wrapMode="word">
++                      Model (requested): {entry.row.requested}
+                     </text>
+                   </Show>
++                  <text fg={theme.text.muted} wrapMode="word">
++                    Execution-effective model/effort: {entry.row.execution}
++                  </text>
+                 </box>
+               )
+             }}
+diff --git a/packages/tui/test/subagent-row.test.ts b/packages/tui/test/subagent-row.test.ts
+new file mode 100644
+index 0000000..7eaf153
+--- /dev/null
++++ b/packages/tui/test/subagent-row.test.ts
+@@ -0,0 +1,175 @@
++import { expect, test } from "bun:test"
++import type { SessionInfo, SessionMessageInfo, SessionMessageAssistantTool } from "@opencode/client"
++import { subagentDispatch, subagentRow } from "../src/routes/session/composer/subagent-row"
++
++export function child(id = "ses_child", input: Partial<SessionInfo> = {}): SessionInfo {
++  return {
++    id,
++    parentID: "ses_parent",
++    projectID: "proj_test",
++    title: "Inspect storage",
++    agent: "build",
++    location: { directory: "/tmp/opencode/packages/tui" },
++    cost: 0,
++    tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
++    time: { created: 0, updated: 0 },
++    ...input,
++  }
++}
++
++export function dispatch(
++  sessionID: string,
++  input: Extract<SessionMessageAssistantTool["state"], { status: "running" }>["input"] = {},
++  state?: SessionMessageAssistantTool["state"],
++): SessionMessageInfo {
++  return {
++    type: "assistant",
++    id: `msg_dispatch_${sessionID}`,
++    agent: "build",
++    model: { providerID: "parent", id: "parent" },
++    time: { created: 0 },
++    content: [
++      {
++        type: "tool",
++        id: `call_${sessionID}`,
++        name: "subagent",
++        time: { created: 0 },
++        state: state ?? { status: "running", input, metadata: { sessionID } },
++      },
++    ],
++  }
++}
++
++test("dispatch joins exact child IDs and selects the latest continuation", () => {
++  const messages = [
++    dispatch("ses_child", { description: "Original" }),
++    dispatch("ses_sibling", { description: "Other child", model: "other/model#high" }),
++    dispatch("ses_child", { description: "Continue storage", model: "asked/model#high" }),
++  ]
++  expect(subagentDispatch(messages, "ses_child")).toEqual({
++    description: "Continue storage",
++    model: "asked/model#high",
++    prompt: undefined,
++  })
++  expect(subagentDispatch(messages, "ses_sibling")?.description).toBe("Other child")
++  expect(subagentDispatch(messages, "ses_missing")).toBeUndefined()
++})
++
++test("output/progress identity wins over mismatched input and unbound streaming calls", () => {
++  expect(
++    subagentDispatch([dispatch("ses_actual", { sessionID: "ses_wrong", description: "Actual" })], "ses_wrong"),
++  ).toBeUndefined()
++  expect(
++    subagentDispatch(
++      [dispatch("ses_child", {}, { status: "streaming", input: '{"description":"Partial"' })],
++      "ses_child",
++    ),
++  ).toBeUndefined()
++  expect(
++    subagentDispatch(
++      [
++        dispatch(
++          "",
++          {},
++          { status: "running", input: { sessionID: "ses_child", description: "Resumed" }, metadata: {} },
++        ),
++      ],
++      "ses_child",
++    )?.description,
++  ).toBe("Resumed")
++})
++
++test("completed tool output still supplies dispatch metadata without treating its prose as status", () => {
++  const request = subagentDispatch(
++    [
++      dispatch(
++        "ses_child",
++        {},
++        {
++          status: "completed",
++          input: { description: "Verify completion", model: "asked/model#high" },
++          metadata: { sessionID: "ses_child", status: "completed" },
++          content: [{ type: "text", text: "The subagent failed, succeeded, and is running" }],
++        },
++      ),
++    ],
++    "ses_child",
++  )
++  expect(request?.description).toBe("Verify completion")
++  expect(subagentRow({ session: child(), dispatch: request, status: "idle", messages: [] }).status).toBe(
++    "Idle (outcome unknown)",
++  )
++})
++
++test.each(["fast", "high"])("selected variant %s never inherits the requested model or implies effort", (variant) => {
++  const request = subagentDispatch([dispatch("ses_child", { model: "asked/model#xhigh" })], "ses_child")
++  const selected = subagentRow({
++    session: child("ses_child", { model: { providerID: "chosen", id: "actual", variant } }),
++    dispatch: request,
++    status: "running",
++    messages: [],
++  })
++  expect(selected).toMatchObject({
++    model: "chosen/actual",
++    variant,
++    requested: "asked/model#xhigh",
++    effort: "unknown",
++    execution: "unknown",
++  })
++  expect(subagentRow({ session: child(), dispatch: request, status: "idle", messages: [] })).toMatchObject({
++    model: "unknown",
++    variant: "unknown",
++    effort: "unknown",
++    requested: "asked/model#xhigh",
++  })
++})
++
++test.each([
++  ["Dispatch task", "Session title", "Prompt task", "Dispatch task"],
++  [undefined, "Session title", "Prompt task", "Session title"],
++  [undefined, "   ", "Prompt task", "Prompt task"],
++  [undefined, "@build subagent", "Prompt task", "Prompt task"],
++  [undefined, undefined, undefined, "Subagent task"],
++])("task falls back from %s / %s / %s", (description, title, prompt, expected) => {
++  expect(
++    subagentRow({
++      session: child("ses_child", { title }),
++      dispatch: { description, prompt, model: undefined },
++      status: "idle",
++      messages: [],
++    }).task,
++  ).toBe(expected)
++})
++
++test("cached user excerpt is bounded and whitespace-normalized", () => {
++  const row = subagentRow({
++    session: child("ses_child", { title: undefined }),
++    status: "idle",
++    messages: [
++      {
++        type: "user",
++        id: "msg_task",
++        time: { created: 0 },
++        text: "You are a subagent spawned by another session.\nInspect\n storage " + "x".repeat(150),
++      },
++    ],
++  })
++  expect(row.task).toStartWith("Inspect storage ")
++  expect(row.task.length).toBeLessThanOrEqual(100)
++})
++
++test.each([
++  [undefined, "Idle (outcome unknown)"],
++  ["succeeded", "Succeeded"],
++  ["failed", "Failed"],
++  ["interrupted", "Interrupted"],
++] as const)("canonical running state overrides previous %s outcome", (outcome, expected) => {
++  const session = child("ses_child", { outcome, time: { created: 0, updated: 2, idle: 1 } })
++  expect(subagentRow({ session, status: "idle", messages: [] }).status).toBe(expected)
++  expect(subagentRow({ session, status: "running", messages: [] }).status).toBe("Running")
++})
++
++test.each(["succeeded", "failed", "interrupted"] as const)("outcome %s without an idle timestamp stays unknown", (outcome) => {
++  const session = child("ses_child", { outcome })
++  expect(subagentRow({ session, status: "idle", messages: [] }).status).toBe("Idle (outcome unknown)")
++})
+diff --git a/packages/tui/test/subagent-row.view.test.tsx b/packages/tui/test/subagent-row.view.test.tsx
+new file mode 100644
+index 0000000..936edb9
+--- /dev/null
++++ b/packages/tui/test/subagent-row.view.test.tsx
+@@ -0,0 +1,390 @@
++/** @jsxImportSource @opentui/solid */
++import { testRender } from "@opentui/solid"
++import { expect, test } from "bun:test"
++import { onMount, Show } from "solid-js"
++import { ScrollBoxRenderable } from "@opentui/core"
++import type { SessionInfo, SessionMessageInfo } from "@opencode/client"
++import { ConfigProvider } from "../src/config"
++import { ClientProvider } from "../src/context/client"
++import { DataProvider, useData } from "../src/context/data"
++import { Keymap } from "../src/context/keymap"
++import { LocationProvider } from "../src/context/location"
++import { RouteProvider, useRoute } from "../src/context/route"
++import { TuiAppProvider } from "../src/context/runtime"
++import { StorageProvider } from "../src/context/storage"
++import { ThemeProvider } from "../src/context/theme"
++import { Composer } from "../src/routes/session/composer"
++import { DialogProvider } from "../src/ui/dialog"
++import { ToastProvider } from "../src/ui/toast"
++import { tmpdir } from "./fixture/fixture"
++import { createApi, createEventStream, createFetch, directory, json } from "./fixture/tui-client"
++import { TestTuiContexts } from "./fixture/tui-environment"
++import { createTuiResolvedConfig } from "./fixture/tui-runtime"
++
++function session(id: string, input: Partial<SessionInfo> = {}): SessionInfo {
++  return {
++    id,
++    parentID: "ses_parent",
++    projectID: "proj_test",
++    title: id,
++    agent: "build",
++    location: { directory },
++    cost: 0,
++    tokens: { input: 0, output: 0, reasoning: 0, cache: { read: 0, write: 0 } },
++    time: { created: 0, updated: 0 },
++    ...input,
++  }
++}
++
++function launch(sessionID: string, description: string, model: string): SessionMessageInfo {
++  return {
++    type: "assistant",
++    id: `msg_launch_${sessionID}`,
++    agent: "build",
++    model: { providerID: "parent", id: "model" },
++    time: { created: 0 },
++    content: [
++      {
++        type: "tool",
++        id: `call_${sessionID}`,
++        name: "subagent",
++        time: { created: 0 },
++        state: { status: "running", input: { description, model }, metadata: { sessionID } },
++      },
++    ],
++  }
++}
++
++async function fixture(input: {
++  width: number
++  children: SessionInfo[]
++  messages?: SessionMessageInfo[]
++  active?: string[]
++}) {
++  const state = await tmpdir()
++  const sessions = [session("ses_parent", { parentID: undefined }), ...input.children]
++  const events = createEventStream()
++  const interrupted: string[] = []
++  const calls = createFetch((url, request) => {
++    if (url.pathname === "/api/session/active")
++      return json({
++        data: Object.fromEntries(
++          (input.active ?? input.children.map((s) => s.id)).map((id) => [id, { type: "running" }]),
++        ),
++      })
++    const current = sessions.find((s) => url.pathname === `/api/session/${s.id}`)
++    if (current) return json({ data: current })
++    if (url.pathname === "/api/session/ses_parent/message")
++      return json({ data: (input.messages ?? []).toReversed(), cursor: {} })
++    const interrupt = sessions.find((s) => url.pathname === `/api/session/${s.id}/interrupt`)
++    if (interrupt && request.method === "POST") {
++      interrupted.push(interrupt.id)
++      return json({ interrupted: true })
++    }
++  }, events)
++  const ready = Promise.withResolvers<void>()
++  let route!: ReturnType<typeof useRoute>
++  let data!: ReturnType<typeof useData>
++  let closed = 0
++  function Content() {
++    route = useRoute()
++    data = useData()
++    onMount(() => {
++      void Promise.all([...sessions.map((s) => data.session.sync(s.id)), data.session.message.sync("ses_parent")]).then(
++        () => ready.resolve(),
++        ready.reject,
++      )
++    })
++    return (
++      <Show when={route.data.type === "session" ? route.data.sessionID : undefined} keyed>
++        {(sessionID) => <Composer sessionID={sessionID} open={true} defaultTab="subagents" onClose={() => closed++} />}
++      </Show>
++    )
++  }
++  const app = await testRender(
++    () => (
++      <TestTuiContexts paths={{ state: state.path, home: state.path }}>
++        <TuiAppProvider value={{ name: "test", version: "test", channel: "test" }}>
++          <StorageProvider>
++            <ConfigProvider config={createTuiResolvedConfig()}>
++              <Keymap.Provider>
++                <ClientProvider api={createApi(calls.fetch)}>
++                  <DataProvider directory={directory}>
++                    <LocationProvider>
++                      <RouteProvider initialRoute={{ type: "session", sessionID: "ses_parent" }}>
++                        <ThemeProvider mode="dark" source={{ discover: async () => ({}) }}>
++                          <ToastProvider>
++                            <DialogProvider>
++                              <Content />
++                            </DialogProvider>
++                          </ToastProvider>
++                        </ThemeProvider>
++                      </RouteProvider>
++                    </LocationProvider>
++                  </DataProvider>
++                </ClientProvider>
++              </Keymap.Provider>
++            </ConfigProvider>
++          </StorageProvider>
++        </TuiAppProvider>
++      </TestTuiContexts>
++    ),
++    { width: input.width, height: 24, kittyKeyboard: true },
++  )
++  await ready.promise
++  await until(() => input.active?.length === 0 || data.session.status(input.children[0].id) === "running")
++  await app.renderOnce()
++  return {
++    ...app,
++    route: () => route.data,
++    closed: () => closed,
++    data,
++    events,
++    interrupted,
++    async [Symbol.asyncDispose]() {
++      app.renderer.destroy()
++      await state[Symbol.asyncDispose]()
++    },
++  }
++}
++
++test.each([44, 120])("native production rows wrap metadata at width %s without hiding task/status", async (width) => {
++  await using app = await fixture({
++    width,
++    children: [
++      session("ses_a", {
++        title: "Renamed child",
++        outcome: "failed",
++        model: { providerID: "chosen", id: "actual", variant: "fast" },
++      }),
++    ],
++    messages: [launch("ses_a", "Inspect storage", "asked/model#xhigh")],
++  })
++  const frame = app.captureCharFrame()
++  expect(frame).toContain("Task: Inspect storage")
++  expect(frame).toContain("Running")
++  expect(frame).not.toContain("Failed")
++  expect(frame).not.toContain("Renamed child")
++  expect(frame).toContain("Model (selected): chosen/actual")
++  expect(frame.replaceAll("┃", "").replace(/\s+/g, " ")).toContain("Variant: fast · Effort: unknown")
++  expect(frame).toContain("Model (requested): asked/model#xhigh")
++  expect(frame.replaceAll("┃", "").replace(/\s+/g, " ")).toContain("Execution-effective model/effort: unknown")
++  const row = app.renderer.root.findDescendantById("subagent-row-ses_a")!
++  expect(row.x + row.width).toBeLessThanOrEqual(width)
++  const lines = frame.split("\n")
++  expect(lines.find((line) => line.includes("Task:"))).toContain("Running")
++})
++
++test("unknown selected metadata stays unknown even with a requested high variant", async () => {
++  await using app = await fixture({
++    width: 120,
++    children: [session("ses_a")],
++    messages: [launch("ses_a", "Missing selection", "asked/model#high")],
++  })
++  const frame = app.captureCharFrame()
++  expect(frame).toContain("Model (selected): unknown")
++  expect(frame).toContain("Variant: unknown · Effort: unknown")
++  expect(frame).toContain("Model (requested): asked/model#high")
++})
++
++test("two children with the same model ID retain their own provider, task and requested variant", async () => {
++  await using app = await fixture({
++    width: 120,
++    children: [
++      session("ses_a", { model: { providerID: "first", id: "shared", variant: "low" } }),
++      session("ses_b", { model: { providerID: "second", id: "shared", variant: "high" } }),
++    ],
++    messages: [launch("ses_a", "Inspect alpha", "asked/a#high"), launch("ses_b", "Inspect beta", "asked/b#low")],
++  })
++  const frame = app.captureCharFrame()
++  expect(frame).toContain("Task: Inspect alpha")
++  expect(frame).toContain("Model (selected): first/shared · Variant: low · Effort: unknown")
++  expect(frame).toContain("Model (requested): asked/a#high")
++  expect(frame).toContain("Task: Inspect beta")
++  expect(frame).toContain("Model (selected): second/shared · Variant: high · Effort: unknown")
++  expect(frame).toContain("Model (requested): asked/b#low")
++  app.mockInput.pressArrow("down")
++  app.mockInput.pressEnter()
++  expect(app.route()).toMatchObject({ sessionID: "ses_b" })
++})
++
++test.each([44, 120])("keyboard scroll and mouse navigation use exact child identity at width %s", async (width) => {
++  await using app = await fixture({
++    width,
++    children: Array.from({ length: 6 }, (_, i) =>
++      session(`ses_${i}`, { title: `Task ${i}`, model: { providerID: "p", id: `model-${i}` } }),
++    ),
++  })
++  const second = app.renderer.root.findDescendantById("subagent-row-ses_1")!
++  await app.mockMouse.click(second.x + 3, second.y)
++  expect(app.route()).toMatchObject({ sessionID: "ses_1" })
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  for (let i = 0; i < 4; i++) app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  const scroll = app.renderer.root.findDescendantById("subagents-list")
++  expect(scroll).toBeInstanceOf(ScrollBoxRenderable)
++  if (!(scroll instanceof ScrollBoxRenderable)) throw new Error("Missing subagents scrollbox")
++  expect(scroll.scrollTop).toBeGreaterThan(5)
++  expect(app.captureCharFrame()).toContain("Task: Task 5")
++  expect(app.captureCharFrame()).toContain("p/model-5")
++  app.mockInput.pressEnter()
++  expect(app.route()).toMatchObject({ sessionID: "ses_5" })
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  const current = app.renderer.root.findDescendantById("subagent-row-ses_5")!
++  const remounted = app.renderer.root.findDescendantById("subagents-list") as ScrollBoxRenderable
++  expect(current.y).toBeGreaterThanOrEqual(remounted.viewport.y)
++  expect(current.y).toBeLessThan(remounted.viewport.y + remounted.viewport.height)
++})
++
++test("execution events move the same child through unknown, running and all terminal outcomes", async () => {
++  const current = session("ses_live", { title: "Live task" })
++  await using app = await fixture({ width: 120, active: [], children: [current] })
++  app.mockInput.pressKey("a", { ctrl: true })
++  await app.renderOnce()
++  expect(app.captureCharFrame()).toContain("Idle (outcome unknown)")
++  for (const [index, outcome] of ["succeeded", "failed", "interrupted"].entries()) {
++    const started = index * 2 + 1
++    app.events.emit({
++      id: `evt_start_${index}`,
++      created: started,
++      type: "session.execution.started",
++      durable: { aggregateID: current.id, seq: started, version: 1 },
++      data: { sessionID: current.id },
++      location: { directory },
++    })
++    await until(() => app.data.session.status(current.id) === "running")
++    app.mockInput.pressKey("a", { ctrl: true })
++    await app.renderOnce()
++    expect(app.captureCharFrame()).toContain("Task: Live task")
++    expect(app.captureCharFrame()).toContain("Running")
++    expect(app.captureCharFrame()).not.toContain("Succeeded")
++    expect(app.captureCharFrame()).not.toContain("Failed")
++    expect(app.captureCharFrame()).not.toContain("Interrupted")
++    app.mockInput.pressKey("d", { ctrl: true })
++    await until(() => app.interrupted.length === index + 1)
++    expect(app.interrupted.at(-1)).toBe(current.id)
++    const ended = started + 1
++    current.outcome = outcome as SessionInfo["outcome"]
++    current.time = { created: 0, updated: ended, idle: ended }
++    const base = {
++      id: `evt_end_${index}`,
++      created: ended,
++      durable: { aggregateID: current.id, seq: ended, version: 1 as const },
++      location: { directory },
++    }
++    app.events.emit(
++      outcome === "succeeded"
++        ? { ...base, type: "session.execution.succeeded", data: { sessionID: current.id } }
++        : outcome === "failed"
++          ? {
++              ...base,
++              type: "session.execution.failed",
++              data: { sessionID: current.id, error: { type: "unknown", message: "Fixture failure" } },
++            }
++          : { ...base, type: "session.execution.interrupted", data: { sessionID: current.id, reason: "user" } },
++    )
++    await until(
++      () => app.data.session.status(current.id) === "idle" && app.data.session.get(current.id)?.outcome === outcome,
++    )
++    await app.renderOnce()
++    expect(app.captureCharFrame()).toContain("No active subagents")
++    app.mockInput.pressKey("a", { ctrl: true })
++    await app.renderOnce()
++    expect(app.captureCharFrame()).toContain(outcome[0].toUpperCase() + outcome.slice(1))
++  }
++})
++
++test("inactive terminal labels, active filter, interrupt and close retain native commands", async () => {
++  const time = { created: 0, updated: 1, idle: 1 }
++  await using app = await fixture({
++    width: 120,
++    active: [],
++    children: [
++      session("ses_success", { title: "Success", outcome: "succeeded", time }),
++      session("ses_failed", { title: "Failure", outcome: "failed", time }),
++      session("ses_interrupted", { title: "Interrupted", outcome: "interrupted", time }),
++      session("ses_unknown", { title: "Unknown" }),
++    ],
++  })
++  expect(app.captureCharFrame()).toContain("No active subagents")
++  app.mockInput.pressKey("a", { ctrl: true })
++  await app.renderOnce()
++  expect(app.captureCharFrame()).toContain("Succeeded")
++  expect(app.captureCharFrame()).toContain("Failed")
++  app.mockInput.pressArrow("down")
++  app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  expect(app.captureCharFrame()).toContain("Interrupted")
++  app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  expect(app.captureCharFrame()).toContain("Idle (outcome unknown)")
++  app.mockInput.pressKey("d", { ctrl: true })
++  expect(app.interrupted).toEqual([])
++  app.mockInput.pressKey("a", { ctrl: true })
++  await app.renderOnce()
++  expect(app.captureCharFrame()).toContain("No active subagents")
++  app.mockInput.pressArrow("up")
++  expect(app.closed()).toBe(1)
++})
++
++test("a preceding child becoming idle does not silently change the selected child", async () => {
++  await using app = await fixture({ width: 120, children: [session("ses_a"), session("ses_b"), session("ses_c")] })
++  app.mockInput.pressArrow("down")
++  app.events.emit({
++    id: "evt_first_done",
++    created: 1,
++    type: "session.execution.succeeded",
++    durable: { aggregateID: "ses_a", seq: 1, version: 1 },
++    data: { sessionID: "ses_a" },
++    location: { directory },
++  })
++  await until(() => app.data.session.status("ses_a") === "idle")
++  await app.renderOnce()
++  app.mockInput.pressEnter()
++  expect(app.route()).toMatchObject({ sessionID: "ses_b" })
++})
++
++test("resizing remeasures wrapped rows and keeps the selected task visible", async () => {
++  await using app = await fixture({
++    width: 120,
++    children: Array.from({ length: 6 }, (_, i) =>
++      session(`ses_${i}`, {
++        title: `Task ${i}`,
++        model: { providerID: "provider", id: `long-model-name-${i}`, variant: "high" },
++      }),
++    ),
++  })
++  for (let i = 0; i < 5; i++) app.mockInput.pressArrow("down")
++  await app.renderOnce()
++  const wide = app.renderer.root.findDescendantById("subagent-row-ses_5")!.height
++  app.resize(44, 24)
++  await app.renderOnce()
++  await app.renderOnce()
++  await app.renderOnce()
++  const row = app.renderer.root.findDescendantById("subagent-row-ses_5")!
++  const scroll = app.renderer.root.findDescendantById("subagents-list") as ScrollBoxRenderable
++  expect(row.height).toBeGreaterThan(wide)
++  expect(row.y).toBeGreaterThanOrEqual(scroll.viewport.y)
++  expect(row.y).toBeLessThan(scroll.viewport.y + scroll.viewport.height)
++  expect(app.captureCharFrame()).toContain("Task: Task 5")
++  expect(
++    app
++      .captureCharFrame()
++      .split("\n")
++      .find((line) => line.includes("Task: Task 5")),
++  ).toContain("Running")
++  app.mockInput.pressEnter()
++  expect(app.route()).toMatchObject({ sessionID: "ses_5" })
++})
++
++async function until(predicate: () => boolean) {
++  const deadline = Date.now() + 2000
++  while (!predicate()) {
++    if (Date.now() > deadline) throw new Error("Timed out waiting for fixture data")
++    await Bun.sleep(5)
++  }
++}

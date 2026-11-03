@@ -1,0 +1,66 @@
+--- a/packages/plugin/src/effect/session.ts
++++ b/packages/plugin/src/effect/session.ts
+@@ -11,2 +11,2 @@
+-import type { JsonSchema, Types } from "effect"
++import type { Effect, JsonSchema, Types } from "effect"
+ import type { ModelHooks } from "./registration.js"
+@@ -150,6 +150,12 @@
+   readonly "experimental.ws.receive": SessionWebSocketReceive
+   readonly retry: SessionRetry
+ }
+ 
++/**
++ * Optional host handshake. Absence, a malformed result or a rejection all mean conditional title
++ * publication is unsupported; callers must not infer support from a version or probe with a write.
++ */
++export type SessionCapabilities = { readonly conditionalTitleUpdate?: number }
++
+ export type SessionDomain = Pick<
+   SessionApi<unknown>,
+@@ -171,4 +171,5 @@
+   | "context"
+ > & {
+   readonly hook: ModelHooks<SessionHooks>
++  readonly capabilities: () => Effect.Effect<SessionCapabilities>
+ }
+--- a/packages/plugin/src/promise/adapter.ts
++++ b/packages/plugin/src/promise/adapter.ts
+@@ -590,7 +590,8 @@
+           },
+           session: {
+             hook: (name, callback, options) =>
+               register(
+                 host.session.hook(name, (event) => Effect.promise(() => Promise.resolve(callback(event))), options),
+               ),
++            capabilities: () => run(host.session.capabilities()),
+             list: adaptApiMethod(SessionEndpoints["session.list"], host.session.list),
+--- a/packages/plugin/src/promise/session.ts
++++ b/packages/plugin/src/promise/session.ts
+@@ -150,6 +150,12 @@
+   readonly "experimental.ws.receive": SessionWebSocketReceive
+   readonly retry: SessionRetry
+ }
+ 
++/**
++ * Optional host handshake. Absence, a malformed result or a rejection all mean conditional title
++ * publication is unsupported; callers must not infer support from a version or probe with a write.
++ */
++export type SessionCapabilities = { readonly conditionalTitleUpdate?: number }
++
+ export type SessionDomain = Pick<
+   SessionApi,
+@@ -171,4 +171,5 @@
+   | "context"
+ > & {
+   readonly hook: ModelHooks<SessionHooks>
++  readonly capabilities: () => Promise<SessionCapabilities>
+ }
+--- a/packages/core/src/plugin/host.ts
++++ b/packages/core/src/plugin/host.ts
+@@ -545,5 +545,6 @@
+         ),
+     },
+     session: {
+       hook: (name, callback, options) => hooks.register("session", name, callback, options),
++      capabilities: () => Effect.succeed({ conditionalTitleUpdate: 1 }),
+       list: sessions.list,

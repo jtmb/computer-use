@@ -1,0 +1,29 @@
+--- a/packages/server/src/handlers/session.ts
++++ b/packages/server/src/handlers/session.ts
+@@ -234,10 +234,9 @@
+                 field: "expectedTitle",
+               })
+             yield* session
+-              .renameConditional({
++              .rename({
+                 sessionID: ctx.params.sessionID,
+                 title: ctx.payload.title,
+-                expectedTitle: ctx.payload.expectedTitle,
+               })
+               .pipe(
+                 Effect.catchTag("Session.NotFoundError", missingSession),
+--- a/packages/core/src/plugin/host.ts
++++ b/packages/core/src/plugin/host.ts
+@@ -576,11 +576,7 @@
+         if (input.expectedTitle !== undefined) {
+           if (input.title === undefined)
+             return yield* Effect.die(new Error("session.update: expectedTitle requires a title"))
+-          yield* sessions.renameConditional({
+-            sessionID: input.sessionID,
+-            title: input.title,
+-            expectedTitle: input.expectedTitle,
+-          })
++          yield* sessions.rename({ sessionID: input.sessionID, title: input.title })
+         } else if (input.title !== undefined)
+           yield* sessions.rename({ sessionID: input.sessionID, title: input.title })
+         if (input.metadata !== undefined)

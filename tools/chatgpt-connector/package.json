@@ -1,0 +1,26 @@
+{
+  "name": "computer-use-chatgpt-connector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Optional OpenCode V2 ChatGPT OAuth plugin and local MCP adapter.",
+  "exports": {
+    "./server": "./server.ts"
+  },
+  "scripts": {
+    "check": "npm run typecheck && npm test",
+    "test": "TMPDIR=/tmp/opencode timeout --kill-after=3s 90s node --experimental-strip-types --test --test-timeout=30000 --test-concurrency=1 test/*.test.ts",
+    "test:readiness": "TMPDIR=/tmp/opencode timeout --kill-after=3s 90s node --test --test-timeout=30000 --test-concurrency=1 test/dependency-readiness.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "@opencode/client": "2.0.7",
+    "@opencode/plugin": "2.0.7"
+  },
+  "devDependencies": {
+    "@types/json-schema": "7.0.15",
+    "@types/node": "22.18.6",
+    "typescript": "5.9.3"
+  }
+}

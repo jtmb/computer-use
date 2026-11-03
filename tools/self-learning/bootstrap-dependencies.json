@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "scope": "optional-project-self-learning-runtime",
+  "observedOn": "2026-11-01",
+  "host": {
+    "name": "OpenCode",
+    "version": "2.1.1",
+    "pluginID": "computer-use.self-learning",
+    "peer": { "name": "@opencode/plugin", "version": "2.1.1", "provider": "host plugin runtime", "installLocally": false }
+  },
+  "projectManifest": {
+    "path": "package.json",
+    "sha256": "27c5d39c5fee2a3cefd13686204e6be3199e88ac9ce4e1eb81b8238788f3291e"
+  },
+  "artifactRecordSource": {
+    "path": "../session-coordination/package-lock.json",
+    "bytes": 195244,
+    "sha256": "6964238a12721f822d2c01bb21e1ddd68d24ea2b8339617c7d7a6bc314674bca",
+    "lockfileVersion": 3,
+    "scope": "Only five matching name/version registry records are referenced. Source-lock peer flags belong to that package's root and are not copied into this runtime inventory. No sibling package tree is borrowed or loaded."
+  },
+  "runtimePackages": [
+    {
+      "name": "@opencode/client",
+      "version": "2.1.1",
+      "role": "direct runtime dependency; Promise client and no-start Service.discover",
+      "manifest": "node_modules/@opencode/client/package.json",
+      "manifestSha256": "7d9e99d27b6d664c9c39fea99096e78be1fcc01a7afe2185b9054948792d8187",
+      "registryArtifact": {
+        "url": "https://registry.npmjs.org/@opencode/client/-/client-2.1.1.tgz",
+        "integrity": "sha512-0/JTWitCw2gkr4o+ra+76UeeSpsq7mTFUUtKMPMt4aFu+rYgZw9Lkw4EJgxYK7p3sefiiKBA8KnX0a3LbxIjkw=="
+      },
+      "dependencies": { "@opencode/schema": "2.1.1", "@opencode/protocol": "2.1.1" },
+      "optionalPeers": { "effect": "4.0.1", "solid-js": ">=1.9.0" }
+    },
+    {
+      "name": "@opencode/schema",
+      "version": "2.1.1",
+      "role": "transitive runtime dependency",
+      "manifest": "node_modules/@opencode/schema/package.json",
+      "manifestSha256": "303b2577acac298a03739200838275412e5c0fc78fef013516a90302a0896931",
+      "registryArtifact": {
+        "url": "https://registry.npmjs.org/@opencode/schema/-/schema-2.1.1.tgz",
+        "integrity": "sha512-Qh8EmvNeE/4UzSbkvvwQ2DHOOFZMk8dteeIsX//+qMhjTXJ+xGoWo5bsoauv6pYnqaQYtEwwpMaqk2N0rO4QaA=="
+      },
+      "dependencies": { "@standard-schema/spec": "1.1.0", "effect": "4.0.1" }
+    },
+    {
+      "name": "@opencode/protocol",
+      "version": "2.1.1",
+      "role": "transitive runtime dependency",
+      "manifest": "node_modules/@opencode/protocol/package.json",
+      "manifestSha256": "0192c87b4536cd761c9f6e27578b62fa1990eaa6d1ba1e6e13ce59a53ed4c257",
+      "registryArtifact": {
+        "url": "https://registry.npmjs.org/@opencode/protocol/-/protocol-2.1.1.tgz",
+        "integrity": "sha512-rFsaileXP/W7GNpt2C8GcF8WtLYzyoiaq/xMLkHfAk8xnH5jMNaWJL8DRawUM2FvCaI6H6SKeX4gw6eDGhyl6A=="
+      },
+      "dependencies": { "@opencode/schema": "2.1.1", "effect": "4.0.1" }
+    },
+    {
+      "name": "effect",
+      "version": "4.0.1",
+      "role": "required by schema/protocol and satisfies the client's optional Effect peer",
+      "manifest": "node_modules/effect/package.json",
+      "manifestSha256": "569fd709b635b26e9d5851b3cf1958082da47a9778ee6d21cf4f47f3dbc41e6f",
+      "registryArtifact": {
+        "url": "https://registry.npmjs.org/effect/-/effect-4.0.1.tgz",
+        "integrity": "sha512-b1VlQG9g8fwxE5QnIZuPoOP/0MsqHJSRKxUijjoM80E5q95FXrX5yWtY5XI8G+GJsBQAVSDbLS458z9a++uVvw=="
+      },
+      "dependencies": {}
+    },
+    {
+      "name": "@standard-schema/spec",
+      "version": "1.1.0",
+      "role": "transitive runtime dependency",
+      "manifest": "node_modules/@standard-schema/spec/package.json",
+      "manifestSha256": "58e5bd75ddd0684c88b07cd799585cc72a37fd6efb8ab0c936d49e230d5164fb",
+      "registryArtifact": {
+        "url": "https://registry.npmjs.org/@standard-schema/spec/-/spec-1.1.0.tgz",
+        "integrity": "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="
+      },
+      "dependencies": {}
+    }
+  ],
+  "optionalPeersNotSelected": ["solid-js"],
+  "excludedFromRuntimeInventory": ["dependency development dependencies", "test-only tooling", "host-provided @opencode/plugin"],
+  "observedInstallation": {
+    "evidence": "ACCEPTANCE.md#operational-remediation--2026-11-01-utc",
+    "arguments": ["install", "--ignore-scripts", "--legacy-peer-deps", "--package-lock=false"],
+    "clientRegistryIntegrity": "sha512-0/JTWitCw2gkr4o+ra+76UeeSpsq7mTFUUtKMPMt4aFu+rYgZw9Lkw4EJgxYK7p3sefiiKBA8KnX0a3LbxIjkw==",
+    "integrityScope": "Retained accepted client registry record, not a new download or verification of every package tarball"
+  },
+  "bootstrapIntegration": {
+    "status": "inventory only; not wired into scripts/onboard.sh",
+    "activationEntry": "./tools/self-learning",
+    "activationScope": "project-only, separately authorized; installation does not activate the plugin"
+  },
+  "limits": [
+    "Existing installed manifests and five existing local lock entries were read without importing candidate code, fetching metadata, downloading or installing packages.",
+    "Manifest hashes bind the observed metadata files. Registry URLs and SHA-512 values are retained source declarations, not newly downloaded or independently hashed tarballs, installed-content integrity, native compatibility or security proof.",
+    "All six declared required runtime edges name one of the five version-matched artifact records. This is not an npm lockfile or a reproducible installer; a later installer must verify actual archive bytes against these records and validate its own host/peer resolution context.",
+    "Do not install the host plugin peer locally, auto-select the optional Solid peer, enable lifecycle scripts, replace a launcher, change global configuration or restart a shared service.",
+    "Recorded versions and manifests are dated observations; no latestness, fresh tests, native permission/cancellation or learned-skill application/rollback acceptance is implied."
+  ]
+}

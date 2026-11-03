@@ -1,0 +1,23 @@
+{
+  "name": "opencode-session-coordination",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Retired peer-agent inbox/mailbox package; loader entrypoints refuse activation and register nothing.",
+  "exports": { ".": "./index.ts", "./tui": "./tui.ts" },
+  "scripts": {
+    "test": "timeout --kill-after=3s 60s node --experimental-strip-types --test --test-timeout=10000 --test-concurrency=1 test/*.test.ts strict-check.test.mjs activation-preflight.test.mjs",
+    "typecheck": "timeout --kill-after=3s 90s node strict-check.mjs"
+  },
+  "peerDependencies": { "@opencode/plugin": "2.1.1" },
+  "devDependencies": {
+    "@opencode/theme": "2.1.1",
+    "@opentui/core": "0.6.6",
+    "@opentui/solid": "0.6.6",
+    "@types/json-schema": "7.0.15",
+    "@types/node": "24.12.2",
+    "ajv": "8.20.0",
+    "solid-js": "1.9.12",
+    "typescript": "5.9.3"
+  }
+}

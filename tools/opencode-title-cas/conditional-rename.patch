@@ -1,0 +1,229 @@
+--- a/packages/core/src/bus.ts
++++ b/packages/core/src/bus.ts
+@@ -65,6 +65,11 @@
+   },
+ ) {}
+ 
++/** A `PublishOptions.guard` rejection. The write transaction rolled back, so nothing was committed. */
++export class GuardFailed extends Schema.TaggedError<GuardFailed>()("Bus.GuardFailed", {
++  type: Schema.String,
++}) {}
++
+ const envelope = (aggregateID: string, seq: number, version: number) => ({
+   aggregateID,
+   seq: Event.Seq.make(seq),
+@@ -100,6 +105,12 @@
+   readonly global?: boolean
+   /** Local operational projection committed atomically with a new durable event. Not replayed or serialized. */
+   readonly commit?: (seq: number) => Effect.Effect<void>
++  /**
++   * Compare-and-swap check that runs inside the durable commit transaction, before projection.
++   * Returning false aborts the write: the transaction rolls back, so no event, sequence advance or
++   * projection is committed and a newer concurrent state is never overwritten.
++   */
++  readonly guard?: (db: Database.Interface["db"]) => Effect.Effect<boolean>
+ }
+ 
+ export type PublishInput<D extends Event.DurableDefinition = Event.DurableDefinition> = readonly [
+@@ -296,6 +307,7 @@
+             readonly strictOwner?: boolean
+           },
+           commit?: (seq: number) => Effect.Effect<void>,
++          guard?: PublishOptions["guard"],
+         ) {
+           return Effect.gen(function* () {
+             const durable = definition.durable
+@@ -402,6 +414,8 @@
+                           ...event,
+                           durable: { aggregateID, seq, version: durable.version },
+                         } as Event.Payload
++                        if (guard && !(yield* guard(db)))
++                          return yield* Effect.die(new GuardFailed({ type: definition.type }))
+                         const route = yield* prepareRoutes([committed])
+                         for (const projector of list) {
+                           yield* projector(committed)
+@@ -457,6 +471,7 @@
+           definition: D,
+           event: Event.Payload<D>,
+           commit?: PublishOptions["commit"],
++          guard?: PublishOptions["guard"],
+         ) {
+           return Effect.gen(function* () {
+             if (!definition.durable && commit)
+@@ -466,15 +481,28 @@
+                   message: "Local commit hooks require a durable event",
+                 }),
+               )
++            if (!definition.durable && guard)
++              return yield* Effect.die(
++                new InvalidDurableEventError({
++                  type: event.type,
++                  message: "Local guards require a durable event",
++                }),
++              )
+             if (definition.durable) {
+               const aggregateID = (event.data as Record<string, unknown>)[definition.durable.aggregate]
+               if (typeof aggregateID !== "string")
+-                return yield* commitDurableEvent(definition, event as Event.Payload, undefined, commit).pipe(
++                return yield* commitDurableEvent(definition, event as Event.Payload, undefined, commit, guard).pipe(
+                   Effect.as(event),
+                 )
+               return yield* durableLocks.withLock(aggregateID)(
+                 Effect.gen(function* () {
+-                  const committed = yield* commitDurableEvent(definition, event as Event.Payload, undefined, commit)
++                  const committed = yield* commitDurableEvent(
++                    definition,
++                    event as Event.Payload,
++                    undefined,
++                    commit,
++                    guard,
++                  )
+                   if (!committed) return event
+                   event = committed.event as Event.Payload<D>
+                   yield* notify(event as Event.Payload, true)
+@@ -530,6 +558,7 @@
+                 data,
+               } as Event.Payload<D>,
+               options?.commit,
++              options?.guard,
+             )
+           })
+         }
+@@ -548,6 +577,13 @@
+                     }),
+                   )
+                 }
++                if (options?.guard)
++                  return yield* Effect.die(
++                    new InvalidDurableEventError({
++                      type: definition.type,
++                      message: "Batch guards are not supported",
++                    }),
++                  )
+                 const location = options?.global
+                   ? undefined
+                   : (options?.location ??
+--- a/packages/core/src/session.ts
++++ b/packages/core/src/session.ts
+@@ -39,6 +39,7 @@
+   PromptConflictError,
+   SkillNotFoundError,
+   SyntheticConflictError,
++  TitleConflictError,
+ } from "./session/error.js"
+ import { Node } from "@opencode/util/effect/app-node"
+ import { LayerNode } from "@opencode/util/effect/layer-node"
+@@ -113,6 +114,7 @@
+   PromptConflictError,
+   SkillNotFoundError,
+   SyntheticConflictError,
++  TitleConflictError,
+ }
+ type InboxItemRef = { readonly sessionID: SessionSchema.ID; readonly inboxID: SessionMessage.ID }
+ 
+@@ -183,6 +185,12 @@
+   readonly switchAgent: (input: { sessionID: SessionSchema.ID; agent: Agent.ID }) => Effect.Effect<void, NotFoundError>
+   readonly switchModel: (input: { sessionID: SessionSchema.ID; model: Model.Ref }) => Effect.Effect<void, NotFoundError>
+   readonly rename: (input: { sessionID: SessionSchema.ID; title: string }) => Effect.Effect<void, NotFoundError>
++  /** Commits only while the stored title still equals `expectedTitle`; otherwise fails with `TitleConflictError`. */
++  readonly renameConditional: (input: {
++    sessionID: SessionSchema.ID
++    title: string
++    expectedTitle: string
++  }) => Effect.Effect<void, NotFoundError | TitleConflictError>
+   readonly archive: (sessionID: SessionSchema.ID) => Effect.Effect<void, NotFoundError>
+   readonly unarchive: (sessionID: SessionSchema.ID) => Effect.Effect<void, NotFoundError>
+   readonly setMetadata: (input: {
+@@ -467,6 +475,7 @@
+       switchAgent: (input) => sessions.forSession(input.sessionID).switchAgent(input),
+       switchModel: (input) => sessions.forSession(input.sessionID).switchModel(input),
+       rename: (input) => sessions.forSession(input.sessionID).rename(input),
++      renameConditional: (input) => sessions.forSession(input.sessionID).renameConditional(input),
+       archive: (sessionID) => sessions.forSession(sessionID).archive(),
+       unarchive: (sessionID) => sessions.forSession(sessionID).unarchive(),
+       setMetadata: (input) => sessions.forSession(input.sessionID).setMetadata(input),
+--- a/packages/core/src/session/error.ts
++++ b/packages/core/src/session/error.ts
+@@ -11,6 +11,14 @@
+   sessionID: SessionSchema.ID,
+ }) {}
+ 
++export class TitleConflictError extends Schema.TaggedError<TitleConflictError>()("Session.TitleConflictError", {
++  sessionID: SessionSchema.ID,
++}) {
++  override get message() {
++    return `Session title changed before the conditional rename committed: ${this.sessionID}`
++  }
++}
++
+ export class InvalidListCursorError extends Schema.TaggedError<InvalidListCursorError>()(
+   "Session.InvalidListCursorError",
+   {},
+--- a/packages/core/src/session/session.ts
++++ b/packages/core/src/session/session.ts
+@@ -18,6 +18,7 @@
+   NotFoundError,
+   PromptConflictError,
+   SyntheticConflictError,
++  TitleConflictError,
+ } from "./error.js"
+ import { SessionEvent } from "./event.js"
+ import { SessionExecution } from "./execution.js"
+@@ -72,6 +73,33 @@
+     yield* get(sessionID)
+     yield* bus.publish(SessionEvent.Renamed, { sessionID, title: input.title })
+   })
++  const renameConditional = Effect.fn("Session.renameConditional")(function* (
++    sessionID: SessionSchema.ID,
++    input: { title: string; expectedTitle: string },
++  ) {
++    yield* get(sessionID)
++    yield* bus
++      .publish(
++        SessionEvent.Renamed,
++        { sessionID, title: input.title },
++        {
++          // Compare and swap inside the durable commit transaction: a title written after the
++          // caller read `expectedTitle` rolls this rename back instead of overwriting the newer one.
++          guard: () =>
++            Effect.gen(function* () {
++              const current = yield* store.get(sessionID)
++              return current?.title === input.expectedTitle
++            }),
++        },
++      )
++      .pipe(
++        Effect.catchDefect((defect) =>
++          defect instanceof Bus.GuardFailed
++            ? Effect.fail(new TitleConflictError({ sessionID }))
++            : Effect.die(defect),
++        ),
++      )
++  })
+   const archive = Effect.fn("Session.archive")(function* (sessionID: SessionSchema.ID) {
+     const session = yield* get(sessionID)
+     if (session.time.archived) return
+@@ -358,6 +386,7 @@
+     message,
+     view,
+     rename,
++    renameConditional,
+     archive,
+     unarchive,
+     setMetadata,
+@@ -384,6 +413,7 @@
+     const message = operations.message.bind(undefined, sessionID)
+     const view = operations.view.bind(undefined, sessionID)
+     const rename = operations.rename.bind(undefined, sessionID)
++    const renameConditional = operations.renameConditional.bind(undefined, sessionID)
+     const archive = operations.archive.bind(undefined, sessionID)
+     const unarchive = operations.unarchive.bind(undefined, sessionID)
+     const setMetadata = operations.setMetadata.bind(undefined, sessionID)
+@@ -413,6 +443,7 @@
+       message,
+       view,
+       rename,
++      renameConditional,
+       archive,
+       unarchive,
+       setMetadata,

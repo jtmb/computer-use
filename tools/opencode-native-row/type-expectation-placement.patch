@@ -1,0 +1,44 @@
+diff --git a/packages/ai/test/llm-option-types.types.ts b/packages/ai/test/llm-option-types.types.ts
+index dd82998..aa2c0c4 100644
+--- a/packages/ai/test/llm-option-types.types.ts
++++ b/packages/ai/test/llm-option-types.types.ts
+@@ -64,11 +64,11 @@ const generatedDynamicObject = LLM.generateObject({
+ })
+ type GenerateDynamicObjectRequirements = Assert<Equal<Requirements<typeof generatedDynamicObject>, LLMClientService>>
+ 
++// @ts-expect-error Dynamic object generation uses the selected model's provider options.
+ LLM.generateObject({
+   model,
+   prompt: "Hello",
+   jsonSchema: { type: "object" },
+-  // @ts-expect-error Dynamic object generation uses the selected model's provider options.
+   providerOptions: { mode: false },
+ })
+ 
+diff --git a/packages/ai/test/provider-options/checkpoint.types.ts b/packages/ai/test/provider-options/checkpoint.types.ts
+index 081bfc8..e3973be 100644
+--- a/packages/ai/test/provider-options/checkpoint.types.ts
++++ b/packages/ai/test/provider-options/checkpoint.types.ts
+@@ -57,8 +57,8 @@ const azure = Azure.configure({ resourceName: "fixture" }).responses("fixture")
+ const xai = XAI.configure().responses("fixture")
+ // @ts-expect-error Azure must not inherit OpenAI's trigger operation.
+ LLMClient.compact(LLM.request({ model: azure }), { mechanism: "trigger" })
++// @ts-expect-error Azure's package entrypoint must preserve its narrower capability.
+ LLMClient.compact(LLM.request({ model: Azure.responsesModel("fixture", { resourceName: "fixture" }) }), {
+-  // @ts-expect-error Azure's package entrypoint must preserve its narrower capability.
+   mechanism: "trigger",
+ })
+ // @ts-expect-error xAI endpoint support does not imply trigger support.
+@@ -95,11 +95,11 @@ LLMClient.compact(unsupported.compatible, { mechanism: "trigger" })
+ LLMClient.compact(LLMRequest.update(request, { model: azure }), { mechanism: "trigger" })
+ // @ts-expect-error Changing the route replaces its capability.
+ LLMClient.compact(LLM.request({ model: LanguageModel.update(model, { route: azure.route }) }), { mechanism: "trigger" })
++// @ts-expect-error Replacing route operations does not retain the old trigger capability.
+ LLMClient.compact(
+   LLM.request({
+     model: model.route.with({ compact: { endpoint: model.route.compact.endpoint } }).model({ id: "fixture" }),
+   }),
+-  // @ts-expect-error Replacing route operations does not retain the old trigger capability.
+   { mechanism: "trigger" },
+ )
+ 

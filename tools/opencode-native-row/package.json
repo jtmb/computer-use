@@ -1,0 +1,20 @@
+{
+  "name": "computer-use-native-source-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "timeout --kill-after=3s 600s node --test --test-timeout=580000 --test-concurrency=1 preview.test.mjs session-active.test.mjs",
+    "test:prerequisites": "node --test runtime-prerequisites.test.mjs",
+    "test:runtime": "timeout --kill-after=3s 90s node --test --test-timeout=80000 --test-concurrency=1 --test-name-pattern='contextual patch|plain successful apply|correctly placed worker|patched native active forwards' session-active.test.mjs",
+    "test:surfaces": "timeout --kill-after=3s 600s node --test --test-timeout=580000 --test-concurrency=1 --test-name-pattern='genuine Node declarations|unpatched active type surface|patched public active contracts' session-active.test.mjs",
+    "test:provider": "timeout --kill-after=3s 150s node --test --test-timeout=140000 --test-concurrency=1 provider-observation.test.mjs",
+    "test:provider-row": "timeout --kill-after=3s 210s node --test --test-timeout=200000 --test-concurrency=1 provider-observation-row.test.mjs",
+    "test:declarations": "timeout --kill-after=3s 590s node --test --test-timeout=580000 --test-concurrency=1 declaration-compatibility.test.mjs",
+    "test:provider-types": "NATIVE_DECLARATION_FULL=1 npm run test:declarations"
+  },
+  "devDependencies": {
+    "@types/json-schema": "7.0.15",
+    "@types/mime-types": "3.0.1",
+    "@types/node": "26.6.6"
+  }
+}

@@ -1,0 +1,11 @@
+--- a/packages/core/src/bus.ts
++++ b/packages/core/src/bus.ts
+@@ -414,8 +414,6 @@
+                           ...event,
+                           durable: { aggregateID, seq, version: durable.version },
+                         } as Event.Payload
+-                        if (guard && !(yield* guard(db)))
+-                          return yield* Effect.die(new GuardFailed({ type: definition.type }))
+                         const route = yield* prepareRoutes([committed])
+                         for (const projector of list) {
+                           yield* projector(committed)

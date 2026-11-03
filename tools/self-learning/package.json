@@ -1,0 +1,10 @@
+{
+  "name": "computer-use-self-learning",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./index.ts" },
+  "scripts": { "test": "node --test core.test.mjs adapter.test.mjs integration.test.mjs proposal.test.mjs catalog.test.mjs source-check.test.mjs skill-contract.test.mjs end-to-end.test.mjs sdk-contract.test.mjs" },
+  "dependencies": { "@opencode/client": "2.1.1" },
+  "peerDependencies": { "@opencode/plugin": "2.1.1" }
+}

@@ -1,0 +1,88 @@
+--- a/packages/protocol/src/groups/session.ts
++++ b/packages/protocol/src/groups/session.ts
+@@ -299,6 +299,10 @@
+         params: { sessionID: Session.ID },
+         payload: Schema.Struct({
+           title: Schema.String.pipe(Schema.optional),
++          expectedTitle: Schema.String.pipe(Schema.optional).annotate({
++            description:
++              "Commit the title only while the stored title still equals this value. Requires a non-empty title; a conflict returns 409 and no other field is applied.",
++          }),
+           metadata: Session.Metadata.pipe(Schema.optional),
+           permissions: Permission.Ruleset.pipe(Schema.optional),
+           archived: Schema.Boolean.pipe(Schema.optional).annotate({
+@@ -306,14 +310,14 @@
+           }),
+         }),
+         success: HttpApiSchema.NoContent,
+-        error: SessionNotFoundError,
++        error: [SessionNotFoundError, InvalidRequestError, ConflictError],
+       })
+         .middleware(sessionLocationMiddleware)
+         .annotateMerge(
+           OpenApi.annotations({
+             identifier: "session.update",
+             summary: "Update session",
+-            description: "Update mutable session properties.",
++            description: "Update mutable session properties. A conditional title conflict applies no changes.",
+           }),
+         ),
+     )
+--- a/packages/server/src/handlers/session.ts
++++ b/packages/server/src/handlers/session.ts
+@@ -226,7 +226,32 @@
+         "session.update",
+         Effect.fn(function* (ctx) {
+           yield* session.get(ctx.params.sessionID).pipe(Effect.catchTag("Session.NotFoundError", missingSession))
+-          if (ctx.payload.title !== undefined) {
++          if (ctx.payload.expectedTitle !== undefined) {
++            if (ctx.payload.title === undefined || ctx.payload.title === "")
++              return yield* new InvalidRequestError({
++                message: "expectedTitle requires a non-empty title; an empty title requests generation",
++                kind: "title",
++                field: "expectedTitle",
++              })
++            yield* session
++              .renameConditional({
++                sessionID: ctx.params.sessionID,
++                title: ctx.payload.title,
++                expectedTitle: ctx.payload.expectedTitle,
++              })
++              .pipe(
++                Effect.catchTag("Session.NotFoundError", missingSession),
++                Effect.catchTag(
++                  "Session.TitleConflictError",
++                  (error) =>
++                    new ConflictError({
++                      resource: error.sessionID,
++                      message: "Session title changed before the conditional rename.",
++                    }),
++                ),
++              )
++          }
++          if (ctx.payload.title !== undefined && ctx.payload.expectedTitle === undefined) {
+             if (ctx.payload.title) {
+               yield* session
+                 .rename({ sessionID: ctx.params.sessionID, title: ctx.payload.title })
+--- a/packages/core/src/plugin/host.ts
++++ b/packages/core/src/plugin/host.ts
+@@ -573,7 +573,18 @@
+       compact: sessions.compact,
+       update: Effect.fn(function* (input) {
+         yield* sessions.get(input.sessionID)
+-        if (input.title !== undefined) yield* sessions.rename({ sessionID: input.sessionID, title: input.title })
++        if (input.expectedTitle !== undefined && input.title === "")
++          return yield* Effect.die(new Error("session.update: expectedTitle requires a non-empty title"))
++        if (input.expectedTitle !== undefined) {
++          if (input.title === undefined)
++            return yield* Effect.die(new Error("session.update: expectedTitle requires a title"))
++          yield* sessions.renameConditional({
++            sessionID: input.sessionID,
++            title: input.title,
++            expectedTitle: input.expectedTitle,
++          })
++        } else if (input.title !== undefined)
++          yield* sessions.rename({ sessionID: input.sessionID, title: input.title })
+         if (input.metadata !== undefined)
+           yield* sessions.setMetadata({ sessionID: input.sessionID, metadata: input.metadata })
+         if (input.permissions !== undefined)

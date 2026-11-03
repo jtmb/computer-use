@@ -1,0 +1,9 @@
+{
+  "name": "computer-use-personality",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./index.ts" },
+  "scripts": { "test": "node --test *.test.mjs" },
+  "peerDependencies": { "@opencode/plugin": "2.1.1" }
+}

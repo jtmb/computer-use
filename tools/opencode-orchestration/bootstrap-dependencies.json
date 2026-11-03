@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "scope": "optional-native-chat-bar-build",
+  "platform": { "os": "linux", "arch": "x64", "libc": "glibc" },
+  "nativeSource": {
+    "version": "2.1.1",
+    "commit": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "lockfile": "bun.lock",
+    "lockfileSha256": "73006637a5a7803a87f31d88c16dc929911ad59e5f0bc84d117d612bf36a5b68",
+    "manifestSha256": "c34f3c32b89615542e445c7a5a884e276d992ad1a81d9bd515773f4688aa3d8c",
+    "configurationSha256": "c692a061a65a568997074e140b833eca580de57f99cf10bbcf05063a3884f169"
+  },
+  "required": [
+    {
+      "name": "bun",
+      "version": "1.4.2",
+      "package": "@oven/bun-linux-x64",
+      "source": "https://registry.npmjs.org/@oven/bun-linux-x64/-/bun-linux-x64-1.4.2.tgz",
+      "integrity": "sha512-9/E/UXOTpSo3YsV5g+FhtTd/qTpiWoKuxS12cqtuYA1ssu9fRAoPQnipFgGyck3tWO63iUdxBiygq+kELFawng==",
+      "member": "package/bin/bun",
+      "binarySha256": "a83d263767d839e4d2649ca8e35d07159c7afc99afdc96d731ced29e056dda0c",
+      "destination": "runtime/bun-1.4.2-linux-x64/bun",
+      "purpose": "Pinned native test and build runtime; no global install or shell-profile change"
+    },
+    {
+      "name": "@opencode/cli-workspace-dependencies",
+      "version": "2.1.1",
+      "source": "nativeSource.lockfile",
+      "arguments": ["install", "--frozen-lockfile", "--ignore-scripts", "--filter", "@opencode/cli"],
+      "cacheRelativeToNativeCheckout": "node_modules/.cache/bun-install",
+      "purpose": "Native CLI and its workspace dependency closure; exact transitive versions and integrity remain in bun.lock"
+    }
+  ],
+  "nativeCheckWorkspace": {
+    "name": "opencode-root-check-dependencies",
+    "version": "2.1.1",
+    "source": "nativeSource.lockfile",
+    "arguments": ["install", "--frozen-lockfile", "--ignore-scripts", "--filter", "@opencode/cli", "--filter", "opencode"],
+    "requiredWhen": "Native package/root checks need root-owned declarations and tooling; the CLI-only filter does not link these",
+    "demonstratedDeclaration": { "name": "@types/mime-types", "version": "3.0.1" },
+    "purpose": "Install the pinned root workspace tooling, not all web/desktop workspaces; preserve the original manifest and lockfile"
+  },
+  "nativeCheckToolchain": {
+    "source": "nativeSource.lockfile and root workspace catalog",
+    "compiler": {
+      "workspaceName": "@typescript/native",
+      "catalogSpecifier": "npm:typescript@7.0.2",
+      "packageName": "typescript",
+      "version": "7.0.2",
+      "binary": "tsc"
+    },
+    "javascriptCompiler": {
+      "workspaceName": "typescript",
+      "catalogSpecifier": "npm:@typescript/typescript6@6.0.2",
+      "packageName": "@typescript/typescript6",
+      "version": "6.0.2",
+      "binary": "tsc6",
+      "purpose": "Separate compiler identity; not a replacement for the native strict-check requirement"
+    },
+    "baseConfiguration": { "name": "@tsconfig/bun", "version": "1.0.9" },
+    "declaredConfiguration": "CLI extends @tsconfig/bun with skipLibCheck:true and references core; core emits declarations and incremental state under node_modules/.ts-dist",
+    "requiredAcceptance": "Retain the complete-input strict/library check with skipLibCheck:false and skipDefaultLibCheck:false; declared-config success would not replace it"
+  },
+  "localBuildInputs": {
+    "channel": "Set OPENCODE_CHANNEL explicitly to local; otherwise packages/script may derive it from the branch",
+    "version": "Set OPENCODE_VERSION explicitly; otherwise latest-channel version discovery can fetch the npm registry",
+    "teamFile": ".github/TEAM_MEMBERS",
+    "releaseNotes": "OPENCODE_RELEASE_NOTES is text, not a path",
+    "bunCompileRelease": "Keep BUN_COMPILE_RELEASE unset for the reviewed local route; setting it enables GitHub release downloads and unzip",
+    "webArchive": "--skip-web-ui retains the supported empty archive without building the web workspace",
+    "output": "Use a freshly absent --outdir path; the supported builder removes that selected path before building"
+  },
+  "nodeArtifactBuild": {
+    "name": "node",
+    "version": "26.4.0",
+    "requiredWhen": "Building or verifying the Node artifact/OpenTUI Node renderer; Bun-native tests do not require Node26",
+    "existingVerifiedScratchRuntime": "not a bootstrap installation or stable runtime path",
+    "binarySha256LinuxX64": "4cfdaeec2e3689e4728b4bc98932a9147a3f98162bdc7955c03c0d7fa3b8aa94"
+  },
+  "policy": {
+    "lifecycleScripts": "disabled; any required specific postinstall must be reviewed separately",
+    "lockfileChanges": "refuse",
+    "globalInstall": false,
+    "sharedRestart": false,
+    "clientReplacement": false,
+    "gitPrInput": false
+  }
+}

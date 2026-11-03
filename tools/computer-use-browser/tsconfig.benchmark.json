@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": false,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@opencode/plugin": ["node_modules/@opencode/plugin/dist/promise/index.d.ts"],
+      "@opencode/plugin/*": ["node_modules/@opencode/plugin/dist/*.d.ts"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "benchmark-runtime/**/*.ts",
+    "../../.opencode/plugins/computer-use/**/*.ts",
+    "../computer-use-runtime/src/**/*.ts"
+  ],
+  "exclude": [
+    "../../.opencode/plugins/computer-use/**/*.test.ts"
+  ]
+}

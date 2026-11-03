@@ -1,0 +1,74 @@
+diff --git a/packages/core/src/plugin/host.ts b/packages/core/src/plugin/host.ts
+index 56f6afde336324ddf88bef4a0f785e2ac1e87781..641ae37a2f660c2bce3f4bc2a998aaa558bb21a5 100644
+--- a/packages/core/src/plugin/host.ts
++++ b/packages/core/src/plugin/host.ts
+@@ -546,6 +546,12 @@ export const make = Effect.fn("PluginHost.make")(function* (
+     },
+     session: {
+       hook: (name, callback, options) => hooks.register("session", name, callback, options),
++      active: () =>
++        sessions.active.pipe(
++          Effect.map((active) =>
++            Object.fromEntries(Array.from(active, (sessionID) => [sessionID, { type: "running" as const }])),
++          ),
++        ),
+       list: sessions.list,
+       create: (input) =>
+         sessions.create({
+diff --git a/packages/plugin/src/effect/session.ts b/packages/plugin/src/effect/session.ts
+index 91134aa451846c8e204655e1b33342c7738383fe..bef41dea734203f3859a95cacdd3ab7f1fc9c1bf 100644
+--- a/packages/plugin/src/effect/session.ts
++++ b/packages/plugin/src/effect/session.ts
+@@ -153,6 +153,7 @@ export interface SessionHooks {
+ 
+ export type SessionDomain = Pick<
+   SessionApi<unknown>,
++  | "active"
+   | "list"
+   | "create"
+   | "get"
+diff --git a/packages/plugin/src/promise/adapter.ts b/packages/plugin/src/promise/adapter.ts
+index f7088b4cfdc7715dbeaa6032eadc5e9f2eeb374f..c663df9bff08cc01244d461c0cec0561ef9f3d79 100644
+--- a/packages/plugin/src/promise/adapter.ts
++++ b/packages/plugin/src/promise/adapter.ts
+@@ -280,6 +280,20 @@ export function fromPromise(plugin: Plugin) {
+             }).pipe(Effect.runPromiseWith(runtime))) as PromiseMethod
+         }
+ 
++        const adaptNoInputApiMethod = <PromiseMethod>(
++          endpoint: HttpApiEndpoint.Top,
++          method: () => Effect.Effect<unknown, unknown>,
++        ) => {
++          const compiled = compileEndpoint(endpoint)
++          return (async (options?: { signal?: AbortSignal }) => {
++            options?.signal?.throwIfAborted()
++            return Effect.suspend(method).pipe(
++              Effect.flatMap(compiled.encode),
++              (effect) => Effect.runPromiseWith(runtime)(effect, { signal: options?.signal }),
++            )
++          }) as PromiseMethod
++        }
++
+         const transform =
+           <Editor>(domain: {
+             transform: (callback: (editor: Editor) => void) => Effect.Effect<HostRegistration, never, Scope.Scope>
+@@ -593,6 +607,7 @@ export function fromPromise(plugin: Plugin) {
+               register(
+                 host.session.hook(name, (event) => Effect.promise(() => Promise.resolve(callback(event))), options),
+               ),
++            active: adaptNoInputApiMethod(SessionEndpoints["session.active"], host.session.active),
+             list: adaptApiMethod(SessionEndpoints["session.list"], host.session.list),
+             create: adaptApiMethod(SessionEndpoints["session.create"], host.session.create),
+             get: adaptApiMethod(SessionEndpoints["session.get"], host.session.get),
+diff --git a/packages/plugin/src/promise/session.ts b/packages/plugin/src/promise/session.ts
+index e83a0e1e4cf9881c357cc47d296c7c328827d1ac..dc89300531fbc82dfffb2971bc7720652ab6fafe 100644
+--- a/packages/plugin/src/promise/session.ts
++++ b/packages/plugin/src/promise/session.ts
+@@ -153,6 +153,7 @@ export interface SessionHooks {
+ 
+ export type SessionDomain = Pick<
+   SessionApi,
++  | "active"
+   | "list"
+   | "create"
+   | "get"

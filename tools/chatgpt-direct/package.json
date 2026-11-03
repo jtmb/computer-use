@@ -1,0 +1,25 @@
+{
+  "name": "computer-use-chatgpt-direct",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Effect-native OpenCode v2 ChatGPT tools with interruptible permission checks.",
+  "exports": {
+    ".": "./server.ts",
+    "./tui": "./tui.tsx"
+  },
+  "scripts": {
+    "test": "TMPDIR=/tmp/opencode node --experimental-strip-types --test test/preview-action.test.ts",
+    "test:focus": "node --max-old-space-size=256 --test --test-concurrency=1 test/focus-lifecycle.test.mjs",
+    "test:render": "TMPDIR=/tmp/opencode node --import ./test/register-host.mjs --experimental-strip-types --test test/*.render.test.ts",
+    "typecheck:host": "../chatgpt-connector/node_modules/.bin/tsc --noEmit -p tsconfig.host.json"
+  },
+  "peerDependencies": {
+    "@opentui/core": ">=0.6.6",
+    "solid-js": ">=1.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.2",
+    "typescript": "5.9.3"
+  }
+}

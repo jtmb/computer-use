@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "typeRoots": ["../chatgpt-connector/node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "solid-js": ["../opencode-plugins/resource-monitor/node_modules/solid-js/types/index.d.ts"],
+      "effect": ["../opencode-plugins/resource-monitor/node_modules/effect/dist/index.d.ts"],
+      "effect/*": ["../opencode-plugins/resource-monitor/node_modules/effect/dist/*"],
+      "@opencode/plugin": ["../opencode-plugins/resource-monitor/node_modules/@opencode/plugin/dist/promise/index.d.ts"],
+      "@opencode/plugin/effect": ["../opencode-plugins/resource-monitor/node_modules/@opencode/plugin/dist/effect/index.d.ts"],
+      "@opencode/plugin/tui": ["../opencode-plugins/resource-monitor/node_modules/@opencode/plugin/dist/tui/index.d.ts"],
+      "@opentui/core": ["../opencode-plugins/resource-monitor/node_modules/@opentui/core/index.d.ts"],
+      "@opentui/core/testing": ["../opencode-plugins/resource-monitor/node_modules/@opentui/core/testing.d.ts"],
+      "@opencode/*": ["../opencode-plugins/resource-monitor/node_modules/@opencode/*"]
+    }
+  },
+  "include": ["server.ts", "tui.tsx", "image-preview.ts", "preview-layout.ts", "test/**/*.ts", "../chatgpt-connector/src/**/*.ts"]
+}
