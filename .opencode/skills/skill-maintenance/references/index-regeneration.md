@@ -3,16 +3,16 @@
 Read this file explicitly after creating, renaming, materially changing, or
 retiring a skill, or when catalog drift is reported.
 
-This repository uses
-`.opencode/skills/README.md` as its skill catalog.
-Do not create `SKILL-INDEX.md`.
+First identify whether the consumer project maintains a catalog or index and
+which source is authoritative. Do not create a parallel index or prohibit a
+format by name unless project instructions require that.
 
 ## Procedure
 
-1. Enumerate direct child directories under the canonical `skills/` source.
-2. For each directory, read `SKILL.md` and extract its exact `name`,
-   `description`, category, and tags.
-3. Compare the source set with the catalog and root `AGENTS.md` routing table.
+1. Enumerate skills from the configured source roots and discovery rules.
+2. Read each relevant entry point and extract the fields the active loader and
+   consumer's schema actually use.
+3. Compare the source set with the existing catalog and project routing.
 4. Update only stale counts, entries, paths, boundaries, examples,
    requirements, guides, categories, or tags affected by the requested change.
 5. Preserve the catalog's established organization and prose style.
@@ -22,11 +22,11 @@ the trigger boundary or contradict `SKILL.md`.
 
 ## Verification
 
-- Every cataloged skill has a canonical `SKILL.md`.
-- Every active canonical skill is cataloged unless repository policy records a
-  specific exception.
-- Names, counts, trigger boundaries, and relevant requirements agree.
-- Root `AGENTS.md` remains the routing authority.
+- Cataloged skills resolve to the configured source and entry files.
+- Active skills are cataloged when the consumer's policy requires it.
+- Names, counts, trigger boundaries, and relevant requirements agree with the
+  consumer's schema and source.
+- Project routing remains consistent with applicable instructions.
 - All relative links resolve.
 
 If catalog or routing edits are needed outside the authorized task scope,

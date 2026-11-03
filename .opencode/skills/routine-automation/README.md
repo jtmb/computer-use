@@ -119,4 +119,5 @@ The agent must:
   before it is automated.
 - [`opencode-db-maintenance`](../opencode-db-maintenance/README.md) is an
   example of a scheduled backup and maintenance workflow.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog or index, if one
+  exists.

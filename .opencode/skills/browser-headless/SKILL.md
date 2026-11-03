@@ -1,28 +1,37 @@
 ---
 name: browser-headless
-description: Run isolated browser tasks through headless Playwright Firefox with no visible window. Use ONLY when the user explicitly asks for headless browsing, background browser automation, or a non-interactive Playwright task. Use browser-assistant for visible work on native Ubuntu or over the WSL bridge; fail closed if the requested path is unavailable.
+description: Run isolated browser tasks without a visible window using an explicitly requested, available headless browser runtime. Use only when the user explicitly asks for headless browsing, background browser automation, or a non-interactive browser task; fail closed if the requested path is unavailable.
 metadata:
   schema-version: "1"
   category: "browser"
-  tags: "browser,headless,playwright,automation"
+  tags: "browser,headless,automation"
 ---
 
 # Headless Browser
 
-This direct, exact-pinned Playwright package is only for explicitly requested
-headless Firefox work; it is not a visible-browser MCP. Use a bounded `node`
-script that imports `playwright` from
-`tools/browser/node_modules`, invoked through
-`scripts/playwright-headless-mcp.sh`. The
-script must launch an isolated headless Firefox context, share no state with
-any visible browser or the user's normal browser, and close the context when
-finished. Do not install or select Chrome/Chromium for this runtime.
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
+
+This skill does not install or guarantee a browser runtime, package, script, or
+MCP. Discover the current project's approved headless browser setup before use.
+Use only a bounded, approved headless browser runtime actually available to
+the current project. Create a fresh isolated context that shares no state with
+visible browsers, and close it when finished. Do not install a browser or choose
+a different engine unless the user requested it and the project authorizes that
+change.
 
 ## Workflow
 
 1. Use `websearch` or `webfetch` instead when the request is read-only and does
    not need browser execution.
-2. Confirm that the task is suitable for an invisible, unauthenticated session.
+2. Verify from the request and task context that an invisible,
+   unauthenticated session is suitable. If a missing fact is essential, report
+   the blocker rather than proceeding on an unsafe assumption.
 3. Create an isolated page, navigate to the exact URL, and inspect a fresh
    accessibility snapshot.
 4. Target stable accessible names or references from current state, perform one
@@ -42,10 +51,10 @@ Switch to `browser-assistant` when:
 - Visual appearance or a canvas cannot be verified from structured state.
 - The workflow depends on state in the live browser window.
 
-On native Ubuntu, launch the browser the user named explicitly. On WSL, that
-visible workflow requires the WSL interop bridge. If the requested browser or
-bridge is missing or unavailable, stop and report the error; do not fall back to
-headless Firefox, desktop clicking, or another browser.
+Use a visible-browser integration only when it is exposed, authorized, and
+supports the requested workflow. If the requested browser or integration is
+missing or unavailable, stop and report the limitation; do not substitute a
+different browser or automation surface.
 
 ## Safety
 
@@ -60,9 +69,9 @@ headless Firefox, desktop clicking, or another browser.
 - Preserve reversible draft state while diagnosing failures; do not refresh,
   navigate away, close, or resubmit solely to force a clearer result.
 
-If the pinned package or an existing Firefox executable is unavailable, stop
+If the approved runtime or its required browser engine is unavailable, stop
 and report which prerequisite is missing. Do not install another browser,
-register a Playwright MCP, or silently substitute a visible browser.
+register an assumed MCP, or silently substitute a visible browser.
 
 ## Usage guide
 

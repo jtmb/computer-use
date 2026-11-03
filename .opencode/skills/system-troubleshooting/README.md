@@ -118,4 +118,5 @@ The agent must:
   accessible GUI applications.
 - [`files-and-documents`](../files-and-documents/README.md) preserves and
   organizes diagnostic artifacts.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog or index, if one
+  exists.

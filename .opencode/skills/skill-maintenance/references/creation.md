@@ -10,16 +10,16 @@ and workflow already own the problem.
 
 Before writing, inspect:
 
-- root `AGENTS.md` for routing and repository rules
-- `skills/README.md` for names, boundaries, and required integrations
-- adjacent skill bundles for established style
+- applicable consumer project instructions for routing and repository rules
+- the configured skill source, any catalog, and current discovery configuration
+- adjacent bundles for established style
 - implementation and authoritative external documentation for factual claims
 
 ## Choose a name
 
-Use a specific lowercase hyphen-separated name, 1-64 characters, matching
-`^[a-z0-9]+(-[a-z0-9]+)*$`. The directory and frontmatter `name` must match.
-Check every canonical skill directory for collisions.
+Use a name accepted by the active skill loader and consumer validator. Check
+the configured source for collisions and match the directory and frontmatter
+name where the loader requires it.
 
 ## Choose a structure
 
@@ -35,12 +35,12 @@ skills/<name>/
     workflow-two.md
 ```
 
-Keep `SKILL.md` under 500 lines as an editorial guideline. Supporting files
-have no repository line limit, but should remain focused. Link every reference
-from `SKILL.md` and explicitly instruct the agent when to read it.
+Keep `SKILL.md` focused; follow any bundle-size or line limits that the consumer
+actually documents. Keep supporting files focused, link references from the
+entry point, and explicitly instruct the agent when to read them.
 
-Do not add a duplicate `metadata.json` unless a concrete non-OpenCode consumer
-requires it. OpenCode uses `SKILL.md` frontmatter.
+Do not add parallel metadata files unless a real consumer needs them and the
+project maintains them. OpenCode reads skill instructions from `SKILL.md`.
 
 ## Write frontmatter
 
@@ -55,13 +55,12 @@ metadata:
 ---
 ```
 
-Only `name`, `description`, `license`, `compatibility`, and `metadata` are
-recognized. `name` and `description` are required; description length is
-1-1024 characters. This repository also requires metadata with
-`schema-version`, `category`, and `tags`. Do not claim a license that has not
-been granted. Read
+Follow the active OpenCode version's documented frontmatter fields and the
+consumer project's additional schema, if any. The base format requires `name`
+and `description`; do not assume custom metadata keys or limits. Do not claim a
+license that has not been granted. Read
 [documentation-and-metadata.md](documentation-and-metadata.md) before creating
-the skill-specific `README.md`.
+or changing usage documentation or metadata.
 
 ## Write useful instructions
 
@@ -71,13 +70,13 @@ prose. Define verification in terms of the user's outcome, not merely a zero
 exit code.
 
 Do not assume MCP servers, databases, agents, companion skills, or learning
-logs. Mention integrations only when they exist in this repository and are
+logs. Mention integrations only when they exist in the consumer project and are
 necessary to the workflow.
 
 ## Register and validate
 
-Add or update the existing `skills/README.md` catalog rather than creating a
-new index format. Add the skill-specific `README.md`, links, category, and
-tags to the catalog. Ensure root `AGENTS.md` routing remains authoritative.
-Run the checks in [validation-checklist.md](validation-checklist.md), and
-verify recursive deployment before calling the skill usable.
+Update an existing catalog or routing guide when the consumer maintains one; do
+not create a new index or impose category/tag fields without a project
+requirement. Run the checks in [validation-checklist.md](validation-checklist.md).
+Verify runtime discovery through the real configured workflow before claiming
+the skill is usable; source presence alone is not acceptance.

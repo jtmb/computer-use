@@ -11,15 +11,20 @@ Refresh the global OpenCode v2 configuration from this repository.
 3. Preview the deployment:
 
    ```bash
-   /home/shak/repos/computer-use/scripts/deploy-global-config.sh
+    ./scripts/deploy-global-config.sh
    ```
 
-4. Review the preview, then apply after explicit approval:
+4. Review the preview and the active-config diff before any write. If a template
+   copy would discard live settings, use the narrow additive deployer instead.
+   Apply only the reviewed, approved scope:
 
    ```bash
-   /home/shak/repos/computer-use/scripts/deploy-global-config.sh --apply
+    ./scripts/deploy-global-config.sh --apply
    ```
 
-5. Restart OpenCode from the TUI with `Ctrl+P` > `service.restart`.
+5. Preserve live model, permission, voice and extra-plugin settings that differ
+   from the template. Use a narrow additive deployer when a full template copy
+   would discard them. A shared service restart requires separate approval;
+   prefer a supported configuration reload only within the approved deployment.
 6. Do not commit, push, or edit deployed copies. Commit approval and push
    approval are separate.

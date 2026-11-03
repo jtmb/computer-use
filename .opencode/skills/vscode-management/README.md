@@ -11,8 +11,9 @@ Tags: `editor`, `vscode`, `extensions`, `workspaces`, `browser`, `testing`
 ## Purpose and when to use it
 
 Use `vscode-management` to install, update, configure, operate, and
-troubleshoot Microsoft Visual Studio Code on Ubuntu, including testing web apps
-with its integrated browser.
+troubleshoot Microsoft Visual Studio Code using the target platform's approved
+workflow, including testing web apps with its integrated browser. Package and
+privilege examples below are specific to Ubuntu unless stated otherwise.
 
 Appropriate requests include:
 
@@ -39,17 +40,20 @@ Before changing VS Code, the agent should inspect:
 - For in-editor web testing, whether built-in browser tools are exposed and the
   `workbench.browser.enableChatTools` setting permits them.
 
-Representative inspection commands are:
+When the `code` CLI is available, representative inspection commands are:
 
 ```bash
-command -v code
 code --version
 code --list-extensions --show-versions
 ```
 
-The user should identify the desired packaging variant, project path,
-profile, and whether settings, extensions, projects, or personal data may be
-changed.
+Use the platform's supported executable lookup first; these examples assume a
+shell that can invoke the `code` command.
+
+Identify the target platform, packaging variant, project path, profile, and
+whether settings, extensions, projects, or personal data may be changed. Use
+the package source approved for that platform; do not apply Ubuntu-specific APT
+or PolicyKit steps elsewhere.
 
 ## How to request it
 
@@ -142,8 +146,9 @@ diagnostic outcome is verified in the actual application.
 The agent must verify real editor behavior, not merely package installation
 or command success. For web apps, it should use the integrated browser first
 when running in VS Code with built-in browser tools available. Other GUI
-testing should use `desktop-control` and `desktop-vision` with
-observe-act-verify.
+testing should use an available approved desktop integration with
+observe-act-verify; follow `desktop-control` and `desktop-vision` when those
+bundles are configured.
 
 Known limitations:
 
@@ -189,7 +194,7 @@ The agent must:
   removal unless the user approves an exact deletion manifest.
 - Never type passwords, MFA codes, tokens, payment details, or CAPTCHA
   solutions.
-- Use `pkexec` for a bounded GNOME command when administrator authentication
+- On Ubuntu/GNOME, use `pkexec` for a bounded command when administrator authentication
   is required. The user enters the credential in the trusted PolicyKit dialog;
   the agent must not request, read, pass, type, capture, or otherwise observe
   it.
@@ -206,4 +211,5 @@ The agent must:
   requested background browser work.
 - [`system-troubleshooting`](../system-troubleshooting/README.md) diagnoses
   broader system or launch failures.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog or index, if one
+  exists.

@@ -4,30 +4,27 @@ Read this file explicitly before completing any new or changed skill bundle.
 
 ## Structure and frontmatter
 
-- [ ] Canonical source is under
-      `.opencode/skills/<name>/`.
-- [ ] The skill directory is a direct child of `skills/`.
-- [ ] The entry file is exactly `SKILL.md`.
-- [ ] `name` matches the directory and official naming regex.
-- [ ] `description` is 1-1024 characters and states what and when.
-- [ ] Frontmatter uses only `name`, `description`, `license`, `compatibility`,
-      or string-to-string `metadata`.
-- [ ] Repository-required metadata contains `schema-version: "1"`, one accepted
-      category, and three to eight valid comma-separated tags.
-- [ ] A complete skill-specific `README.md` is present and linked from the
-      bundle where appropriate.
+- [ ] Source location, discovery layout, and entry file match the active loader
+      and consumer configuration.
+- [ ] Required names, description fields, limits, and optional frontmatter follow
+      the active loader's documented format.
+- [ ] Additional metadata matches only the consumer's actual validator or
+      documented project policy.
+- [ ] A separate usage guide or catalog is included only when the consumer
+      maintains or requests one.
 - [ ] No unverified license claim was introduced.
 
 ## Content
 
-- [ ] Root `AGENTS.md` was read and remains the routing authority.
+- [ ] Applicable project instructions were read and remain authoritative for
+      this work.
 - [ ] Claims match current implementation and authoritative documentation.
 - [ ] Safety and confirmation gates match repository policy.
 - [ ] Scope is bounded and unrelated opportunities are only reported.
 - [ ] No automatic commit or learning-log requirement exists.
 - [ ] Rename or retirement does not delete anything without an immediate
       pre-deletion confirmation.
-- [ ] `SKILL.md` is under 500 lines as an editorial guideline.
+- [ ] Any documented bundle-size or line limit is met; no limit was invented.
 
 ## Split bundles and links
 
@@ -39,13 +36,13 @@ Read this file explicitly before completing any new or changed skill bundle.
 
 ## Catalog and deployment
 
-- [ ] The existing `skills/README.md` catalog is consistent, including the
-      category/tag index and links to each usage guide; no `SKILL-INDEX.md`
-      was introduced.
+- [ ] Any existing catalog or index is consistent with the consumer's source
+      and schema; no parallel index was added without need.
 - [ ] Only canonical source was edited.
-- [ ] Deployment tooling copies the complete bundle recursively.
-- [ ] Every deployed file matches its canonical source counterpart.
-- [ ] A restart and fresh-session discovery test follows deployment.
+- [ ] If deployment was authorized and performed, the actual tooling and target
+      were verified, including all required files and preservation behavior.
+- [ ] Runtime discovery was checked through an available consumer workflow;
+      source presence is not reported as live acceptance.
 
 ## Completion
 

@@ -24,7 +24,12 @@
     "sound": false
   },
   "plugins": [
-    "@prevalentware/opencode-goal-plugin@0.1.67",
-    "/home/james/repos/computer-use/voice-assistant"
+    "/home/james/repos/opencode-goal-plugin",
+    {
+      "package": "/home/james/repos/computer-use/voice-assistant",
+      "options": {
+        "recognitionBackend": "sherpa"
+      }
+    }
   ]
 }

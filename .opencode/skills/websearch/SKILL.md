@@ -1,6 +1,6 @@
 ---
 name: websearch
-description: Configure, verify, and troubleshoot OpenCode v2 web search across the Exa, Firecrawl, Parallel, Tavily, and TinyFish providers, and use websearch/webfetch for current-information research. Use when the user asks for web search, current information, provider setup, missing search tools, or search failures.
+description: Configure, verify, and troubleshoot the web-search providers available to the active OpenCode runtime, and use exposed search/fetch tools for current-information research. Use when the user asks for web search, current information, provider setup, missing search tools, or search failures.
 metadata:
   schema-version: "1"
   category: "browser"
@@ -9,135 +9,76 @@ metadata:
 
 # Web Search
 
-OpenCode v2 ships a first-class `websearch` tool and a `webfetch` tool. Use
-`websearch` when the question needs current information or discovery; use
-`webfetch` when the URL is already known.
+## Auto-approve and autonomous work
 
-Authoritative documentation: <https://opencode.ai/v2/docs/websearch/>. Prefer
-the V2 docs over V1 material and over general web results.
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
 
-## Providers
+Use the OpenCode `websearch` and `webfetch` tools when they are exposed in the
+current session. Use search for current information or discovery, and fetch when
+the exact URL is already known. Read the active runtime's documentation before
+configuring providers or changing permissions. Do not assume a provider list,
+API key name, configuration path, endpoint, CLI command, or service version.
 
-V2 supports five search providers:
+## Providers and configuration
 
-| Provider | ID | Environment variable |
-| --- | --- | --- |
-| Exa | `exa` | `EXA_API_KEY` |
-| Firecrawl | `firecrawl` | `FIRECRAWL_API_KEY` |
-| Parallel | `parallel` | `PARALLEL_API_KEY` |
-| Tavily | `tavily` | `TAVILY_API_KEY` |
-| TinyFish | `tinyfish` | `TINYFISH_API_KEY` (optional) |
+Discover the available providers, required credentials, active configuration
+source, and permissions from the selected OpenCode version and project. Preserve
+existing configuration and use only a provider explicitly available to the
+runtime. Keep credentials in the supported authentication store or service
+environment; never ask the user to paste keys into a prompt, tracked file, or
+logged command.
 
-Connect an account in the TUI with `/connect`, or set the provider's environment
-variable before starting OpenCode. Do not ask the user to paste keys into a
-prompt, a tracked file, or a command that gets logged. Use `/connect` or the
-service environment instead.
-
-## Configuration
-
-Configuration lives in the active global `opencode.jsonc`, or a project
-`opencode.json(c)`. Set one provider to skip the selection prompt:
-
-```jsonc
-{
-  "$schema": "https://opencode.ai/config.json",
-  "websearch": {
-    "provider": "tavily"
-  }
-}
-```
-
-Use `"random"` to keep every available provider in play:
-
-```jsonc
-{
-  "websearch": {
-    "provider": "random"
-  }
-}
-```
-
-A session reuses its selected provider until that provider returns HTTP 429,
-then `random` retries another available provider. Rate-limited providers cool
-down for `Retry-After`, or 60 seconds when no valid value is returned. If every
-provider is cooling down, the search fails immediately.
-
-This repository deploys `"provider": "random"` from `global/opencode.jsonc`.
-
-## Permissions
-
-Searches use the `websearch` permission action and the query as the resource.
-Ask before searches that are not explicitly allowed:
-
-```jsonc
-{
-  "permissions": [
-    {
-      "action": "websearch",
-      "resource": "*",
-      "effect": "ask"
-    }
-  ]
-}
-```
-
-`"websearch": false` removes the tool entirely. Do not disable it while
-diagnosing a failure; first check provider connectivity.
+Before changing provider selection, unattended-search permissions, account
+connections, or billing-related settings, verify the exact action and required
+authority. In auto/no-question mode, reuse existing exact authority or record a
+blocker without asking.
 
 ## Use
 
-1. Call the native `websearch` tool with a focused query. It returns titles,
-   URLs, extracted content, and publication times.
-2. Call `webfetch` for a specific URL, choosing `markdown`, `text`, or `html`.
-3. Cite the source URLs in the answer. Summarize rather than dumping full pages.
-4. For version-specific OpenCode questions, prefer
-   <https://opencode.ai/v2/docs/> over search snippets.
+For substantive research or recommendations, explicitly read
+[research quality](references/research-quality.md). Skip that detailed reference
+for provider-only setup; ordinary local questions need no automatic web search.
+The reference is not automatically loaded with this skill.
 
-Do not call `websearch` or `webfetch` from inside the Code Mode `execute`
-sandbox. That sandbox only exposes catalog tools, so they fail there with
-`Unknown tool`; call them directly as native tools.
+For explicit OpenAI product/API documentation questions, explicitly read
+[official-source routing](references/openai-official-sources.md) to distinguish
+API, ChatGPT, Codex and third-party behavior while preserving the requested model.
+It is not automatically loaded; ordinary local work and provider-only setup do
+not require it. OpenCode self-knowledge remains with the OpenCode skill/V2 docs.
+
+1. Fetch a known authoritative URL directly, or search with a focused query.
+2. Open primary sources supporting material claims, not just ambiguous snippets.
+3. Cite source URLs and distinguish sourced facts from inference.
+4. For version-specific OpenCode questions, use documentation matching the
+   active runtime version.
+
+If these tools are not exposed, use another approved research capability only
+when it exists and is suitable. Do not call a tool through an execution sandbox
+that does not expose it.
 
 ## Verify
 
-These commands were executed against OpenCode v2.1.4:
-
-```sh
-opencode api get /api/websearch/provider
-opencode api post /api/websearch -d '{"query":"OpenCode v2 websearch"}'
-```
-
-The provider endpoint returns the registered providers. The query endpoint
-returns `providerID` and `results`. Force one provider with:
-
-```sh
-opencode api post /api/websearch -d '{"query":"test","providerID":"tavily"}'
-```
-
-Check effective configuration:
-
-```sh
-opencode debug config
-```
-
-The merged document should contain the `websearch` block. If it does not, the
-config file being edited is not the active one; compare with
-`opencode debug paths`.
+Use the active runtime's documented read-only provider/configuration inspection
+when available. Confirm the configured provider and perform a non-sensitive test
+only when the user requested configuration verification and the required tools
+are exposed. A configured provider may still fail because of network, quota,
+credentials, or service health; report the observed result rather than assuming
+success.
 
 ## Troubleshooting
 
-- **`Unknown tool` for websearch/webfetch** — they were called inside the Code
-  Mode `execute` sandbox. Call them as native tools.
-- **No providers listed** — the service is unhealthy or too old. Check
-  `opencode --version` and `opencode service status`.
-- **Search returns no results for one provider** — test another provider ID to
-  separate a provider outage from a network or credential problem.
-- **Frequent 429s** — keep `provider: "random"`, or connect another account
-  with `/connect`.
-- **Config ignored** — a project config can override the global one; inspect
-  `opencode debug config` for every merged document.
-- **Hosted workspace search** — OpenCode Console can provide hosted web search
-  for connected workspaces; it needs no provider key and is enabled by a
-  workspace owner.
+- Tool unavailable: inspect the active runtime and configured permissions; do
+  not invent an endpoint or switch to an unsupported client.
+- No provider available: report the missing prerequisite and follow the
+  project's setup policy before configuring anything.
+- Empty results or rate limiting: distinguish provider, network, quota, and
+  credential failures using supported diagnostics.
+- Config ignored: inspect the active merged configuration and source paths.
+- Hosted or billed search: verify pricing and account authority before use.
 
 ## Safety
 
@@ -147,5 +88,5 @@ config file being edited is not the active one; compare with
   queries.
 - Ask before searches that could be sensitive or costly; hosted Console search
   is billed per successful search.
-- Keep the `websearch` permission as `ask` unless the user explicitly wants
-  unattended searching.
+- Follow the active project's permission policy; do not enable unattended
+  searching without the required explicit authority.

@@ -1,6 +1,6 @@
 ---
 name: vscode-management
-description: Install, update, configure, operate, test with the integrated browser, and troubleshoot Microsoft Visual Studio Code on Ubuntu. Use when the user mentions VS Code, Visual Studio Code, the code command, editor settings, profiles, workspaces, extensions, the integrated terminal or browser, in-editor web testing, or VS Code startup and performance problems.
+description: Install, update, configure, operate, test with the integrated browser, and troubleshoot Microsoft Visual Studio Code using the target platform's supported workflow. Use when the user mentions VS Code, Visual Studio Code, the code command, editor settings, profiles, workspaces, extensions, the integrated terminal or browser, in-editor web testing, or VS Code startup and performance problems.
 metadata:
   schema-version: "1"
   category: "editor"
@@ -9,14 +9,33 @@ metadata:
 
 # VS Code Management
 
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
+
 Manage Microsoft Visual Studio Code as a complete user workflow, not only as a
 package or process. Prefer the `code` CLI for deterministic operations and use
 VS Code's integrated browser for web-app testing when it is available to the
-agent. Use `desktop-control` with `desktop-vision` for other GUI interaction.
+agent. For other GUI interaction, use an available approved desktop integration;
+follow `desktop-control` and `desktop-vision` when those bundles are configured.
+
+## Platform boundary
+
+First identify the target operating system, VS Code distribution, and package
+source. The APT, Debian-package, GNOME, and PolicyKit procedures below apply
+only when the target is Ubuntu and those mechanisms are actually configured.
+For another platform, follow its current official VS Code documentation and the
+consumer project's approved package workflow; do not reuse Ubuntu commands. If
+no safe supported workflow is available, report the limitation.
 
 ## Inspect First
 
-1. Check `command -v code`, `code --version`, and the `code` package record.
+1. Locate the CLI using the target platform's supported executable lookup. If
+   available, inspect `code --version` and the installed package record.
 2. Distinguish Microsoft VS Code (`code`) from Insiders (`code-insiders`),
    VSCodium (`codium`), Snap, Flatpak, and distro builds. Do not introduce a
    second packaging format silently.
@@ -26,14 +45,15 @@ agent. Use `desktop-control` with `desktop-vision` for other GUI interaction.
 
 ## Install And Update
 
-- Use Microsoft's official amd64 Debian package or its signed APT repository.
+- On Ubuntu, use Microsoft's official Debian package or signed APT repository.
   Verify architecture, package metadata, and the published SHA-256 before
   installing a downloaded package.
-- Review APT simulation output for removals, downgrades, and new dependencies.
+- On Ubuntu, review APT simulation output for removals, downgrades, and new
+  dependencies.
 - Adding or changing a repository or signing key requires immediate user
   approval. Keep the key scoped with `Signed-By`; never disable signature or
   TLS verification.
-- Update the stable package with APT after confirming the configured source is
+- On Ubuntu, update through APT only after confirming the configured source is
   Microsoft's `https://packages.microsoft.com/repos/code` repository.
 - Verify the CLI, desktop entry, package version, and a real editor launch.
 
@@ -67,9 +87,10 @@ agent. Use `desktop-control` with `desktop-vision` for other GUI interaction.
 
 ## Settings And Extensions
 
-- User settings are normally under `~/.config/Code/User/`; project settings
-  are under `<workspace>/.vscode/`. Inspect the active profile before assuming
-  the default user path applies.
+- Resolve the active user-data/profile location from the selected Code
+  installation before editing user settings; package format and profile options
+  can change that path. Project settings are normally under
+  `<workspace>/.vscode/`, subject to the workspace configuration.
 - Preserve JSONC comments, key order, and unrelated settings. Make the smallest
   targeted edit and validate that Code still reads the file.
 - List extensions with `code --list-extensions --show-versions` before
@@ -123,8 +144,10 @@ agent. Use `desktop-control` with `desktop-vision` for other GUI interaction.
 
 ## GUI And Safety
 
-- Launch VS Code as the normal user, never as root. For GUI work, load
-  `desktop-control` and `desktop-vision`, then observe, act, and verify.
+- Launch VS Code without unnecessary elevation. For GUI work, use an
+  available approved desktop interaction and visual-verification integration;
+  follow the `desktop-control` and `desktop-vision` skills when those bundles
+  are configured.
 - Ask immediately before installing unrequested extensions, enabling network
   services, changing trust/security settings, deleting data, publishing,
   signing in, or replacing user configuration.
@@ -137,9 +160,9 @@ agent. Use `desktop-control` with `desktop-vision` for other GUI interaction.
 ## Removal And Rollback
 
 - Simulate package removal and review dependent removals first.
-- Removing the package does not authorize deleting `~/.config/Code`,
-  `~/.vscode`, workspaces, extensions, or project files. Preserve them unless
-  the user separately approves an exact deletion manifest.
+- Removing the package does not authorize deleting user data, profiles,
+  extensions, workspaces, or project files. Resolve their actual locations and
+  preserve them unless the user separately approves an exact deletion manifest.
 - Report the package rollback path, configuration backup path when one was
   created, and whether the user's actual editor workflow passed.
 

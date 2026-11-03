@@ -44,11 +44,10 @@ materials, missing-texture colors, transparency, alpha edges, noise, clipping,
 and obvious corruption. A non-empty PNG plus exit code zero is not visual
 verification.
 
-A render requested by the user is a retained artifact. A render made only for
-temporary verification belongs in `/tmp/opencode/` and is deleted after it has
-been inspected and reported. Desktop screenshots follow the separate
-`desktop-vision` rule: inspect the one newly captured PNG and delete it
-immediately.
+A render requested by the user is a retained artifact. A render made only for temporary verification belongs in the project-approved
+scratch location. Follow the capture provider's verified ownership and retention
+contract for screenshots; do not assume every capture is task-owned or must be
+deleted.
 
 ## Export contract
 
@@ -68,10 +67,9 @@ For browser delivery, use GLB by default and read the sibling
 working. Use separate glTF files only when external resources are an intended
 part of the contract.
 
-In Blender 5.0 Python, glTF export is performed through Blender's glTF operator,
-for example `bpy.ops.export_scene.gltf(filepath=output_path,
-export_format="GLB")`. A task script must check that the operator returns
-`FINISHED` and that the unused output path was created. Selective export must
+Use the glTF export operator documented for the installed Blender version. A
+task script must check that the operator returns `FINISHED` and that the unused
+output path was created. Selective export must
 set and verify the exact selection rather than relying on stale UI state.
 
 ## Clean reimport
@@ -92,17 +90,15 @@ An exported file passes structure only after a clean reimport:
 5. Remove only task-created temporary reimport files after the comparison.
 
 Reimport can prove file structure but not target-runtime compatibility. For a
-web asset, load it through the project's existing loader using the approved
-Windows-default-browser UIA tools from WSL, or isolated headless Firefox only
-when explicitly requested. Inspect the rendered screenshot. UIA may not expose
-console or network diagnostics; do not claim that it does, and report required
-diagnostics as a blocker if no approved tool provides them. If required
-screenshots or interactions are unavailable, leave the browser validation
-incomplete rather than switching to Chrome/Chromium or desktop control.
+web asset, load it through the project's existing loader and approved browser
+integration. Inspect rendered output using an authorized visual surface. Do not
+claim console or network diagnostics unless an available tool exposes them;
+report required evidence as a blocker when unavailable. Do not silently switch to
+an unsupported browser or desktop-control path.
 
 ## Official sources
 
-- [Blender 5.0 command-line rendering](https://docs.blender.org/manual/en/5.0/advanced/command_line/render.html)
-- [Blender 5.0 importing and exporting](https://docs.blender.org/manual/en/5.0/files/import_export.html)
-- [Blender 5.0 window-manager operators](https://docs.blender.org/api/5.0/bpy.ops.wm.html)
-- [Blender 5.0 export-scene operators](https://docs.blender.org/api/5.0/bpy.ops.export_scene.html)
+- [Blender command-line rendering](https://docs.blender.org/manual/en/latest/advanced/command_line/render.html)
+- [Blender importing and exporting](https://docs.blender.org/manual/en/latest/files/import_export.html)
+- [Blender window-manager operators](https://docs.blender.org/api/current/bpy.ops.wm.html)
+- [Blender export-scene operators](https://docs.blender.org/api/current/bpy.ops.export_scene.html)

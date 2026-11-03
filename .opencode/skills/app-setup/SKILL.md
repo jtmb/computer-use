@@ -11,6 +11,14 @@ metadata:
 
 Deliver the requested workflow, not merely a successful installer exit.
 
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
+
 ## Procedure
 
 1. Inspect OS, architecture, session, installed versions, running processes,
@@ -27,7 +35,9 @@ When authentication is required in GNOME, invoke only the bounded privileged
 command through `pkexec` and let the user complete the trusted PolicyKit
 dialog. Make no screenshots, accessibility queries, or keyboard input while it
 is open; verify package state after it closes.
-6. Configure with `desktop-control`; let the user handle secrets and MFA.
+6. Configure with an available, approved desktop-control surface when GUI work
+   is needed; do not assume one is installed or exposed. Let the user handle
+   secrets and MFA.
 After installing or changing a browser, set the default for
 `x-scheme-handler/http`, `x-scheme-handler/https`, and `text/html` with both
 `xdg-settings` and `xdg-mime`, verify all three with `xdg-mime query default`,

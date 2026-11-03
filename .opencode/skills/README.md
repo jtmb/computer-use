@@ -1,12 +1,15 @@
 # Skills
 
-Twenty-three OpenCode skills. Complete source bundles live in `./<name>/` and are
+Thirty-four OpenCode skills. Complete source bundles live in `./<name>/` and are
 loaded directly from `./<name>/`; the global config points at
 `~/repos/computer-use/.opencode/skills`.
 
-OpenCode watches skills and configuration. If a change is not picked up in a
-running session, start a fresh session or restart the service with `Ctrl+P` >
-`service.restart`.
+OpenCode watches skills and configuration. Verify discovery at the intended
+location before assuming a running chat loaded a change. Project-only discovery
+does not prove global visibility. [Skills-only source registration](../../scripts/deploy-global-skills.py)
+previews a bounded global update without replacing models/permissions/plugins;
+apply only with deployment authority. Do not restart every chat merely to refresh
+instructions. Global source registration is not optional-plugin activation.
 
 ## Using skills
 
@@ -17,12 +20,28 @@ request examples, prerequisites, commands, verification, limitations, and
 safety requirements. Usage guides and other references are not loaded
 automatically.
 
+## Auto-approve and autonomous goals
+
+**Build auto means no interactive questions for authorized goal work, including
+routine Git.** Skills must not reintroduce confirmation/clarification/continue or
+delegation opt-in questions on top of the operator's auto setting. Reuse existing
+authority, choose reversible defaults, or record blockers and continue independent
+work without asking. Native denials, task scope and required authorizations remain
+effective; auto is not permission to expand scope or self-grant access. See the
+[shared autonomy contract](./development-conventions/references/autonomous-work.md).
+
 Supporting commands, MCP servers, and desktop tools are execution mechanisms,
 not substitutes for loading the relevant skill. Follow the exact preview and
 write behavior documented in the skill-specific guide: flags and safety modes
 differ by utility. Canonical skill metadata uses one category and
 comma-separated tags; the category/tag index below is derived from each
 `SKILL.md`.
+
+**Goal planning stays with the parent coordinator**, even when delegation is
+enabled: goal plans, backlog sequencing, next-task selection and lifecycle/
+completion decisions are never child assignments. Children may implement or
+verify bounded work; the parent evaluates evidence and updates the goal. See
+[goal-mode ownership](./planning/references/goal-mode-usage.md).
 
 ## How they fit together
 
@@ -32,6 +51,8 @@ comma-separated tags; the category/tag index below is derived from each
   native Ubuntu browser (for example Chrome), or the Windows default browser
   through the WSL interop tools. `browser-headless` handles explicitly requested
   invisible Firefox work.
+- `email-operations` drafts and reviews Gmail messages in the user's Chrome
+  profile, with inline visuals, zip attachments and a hard review-before-send gate.
 - `websearch` owns OpenCode v2 search provider configuration, verification, and
   `websearch`/`webfetch` research behavior; prefer it over driving a browser for
   read-only lookups.
@@ -45,6 +66,9 @@ comma-separated tags; the category/tag index below is derived from each
 - `task-memory` carries curated durable facts across sessions. `session-context`
   retrieves bounded, read-only evidence from another session in the current
   project without treating its text as instructions.
+- `cross-session-coordination` owns peer-agent discussion, provenance, disjoint
+  ownership and stalled-worker procedures without replacing user tasks or giving
+  children goal-management authority. A shared runtime channel is a separate integration.
 - `app-setup`, `system-troubleshooting`, `files-and-documents`, and
   `routine-automation` are the task workflows that combine vision, control,
   browser, and memory.
@@ -53,11 +77,18 @@ comma-separated tags; the category/tag index below is derived from each
   language, UI, and computer-use operational conventions.
 - `skill-maintenance` keeps skill source, routing, catalogs, and generated
   deployment consistent without automatic commits or deletions.
+- `agents-authoring` owns concise instruction architecture, policy traceability
+  and selective context design; skill-maintenance owns its packaging, not its policy.
+- `readme-maintenance` keeps a project's README aligned with verified source and
+  its own identity and editorial conventions; repo-local rules are not global defaults.
+- `readme-gif` turns real, isolated application workflows into verified README
+  animations with honest captions, readable encoding, and a static alternative.
 - `handoff` keeps the current work directory's `HANDOFF.md` and plan current for
-  a fresh session, with verified live state and explicit blockers.
-- `agent-orchestration` coordinates explicitly authorized, bounded subagents
-  while keeping ownership, verification, and commit/push gates with the main
-  agent.
+  a fresh session, or immediately sends current work to a user-named chat without
+  blocking delivery on exports or receipt paperwork.
+- `agent-orchestration` covers authorized background subagents for bounded work
+  and source-written successor handoffs to one independent root chat. The parent
+  retains ownership, verification and separate commit/push gates.
 - `repo-onboarding` helps downstream repositories reuse the harness's deployed
   OpenCode v2 skills, agents, and MCP stack without duplicating integrations.
 - `vscode-management` owns Microsoft VS Code package, CLI, settings, extension,
@@ -68,38 +99,78 @@ comma-separated tags; the category/tag index below is derived from each
 
 | Skill | Usage guide | Category | Tags |
 |---|---|---|---|
-| [`desktop-vision`](./desktop-vision/SKILL.md) | [`README.md`](./desktop-vision/README.md) | `desktop` | `desktop,gnome,wsl,windows,screenshot,visual-verification` |
-| [`desktop-control`](./desktop-control/SKILL.md) | [`README.md`](./desktop-control/README.md) | `desktop` | `desktop,at-spi,gui,gnome` |
-| [`browser-assistant`](./browser-assistant/SKILL.md) | [`README.md`](./browser-assistant/README.md) | `browser` | `browser,live,linux,ubuntu,wsl,windows,default-browser,accessibility` |
-| [`browser-headless`](./browser-headless/SKILL.md) | [`README.md`](./browser-headless/README.md) | `browser` | `browser,headless,playwright,automation` |
+| [`personality`](./personality/SKILL.md) | [`README.md`](./personality/README.md) | `communication` | `personality,communication,plain-english,response-style` |
+| [`personality-plain-english`](./personality-plain-english/SKILL.md) | [`README.md`](./personality-plain-english/README.md) | `communication` | `personality,plain-english,explanations,beginner-friendly` |
+| [`desktop-vision`](./desktop-vision/SKILL.md) | [`README.md`](./desktop-vision/README.md) | `desktop` | `desktop,screenshot,visual-verification` |
+| [`desktop-control`](./desktop-control/SKILL.md) | [`README.md`](./desktop-control/README.md) | `desktop` | `desktop,accessibility,gui` |
+| [`browser-assistant`](./browser-assistant/SKILL.md) | [`README.md`](./browser-assistant/README.md) | `browser` | `browser,live,accessibility,interaction` |
+| [`email-operations`](./email-operations/SKILL.md) | [`README.md`](./email-operations/README.md) | `communication` | `email,gmail,chrome,draft,attachments,visuals,handoff` |
+| [`browser-headless`](./browser-headless/SKILL.md) | [`README.md`](./browser-headless/README.md) | `browser` | `browser,headless,automation` |
 | [`websearch`](./websearch/SKILL.md) | [`README.md`](./websearch/README.md) | `browser` | `websearch,webfetch,opencode,providers,research,web` |
-| [`game-playtest`](./game-playtest/SKILL.md) | [`README.md`](./game-playtest/README.md) | `browser` | `games,playtesting,playwright,canvas,webgl` |
-| [`fanduel-parlay-research`](./fanduel-parlay-research/SKILL.md) | [`README.md`](./fanduel-parlay-research/README.md) | `browser` | `fanduel,sportsbook,parlay,odds,player-props,playwright` |
-| [`task-memory`](./task-memory/SKILL.md) | [`README.md`](./task-memory/README.md) | `memory` | `memory,preferences,decisions,pending` |
+| [`game-playtest`](./game-playtest/SKILL.md) | [`README.md`](./game-playtest/README.md) | `browser` | `games,playtesting,canvas,webgl` |
+| [`fanduel-parlay-research`](./fanduel-parlay-research/SKILL.md) | [`README.md`](./fanduel-parlay-research/README.md) | `browser` | `fanduel,sportsbook,parlay,odds,player-props` |
+| [`task-memory`](./task-memory/SKILL.md) | [`README.md`](./task-memory/README.md) | `memory` | `memory,preferences,decisions,retrieval` |
 | [`session-context`](./session-context/SKILL.md) | [`README.md`](./session-context/README.md) | `memory` | `opencode,sessions,context,handoff,memory` |
 | [`app-setup`](./app-setup/SKILL.md) | [`README.md`](./app-setup/README.md) | `applications` | `applications,installation,updates,removal` |
 | [`github-operations`](./github-operations/SKILL.md) | [`README.md`](./github-operations/README.md) | `applications` | `github,mcp,repositories,issues,pull-requests,automation` |
 | [`blender`](./blender/SKILL.md) | [`README.md`](./blender/README.md) | `applications` | `blender,3d,bpy,rendering,export` |
 | [`system-troubleshooting`](./system-troubleshooting/SKILL.md) | [`README.md`](./system-troubleshooting/README.md) | `troubleshooting` | `troubleshooting,diagnostics,services,performance` |
 | [`files-and-documents`](./files-and-documents/SKILL.md) | [`README.md`](./files-and-documents/README.md) | `files` | `files,documents,organization,pdf` |
+| [`chatgpt-images`](./chatgpt-images/SKILL.md) | [`README.md`](./chatgpt-images/README.md) | `files` | `images,chatgpt,generation,visual-verification` |
 | [`web-3d-asset-pipeline`](./web-3d-asset-pipeline/SKILL.md) | [`README.md`](./web-3d-asset-pipeline/README.md) | `files` | `3d,gltf,glb,assets,web` |
+| [`readme-gif`](./readme-gif/SKILL.md) | [`README.md`](./readme-gif/README.md) | `files` | `readme,gif,demo,recording,documentation,visual-verification` |
 | [`routine-automation`](./routine-automation/SKILL.md) | [`README.md`](./routine-automation/README.md) | `automation` | `automation,scheduling,scripts,idempotence` |
 | [`opencode-db-maintenance`](./opencode-db-maintenance/SKILL.md) | [`README.md`](./opencode-db-maintenance/README.md) | `maintenance` | `maintenance,sqlite,backup,cron` |
 | [`repo-onboarding`](./repo-onboarding/SKILL.md) | [`README.md`](./repo-onboarding/README.md) | `maintenance` | `onboarding,downstream,opencode,mcp,memory,integration` |
 | [`development-conventions`](./development-conventions/SKILL.md) | [`README.md`](./development-conventions/README.md) | `maintenance` | `development,conventions,source-editing,testing,documentation,operations` |
 | [`skill-maintenance`](./skill-maintenance/SKILL.md) | [`README.md`](./skill-maintenance/README.md) | `skills` | `skills,documentation,deployment,catalog` |
+| [`self-learning`](./self-learning/SKILL.md) | [`README.md`](./self-learning/README.md) | `skills` | `sessions,learning,skills,evidence,review` |
+| [`agents-authoring`](./agents-authoring/SKILL.md) | [`README.md`](./agents-authoring/README.md) | `skills` | `agents,instructions,architecture,context,traceability` |
+| [`readme-maintenance`](./readme-maintenance/SKILL.md) | [`README.md`](./readme-maintenance/README.md) | `maintenance` | `readme,documentation,branding,setup,links,verification` |
 | [`handoff`](./handoff/SKILL.md) | [`README.md`](./handoff/README.md) | `maintenance` | `handoff,session,continuity,verification,planning` |
+| [`planning`](./planning/SKILL.md) | [`README.md`](./planning/README.md) | `maintenance` | `planning,architecture,scope,phases,dependencies,tradeoffs,acceptance-tests` |
 | [`agent-orchestration`](./agent-orchestration/SKILL.md) | [`README.md`](./agent-orchestration/README.md) | `automation` | `agents,orchestration,delegation,verification,git-safety` |
+| [`cross-session-coordination`](./cross-session-coordination/SKILL.md) | [`README.md`](./cross-session-coordination/README.md) | `automation` | `agents,sessions,coordination,ownership,deadlines,provenance` |
+| [`goal-usage`](./goal-usage/SKILL.md) | [`README.md`](./goal-usage/README.md) | `maintenance` | `goals,budget,limits,continuation,lifecycle` |
 | [`vscode-management`](./vscode-management/SKILL.md) | [`README.md`](./vscode-management/README.md) | `editor` | `editor,vscode,extensions,workspaces,browser,testing` |
 
 ## Catalog
 
+### personality and personality-plain-english
+
+`personality` manages response-style checking, selection and explicit saving.
+`personality-plain-english` explains things with everyday words and familiar
+examples, assuming no technical knowledge, without an added pushback persona.
+Handbacks and task updates include ordered next steps with short bold action
+labels and clear ownership when follow-up work exists, without inventing tasks.
+Each subtype is a sibling skill. Optional tool/reminder activation and actual
+fresh/long-chat behaviour require separate verification; source presence is not
+a global guarantee. Read [the parent usage guide](./personality/README.md).
+
+### agents-authoring
+
+Design and maintain agent instruction indexes, policy ownership, migration
+traceability and bounded context retrieval. Read [the usage guide](./agents-authoring/README.md).
+Discover the consumer's loader/instructions; research is not an optimal line law
+or authorization to implement, deploy, resume goals or modify native permissions.
+
+### email-operations
+
+Draft and review Gmail messages through the user's visible Chrome profile.
+Supports inline HTTPS visuals, zip attachments, screenshots and an explicit
+approval string before send. Read [the usage guide](./email-operations/README.md).
+Never claim to be the user; identify as an AI assistant when writing on their
+behalf.
+
 ### desktop-vision
 
 Let the assistant see a GNOME or WSL/Windows desktop through the bounded
-`vision_capture` tool. Native GNOME uses a trusted screenshot shortcut and
-deletes its one new PNG; WSL uses a validated in-memory PNG from the checked-in
-Windows host and creates no screenshot file.
+`desktop_screenshot` tool. Native GNOME sends GNOME's screenshot shortcut and
+uses an inventory candidate; request ownership, complete PNG validity, bounded
+reading and successful deletion remain unresolved. An explicit capture deferral
+also forbids a shell equivalent; changing interaction needs separate approval.
+WSL capture needs the separate bounded Windows host and creates no screenshot
+file.
 
 Use when the user says see the screen, screenshot, look at my display, what's
 on my screen, verify visually, or when GUI work needs eyes on the result.
@@ -110,9 +181,10 @@ Example requests:
 - "Verify visually that the installer window is closed."
 - "Look at this dialog and tell me which button is focused."
 
-Requires: on native GNOME, the screenshot shortcut plus the private ydotool
-service or a user keypress fallback; on WSL2, trusted Windows PowerShell and the
-checked-in interop host. No permission changes are made from this skill.
+Requires: on native GNOME, `desktop_screenshot`, the repository's
+`computer-use.desktop` plugin, the user-owned `ydotool` service and socket, and
+no permission changes. On WSL2, the checked-in bounded Windows host; without it,
+ask the user to capture manually.
 
 ### desktop-control
 
@@ -131,10 +203,17 @@ Example requests:
 - "Dismiss the unsaved-changes dialog without saving."
 - "Type this address into the compose field."
 
-Requires: `scripts/desktop-control.py`, `python3-pyatspi`, GNOME toolkit
+Requires: the `computer-use.desktop` plugin's `desktop_apps`, `desktop_tree`,
+`desktop_find`, and `desktop_act` tools, `python3-pyatspi`, GNOME toolkit
 accessibility, plus `desktop-vision` for verification. Mutations require
-`--apply`. Protected fields are redacted and cannot be read or written.
-Ambiguous targets stop and list candidates instead of guessing.
+`apply: true` with a fresh `expectToken`. Protected fields are redacted and
+cannot be read or written. Ambiguous targets stop and list candidates instead of
+guessing.
+
+Optional GNOME Shell 50 compositor tools (`desktop_windows`, `desktop_window_act`,
+and `desktop_layout`) use exact IDs and previewed logical-desktop placements with
+verified focus/geometry. Their bridge requires separate installation/enablement
+approval; source checks are not live acceptance. No blind window-hotkey fallback.
 
 Observed limits: some GTK4 controls expose only a window frame; custom
 canvases and sandboxed apps may expose little AT-SPI data; advertised dialog
@@ -190,8 +269,9 @@ they do not register an MCP or provide a visible-browser fallback.
 
 ### websearch
 
-Configure and use OpenCode v2 web search across the Exa, Firecrawl, Parallel,
-Tavily, and TinyFish providers, and research with `websearch` and `webfetch`.
+Configure the active runtime's available search providers and research with
+exposed search/fetch tools. Discover capabilities rather than assuming a provider
+list or another host's settings.
 
 Use when the user asks for current information, web search, provider setup,
 search failures, or when a question needs sources newer than the model.
@@ -202,11 +282,13 @@ Example requests:
 - "Why is web search missing, and can you enable all providers?"
 - "Which provider answered this search?"
 
-Requires: OpenCode v2, a healthy service, and at least one reachable provider.
-`provider: "random"` rotates across all available providers and retries after
-HTTP 429. Provider accounts connect through `/connect` or their environment
-variables; no key is stored in this repository. Call the native tools directly,
-not from inside the Code Mode `execute` sandbox.
+Requires: an authorized, available research capability and the current runtime's
+documented setup/permissions. Substantive research selectively loads the evidence
+reference; explicit OpenAI product/API questions additionally load the focused
+official-source reference. Neither is automatic for local work/provider-only
+setup. Distinguish ChatGPT/API/Codex/third-party claims and preserve exact models;
+OpenCode self-knowledge stays with the OpenCode V2 route. No new connector,
+account, billing, model/default or permission change is implied.
 
 ### game-playtest
 
@@ -254,8 +336,9 @@ permission changes retain explicit user handling and confirmation gates.
 
 ### task-memory
 
-Store and retrieve durable user preferences, verified computer facts,
-workflow decisions, and pending tasks in the local Basic Memory knowledge base.
+Store and retrieve compact, source-linked Markdown facts and decisions in the
+active repository. Cross-project preferences use explicit global scope in a
+dedicated OpenCode data location, not a separate memory service.
 
 Use when the user says remember, forget, continue later, what did we decide,
 or when durable context would prevent repeated setup. Never store credentials
@@ -265,14 +348,14 @@ Example requests:
 
 - "Remember that I prefer direct automation with verification."
 - "What did we decide about screenshots?"
-- "Continue where we left off yesterday."
+- "Recall our verified audio setup decision."
 
-Requires: the `basic-memory` MCP tools (`search_notes`, `build_context`,
-`read_note`, `write_note`, `edit_note`, `delete_note`) served by
-`scripts/basic-memory-mcp.sh` under an adaptive memory budget, with the
-owner-only project at `~/Documents/computer-assistant/basic-memory/` (dir
-`700`). Writes apply directly, so confirm durable personal facts first;
-deletion always needs an explicit confirmation.
+Requires: verified consumer scope/instructions and an exposed, authorized memory
+tool or explicitly authorized repository-file workflow. Use a short index and
+metadata-aware ranked snippets; read only relevant notes. Preserve native
+permissions, preview/revision checks and explicit deletion authority. No external
+memory provider, automatic global promotion, full-store prompt injection or
+automatic Git publication. Goal plans/progress stay with the parent and goal tools.
 
 ### session-context
 
@@ -357,8 +440,11 @@ reversible fix, and a repeated reproduction plus regression check.
 Find, inspect, organize, rename, summarize, and export local files and
 documents while preserving originals.
 
-Use when the user asks to find a file, organize Downloads, summarize a PDF,
-rename files, create notes, or prepare a document/export.
+Use for file organization, notes and local DOCX/PDF/XLSX/CSV workflows. Explicitly
+read the shared artifact contract and matching format reference for document
+work; ordinary finding/renaming needs no format procedure. Authoring libraries,
+safe converter isolation and actual round-trip/render acceptance are separate
+prerequisites, not provided by these source references.
 
 Example requests:
 
@@ -368,6 +454,21 @@ Example requests:
 
 Requires: Glob/Grep plus targeted reads, old-to-new manifest for batch
 operations, and verification of counts, names, sizes, and readability.
+
+### chatgpt-images
+
+Generate through an available, authorized ChatGPT connector and return the actual
+image in the conversation. Inspect the result before claiming success or using
+the asset. A filename, text reply, or mock is not completed image delivery.
+
+Example: "Generate a watercolor lighthouse at sunset and show it here."
+
+Requires: a discovered image-generation tool, existing approved connection,
+permitted mode, native image attachments, and safe output permissions. Loading
+the skill does not enable a connector or prove account access. See the
+[usage guide](./chatgpt-images/README.md).
+Nontrivial prompting has an optional explicitly loaded reference; it adds no
+tool controls, connector installation or extra-generation authority.
 
 ### web-3d-asset-pipeline
 
@@ -389,6 +490,33 @@ a new versioned output, clean reimport, and a load through the project's existin
 Firefox loader. It does not install undeclared optimization dependencies. This
 bundle independently adapts MIT-licensed OpenAI Game Studio guidance and carries
 its provenance and license files.
+
+### readme-gif
+
+Create and verify animated GIF demos for READMEs using real application workflows,
+isolated sample data, evidence-backed captions, and readable encoding. Adapted
+from Tend's documented demo workflow, with pinned provenance and its MIT notice.
+
+Use when the user asks for a README GIF, animated product demo, or repeatable
+recording workflow.
+
+For computer-use, prioritize real OpenCode-driven browser/desktop tasks, including
+video discovery, product research, and sample-email organization. Do not replace
+the feature showcase with setup previews or animated terminal output. The main
+demo requires simultaneous real OpenCode/app footage, deliberate zooms/transitions,
+and approval of a short composition preview before replacing the main asset.
+
+Example requests:
+
+- "Make a README GIF of the preview and filtering workflow using sample data."
+- "Create a short product demo without touching the installed personal instance."
+- "Check this GIF's readability, captions, loop, and still-image alternative."
+
+Requires: a working application, verified isolated fixtures, a supported capture
+route, an available encoder, and decoded-output plus README-render review. This
+skill provides instructions, not a bundled recorder or dependency installation.
+Installs, destructive/system actions, publication, commits, and pushes keep their
+separate approval gates.
 
 ### routine-automation
 
@@ -445,17 +573,17 @@ Example requests:
 
 - "Review this API handler against our development conventions."
 - "Apply the Python and testing conventions to this fix."
-- "Check these computer-use deployment docs for source-of-truth drift."
+- "Check our integration docs for source-of-truth drift."
 
-Requires: repository-root `AGENTS.md` as authority, the mandatory references
-named by the skill, only the domain references needed for the task, and
-verification through `./scripts/health-check.sh` rather than direct edits to
-generated skill copies.
+Requires: the consumer project's applicable instructions, the mandatory and
+matching domain references, and its actual checks. Documentation guidance keeps
+a human-readable `docs/features.md` with source/runtime/blocked distinctions.
+See [this repository's inventory](../../docs/features.md).
 
 ### skill-maintenance
 
 Create, update, audit, catalog, deploy, rename, or retire OpenCode skills in
-this repository while keeping changes bounded and reviewable.
+a consumer project while keeping changes bounded and reviewable.
 
 Use when skill coverage is missing or stale, a `SKILL.md` or reference bundle
 changes, the catalog drifts, deployment needs verification, or the user asks
@@ -467,16 +595,39 @@ Example requests:
 - "Create a skill for this repeated workflow."
 - "Deploy this updated split skill and verify every reference file."
 
-Requires: root `AGENTS.md` as routing authority, canonical source under this
-directory, explicit reading of the relevant bundled reference, recursive
-verification through `./scripts/health-check.sh`, and a fresh OpenCode
-session for runtime discovery. It never commits or deletes automatically.
+Requires: applicable consumer instructions, discovered source/loader/catalog
+and validators, and explicit reading of relevant references. Deployment and
+runtime discovery are separate checks through the consumer's real workflow.
+It never commits or deletes automatically.
+
+### readme-maintenance
+
+Maintain a project's README against verified source and its own conventions,
+preserving its established identity. No universal brand, line budget, demo or
+setup prompt is imposed. GIF work uses `readme-gif` when available.
+This repository's specific requirements live in
+[the local layout guide](../../docs/readme-layout.md) and `AGENTS.md`.
+
+Use when the user requests a README refresh or drift audit, or when a changed
+capability or setup step affects the README.
+
+Example requests:
+
+- "Audit the README against setup.md without changing anything."
+- "Update the skill summary while preserving the mascot and setup prompt."
+- "Verify README links, commands, and the light/dark hero before review."
+
+Requires: applicable consumer instructions, the actual source
+behind changed claims, and read-only validation. It does not run onboarding,
+install dependencies, rebrand, or publish automatically.
 
 ### agent-orchestration
 
-Coordinate bounded subagents only when delegation is explicitly requested or
-repository instructions require it, while keeping final ownership and
-verification with the main agent.
+Coordinate bounded subagents after one session authorization through the
+question tool. Ask at most once, even after no; later explicit "subagents on"
+or "subagents off" prompts toggle delegation without another question. While
+off, the parent works directly rather than requiring a child. Final ownership
+and verification stay with the main agent.
 
 Use when the user requests partitioned subagent work, bounded parallel
 investigation, or reconciliation of independent delegated findings.
@@ -486,6 +637,15 @@ Example requests:
 - "Delegate these two disjoint inspections, then verify the results yourself."
 - "Use no more than two subagents and do not commit or push."
 - "Prepare the bounded change, but ask separately before commit and push."
+
+Use concise semantic session titles from the current substantive user request and
+actual work, with the target session's full actual ID. A newer user correction
+wins over a stale goal cursor; rename only for a meaningful change or correction.
+That convention is for main/successor chats. For subagents, set the launch label
+to the actual model and effort, optionally with a short assignment; do not rename
+subagent sessions after spawning them or append session/goal IDs to their labels.
+Titles are not goal tracking, and raw goal-description prose cannot overwrite the
+model-chosen label.
 
 Requires: built-in `explore` for planning/reconnaissance, normally `general` for
 implementation, and the active project's `orchestration-policy.options.maxConcurrent`
@@ -546,6 +706,54 @@ confirmation gates.
 Refresh the current work directory's `HANDOFF.md` and plan so a new OpenCode v2 session can continue.
 The skill records the prompt, live state, Work In Progress, blockers, and exact
 verification results without committing, pushing, or editing deployed copies.
+For "hand this to the other chat", resolve the destination and send immediately;
+request a merge into its existing goal when asked, then stop here when requested.
+Do not delay delivery for exports, receipts, health checks or acknowledgement.
 
 Requires: the current working directory, its `HANDOFF.md` and plan or report
-files, and explicit separation of commit and push approvals.
+files for document exports, or a verified destination and supported local prompt
+API for chat transfers; commit and push approvals remain separate.
+
+### goal-usage
+
+Use OpenCode goals correctly, including when a token budget may be set.
+
+Use when creating, replacing, resuming or closing a goal, when a goal reports
+`budgetLimited`, or when the user asks about goal limits.
+
+Example requests:
+
+- "Make a goal from this plan."
+- "Remove the budget from this goal."
+- "Why did the goal stop?"
+- "Resume the goal without a token budget."
+
+The governing rule: set a token budget only when the user states one. No budget is
+the default for a goal built from a plan or a task request, and the same restraint
+applies to duration limits and auto-continue caps. Goal accounting is cumulative
+and dominated by context cost, so an unrequested budget usually blocks healthy
+work rather than protecting it. A `budgetLimited` goal may not continue until the
+user explicitly resumes it; summarizing verified progress and naming the blocker
+is required, not a resumption.
+
+### planning
+
+Create natural, appropriately detailed plans for small fixes, project work, and
+architecture decisions. Ground repository trees, links, and workflow diagrams
+in inspected evidence; keep proposed files clearly labelled and separate from
+the current state.
+
+Use when the user asks to scope, sequence, compare approaches, define
+dependencies, or set acceptance criteria. A plan request alone is not
+authorization to implement.
+
+Example requests:
+
+- "Give me a short plan for this bug fix; don't change anything."
+- "Compare two approaches and recommend one, including tradeoffs."
+- "Plan this feature in phases with dependencies and acceptance tests."
+
+Requires: the actual repository and relevant guidance for repository-specific
+plans, verified existing paths, explicit separation of facts and assumptions,
+and respect for Plan/Build mode and user approval boundaries. Do not create or
+resume persistent goals unless the user explicitly asks for that operation.

@@ -17,7 +17,8 @@ Keep the audit read-only until findings and authorized scope are clear.
 
 ### Content and references
 
-- Instructions agree with root `AGENTS.md` and current implementation.
+- Instructions agree with the consumer's applicable project policy and current
+  implementation.
 - Commands, paths, versions, permissions, and safety gates remain accurate.
 - Every linked reference is explicitly described and exists.
 - Internal relative links resolve from the file containing each link.
@@ -25,24 +26,27 @@ Keep the audit read-only until findings and authorized scope are clear.
 
 ### Routing and catalog
 
-- Root `AGENTS.md` routes relevant user intents to the skill without ambiguous
-  overlap.
-- `skills/README.md` entries and counts agree with canonical source.
-- No `SKILL-INDEX.md`, agent grant, database registration, or learning log is
-  assumed.
+- Applicable project instructions route relevant user intents without
+  ambiguous overlap.
+- Any existing catalog entries and counts agree with configured skill source.
+- No index, agent grant, database registration, or learning log is assumed
+  unless the consumer's configuration establishes it.
 
 ### Deployment
 
-- The deployed location is the selected v2 config directory's
-  `skills/<name>/` (default `~/.opencode-v2-pilot/config/skills/<name>/`).
-- Canonical source is authoritative and deployed files are generated copies.
-- The complete directory is deployed recursively, not only `SKILL.md`.
-- Source and deployed relative paths and contents match.
-- Deployment is idempotent and does not remove unrelated files.
+- When deployment applies, its source and target are identified from actual
+  consumer configuration and tooling.
+- Generated files are distinguished from canonical source according to project
+  policy.
+- Required bundle files and preservation behavior are checked against the real
+  deployment mechanism.
+- Source/target parity and idempotence are verified only when deployment is in
+  scope and can be checked safely.
 
 ### Runtime
 
-- OpenCode discovers the skill after restart in a fresh session.
+- Runtime discovery is verified through the active loader workflow when
+  available; a restart is not assumed or treated as proof by itself.
 - The displayed name and description are correct.
 - Loading the skill succeeds.
 - A representative workflow explicitly reads its required reference and

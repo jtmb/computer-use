@@ -6,7 +6,7 @@ this README and the reference are not loaded automatically.
 
 Category: `browser`
 
-Tags: `fanduel`, `sportsbook`, `parlay`, `odds`, `player-props`, `playwright`
+Tags: `fanduel`, `sportsbook`, `parlay`, `odds`, `player-props`
 
 ## Purpose and when to use it
 
@@ -34,15 +34,14 @@ Before the first run, the agent checks:
 
 - the sport, date/slate, stake, jurisdiction, and probability floor;
 - the current FanDuel event page and whether the games have started;
-- the browser path: an existing visible, logged-in session for betslip
-  verification, or isolated public-page browsing for research only;
-- the ESPN scoreboard endpoint for the date, to confirm game status and start
-  times;
+- an approved browser or research capability for current event information and,
+  if available, the user's eligible session for betslip verification;
+- an authoritative scoreboard source for game status and start times;
 - an independent research source for injuries, goalies, and lineups;
 - that the user is old enough and physically in a jurisdiction where FanDuel
   operates. The agent does not verify identity or location itself.
 
-FanDuel is JavaScript-heavy and may require a browser rather than plain HTTP.
+FanDuel pages may require browser interaction rather than plain text retrieval.
 Public event pages can often be read without login; the betslip and any account
 action require the user's eligible session. If a human-verification challenge
 appears, the agent stops.
@@ -68,8 +67,8 @@ A representative run:
 1. Ask for the probability floor and stake. If the user has no floor, present
    three tiers: conservative (~35–45% estimated hit rate), balanced (~25–35%),
    and aggressive (~15–25%), and recommend balanced.
-2. Query the ESPN scoreboard for the date and remove games that have started
-   or are too close to start to verify lineups.
+2. Check an authoritative scoreboard for the date and remove games that have
+   started or are too close to start to verify lineups.
 3. For each remaining game, open the FanDuel event page and record the moneyline,
    puck line/spread, total, and the prop markets that fit the thesis.
 4. Cross-check the goalie, injuries, line combinations, power-play role, recent
@@ -170,15 +169,15 @@ resolve it in their own session.
 
 ## Related skills and documents
 
-- [`browser-assistant`](../browser-assistant/README.md) governs a visible,
-  user-controlled browser session, including a native Ubuntu browser.
-- [`browser-headless`](../browser-headless/README.md) covers explicitly
-  requested isolated public-page research; it is not a location bypass.
-- [`task-memory`](../task-memory/README.md) can store durable preferences such
-  as stake, sport, and risk tier, but never credentials or account data.
+- The [`browser-assistant`](../browser-assistant/README.md),
+  [`browser-headless`](../browser-headless/README.md), and
+  [`task-memory`](../task-memory/README.md) companion skills provide related
+  workflows when those bundles and their required integrations are available.
+  Headless browsing is not a location bypass; never store credentials or
+  account data in memory.
 - [references/fanduel-workflow.md](./references/fanduel-workflow.md) contains
   the exact FanDuel URL, tab, accordion, evidence, and math workflow.
-- [.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py](./.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py) calculates independent
+- [scripts/parlay_math.py](./scripts/parlay_math.py) calculates independent
   parlay math and prints the SGP-price warning.
-- The canonical catalog is `skills/README.md`; it is outside the deployed skill
-  bundle and is therefore shown as a plain repository path.
+- Follow the consumer project's configured skill catalog or index, if one
+  exists.

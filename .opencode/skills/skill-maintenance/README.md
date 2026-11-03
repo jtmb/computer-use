@@ -1,5 +1,10 @@
 # Skill Maintenance Usage
 
+**Auto-approve means no interactive questions** for authorized goal work, including
+routine Git. Existing ask/confirm steps are interactive-mode guidance: under auto,
+reuse authority/defaults or record blockers and continue, without asking.
+See [the shared autonomy contract](../development-conventions/references/autonomous-work.md).
+
 This guide explains how to use the `skill-maintenance` skill. The agent-facing
 operating rules remain in [SKILL.md](./SKILL.md); OpenCode does not
 automatically load this usage guide when the skill is loaded.
@@ -26,29 +31,18 @@ rewrites.
 
 ## Prerequisites and setup verification
 
-Before maintaining a skill, the agent should inspect:
+Before maintaining a skill, inspect the consumer project's applicable
+instructions and current OpenCode configuration. Then identify:
 
-- Repository-root `AGENTS.md`.
-- `skills/README.md`.
-- The complete canonical skill bundle.
-- Skill discovery through the global config and `./scripts/health-check.sh`.
-- Relevant existing references and outside files affected by the change.
+- The configured skill source and discovery locations.
+- Any existing catalog, index, schema validator, or deployment workflow.
+- The complete target bundle and relevant references.
+- Related files affected by the request and the project's available checks.
 
-Canonical sources are:
-
-```text
-.opencode/skills/<name>/
-```
-
-Deployed copies are generated state:
-
-```text
-~/.opencode-v2-pilot/config/skills/<name>/
-```
-
-The user should define whether the task is detection, creation, update,
-deployment, rename, retirement, catalog reconciliation, validation, or a
-combination.
+Follow the source-of-truth and generated-copy boundaries documented by that
+project. Do not infer paths, configuration roots, or runtime status from this
+guide. Bound the work from the user's request; do not require a second scope
+selection for ordinary implementation choices.
 
 ## How to request it
 
@@ -68,7 +62,8 @@ unrelated edits.
 
 A representative agent workflow is:
 
-1. Read `AGENTS.md`, the skill catalog, and the entire target bundle.
+1. Read applicable project instructions, any existing catalog, and the entire
+   target bundle.
 2. Define the smallest scope that solves the maintenance problem.
 3. Explicitly read only the relevant maintenance reference:
    - Read [detection](./references/detection.md) for missing, overlapping, or
@@ -76,50 +71,47 @@ A representative agent workflow is:
    - Read [creation](./references/creation.md) before creating a skill.
    - Read [lifecycle](./references/lifecycle.md) before updating, renaming,
      deploying, or proposing retirement.
-   - Read [catalog reconciliation](./references/index-regeneration.md) after
-     creating, renaming, materially changing, or retiring a skill.
+   - Read [catalog reconciliation](./references/index-regeneration.md) when
+     the consumer maintains a catalog or index affected by the change.
    - Read [audit](./references/audit.md) when auditing one skill or the
      complete catalog.
    - Read [validation](./references/validation-checklist.md) before completing
      a new or changed bundle.
    - Read [documentation and metadata](./references/documentation-and-metadata.md)
-     before adding guides, categories, or tags.
-4. Edit canonical source only.
-5. Preview deployment without changing the system:
-
-   ```bash
-   ./scripts/health-check.sh
-   ```
-
-6. Deploy only the approved complete bundle, then verify parity:
-
-   ```bash
-   ./scripts/health-check.sh
-   ```
-
-7. Validate frontmatter, links, documentation, catalog, deployment, and exact
-   parity.
+     before adding guides or changing metadata.
+4. Edit only the source of truth identified by the consumer project.
+5. Run its documented validators and focused tests. For example, read-only Git
+   checks such as `git status --short` and `git diff --check` can help inspect a
+   local change; do not invent project-specific commands.
+6. Deploy only when deployment is explicitly in scope, the actual mechanism and
+   target are verified, and the necessary authority exists. Then verify the
+   relevant files and runtime discovery using the consumer's real workflow.
+7. Validate frontmatter, links, documentation, and any affected catalog; report
+   unavailable deployment or runtime checks as limitations.
 8. Report unrelated findings without implementing them.
 
-Expected result: a bounded, reviewable skill change with consistent routing,
-metadata, usage documentation, catalog entries, and deployed files.
+Expected result: a bounded, reviewable skill change consistent with the
+consumer's configured loader, documentation, metadata, catalog, and deployment
+conventions, with verified status clearly separated from source presence.
 
 ## Verification and known limitations
 
 The agent should verify:
 
-- Directory, entry-file, name, description, category, tags, and metadata
-  requirements.
+- Loader requirements and any additional metadata rules enforced by the
+  consumer project; do not assume a category/tag schema.
 - Every linked reference exists and resolves from the containing file.
-- Catalog counts, names, boundaries, and requirements agree.
-- Deployment recursively copied the complete bundle.
-- Source and deployed files match exactly.
-- OpenCode discovers the skill after a restart.
+- Any existing catalog agrees with canonical source and local routing.
+- When authorized deployment is performed, the actual target contains the
+  required files and matches the intended source.
+- Runtime discovery is checked only through an available, appropriate consumer
+  workflow; source or deployment checks alone do not prove it.
 
 Known limitations:
 
 - Linked references are not loaded automatically.
-- Existing sessions retain previously loaded skill context.
+- Loader caching or session behavior may require a fresh context; verify the
+  active runtime rather than promising a universal restart behavior.
 - Provenance and historical files must remain clearly inactive.
 - A deployment utility can have side effects beyond copying skills; read its
   implementation before presenting it as documentation-only.
@@ -128,33 +120,38 @@ Known limitations:
 
 - Missing reference: inspect the bundle rather than inventing a path or
   filename.
-- Ambiguous trigger overlap: clarify routing boundaries instead of merging
-  skills automatically.
-- Catalog drift: regenerate counts and metadata from canonical sources rather
-  than editing generated deployment copies.
-- Incomplete deployment: fix repository tooling rather than manually editing
-  the selected v2 config directory's `skills/` tree.
+- Ambiguous trigger overlap: document the evidence and safe routing boundary
+  rather than merging skills automatically; if essential information is missing
+  in auto/no-question mode, record the blocker without asking.
+- Catalog drift: follow the project's existing source and catalog conventions.
+- Incomplete deployment: report the concrete mismatch; do not patch around it
+  by editing generated targets directly.
 - Rename or retirement uncertainty: prepare an old-to-new or deletion
-  manifest and request immediate pre-deletion confirmation.
+  manifest and require appropriate authority before destructive changes. In
+  auto/no-question mode, record missing authority without asking.
 
 ## Safety, confirmation, and elevation
 
 The agent must:
 
-- Never edit generated deployment copies directly.
+- Do not edit generated copies when consumer instructions identify them as
+  generated.
 - Never commit automatically.
-- Never delete or retire a skill automatically.
-- Show deletion manifests and ask immediately before destructive action.
-- Preserve unrelated dirty work.
-- Follow normal confirmation gates for repository, security, deletion, legal,
-  purchase, publishing, and other consequential actions.
+- Require explicit authority for deletion or retirement; in auto/no-question
+  mode, block when authority is missing instead of prompting.
+- Preserve unrelated staged, unstaged, and untracked work.
+- Follow the consumer's applicable security, publication, and other consequential
+  action gates.
 
-Normal skill maintenance does not require administrator elevation.
+Do not request elevation merely to maintain a skill. If the consumer's workflow
+requires elevated access, follow its explicit authority and security policy;
+never change permissions to bypass a restriction.
 
 ## Related skills and documents
 
-- `AGENTS.md` remains the routing and operating authority.
-- `skills/README.md` is the skill catalog containing this skill's canonical
-  entry.
+- The consumer project's applicable instructions govern source, safety, and
+  available tools.
+- Consult the catalog or index discovered in that project's configuration, if
+  one exists.
 - [PROVENANCE.md](./PROVENANCE.md) records the upstream source for this
   imported bundle.

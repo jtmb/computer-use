@@ -21,9 +21,9 @@ on demand would reliably improve future execution.
 
 ### Missing routing coverage
 
-Compare actual user intents and repository responsibilities with the routing
-table in root `AGENTS.md` and the catalog in `skills/README.md`. A gap exists
-only when no current skill reasonably owns the workflow.
+Compare actual user intents and project responsibilities with the applicable
+instruction-based routing and any configured catalog. A gap exists only when
+no current skill reasonably owns the workflow.
 
 ### Drifted content
 
@@ -39,10 +39,10 @@ checking all references and obtaining deletion confirmation where required.
 
 ### Catalog or deployment drift
 
-Check whether `skills/README.md` reflects source directories and whether the
-generated deployed bundle recursively matches canonical source. Treat a
-deployment mechanism that copies only `SKILL.md` as incomplete for split
-skills.
+Check whether an existing catalog reflects configured source and whether a
+generated bundle matches its declared source, when deployment is part of the
+consumer's workflow. Inspect the real deployment mechanism before judging its
+coverage; do not assume a path or script.
 
 ## Decision record
 

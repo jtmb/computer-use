@@ -11,10 +11,11 @@ because the global config points at `.opencode/skills`.
 2. Run the read-only health check:
 
    ```bash
-   /home/shak/repos/computer-use/scripts/health-check.sh
+    /home/james/repos/computer-use/scripts/health-check.sh
    ```
 
 3. Confirm the global config `skills` path points at
    `~/repos/computer-use/.opencode/skills`.
-4. Restart OpenCode only if the configuration or skill source changed.
+4. Verify skill discovery; source changes alone do not require a shared restart.
+   Restart only with separate approval when the actual loader requires it.
 5. Never edit deployed copies, delete preserved user files, or commit changes.

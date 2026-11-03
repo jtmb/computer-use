@@ -6,8 +6,10 @@ event IDs, market labels, and page layouts change.
 
 ## 1. Slate and start times
 
-Use ESPN's public scoreboard endpoint first. It is fast, stable, and gives
-status and start time without a browser.
+Use an available authoritative scoreboard for status and start times. ESPN's
+public endpoints are one possible source when reachable through an approved
+read-only capability; do not assume that a particular HTTP or browser tool is
+configured.
 
 ```text
 NHL: https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=YYYYMMDD
@@ -52,7 +54,8 @@ https://sportsbook.fanduel.com/hockey/nhl/carolina-hurricanes-@-vancouver-canuck
 ```
 
 Do not guess an event ID. If a link 404s or redirects, return to the navigation
-page and collect the current link. A robust browser-side collection is:
+page and collect the current link. If the approved browser integration exposes
+read-only page evaluation, this is one possible collection pattern:
 
 ```js
 [...document.querySelectorAll('a[href*="/hockey/nhl/"]')]
@@ -66,7 +69,9 @@ link over a hand-built slug.
 ## 3. Read the game line
 
 The event header shows the main markets: moneyline, spread/puck line, and total.
-Read the page text first; FanDuel's class names are generated and brittle.
+Read the page text first through a supported browser surface; FanDuel's class
+names are generated and brittle. If the approved integration exposes read-only
+page evaluation, this illustrates the text to inspect:
 
 ```js
 document.body.innerText
@@ -121,9 +126,11 @@ const i = text.indexOf(marker);
 i >= 0 ? text.slice(i, i + 5000) : "market not found";
 ```
 
-If the accordion is collapsed, take a fresh accessibility snapshot and click
-the accordion by role/name. Avoid clicking coordinates; the page reflows.
-After the click, re-read the text and confirm the player/odds rows are visible.
+If the accordion is collapsed, take a fresh accessibility snapshot and use a
+supported role/name action when available. Avoid clicking coordinates; the page
+reflows. After the action, re-read the text and confirm the player/odds rows are
+visible. If the integration does not expose the required evidence, report that
+limitation rather than assuming page-evaluation or input support.
 
 Record for each prop:
 
@@ -219,10 +226,11 @@ independent hit rate = product(p_i)
 EV                   = p * profit - (1 - p) * stake
 ```
 
-Use the helper:
+If the bundled helper is present and a supported Python 3 runtime is available,
+resolve the installed bundle's actual root and run:
 
 ```bash
-python3 .opencode/skills/fanduel-parlay-research/scripts/parlay_math.py \
+python3 "<skill-bundle-root>/scripts/parlay_math.py" \
   --stake 25 \
   --leg "Carolina -1.5|-118|0.55" \
   --leg "Aho 1+ point|-265|0.73" \

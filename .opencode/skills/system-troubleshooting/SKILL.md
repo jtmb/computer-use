@@ -9,6 +9,14 @@ metadata:
 
 # System Troubleshooting
 
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
+
 Find the failing layer before changing the system.
 
 ## Procedure

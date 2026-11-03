@@ -1,100 +1,81 @@
 ---
 name: desktop-control
-description: Inspect and operate non-browser GNOME desktop applications through AT-SPI, using desktop screenshots to verify each GUI action. Use when the user asks to click, type, open, close, configure, or otherwise interact with a desktop application or dialog.
+description: Inspect and operate desktop applications through an authorized accessibility integration, using visual verification when safely available. Use when the user asks to click, type, open, close, configure, or otherwise interact with a desktop application or dialog.
 metadata:
   schema-version: "1"
   category: "desktop"
-  tags: "desktop,at-spi,gui,gnome"
+  tags: "desktop,accessibility,gui"
 ---
 
 # Desktop Control
 
-Operate GNOME applications with an observe-act-verify loop. Prefer named
-AT-SPI controls over screen coordinates; this desktop uses fractional
-scaling, so screenshot pixels are not reliable click coordinates.
+Operate desktop applications with an observe-act-verify loop. Prefer named
+accessible controls over screen coordinates. Coordinate systems, scaling, and
+input behavior vary by environment; use coordinates only when the approved
+provider documents a safe mapping and the result can be verified.
+
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
 
 ## Browser boundary
 
-- Use this skill for desktop applications and for native-Ubuntu browser
-  windows.
-- On native Ubuntu, launch the browser the user named explicitly (for example
-  `google-chrome --new-window URL`) and operate its window through this skill's
-  AT-SPI tools. Do not rely on `xdg-open` or the desktop default association,
-  and verify the intended browser process before claiming it opened.
-- For visible authenticated browser work from WSL, use the `browser-assistant`
-  skill's `wsl_browser_*` UIA tools against the user's Windows default browser.
-  Specify the explicit window ID for each operation and use fresh preview tokens
-  for supported mutations.
-- On WSL, if the browser connector, required action, or required evidence is
-  unavailable, stop and report a blocker. Do not use Chrome/Chromium, project
-  Playwright, GNOME desktop-control, or coordinate clicking as a browser
-  fallback.
-- Isolated headless Firefox is available only when the user explicitly requests
-  it; see `browser-headless`.
+Use a dedicated visible-browser skill for browser pages when one is available.
+Do not assume a desktop accessibility tree provides safe or complete browser
+control. If the requested browser interaction or evidence surface is unavailable,
+report the limitation rather than substituting an unsupported route.
 
 ## Workflow
 
-1. Load `desktop-vision`, announce a capture, and inspect the current UI.
-2. Inventory accessible apps:
+1. Discover the current session's approved desktop accessibility tools and read
+   their provider documentation. Do not assume tool names, a plugin, a helper
+   script, or a particular desktop backend is installed.
+2. Inventory accessible applications with the provider's read-only capability
+   when exposed. Inspect only the relevant application or element; use its
+   accessible name and role rather than guessing coordinates.
+3. Before mutation, inspect the provider's action contract. If it requires a
+   preview, repeat the exact action with its fresh token. Stop when the target is
+   ambiguous, the observation is incomplete, or the provider refuses the action.
+4. Treat a dispatched action as unverified until fresh accessible state confirms
+   the result. If visual verification is needed, use only a supported capture
+   tool whose permission, ownership, privacy, and retention behavior are known.
+5. If the result is uncertain, observe again before retrying to avoid duplicate
+   actions. Do not infer success from a process exit code or dispatch response.
 
-```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py apps
-```
+## Window focus and layouts
 
-3. Inspect only the relevant app or element:
+For compositor-level focus, placement, tiling, or arranging multiple windows,
+first discover whether approved window-control tools and provider guidance are
+available. Use exact current window identifiers and the provider's preview and
+readback contract. Do not assume that accessible bounds are global desktop
+coordinates or that a screenshot coordinate is suitable for input. Touch only
+requested windows and report partial outcomes instead of silently replaying a
+mutation.
 
-```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py tree --app gnome-text-editor
-python3 ~/repos/computer-use/scripts/desktop-control.py find --app gnome-text-editor \
-  --name "Open" --role "push button" --showing
-```
-
-4. Preview a mutation without `--apply` and inspect the selected target. The
-preview emits a short-lived `target_token`; repeat the same mutation promptly
-with that exact token and `--apply`:
-
-```bash
-python3 ~/repos/computer-use/scripts/desktop-control.py action --app APP --name NAME \
-  --action default.activate --showing
-python3 ~/repos/computer-use/scripts/desktop-control.py action --app APP --name NAME \
-  --action default.activate --showing --expect-token 'TOKEN_FROM_PREVIEW' --apply
-
-python3 ~/repos/computer-use/scripts/desktop-control.py set-text --app APP --role text \
-  --showing --text "harmless text"
-python3 ~/repos/computer-use/scripts/desktop-control.py set-text --app APP --role text \
-  --showing --text "harmless text" --expect-token 'TOKEN_FROM_PREVIEW' --apply
-```
-
-When several elements match, the tool refuses and prints candidates.
-Select one with `--nth N`; do not guess.
-Use an action name advertised by `tree` or `find`; names vary by app.
-If `traversal.complete` is false, increase the reported depth or node bound and
-inspect again. Mutation commands reject truncated searches rather than choosing
-from an incomplete candidate set.
-
-5. Treat a generic accessibility action as dispatched but unverified. Take a
-fresh observation before retrying or continuing; this avoids duplicate actions
-when the first outcome is uncertain. `focus` verifies the focused state, and
-`set-text` verifies focus plus exact text readback, but both still require
-visible verification when appearance or window state matters.
-6. Capture again and verify the visible result. Do not infer success from a
-zero exit code alone.
+If the required bridge is unavailable, report the limitation. Do not use blind
+window hotkeys, unsafe shell evaluation, cross-platform input tools, permission
+changes, or security bypasses as a fallback.
 
 ## Application launch
 
-Use the installed desktop launcher where possible (`gtk-launch ID`) or
-the package-owned executable as the normal user. Never run a GUI as root.
-Wait for the app to appear in `desktop-control.py apps` before querying it.
+Use the consumer project's documented application launcher or the installed
+application executable without unnecessary elevation. Wait for the application
+to appear in the available accessible-app inventory before querying it.
 
 ## Fallbacks
 
-- Some non-browser custom canvases and sandboxed apps expose little AT-SPI data.
-  Use documented keyboard navigation (Tab, arrows, Enter, Escape) and
-  GNOME shortcuts through the existing user-owned `ydotool` service.
+- Some non-browser custom canvases and sandboxed apps expose little accessibility
+  data.
+  Use documented keyboard navigation or another input method only when the
+  current provider explicitly supports it and its safety contract is understood.
 - For non-browser desktop applications only, coordinate clicks are a last resort
-  and require a fresh screenshot,
-  known scaling transform, and immediate visual verification. Never map
-  screenshot pixels directly on this fractionally scaled desktop.
+  and require a fresh screenshot, a validated scaling transform, and immediate
+  visual verification. Never assume screenshot pixels map directly to input
+  coordinates; scaling varies by display and provider.
 - If the target remains inaccessible, describe the exact manual action
   needed instead of clicking blindly.
 
@@ -107,14 +88,14 @@ Wait for the app to appear in `desktop-control.py apps` before querying it.
   do not need repeated confirmation.
 - Never read or write password fields. Ask the user to complete passwords,
   MFA, payment details, and CAPTCHAs themselves.
-- Protected fields are redacted by `desktop-control.py`; `--include-text`
-  never returns their text, accessible name, or description.
-- Never inspect or operate a PolicyKit authentication dialog. Wait until the
+- Protected fields may be redacted or refused by the provider. Never use an
+  alternate route to inspect or edit sensitive fields.
+- Never inspect or operate a privileged-authentication dialog. Wait until the
   user reports that credential entry is complete, then inspect fresh state.
 - Preserve unsaved work. Before closing a window, inspect for unsaved-state
   prompts and stop if the correct choice is unclear.
-- Tokens are target-freshness guards, not authorization. They expire after 30
-  seconds and never replace a required confirmation gate.
+- Tokens are target-freshness guards, not authorization. Honor the provider's
+  expiry and never treat a token as a replacement for a required authority gate.
 - Perform one bounded action at a time, then verify. Never run an
   uncontrolled click loop.
 

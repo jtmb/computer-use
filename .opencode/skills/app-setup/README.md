@@ -142,4 +142,5 @@ The agent must:
   installation or launch failures.
 - [`routine-automation`](../routine-automation/README.md) converts a proven
   manual setup into a reusable procedure.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog or index, if one
+  exists.

@@ -1,6 +1,6 @@
 ---
 name: skill-maintenance
-description: Create, update, audit, catalog, deploy, rename, or retire OpenCode skills in this repository. Use when skill coverage is missing or stale, a SKILL.md or reference bundle changes, skills/README.md drifts, deployment needs verification, or the user requests skill maintenance.
+description: Create, update, audit, catalog, deploy, rename, or retire OpenCode skills in a consumer project. Use when skill coverage is missing or stale, a SKILL.md or reference bundle changes, a configured catalog drifts, deployment needs verification, or the user requests skill maintenance.
 metadata:
   schema-version: "1"
   category: "skills"
@@ -9,86 +9,98 @@ metadata:
 
 # Skill Maintenance
 
-Maintain the complete lifecycle of this repository's OpenCode skills while
-keeping changes bounded, reviewable, and consistent with repository policy.
+## Auto-approve and autonomous work
 
-## Authority and paths
+For Build auto, project auto-approve or explicitly autonomous/no-question work,
+apply this rule to all interactive ask/confirm steps below: Do not ask routine questions,
+including Git questions, clarification forms or "continue?" prompts. Use existing
+authority and reasonable reversible defaults. If essential authority or data is
+missing, record the blocker and continue independent work instead of asking.
+Explicitly read [the shared autonomy contract](../development-conventions/references/autonomous-work.md).
+Native policy, mode restrictions and task scope remain effective; do not
+self-grant permissions or enable autoaccept as a workaround.
 
-- Read the repository-root `AGENTS.md` first. It is the routing and operating
-  authority for skills in this repository.
-- Canonical sources live at
-  `.opencode/skills/<name>/`.
-- The selected v2 config directory's `skills/<name>/` is a generated deployed
-  copy (default `~/.opencode-v2-pilot/config/skills/<name>/`). Never edit it
-  directly.
-- Use `.opencode/skills/README.md` as the skill
-  catalog. Do not introduce or maintain `SKILL-INDEX.md`.
+Maintain OpenCode skill bundles in the consumer project while keeping changes
+bounded, reviewable, and consistent with that project's instructions and the
+current OpenCode skill format.
+
+## Authority and source discovery
+
+- Read the consumer project's applicable instructions and inspect its current
+  OpenCode configuration before choosing source, catalog, or deployment paths.
+- Discover the configured skill source roots, generated/runtime destinations,
+  existing catalog or index, and validation/deployment tools. Do not assume a
+  particular checkout location, directory name, user-config path, script, or
+  catalog format.
+- Edit the source of truth identified by the consumer's instructions. Treat a
+  runtime or deployed copy as generated only when project configuration or
+  instructions establish that boundary; never guess a destination for writes.
 - Do not assume project-specific MCP servers, databases, agents, companion
   skills, or a `learnings.md` workflow exist.
 
 ## Workflow
 
-1. Read `AGENTS.md`, the skill catalog, and the complete target skill bundle.
-2. Inspect current source, deployment behavior, references, and relevant docs
-   before proposing a change.
+1. Read applicable project instructions, the existing skill catalog if any,
+   and the complete target bundle.
+2. Inspect current source, loader/configuration, deployment behavior when
+   relevant, references, and related docs before proposing a change.
 3. Define the smallest scope that solves the requested maintenance problem.
 4. Read the relevant reference file below explicitly. OpenCode loads
    `SKILL.md` on demand; linked reference files are not automatically included.
-5. Edit canonical source only. Preserve unrelated dirty work.
-6. Validate structure, content, links, catalog consistency, and deployment.
+5. Edit the identified source of truth only. Preserve unrelated work.
+6. Validate structure, content, links, and any existing catalog. Validate
+   deployment only when it is in scope and the project's tooling is understood.
 7. Report unrelated opportunities without implementing them.
 8. Commit only when the user explicitly requests a commit.
 
 ## Core rules
 
-### Keep the repository layout flat
+### Follow configured discovery rules
 
-Each skill directory is a direct child of the canonical `skills/` directory.
-This is repository policy. OpenCode's official project and global discovery
-locations also use `<skills>/<name>/SKILL.md`.
+Use the discovery paths and layout supported by the consumer's loader and
+configuration. Do not impose a flat directory layout or assume a project/global
+source location unless the active loader or project instructions require it.
 
 ### Use valid skill frontmatter
 
-`SKILL.md` must be uppercase and begin with YAML frontmatter containing:
+For OpenCode skills, follow the current documented `SKILL.md` frontmatter
+format and any additional schema enforced by the consumer project. Check the
+loader documentation or an existing validator rather than treating this source
+repository's conventions as universal.
 
-- `name`, required, matching the directory name exactly
-- `description`, required, 1-1024 characters, describing what the skill does
-  and when to use it
-- `metadata`, required by this repository, containing exactly the documented
-  `schema-version`, `category`, and `tags`
-- optionally `license` and `compatibility` as documented by OpenCode
-
-Do not add other frontmatter fields. Names are 1-64 characters, lowercase
-alphanumeric with single hyphen separators, and match
-`^[a-z0-9]+(-[a-z0-9]+)*$`. Category and tags must follow
-[documentation-and-metadata.md](references/documentation-and-metadata.md).
+The OpenCode format requires `name` and `description`; optional fields and
+constraints must be checked against the active version's documentation. Extra
+metadata, categories, tags, naming rules, and description limits may be required
+by a consumer's own validator, but are not universal defaults. Do not invent
+fields or claim an optional project schema is an OpenCode requirement.
 
 ### Use split bundles deliberately
 
-Keep `SKILL.md` under 500 lines as this repository's editorial guideline, not
-as an OpenCode loader limit. Put detailed procedures in `references/*.md` and
-link them from `SKILL.md`. Every workflow that depends on a reference must say
-to read that file explicitly. Every skill also has a user-facing `README.md`
-that documents requests, prerequisites, commands, verification, and safety
-without replacing `SKILL.md`.
+Keep `SKILL.md` focused and split detailed procedures into linked references
+when that improves routing and readability. Honor any line or bundle-size limit
+documented by the consumer; do not present an editorial limit from another
+project as an OpenCode loader restriction. State explicitly when a workflow
+depends on a reference because linked files are not automatically loaded.
+Create or update a user-facing usage guide only when the consumer's conventions
+or request calls for one.
 
 ### Deploy the complete bundle
 
-Deployment must copy the entire skill directory recursively from canonical
-source to the selected v2 config directory's `skills/<name>/`, including references and other
-runtime files. It must be idempotent and remove nothing unexpectedly. Verify
-source and deployed files match. If repository deployment tooling copies only
-`SKILL.md`, report the mismatch and obtain authority to fix that tooling; do
-not patch around it by editing the generated copy.
-
-After deployment, restart OpenCode and use a fresh session. Running sessions
-do not reload skill definitions or their supporting files.
+If deployment is explicitly in scope, inspect the actual deployment mechanism,
+selected target, ownership boundaries, and write behavior first. Verify that it
+handles every required bundle file, preserves unrelated target data, and has a
+read-only or preview path when the project requires one. Report incomplete
+tooling rather than patching generated copies. Restart or use a fresh session
+only when required by the active loader/runtime; do not assume source changes
+are live or that a restart proves discovery.
 
 ### Never retire automatically
 
-For a rename or retirement, first show the proposed old-to-new or deletion
-manifest and all known references. Ask for confirmation immediately before
-deleting any source or deployed data. Do not infer deletion approval from a
+For a rename or retirement, identify all affected source, catalog, routing, and
+runtime references and prepare an old-to-new or deletion manifest. Require
+explicit authority for destructive changes. In auto/no-question mode, do not
+ask a duplicate confirmation: block the deletion if the required authority is
+missing and continue independent work. Never infer deletion approval from a
 general maintenance request.
 
 ## References
@@ -98,11 +110,11 @@ file in full before acting.
 
 | File | Use |
 | --- | --- |
-| [`references/documentation-and-metadata.md`](references/documentation-and-metadata.md) | Add required usage guides, metadata, tags, and catalog summaries. |
+| [`references/documentation-and-metadata.md`](references/documentation-and-metadata.md) | Discover and follow project-specific documentation and metadata requirements. |
 | [`references/detection.md`](references/detection.md) | Find evidence of missing, overlapping, or stale skill coverage. |
 | [`references/creation.md`](references/creation.md) | Design and create a valid monolithic or split skill. |
 | [`references/lifecycle.md`](references/lifecycle.md) | Update, rename, deploy, or propose retirement safely. |
-| [`references/index-regeneration.md`](references/index-regeneration.md) | Reconcile the existing `skills/README.md` catalog. |
+| [`references/index-regeneration.md`](references/index-regeneration.md) | Reconcile an existing skill catalog or index when one is configured. |
 | [`references/audit.md`](references/audit.md) | Audit source, links, catalog entries, and deployment. |
 | [`references/validation-checklist.md`](references/validation-checklist.md) | Validate a new or changed bundle before completion. |
 

@@ -1,36 +1,46 @@
 ---
 name: fanduel-parlay-research
-description: Research FanDuel NHL and NBA game lines and player props, compare them with injuries, goalies, and team stats, and build a payout-versus-probability parlay with prices verified in the betslip. Use when the user asks for a FanDuel parlay, sportsbook odds research, player-prop comparison, or a same-game parlay ticket.
+description: Research FanDuel NHL and NBA game lines and player props, compare them with injuries, goalies, and team stats, and build a payout-versus-probability parlay with prices verified in the betslip when the user's eligible session permits. Use when the user asks for a FanDuel parlay, sportsbook odds research, player-prop comparison, or a same-game parlay ticket.
 license: MIT
-compatibility: Ubuntu and OpenCode; FanDuel is JavaScript-heavy and needs a browser session. FanDuel's geolocation check fails on Linux desktop browsers, so public pages are used for research and the betslip is verified on another device.
 metadata:
   schema-version: "1"
   category: "browser"
-  tags: "fanduel,sportsbook,parlay,odds,player-props,playwright"
+  tags: "fanduel,sportsbook,parlay,odds,player-props"
 ---
 
 # FanDuel Parlay Research
+
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
 
 Build a researched FanDuel ticket. Price every leg at FanDuel, check the
 goalies, injuries, and lineups, and state the payout-versus-probability
 trade-off. Read [references/fanduel-workflow.md](./references/fanduel-workflow.md)
 in full before the first run in a session.
 
-## Linux note
+## Session and location limits
 
-FanDuel's geolocation check fails on Linux desktop browsers. Use the public
-event pages for lines and props. The betslip and placement need a device that
-passes FanDuel's location check, usually the user's phone. A VPN or alternate
-browser will not fix it.
+Browser support and location checks depend on FanDuel's current rules, account,
+jurisdiction, and device. Do not infer eligibility from the operating system or
+try to bypass a location or verification check. If the user's eligible session
+is unavailable, use accessible public information for research and mark the
+betslip price unverified. Use only browser or research capabilities exposed to
+the current session and approved for the task; do not assume a particular
+automation tool or page-evaluation feature.
 
 ## Workflow
 
 1. **Fix the constraint.** Confirm sport, slate/date, stake, and a probability
    floor. If the user has no floor, offer the three tiers in the reference and
    recommend balanced.
-2. **Filter the slate.** Pull game status and start times from the ESPN
-   scoreboard API. Remove games that have started or start too soon to verify
-   lineups.
+2. **Filter the slate.** Use an available authoritative scoreboard to check game
+   status and start times. Remove games that have started or start too soon to
+   verify lineups.
 3. **Research the matchup.** Check injuries, confirmed/projected goalies, line
    combinations, power play, pace, rest, and travel. Use at least two sources
    for a material claim and record the check time. For every leg, record the
@@ -45,8 +55,8 @@ browser will not fix it.
    supporting legs. Prefer a coherent game script over unrelated coin flips.
 7. **Verify the ticket.** Add the legs to the FanDuel betslip and read the
    final price. An SGP is repriced for correlation; the straight product is not
-   the final price. On Linux, ask the user to read the betslip price from their
-   phone; if that is unavailable, mark the price unverified.
+   the final price. If the eligible betslip is unavailable, mark the price
+   unverified rather than inferring it from another device or source.
 8. **Report the ticket.** Give the exact legs, stake, verified price, payout,
    breakeven, estimated hit-rate range, correlation caveats, and the checks to
    repeat before placement.
@@ -69,7 +79,9 @@ browser will not fix it.
 
 ## Math
 
-Use [.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py](./.opencode/skills/fanduel-parlay-research/scripts/parlay_math.py) for the arithmetic.
+Use the [bundled parlay math helper](./scripts/parlay_math.py) when it is present
+and an appropriate Python runtime is available; otherwise calculate using the
+formulas below and verify the arithmetic independently.
 
 - Decimal odds: positive American `1 + A/100`; negative `1 + 100/|A|`.
 - Straight payout: `stake × product of decimal odds`.

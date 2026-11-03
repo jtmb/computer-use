@@ -39,13 +39,13 @@ Approved destination classes are:
 
 - The project's actual checkout directory for project code.
 - A local utilities directory for standalone scripts.
-- `~/Documents/` for notes, reports, exports, and final documents.
-- `~/Downloads/` for temporary downloads.
-- `/tmp/opencode/` for session scratch.
+- A user-selected or project-approved directory for final documents.
+- The project's configured transient download and scratch locations, if any.
 
-The agent should not create output in the home root, Desktop,
-dot-directories, XDG media folders, or another location without explicit
-approval.
+Do not assume home-directory, Desktop, dot-directory, XDG media, or temporary
+paths are approved. Follow the consumer project's explicit storage policy; if it
+has none, ask in interactive mode or record the missing destination as a blocker
+in auto/no-question mode.
 
 ## How to request it
 
@@ -72,14 +72,25 @@ A representative agent workflow is:
 
    | Current path | Proposed path | Action |
    |---|---|---|
-   | `~/Downloads/invoice.pdf` | `~/Documents/invoice-2026-09-01.pdf` | Move |
-   | `~/Downloads/receipt.png` | `~/Documents/receipt-2026-09-01.png` | Move |
+   | `incoming/invoice.pdf` | `approved-documents/invoice-2026-09-01.pdf` | Move |
+   | `incoming/receipt.png` | `approved-documents/receipt-2026-09-01.png` | Move |
 
 4. Apply only the approved changes.
 5. Verify file counts, names, sizes, readability, and destination paths.
 
 Expected result: the requested files are found, preserved, organized, or
 exported, and the destination contains exactly the intended result.
+
+## Format-specific local work
+
+For "edit this DOCX", "inspect/fill this PDF" or "check this workbook/CSV", use the
+[shared artifact contract](references/local-artifacts.md) and matching
+[DOCX](references/local-docx.md), [PDF](references/local-pdf.md) or
+[XLSX/CSV](references/local-spreadsheets.md) reference. They are not loaded
+automatically. Source-host library/tool observations are dated; recheck the actual
+consumer environment. The references do not install authoring libraries or make
+an untrusted converter safe. Source-guidance tests do not establish actual document
+round trips, rendering fidelity, model compliance or final human acceptance.
 
 ## Verification and known limitations
 
@@ -132,4 +143,4 @@ proposing any privileged operation.
   downloads before local organization.
 - [`task-memory`](../task-memory/README.md) can retain an approved filing or
   naming convention.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog, if one exists.

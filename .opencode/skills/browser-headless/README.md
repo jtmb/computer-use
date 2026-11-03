@@ -6,7 +6,7 @@ automatically load this usage guide when the skill is loaded.
 
 Category: `browser`
 
-Tags: `browser`, `headless`, `playwright`, `automation`
+Tags: `browser`, `headless`, `automation`
 
 ## Purpose and when to use it
 
@@ -15,29 +15,27 @@ that is suitable for an unauthenticated, non-interactive session.
 
 Appropriate requests include:
 
-- "Check these public pages in headless Playwright."
+- "Check these public pages in the approved isolated headless browser."
 - "Run this browser smoke test without opening a window."
 - "Download this public artifact in the background."
 
 Use `browser-assistant` when the user needs to see, steer, authenticate, or take
-over the workflow, but only when its WSL browser bridge is available. Otherwise,
-stop and report the unavailable bridge rather than switching browser modes.
+over the workflow, but only when its supported visible-browser integration is
+available. Otherwise, report the unavailable capability rather than switching
+browser modes.
 
 ## Prerequisites and setup verification
 
 An explicitly requested headless task requires:
 
-- The pinned repository runtime, with `playwright` imported from
-  `tools/browser/node_modules` and invoked through the
-  bounded-command wrapper.
-- An existing Firefox executable available to the active environment and an
-  isolated headless Firefox context with no shared browser state.
+- A headless browser runtime and browser engine supported by the target
+  project.
+- A way to create an isolated context and bound task duration.
 
-The pinned JavaScript package does not provision browser binaries. Do not
-register a Playwright MCP or download Chrome/Chromium for this skill. If the
-package or Firefox executable is missing, stop and report the prerequisite.
-
-Headless tasks run as bounded scripts against the pinned repository runtime.
+Do not assume a package manager, script wrapper, MCP server, or browser binary.
+Do not install or download a runtime without authorization. If a required
+component is missing, stop and report the prerequisite. Use the target project's
+documented runtime and isolation mechanism.
 
 ## How to request it
 
@@ -45,7 +43,7 @@ Explicitly ask for headless or background browser work.
 
 Example requests:
 
-- "Use headless Playwright to inspect this public documentation page."
+- "Use the approved isolated headless browser to inspect this public page."
 - "Run this non-interactive website check in the background."
 - "Retrieve this public file without opening a browser window."
 
@@ -73,9 +71,8 @@ location, or smoke-test outcome. No visible browser window remains open for
 the task.
 
 Switching to visible mode does not transfer headless-session state. The
-`browser-assistant` skill uses the user's Windows default browser through the
-WSL interop tools. If that bridge is unavailable, report the blocker rather
-than substituting another browser.
+`browser-assistant` skill requires its own supported integration; if unavailable,
+report the blocker rather than substituting another browser.
 
 ## Verification and known limitations
 
@@ -94,8 +91,8 @@ Known limitations:
 
 ## Troubleshooting
 
-- Runtime unavailable: verify the exact-pinned `playwright` package and
-  existing Firefox executable; stop and report if either is missing.
+- Runtime unavailable: verify the configured package and browser engine; stop
+  and report if either is missing.
 - Authentication or visual verification becomes necessary: switch explicitly
   to `browser-assistant`.
 - Unexpected page state: inspect a fresh snapshot before continuing.
@@ -122,4 +119,4 @@ The agent must:
   shared, or authenticated browser workflows.
 - [`routine-automation`](../routine-automation/README.md) handles recurring
   scripted workflows when headless browser work becomes routine.
-- The canonical catalog entry is in `skills/README.md`.
+- Follow the consumer project's configured skill catalog, if it maintains one.

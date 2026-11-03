@@ -1,0 +1,110 @@
+name: Bounded agent task
+description: Propose a scoped, evidence-backed implementation task with an explicit owner and authority limits.
+title: "[task] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form records a task contract. It does not grant commit, push,
+        deployment, security or publication authority. Read
+        `CONTRIBUTING.md` and the maintainer policy before editing source.
+  - type: input
+    id: objective
+    attributes:
+      label: Objective
+      description: Concrete outcome and why it is needed.
+      placeholder: "Example: add a static contract test for X"
+    validations:
+      required: true
+  - type: textarea
+    id: base-head
+    attributes:
+      label: Base and head
+      description: Base branch/commit, intended head branch, and who owns the change.
+      placeholder: |
+        - Base: main @ <commit>
+        - Head: <branch>
+        - Owner: <session/person>
+        - Re-entry: <conditions>
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Write scope and non-goals
+      description: Exact paths this task may change and paths it must leave untouched.
+      placeholder: |
+        Allowed: path/a, path/b
+        Untouched: parent-owned policy, generated exports, unrelated dirty work
+    validations:
+      required: true
+  - type: input
+    id: skills
+    attributes:
+      label: Skills and references
+      description: Skill IDs to load and required reference files, or why none apply.
+      placeholder: "development-conventions; read autonomous-work.md"
+    validations:
+      required: true
+  - type: textarea
+    id: research
+    attributes:
+      label: Research and sources
+      description: Versioned or dated sources inspected, plus conflicts or uncertainty.
+      placeholder: "Links, versions, dates; note any claims that remain unverified."
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification plan
+      description: Exact offline commands and expected checks. State runtime checks separately.
+      placeholder: |
+        Offline: node scripts/ci-offline.mjs
+        Runtime (not CI): describe, or N/A
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results reported so far
+      description: Pass/fail counts, failure output and environment, or "none yet".
+      placeholder: "none yet"
+    validations:
+      required: true
+  - type: textarea
+    id: runtime
+    attributes:
+      label: Runtime, credentials and data
+      description: Required services, credentials, desktop/profile access or real user data; write "none" if none.
+      placeholder: "none"
+    validations:
+      required: true
+  - type: textarea
+    id: risks-rollback
+    attributes:
+      label: Risks and rollback
+      description: Failure modes, blast radius, and how to revert source/data/configuration.
+      placeholder: "Risk: ... Rollback: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and integration points
+      description: Other tasks, owners, unfinished interfaces, or external conditions.
+      placeholder: "none / describe"
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Acknowledged boundaries
+      description: These are attestations, not permissions.
+      options:
+        - label: The write scope is disjoint from other active owners, or ownership was agreed in the issue.
+          required: true
+        - label: Commit, push, deployment, security and publication need separate approvals.
+          required: true
+        - label: Unavailable dependencies or checks will be reported, not skipped into a green result.
+          required: true

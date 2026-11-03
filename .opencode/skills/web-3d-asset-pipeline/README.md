@@ -15,37 +15,34 @@ or to diagnose a GLB/glTF that loads with the wrong scale, pivot, hierarchy,
 materials, textures, animation, collision, or performance characteristics. It
 owns the asset pipeline, not engine selection or runtime scene architecture.
 
-The workflow is adapted from OpenAI's public Game Studio guidance for this
-repository's Ubuntu, Blender, file-safety, and browser UIA tools. See
+The workflow is adapted from OpenAI's public Game Studio guidance. See
 [PROVENANCE.md](./PROVENANCE.md) and [LICENSE.txt](./LICENSE.txt).
 
 ## Prerequisites and setup verification
 
-The agent checks, without installing anything:
+The agent checks:
 
 - the exact source and current runtime asset paths
 - the target engine/loader and its existing package lockfile
 - the project's asset conventions and budgets
 - the installed DCC/exporter version when a DCC is needed
-- the `browser-assistant` `wsl_browser_*` UIA tools for visible work from WSL,
-  using the Windows default browser, an explicit window ID, and fresh preview
-  tokens for supported mutations
-- the pinned isolated Firefox runtime only when headless validation was
-  explicitly requested
+- the browser integration and evidence surfaces actually approved in the current
+  session
+- an isolated headless runtime only when explicitly requested
 - any existing, approved, pinned optimization command
 
-There is no assumed Blender MCP server. If Blender is used, the agent loads the
-[`blender` skill](../blender/SKILL.md) and verifies Blender's executable and
-version. Missing Node tools are not force-installed, and `npx` is not used to
-download undeclared packages.
+Do not assume a DCC MCP, browser bridge, browser engine, or project-specific
+helper. Do not install missing optimization tools or download undeclared
+packages.
 
 ## How to request it
 
-- "Prepare this Blender prop for Three.js as a GLB and preserve the source."
+- "Prepare this Blender prop for the project loader as a GLB and preserve the
+  source."
 - "Find why this model imports at the wrong scale and rotates around the wrong
   point."
-- "Reduce this GLB if our existing toolchain supports it, then verify it in my
-  Windows default browser from WSL."
+- "Reduce this GLB if our existing toolchain supports it, then verify the exact
+  shipping artifact in the browser."
 - "Check the hierarchy, materials, textures, animation names, and runtime load
   of this glTF."
 
@@ -54,87 +51,70 @@ and required animation, collision, or LOD behavior.
 
 ## Worked workflow and expected result
 
-A representative GLB delivery proceeds as follows:
-
 1. Record units, orientation, pivot, stable names, hierarchy, materials,
    textures, animations, collisions, LODs, and size budget.
 2. Inventory and preserve the source files and existing shipping asset.
-3. Clean only the necessary scene data and export a new versioned GLB.
+3. Clean only the necessary scene data and export a new versioned asset.
 4. Reimport it into a clean scene and compare structure and transforms.
-5. Run the project's existing local server on loopback and load the exact GLB
-   in the user's Windows default browser through the WSL browser UIA tools.
-6. Take an accessibility snapshot and a screenshot of the canvas/WebGL result.
-   Inspect console and network activity only when an approved tool exposes it;
-   if diagnostics are unavailable, record a blocker rather than claiming a
-   clean console or network.
+5. Run the project's existing local server on loopback and load the exact asset
+   through the project's approved browser integration.
+6. Capture visual evidence when canvas/WebGL output requires it. Inspect console
+   and network activity only when an approved tool exposes it; otherwise report
+   the diagnostic gap.
 7. Report measured size and load behavior plus structural and visual findings.
 
 Expected result: a new runtime asset that meets the explicit contract, reimports
-without unexpected loss, and loads visibly in the Windows default browser. A
-clean console/network result is claimable only when an approved tool exposes
-those diagnostics; otherwise report the blocker and leave that check incomplete.
-These are documented representative steps; they were not executed while
-creating the skill.
+without unexpected loss, and loads visibly through the target loader. These are
+documented representative steps; they were not executed while creating the skill.
 
 ## Verification and known limitations
 
 - Export must be followed by clean reimport and structural comparison.
 - Browser verification must load the exact shipping file through the actual
-  project loader, not a DCC preview. Visible WSL work uses the Windows-default-
-  browser UIA connector; isolated headless Firefox requires an explicit request.
-- A browser accessibility snapshot does not describe canvas geometry;
-  screenshot inspection is mandatory for WebGL output. If the approved UIA
-  tools cannot expose the required screenshot or interaction, report validation
-  as incomplete and do not fall back to desktop input or Chrome/Chromium.
-- UIA does not guarantee console or network-diagnostic access. If a required
-  console/network check cannot be made through an approved tool, report the
-  limitation as a blocker; do not claim that UIA exposes browser diagnostics.
+  project loader, not a DCC preview.
+- Accessibility snapshots do not describe canvas geometry; use authorized visual
+  evidence for WebGL output.
+- Console and network-diagnostic access depends on the approved tool.
 - A desktop/mobile viewport pass does not replace testing on real mobile GPU,
-  memory, touch input, and network conditions.
-- Compression is tested only when a compatible approved tool and decoder
-  already exist.
-- Reimport may normalize representation while retaining appearance, so compare
+  memory, touch input, or network conditions.
+- Compression is tested only when a compatible approved tool and decoder already
+  exist.
+- Reimport may normalize representation while retaining appearance; compare
   against the runtime contract rather than requiring byte-identical data.
 
 ## Troubleshooting
 
 - Wrong scale/orientation: compare source units, exporter conversion, root and
   child transforms, and runtime loader transforms before editing geometry.
-- Wrong pivot: inspect the authored origin and parent hierarchy; do not hide a
-  reusable asset error with per-instance runtime offsets unless intentional.
+- Wrong pivot: inspect the authored origin and parent hierarchy.
 - Missing or flat materials: inspect supported PBR nodes, texture existence,
   color spaces, UV sets, alpha mode, and browser requests.
 - Renamed nodes or clips: stabilize source names and exporter settings, then
   reimport and compare before changing runtime selectors.
 - GLB works locally but not through the app: inspect exact URL, status, MIME,
-  CORS, base path, decoder availability, and console error when those
-  diagnostics are exposed; otherwise leave that part of the validation blocked.
-- Optimized asset fails: restore the preserved baseline, identify the one
-  incompatible optimization, and do not stack speculative recompression.
+  CORS, base path, decoder availability, and diagnostics when exposed; otherwise
+  leave that part of validation incomplete.
+- Optimized asset fails: restore the preserved baseline and identify the
+  incompatible optimization before considering another attempt.
 
-## Safety, confirmation, and elevation
+## Safety
 
-The agent preserves sources and prior shipping assets, writes unused versioned
-outputs, previews batch path changes, and asks before deletion or replacement.
-It never uploads an asset without an exact file and destination from the user.
-It does not install add-ons, Node packages, decoders, repositories, or system
-packages implicitly. Blender and browser applications are never run as root,
-and security controls are not weakened.
+Preserve sources and prior shipping assets, write unused versioned outputs,
+preview batch path changes, and obtain required authority before deletion or
+replacement. Never upload an asset without an exact file and destination from the
+user. Do not install add-ons, packages, decoders, or system components
+implicitly. Do not run GUI tools as root or weaken security controls.
 
-## Related skills and documents
+## Related skills
 
 - [`blender`](../blender/README.md) provides safe Blender CLI, `bpy`, rendering,
   and save/reopen procedures.
-- [`game-playtest`](../game-playtest/README.md) verifies interactive game states
-  after the asset loads.
-- [`browser-assistant`](../browser-assistant/README.md) governs visible work
-  from WSL through the Windows-default-browser `wsl_browser_*` UIA tools.
+- [`game-playtest`](../game-playtest/README.md) verifies interactive game states.
+- [`browser-assistant`](../browser-assistant/README.md) governs visible browser
+  work through an available supported integration.
 - [`browser-headless`](../browser-headless/README.md) governs explicitly
-  requested non-interactive validation through the pinned bounded runtime.
+  requested non-interactive validation.
 - [`files-and-documents`](../files-and-documents/README.md) governs local
   artifact preservation and organization.
-- [PROVENANCE.md](./PROVENANCE.md) records the exact OpenAI upstream and
-  adaptation boundary.
-- [LICENSE.txt](./LICENSE.txt) contains the MIT license for this adaptation.
-- The canonical catalog is `skills/README.md`; it is outside the deployed skill
-  bundle and is therefore shown as a plain repository path.
+- [PROVENANCE.md](./PROVENANCE.md) records the upstream and adaptation boundary.
+- [LICENSE.txt](./LICENSE.txt) contains the applicable license.

@@ -2,7 +2,6 @@
 name: web-3d-asset-pipeline
 description: Prepare and verify runtime-ready 3D assets for browser projects, including pivots, units, transforms, hierarchy, naming, materials, textures, GLB export, clean reimport, optional approved compression, and browser load checks. Use when the user asks to clean, optimize, export, or validate a web 3D asset.
 license: MIT
-compatibility: Ubuntu and OpenCode; visible browser validation from WSL requires the Windows-default-browser UIA tools, and isolated headless Firefox requires an explicit request. No Blender MCP server is required.
 metadata:
   schema-version: "1"
   category: "files"
@@ -10,6 +9,14 @@ metadata:
 ---
 
 # Web 3D Asset Pipeline
+
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
 
 Prepare shipping assets, not runtime scene architecture. Preserve the editable
 source and make each conversion reproducible. GLB is the default browser
@@ -27,9 +34,11 @@ Use this skill for asset cleanup, export, texture packaging, collision proxies,
 LODs, file-size work, and runtime asset validation. Do not use it to choose a
 game engine or redesign camera, renderer, game-loop, or application routing.
 
-There is no Blender MCP server in this repository. When Blender is the DCC,
-read the sibling [`blender` skill](../blender/SKILL.md) in full before opening a
-file or running `bpy`.
+Do not assume the project exposes a Blender MCP or any other DCC integration.
+When Blender is the DCC, read the sibling [`blender` skill](../blender/SKILL.md)
+in full before opening a file or running `bpy`, when that companion bundle is
+available. Otherwise use the installed Blender version's authoritative
+documentation and the consumer project's safety rules.
 
 ## Pipeline
 
@@ -76,19 +85,15 @@ file or running `bpy`.
    transforms, dimensions, mesh/material/texture counts, armatures, animations,
    collisions, LODs, and warnings against the contract. A successful exporter
    exit and non-empty file are not enough.
-8. Load the exact shipping artifact through the project's existing loader. For
-   visible work from WSL, use the `browser-assistant` skill's `wsl_browser_*`
-   UIA tools against the user's Windows default browser, with an explicit window
-   ID for each operation and a fresh preview token for each supported mutation.
-   Take an accessibility snapshot first and a screenshot because canvas/WebGL
-   output is not represented by DOM structure. Inspect console and network
-   failures only when an approved tool exposes them; UIA does not guarantee
-   browser-diagnostics access, so missing console evidence blocks a complete
-   validation. Do not claim the DOM proves mesh appearance. Load
-   `browser-headless` and use isolated Firefox only when the user explicitly
-   requests headless/background testing. If the connector or required evidence
-   is unavailable, stop and report the validation as blocked or incomplete; do
-   not use Chrome/Chromium, project Playwright, or desktop-control as a fallback.
+8. Load the exact shipping artifact through the project's existing loader and
+   an approved browser integration that supports the required evidence. Take an
+   accessibility snapshot first and a screenshot when canvas/WebGL output is not
+   represented by DOM structure. Inspect console and network failures only when
+   an approved tool exposes them; missing required diagnostics make validation
+   incomplete. Do not claim the DOM proves mesh appearance. Use an isolated
+   headless browser only when the user explicitly requests it. If the integration
+   or evidence is unavailable, report validation as blocked or incomplete rather
+   than substituting an unsupported browser, desktop, or automation route.
 9. Compare the new artifact with the prior version: byte size, transfer size,
    decode/load behavior, texture memory assumptions, draw-relevant material or
    primitive counts, visual output, animation, and interaction. Report the
@@ -102,13 +107,14 @@ file or running `bpy`.
   requested network exposure.
 - Confirm the asset request and all external texture requests succeed without
   console errors, CORS failures, decode errors, or silent fallback materials
-  when approved browser diagnostics expose those results. UIA may not expose the
-  browser console/network panel; if it does not, record that as a blocker rather
-  than claiming a clean load.
+  when approved browser diagnostics expose those results. The approved browser
+  integration may not expose the console or network panel; if it does not,
+  record that as a blocker rather than claiming a clean load.
 - Inspect at least one view that reveals scale, orientation, pivot, materials,
   transparency, and animation relevant to the request.
 - If interaction is part of acceptance, read the sibling
-  [`game-playtest` skill](../game-playtest/SKILL.md) in full before testing.
+  [`game-playtest` skill](../game-playtest/SKILL.md) in full before testing when
+  that companion bundle is available.
 
 ## Optional optimization
 
@@ -134,13 +140,14 @@ decode compatibility, or excessive startup cost.
 - Do not upload any source or asset unless the user named both the exact file
   and destination.
 - Treat third-party DCC files and scripts as untrusted. When Blender is used,
-  retain `--background --factory-startup --disable-autoexec`,
-  `--python-exit-code 1`, and a bounded `timeout` as required by its skill.
+  apply its version-supported safety options, propagate script failures, and
+  bound execution using the process runner's supported deadline mechanism.
 - Do not weaken browser sandboxing, TLS, CORS, filesystem permissions, or
   desktop security to make a load appear successful.
-- Keep temporary reports and browser screenshots in task scratch space and
-  remove them after inspection. Preserve requested GLB, render, and report
-  artifacts at their approved destination.
+- Keep temporary reports and browser screenshots only in approved scratch
+  storage. Follow the capture provider's verified ownership and retention
+  contract; preserve requested GLB, render, and report artifacts at their
+  approved destination.
 
 ## Usage guide
 

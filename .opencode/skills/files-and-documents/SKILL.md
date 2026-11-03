@@ -1,6 +1,6 @@
 ---
 name: files-and-documents
-description: Find, inspect, organize, rename, summarize, and export local files and documents while preserving originals. Use when the user asks to find a file, organize Downloads, summarize a PDF, rename files, create notes, or prepare a document/export.
+description: Find, inspect, organize, rename, summarize, and export local files and documents while preserving originals. Use for file organization, notes, or local DOCX, PDF, XLSX and CSV workflows; verify authoring prerequisites before promising edits.
 metadata:
   schema-version: "1"
   category: "files"
@@ -11,16 +11,25 @@ metadata:
 
 Inspect first, preserve originals, and save only in approved locations.
 
+## Auto-approve and autonomous work
+
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
+
 ## Locations
 
-- Project code and checkouts: the project's actual checkout directory.
-- Standalone runnable utilities: a local utilities directory.
-- Notes, reports, exports, and final documents: `~/Documents/`.
-- Temporary downloads only: `~/Downloads/`.
-- Session scratch: `/tmp/opencode/`.
+- Follow the current project's `AGENTS.md` or equivalent for permitted
+  locations. Do not assume another project's home-directory policy.
+- Keep code and utilities in the selected project or its established utility
+  location; use the project's approved destination for final documents.
+- Use the operating system or project-designated temporary directory for
+  scratch and transient downloads.
 
-Never create output in the home root, Desktop, dot-directories, XDG media
-folders, or other locations without explicit approval.
+Do not create output in private configuration/media locations or outside the
+approved project/user destinations.
 
 ## Workflow
 
@@ -39,6 +48,17 @@ for irreplaceable documents.
 - Preserve metadata when it matters and explain format conversion losses.
 - Deletion, deduplication, and cleanup default to dry-run.
 - Emptying trash is a separate, explicit action.
+
+## Local document workflows
+
+For DOCX, PDF, XLSX or CSV work, explicitly read the
+[shared artifact contract](references/local-artifacts.md), then only the matching
+format reference: [DOCX](references/local-docx.md), [PDF](references/local-pdf.md),
+or [XLSX/CSV](references/local-spreadsheets.md). They are not loaded automatically;
+ordinary file finding or renaming does not require these procedures. Discover the
+consumer's actual tools, safe converter isolation and dependencies. Dated source-host
+observations are not proof of authoring support on this machine. Missing libraries
+or isolation remain prerequisites, not permission to install or bypass them.
 
 ## Usage guide
 

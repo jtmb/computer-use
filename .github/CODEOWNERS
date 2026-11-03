@@ -1,0 +1,16 @@
+# Review routing only: required owner approval needs separately configured
+# GitHub branch protection/rulesets and this file on the PR's base branch.
+# Multiple agents using @jtmb do not constitute independent human approvals.
+* @jtmb
+
+/AGENTS.md @jtmb
+/opencode.json @jtmb
+/global/ @jtmb
+/.opencode/ @jtmb
+/config/ @jtmb
+/scripts/ @jtmb
+/tools/ @jtmb
+/evals/ @jtmb
+/docs/golden-corpus/ @jtmb
+/.github/ @jtmb
+/.github/CODEOWNERS @jtmb

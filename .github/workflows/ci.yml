@@ -1,0 +1,43 @@
+# Static, credential-free checks only. This file does not establish that hosted
+# protections, required reviews or a merge queue exist; those need separate
+# verification in repository settings. Do not add credentials or mutable action refs.
+name: Offline CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: offline-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline:
+    name: Offline checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # actions/checkout v7.0.1, pinned by commit SHA and verified against the
+      # upstream tag on 2026-10-29. Never replace with a moving tag or branch.
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Report tool versions
+        run: |
+          node --version
+          git --version
+
+      - name: Run offline checks
+        env:
+          CI: "true"
+          NO_COLOR: "1"
+        # Hosted checkouts are clean, so local dirty-tree checks are not applicable.
+        run: node scripts/ci-offline.mjs --no-git

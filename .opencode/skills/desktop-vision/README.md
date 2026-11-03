@@ -1,157 +1,81 @@
 # Desktop Vision Usage
 
-This guide explains how to use the `desktop-vision` skill. The agent-facing
-operating rules remain in [SKILL.md](./SKILL.md); OpenCode does not
-automatically load this usage guide when the skill is loaded.
+This guide explains how to use the `desktop-vision` skill. Agent-facing rules
+remain in [SKILL.md](./SKILL.md); OpenCode does not automatically load this
+usage guide.
 
 Category: `desktop`
 
-Tags: `desktop`, `gnome`, `wsl`, `windows`, `screenshot`, `visual-verification`
+Tags: `desktop`, `screenshot`, `visual-verification`
 
 ## Purpose and when to use it
 
-Use `desktop-vision` when visual confirmation is needed for:
-
-- What is currently displayed.
-- Whether a window opened, closed, gained focus, or changed.
-- Which control appears selected or focused.
-- A GUI error or unexpected application state.
-
-Prefer accessibility data when a control can be identified by name. Use this
-skill when appearance, layout, focus, or rendered output matters.
+Use `desktop-vision` when visual confirmation is needed for the displayed
+application, window state, focus, layout, rendered output, or a GUI error.
+Prefer accessibility data when it can answer the question without a capture.
 
 ## Prerequisites and setup verification
 
-Native GNOME agent-initiated capture requires:
-
-- GNOME on Wayland.
-- The configured GNOME screenshot shortcut.
-- The user-owned `ydotool` service and its private socket.
-
-The agent should verify those prerequisites before attempting a capture:
-
-```bash
-systemctl --user is-active --quiet ydotool.service
-test -S "${XDG_RUNTIME_DIR:?}/.ydotool_socket"
-```
-
-On WSL2, `vision_capture` instead uses the checked-in bounded Windows host with
-trusted PowerShell identity, a fixed screenshot RPC, a 6 MiB PNG cap, and
-in-memory handling. If the native service/socket is unavailable outside WSL,
-the agent asks the user to press the appropriate built-in screenshot key.
+- Discover a supported visual-capture integration in the current session.
+- Read its provider documentation for authorization, capture scope, output
+  ownership, image validation, sensitive-surface handling, and retention.
+- Do not assume a shortcut, input service, output directory, cleanup behavior,
+  screenshot tool, or platform bridge.
+- If any required safety property is unknown or capture is deferred, do not
+  invoke that backend or an equivalent shell command. Report visual verification
+  as blocked and continue independent work.
 
 ## How to request it
 
-Ask in ordinary language. No direct user command is required.
-
-Example requests:
-
 - "Can you see what is on my screen right now?"
-- "Verify visually that this installer window is closed."
-- "Look at this dialog and tell me which button is focused."
-
-The user does not need to name the skill. The agent loads `desktop-vision`
-and follows its screenshot workflow.
+- "Verify visually that this application window is closed."
+- "Look at the selected dialog and tell me which button is focused."
 
 ## Worked workflow and expected result
 
-The representative native-GNOME workflow is:
+1. Check whether accessibility data already answer the question.
+2. Verify that the capture request is authorized and the integration's safety
+   contract is understood.
+3. Announce the permitted capture and request only the smallest adequate region.
+4. Inspect only an image proven to belong to this request or a file the user
+   explicitly selected to share.
+5. Report only what the image demonstrates. State retention or cleanup as
+   unknown unless independently verified.
 
-1. Record all existing files matching:
-
-   ```text
-   ~/Pictures/Screenshots/**/*.png
-   ```
-
-2. Announce the capture before triggering it.
-3. Trigger the appropriate GNOME shortcut through the existing private
-   `ydotool` service:
-
-   ```bash
-   SOCKET="${XDG_RUNTIME_DIR:?}/.ydotool_socket"
-   systemctl --user is-active --quiet ydotool.service
-   test -S "$SOCKET"
-   YDOTOOL_SOCKET="$SOCKET" ydotool key 42:1 99:1 99:0 42:0
-   sleep 2
-   ```
-
-   Active-window capture uses:
-
-   ```bash
-   SOCKET="${XDG_RUNTIME_DIR:?}/.ydotool_socket"
-   systemctl --user is-active --quiet ydotool.service
-   test -S "$SOCKET"
-   YDOTOOL_SOCKET="$SOCKET" ydotool key 56:1 99:1 99:0 56:0
-   sleep 2
-   ```
-
-4. Repeat the screenshot inventory and identify the one newly created PNG.
-5. Read only that PNG.
-6. Delete exactly that PNG immediately:
-
-   ```bash
-   rm -f "<the-viewed-file>"
-   ```
-
-Expected result: one new image is identified, inspected once, deleted
-immediately, and summarized without retaining a screenshot.
-
-On WSL2 the agent still announces the capture, then calls `vision_capture`.
-The tool returns the validated image attachment directly and retains no host or
-Linux screenshot file.
+Expected result: an accurately described visual observation with no claim about
+ownership, deletion, or full-screen privacy that the provider cannot prove.
 
 ## Verification and known limitations
 
-The screenshot must show the claimed application or dialog state. An
-apparently successful capture command is not proof that the relevant window
-was visible or focused.
-
-Known limitations:
-
-- Stills only; this skill does not record video.
-- Multi-display full-screen capture can span every display.
-- Large or high-resolution images may be difficult to inspect.
-- The stated fallback key combinations are GNOME-specific.
-- WSL2 capture requires an expected trusted Windows PowerShell installation and
-  the checked-in interop host; it does not provide general Windows input.
-- An active-window key combination may capture another application if focus
-  changed unexpectedly.
+The image must show the relevant application state. A successful trigger does
+not prove the intended window was captured. File inventory or recency alone
+does not establish ownership. Image size/header checks may not establish full
+file validity; follow the provider's complete validation behavior.
 
 ## Troubleshooting
 
-- No new screenshot: wait two seconds, inventory again, and check the
-  service/socket before retrying.
-- Multiple new files: do not assume the newest file belongs to the current
-  task; ask which file to inspect.
-- Wrong window captured: re-establish application focus first, then capture
-  again.
-- Native service unavailable: do not change permissions or install input
-  software for this skill. Outside WSL, ask the user to press PrintScreen.
-- WSL capture unavailable: report the bounded host error; do not replace it
-  with arbitrary PowerShell, a persistent screenshot file, or broader input
-  permissions.
-- Sensitive or unintended private content appears: stop, say so, and do not
-  quote or retain it.
+- No image returned: inspect provider status and report the failure; do not
+  repeat an uncertain trigger without resolving possible delayed output.
+- Multiple candidates or uncertain ownership: stop before reading or deleting.
+- Wrong window captured: re-establish the target through an approved window
+  integration, then reassess authorization.
+- Sensitive or unintended content appears: stop and do not quote or retain it.
+- Backend unavailable or held: report the blocker; never replace it with an
+  unapproved shell shortcut or another capture mechanism.
 
-## Safety, confirmation, and elevation
+## Safety
 
-This skill does not change applications, install software, or alter system
-permissions. It nevertheless handles potentially sensitive visual information.
+- Never observe a locked screen or a sensitive authentication, password, MFA,
+  payment, or CAPTCHA surface.
+- Treat unexpected private content as do-not-repeat.
+- Never store, commit, upload, or paste a screenshot elsewhere without explicit
+  authorization.
+- Delete only task-owned captures when deletion is separately authorized and
+  the provider's ownership is verified.
 
-The agent must:
+## Related skills
 
-- Announce every capture before triggering it.
-- Never attempt to observe a locked screen.
-- Never capture while a PolicyKit authentication dialog, password field, MFA
-  prompt, payment field, or CAPTCHA is open.
-- Treat unexpected banking, authentication, or private-message content as
-  do-not-repeat.
-- Never store, commit, upload, or paste a screenshot elsewhere.
-
-## Related skills and documents
-
-- [`desktop-control`](../desktop-control/README.md) performs bounded GUI
-  operations using visual verification.
-- [`browser-assistant`](../browser-assistant/README.md) is preferred for
-  interactive web pages when the accessibility snapshot is sufficient.
-- The canonical catalog entry is in `skills/README.md`.
+- [`desktop-control`](../desktop-control/README.md) operates accessible GUI
+  controls.
+- [`browser-assistant`](../browser-assistant/README.md) covers interactive web
+  pages when its visible-browser integration is available.

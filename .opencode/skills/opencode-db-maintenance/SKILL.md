@@ -9,139 +9,61 @@ metadata:
 
 # OpenCode DB Maintenance
 
-Operator guide for the maintenance scripts in
-`~/repos/computer-use/scripts/`
-(stdlib-only, no deps), which handle OpenCode's known unbounded SQLite growth at
-`~/.local/share/opencode/opencode.db`:
+## Auto-approve and autonomous work
 
-- `opencode-db-maintain.py` - diagnose + prune + vacuum (see below).
-- `opencode-chat-backup.py` - export every chat to JSON (see Backup).
-- `opencode-maintenance-cron.sh` - weekly wrapper wiring both together
-  (see Scheduling).
+In Build auto, project auto-approve, or explicit no-question work, do not ask
+routine clarifying, preference, confirmation, Git, delegation-opt-in, or
+"continue?" questions. Use existing authority and reversible defaults. If a
+required approval or essential detail is missing, block that action, state the
+reason, and continue independent work; never grant authority yourself.
 
-## Symptom to cause map
+Use this skill only for OpenCode database growth, chat backup, or maintenance
+schedule tasks. OpenCode stores session data in a version-dependent local data
+store; verify the active database path and storage format from the selected
+runtime rather than assuming a location or schema.
 
-There are two distinct bloat mechanisms. Diagnose before fixing -
-`VACUUM` alone only helps the first:
+## Diagnose read-only first
 
-1. **Freelist bloat (empty pages).** SQLite defaults to `auto_vacuum=OFF`,
-   so deleted sessions leave freelist pages that are never returned to the
-   filesystem. File is large but live data is small. Fix: `VACUUM` +
-   `auto_vacuum=INCREMENTAL` (upstream issues #16777, #16729, #31526).
-2. **Live `event`-table bloat.** The `event` table keeps a full message
-   snapshot per `message.updated.1` / `message.part.updated.1` streaming
-   update forever, amplified by full `summary.diffs` patch text
-   (upstream #33356: 13 GB with freelist ~0%, #41175: 39 GB, #32005,
-   #42748, #46138). Here `VACUUM` reclaims ~nothing - superseded rows must
-   be deleted first, then `VACUUM`.
+1. Identify the active OpenCode version, data directory, database path, and
+   whether the application is currently running.
+2. Prefer supported OpenCode inspection/maintenance commands when available.
+   If using SQLite diagnostics, keep them read-only and verify that the target is
+   the active database, not a backup or unrelated file.
+3. Compare total file size, live table/index sizes, freelist pages, WAL/journal
+   state, and available disk space. Distinguish reclaimable empty pages from
+   live historical/event data; a vacuum alone cannot remove live rows.
+4. Do not infer that a table, row, or event is safe to delete from its name. Use
+   only a maintenance procedure documented for the exact installed version.
+   If none exists, report the limitation rather than improvising SQL.
 
-## Diagnose (read-only, safe while OpenCode runs)
+## Maintenance and backup
 
-```bash
-python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --stats
-python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --dry-run [--keep N]
-```
+- Keep diagnosis separate from writes. A request to inspect size does not
+  authorize pruning, vacuuming, deleting backups, or changing schedules.
+- Before any write, verify the application's locking/WAL requirements, a
+  recoverable backup method, integrity checks, disk headroom, and exact scope.
+  Follow the project's preview and authorization policy.
+- Do not use a bare filesystem copy of a live SQLite database unless the
+  documented backup procedure proves it captures WAL/journal state.
+- Preserve a verified backup until the application is reopened and the relevant
+  workflow is confirmed healthy.
+- Distinguish a backup schedule from a successful backup and a tested restore.
+  Verify actual output, integrity, and restore behavior when requested.
 
-How to read the output:
+## Chat exports and schedules
 
-- `freelist` large relative to file (e.g. >20%) with modest `event`
-  share -> type 1, vacuum-only suffices.
-- `event` table dominant (>80% of `sum(length(data))`), `freelist` ~0%,
-  top type `message.part.updated.1` or `message.updated.1` -> type 2,
-  prune-then-vacuum needed.
-- `orphaned events` = rows whose session is gone (safe to delete).
-- `superseded snapshots` = older full-snapshot rows per message/part id
-  (safe: newest per id is always retained).
+Discover whether the selected installation provides an export tool or a
+maintenance scheduler. Verify output ownership, overwrite behavior, manifests,
+locks, logs, and failure markers before enabling or running one. Never assume a
+script name, output directory, cron entry, retention count, or unattended
+schedule exists.
 
-Manual SQL equivalents (read-only):
+## Report honestly
 
-```sql
-PRAGMA page_size; PRAGMA page_count; PRAGMA freelist_count;
-PRAGMA journal_mode; PRAGMA auto_vacuum;
-SELECT type, count(*), sum(length(data)) FROM event GROUP BY type;
-```
-
-## Fix paths
-
-Close OpenCode first whenever `--apply` is used. The script refuses to run
-if another process holds the DB (override: `--skip-lock-check`).
-
-```bash
-# Full fix: prune orphaned + superseded event rows, then VACUUM + harden
-python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply [--keep N]
-
-# Physical reclaim only: no row deletes, just checkpoint + VACUUM +
-# auto_vacuum=INCREMENTAL + restore journal_mode=WAL
-python3 ~/repos/computer-use/scripts/opencode-db-maintain.py --apply --vacuum-only
-```
-
-Every `--apply` automatically: SQLite online backup to a timestamped copy
-(`<db>.backup.<timestamp>`) -> backup integrity verification ->
-batched deletes (default `--batch 2000`) -> `VACUUM` ->
-`integrity_check`. Keep the backup until OpenCode is verified working.
-
-## Safety rules
-
-- Default is read-only: `--stats` / `--dry-run` change nothing.
-  `--keep N` (default 10) exempts the newest N sessions from compaction -
-  on a small/new DB this correctly reports zero candidates.
-- The script deletes from `event` only. It never touches
-  `event_sequence` numbering, aggregates with a sync/workspace owner,
-  the newest snapshot per message/part, or rows whose live
-  `message`/`part` projection row is missing.
-- Never `--apply` against a DB copy made with a bare `cp` while OpenCode
-  runs (the `-wal` may hold uncommitted data); the script's own backup
-  path checkpoints first, which is why it is safe.
-
-## Prevention
-
-- Upstream long-term fixes are still pending: `opencode db prune` CLI
-  (#43456), replay-safe snapshot compaction (#41711), diff-patch eviction
-  (#42771). Until those land, this skill is the maintenance path.
-
-## Backup (all current chats)
-
-```bash
-python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --dry-run   # preview
-python3 ~/repos/computer-use/scripts/opencode-chat-backup.py --force     # write
-```
-
-- Exports every session via `opencode export <id>` (full fidelity,
-  re-importable with `opencode import`). Read-only against the DB -
-  safe while OpenCode runs and from cron.
-- Layout: `~/Documents/opencode-backups/<repo>/<slug>__<title>.json`,
-  where `<repo>` is the git remote name when the session directory is a
-  checkout, else the directory basename. The same title overwrites in place.
-  A title change creates a new filename; the utility records script-owned
-  exports in `.opencode-chat-backup-manifest.json` and can remove the stale
-  renamed export after a successful replacement.
-- `--prune-deleted` removes JSONs whose session no longer exists
-  (default: keep - backups are the safety net).
-
-## Scheduling (cron)
-
-`~/repos/computer-use/scripts/opencode-maintenance-cron.sh`
-runs both halves under a lock:
-
-1. Chat backup (always safe, runs every time).
-2. `opencode-db-maintain.py --apply` - applies only when OpenCode is
-   closed; otherwise logs "skipped, OpenCode running" and retries next run.
-
-Crontab (installed):
-
-```cron
-0 3 * * 0 /home/shak/repos/computer-use/scripts/opencode-maintenance-cron.sh
-@reboot sleep 120 && /home/shak/repos/computer-use/scripts/opencode-maintenance-cron.sh --catch-up
-```
-
-- Weekly Sunday 03:00 plus a boot catch-up: `--catch-up` runs immediately
-  only if the last cleanup marker is >7 days old (covers machine-off).
-- Status:
-  `~/repos/computer-use/scripts/opencode-maintenance-cron.sh --verify-only`.
-  Full log: `~/Documents/opencode-backups/maintenance.log`. Status reports
-  separate backup and cleanup markers; the legacy success marker is ignored.
-- Cron PATH must include `/home/shak/.opencode/bin` (where the
-  `opencode` binary lives) - already set in the installed crontab.
+Report the exact database/runtime identified, evidence for the diagnosed cause,
+commands actually run, whether anything changed, backup/restore verification,
+and any remaining risk. A zero exit status does not establish database
+integrity or successful recovery.
 
 ## Usage guide
 
