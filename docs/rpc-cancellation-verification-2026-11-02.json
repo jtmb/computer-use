@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only disjoint R1/R2/R3 source verification. Coordinator remains inbox-memory-acceptance; no loaded/native handoff, trusted archive approval, task/phase or goal completion.",
+  "sourceChanges": {
+    "tests": {
+      "path": ".opencode/plugins/goal-docs/goal-docs.test.ts",
+      "beforeBytes": 86969,
+      "beforeSHA256": "5b027f8e530a3ef4e9626c118cca7aa8cd84351a0e0c9c7f81d2cd59d9b9c0ea",
+      "afterBytes": 101546,
+      "afterSHA256": "09a89733ec3cb6dfab5ad433869d00a780bcf3f91c6a5eb47909614b6b703bec",
+      "change": "Append eleven tests using the existing source fixtures. Original complete test prefix remains; no prior assertion or distinct direct-coordinator failure is removed."
+    },
+    "exporter": {
+      "path": ".opencode/plugins/goal-docs/exporter.ts",
+      "beforeBytes": 3926,
+      "beforeSHA256": "a6c43fe36856957fad1f5e2e424d5880b49f70558c8818e63759dfba3abeab2d",
+      "afterBytes": 3951,
+      "afterSHA256": "63c27da34a82beb623767317c75d0c19379b7a91677ef52b12cfc7c0ed9d90c3",
+      "change": "Add throwIfAborted(signal) immediately after awaited state lookup and before the empty-record return. No signal/API/permission/resource-limit or completed-publication behavior is changed."
+    },
+    "unchanged": [
+      { "path": ".opencode/plugins/goal-docs/rpc-handlers.ts", "bytes": 3202, "sha256": "22504b2bd4893d0b5079728576ebfb6043e94c9e2fcc7d8b80295701251cadd3" },
+      { "path": ".opencode/plugins/goal-docs/session.ts", "bytes": 9138, "sha256": "cce6e4a1472caff992fb508cfa0a5f551bafe26355578543ed436e477d833105" },
+      { "path": ".opencode/plugins/goal-docs/handoff.ts", "bytes": 22524, "sha256": "bff4548538e6c5d0e9baed9b045db5d9f3beab54da6bde63fbf73cb704f126c6" }
+    ]
+  },
+  "realRegression": {
+    "command": "node --max-old-space-size=256 --experimental-strip-types --test --test-concurrency=1 --test-timeout=8000 --test-name-pattern '^RPC|^edit assertion|^cancellation after' .opencode/plugins/goal-docs/goal-docs.test.ts",
+    "before": { "exitStatus": 1, "tests": 18, "passed": 17, "failed": 1, "skipped": 0, "cancelled": 0, "durationMs": 661.066927, "log": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/before.tap", "outputBytes": 5005, "outputSHA256": "d4c95f44316c53cd7565daa3a61dc1c1923f72581fd6a7dac7bb63288e09b1f6" },
+    "failure": "RPC export rejects cancellation after an empty state lookup instead of reporting missing: ERR_ASSERTION, actual missing versus expected failed. A readState returning null after cancelling the caller bypassed the later permission/abort checkpoints. This is an observed production-source bug, not a trap/import/setup failure.",
+    "afterCommand": "node --max-old-space-size=256 --experimental-strip-types --test --test-concurrency=1 --test-timeout=8000 .opencode/plugins/goal-docs/goal-docs.test.ts",
+    "after": { "exitStatus": 0, "tests": 68, "passed": 68, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 1881.869189, "log": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/after-full.tap", "outputBytes": 15914, "outputSHA256": "f2309a7ea3a10553c15d567166bd741a5f2ec6057c77fd1a24e63b48003d03d1" }
+  },
+  "newCoverage": [
+    "All export/handoff/opened methods reject caller-only, lifecycle-only, distinct-caller, distinct-lifecycle and same-signal pre-aborts before dependency/file/permission/session creation/prompt access.",
+    "No-context, caller-only, lifecycle-only, identical and distinct signals reach the real exporter dependencies with the expected identity; no-context direct API remains successful.",
+    "One caller abort leaves another concurrent export and the plugin lifetime live; unload aborts both calls through their separate combined signals after pending reads settle.",
+    "Opened caller cancellation while edit assertion is pending does not preempt that promise; after settlement it fails without changing the already seeded transfer. A fresh request completes that same transfer.",
+    "Handler-level cancellation after target creation retains the same target on retry; cancellation after acknowledged seed reports admitted, not rolled back. Stable replay admits one message, not a duplicate.",
+    "Direct edit assertions receive exactly one argument, check pre-abort before Plan/API validation, wait for pending resolution, reject a cancelled resolved assertion and preserve an actual native-denial rejection.",
+    "Empty-state cancellation rejects before a missing result. Conversely already completed real fixture document writes still report exported after a later cancellation, without claiming rollback."
+  ],
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/controls.json",
+    "receiptBytes": 10344,
+    "receiptSHA256": "3dcdf1be5d532512caaa0311c167a9faea8b9fcf7c8d2b9d46584bb9e78d510a",
+    "scratch": "/tmp/opencode/rpc-cancellation-controls-6g4v7vi4/",
+    "controls": ["caller-signal-dropped", "distinct-unload-dropped", "unsupported-second-permission-argument", "permission-postawait-abort-dropped", "permission-preabort-dropped"],
+    "result": "Each exact copied fixture exits1 with one intended ERR_ASSERTION failure, not import/setup failures. Seventeen actual source modules are bound in the receipt; only the selected branch changes in each scratch copy. The separate original empty-state failure is retained without rerunning it as an unchanged sixth mutant.",
+    "capture": "65536 captured bytes per process, raw reads at most4096 and remaining-length limited, 10second owned-process deadline, bounded cleanup waits. Whole pipe/network/process buffering is not claimed bounded by these capture quotas."
+  },
+  "strictTypesNotAccepted": {
+    "compiler": "Existing TypeScript6.0.3, --strict --noEmit --skipLibCheck false, NodeNext/ES2022/allowImportingTsExtensions, installed Node typeRoots, 256MiB V8 oldspace; four unchanged roots rpc-handlers/session/exporter/goal-docs.test.",
+    "firstAttempt": "exit2: rpc.ts(1,21) TS2307 Cannot find module @opencode/plugin/rpc or its corresponding type declarations. No SDK stub or root removal was used to call this a pass.",
+    "genuinelyChangedResolution": "A disposable tsconfig points that one specifier to the authentic already installed frozen-native2.1.1 src/rpc.ts. Same four roots and dependency/library checks remain. The separately inspected goal-plugin dependency is2.0.30, not substituted for2.1.1. No install, canonical config/dependency edit, missing-input exclusion or library bypass.",
+    "configuration": "/tmp/opencode/rpc-types-iw1q8tl8/tsconfig.json",
+    "configurationSHA256": "9cb844c8eba2345e1c60a06e3629b828ca20d99992fd5d82d20fdb4340686604",
+    "SDKEntrySHA256": "a0699e4ae5c6a496a4b153a52680c5a6ca992262af7454dc8b4cfe57f8b58c2a",
+    "actualResult": "Python Popen returncode -6/SIGABRT, EOF, after10412ms: FATAL ERROR Reached heap limit Allocation failed - JavaScript heap out of memory. This is failure, not no-diagnostics/type success. The 256MiB heap setting is not a measured whole-process RSS bound.",
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/strict-sdk-2.1.1.json",
+    "log": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/strict-sdk-2.1.1.log",
+    "outputBytes": 1826,
+    "outputSHA256": "540bc8eeced040808d5f5b2ba69edc5b55be4011a9d86ec6180cb30023e50383",
+    "nextBoundary": "No unchanged retry, cap increase, compiler-input omission or full native/types acceptance. Behavioral source acceptance and required strict/native closure remain distinct."
+  },
+  "documentationBefore": [
+    { "path": ".opencode/plugins/goal-docs/README.md", "bytes": 37536, "sha256": "c21aa7059f7bd1dfc4a339d43b3a6fded8b07ffa8eb0f820b75655b249f89d83" },
+    { "path": "docs/features.md", "bytes": 174693, "sha256": "92b91257c8045648d6bcd7ae2da1a98e3a8df722c3451f666df6e72808f8d6c9" }
+  ],
+  "adjacentFeatureContract": { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/features-contract.test.mjs", "tests": 7, "passed": 7, "failed": 0, "skipped": 0, "durationMs": 403.811392, "qualification": "Changed documentation/inventory/local-link contracts, not independent computer/browser execution or full native integration." },
+  "limits": "Actual production export/handler/permission-coordinator source with fake session/permission and in-memory filesystem boundaries, plus existing isolated real-filesystem cases. Not a live native call, pending human prompt, authenticated trusted-host approval, admitted real message, client focus, deployment, model/fresh-chat, full integration or rollback acceptance. No independent computer/browser source is edited or its outcomes adopted. All changes remain uncommitted and unpushed."
+}

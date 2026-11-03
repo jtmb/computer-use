@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T19:33:16.022Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "f7183041-ea4a-48d8-a691-c15d92076ea1",
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "objective": "Finish and locally verify the plugin-only goal enhancement and mutually exclusive engine settings in /home/james/repos/opencode-goal-plugin: persistent settings/controller selecting enhanced, built-in or off; safe configuration-based switching with preservation of goals and explicit resumption; native idle/background integration where supported with exactly one continuation strategy; separate revision-bound completion reviewer; unsupported-host handling and conflict detection; documentation and full regression/package/isolated-runtime verification. Preserve the existing dirty implementation, explicit limits, permission and Plan boundaries. Hard constraint: do not modify, rebuild, replace, upgrade, wrap or redirect the OpenCode binary/executable, launcher or symlinks; no deployment, live activation, publication, commit or push.",
+    "status": "complete",
+    "plan": {
+      "summary": "Finish exclusive settings and native/reviewer integration, add user-requested persistent YOLO continuation and visible controls, then verify all behavior without changing executables.",
+      "completionCriteria": [
+        "A persistent user-facing engine selector remains available in enhanced, built-in and off modes; only one engine drives goals and unsupported hosts fail clearly.",
+        "Switching preserves goals, blocks unsafe/in-flight changes and requires explicit goal resumption; effective configuration conflicts are detected.",
+        "Enhanced mode uses one native or compatibility continuation strategy, honors background ownership, and gates completion on a current evidence review.",
+        "All existing safety boundaries and tests remain intact; full lint/typecheck/test/build/package checks and available isolated runtime acceptance pass.",
+        "OpenCode executable/binary, launchers and symlinks remain unchanged; no deployment, live activation, publication, commit or push."
+      ],
+      "phases": [
+        {
+          "id": "selection",
+          "objective": "Finish persistent controller and user-facing settings.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "controller",
+              "description": "Inspect existing changes and host APIs; implement persistent configuration selection and safe-switch preconditions with tests.",
+              "status": "completed",
+              "evidence": "Implemented JSONC settings controller with explicit location path, revision checks, lock, backup, quiescence checks, server RPC and conflict handling."
+            },
+            {
+              "id": "settings",
+              "description": "Expose engine choice in persistent settings UI without unloading the controller or modifying executable files.",
+              "status": "completed",
+              "evidence": "Persistent TUI settings command stays available in off/builtin modes. Targeted engine/TUI tests passed 42 tests."
+            }
+          ],
+          "verification": "Controller/config and TUI regressions passed 42 tests; runtime applied-switch acceptance remains in verification scope."
+        },
+        {
+          "id": "execution",
+          "objective": "Import native execution and independent review capabilities into ours.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "native",
+              "description": "Implement capability-gated native idle/background integration with one scheduling strategy and old-host fallback.",
+              "status": "completed",
+              "evidence": "Added auto/native/compatibility strategy selection gated by host version and synthetic API. Native experimental.idle sends synthetic continuations while compatibility drivers/watchdog are disabled; checks Plan/status/goal identity before delivery. Defers own subagent/image work, ignores descendant-owned jobs and avoids waiting forever on dev-server shells. Five targeted native regressions passed."
+            },
+            {
+              "id": "reviewer",
+              "description": "Implement evidence-based completion reviewer bound to current goal/plan and cancellation with regression tests.",
+              "status": "completed",
+              "evidence": "Added separate transcript-based completion review with full objective/plan/evidence, strict verdict parsing, cancellation, and atomic goal-ID/objective/plan/status/history validation before closure. Reviewer reasons persist in goal history. V2 auto/required/off modes and unsupported-host rejection added. Eight targeted review/state/V2 regressions passed; lint and typecheck passed."
+            }
+          ],
+          "verification": "Native strategy and completion reviewer targeted suites passed; compatibility driver is inactive in native mode. Full runtime/provider acceptance remains scheduled under verification."
+        },
+        {
+          "id": "yolo",
+          "objective": "Add persistent, visible YOLO mode that keeps authorized goal work moving without hidden turn limits.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "yolo-state",
+              "description": "Persist YOLO setting/state across restarts and normalize unset or zero turn limits as unlimited; retain pause/cancel, permission, Plan and explicit budget boundaries.",
+              "status": "completed",
+              "evidence": "Added persisted yoloMode to goals and public snapshots, explicit mode mutation that never resumes or reopens goals, and zero-allowed turn-limit schemas on V1/V2 tools. Regression executes 60 unbudgeted turns with YOLO enabled and maxAutoTurns=0 while retaining explicit budgets/limits and pause/cancel behavior. State/review suites: 82 pass; lint and typecheck passed."
+            },
+            {
+              "id": "yolo-controls",
+              "description": "Implement settings toggle and /yolo controls with explicit resume semantics and a prominent yellow YOLO marker in goal UI/context.",
+              "status": "completed",
+              "evidence": "Added persistent server-side YOLO preference RPC, direct /yolo toggle/on/off/status command, settings palette dialog, inheritance by new goals, and theme-warning YOLO goal label that distinguishes active versus paused. Six targeted command/prompt/render regressions passed including 36/80-column light/dark-color fixtures. Typecheck/lint/diff checks passed."
+            },
+            {
+              "id": "yolo-recovery",
+              "description": "Test repeated recoverable failures, stalls and more than 50 uncapped turns in native/compatibility paths; guide ownership and explicit incorporation of prior unmet scope without silently reopening closed goals.",
+              "status": "completed",
+              "evidence": "Four targeted server regressions pass: native admission failure plus repeated execution transport/internal failures recover despite heuristic ceiling=1; native recovery honors user interruption and credit exhaustion without terminal closure; native and compatibility paths each execute 60 uncapped continuations with no cross-driver calls. Native regular idle and recovery share an in-flight guard. Typecheck and lint pass."
+            }
+          ],
+          "verification": "Persisted preferences, /yolo controls, rendered labeled warning badge, runtime stop-control authorization, independent completion/blocker review, heuristic-ceiling override, and native/compatibility 60-turn/recovery tests pass locally. Prompt preserves authorized prior-unmet scope with provenance without reopening closed goals. Live compatible native host remains unavailable and must be disclosed during final acceptance."
+        },
+        {
+          "id": "verify",
+          "objective": "Verify final behavior and documentation.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "docs-tests",
+              "description": "Document selection/switching/version limits and add cross-engine, restart and reviewer/native lifecycle coverage.",
+              "status": "completed",
+              "evidence": "README now documents exclusive selection, supported-host/version limits, controller path/reload/resume/rollback rules, native strategy, reviewer modes and persistent YOLO semantics/limits. Added docs/features.md requirement-to-artifact and acceptance-limit inventory. Added settings RPC paging/active-goal/built-in/unsupported-host tests, parent-symlink and invalid-backup rejection, status-toast and theme-span assertions. Isolated v2.1.1 smoke passed with 2 continuations, rejected premature wait, executed work, 2 independent completion reviews and /yolo inheritance. Native-recovery mutation fails in disposable copy while production targeted test passes."
+            },
+            {
+              "id": "gates",
+              "description": "Run full quality/package/runtime gates, audit combined diff and verify executable identity unchanged.",
+              "status": "completed",
+              "evidence": "Final combined Bun suite: 456 pass, 0 fail, 1877 assertions/14 files. ESLint, tsc --noEmit, build, npm pack dry-run, documentation paths and git diff --check pass. Extracted local tarball smoke on unchanged v2.1.1: 17 model calls, 2 auto-continuations, 3 independent reviews, premature wait rejected, work executed, /yolo inherited and preference persisted through actual private-server restart. Packed runtime/manifest bytes match final tree. Executable SHA-256 still cd03022601e4848a957999a2a7b1c1ccf18b94f9a084a44719f62abaacebe83c. No deploy/live-user activation/commit/push/publication."
+            }
+          ],
+          "verification": "Requirement-to-artifact checklist and test-quality review are in docs/features.md; final combined tests and all local gates pass. Native/built-in settings success is host-mocked; installed v2.1.1 is below the known stable 2.2.1 API baseline, so no live compatible-host acceptance or real-model compliance is claimed. Supported-host limitations/refusal paths are documented/tested; no executable upgrade was attempted. Dirty/untracked implementation remains intact on detached HEAD."
+        }
+      ],
+      "decisions": [
+        "YOLO is persistence/recovery behavior, not blanket tool permission or a claim all external blockers can be solved. Zero/unset turn limits are unlimited; explicit user/platform limits, pause/cancel, Plan mode and permission denials remain authoritative.",
+        "The user's prior-unmet example is an acceptance scenario, not permission to reopen or mutate an unrelated archived goal. Explicitly requested prior scope may be copied into a new/current authorized plan with provenance.",
+        "YOLO UI must fit existing TUI design: compact labeled badge with theme-aware yellow/amber semantic colors, restrained spacing and existing components; distinguish configured engine, YOLO preference and actual goal lifecycle state. Verify light/dark and narrow layouts, keyboard navigation and non-color-only status. No raw hard-coded yellow or executable changes.",
+        "Screenshot acceptance case: an agent says objective is not impossible but marks unmet at a deployment/refresh authorization gate. YOLO must prevent such terminal closure, reuse existing exact authority, continue independent authorized work, and represent genuinely missing authority as resumable waiting. Build auto does not itself authorize deployment, logout, security changes or bypassing native permission denials.",
+        "YOLO durability must be enforced server-side: a final assistant reply is not a stop condition; agent-authored pause/cancel/clear/disable-YOLO cannot evade continuation without actual user intent. Completion requires independent current evidence review; waiting/impossibility requires audited whole-scope exhaustion and genuine external dependency. Recoverable errors use diagnosis/backoff rather than terminal handback. Tests must cover worker attempts to choose its own stop state and reuse of exact existing authority.",
+        "YOLO suppresses heuristic no-progress and prompt-failure pause ceilings, retaining their counters for diagnosis/backoff. Explicit token/duration/positive turn budgets and native permission/user controls remain enforced. Targeted regression with ceilings set to one remains active through four stalls and four transient failures.",
+        "Runtime stop-authorization guards now reject YOLO worker pause/stop/clear/replace/objective-edit attempts without a goal-bound explicit user control, disallow terminal worker unmet, require independent completion review, and require revision-bound independent blocker review before resumable waiting. Six targeted YOLO state/V2 tests passed, including invented approval gate rejection; lint/typecheck/diff checks clean. Native retry/credit-handling and final integration acceptance remain unfinished.",
+        "Final verification found and fixed additional liveness/safety edges: transient YOLO command-lifetime wait errors retry without pausing; native duplicate idle cannot reserve over an unresolved pending attempt; /yolo feedback is user-visible via typed RPC event/toast; reserved command-name collisions preserve /yolo. Settings reject symlinked parents and mismatching rollback content. Built-in/native baseline is conservatively stable 2.2.1+, with no executable upgrade."
+      ],
+      "revision": 13,
+      "updatedAt": 1793300501,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "Track the explicitly requested remaining implementation without reopening completed review-fix work.",
+          "timestamp": 1793297004
+        },
+        {
+          "revision": 2,
+          "reason": "Persistent location-scoped controller and TUI settings implemented and targeted-tested; advance to execution integration.",
+          "timestamp": 1793297454
+        },
+        {
+          "revision": 3,
+          "reason": "User explicitly added durable YOLO mode, zero/unset turn-limit semantics, settings and /yolo controls, yellow UI marker, and ownership/prior-unmet continuation use cases. Preserve existing scope and completion criteria.",
+          "timestamp": 1793297600
+        },
+        {
+          "revision": 4,
+          "reason": "User requires polished YOLO/settings UI consistent with existing TUI design principles.",
+          "timestamp": 1793297636
+        },
+        {
+          "revision": 5,
+          "reason": "Native strategy implementation and targeted safety/ownership tests pass; advance to revision-bound reviewer before YOLO implementation.",
+          "timestamp": 1793297711
+        },
+        {
+          "revision": 6,
+          "reason": "Revision-bound completion reviewer and native strategy have passed targeted regressions; proceed to requested persistent YOLO mode.",
+          "timestamp": 1793297956
+        },
+        {
+          "revision": 7,
+          "reason": "Persistent per-goal YOLO state and zero/unset turn-limit semantics passed targeted regressions; advance to user controls and marker.",
+          "timestamp": 1793298089
+        },
+        {
+          "revision": 8,
+          "reason": "User supplied concrete premature unmet example and requires runtime-enforced YOLO liveness, not prompt-only ownership language.",
+          "timestamp": 1793298408
+        },
+        {
+          "revision": 9,
+          "reason": "YOLO settings/command and labeled theme-aware marker pass targeted checks; advance to runtime stop authorization and recovery guarantees.",
+          "timestamp": 1793298459
+        },
+        {
+          "revision": 10,
+          "reason": "Implemented runtime YOLO stop guards and independent blocker review matching the user's screenshot; recovery integration remains in progress.",
+          "timestamp": 1793298765
+        },
+        {
+          "revision": 11,
+          "reason": "Native recovery now uses synthetic admission after failed executions rather than an inert compatibility timer; targeted native/compatibility 60-turn and recovery tests pass. Advance to final documentation and gates.",
+          "timestamp": 1793299245
+        },
+        {
+          "revision": 12,
+          "reason": "Documentation, requirements inventory, stronger settings safety tests and reviewer-aware isolated fixture are implemented and targeted-verified; advance to final combined gates.",
+          "timestamp": 1793300196
+        },
+        {
+          "revision": 13,
+          "reason": "Audited all completion criteria against final source/tests, packed runtime, isolated process-restart smoke, documentation checklist and unchanged executable evidence; local work is verified with explicit compatible-host limits.",
+          "timestamp": 1793300501
+        }
+      ]
+    },
+    "planRevision": 13,
+    "createdAt": 1793296989,
+    "updatedAt": 1793302301,
+    "closedAt": 1793300509,
+    "completionEvidence": "Plugin-only local objective achieved in /home/james/repos/opencode-goal-plugin. Persistent exclusive enhanced/builtin/off controller/settings, quiescence and conflict refusal, goal preservation/explicit resumption, capability-gated native versus compatibility scheduling, revision-bound independent reviewer, persistent /yolo/settings and amber labeled UI, runtime worker-stop guards and recoverable-failure liveness are implemented. Requirement-to-artifact checklist and acceptance limitations verified in docs/features.md and README.md. Final full regression: 456 tests pass, zero fail (1877 assertions, 14 files); lint, typecheck, build, package dry-run, documentation path and diff checks pass. Extracted-tarball private v2.1.1 runtime passes with two automatic continuations, premature-stop rejection, executed remaining work, three completion reviews, YOLO inheritance and persistence across actual private-server process restart. Tested packed runtime/manifest matches final tree. Native/builtin success paths are mocked because installed host is below stable 2.2.1; compatible-host live acceptance and real-model compliance are explicitly not claimed. OpenCode executable SHA-256 remains cd03022601e4848a957999a2a7b1c1ccf18b94f9a084a44719f62abaacebe83c; no executable/launcher/symlink modification, upgrade, deployment, live-user activation, publication, commit or push. Existing dirty/untracked work preserved.",
+    "blocker": null,
+    "stopReason": null,
+    "history": [
+      {
+        "type": "checkpoint",
+        "detail": "I’m implementing the separate completion reviewer now. It will receive the full objective, plan and submitted evidence. A verdict will be rejected if the goal changes, pauses, is replaced, or the request is cancelled while review runs. Invalid or uncertain responses will leave...",
+        "timestamp": 1793297767
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 6): Revision-bound completion reviewer and native strategy have passed targeted regressions; proceed to requested persistent YOLO mode.",
+        "timestamp": 1793297956
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 7): Persistent per-goal YOLO state and zero/unset turn-limit semantics passed targeted regressions; advance to user controls and marker.",
+        "timestamp": 1793298089
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The completion reviewer and persistent per-goal YOLO state are implemented and targeted-tested. A regression now runs **60 turns with a zero turn limit**, without stopping; pause/cancel and explicit positive limits remain enforced. Next: settings and `/yolo` controls, the yell...",
+        "timestamp": 1793298098
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793298100
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m wiring YOLO into a persistent preference and `/yolo on|off|status`, with bare `/yolo` toggling it. The command won’t create a goal or resume a paused one. The UI will distinguish the saved default, the current goal’s YOLO state, and any explicit limits.",
+        "timestamp": 1793298149
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 8): User supplied concrete premature unmet example and requires runtime-enforced YOLO liveness, not prompt-only ownership language.",
+        "timestamp": 1793298408
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The screenshot shows the key failure: **it marked the goal terminal `unmet` while explicitly saying the work was not impossible.** That should remain resumable—not become a closed goal. There is a separate boundary here: the screenshot cites deployment and GNOME-session author...",
+        "timestamp": 1793298409
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 9): YOLO settings/command and labeled theme-aware marker pass targeted checks; advance to runtime stop authorization and recovery guarantees.",
+        "timestamp": 1793298459
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 10): Implemented runtime YOLO stop guards and independent blocker review matching the user's screenshot; recovery integration remains in progress.",
+        "timestamp": 1793298765
+      },
+      {
+        "type": "checkpoint",
+        "detail": "That example is now covered by runtime guards—not just stronger prompts. In YOLO, the worker cannot freely pause, clear, replace, or mark its goal `unmet`. Completion requires independent review; a genuine blocker requires review and **resumable waiting**. Stalls and transient...",
+        "timestamp": 1793298776
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 3 reserved.",
+        "timestamp": 1793298778
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I found a liveness gap: native-mode failures could schedule a retry that the native driver then ignored. I’m connecting recovery to native synthetic delivery, while keeping regular continuation exclusively on the native idle hook and preserving user stops and permission waits.",
+        "timestamp": 1793298909
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 11): Native recovery now uses synthetic admission after failed executions rather than an inert compatibility timer; targeted native/compatibility 60-turn and recovery tests pass. Advance to final documentation and gates.",
+        "timestamp": 1793299245
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The targeted recovery tests pass. Native and compatibility modes each reached **60 continuations** without a hidden ceiling, and native recovery handled repeated transport/internal failures without calling the compatibility prompt API. User cancellation still stops recovery. I...",
+        "timestamp": 1793299261
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 12): Documentation, requirements inventory, stronger settings safety tests and reviewer-aware isolated fixture are implemented and targeted-verified; advance to final combined gates.",
+        "timestamp": 1793300196
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The isolated v2.1.1 smoke passed: two automatic continuations, premature-wait rejection, separate completion reviews, and `/yolo on` inheritance. The recovery regression also failed as expected when I restored the old scheduling bug in a disposable copy; the production code pa...",
+        "timestamp": 1793300197
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 13): Audited all completion criteria against final source/tests, packed runtime, isolated process-restart smoke, documentation checklist and unchanged executable evidence; local work is verified with explicit compatible-host limits.",
+        "timestamp": 1793300501
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Final checks passed: **456 tests**, lint, typecheck, build, package checks, and an isolated run using the extracted tarball. YOLO also survived an actual restart of that private server. The OpenCode executable hash is unchanged. Nothing was deployed, committed, pushed, or publ...",
+        "timestamp": 1793300502
+      },
+      {
+        "type": "completed",
+        "detail": "Plugin-only local objective achieved in /home/james/repos/opencode-goal-plugin. Persistent exclusive enhanced/builtin/off controller/settings, quiescence and conflict refusal, goal preservation/explicit resumption, capability-gated native versus compatibility scheduling, revision-bound independent reviewer, persistent /yolo/settings and amber labeled UI, runtime worker-stop guards and recoverab...",
+        "timestamp": 1793300509
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "The completion reviewer and persistent per-goal YOLO state are implemented and targeted-tested. A regression now runs **60 turns with a zero turn limit**, without stopping; pause/cancel and explicit positive limits remain enforced. Next: settings and `/yolo` controls, the yell...",
+        "timestamp": 1793298098
+      },
+      {
+        "summary": "I’m wiring YOLO into a persistent preference and `/yolo on|off|status`, with bare `/yolo` toggling it. The command won’t create a goal or resume a paused one. The UI will distinguish the saved default, the current goal’s YOLO state, and any explicit limits.",
+        "timestamp": 1793298149
+      },
+      {
+        "summary": "The screenshot shows the key failure: **it marked the goal terminal `unmet` while explicitly saying the work was not impossible.** That should remain resumable—not become a closed goal. There is a separate boundary here: the screenshot cites deployment and GNOME-session author...",
+        "timestamp": 1793298409
+      },
+      {
+        "summary": "That example is now covered by runtime guards—not just stronger prompts. In YOLO, the worker cannot freely pause, clear, replace, or mark its goal `unmet`. Completion requires independent review; a genuine blocker requires review and **resumable waiting**. Stalls and transient...",
+        "timestamp": 1793298776
+      },
+      {
+        "summary": "I found a liveness gap: native-mode failures could schedule a retry that the native driver then ignored. I’m connecting recovery to native synthetic delivery, while keeping regular continuation exclusively on the native idle hook and preserving user stops and permission waits.",
+        "timestamp": 1793298909
+      },
+      {
+        "summary": "The targeted recovery tests pass. Native and compatibility modes each reached **60 continuations** without a hidden ceiling, and native recovery handled repeated transport/internal failures without calling the compatibility prompt API. User cancellation still stops recovery. I...",
+        "timestamp": 1793299261
+      },
+      {
+        "summary": "The isolated v2.1.1 smoke passed: two automatic continuations, premature-wait rejection, separate completion reviews, and `/yolo on` inheritance. The recovery regression also failed as expected when I restored the old scheduling bug in a disposable copy; the production code pa...",
+        "timestamp": 1793300197
+      },
+      {
+        "summary": "Final checks passed: **456 tests**, lint, typecheck, build, package checks, and an isolated run using the extracted tarball. YOLO also survived an actual restart of that private server. The OpenCode executable hash is unchanged. Nothing was deployed, committed, pushed, or publ...",
+        "timestamp": 1793300502
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "1b27d7867a0d43aa59aef1164977f9fc9ffb7915374f181614ecc4e99fcd2230",
+  "generatedFiles": {
+    "plan.md": "52fbf8f660f5ae1907ccbef480a434979428c9c256b2f9b9e0c9ef69a7d29753",
+    "HANDOFF.md": "d8550dca4e6d3d632a6e84767131ab02b83efc9f670deeed30f36dd66d3ec499",
+    "work-history.md": "02f23e6d2cea0d769dbfcc69e127f46e9f6e47c2da96b71b6de518fb53772e88"
+  }
+}

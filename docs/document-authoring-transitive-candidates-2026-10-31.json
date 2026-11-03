@@ -1,0 +1,1423 @@
+{
+  "schemaVersion": 1,
+  "status": "metadata-only transitive candidate graph of metadata-selected candidates; not an installed lock, dependency closure, rights approval, ABI/security review, or authoring readiness",
+  "checkedDate": "2026-10-31",
+  "target": {
+    "interpreter": "/usr/bin/python3",
+    "versionObserved": "3.14.4",
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "soabiObserved": "cpython-314-x86_64-linux-gnu",
+    "extrasSelected": [],
+    "glibcVersionVerified": false
+  },
+  "selectionRule": "Exact versions were selected from the stable release entries listed by PyPI's per-project release feed at check time (newest stable entry), except pdfminer.six, which the direct record pins at ==20260107. A selected version was accepted only when its exact-version metadata declared a wheel whose tag is compatible with CPython 3.14 on Linux x86_64. This is a bounded metadata selection, not a latestness, minimality, resolver-execution, compatibility, or approval claim.",
+  "directCandidateSource": {
+    "path": "docs/document-authoring-candidates-2026-10-30.json",
+    "sha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+    "unchangedByThisPass": true,
+    "note": "The nine direct nodes, their declared fields and their selected direct artifacts are reused from this accepted parent record. They were not reacquired and remain metadata declarations only."
+  },
+  "environmentMarkers": {
+    "evaluatedValues": {
+      "python_version": "3.14",
+      "python_full_version": "3.14.4",
+      "sys_platform": "linux",
+      "platform_system": "Linux",
+      "platform_machine": "x86_64",
+      "implementation_name": "cpython",
+      "platform_python_implementation": "CPython",
+      "extra": null
+    },
+    "method": "Every requirement string present in the saved projections has exactly one edge (49/49). Marker strings are quoted exactly as declared. Version floors were checked by direct numeric comparison of the selected version, not by a full PEP 440/508 resolver.",
+    "limitations": "The nine direct nodes carry only the parent record's baseRequiresDist and extras names; extra requirement strings for those distributions were not saved in that record and are not claimed covered here. Transitive nodes (including Pillow 13.0.0) carry their full requires_dist, so all 26 Pillow extra-only strings have explicit excluded edges."
+  },
+  "sourceAcquisition": {
+    "source": "Official PyPI exact-version JSON endpoints plus small per-project PyPI release feeds for version discovery",
+    "discoveryURLs": [
+      "https://pypi.org/rss/project/typing_extensions/releases.xml",
+      "https://pypi.org/rss/project/pillow/releases.xml",
+      "https://pypi.org/rss/project/pypdfium2/releases.xml",
+      "https://pypi.org/rss/project/charset-normalizer/releases.xml",
+      "https://pypi.org/rss/project/et-xmlfile/releases.xml",
+      "https://pypi.org/rss/project/numpy/releases.xml",
+      "https://pypi.org/rss/project/python-dateutil/releases.xml",
+      "https://pypi.org/rss/project/six/releases.xml",
+      "https://pypi.org/rss/project/cryptography/releases.xml",
+      "https://pypi.org/rss/project/tzdata/releases.xml",
+      "https://pypi.org/rss/project/cffi/releases.xml",
+      "https://pypi.org/rss/project/pycparser/releases.xml"
+    ],
+    "transport": "Python standard-library HTTPS with default certificate verification and redirect refusal. Each 64KiB body chunk was received and then counted against the caps before any JSON/XML parsing; Content-Length was checked before the body when present.",
+    "perResponseCapBytes": 2097152,
+    "aggregateCapBytes": 10485760,
+    "versionRequestCap": 12,
+    "socketTimeoutSeconds": 5,
+    "cooperativeDeadlineSeconds": 60,
+    "httpRequestsTotal": 24,
+    "discoveryRequests": 12,
+    "versionRequestsRecorded": 12,
+    "redirectsObserved": 0,
+    "aggregateBytesUsed": 734485,
+    "aggregateBytesRemaining": 9751275,
+    "largestResponseBytes": 202370,
+    "artifactDownloads": 0,
+    "packageImports": 0,
+    "pipInvocations": 0,
+    "receipts": [
+      {
+        "url": "https://pypi.org/rss/project/typing_extensions/releases.xml",
+        "bytes": 12367,
+        "sha256": "d5194922dbf5eadfe0377f629926d6234163ca0a37420ec5af093d098ffa3955",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/pillow/releases.xml",
+        "bytes": 10855,
+        "sha256": "66238844e4aa7bb56dcb3bdfb22b4510e75706a9dc3f0869b89db025c070e968",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/pypdfium2/releases.xml",
+        "bytes": 10783,
+        "sha256": "090278ee6e1c722df43f000c5d6409f99b6b850039a0100549c4ab59618c8538",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/charset-normalizer/releases.xml",
+        "bytes": 14491,
+        "sha256": "08c1b8b8390a8da490a83950b46922164c6180c953ab32123ad7b05a230cf35b",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/et-xmlfile/releases.xml",
+        "bytes": 1546,
+        "sha256": "cd3ccb5ec4ce361bbb86720da2df2da30ccd099dede9c8739f79194d0f0414e7",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/numpy/releases.xml",
+        "bytes": 10083,
+        "sha256": "1b0d718f1a417f2c994f82c7445afb37dbfae2d47d9ef8419290b0f40f23706f",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/python-dateutil/releases.xml",
+        "bytes": 10514,
+        "sha256": "60beedffc8c644b0d7cb2aa44ef2164f30d41cad25119cacb9e3c8e7dc3b90c1",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/six/releases.xml",
+        "bytes": 8016,
+        "sha256": "777aef6f28e46c50da869507897f0865aee0a005e11eb582ccb093de0d0f251c",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/cryptography/releases.xml",
+        "bytes": 14200,
+        "sha256": "3a98ccc92b1796d669b2404a698b6e1bc894f7c52a77aa438c08c9692b8181e5",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/tzdata/releases.xml",
+        "bytes": 10901,
+        "sha256": "00284f2a538ad1218a787be7eb81179db5b307554c2794c50f5d38a4488d2531",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/cffi/releases.xml",
+        "bytes": 11892,
+        "sha256": "e440aab6ea3676de1a31ea4f3c27805058c54a85f61efd7e29eb2722f7e4f8a0",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/rss/project/pycparser/releases.xml",
+        "bytes": 7007,
+        "sha256": "e2e8bd0b01f409947303bc5e0640888baa272440282789d7414944ac575ead91",
+        "kind": "discovery"
+      },
+      {
+        "url": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+        "bytes": 5631,
+        "sha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/pdfminer.six/20260107/json",
+        "bytes": 6490,
+        "sha256": "63b03284ae5c9ed4a548f9cc435c3d8788dcf37cc8f16ca2063875f3df841e37",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/pillow/13.0.0/json",
+        "bytes": 80892,
+        "sha256": "183d4151cbc909acf39d4d5d48469d6bc66d5516e7f506854241839d0611b69e",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/pypdfium2/5.14.0/json",
+        "bytes": 83868,
+        "sha256": "d115b3bd9d7fb73a678414e27440f1b855d26b5e430199f74ab7ccef85cde548",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/charset-normalizer/3.5.2/json",
+        "bytes": 202370,
+        "sha256": "9fda300857ae6a0486b4cd2d2fec7817ed2d45657249a6dfc0c2bbd1a44267b6",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/et-xmlfile/2.0.0/json",
+        "bytes": 4816,
+        "sha256": "807b439c620d04dc8b1680d18d462233b4c4711d11a32a2e6d74b47949af9bf0",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/numpy/2.5.4/json",
+        "bytes": 63184,
+        "sha256": "3d5ab646290a0954f48ca6139bccb402377e54165b064b567d50c1106ce5678f",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/python-dateutil/3.0.0/json",
+        "bytes": 10528,
+        "sha256": "6e33ca795417ca662f2820675158d64500733c354a7f7b81184a5471886240a7",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/six/1.17.0/json",
+        "bytes": 3904,
+        "sha256": "d8de39dd52b73048d81a8fd78022ee2bc72f8b568bcf0d88e5d5069c302b1208",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/cryptography/50.0.2/json",
+        "bytes": 57201,
+        "sha256": "7423990cc0948676ef47a71ea62a476ece4c76245e6bebd1c3a71f03c4ffc0f4",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/tzdata/2026.6/json",
+        "bytes": 3613,
+        "sha256": "82888ae1ccdc2ed984ce983353520631122c4504e5af2dc40b8eddf8398206a0",
+        "kind": "version"
+      },
+      {
+        "url": "https://pypi.org/pypi/cffi/2.1.1/json",
+        "bytes": 89333,
+        "sha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66",
+        "kind": "version"
+      }
+    ]
+  },
+  "acquisitionEnforcement": {
+    "correction": "An earlier version of this record and its report described the caps as enforced before reads and the aggregate as one shared budget. That description was inaccurate. This revision records the observed implementation and its limits instead of erasing the earlier claim; no reacquisition was performed.",
+    "implementationObserved": "In fetch_bounded.py, a present Content-Length was checked before reading, but the body loop called resp.read(65536) and only after each returned chunk added it to the per-invocation counters and compared them with the caps. One chunk could therefore be received before an over-cap result was raised.",
+    "counterScope": "Each of five invocations (discovery, discovery2, exact, exact2, exact3) ran in a new process with aggregate and version-request counters starting at zero.",
+    "sharedAggregateBudgetEnforced": false,
+    "perResponseCheckAfterChunkRead": true,
+    "contentLengthCheckedBeforeBodyWhenPresent": true,
+    "maxSingleChunkOvershootBeforeCheckBytes": 65536,
+    "aggregateTotalBasis": "After-the-fact sum of the 24 saved per-response receipt byte counts, not a value enforced by a single shared counter.",
+    "perInvocation": [
+      {
+        "invocation": "discovery",
+        "mode": "discovery",
+        "requests": 8,
+        "versionRequests": 0,
+        "bytes": 78655
+      },
+      {
+        "invocation": "discovery2",
+        "mode": "discovery",
+        "requests": 4,
+        "versionRequests": 0,
+        "bytes": 44000
+      },
+      {
+        "invocation": "exact",
+        "mode": "version",
+        "requests": 9,
+        "versionRequests": 9,
+        "bytes": 461683
+      },
+      {
+        "invocation": "exact2",
+        "mode": "version",
+        "requests": 2,
+        "versionRequests": 2,
+        "bytes": 60814
+      },
+      {
+        "invocation": "exact3",
+        "mode": "version",
+        "requests": 1,
+        "versionRequests": 1,
+        "bytes": 89333
+      }
+    ],
+    "anySingleReceiptAbovePerResponseCap": false,
+    "receiptSumBelowAggregateCap": true,
+    "rawResponseBodiesPreserved": false,
+    "rawBodyIntegrityProof": "Not available. The saved discovery*.json and exact*.json files are projections built after parsing; their recorded SHA256 values are claims computed by the fetch script over raw bodies that were not retained. They cannot be independently reverified from the saved projections alone."
+  },
+  "coverage": {
+    "status": "incomplete",
+    "selectionOutcome": "metadata-selected candidates only; dependency resolution or closure was not executed",
+    "directNodesReused": 9,
+    "transitiveNodesSelected": 12,
+    "nodesTotalSelected": 21,
+    "declaredRequirementStrings": 49,
+    "edgesBuilt": 49,
+    "uncoveredDeclaredRequirements": 0,
+    "includedEdges": 15,
+    "excludedEdges": 33,
+    "excludedExtraOnlyEdges": 28,
+    "excludedMarkerOnlyEdges": 5,
+    "unresolvedEdges": 1,
+    "unresolved": [
+      {
+        "from": "cffi 2.1.1",
+        "requirement": "pycparser; implementation_name != \"PyPy\"",
+        "dependent": "cryptography 50.0.2 -> cffi 2.1.1",
+        "why": "The edge applies on CPython 3.14.4, but the 12-request ceiling had already been recorded. No pycparser version was selected or acquired; no cap relaxation, batching, root-document substitute, or unofficial source was used."
+      }
+    ],
+    "nextSafeStep": "A separately authorized follow-up may acquire one exact pycparser version and verify it, then continue any newly revealed edges. This record stops at the recorded ceiling."
+  },
+  "nodes": [
+    {
+      "distribution": "python-docx",
+      "version": "1.2.0",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/python-docx/1.2.0/json",
+      "metadataBytes": 4072,
+      "requiresPython": ">=3.9",
+      "declaredLicense": "MIT",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "lxml>=3.1.0",
+        "typing_extensions>=4.9.0"
+      ],
+      "declaredExtras": [],
+      "requirementStringCount": 2,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "python_docx-1.2.0-py3-none-any.whl",
+        "sha256Declared": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7",
+        "bytesDeclared": 252987,
+        "yanked": false,
+        "uploaded": "2025-06-16T20:46:22.506016Z",
+        "pythonTag": "py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "lxml",
+      "version": "6.1.3",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/lxml/6.1.3/json",
+      "metadataBytes": 155078,
+      "requiresPython": ">=3.8",
+      "declaredLicense": "BSD-3-Clause (license string, not SPDX field)",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [
+        "source",
+        "cssselect",
+        "html5",
+        "htmlsoup",
+        "html-clean"
+      ],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "lxml-6.1.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "sha256Declared": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+        "bytesDeclared": 5099355,
+        "yanked": false,
+        "uploaded": "2026-09-02T14:49:07.343252Z",
+        "pythonTag": "cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "defusedxml",
+      "version": "0.7.1",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/defusedxml/0.7.1/json",
+      "metadataBytes": 35962,
+      "requiresPython": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+      "declaredLicense": "PSFL; Python Software Foundation License classifier",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "defusedxml-0.7.1-py2.py3-none-any.whl",
+        "sha256Declared": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+        "bytesDeclared": 25604,
+        "yanked": false,
+        "uploaded": "2021-03-08T10:59:24.450195Z",
+        "pythonTag": "py2.py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "pypdf",
+      "version": "6.21.4",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/pypdf/6.21.4/json",
+      "metadataBytes": 9370,
+      "requiresPython": ">=3.9",
+      "declaredLicense": "BSD-3-Clause (SPDX expression; license string null)",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "typing_extensions>=4.0; python_version < \"3.11\""
+      ],
+      "declaredExtras": [
+        "brotli",
+        "crypto",
+        "cryptodome",
+        "dev",
+        "docs",
+        "fonts",
+        "full",
+        "image",
+        "rtl-text"
+      ],
+      "requirementStringCount": 1,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "pypdf-6.21.4-py3-none-any.whl",
+        "sha256Declared": "33e4fb41ca352810eb4e9838aa0d82d6888a5f8bf682f43e99cce5faa666255c",
+        "bytesDeclared": 410430,
+        "yanked": false,
+        "uploaded": "2026-10-28T17:00:53.146109Z",
+        "pythonTag": "py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "pdfplumber",
+      "version": "0.11.10",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/pdfplumber/0.11.10/json",
+      "metadataBytes": 46618,
+      "requiresPython": ">=3.8",
+      "declaredLicense": "MIT License classifier only; license/SPDX fields null",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "pdfminer.six==20260107",
+        "Pillow>=12.2.0",
+        "pypdfium2>=5.9.0"
+      ],
+      "declaredExtras": [],
+      "requirementStringCount": 3,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "pdfplumber-0.11.10-py3-none-any.whl",
+        "sha256Declared": "7741ea81bf165b474b153e6789d10d18e06b6ddcf3ec84289c3ef2fed6802580",
+        "bytesDeclared": 60047,
+        "yanked": false,
+        "uploaded": "2026-06-15T03:31:29.702225Z",
+        "pythonTag": "py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "reportlab",
+      "version": "5.1.0",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/reportlab/5.1.0/json",
+      "metadataBytes": 3636,
+      "requiresPython": "<4,>=3.9",
+      "declaredLicense": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.; BSD classifier",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "pillow>=9.0.0",
+        "charset-normalizer"
+      ],
+      "declaredExtras": [
+        "accel",
+        "pycairo",
+        "bidi",
+        "shaping"
+      ],
+      "requirementStringCount": 2,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "reportlab-5.1.0-py3-none-any.whl",
+        "sha256Declared": "59fdbaec5efe437095ad1d7292ec9a271c8ca2d3ec75e889c6e61400929b90df",
+        "bytesDeclared": 2018647,
+        "yanked": false,
+        "uploaded": "2026-10-22T07:26:40.754265Z",
+        "pythonTag": "py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "openpyxl",
+      "version": "3.1.5",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/openpyxl/3.1.5/json",
+      "metadataBytes": 4748,
+      "requiresPython": ">=3.8",
+      "declaredLicense": "MIT",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "et-xmlfile"
+      ],
+      "declaredExtras": [],
+      "requirementStringCount": 1,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "openpyxl-3.1.5-py2.py3-none-any.whl",
+        "sha256Declared": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+        "bytesDeclared": 250910,
+        "yanked": false,
+        "uploaded": "2024-06-28T14:03:41.161372Z",
+        "pythonTag": "py2.py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "xlsxwriter",
+      "version": "3.3.1",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/xlsxwriter/3.3.1/json",
+      "metadataBytes": 5052,
+      "requiresPython": ">=3.8",
+      "declaredLicense": "BSD-2-Clause (SPDX expression; license string null)",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "xlsxwriter-3.3.1-py3-none-any.whl",
+        "sha256Declared": "8e2c89e59d733fe59e112317218c64fbbc276d90a8c144ebd6f7fa15e7ab184a",
+        "bytesDeclared": 180583,
+        "yanked": false,
+        "uploaded": "2026-10-28T22:52:45.048756Z",
+        "pythonTag": "py3-none-any"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "pandas",
+      "version": "3.1.0",
+      "role": "direct",
+      "sourceRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "sourceRecordSha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f",
+      "metadataURL": "https://pypi.org/pypi/pandas/3.1.0/json",
+      "metadataBytes": 67213,
+      "requiresPython": ">=3.11",
+      "declaredLicense": "BSD-3-Clause (SPDX expression; license string null)",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "numpy>=2.0.2; python_version < \"3.14\"",
+        "numpy>=2.3.3; python_version >= \"3.14\"",
+        "python-dateutil>=2.9.0",
+        "tzdata; sys_platform == \"win32\"",
+        "tzdata; sys_platform == \"emscripten\""
+      ],
+      "declaredExtras": [
+        "test",
+        "pyarrow",
+        "performance",
+        "computation",
+        "fss",
+        "aws",
+        "gcp",
+        "excel",
+        "parquet",
+        "feather",
+        "iceberg",
+        "hdf5",
+        "spss",
+        "postgresql",
+        "mysql",
+        "sql-other",
+        "html",
+        "xml",
+        "plot",
+        "output-formatting",
+        "clipboard",
+        "compression",
+        "timezone",
+        "all"
+      ],
+      "requirementStringCount": 5,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "pandas-3.1.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256Declared": "e4455cdcc03e42c17233184e8e4ea65c3ed2925d8b1d9d7dd8e6fced3f6e43c1",
+        "bytesDeclared": 12029136,
+        "yanked": false,
+        "uploaded": "2026-10-22T11:55:53.823774Z",
+        "pythonTag": "cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64"
+      },
+      "acquiredThisPass": false
+    },
+    {
+      "distribution": "typing_extensions",
+      "version": "4.16.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+      "metadataBytes": 5631,
+      "metadataSha256": "2140da00d62dde967f52d0be0ae28444f1d6a3fe603f52c83c23988c32122d5a",
+      "requiresPython": ">=3.9",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "PSF-2.0",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+        "sha256Declared": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+        "bytesDeclared": 45571,
+        "pythonTag": "py3-none-any",
+        "yanked": false,
+        "uploaded": "2026-07-02T08:40:04.659120Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "pdfminer.six",
+      "version": "20260107",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/pdfminer.six/20260107/json",
+      "metadataBytes": 6490,
+      "metadataSha256": "63b03284ae5c9ed4a548f9cc435c3d8788dcf37cc8f16ca2063875f3df841e37",
+      "requiresPython": ">=3.10",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "MIT",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "charset-normalizer>=2.0.0",
+        "cryptography>=36.0.0",
+        "Pillow; extra == \"image\""
+      ],
+      "declaredExtras": [
+        "image"
+      ],
+      "requirementStringCount": 3,
+      "extraRequirementStringCount": 1,
+      "selectedArtifact": {
+        "filename": "pdfminer_six-20260107-py3-none-any.whl",
+        "sha256Declared": "366585ba97e80dffa8f00cebe303d2f381884d8637af4ce422f1df3ef38111a9",
+        "bytesDeclared": 6592252,
+        "pythonTag": "py3-none-any",
+        "yanked": false,
+        "uploaded": "2026-01-07T13:29:10.742517Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "Pillow",
+      "version": "13.0.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/pillow/13.0.0/json",
+      "metadataBytes": 80892,
+      "metadataSha256": "183d4151cbc909acf39d4d5d48469d6bc66d5516e7f506854241839d0611b69e",
+      "requiresPython": ">=3.11",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "MIT-CMU",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "furo; extra == \"docs\"",
+        "olefile; extra == \"docs\"",
+        "sphinx>=8.2; extra == \"docs\"",
+        "sphinx-autobuild; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "sphinx-inline-tabs; extra == \"docs\"",
+        "sphinxext-opengraph; extra == \"docs\"",
+        "olefile; extra == \"fpx\"",
+        "olefile; extra == \"mic\"",
+        "arro3-compute; extra == \"test-arrow\"",
+        "arro3-core; extra == \"test-arrow\"",
+        "nanoarrow; extra == \"test-arrow\"",
+        "pyarrow; extra == \"test-arrow\"",
+        "coverage>=7.4.2; extra == \"tests\"",
+        "defusedxml; extra == \"tests\"",
+        "markdown2; extra == \"tests\"",
+        "olefile; extra == \"tests\"",
+        "packaging; extra == \"tests\"",
+        "psutil; (sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-cov; extra == \"tests\"",
+        "pytest-timeout; extra == \"tests\"",
+        "pytest-xdist; extra == \"tests\"",
+        "setuptools; extra == \"tests\"",
+        "trove-classifiers>=2024.10.12; extra == \"tests\"",
+        "defusedxml; extra == \"xmp\""
+      ],
+      "declaredExtras": [
+        "docs",
+        "fpx",
+        "mic",
+        "test-arrow",
+        "tests",
+        "xmp"
+      ],
+      "requirementStringCount": 26,
+      "extraRequirementStringCount": 26,
+      "selectedArtifact": {
+        "filename": "pillow-13.0.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256Declared": "e91c2b1cbeae768c98752e67e717e283d68dae45717b41f2d91eaee648e37b7d",
+        "bytesDeclared": 7142574,
+        "pythonTag": "cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64",
+        "yanked": false,
+        "uploaded": "2026-10-16T22:16:39.172695Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "pypdfium2",
+      "version": "5.14.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/pypdfium2/5.14.0/json",
+      "metadataBytes": 83868,
+      "metadataSha256": "d115b3bd9d7fb73a678414e27440f1b855d26b5e430199f74ab7ccef85cde548",
+      "requiresPython": ">=3.6",
+      "declaredLicense": "BSD-3-Clause, Apache-2.0, dependency licenses",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "sha256Declared": "11f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d",
+        "bytesDeclared": 3799581,
+        "pythonTag": "py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64",
+        "yanked": false,
+        "uploaded": "2026-10-04T15:18:54.913306Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "charset-normalizer",
+      "version": "3.5.2",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/charset-normalizer/3.5.2/json",
+      "metadataBytes": 202370,
+      "metadataSha256": "9fda300857ae6a0486b4cd2d2fec7817ed2d45657249a6dfc0c2bbd1a44267b6",
+      "requiresPython": ">=3.7",
+      "declaredLicense": "MIT",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "charset_normalizer-3.5.2-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256Declared": "34276fd796040bf0993ab33a369aa572e6979c7aab225a88893667ad8eac8f7a",
+        "bytesDeclared": 255056,
+        "pythonTag": "cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64",
+        "yanked": false,
+        "uploaded": "2026-09-30T04:36:42.020335Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "et-xmlfile",
+      "version": "2.0.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/et-xmlfile/2.0.0/json",
+      "metadataBytes": 4816,
+      "metadataSha256": "807b439c620d04dc8b1680d18d462233b4c4711d11a32a2e6d74b47949af9bf0",
+      "requiresPython": ">=3.8",
+      "declaredLicense": "MIT",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "et_xmlfile-2.0.0-py3-none-any.whl",
+        "sha256Declared": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+        "bytesDeclared": 18059,
+        "pythonTag": "py3-none-any",
+        "yanked": false,
+        "uploaded": "2024-10-25T17:25:39.051783Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "numpy",
+      "version": "2.5.4",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/numpy/2.5.4/json",
+      "metadataBytes": 63184,
+      "metadataSha256": "3d5ab646290a0954f48ca6139bccb402377e54165b064b567d50c1106ce5678f",
+      "requiresPython": ">=3.12",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "numpy-2.5.4-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256Declared": "d549420b8858885cea8838a727842249218b9c1da24dd517e25c9c7a948310a3",
+        "bytesDeclared": 16721710,
+        "pythonTag": "cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64",
+        "yanked": false,
+        "uploaded": "2026-10-10T20:03:49.489443Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "python-dateutil",
+      "version": "3.0.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/python-dateutil/3.0.0/json",
+      "metadataBytes": 10528,
+      "metadataSha256": "6e33ca795417ca662f2820675158d64500733c354a7f7b81184a5471886240a7",
+      "requiresPython": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+      "declaredLicense": "Dual License",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [
+        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: BSD License"
+      ],
+      "baseRequiresDist": [
+        "six>=1.6",
+        "tzdata"
+      ],
+      "declaredExtras": [],
+      "requirementStringCount": 2,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "python_dateutil-3.0.0-py2.py3-none-any.whl",
+        "sha256Declared": "3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd",
+        "bytesDeclared": 94659,
+        "pythonTag": "py2.py3-none-any",
+        "yanked": false,
+        "uploaded": "2026-10-21T23:41:43.431814Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "six",
+      "version": "1.17.0",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/six/1.17.0/json",
+      "metadataBytes": 3904,
+      "metadataSha256": "d8de39dd52b73048d81a8fd78022ee2bc72f8b568bcf0d88e5d5069c302b1208",
+      "requiresPython": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+      "declaredLicense": "MIT",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "six-1.17.0-py2.py3-none-any.whl",
+        "sha256Declared": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+        "bytesDeclared": 11050,
+        "pythonTag": "py2.py3-none-any",
+        "yanked": false,
+        "uploaded": "2024-12-04T17:35:26.475808Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "cryptography",
+      "version": "50.0.2",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/cryptography/50.0.2/json",
+      "metadataBytes": 57201,
+      "metadataSha256": "7423990cc0948676ef47a71ea62a476ece4c76245e6bebd1c3a71f03c4ffc0f4",
+      "requiresPython": "!=3.9.0,!=3.9.1,>=3.9",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "Apache-2.0 OR BSD-3-Clause",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "cffi>=2.0.0; platform_python_implementation != \"PyPy\"",
+        "typing-extensions>=4.13.2; python_full_version < \"3.11\"",
+        "bcrypt>=3.1.5; extra == \"ssh\""
+      ],
+      "declaredExtras": [
+        "ssh"
+      ],
+      "requirementStringCount": 3,
+      "extraRequirementStringCount": 1,
+      "selectedArtifact": {
+        "filename": "cryptography-50.0.2-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "sha256Declared": "ee247f5c245c9a2fe7c8e2214e295918838e44e00a45a6718451e4004219e767",
+        "bytesDeclared": 4749145,
+        "pythonTag": "cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64",
+        "yanked": false,
+        "uploaded": "2026-09-30T15:29:26.807001Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "tzdata",
+      "version": "2026.6",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/tzdata/2026.6/json",
+      "metadataBytes": 3613,
+      "metadataSha256": "82888ae1ccdc2ed984ce983353520631122c4504e5af2dc40b8eddf8398206a0",
+      "requiresPython": ">=2",
+      "declaredLicense": "Apache-2.0",
+      "declaredLicenseExpression": null,
+      "licenseClassifiers": [],
+      "baseRequiresDist": [],
+      "declaredExtras": [],
+      "requirementStringCount": 0,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "tzdata-2026.6-py2.py3-none-any.whl",
+        "sha256Declared": "0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec",
+        "bytesDeclared": 348210,
+        "pythonTag": "py2.py3-none-any",
+        "yanked": false,
+        "uploaded": "2026-10-28T09:57:07.276552Z"
+      },
+      "acquiredThisPass": true
+    },
+    {
+      "distribution": "cffi",
+      "version": "2.1.1",
+      "role": "transitive",
+      "metadataURL": "https://pypi.org/pypi/cffi/2.1.1/json",
+      "metadataBytes": 89333,
+      "metadataSha256": "2255e530e3f80593a354e3d84a29966924d0e10309d1e3a6d50f845ab7d8df66",
+      "requiresPython": ">=3.10",
+      "declaredLicense": null,
+      "declaredLicenseExpression": "MIT-0",
+      "licenseClassifiers": [],
+      "baseRequiresDist": [
+        "pycparser; implementation_name != \"PyPy\""
+      ],
+      "declaredExtras": [],
+      "requirementStringCount": 1,
+      "extraRequirementStringCount": 0,
+      "selectedArtifact": {
+        "filename": "cffi-2.1.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "sha256Declared": "b0431303acaea1089ad4b3e9ce4e6518193def1118d4073ca848635ee4ea2e96",
+        "bytesDeclared": 221525,
+        "pythonTag": "cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64",
+        "yanked": false,
+        "uploaded": "2026-08-03T21:20:25.758239Z"
+      },
+      "acquiredThisPass": true
+    }
+  ],
+  "edges": [
+    {
+      "from": "python-docx",
+      "declaredRequirement": "lxml>=3.1.0",
+      "requirement": "lxml>=3.1.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "lxml 6.1.3",
+      "reason": "no marker; 6.1.3 is at or above the declared floor"
+    },
+    {
+      "from": "python-docx",
+      "declaredRequirement": "typing_extensions>=4.9.0",
+      "requirement": "typing_extensions>=4.9.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "typing_extensions 4.16.0",
+      "reason": "no marker; 4.16.0 is at or above the declared floor"
+    },
+    {
+      "from": "pypdf",
+      "declaredRequirement": "typing_extensions>=4.0; python_version < \"3.11\"",
+      "requirement": "typing_extensions>=4.0",
+      "marker": "python_version < \"3.11\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "marker false for CPython 3.14.4"
+    },
+    {
+      "from": "pdfplumber",
+      "declaredRequirement": "pdfminer.six==20260107",
+      "requirement": "pdfminer.six==20260107",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "pdfminer.six 20260107",
+      "reason": "exact declared pin"
+    },
+    {
+      "from": "pdfplumber",
+      "declaredRequirement": "Pillow>=12.2.0",
+      "requirement": "Pillow>=12.2.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "Pillow 13.0.0",
+      "reason": "13.0.0 is at or above the declared floor"
+    },
+    {
+      "from": "pdfplumber",
+      "declaredRequirement": "pypdfium2>=5.9.0",
+      "requirement": "pypdfium2>=5.9.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "pypdfium2 5.14.0",
+      "reason": "5.14.0 is at or above the declared floor"
+    },
+    {
+      "from": "reportlab",
+      "declaredRequirement": "pillow>=9.0.0",
+      "requirement": "pillow>=9.0.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "Pillow 13.0.0",
+      "reason": "same selected node; 13.0.0 is above both Pillow floors"
+    },
+    {
+      "from": "reportlab",
+      "declaredRequirement": "charset-normalizer",
+      "requirement": "charset-normalizer",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "charset-normalizer 3.5.2",
+      "reason": "unpinned declared name"
+    },
+    {
+      "from": "openpyxl",
+      "declaredRequirement": "et-xmlfile",
+      "requirement": "et-xmlfile",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "et-xmlfile 2.0.0",
+      "reason": "unpinned declared name"
+    },
+    {
+      "from": "pandas",
+      "declaredRequirement": "numpy>=2.0.2; python_version < \"3.14\"",
+      "requirement": "numpy>=2.0.2",
+      "marker": "python_version < \"3.14\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "marker false for CPython 3.14.4"
+    },
+    {
+      "from": "pandas",
+      "declaredRequirement": "numpy>=2.3.3; python_version >= \"3.14\"",
+      "requirement": "numpy>=2.3.3",
+      "marker": "python_version >= \"3.14\"",
+      "status": "included",
+      "selectedCandidate": "numpy 2.5.4",
+      "reason": "marker true; 2.5.4 is at or above the declared floor and has a cp314 x86_64 wheel"
+    },
+    {
+      "from": "pandas",
+      "declaredRequirement": "python-dateutil>=2.9.0",
+      "requirement": "python-dateutil>=2.9.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "python-dateutil 3.0.0",
+      "reason": "3.0.0 is at or above the declared floor"
+    },
+    {
+      "from": "pandas",
+      "declaredRequirement": "tzdata; sys_platform == \"win32\"",
+      "requirement": "tzdata",
+      "marker": "sys_platform == \"win32\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "marker false on Linux"
+    },
+    {
+      "from": "pandas",
+      "declaredRequirement": "tzdata; sys_platform == \"emscripten\"",
+      "requirement": "tzdata",
+      "marker": "sys_platform == \"emscripten\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "marker false on Linux"
+    },
+    {
+      "from": "pdfminer.six",
+      "declaredRequirement": "charset-normalizer>=2.0.0",
+      "requirement": "charset-normalizer>=2.0.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "charset-normalizer 3.5.2",
+      "reason": "3.5.2 is at or above the declared floor"
+    },
+    {
+      "from": "pdfminer.six",
+      "declaredRequirement": "cryptography>=36.0.0",
+      "requirement": "cryptography>=36.0.0",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "cryptography 50.0.2",
+      "reason": "50.0.2 is at or above the declared floor"
+    },
+    {
+      "from": "pdfminer.six",
+      "declaredRequirement": "Pillow; extra == \"image\"",
+      "requirement": "Pillow",
+      "marker": "extra == \"image\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "furo; extra == \"docs\"",
+      "requirement": "furo",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "olefile; extra == \"docs\"",
+      "requirement": "olefile",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "sphinx>=8.2; extra == \"docs\"",
+      "requirement": "sphinx>=8.2",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "sphinx-autobuild; extra == \"docs\"",
+      "requirement": "sphinx-autobuild",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "sphinx-copybutton; extra == \"docs\"",
+      "requirement": "sphinx-copybutton",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "sphinx-inline-tabs; extra == \"docs\"",
+      "requirement": "sphinx-inline-tabs",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "sphinxext-opengraph; extra == \"docs\"",
+      "requirement": "sphinxext-opengraph",
+      "marker": "extra == \"docs\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "olefile; extra == \"fpx\"",
+      "requirement": "olefile",
+      "marker": "extra == \"fpx\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "olefile; extra == \"mic\"",
+      "requirement": "olefile",
+      "marker": "extra == \"mic\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "arro3-compute; extra == \"test-arrow\"",
+      "requirement": "arro3-compute",
+      "marker": "extra == \"test-arrow\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "arro3-core; extra == \"test-arrow\"",
+      "requirement": "arro3-core",
+      "marker": "extra == \"test-arrow\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "nanoarrow; extra == \"test-arrow\"",
+      "requirement": "nanoarrow",
+      "marker": "extra == \"test-arrow\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "pyarrow; extra == \"test-arrow\"",
+      "requirement": "pyarrow",
+      "marker": "extra == \"test-arrow\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "coverage>=7.4.2; extra == \"tests\"",
+      "requirement": "coverage>=7.4.2",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "defusedxml; extra == \"tests\"",
+      "requirement": "defusedxml",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "markdown2; extra == \"tests\"",
+      "requirement": "markdown2",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "olefile; extra == \"tests\"",
+      "requirement": "olefile",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "packaging; extra == \"tests\"",
+      "requirement": "packaging",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "psutil; (sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\"",
+      "requirement": "psutil",
+      "marker": "(sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "pytest; extra == \"tests\"",
+      "requirement": "pytest",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "pytest-cov; extra == \"tests\"",
+      "requirement": "pytest-cov",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "pytest-timeout; extra == \"tests\"",
+      "requirement": "pytest-timeout",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "pytest-xdist; extra == \"tests\"",
+      "requirement": "pytest-xdist",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "setuptools; extra == \"tests\"",
+      "requirement": "setuptools",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "trove-classifiers>=2024.10.12; extra == \"tests\"",
+      "requirement": "trove-classifiers>=2024.10.12",
+      "marker": "extra == \"tests\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "Pillow",
+      "declaredRequirement": "defusedxml; extra == \"xmp\"",
+      "requirement": "defusedxml",
+      "marker": "extra == \"xmp\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "python-dateutil",
+      "declaredRequirement": "six>=1.6",
+      "requirement": "six>=1.6",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "six 1.17.0",
+      "reason": "1.17.0 is at or above the declared floor"
+    },
+    {
+      "from": "python-dateutil",
+      "declaredRequirement": "tzdata",
+      "requirement": "tzdata",
+      "marker": null,
+      "status": "included",
+      "selectedCandidate": "tzdata 2026.6",
+      "reason": "unconditional base dependency in 3.0.0 metadata"
+    },
+    {
+      "from": "cryptography",
+      "declaredRequirement": "cffi>=2.0.0; platform_python_implementation != \"PyPy\"",
+      "requirement": "cffi>=2.0.0",
+      "marker": "platform_python_implementation != \"PyPy\"",
+      "status": "included",
+      "selectedCandidate": "cffi 2.1.1",
+      "reason": "CPython 3.14.4 is not PyPy; 2.1.1 is at or above the declared floor"
+    },
+    {
+      "from": "cryptography",
+      "declaredRequirement": "typing-extensions>=4.13.2; python_full_version < \"3.11\"",
+      "requirement": "typing-extensions>=4.13.2",
+      "marker": "python_full_version < \"3.11\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "marker false for 3.14.4"
+    },
+    {
+      "from": "cryptography",
+      "declaredRequirement": "bcrypt>=3.1.5; extra == \"ssh\"",
+      "requirement": "bcrypt>=3.1.5",
+      "marker": "extra == \"ssh\"",
+      "status": "excluded",
+      "selectedCandidate": null,
+      "reason": "extra not selected (no extras in this graph)"
+    },
+    {
+      "from": "cffi",
+      "declaredRequirement": "pycparser; implementation_name != \"PyPy\"",
+      "requirement": "pycparser",
+      "marker": "implementation_name != \"PyPy\"",
+      "status": "unresolved",
+      "selectedCandidate": null,
+      "reason": "CPython 3.14.4 is not PyPy, so the edge applies; no exact version was acquired because the 12-request ceiling was reached. Not bypassed or batched."
+    }
+  ],
+  "limits": {
+    "installationAuthorizedByThisRecord": false,
+    "installed": false,
+    "dependencyResolutionExecuted": false,
+    "closureEstablished": false,
+    "resolvedLock": false,
+    "artifactBytesVerified": false,
+    "newTransitiveWheelDownloadedOrInspected": false,
+    "licenseFilesAuditedForNewNodes": false,
+    "bundledThirdPartyNoticesResolved": false,
+    "vulnerabilityReviewComplete": false,
+    "abiOrGlibcCompatibilityVerified": false,
+    "python314RuntimeAcceptance": false,
+    "importsTested": false,
+    "authoringOrHardenedXmlReady": false,
+    "latestVersionVerified": false,
+    "rightsApproval": false,
+    "rawResponseBodiesPreserved": false,
+    "hardPreAcquisitionCapsProven": false,
+    "singleSharedBudgetProven": false,
+    "rawResponseBodyIntegrityProven": false,
+    "note": "Versions, hashes, sizes, Python tags, licenses and dependency ranges are registry declarations. They are not downloaded artifact bytes, audited notice files, resolver execution, or format/human acceptance."
+  },
+  "gates": {
+    "licenseAndNotice": "open: no wheel was downloaded for the 12 new transitive nodes; declared strings/expressions do not resolve bundled notices (for example pypdfium2 dependency licenses, numpy's compound expression, cryptography OpenSSL/Rust notices, and python-dateutil's vague 'Dual License').",
+    "security": "open: no advisory feed was queried and no vulnerability review was performed.",
+    "formatAndAuthoring": "open: no DOCX/PDF/XLSX authoring, parsing, round-trip, render, or hardened-XML test was run.",
+    "humanAcceptance": "open: no human review of any output exists.",
+    "pandasNoticeRefusal": "unchanged: the 2026-10-30 pandas 3.1.0 notice-selection refusal stands; it was not retried, partitioned, or given a larger cap."
+  }
+}

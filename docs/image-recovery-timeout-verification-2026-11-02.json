@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only deterministic recovery-timeout source verification. Six new selected cases and seven new exact scratch faults; the earlier seven focus cases/faults and native-renderer/action suites are not rerun. Actual recovery/ready/focus logic executes with a controllable timeout and injected renderer/SDK/data boundaries, not a real timer, PNG, original, history API, viewer, GUI, model or deployment.",
+  "continuation": {
+    "revision": 292,
+    "actualVerdict": "Blocker reviewer requires continued work: The focus lifecycle checks and resource/authority gates are supported, but recovery-timeout verification remains independently available. The new harness replaces AbortSignal.timeout with a signal that never expires; neither its seven cases nor the five inspected renderer cases exercises deadline expiry. Use a controllable timeout signal, expire it during pending recovery, then deliver a late result/rejection. Assert no card publication, ready registration or focus, appropriate current-owner unavailable feedback, and no stale feedback after navigation/disposal. This requires no GUI, original image, model, deployment, increased limits or repeated completed controls; keep source results distinct from actual deadline/native acceptance.",
+    "state": "The20th concrete continuation verdict, not waiting or an unexplained abort. Supported state remains active; parent schedules this unit at revision293. Earlier five unexplained aborts, incomplete transport1012 and empty overloaded503 calls remain distinct from actual reviews and lifecycle transitions."
+  },
+  "sourceTrace": {
+    "card": { "path": "tools/chatgpt-direct/image-preview.ts", "bytes": 3512, "sha256": "edf3fcc739486c73df61f708d0489354eabda3101068ca0a646aa5a169700dc5", "changed": false },
+    "tui": { "path": "tools/chatgpt-direct/tui.tsx", "bytes": 6722, "sha256": "a60fa66a9859e454256fb93285a2bc941496bdeb5d90ac3612b36deefbc6687e", "changed": false },
+    "deadlineAndPublication": "image-preview.ts17 combines caller, container and30,000ms timeout signals. Line22 checks before calling load; lines25-26 check owner/container liveness and combined abortion after load settles, before constructing/attaching/registering a card at28-35. The catch at36-38 updates the status only while the original owner/container remains alive.",
+    "feedbackOwnership": "alive() intentionally excludes the recovery-only deadline: an expired current owner still needs unavailable feedback after the load settles. It includes caller/container/destruction state, preventing late feedback after navigation or disposal. These tests explicitly settle the late promise; they do not claim immediate feedback or cleanup for an indefinitely uncooperative pending loader.",
+    "readyLifetime": "The TUI recovered ready callback retains the session/plugin route signal, not the recovery-only deadline. Card activation combines route/container/card cancellation, also excluding the completed recovery deadline. The new successful-ready case checks continued focus eligibility only; no original-open action is invoked.",
+    "correctionDecision": "All six new cases pass unchanged production source. No source defect, speculative fix, deadline increase or changed input/permission/resource guard is justified. Earlier focus source, actual keyboard/Loupe success and original-pointer failure/metadata404 remain separate."
+  },
+  "preimages": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/timeout-source/preimages.json",
+    "bytes": 1927,
+    "sha256": "9b4fe47f6f441bbeea71ed233550fbb94ed4da6c555348c93bc1043bbfd8dcb5",
+    "qualification": "Complete pre-extension harness/production/helper/package/guide/features/previous image-evidence files, preserved before edits under256KiB per-file/2MiB aggregate/10second bounds. The prior source and strict-refusal records are historical evidence, not replayed checks or complete authentic-original backups."
+  },
+  "tests": {
+    "path": "tools/chatgpt-direct/test/focus-lifecycle.test.mjs",
+    "before": { "bytes": 13832, "sha256": "b412dd457a46a294823a3840eefe3be40b4a1ece91c2aac5158a89661977f770" },
+    "after": { "bytes": 18737, "sha256": "e286df7a30f26cb63eb21ae87f09622c061bf527b0270ad09c49e388bdd063ea" },
+    "extension": "Record one owned AbortController for each injected timeout, expose deliberate expireRecovery() with a synthetic TimeoutError and observe image construction. Append six timeout cases; keep the earlier seven case bodies unchanged. No global timer patch, production test seam, real deadline wait, dependency install or default-command change.",
+    "command": "node --max-old-space-size=256 --test --test-concurrency=1 --test-name-pattern '^image recovery timeout:' test/focus-lifecycle.test.mjs",
+    "directory": "/home/james/repos/computer-use/tools/chatgpt-direct",
+    "result": { "tests": 6, "passed": 6, "failed": 0, "cancelled": 0, "skipped": 0, "durationMs": 1196.208962, "log": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/timeout-source/first-run.tap", "bytes": 1662, "sha256": "34e98619da636edd889a10cda9c15712b34c0c412fe0b61056006271fa5334e4" },
+    "receipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/timeout-source/first-run.json", "bytes": 2698, "sha256": "9af9479ccb3aeaef5e3f619afd59c85d43bde3f3bd8c67ef4c54dccfd752a88a" },
+    "coverage": [
+      "Expire during pending recovery, then resolve a late image: the passed load signal aborts, the status remains the only child, no image/ready target is created, current status becomes unavailable and a deliberate focus command finds no target.",
+      "Expire during pending recovery, then reject late: no card/focus target or extra toast appears, current status becomes unavailable and raw injected rejection text does not leak.",
+      "For late success and rejection, navigate after expiry: the old status stays untouched and only the new current card may focus after a deliberate command.",
+      "For both late outcomes and both container/plugin disposal, expire then dispose: the old status remains untouched, with no image or stale toast.",
+      "Expire synchronously before the load microtask: no history-boundary request is made, no card exists and the still-current status becomes unavailable.",
+      "Complete recovery first, then expire its deadline: the attached ready card remains alive and a deliberate focus command succeeds. A recovery-only deadline must not invalidate a completed preview."
+    ],
+    "boundary": "Existing owner TypeScript5.9.3 transpiles complete actual TUI/card/layout modules and the selected actual original-action helper. Only external renderer/SDK/effect scheduling/history/viewer/time boundaries are injected. Native AbortSignal.any and AbortController carry real cancellation; only timeout expiry is manually driven. setImmediate settles the promise chain without sleeping for wall-clock deadlines. Parent64KiB capture/15s and child256MiB heap/source256KiB per-file/2MiB aggregate/10seconds are unchanged. No native renderer/service, GUI, original/history API, PNG, model, deployment or complete strict/CI acceptance."
+  },
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/timeout-source/controls.json",
+    "bytes": 8046,
+    "sha256": "3b84021d601d21d5125dcde166938486d74c024401f35bd1302ebb53e9928d35",
+    "totalCapturedBytes": 12446,
+    "runs": "Seven new selected single-case runs across3initial+4continuation, without replay. Each complete four-file scratch fixture changes one exact source fragment. Faults exclude the timeout from the combined signal, omit pre-load abort, omit post-load abort, suppress current-owner expiry feedback, allow stale-route feedback, allow disposed feedback, or bind a ready card's lifetime to the recovery deadline. All seven fail their intended assertions; these are deliberate faults, not seven discovered product defects.",
+    "classifierFailure": "The initial driver genuinely exits1 at its third control because it requires ERR_ASSERTION. That saved TAP instead labels the large Image-versus-Text reference-identity assertion ERR_TEST_FAILURE. The expected reference-equality diff and1test/1failure/0cancelled prove the intended failure. Readback corrects only classification in the combined receipt; original false receipt and log remain unchanged. No test/source is edited and none of the first three faults is rerun. The remaining four faults run once.",
+    "originalFalseReceiptSHA256": "2ef96faef9832ed3997e2b71cd1cb26700a025ddec89b1438d48ad3d8a45bd80",
+    "qualification": "The64KiB shared output allowance carries the8,117 initial bytes into the continuation, rather than resetting its budget. Complete source topology and existing compiler are retained. No production/old-test/global-timer/dependency/resource/native/runtime/permission change or helper agent/model."
+  },
+  "priorEvidence": {
+    "focus": { "path": "docs/image-focus-source-verification-2026-11-02.json", "bytes": 13881, "sha256": "9c7d5f93b8b9e71ce865050c41b517a1ed4f1c490adb7dbd9b85bff04290e538", "changed": false },
+    "strictRefusal": { "path": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/strict-host/verification.json", "bytes": 9058, "sha256": "98c95250ca2b7d2bafa0aecd03b20989e571d4be2cefa1ecba189cc24c2495d6", "qualification": "Actual whole-owner strict/library request never spawns at2815.1875MiB versus unchanged2816. No compiler/diagnostic or verified cleanup result. Near-threshold refusal is not changed admissible headroom; no type/RAM/native retry follows." }
+  },
+  "qualityReview": "The six added cases distinguish current-owner unavailable feedback from stale-owner silence and include a positive completed-preview outcome. Separate pre-load/post-load abort and deadline-binding faults demonstrate meaningful checks rather than an always-green cancellation stub. Actual module logic runs at the dependency boundaries, with image construction and command focus observed, not merely source-text counts. The original seven bodies, production activation handlers and older negative boundaries remain preserved. The real classifier failure is retained, not relabelled a production bug or hidden by rerunning green tests.",
+  "adjacentDocumentationCheck": { "command": "node --max-old-space-size=256 --test --test-name-pattern '^inventory links resolve and source/runtime/unfinished states stay explicit' scripts/features-contract.test.mjs", "tests": 1, "passed": 1, "failed": 0, "skipped": 0, "durationMs": 208.221592, "qualification": "Only the materially changed feature/README/new-timeout-evidence links and acceptance labels, not a replay of earlier focus cases or complete CI/health/native checks." },
+  "remaining": "The292reviewer's recovery-timeout source lead is performed. This replaces only the never-expiring-stub coverage gap; actual30second timer timing, native/Solid/OpenTUI behavior, unavailable original metadata/card/pointer acceptance and complete build/types/current CI/health remain unverified. All20unfinished tasks/eight criteria/75IDs/additional lanes, real failures and exact authority/human/device/authentic-original requirements remain. No unchanged launch/build/types/RAM/GUI/history retry, regeneration/reattachment/private-store substitute, reserved peer-source/result adoption, installation/activation/restart/security/archive apply/private callback/demo replacement/publication/deletion or operator staging/commit/push is inferred."
+}

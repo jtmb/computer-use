@@ -1,0 +1,479 @@
+# Handoff — `53eacb15-7fd9-4c20-b4d4-038111b68e6f`
+
+- Goal ID: `53eacb15-7fd9-4c20-b4d4-038111b68e6f`
+- Source session ID: `ses_e8275dbd2ffe5vkgrWh4gVCnVB`
+- Source directory: `/home/james/repos/computer-use`
+- Exported at: `2026-10-27T15:05:40.992Z`
+- Repository identity: `github.com/jtmb/computer-use`
+- Worktree identity: `main`
+- Relative scope: `.`
+- Repository metadata status: `git`
+- Repository metadata gaps: `none`
+- Status: `cancelled`
+- Plan revision: `33`
+- Record: `archive`
+
+## Objective
+
+> Consolidate and finish the outstanding work in /home/james/repos/computer\-use from /home/james/\.opencode/plan/computer\-use\-consolidated\-handoff\.md: preserve and independently verify all nine review findings and the original ten completion criteria, safely reconcile PR \#2/\#3 and local dirty work, complete source\-qualified goal docs and explicit fresh\-session handoff acceptance, verify loaded GNOME window\-control v2 with privacy\-safe readback and visuals, produce an approved genuine simultaneous README demo and final media, and reduce redundant routine approval prompts without weakening consequential gates\. Preserve both cancelled goals' five window/demo criteria, historical evidence, safety boundaries and separate approvals; treat user\-deferred screenshot work and restricted PR \#2 as blockers rather than completed work\. In Plan mode only persist this goal/plan, with no implementation until the user switches to Build and requests it\.
+
+## Current state
+
+Goal status is `cancelled`; the persisted plan revision is `33`.
+
+Completion evidence:
+
+No completion evidence is recorded.
+
+Goal-level blocker:
+
+No goal-level blocker is recorded.
+
+Stop reason:
+
+> cancelled
+
+## Plan
+
+Plan revision: `33` · updated 2026-10-27T14:59:19.000Z
+
+> Active consolidated goal\. Immediate remediation: finish no\-question Build\-auto skill behavior, then explicit docs/features\.md inventory, consumer\-neutral documentation skills and proper currentTask/nextTask/backlog usage\. Continue existing PR/export/bridge/native\-recorder review and full live v2/demo/handoff scope afterward\. Preserve immutable18 criteria \(original10\+5\), source\-only approval limits, all historical/completed evidence, dirty/index state and unresolved screenshot/PR2/live acceptance\. Derived nextTask is guidance, not editable state; null is not an empty backlog\.
+
+### Completion criteria
+
+- Finding 1: successful captures have demonstrable request\-specific ownership; staggered user screenshots and concurrent requests cannot cause unrelated images to be read, attached, or deleted\. A timing delay or filename difference alone is not accepted as ownership proof; successful native capture must still work\.
+- Finding 2: desktop permission checks precede protected side effects and respect allow/ask/deny, with denials reaching the caller rather than being swallowed; tokens remain target\-freshness guards, not authorization\. Verify denied operations never reach the backend\.
+- Finding 3: cleanup success is verified and cleanup failures return accurate retained\-file/error information; no outcome or documentation falsely claims deletion or that an attachment is the only copy\.
+- Finding 4: complete genuine PNG fixtures succeed, while truncated headers, incomplete image data, malformed chunks, and corrupt images are rejected before attachment; deletion still requires proven capture ownership\.
+- Finding 5: file reads enforce a fixed byte budget before unbounded allocation, including files that grow while being read; oversize captures are refused and handled according to verified ownership and cleanup status\.
+- Finding 6: trigger errors, timeouts, cancellation, and post\-trigger failures have bounded lifecycle handling; possible or confirmed retained captures are reported accurately, and no unowned file is removed\. Cancellation reaches trigger, wait/poll, and read operations as applicable\.
+- Finding 7: every desktop\_tree schema argument is implemented or removed; unsupported filters cannot silently become an unfiltered tree dump\. Adapter and schema regression tests agree\.
+- Finding 8: backend failure results retain useful stdout candidate summaries alongside stderr explanations, within the existing output budget; ambiguity continues to refuse mutation and supports a subsequent explicit nth selection\.
+- Finding 9: handoffs preserve source project/directory, session and goal identity where available, goal status, plan and historical documentation\. Resume never replaces that source with an unrelated current\-session goal; missing or inaccessible source data has an explicit safe fallback\. /handoff\_resume remains the command name\.
+- All nine findings have independently checked regression evidence; focused tests, health checks, whitespace/syntax checks, permission integration checks and an approved fresh\-session screenshot interpretation test pass\. The goal plugin, MCP configuration, codemode:false setting, security boundaries, unrelated dirty/staged work and standard coding tools remain unchanged; no unapproved commit, push, PR publication or runtime deployment occurs\.
+- The reviewed installed window\-control bundle matches canonical source, GNOME discovers and activates it through supported mechanisms, and the actual typed inventory returns live compositor data\.
+- Exact\-ID focus, placement/tiling and multi\-window layout pass actual readback and privacy\-safe visual acceptance on disposable windows, including loaded\-v2 maximized restore; stale/replayed previews refuse and unrelated windows are preserved\.
+- No logout, restart, activation, permission/security change, deletion, commit, push, send, purchase, or publication occurs without the applicable explicit approval; routine in\-scope inspections do not cause repeated prompts\.
+- The main demo uses genuine simultaneous clean OpenCode/app footage with readable real tool activity and completed sample\-email or signed\-out public\-browser results, deliberate zooms/transitions, and user approval of a short real action/motion preview before main replacement\.
+- Final media decodes, loops, has still/text alternatives and honest sample/timing disclosures; canonical skills/docs and acceptance evidence are accurate, branding preserved, README below 170 physical lines, and relevant source/health and desktop/narrow light/dark checks are verified or clearly blocked\.
+- Safely review and locally reconcile open PR \#2 and draft PR \#3 against pinned current heads and preserved local work; do not integrate unread code, bypass lockdown, or imply a commit, push, publication or remote merge\.
+- Verify repo\-local read\-only source\-qualified goal exports, detailed planning skill, /handoff's exactly\-one fresh same\-worktree pending seed and visible focus, and /handoff\_resume's explicit safe retained\-destination continuation across matching, absent, unrelated, inaccessible, paused and closed\-source cases; never substitute a current\-session goal\.
+- Reduce redundant routine approval friction only after inspecting effective policy and real action IDs; with separate permission/config approval, allow verified read\-only GitHub actions if separable while preserving asks for remote writes, commit and push, and retaining source/worker/safety checks\. Never blanket\-autoaccept or mutate remotely to test the gate\.
+
+### Phase `plan_delivery` — completed
+
+> Deliver the first\-fix source changes and this goal's own repo export; retain unobserved fresh\-client/Plan\-mode behavior and separate commit gate in final\_audit\.
+
+**Verification:**
+
+> Actual source/export delivery, hashes/identity, preserved index and143 tests/health verified; full fresh Plan\-mode/client check remains explicit in final audit\. Evidence docs/plan\-delivery\-verification\.md\.
+
+- **`clickable_plan` · completed:**
+  > Write a readable plan in the approved Plan directory, link it in chat, and display the substantive plan in Plan\-mode answers; keep it distinct from the generated repo export\.
+  - Evidence:
+    > Approved planning copy written/displayed/linked; actual repo plan now linked separately\.
+- **`session_relocation` · completed:**
+  > Move this same chat to /home/james/repos/computer\-use so a repo\-scoped exporter can use the selected session's exact directory; preserve goal/session identity and verify location before export\.
+  - Evidence:
+    > User\-requested same\-session move to exact repo verified by live API/harness\.
+- **`export_preflight` · completed:**
+  > In Build, inspect goal status/revision, exact selected\-session repository/worktree, companion availability and permission behavior, current docs/goals/index/manifest, lock inode, \.gitignore and dirty/index state; check worker overlap; no raw state edits or misleading manual export\.
+  - Evidence:
+    > Exact session/Build/repo and active companion verified; original index/config/goal baseline under /tmp/opencode/plan\-delivery\-baseline\-d1cg7w3n; active map only current; edit checks/lock preserved\.
+- **`own_goal_export` · completed:**
+  > Using supported repo\-local exporter when authorized, generate and verify docs/goals/53eacb15\-7fd9\-4c20\-b4d4\-038111b68e6f/\{plan\.md,HANDOFF\.md,work\-history\.md,snapshot\.json\} and docs/goals/README\.md, checking exact source identity, revision/status, history, sections, hashes and old\-package preservation; link actual repo plan in chat\. If paused/read\-only/exporter gates refuse, report real blocker\.
+  - Evidence:
+    > Actual observer/supported RPC package/index exported; revision5 hashes/source/main/status18criteria/mandatorysections/timestamps verified, old packages/index/config/lock retained, actual plan linked\.
+- **`repo_inclusion` · completed:**
+  > Inspect tracked/ignored/untracked files and precisely include only intended goal\-docs/index files in proposed staging; show exact diff and preserve all unrelated docs/index changes\. Do not claim a git commit without separate approval\.
+  - Evidence:
+    > docs/plan\-delivery\-verification\.md records12\-path proposal, untracked/shared history/pre\-existing hunk state\. No staging/commit, original index/staged patch byte\-identical\.
+- **`plan_rule_source` · completed:**
+  > Implement and statically verify the bounded repo\-local Plan\-mode chat/link instruction while leaving fresh\-model/client behavior as separate acceptance\.
+  - Evidence:
+    > AGENTS and3 planning files additive; red3/green4 tests,143 combined/health/whitespace pass, prior text preserved; no runtime/model acceptance inferred\.
+
+### Phase `imported_foundations` — completed
+
+> Carry forward documented completed work without claiming fresh combined\-state verification\.
+
+**Verification:**
+
+> Full source plans/handoff read at creation; imported evidence remains historical, not fresh full/live acceptance\.
+
+- **`desktop_f278` · completed:**
+  > Carry forward findings 2, 7 and 8: authorization before side effects, truthful desktop\_tree schema and bounded ambiguity candidates plus backend errors; rerun after adjacent changes\.
+  - Evidence:
+    > Historical a0ce8b0f lines133\-152:26tests/policy/schema/UTF8; current suites rerun in143/149 checkpoints\.
+- **`export_planning` · completed:**
+  > Carry forward read\-only repo\-local goal\-docs exporter and detailed planning skill; retain exact source identity and mandatory plan/history\.
+  - Evidence:
+    > Historical a0ce8b0f lines91\-110,154\-177; actual current goal export checked separately\.
+- **`pr3_history` · completed:**
+  > Retain reviewed draft PR \#3 and the accepted local carryback without claiming a remote merge\.
+  - Evidence:
+    > Historical a0ce8b0f lines76\-87 records pinned11cbb763328f27ae97c03b8e57f832f0fe9fb78b carryback; head unchanged\. Later user\-owned skill additions observed and preserved, not overwritten\.
+- **`bridge_v1_history` · completed:**
+  > Retain already approved bridge recovery and normal\-window v1 acceptance, without inferring loaded\-v2 maximized restore\.
+  - Evidence:
+    > Historical d1ff47da lines34\-66,109\-123 records recovery/v1 native readback/visual/token checks; v2 restore remains separate\.
+- **`handoff_producer_history` · completed:**
+  > Retain source\-qualified /handoff export/create/seed/focus and retry\-idempotency evidence without treating pending seed as execution\.
+  - Evidence:
+    > Historical a0ce8b0f lines192\-223 and consolidated lines40\-43 records1 pending resume:false retained target/focus, not continuation\.
+
+### Phase `baseline` — completed
+
+> Establish current source, worktree, worker and desktop metadata baseline; refresh volatile facts again immediately before GUI/source overlap\.
+
+**Verification:**
+
+> Actual Git/tests/activity/PR/login/extension/typed metadata established checkpoint\. Volatile desktop state must be rechecked before actions; no image/GUI acceptance inferred\.
+
+- **`handoff_import` · completed:**
+  > Read full consolidated handoff and both source plans/handoff; create one new paused goal without reopening or duplicating cancelled goals\.
+  - Evidence:
+    > 88\-line consolidated,273/123 sourceplans,283handoff read; get\_goalnull and one new paused goal; explicit Build authorization later resumed\.
+- **`fresh_baseline` · completed:**
+  > In Build, recheck branch/HEAD/status, source/tests, original index, current PR heads, active session/worker overlap, lock/modal/bridge state and stale IDs before any overlapping source or GUI work; note unavailable status lookup honestly\.
+  - Evidence:
+    > Main/b47765e dirty/index/source baseline and only current active session;149tests/health checkpoint\. PRheads unchanged; session2 unlocked Wayland/extensionv2ACTIVE, typed inventory ok/blockedReason=null/exactIDs/maximizedcanResize\. No GUI mutation\.
+
+### Phase `approval_friction` — in_progress
+
+> Implement approved exact GitHub read exceptions and bounded routine\-continuation instructions in source; keep runtime policy\_acceptance in final audit\.
+
+- **`effective_policy` · completed:**
+  > Read effective Build permission policy and actual GitHub action IDs; compare global/opencode\.jsonc source, project config, AGENTS, affected skills and global/commands/handoff\_resume\.md, and distinguish reads from writes\.
+  - Evidence:
+    > Actual ordered policy/source/project/skills/command/wrapper read;46 live schemas29reads17writes; official V2 MCP IDs/last\-match verified\. User screenshot now confirms Build auto client mode, distinct from source CLI template\.
+- **`policy_change` · completed:**
+  > After separate approval for permission/config changes, make the smallest verified read\-only GitHub exception if safely separable; keep remote writes, repo\_commit and repo\_push as asks; avoid blanket autoaccept and unapproved rollout\.
+  - Evidence:
+    > Separate question Approved source only; exact29 source allows after github\_\*ask, six red\-to\-green regressions/149combined/config/index checks\. Live policy unchanged; no rollout\.
+- **`instruction_cleanup` · in_progress:**
+  > Clarify that one explicit request covers routine bounded in\-scope operations; preserve named\-chat deliver\-first handoff, source identity, worker\-overlap and unrelated\-goal refusal; remove only redundant paperwork\.
+  - Evidence:
+    > Active source remediation expanded by explicit user requests: repo/default\+global memory tool with RAG metatags; retire external memory requirements; two additive rig UI plugins \(fallback sidebar, CPU/RAM bottom, preserve defaults\); separately optional ChatGPT MCP \+ directly accompanying skills/onboarding only\. Architect inspections are read\-only source/dependency/slot audits, not goal planning; parent decides plan/config/implementation\. Existing disjoint scopes and source\-only/live limits recorded in docs/parallel\-run\-coordination\.md; no sending/image\-generation/live provider switch authorized to test setup\.
+- **`features_inventory` · pending:**
+  > Create human\-readable docs/features\.md from inspected source: explain present config, tools, plugins, commands, scripts and all skill bundles; distinguish actual runtime checkpoints from source\-only, pending, deferred or blocked behavior\. Link it from README/setup and validate local links/counts\.
+- **`portable_documentation` · pending:**
+  > Update actual documentation guidance in development\-conventions and related globally shared documentation/skill\-maintenance bundles to maintain docs/features\.md generically\. Use consumer\-project instructions and discovered tooling; relocate computer\-use\-only README/demo/layout rules to local AGENTS/docs without losing this goal's requirements\. Validate metadata/catalog/links and preserve unrelated work\.
+  - Evidence:
+    > Bounded portability audits/tests accepted; parent owns integration\. New explicit documentation task: root onboarding\.md must describe actual LLM\-led setup workflow, user\-visible questions/defaults, optional integrations, manual credentials, preview/apply/verification/rollback, and interactive\-vs\-Buildauto noquestions distinction\. Treat yet\-unimplemented ChatGPT optional onboarding flags as pending, not runnable; preserve existing setup guide/root prompt/branding\. A disjoint docs implementation child may inspect actual source/write only onboarding\.md and its focused test; parent handles config/README/setup and goal planning\.
+- **`goal_workflow` · completed:**
+  > Update reusable planning/goal\-usage guidance to use get\_goal currentTask/nextTask and full remaining backlog correctly: persist concrete tasks, follow nextTask when present, inspect later pending/blocked phases when null, record evidence before completion, verify phase boundaries, never edit raw/derived goal state or close on partial work\. Read back this goal and keep the next actionable task visible\.
+  - Evidence:
+    > Parent independently read corrected portable README, live\-goal reference, local usage guide and 127\-line test; reran goal\-workflow/planning\-contract suites:8pass plus node syntax\. Provider\-only reproduction commands moved into local docs; single coordinator cursor and separate explicitly authorized disjoint\-child registry documented without bypassing dependencies\. Static/illustrative checks only\.
+
+### Phase `independent_review` — pending
+
+> Review preserved PR3/current exports/bridge source parity and diagnose/fix native recorder lifecycle without unsafe capture or quarantined\-media use\.
+
+- **`pr3_preserve` · pending:**
+  > Freshly confirm draft PR \#3 carryback, later README changes, assets, catalog and index/source hashes are intact; re\-review if head changed\.
+  - Evidence:
+    > Pinned audit accepted after parent repeat of PR3 metadata/reviews/checks,5file diff, byteexact Splice asset, pinned whitespace and original staged patch\. Pin deploy\-global mismatch not present in current README\. Current skill/catalog edits are still running in separate children, so final combined semantic preservation remains pending; do not mark task complete yet\.
+- **`goal_docs_recheck` · pending:**
+  > Freshly verify exporter source identity, history/plan sections, lifecycle/isolation, permission behavior and planning skill/catalog with current combined state\.
+- **`bridge_now` · completed:**
+  > Refresh lock/modal/session/extension parity, epoch, volatile IDs, typed live inventory and installed\-source hashes without observing credentials or changing settings\.
+  - Evidence:
+    > Parent independently verified audit docs/window\-v2\-acceptance\-audit\.md, exact3 installed/source hashes via no\-write deploy dryrun, registry Version2ACTIVE, fresh typed epoch/IDs/unlocked/blockedReason=null, actual restore/token/readback source and21Node\+4client\+5deployment tests\. User terminal and VSCode only; untouched\. This completes passive/parity task, not v2 live mutation/visual criteria\.
+- **`live_recorder` · pending:**
+  > Diagnose frame freshness and generic blocked\-context stop from metadata, preserve quarantined media, fix/verify owned recorder lifecycle without weakening privacy or freshness\.
+  - Evidence:
+    > Parent verified source/offline EOF lifecycle fix in docs/demo/native\_capture\.py and independently16passing tests with synthetic growing MP4 and disappearing caller cases\. Diagnosis distinguishes reproduced decoder defect from unknown quarantined incident cause\. No GUI/capture/quarantined decode\. Real native live freshness/caller/visual result still required before task completion\.
+
+### Phase `window_v2` — pending
+
+> Verify actual loaded\-v2 maximized restoration and native visual results on approved disposable windows after safe visual checks work\.
+
+- **`v2_readback` · pending:**
+  > With fresh single\-use previews, check exact\-ID focus, maximized restore/placement, tile and two\-window layout, readback, stale/replay refusal and unrelated\-window geometry\.
+- **`v2_visual` · pending:**
+  > Use only a separately approved working privacy\-safe native visual path to inspect actual results; if unavailable, label visual acceptance blocked rather than inferred from geometry\.
+
+### Phase `demo` — pending
+
+> Record genuine simultaneous public\-task actions, obtain motion\-preview approval, verify final media and README\.
+
+- **`real_actions` · pending:**
+  > Reconfirm public demo session is empty, stage owned signed\-out profile and clean OpenCode window with fresh IDs, begin safe recording, then capture actual prompt/tool/app result on one timeline; stop on private/locked/modal/uncertain state\.
+- **`preview_approval` · blocked:**
+  > Produce a short genuine action/motion preview with readable zoom/transitions and show user; obtain explicit approval before replacing main demo\.
+  - Blocker:
+    > No genuine footage/preview approval\. In no\-question mode record this missing authority and continue independent work, without requesting another approval\.
+- **`final_media` · pending:**
+  > After preview approval, make versioned final media and still/text alternatives; decode frames, verify real playback/loop seam, privacy/provenance/disclosures, README render and below\-170 line count; retain originals and branding\.
+
+### Phase `capture_deferral` — blocked
+
+> Retain deferred screenshot findings and original fresh\-session image test until a new request\-specific capture/UX/retention decision\.
+
+**Blocker:**
+
+> Explicit user screenshot deferral; native recording is separate, no repeated question\.
+
+- **`capture_contract` · blocked:**
+  > Obtain a new decision on request\-specific ownership/concurrency, interaction, retention and cancellation before any screenshot backend changes or unsafe capture invocation\.
+  - Blocker:
+    > User deferral remains; record missing contract without prompting\.
+- **`capture_f13456` · blocked:**
+  > After an approved contract, implement and adversarially test ownership, cleanup truthfulness, full PNG validation, bounded reads during growth, and trigger/timeout/cancellation lifecycle; prove genuine successful native capture and unrelated\-file preservation\.
+  - Blocker:
+    > New capture contract absent; no unsafe backend changes\.
+- **`screenshot_live` · blocked:**
+  > Run an approved fresh\-session pixel/image\-delivery and cleanup interpretation test, independently verifying all nine findings and unchanged boundaries\.
+  - Blocker:
+    > Deferred unsafe screenshot path cannot be invoked or declared repaired\.
+
+### Phase `pr_reconciliation` — pending
+
+> Complete full pinned PR2/3 review and combined local reconciliation once permitted PR2 content is available, preserving all local/index intent\.
+
+- **`pr_inventory` · pending:**
+  > Refresh open PR \#2/\#3 heads, base, files, reviews/checks and local overlap through a permitted read path; preserve historic pins only as checkpoints\.
+  - Evidence:
+    > Metadata heads PR2=96fa9e747809245958dcb8fd24b0e9b4300f0e1e, draftPR3=11cbb763328f27ae97c03b8e57f832f0fe9fb78b/baseb47765e; full files/reviews/checks incomplete, no metadata\-only completion claim\.
+- **`pr2_diff` · blocked:**
+  > Read and review the full pinned PR \#2 diff and context through a permitted path or user\-supplied patch before any integration\.
+  - Blocker:
+    > Fresh permitted MCP get\_files restricted by lockdown\. No bypass; record permitted\-content prerequisite without interrupting\.
+- **`combined_tree` · pending:**
+  > Once PR \#2 is readable, reconcile accepted changes file by file against protected local work, run per\-PR/browser/privacy/desktop/handoff regressions and independently review full combined diff; no commit or merge implied\.
+
+### Phase `handoff_acceptance` — pending
+
+> Verify source\-qualified cases and explicit retained\-destination continuation without unrelated\-goal substitution or duplicate producer\.
+
+- **`identity_cases` · pending:**
+  > Run matching, absent, unrelated, inaccessible, paused and closed\-source /handoff\_resume cases with correct safe fallbacks; preserve renamed command and mandatory plan/history\.
+  - Evidence:
+    > New isolated real\-adapter/exporter/renderer fixtures at \.opencode/plugins/goal\-docs/handoff\-identity\-acceptance\.test\.ts independently read and rerun by parent:13pass, matching/absent/unrelated/inaccessible/paused/closed source coverage\. docs/handoff\-identity\-acceptance\.md accurately distinguishes captured writer/fake external boundaries from real storage/TUI/model continuation\. Source coverage accepted; live guidance/model cases not passed\.
+- **`retained_destination` · pending:**
+  > Check supported source/worker inactivity and exact approval scope; verify retained destination's pending seed and explicit continuation without substitution or duplicate target; do not infer authority from old unused approval\.
+
+### Phase `final_audit` — pending
+
+> Independently verify all original/additional criteria, fresh Plan\-mode/client and runtime behavior, then preserve separate release approvals before closure\.
+
+- **`plan_mode_rule` · blocked:**
+  > In Build, inspect applicable repository planning skill/instructions and add the narrow durable rule to show substantive plans in Plan\-mode chat with a clickable actual\-plan link where one exists; test fresh Plan\-mode output/link, avoid claiming a repo\-local edit changes global behavior\.
+  - Evidence:
+    > Source contract plus actual isolated fresh Plan session succeeded; parent independently verified metadata/trace and returned4\-point inline summary with existing plan link\. docs/plan\-mode\-acceptance\.md accurately limits result\. No fixture goal calls/writes; no new fixture authorized by this acceptance\.
+  - Blocker:
+    > Client\-rendered clickable\-link appearance and opening still untested; raw Markdown/CLI JSON does not establish those outcomes\.
+- **`policy_acceptance` · blocked:**
+  > Verify routine reads avoid repeat asks and a safe non\-mutating policy probe still asks for remote writes; verify commit/push separate asks and no nonexistent\-receipt gate\.
+  - Evidence:
+    > Source probe proves29readsallow/17writesunknownscommitpushask; user screenshot proves Buildauto client mode, not source config rollout\.
+  - Blocker:
+    > Runtime source\-rule rollout unapproved and native/model behavior unverified\. Do not add questions or change operator mode; keep prerequisite explicit\.
+- **`regressions` · pending:**
+  > Run current focused Node/Python/TypeScript/shell/health tests, whitespace checks across staged and unstaged work, links, README line count and relevant desktop/narrow/light/dark rendering\.
+- **`criteria_audit` · pending:**
+  > Map each of 10 original finding criteria and five window/demo criteria plus PR/export/planning/handoff/approval acceptance to real current artifacts; distinguish historical, passed and blocked evidence\.
+  - Evidence:
+    > docs/completion\-evidence\-map\.md source\-qualified18\-row plus5added\-scope snapshot independently reviewed;79local links/range bounds and sequential criteria passed\. Screenshot/PR2/livev2/demo/handoff/runtime gates accurately open\. Later panel outcome and remaining concurrent work need final combined refresh; evidence mapping accepted as interim, not final criterion audit/task completion\.
+- **`commit_gate` · blocked:**
+  > If the user wants the new docs committed, request explicit commit approval with exact file list/diff; require separate push approval and never publish by inference\.
+  - Blocker:
+    > No specific commit/push scope authorized\. Under auto/noquestions do not request approval: preserve original index, record blocker and continue independent work\.
+- **`release_gate` · pending:**
+  > Before any release recheck heads and dirty diff, and request separate applicable approvals for commit, push, PR publication/merge, runtime rollout or other consequential operation; do not close goal while required criteria remain blocked\.
+
+### Decisions
+
+- Preserve all immutable18 criteria, original10\+5, completed IDs/descriptions/evidence and all blocked live obligations; source goals stay cancelled\. Derived progress fields are read\-only; use task/phase plan updates, never raw goal storage edits\.
+- User explicitly requires Buildauto/project\-auto means NO interactive agent questions including routine Git, confirmations, clarification/default choices, delegation opt\-ins and continue prompts\. Screenshot confirms Buildauto for this goal\. Reuse scope\-specific authority or choose reversible defaults; otherwise record blocker and continue without prompting\. Do not self\-grant rights, broaden scope, bypass denials or change chosen auto setting\.
+- Immediate active instruction\_cleanup now has explicit following backlog tasks features\_inventory, portable\_documentation and goal\_workflow, so nextTask can expose real next work rather than only later phases\. Follow currentTask then nextTask/full remaining plan and record evidence/phase verification before advancing\.
+- User requires docs/features\.md human\-readable inventory of inspected source, config/plugins/tools/commands/scripts/all skills, with source\-vs\-runtime/unfinished labels and verified links\. User requires globally deployed skills to be general guidance: consumer project AGENTS/config govern, local computer\-use README170line/simultaneousdemo/branding rules stay local, not universal\.
+- Separate earlier source\-only approval permitted exact29 GitHub read rules, implemented/tested; actual server policy remains unchanged\. No runtime deployment/reload/lockdown/security change or blanket autoaccept by inference\. Skill/directive fixes apply to agent behavior independently of native tool policy\.
+- Fresh Plan\-mode/client/model and native permission acceptance remain unobserved and explicitly blocked\. Delegation off; no new model or CLI fixtures to manufacture evidence\. A pending handoff seed/unit test/hash/geometry alone never proves an unobserved live result\.
+- Screenshot1/3/4/5/6 and fresh\-session screenshot test remain explicitly deferred\. Native recorder is separate; metadata\-only access to quarantined run, never decode/export/reuse it\. Old stop receipts never written and are not gates; check actual supported worker state and refresh volatile desktop privacy/IDs before action\.
+- Preserve all dirty/staged/untracked source, original index/stagedrename, old goals/media/branding, goal wrapper/storage, MCP/CodeMode, sandbox/privacy/freshness\. All necessary separate higher\-priority authorities remain checks; in noquestions mode missing ones are blockers, not repeated approval prompts\. No commit/push/publication/deployment has occurred\.
+- User explicitly enabled delegation for this run and requested one GPT\-6 Luna xhigh agent per independent actionable task in parallel, with parent coordination/follow\-up\. Model discovery verified openai/gpt\-6\-luna\#xhigh active\. No authorization question is asked in Buildauto/noquestions mode\. subagentsEnabled=true; authorizationAsked=false because direct explicit enable plus no\-question override\. Prior off state is superseded for this run\.
+- Parallel bounded batch: Feature inventory and evidence; Portable documentation guidance; Goal backlog workflow; Shared skill portability; Native recorder lifecycle; Pinned PR reconciliation audit; Goal export verification audit; Window bridge acceptance audit; Handoff identity acceptance cases; Autonomous workflow regression review\. Exactly one child per task, disjoint file ownership; shared AGENTS/README/setup/catalog/config and goal tools remain parent\-owned\. Deferred screenshots, blocked PR2 integration, live shared\-GUI choreography and unapproved release/runtime rollout are not independently actionable and remain explicit dependencies/blockers\.
+- Tool discovery exposes no task\_declare, correction\_ledger\_ack, subagent\_followup or Basic \[redacted\] orchestration surface; do not fabricate those calls\. Record scope/ownership/child registry and independent follow\-up with available goal tools and repository coordination record\. Effective config inspection exposed no orchestration\-policy maxConcurrent value; do not claim one is installed or change config to invent it\. Use the skill's bounded ten\-child batch/standing upper bound and native admission; any refusal is a reported blocker, not an authorization question\.
+- All ten background launches accepted using verified openai/gpt\-6\-luna\#xhigh; exact registry in docs/parallel\-run\-coordination\.md\. Native goal\-plan validator permits only one current phase/task and refused simultaneous in\_progress statuses; keep that serial coordinator cursor truthful while recording dispatched child work as pending parent acceptance with registry evidence\. Follow nextTask in parent reconciliation; full backlog not empty\. Do not poll or duplicate delegated implementations\. Independently inspect/test and record follow\-up before relaunch/mutation/completion\.
+- Parent subagent\_followup ACCEPTED for Window bridge acceptance audit \(ses\_e82458cb7ffeX1LJZqd8NkZSkh\): read full owned report and actual extension/policy restore/fingerprint/token/readback source; independently reran21 Node\+4 client\+5 deployment tests, syntax check, read\-only installed\-source dryrun \(exact3hashes, no changes\), registryv2ACTIVE and fresh typed inventory unlocked/unblocked\. No disposable window, GUI mutation or capture; real v2 restore/stale/replay/readback/native\-visual acceptance remains pending\. No source defect found; accept audit only, not whole window phase\.
+- Parent subagent\_followup ACCEPTED for Pinned PR reconciliation audit \(ses\_e82458cc4ffekHhZR9KVgJsuUO\): read full report and canonical deploy command, independently checked pinned5\-file PR3 diff/asset identity/whitespace and original staged patch\. Permitted MCP reread confirms draft/open/notmerged same head/base, no reviews/threads,1 GitGuardian success, combinedstatuspending with0contexts\. Pin\-only deploy\-global wording mismatch exists in PR3 snapshot but is already absent from current README, so do not introduce unnecessary source edit\. PR2 head object absent and permitted access restricted; no bypass\. Accept bounded pinned audit, not final concurrent combined\-tree or full PR2 review\.
+- Parent subagent\_followup ACCEPTED for Handoff identity acceptance cases \(ses\_e82458ccfffeDeYxq5BLJEZD94\): read full348\-line new test and owned report, independently reran13 passing tests\. Fixtures exercise actual readGoalStateForSession/exportGoalState/handoffPrompt with only external I/O boundaries mocked, assert matching/absent/unrelated/forged/inaccessible/paused/complete/unmet/cancelled identity/status/history behavior and no unrelated writes\. They do not call coordinateHandoff or live model/TUI continuation; accept source fixtures only, full identity\_cases task and retained\-destination live requirement remain incomplete\.
+- Parent subagent\_followup ACCEPTED for Autonomous workflow regression review \(ses\_e82458c07ffePmgw5OnrcGa3iu\): read full owned97\-line source\-contract test and68\-line interim report; independently reran11pass\. Tests now inspect actual bounded autonomy sections/order/defaults/Git/blocker/delegation/higher\-priority behavior without pinning source CLI prompt setting\. Accept review/tests only: residual interactive push/mutation/setup\-prompt wording must be reconciled after owning portability children finish; no live model enforcement claimed\.
+- Parent subagent\_followup CHANGES\_REQUIRED for Goal backlog workflow \(ses\_e82458e59ffeQVpFJgTQ2JJvRw\): read all6 owned files and independently reran7 passing planning/goal tests\. Core currentTask/nextTask/null/evidence contract is sound, but globally shared README still instructs consumers to run provider\-repo scripts/planning\-contract\.test\.mjs and scripts/goal\-workflow\.test\.mjs\. Also explicitly document one serial coordinator cursor versus authorized disjoint parallel child tasks, while preserving real dependencies/phase verification, and qualify planning clarification prompts as interactive\-only\. Return to same child with bounded correction; no parent implementation in its owned scope\.
+- Parent subagent\_followup ACCEPTED for Feature inventory and evidence \(ses\_e82458ecaffeFUoElqjbnFPmW1\): read full227\-line inventory and114\-line dynamic coverage/link test; independently reran5pass\. Checked actual desktop/plugin source, copy\-ID registration, config/command/script/tool trees, browser wrappers and local JSON memory versus external Basic \[redacted\] distinctions plus absent broader MCP helper dependencies\. README/setup links integrated by parent, root line budget preserved\. Inventory correctly labels held screenshots, pending handoff/demo, absent WSL/rig\-tools source and current working\-tree/untracked state; no live source\-vs\-runtime confusion\. Later sibling\-added files will trigger a final combined coverage rerun\.
+- With five initial children independently accepted and five still working \(including same\-child goal\-workflow correction\), use two free slots for newly actionable independent verification: Completion evidence mapping \(criteria\_audit task\) and Fresh Plan\-mode acceptance \(plan\_mode\_rule partial live requirement\)\. Same verified Luna xhigh model\. This is not polling/relaunching completed tasks; each new task has disjoint report ownership\.
+- Parent follow\-up ACCEPTED for corrected Goal backlog workflow ses\_e82458e59ffeQVpFJgTQ2JJvRw after actual corrected\-file review and independently8passing tests/node syntax\. Previous changes\-required resolved; no runtime/model behavior inferred\. New user scope: features\.md must explicitly compare base OpenCode v2 with this repo's additions, avoiding misattribution of native sessions/tools/MCP/permissions/plugin\-loading\. Reopen inventory for same child's bounded extension after outstanding terminal follow\-ups\. Architect panel visibility inspection/design is separate native\-UI ownership work, not an already implemented repo feature\.
+- Parent follow\-up ACCEPTED for Portable documentation guidance ses\_e82458e7bffeBVF4eQRzsMPc2F: reviewed actual tracked diffs and new README maintenance/layout/test sources; independently reran6portability\+11autonomy tests, all17pass\. Generic consumer discovery replaces fixed paths, schema/editorial/tool assumptions; local Splice/setup/169line/layout rules preserved in docs/readme\-layout\.md\. Parent still owns catalog/AGENTS links; feature child must include the new test script\. This accepts bounded3\-bundle source work only; wider shared\-skill audit/live discovery remain distinct\.
+- Parent follow\-up ACCEPTED for Native recorder lifecycle ses\_e82458cc9ffeEuKmlZvSih1vvu: read actual extractor/guard source, all366test lines and diagnosis, independently reran16tests including real synthetic growing fragmentedMP4 \(no skips\)\. Decoder rebuilt after live EOF/error only upon append\-only growth; same20s budget, PTS floor, RGB/storage bounds and recorder caller recheck retained\. Accept source/offline fix; incident cause remains unproven from metadata, quarantined video untouched, real native live visual acceptance still pending\.
+- Bounded architect\-only read/design assignment for requested Task · Model · Effort · Status subagent rows: determine actual native TUI ownership and supported header/model/effort metadata from official v2 docs/current local source if available\. Own one report only, no UI/runtime edits or upstream publication; unknown native UI source/unsupported metadata stays explicit\. Feature comparison resumes original two\-file child, no duplicate ownership\.
+- Actual new dispatches accepted: same feature child ses\_e82458ecaffeFUoElqjbnFPmW1 for base\-v2 comparison; architect ses\_e8236cd9bffeFaoCsKBEnL26Ao read\-only native panel design; Completion evidence mapping ses\_e82365c2bffejon3eueCIN7qYS report; Fresh Plan\-mode acceptance ses\_e82365c0effe7rNRcVuDm0fpZC bounded isolated fixture/report\. All request verified openai/gpt\-6\-luna\#xhigh\. Registry now exposes Task/Requested model/Effort/Parent status/Session; this does not prove effective header metadata or change native panel\.
+- Parent integration added local docs/readme\-layout\.md links in AGENTS/README and generic documentation\-bundle catalog summaries; local requirement now explicitly distinguishes base\-v2 mechanisms from repo additions\. Independent source\-only16\-file Node batch passed; read\-only local health passed v2\.1\.1/service/activeplugins/github\+playwright/skillpath26\. Original index RAW BYTES changed since baseline \(possible Git stat\-cache refresh, not proven cause\); independently all ls\-files \-\-stage \-z entries and staged binary patch are identical, only original R100 resume→handoff\_resume\. Do not restore/rewrite index or claim byte\-identical raw index now\. README103&lt;170; staged/unstaged whitespace clean\.
+- Parent follow\-up ACCEPTED for Subagent panel visibility design ses\_e8236cd9bffeFaoCsKBEnL26Ao: independently fetched official V2 TUI plugin/models/API docs and OpenAPI Session\.Info/SessionActive/Model\.Ref/Assistant schemas; inspected actual project config/local handoff TUI and local repo listings\. Verified generic sidebar/session\.panel slots, session hierarchy/status APIs and optional model\.variant/outcome, but no documented built\-in subagent\-row augmentation hook\. Accept bounded design, not implementation or inspected child headers\. Native panel component/source/status lifecycle unavailable in this integration checkout; upstream implementation remains blocked on core source ownership/inspection\. Desired Task·Model·Effort·Status rows should prefer effective child metadata, label request\-only values, retain Task/Status on narrow layouts and preserve keyboard/text status\. Variant is not universally effort; unknowns must not be guessed\.
+- Parent follow\-up ACCEPTED for Completion evidence mapping ses\_e82365c2bffejon3eueCIN7qYS as a revision23 audit snapshot: read full86\-line map, independently checked18 sequential criteria and79 local links/line\-range bounds/whitespace, cross\-checked screenshot source gaps, permission helper and pending\-only historical handoff evidence\. All18 immutable criteria plus5 added\-scope rows retained; no new tests/live acceptance or goal completion claimed\. Panel design has since been accepted at revision25, so map's pending panel/base\-comparison states are explicitly historical snapshot data and require final refresh after remaining children settle\.
+- Parent follow\-up ACCEPTED for same\-child Base v2 feature comparison ses\_e82458ecaffeFUoElqjbnFPmW1: full actual docs/tests reviewed and independently6tests passed\. Source count coverage includes new documentation\-portability test; official links remain V2 and resolve\. Comparison explicitly avoids claiming universal absence/uniqueness from missing upstream docs and identifies separate external goal\-state dependency\. Inventory task complete for current source snapshot; final combined coverage after wider portability/export/model results still required\. No runtime acceptance/commit inferred\.
+- Parent follow\-up ACCEPTED for Fresh Plan\-mode acceptance ses\_e82365c0effe7rNRcVuDm0fpZC: read full report and independently fetched isolated fixture ses\_e82327141ffe8XfIT91agQixW5 metadata/messages\. Exact Plan agent, Luna model/xhigh variant, repo and succeeded outcome verified\. Six\-message trace has exactly one read;4substantive numbered final points and actual plan\-file Markdown target match report byte\-for\-byte\. Shared snapshot file deltas cannot be attributed to fixture edits\. Accept fresh inline\-output behavior only; client rendering/link activation untested\.
+- User explicitly requires durable parent\-only goal planning\. Main coordinator alone must formulate/revise persistent\-goal plans, decompose/prioritize/sequence backlog, choose next goal task and make lifecycle/completion decisions through goal tools\. General delegation authorization does not delegate these responsibilities; children may perform bounded implementation/source inspection/test/evidence verification only, not goal planning\. Parent will encode rule in source instructions/shared contract/planning guidance with regression; do not spawn another planning or goal\-summary fixture\. Existing shared\-skill/export children have no goal\-planning or goal\-tool authority\.
+- Durable parent\-only goal\-planning rule implemented DIRECTLY BY PARENT in AGENTS, shared autonomy contract, planning SKILL/README/reference, local goal/autonomy guides and catalog, with features inventory/coordination record aligned\. New goal\-workflow regression failed before instruction edits and passed after; full goal/planning/autonomy/documentation\-portability/features suite32pass\. Original index entries and staged binary patch unchanged; syntax/whitespace clean\. Source guidance is durable and globally reusable via configured skills path, not a native security enforcement change or edited runtime copy\. Wider shared\-skill child still owns orchestration source; reconcile returned work against this parent rule without concurrent edits or delegating goal planning\.
+- User says the old simple\-memory/task\-memory service is no longer present, wants no stale service references and memories saved in the active repository, plus a token\-efficient proposal\. Read\-only search found no literal simple\-memory but active Basic \[redacted\] requirements in catalog/features and stale provisioning/pin paths; do not reinterpret a missing external service as permission to delete user data or historical evidence\. Parent proposes repo\-local MEMORY\.md compact topic index plus docs/memory/&lt;topic&gt;\.md selective notes, no mandatory full\-store prompt injection, no new database/MCP, no cross\-repo/global writes, dated/source\-backed concise facts, explicit privacy/Git publication limits\. Goal plans/lifecycle remain parent\-only and goal tools remain task execution authority\.
+
+## Historical documentation
+
+### Historical record coverage
+
+Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven.
+This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.
+Only allowlisted goal lifecycle, checkpoint, and plan-revision records are included. No session transcript, screenshot, or unrelated project data is read or copied.
+The goal plugin also bounds archives, checkpoints, lifecycle history, and plan change records; older entries may have been pruned.
+
+### Lifecycle history
+
+- 2026-10-27T14:41:37.000Z · **`checkpoint`**
+  > \[\*\*\`docs/features\.md\` now explicitly compares base OpenCode v2 with this repo’s additions\.\*\*\]\(docs/features\.md\#what\-this\-repository\-adds\-beyond\-base\-opencode\-v2\) Native capabilities are credited upstream; custom desktop tools, curated skills, wrappers, presets and helpers are \.\.\.
+- 2026-10-27T14:43:52.000Z · **`checkpoint`**
+  > Understood\. I’ll handle all goal planning, task sequencing, plan updates and lifecycle decisions myself\. Subagents can implement or verify bounded work, but won’t create or revise goal plans or choose the next goal task\.
+- 2026-10-27T14:44:24.000Z · **`updated`**
+  > Goal plan updated \(revision 28\): Record independent terminal follow\-up and user's new durable coordinator\-only goal\-planning requirement before source edits; retain outstanding client acceptance\.
+- 2026-10-27T14:44:54.000Z · **`checkpoint`**
+  > I’ll persist this in the repository rules and shared planning guidance, with a regression test: goal planning stays with the parent; subagents remain limited to bounded implementation and verification\.
+- 2026-10-27T14:46:36.000Z · **`updated`**
+  > Goal plan updated \(revision 29\): Persist verified durable coordinator\-only planning implementation while preserving the unfinished overall remediation and all original criteria\.
+- 2026-10-27T14:46:45.000Z · **`checkpoint`**
+  > Made durable in \[AGENTS\.md\]\(AGENTS\.md\#goal\-progress\-and\-backlog\) and shared planning/autonomy guidance\. \*\*The parent alone owns goal plans, sequencing, next\-task selection and lifecycle/completion decisions\.\*\* Subagents may only implement or verify bounded work\. Regression cov\.\.\.
+- 2026-10-27T14:46:45.000Z · **`autoContinue`**
+  > Auto\-continue 2 reserved\.
+- 2026-10-27T14:47:14.000Z · **`checkpoint`**
+  > I’m continuing the combined verification and documentation integration\. Goal planning stays with me; deferred screenshots, restricted PR \#2, and unverified live desktop/demo outcomes remain open\.
+- 2026-10-27T14:49:03.000Z · **`updated`**
+  > Goal plan updated \(revision 30\): Record the explicit new memory\-guidance scope and concrete implementation/check sequence within the active instruction\-remediation task before edits; preserve all immutable criteria and existing worker boundaries\.
+- 2026-10-27T14:49:04.000Z · **`checkpoint`**
+  > I found stale \*\*Basic \[redacted\] references, though none literally named “Simple Memory\.” I’ll remove those requirements from active guidance and keep memories in the repository being worked on\. For token efficiency, I propose: \- A short \`MEMORY\.md\` index with links to topic not\.\.\.
+- 2026-10-27T14:50:38.000Z · **`checkpoint`**
+  > I’ll add a repo\-local memory tool with bounded search/read and previewed remember/forget operations\. It will use Markdown in the active repository—no external memory service or global store\.
+- 2026-10-27T14:51:05.000Z · **`checkpoint`**
+  > Yes—two explicit scopes make sense: \- \*\*Repo \(default\):\*\* project facts and decisions in that repository\. \- \*\*Global:\*\* cross\-project preferences in a dedicated memory folder under OpenCode’s data location, separate from config and skills\. The tool will search compact indexes \.\.\.
+- 2026-10-27T14:52:51.000Z · **`checkpoint`**
+  > I’ll make retrieval metadata\-aware: tags, note type, timestamps and source links, with bounded ranked snippets and citations\. I’ll start with weighted local text search—no embedding service or vector database—so it stays fast, auditable and inexpensive\.
+- 2026-10-27T14:53:10.000Z · **`updated`**
+  > Goal plan updated \(revision 31\): Accept independently checked memory\-doc result before dispatch; persist explicit new memory\-tool/global/RAG design and disjoint ownership\. Decisions list reached schema32\-item limit: use task evidence/coordination record for further bounded progress instead of raw state or discarding history\.
+- 2026-10-27T14:55:59.000Z · **`updated`**
+  > Goal plan updated \(revision 32\): Record independent terminal follow\-up before launching user\-requested architect inspection; retain source\-only limits and add exact two\-plugin/layout constraints without replacing overall goal\.
+- 2026-10-27T14:56:31.000Z · **`checkpoint`**
+  > I’ll have the architect inspect \`jtmb/opencode\-rig\` on GitHub and identify just those two plugins\. The integration will be additive: \*\*CPU/RAM at the bottom, fallback status in the sidebar, with the default sidebar preserved\*\*\. Unrelated rig plugins and settings won’t be impor\.\.\.
+- 2026-10-27T14:58:11.000Z · **`checkpoint`**
+  > I’ll inspect the custom ChatGPT MCP and its accompanying skills as a separate optional integration, without importing the rest of rig\. Onboarding will leave it off unless explicitly selected, and installation checks won’t send messages or generate images\.
+- 2026-10-27T14:59:19.000Z · **`updated`**
+  > Goal plan updated \(revision 33\): Persist exact optional ChatGPT/related\-skills and user\-visible onboarding\-doc additions before dispatch; maintain parent\-only goal planning and original unresolved criteria\.
+- 2026-10-27T14:59:20.000Z · **`checkpoint`**
+  > I’ll add \`onboarding\.md\` with the full LLM\-led setup flow: questions, suggested defaults, optional integrations, credential handoff, preview/apply steps, verification and rollback\. It will distinguish \*\*interactive setup\*\* from \*\*Build auto\*\*, where the assistant uses safe def\.\.\.
+- 2026-10-27T15:00:24.000Z · **`cancelled`**
+  > Goal cancelled\.
+
+### Checkpoints
+
+- 2026-10-27T14:47:14.000Z
+  > I’m continuing the combined verification and documentation integration\. Goal planning stays with me; deferred screenshots, restricted PR \#2, and unverified live desktop/demo outcomes remain open\.
+- 2026-10-27T14:49:04.000Z
+  > I found stale \*\*Basic \[redacted\] references, though none literally named “Simple Memory\.” I’ll remove those requirements from active guidance and keep memories in the repository being worked on\. For token efficiency, I propose: \- A short \`MEMORY\.md\` index with links to topic not\.… \[truncated\]
+- 2026-10-27T14:50:38.000Z
+  > I’ll add a repo\-local memory tool with bounded search/read and previewed remember/forget operations\. It will use Markdown in the active repository—no external memory service or global store\.
+- 2026-10-27T14:51:05.000Z
+  > Yes—two explicit scopes make sense: \- \*\*Repo \(default\):\*\* project facts and decisions in that repository\. \- \*\*Global:\*\* cross\-project preferences in a dedicated memory folder under OpenCode’s data location, separate from config and skills\. The tool will search compact indexes \.\.\.
+- 2026-10-27T14:52:51.000Z
+  > I’ll make retrieval metadata\-aware: tags, note type, timestamps and source links, with bounded ranked snippets and citations\. I’ll start with weighted local text search—no embedding service or vector database—so it stays fast, auditable and inexpensive\.
+- 2026-10-27T14:56:31.000Z
+  > I’ll have the architect inspect \`jtmb/opencode\-rig\` on GitHub and identify just those two plugins\. The integration will be additive: \*\*CPU/RAM at the bottom, fallback status in the sidebar, with the default sidebar preserved\*\*\. Unrelated rig plugins and settings won’t be impor\.\.\.
+- 2026-10-27T14:58:11.000Z
+  > I’ll inspect the custom ChatGPT MCP and its accompanying skills as a separate optional integration, without importing the rest of rig\. Onboarding will leave it off unless explicitly selected, and installation checks won’t send messages or generate images\.
+- 2026-10-27T14:59:20.000Z
+  > I’ll add \`onboarding\.md\` with the full LLM\-led setup flow: questions, suggested defaults, optional integrations, credential handoff, preview/apply steps, verification and rollback\. It will distinguish \*\*interactive setup\*\* from \*\*Build auto\*\*, where the assistant uses safe def\.\.\.
+
+### Plan revision history
+
+- Revision 2 · 2026-10-27T13:36:37.000Z
+  > User explicitly asked to prioritize a clickable Plan\-mode plan and this goal's repo\-local files as the first fix\. Add a first phase for verified repo export, selective inclusion and durable Plan\-mode chat behavior while preserving immutable 10\+5 criteria and all previously completed work\. Session was explicitly moved to the repository; no implementation performed\.
+  - Revisit evidence:
+    > User's new explicit instruction adds delivery/export/Plan\-mode communication scope, and session\_move returned the same session ID with directory /home/james/repos/computer\-use\. The previous goal plan omitted this goal's own repo package and a clickable plan link; /home/james/\.opencode/plan/computer\-use\-goal\-53eacb15\-plan\.md now exists\.
+- Revision 3 · 2026-10-27T13:42:32.000Z
+  > Record verified first\-fix export/preflight and source instruction progress; keep fresh behavioral/link acceptance and separate commit gate unresolved\.
+- Revision 4 · 2026-10-27T13:45:08.000Z
+  > Finish first\-fix source/export/inclusion evidence and accurately retain unobserved fresh Plan\-mode behavior plus separate release approvals as blockers; do not close the consolidated goal\.
+- Revision 5 · 2026-10-27T13:47:36.000Z
+  > Persist verified read\-only checkpoints without falsely advancing past the goal tool's current\-phase verification gate\.
+- Revision 6 · 2026-10-27T13:51:48.000Z
+  > Separate verified first\-fix source/export delivery from its still\-blocked fresh\-client and optional release acceptance\. Move those two existing tasks unchanged to final audit, not remove or mark them passed\. This permits separately authorized independent work while preserving the complete objective and criteria\. Record current baseline and explicit source\-only GitHub read\-rule approval before implementation\.
+  - Revisit evidence:
+    > First fix has actual exported revision5, preserved source/index, 143 passing tests and health\. Fresh Plan\-mode/model/client acceptance cannot be claimed while delegation is off, and no commit was approved\. Goal tool refused starting the next independent phase with these unrelated acceptance gates in the first phase\. User has now explicitly approved source\-only exact read\-only GitHub exceptions via question tool; runtime rollout remains unapproved\. Typed desktop inventory freshly returned unlocked/unblocked live state and exact IDs without GUI mutation\.
+- Revision 7 · 2026-10-27T13:55:14.000Z
+  > Record separately approved source\-only permission and continuation fixes, distinguish source\-policy simulation from actual runtime acceptance, and preserve rollout as a real approval blocker\.
+- Revision 8 · 2026-10-27T13:59:24.000Z
+  > Separate completed source\-only permission work from blocked runtime acceptance; keep that unchanged task in final audit\. Sequence independent PR3/export/bridge/recorder review before external gates, preserving every requirement\. Reopen metadata\-only PR inventory for its missing full file/review/check coverage\.
+  - Revisit evidence:
+    > Source\-only approval,149 tests and unchanged live policy prove source completion but not runtime acceptance\. Sequential phase gate blocks independent work on absent rollout approval\. Full pr\_inventory description exceeds the available metadata\-only evidence\. Recorder failure remains independently actionable without unsafe capture or quarantined\-media reuse\. Preserve exact verified\-phase objectives while changing only outstanding sequencing\.
+- Revision 9 · 2026-10-27T14:02:55.000Z
+  > User explicitly requests immediate remediation of skill\-driven routine interruptions under autonomous/project\-auto work, including Git; reopen the narrowly related instruction task and prioritize it over independent review\.
+  - Revisit evidence:
+    > User observed confirmation gates being loaded from a skill and corrected the desired behavior\. Current skill grep finds blanket/repeated asks in GitHub operations and orchestration/deployment prose not addressed by the prior source tests\. New explicit no\-questions requirement demands scoped cross\-skill instruction remediation and tests; no previously completed implementation is discarded\.
+- Revision 10 · 2026-10-27T14:09:54.000Z
+  > Persist explicit latest user requirements before further source/documentation implementation; no reduction of existing scope or criteria\.
+- Revision 11 · 2026-10-27T14:12:33.000Z
+  > User explicitly requires proper goal\-mode use and a visible task backlog\. Add the new features inventory, globally reusable documentation guidance and goal\-progress usage as concrete pending tasks after the active autonomy remediation, rather than decisions alone\. Preserve every original criterion, completed ID/description and blocked acceptance requirement\.
+  - Revisit evidence:
+    > Current summary exposes currentTask instruction\_cleanup but nextTask null because that phase has no other pending task, even though later phases have work\. User added docs/features\.md, generic globally deployed skills and proper nextTask/backlog use\. Those explicit additions require concrete tasks and sequencing; no upstream goal\-plugin/storage change is authorized\.
+- Revision 12 · 2026-10-27T14:16:41.000Z
+  > Persist explicit delegation/model authorization and complete disjoint task batch before launching; retain parent ownership and autonomous no\-question behavior\.
+- Revision 13 · 2026-10-27T14:20:01.000Z
+  > Persist actual ten\-child dispatch and pending\-acceptance assignments using the goal tool's supported single\-current\-task schema, without pretending parallel statuses were accepted or children are complete\.
+- Revision 14 · 2026-10-27T14:23:32.000Z
+  > Record immediate independent parent follow\-up for the completed bridge audit and evidence\-backed passive/parity task completion before further mutation or dispatch\.
+- Revision 15 · 2026-10-27T14:24:15.000Z
+  > Record immediate independent follow\-up for completed PR audit without claiming concurrent final integration or restricted PR2 acceptance\.
+- Revision 16 · 2026-10-27T14:24:36.000Z
+  > Record immediate independent parent acceptance of new identity fixtures and retain their explicit live\-acceptance limits\.
+- Revision 17 · 2026-10-27T14:25:21.000Z
+  > Record independent acceptance of the bounded autonomy review before any further mutation, while preserving source residuals for their assigned owners and keeping the actual remediation incomplete\.
+- Revision 18 · 2026-10-27T14:26:05.000Z
+  > Record immediate independent changes\-required follow\-up before resuming the same goal\-workflow child on concrete portability/concurrency wording defects\.
+- Revision 19 · 2026-10-27T14:28:13.000Z
+  > Record independent feature\-inventory follow\-up and actual task completion; continue toward the remaining concrete backlog without closing the goal\.
+- Revision 20 · 2026-10-27T14:29:57.000Z
+  > Dispatch independent evidence\-map and newly authorized bounded fresh Plan\-mode test work using free capacity while other children continue; preserve actual GUI/release/privacy blockers\.
+- Revision 21 · 2026-10-27T14:33:37.000Z
+  > Record already completed independent correction verification; retain new user comparison and panel requirements without overwriting original criteria\.
+- Revision 22 · 2026-10-27T14:34:21.000Z
+  > Record independent parent follow\-ups for both terminal results before new dispatch/integration; preserve outstanding live gates and broader scope\.
+- Revision 23 · 2026-10-27T14:34:33.000Z
+  > Reopen verified inventory narrowly for explicit new comparison scope and record disjoint architect inspection before launch\.
+  - Revisit evidence:
+    > User explicitly states features\.md must clearly explain additions absent from base opencodev2; accepted initial inventory lacks a direct base\-versus\-additions section and new portability test entry\. User requests architect panel row visibility inspection/design\.
+- Revision 24 · 2026-10-27T14:37:55.000Z
+  > Persist actual dispatch identities, documentation integration and honest current verification/preservation checkpoint without premature combined acceptance\.
+- Revision 25 · 2026-10-27T14:39:36.000Z
+  > Record independently verified architect follow\-up before documenting design outcome; distinguish completed inspection from unimplemented native UI\.
+- Revision 26 · 2026-10-27T14:40:38.000Z
+  > Record independent parent acceptance of the bounded evidence map while retaining current\-snapshot and unfinished final audit limitations\.
+- Revision 27 · 2026-10-27T14:41:25.000Z
+  > Complete the explicit user\-requested base\-v2 attribution extension after independent file, test and official\-source verification\.
+- Revision 28 · 2026-10-27T14:44:24.000Z
+  > Record independent terminal follow\-up and user's new durable coordinator\-only goal\-planning requirement before source edits; retain outstanding client acceptance\.
+- Revision 29 · 2026-10-27T14:46:36.000Z
+  > Persist verified durable coordinator\-only planning implementation while preserving the unfinished overall remediation and all original criteria\.
+- Revision 30 · 2026-10-27T14:49:03.000Z
+  > Record the explicit new memory\-guidance scope and concrete implementation/check sequence within the active instruction\-remediation task before edits; preserve all immutable criteria and existing worker boundaries\.
+- Revision 31 · 2026-10-27T14:53:10.000Z
+  > Accept independently checked memory\-doc result before dispatch; persist explicit new memory\-tool/global/RAG design and disjoint ownership\. Decisions list reached schema32\-item limit: use task evidence/coordination record for further bounded progress instead of raw state or discarding history\.
+  - Revisit evidence:
+    > User explicitly adds a memory tool, global cross\-repo memories in OpenCode location, and efficient RAG retrieval/metatags beyond previously accepted inventory scope\.
+- Revision 32 · 2026-10-27T14:55:59.000Z
+  > Record independent terminal follow\-up before launching user\-requested architect inspection; retain source\-only limits and add exact two\-plugin/layout constraints without replacing overall goal\.
+- Revision 33 · 2026-10-27T14:59:19.000Z
+  > Persist exact optional ChatGPT/related\-skills and user\-visible onboarding\-doc additions before dispatch; maintain parent\-only goal planning and original unresolved criteria\.
+
+## Continuation constraints
+
+- This handoff is a bounded export of goal state, not a transcript. Do not infer unrecorded work or claim history is complete.
+- Preserve the source session and goal record. This companion does not create, migrate, rebind, or close goals.
+- Use the current plan revision and its completion criteria; do not silently remove or reopen verified work.
+- No screenshots, credentials, raw session messages, or data from another repository are included.
+

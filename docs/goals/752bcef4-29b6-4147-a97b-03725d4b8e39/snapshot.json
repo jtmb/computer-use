@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e7d3c547dffeCv5RIH5zPCmbN0",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T18:39:50.113Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "752bcef4-29b6-4147-a97b-03725d4b8e39",
+    "sessionID": "ses_e7d3c547dffeCv5RIH5zPCmbN0",
+    "objective": "Implement the approved consolidated delivery plan in docs/codex-parity/consolidated-delivery-plan.md in /home/james/repos/computer-use, retaining all 68 requirements and F01-F07 in docs/request-coverage.md and previously verified source work. Own technical decisions and integration in this chat without routine handbacks: implement supported preview-first reversible archive recovery, an isolated runtime-exposure-verified Code Mode/direct-tools model benchmark, strict coordination readiness/native integration work, and runnable layered acceptance procedures; then reconcile inherited PR/window/legacy-capture/memory/import/panel/handoff/demo outcomes against their original evidence layers. Preserve unrelated dirty/staged/untracked work, the original staged rename and all historical goals; never resume, replace or relabel closed goals. Use explicitly authorized disjoint subagents with parent-only planning and independent verification. Technical unknowns become engineering tasks, not automatic whole-goal stops. Actual deployment/activation/shared restart/logout/security/permission changes, human private entry, held capture/main-demo replacement, commit, push, merge and publication retain their separate exact authority; do not fabricate live outcomes, provenance or model measurements.",
+    "status": "cancelled",
+    "plan": {
+      "summary": "Execute the approved full-scope plan in order: resolve permitted PR4 access first; review/consolidate PR4 and finish goal-task titles plus /checkout; then resume bounded disjoint source delegation; verify isolated runtime/model/visible outcomes; finish inherited PR2/PR3, archive, memory/import/panel/handoff/private-entry/demo outcomes; perform final coverage and preservation audit. Retain all68requirements/F01-F07, accepted source work, existing ownership and exact consequential gates. Updating this plan does not resume the paused goal.",
+      "completionCriteria": [
+        "All68requirements O01-O28/C01-C11/T01-T05/P01-P10/S01-S06/N01-N08 and F01-F07 remain mapped exactly once in the consolidated ownership crosswalk and retain their original required evidence layers, prior decisions and unfinished outcomes.",
+        "A supported preview-first archive recovery operation preserves unknown-provenance originals, binds exact hashes/identity/one permitted transformation, refuses concurrency/unsafe paths/changed content, and has isolated real-file preservation/interruption/rollback tests; ordinary guarded export is not weakened.",
+        "A genuinely isolated supported OpenCode runtime benchmark executes matched Code Mode/direct-tools model tasks with verified effective exposure, equal model/effort/task/fixture conditions, observed scoped tokens/turns/toolcalls/monotonic latency and comparable failure/recovery, without reconfiguring the user's running profile or laundering function-entry measurements.",
+        "Coordination passes authentic strict dependency checking and source readiness; native registration/UI/unread/ACK/ownership/recipient policy/restart and participant outcomes are verified only in appropriately scoped runtime tests, with missing native hooks addressed as source integration work rather than imitated acceptance.",
+        "Runnable safe acceptance procedures and meaningful positive/adversarial tests cover desktop/browser/window/input/release/rollback, explicit handoff/passive/OFF behavior, scoped memory routing, and legacy screenshot boundaries; actual human/user-seat outcomes are separately observed, never substituted with synthetic tests.",
+        "Inherited pinned PR review, memory/retirement/import/connector/native-panel outcomes and genuine simultaneous demo/media acceptance remain part of delivery, with no unread integration, held-backend invocation or unapproved main-asset replacement.",
+        "Parent independently verifies child diffs/tests and final source/runtime/model/visible evidence; feature inventory, quality audit and coverage stay truthful. Existing dirty/staged/untracked work, original media, staged rename and all closed goal history are preserved.",
+        "No deployment/activation/shared restart/logout/security/permission change, human private entry, held capture/main-demo replacement, commit/push/merge/publication or unrelated session mutation occurs without its applicable exact authority. No goal is declared complete while required evidence is missing."
+      ],
+      "phases": [
+        {
+          "id": "baseline",
+          "objective": "Reconcile exact worktree and complete worker coverage, preserve file/index baseline and retain all75identifiers before source edits.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "baseline-identity-ownership",
+              "description": "Verify current exact repository/worktree/HEAD, source-scope native session metadata coverage and live worker/tool ownership, without raw goal-store reads or old-goal changes.",
+              "status": "completed",
+              "evidence": "Exactroot/home/james/repos/computer-use;HEADc71b8cc57004a65ed4198cf0e5ae8f256e56f532;62exact-worktree sessions across3pages endingempty plusactive-map andnestedinstructionchecks verified beforedispatch."
+            },
+            {
+              "id": "baseline-bytes-coverage",
+              "description": "Capture file hashes/modes/index entries/staged patch and validate complete68+7source-qualified coverage and lane crosswalk; carry forward accepted implementations.",
+              "status": "completed",
+              "evidence": "Initial637pathSHA/mode/symlink/missingbaseline andindex/stagedpatch capturedunder/tmp/opencode/consolidated-752bcef4;75uniqueIDsverified. OriginalindexSHA330084167186bc557a9311ce9d891e55f80127747ac0c077324e79cd2d61b15b andstagedrenamepreserved. Later scratchloss remainsfinalverificationgap,notretroactiveclaimthatinitialcapturefailed."
+            }
+          ],
+          "verification": "Initialexactdirectory/worker/instruction/637path/index/75IDchecks verifiedbeforewrites. Unrelatedpreexistingdirtyworkpreserved;latermissingtempscratchrecordedseparately."
+        },
+        {
+          "id": "pr-access",
+          "objective": "Phase1: resolve PR4 access through supported permitted mechanisms before integration; obtain complete pinned code and discussion without bypassing lockdown.",
+          "status": "blocked",
+          "tasks": [
+            {
+              "id": "resolve-pr4-access",
+              "description": "Parent diagnoses the configured GitHub launcher and server lockdown refusal using supported read-only evidence; establish permitted access to PR4 description, complete files/diff, commits, issue comments, reviews, review threads and checks with complete pagination and one verified head/base pin. Re-pin changed heads. If remediation requires a security/account/policy change, prepare the exact operation for separate authority rather than bypassing denial or integrating unread content.",
+              "status": "blocked",
+              "evidence": "Fresh bounded supported refresh after repeated external server/catalog restarts: exposed GitHub MCP get_me then exactjtmb/computer-usePR4pull_request_read(get) stillreturns 'access to pull request is restricted by lockdown mode'. No alternateclient/credential/policybypassorunreadintegration;fullpinnedcode/discussioncompleteness blocker remains.",
+              "blocker": "Full pinned PR description/code and unfiltered discussion require separately authorized policy remediation or an exact complete user-supplied export. Do not grant author push access merely to read."
+            }
+          ],
+          "blocker": "Supported diagnosis completed, but permitted full-content access needs external input or separate policy authority. No phase completion or next-phase execution claimed."
+        },
+        {
+          "id": "todos",
+          "objective": "Phase2: parent completes reviewed PR4 consolidation, automatic goal-task titles and safe /checkout before new implementation delegation. PR access remains explicit if externally gated; no false TODO completion.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "todo-new-pr",
+              "description": "Read the new PR agent description, comments, reviews and complete pinned diff; consolidate only reviewed compatible changes into the combined local tree, preserve current functionality and dirty/staged work, and verify affected regressions without merge/commit/push.",
+              "status": "blocked",
+              "evidence": "NativeopenPRlistidentifiesjtmb/computer-usePR4Kubernetes/Rancherskill,head7ac2817c8f91cd2b67a9f1511bffda4be3966d82,baseb47765e4a9f5c124c4716deb52962e17d7fb4a2a. Nativecomments[]/reviewthreads0complete;oneGitGuardianchecksuccess. Userexplicitpreserve-functionalityconstraintretained. Depends on resolve-pr4-access; reverify head and complete content before consolidation.",
+              "blocker": "PermittedGitHubpull_request_read(get/get_files)forPR4returnslockdownrestriction. Descriptionandchangedfilesunread;noalternatecredentials/client/fetchbypassorunreadintegration. Needpermittedpinnedcontentaccessorexactsuppliedcontent."
+            },
+            {
+              "id": "todo-task-titles",
+              "description": "Fix root-session titles so meaningful active goal-task transitions obtain concise model-authored task labels with the exact full session-ID suffix, without raw-description truncation, child/reviewer renaming, goal mutation or stale overwrites; test transitions and preserve current functionality.",
+              "status": "pending",
+              "evidence": "Current actual goal-tool-titles.ts/.test.ts independently reread: native ToolHooks execute.after completed/result consumes pinned goalplugin {goal} receipt fromcontent/output, rejectsreused/conflicting/error/successfalse/malformed/missing/oversize receipts before refresh. Synthetic 'updated' gap describedearlierwasfixedinpriorparentwork; current actual regressionexplicitlycoversno-ops plusnativeJSON/structured receipts. Tasktitlecontroller reread:latestscopedactive task/modelsemanticplainlabel/fullID,stale/manual/child/reviewer/plan/archivedexclusions,persistedattempt,serialper-sessionrefresh; no goal mutation. Latesthealthpasses goal-docs companion suite and computer-use suites. Source readiness not deployed/loaded/model/visibletitleacceptance; task remains pending. No nativeCAS supported; bounded before/afterchecks notatomicwithrename."
+            },
+            {
+              "id": "todo-checkout",
+              "description": "Add canonical /checkout command for a safe new checkout using verified supported worktree APIs, without altering existing work, switching existing branches, moving unrelated sessions or inferring publication/deployment; test the actual command contract and document discovery limits.",
+              "status": "pending",
+              "evidence": "Lane15terminalreleased3paths; parent read helper/test actualsource and independently16helper+4commandcontractcasespass. Added realneverendingstdin regression:production30sdeadline exit2/noresult/noGit before35swatchdog;combined21/21pass. In-memory stdoutguard removal makes specificoverflow regression fail, productionhelperSHA03b1ef4c0e0fd4346623ebe34837ad29c9149bed3d94f021207e8f82322408c9unchanged. Git30s/8MiBstdout/64KiBstderr/groupcleanup,JSON1MiB/nonblockingnofollow/identitychecks sourceaccepted. Suppliedruntimeaudit still callerassertions not independentproof. Nativecheckoutdiscovery/modelcreation remains pending; no nativeworktreecreation/deploy."
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "objective": "Phase3: after TODO acceptance, reconcile existing native-row ownership and resume bounded disjoint source delegation. Parent independently accepts every unit and retains shared interfaces/docs; completed source units are not rebuilt.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "archive-recovery",
+              "description": "Implement guarded preview-first supported archive recovery with canonical snapshot reconstruction, exact CAS preconditions, preservation journal and tested rollback; never apply to real docs/goals during source work.",
+              "status": "completed",
+              "evidence": "Parentaccepted4newAPI/CLI/test/guidepaths;19recovery/full142companion/strictTS5.9.3two-rootlibrarycheckpass. RealIOboundaryredgreenFIFO,manifestcopy,cancel,journal/body/identity,processlock/postpublicationrollback. Readonlyrealprevieworiginalee9de7a6/canonical96ef0de6;noapply/provenanceclaim;ordinarywriter/exporter/indexunchanged."
+            },
+            {
+              "id": "isolated-benchmark",
+              "description": "Verify actual supported isolation APIs, implement paired model benchmark runner using disposable scoped runtime/profile/config and production browser registrations, effective exposure attestation, observed usage/timing/recovery and reproducible results.",
+              "status": "pending",
+              "evidence": "Parent actual benchmark saveReceipt concurrency bug repaired: original truncate/write/sync loop extracted unchanged into production receipt.ts;2deterministic regressionsFAILED (second truncate while older realfile write suspended2vs1;publication resumed aftersyncfailure4vs2). New writer captures bounded calltimeJSON,serializes sameFD writes,handlespartialwrites/validatesprogress andpoisons queueafterIOfailure.4focused casesPASS inclactualscratch/UTF8cap/badcounts. Production staging test copies/imports/executes exact helper. Real npm benchmark:verify PASS unchangedstrict/noEmit/librarygraph+5pins/275publicSHA512entries+39/39cases,noskips. HelperSHA39c224109c59e921abd5e4a8e1d30bc5317b02c1eff89f71de4e8239a7f158c7;index.ts wiresactualhelper. Docs model-benchmark/features/quality/main-consolidation updated;7inventory/linkcases PASS;health PASS/31sourceskills. No model/provider/browser requests/nativeactivation or measurements. Inplacewrites NOTcrashatomic;partialreceiptmustfailacceptance. Allpaired effectiveexposure/equalmodel/task/effort/usage/recovery outcomes remainrequired andeligibleancestry/browser/provider readiness unverified. Native metadata child ownership untouched;no polling/duplicates."
+            },
+            {
+              "id": "coordination-readiness",
+              "description": "Fix authentic pinned strict declaration/compiler resolution without shims/library bypass or node_modules edits; add source activation/rollback preflight and realistic native-participant harness readiness.",
+              "status": "completed",
+              "evidence": "Parentreproducedforgeddeclarationreceipt,growth,FIFO;authentic7.0.15SRI/indexpin+boundedreaderfixed.83packagecasesandactualstrictTS5.9.3/noEmit/skipLibCheckfalse19-rootpass. Readonlyready-source/preview-ready,configSHA9fcd0b08unchanged,stateabsent;nonativeparticipant/configapply/UIclaim."
+            },
+            {
+              "id": "acceptance-tooling",
+              "description": "Implement safe machine-readable acceptance preflight/procedures for exact disposable targets, source/deployed/loaded boundaries, cleanup/rollback, passive/explicit handoff and memory scenarios without live seat input or held screenshot invocation.",
+              "status": "completed",
+              "evidence": "Parent14preflightpassafterredgreenFIFO. Sol4newrestorefilesreviewed/24initialpass;2parentredgreenstaging/forwardlockfixesyield26restore+original6forwardpassincludingactualprocesscontentionbothwriters. OriginaltestSHA51fc14d0+0664modesretained;5PythonASTpass. Runbook/guide/features/auditintegrated;norealrestore/activation/GUI."
+            },
+            {
+              "id": "native-row-source",
+              "description": "Prepare a bounded patch and meaningful native-row tests against anomalyco/opencode v2.1.1 commit ba546ec1598a70db2570e9c6258028d955ba8f58 for Task/Model/Effort/Status, explicitly separating requested/session-selected/observed-effective metadata and terminal outcomes; no custom imitation, deployment or fork shipping.",
+              "status": "completed",
+              "evidence": "Bounded SOURCE-PREPARATION outcome achieved,notloadedO28/native-panel:exactpinba546ec1/four-filepatchSHA2825d876035054ee46f71f7d9c6815918bad32569242832e31174325633f86fe+workeroriginalbed8bbd1...freshhashverified. Retainparent35nativecases/350reruns1430assertions/packageTypecheck+canonical6previews accepted;runningoverridesoldoutcome,terminalrequiresidle,44/120columnactualrendererfixture/navigation/selection/wrapcoverage. Sourceexplicitlylabelsrequested/selected/variant andUNKNOWN execution-effective model/effort,nevervariant-as-effort. Nativecomponentpatch/tests/guidecompleteforboundedsource task;actualprovider-effective data/loadedUI remainUNACHIEVEDundercoordination-native/memory-imports-panel/O28requiredlive. No patchinstallation/upstreamedit/release."
+            },
+            {
+              "id": "legacy-capture-contract",
+              "description": "Prepare and verify held screenshot ownership/PNG/growth/cancel/retention source regressions separately from bridge acceptance; do not lift a hold or invoke/delete user captures implicitly.",
+              "status": "completed",
+              "evidence": "Bounded held-backend SOURCE-PREPARATION achieved. Parentrereadall312lineslegacy-capture-source.test.mjs andfresh29/29 actuallegacy+logicPASS2.48s/no skips;injectedtriggerswriteONLYtaskownedscratch. CoversrealcompletePNG/corruptIDATCRC/truncatedIEND,claimedvsunclaimed/preexisting/concurrentfiles,identityreplacement,boundedcap+1read,growthcleanuprefusal,pre-abortNOlist/trigger,midcancel,failedcleanupretention/noattachedbytes,symlinks. Parentpriorpreabortred/greenretained. Defaultheldtriggercannotclaimanoutput(sourceassertionONLY);no actualydotool/seat/capture/userfiledeletion. Cleanupis samplednotatomicadversarialguarantee;liveO01/O03-O06andholdremainopen. Thiscompletesexactprepare/regressiontask,notthelegacyuser-visibleoutcome."
+            },
+            {
+              "id": "memory-import-source-readiness",
+              "description": "After TODOs, inspect outstanding memory/retirement/import/fallback/resource-monitor/optional-connector source gaps against retained accepted work; implement only bounded missing compatibility/fixture checks in disjoint assigned paths. Preserve default-off/additive behavior, license/runtime limits and no-scheduler boundary. This prepares but does not complete memory-imports-panel or live memory acceptance.",
+              "status": "completed",
+              "evidence": "Bounded SOURCE-READINESS preparation complete;notmemory-imports-panel/native/model/globalacceptance. Parentaccepted3disjointLunareturnsafteractualreads+red/green:25transaction/22configCLI/6JSONC/16retirement/17setup+8credentialfixtures,late-target/backup/lock controlsfixed. Reversiblepreview/CASapply+reversebackup/receipt,projectverifyonly/noopidentity/sourcepathsbound. Canonicalcoord109/fullstrict,connector120+2/full603strict,27fallback/27monitor andnative6previewaccepted;authenticabsentdependenciesprovisionedwithoutoverwritingexistingtrees. Reviewed22fingerprints sourceauditstillmatches;defaultoff/additiveslots/license/no-scheduler/realapplygatesdocumented. Repo/globalmodelrouting/realretirement/provider/nativepanel outcomes remainunderhandoff-memory-live/memory-imports-panel andoriginalNeeds layers. Allsourceworkersreleased;no realapply/accounts/activation/configmutation."
+            },
+            {
+              "id": "parent-integration",
+              "description": "Independently inspect actual source/diffs, reproduce tests and relevant regressions, validate interfaces and update inventory/audit without repeating completed source work.",
+              "status": "pending",
+              "evidence": "All9peerfindings#1/#2/#3/#4/#5/#6/#7/#9/#10 nowSOURCEfixed/parentaccepted,notliveacceptance. Parent#1threeauthenticred->16focusedPASS:boolflagcodec/schema/Node/local/actualworkerdispatch. CredentialLunases_e77d3ec0fffejgiOTYu7PWOyWQ terminal7paths;parentactualreads/29focusedgreen+inmemoryoldscopedcaptureguardmakesactualforeigncaptureregressionFAIL. Protectionpremutation,UNCERTAINpostfill,notimedexpiry,confirmedclosescopedclear. Parentlauncher3fixes5authenticred->6new+8originalhygiene14PASS;displayenv/validatedGH_CONFIG_DIR/atomicprivatearming failure preservespriorentryandpreventsFAKElogout;checkmodewritesnothing. ConnectorLunases_e77cddd49ffeYSCn0ohDDK22Kn terminal2paths;parentactualreads/server21/full121PASS,explicitfullstrict/librarygraphPASS. Inmemoryoldexecution-timeepochcapturemakesactualqueued-deletiontestFAIL;image/direct/backendworkpreserved. Combinedbrowserrealnpmcheck51+39/bothcompilerstages/275pinsPASS. Fullplugininitial147/149 exposedoldrefusaltext+UNSAFEexpiryexpectation;parentupdatedthose2testswithoutdroppingrecoverycoverage,final149/149PASS. Docsowningfeatures/quality/consolidation/bothpackageREADMEsupdated;7inventory/linkPASS;healthPASS31skills. BothchildrenRELEASED/accepted,nocurrentworkerwriteownership. PeerCodexredaction/voiceuntouched. Verifiedsourceevidencereportadmittedpassivequeue/resumefalsemsg_review_fixes_20261029_integration_verified_e7d3 toexactpeer/thread;notprocessing/ACKclaimed. No realcredentials/provider/browser/seat/audio/logout/deploy/restart/config/permission/Gitmutation. Overallparent-integrationpendingoriginalPR/TODO/native/model/liveremainder;notnarrowedto9fixes."
+            }
+          ]
+        },
+        {
+          "id": "runtime",
+          "objective": "Phase4: verify actual isolated model/runtime/native/visible outcomes after source readiness; delegate only synthetic preparation or scoped observation, keeping exact live/consequential operations parent-owned.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "benchmark-observe",
+              "description": "Run controlled exposure-verified paired model sessions on the synthetic fixture using verified isolated runtime contract; record actual token/turn/latency/recovery and limits.",
+              "status": "pending",
+              "evidence": "Requires isolated-benchmark acceptance, verified safe run location without chmod or weakened ancestry checks, actual provider/browser readiness and loaded exposure attestation. Pair model/effort/task/fixture/limits and alternate order; no credential copying, shared-profile fallback or synthetic measurement claims."
+            },
+            {
+              "id": "coordination-native",
+              "description": "Verify native server/TUI/RPC registration, visible structured/threaded/unread/seenACK/settings and recipient running/idle/no-unapproved-wake behavior on specifically scoped disposable participants.",
+              "status": "blocked",
+              "evidence": "Userreportsserverrestart;freshgoalstillACTIVErev107/8completedsourceunits,canonicalmain70e04774/stagedR10091d6022a/config9fcd0b08exact;NOcompletedchecks rerun. Latest1536MiBactualtrial DIDRUN before restart:50.805582s/peak1536.71875MiB/minAvailable1530.996094MiB,reasonowned-rss-budget/SIGKILL;2826files/all4overlays/config+program0,global/semanticunfinished. Original/tmpnative-host-canonical-aNBGW3andcanonicalbaselineworkspace nowABSENT(causeunknown),but canonical4dependencytrees+Documentsreceiptsintact. Recovered EXACTobservedJSONfromsupportedownSessionMessage completedtoolresult msg_18776680d001wD8hGtPOgh6ebe/call_7154a26cc77e41eeb0706e198aded401;durablecanonical-host-1536-recovered-tool-result.json explicitlyNOToriginalfilesystemreceipt/toolTextSHA969eda77...;noguessedoriginalhash. Knownworker251043andold171560notpresent,NOTall-descendant/cwdquiescenceproof. FullhoststillFAILED/unverified,no rerunplanned. Nativecatalog brieflylostGitHub/Playwrightthenrestored;freshcanonicalMCPbothconnected,oldGitHubconnected/Playwrightfailedmissingpkg. Latestpre-restartPRreadPermission.DeclinedErrorDISTINCTfrompostrestartget_mejtmb/nativePR4getlockdownrefusal;no bypass/permission/accountchange.",
+              "blocker": "Both actual complete-graph canonical host trials (1,280 and 1,536 MiB owned-RSS budgets) hit their guards before global/semantic completion. Earlier 1,536 MiB no-spawn refusals are distinct events, not the latest result. Full-host verification needs a verified lower-memory route or adequate safe capacity without narrowing diagnostics. Loaded native registration/UI/participants additionally require their exact activation/participant scope; fixture passes cannot substitute."
+            },
+            {
+              "id": "desktop-browser-live",
+              "description": "Apply/load corrected source only under exact authority, then verify fresh tool discovery, disposable desktop/window/browser outcomes, release/cancel and real rollback with source/installed/loaded identity evidence.",
+              "status": "pending",
+              "evidence": "Fresh read-only preflight and Python -B deployer preview on exact installed opencode-window-control@computer-use.local target: ownership marker verified SHA beb1d158304687ca2f09e183d86c3fda1c0fb017fd9d85484940ed8e232c2da4; exactly extension.js/input.mjs drift, five files match. Source fingerprint e469929418f6e72d1355af39336b99a4213d8a92e9a755f11a63e873c2650814; target managed fingerprint66e9a741704eea9a43d98770e0b798d391e5c02c7017ffbbfece9b016b4c1a26. No seat query/input/capture/apply/reload; installed bytes not loaded-Shell evidence. Deployment/live gates retained."
+            },
+            {
+              "id": "handoff-memory-live",
+              "description": "Observe passive seed vs one explicit safe continuation, actual settings/OFF/manual/native-compaction limits, and isolated synthetic-note model routing/poisoned/no-match/overhead scenarios.",
+              "status": "pending",
+              "evidence": "Parent independently reproduced2server-side latch gaps: stale settings revision0 remained valid after automatic request; current-revision enable succeeded despite consumed requested latch. Added2regressions; both failed before fix. automation.ts now increments settings revision on new request latch and serialized update rejects enabled&&requested!=null; explicitOFF preserves consumed latch and restart cannot replay. Combined actual automation/settings/readiness/title/direct-goal-hook/TUI-wiring/command batch76tests pass. Native hook/goal-plugin0.1.67 contract inspected; no loaded activation/model/visible outcome. Pure handoff readiness adapter remains source-only. Peer-requested deployments/new policy scope not inferred."
+            },
+            {
+              "id": "private-entry-callback",
+              "description": "Retain human-only sign-in/staging and exact nonsecret callback evidence; never type/read credentials for a person or manufacture readiness.",
+              "status": "pending",
+              "evidence": "Node correction accepted:4real failing exited-helper descendant cases (timeout/abort/overflow4s watchdogs;successfulresultleak) now pass;focused13/13 andfullruntime42/42 tests pass. AuthenticTS5.9.3 strict/noEmit/librarycheck passes via explicit CLI --skipLibCheck false;unchangedtsconfigstilltrue,notmisreportedconfiguredfullstrict. Exactlocalprovision3publicSHA512dependencies leaveslockSHA8a8417998536684140b367cff2db75b5c9d5fffe8e6dbd9e2a4eeb3d1f5b719a unchanged. POSIXhelperownsgroup,groupTERM/KILL/escalation/finalsuccess+errorcleanup;Windowsdirectchildonlylimitexplicit. OwningREADME/status/safety/features/P05/audit/registryupdated. Python27acceptedretainedwithoutunchangedrerun. No actualGTK/human/account/fill/callback or runtimeprofile/config/deploy changes; humanacceptanceopen."
+            }
+          ]
+        },
+        {
+          "id": "inherited",
+          "objective": "Phase5: complete retained pinned PR2/PR3, supported archive/export, memory/import/panel, demo and authority outcomes without narrowing original evidence layers or replacing real acceptance with source checks.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "pr-reconciliation",
+              "description": "Reconcile permitted complete pinned PR2/PR3 content/checks against local combined tree and index, without alternate credentials, lockdown bypass or unread integration.",
+              "status": "pending",
+              "evidence": "Parent independently accepted lane7 permitted PR3 source comparison 2026-10-29: GitHub get_me=jtmb; get/body/diff/files5/commits8/status/checks1/comments/reviews/threads read; pagesize10 then empty page2 files/commits/checks. Opening/closing pins unchanged head11cbb763328f27ae97c03b8e57f832f0fe9fb78b/baseb47765e4a9f5c124c4716deb52962e17d7fb4a2a;open/draft/unmerged. MCPdiff equals existing local pinned diff SHA9a94202b794fac57340e3f4586123ecdc8849bf65f96effe4ea313151935f086;whitespace clean. GitGuardian success;combinedpending0contexts. Empty filtered discussion NOT unfiltered completeness. Current4textfiles retain portable/autonomous29skill improvements;README107lines/branding/prompt retained. All3media byteidentical original;SpliceSHA91ea399b.../PRblob exact,GIF523fed63...,still3c659ab3... . Missingmedia finding historical/resolved earlier; no fresh recording/rendering/replacement. Report/registry updated. PR2/4 complete code/unfiltereddiscussion blocked; no alternateclient/fetch/credential,unreadintegration,remote mutation or release. Prior attempted plan append was rejected by32decision limit; no historical decisions removed."
+            },
+            {
+              "id": "archive-apply-export",
+              "description": "Using accepted archive recovery source, prepare an exact preview and preservation/rollback proposal for the real 483f plan mismatch; apply recovery only with its exact authority, preserve unknown-provenance original bytes, and verify archive integrity separately from any later supported current-source export. Preserve every historical goal's original lifecycle and ownership.",
+              "status": "pending",
+              "evidence": "Prior two-root findings retained. Additional read-only canonical diagnosis: parseSessionGoalState roundtrip exactly equals frozen goal; semantic fingerprint matches; buildGoalDocBundle reproduces snapshot bytes and all three generated hashes exactly. Canonical HANDOFF62089 bytes vs observed62173, both456lines. In-memory header normalization plus bounded LCS: canonical removes lines252-253 lifecycle/355-356 checkpoints; observed adds350-351 lifecycle/369-370 checkpoints, four removed/four added. Authorship/cause unknown; replacing observed file could lose history absent from frozen snapshot. Narrow header-only plan recovery remains unchanged; no archive/manifest/lock/export/goal-history writes."
+            },
+            {
+              "id": "memory-imports-panel",
+              "description": "Verify approved memory/retirement/import/fallback/CPU-RAM/connector/additive UI outcomes; inspect real native panel hooks and prepare necessary native integration source work, not a custom imitation.",
+              "status": "pending",
+              "evidence": "COMPATIBILITY SOURCE acceptance,notunchanged-lock/native/model/live. Priorproducer33/consumer82/base/bridgeunchanged. Upstreamgaxioscallablebackport323b8fe1+authenticNode26 retains6->2->0/return,param,libnegatives. ActualSOURCEconfig218roots1329files/all6groups0 (85.979944s peak896.488MiB) retained. FIRSTtypes4shards35/1334allcomplete revealed3TS2769+3unusedexistingexpectations(outputaa3ccc6f),notresourcefailure. Parentread2wholefixtures/additiveTESTONLYpatch f6bf8d846a77966d212fc4a2f911ee5ed4dbdd7942a785a4892206592a22d37c MOVES3existingdirectivesONLY;checkerassertsallinvalidinputs/non-directivebytesidentical anddirectivetext/countidentical. ACTUALselectedtypescommand PASS163.258s:4completegraph35root1334filepartsALL6groups0;4valid-inputmutationparts yieldEXACT3TS2578,provingexpectedinvalidtestsnotweakened. Peak<=736.480469MiB/minAvailable>=2252.976563 withinSAME768heap/1024RSS/1280floor/90s/prelaunch2304. Everyshardsameroot/textgraphdigest/disjointexactunion ALLfilesincllibs. Originalsource/dep/nativefixtures/index/config unchanged. ParentindependentCURRENTALLFILEgraphreadback EXACTsource080ce799...andtypese8f466a9...,no completedsource rerun. Durableprovider-ai-compatible-configs-acceptance.jsonSHA09754dae7f0a1e3ef2eb864b02a9a7273db3de69a52a504c682f8e6f356e0898 bindsactualseparateconfigreceipts/8typecheckers/negativecontrols/currentgraphs/artifacts/staged/config. TypecommandstdoutSHAfd6fa66b560a68d456084dfb6eadc458501f0c80541464dcc5e9b1d0856cf074. Originaltuple6errors/unshardedOOM/no-spawn/verifierfailures preserved;combinedallcommandNOTrerun orclaimedgreen. No node_modules/shim/filter/rootomission/skipLibCheck/deploy/activation/profile/restart/security/Gitmutation. Allchildrenreleased;nativehost/PR/isolation/provider/model/live/human/archive/demo/cleanup remainpending."
+            },
+            {
+              "id": "demo-media",
+              "description": "Produce genuine same-timeline OpenCode/tool/app task preview and verify motion/decode/privacy/loop/still/README identity; preserve originals and keep main replacement distinct.",
+              "status": "pending",
+              "evidence": "Lane16terminalreleased3paths; parent read all878helper+412testlines, independently12/12pass. Verified descriptorrelative nofollow/nonblocking traversal+identityrechecks,cappedJSON/hash,immutable sealedmemfdvideosnapshot,ffprobe1MiBstdout/64KiBstderr/30sgroupdeadline. In-memory removalof bothpathidentityguards makes actualreplacementregressionfail PreflightErrornotraised;productionunchanged. Tests syntheticGIF/still/fakeMP4metadata+fakeffprobe only,no realmedia/UI/capture/model. Anonymoussnapshotmayconsumeupto1GiB;staticprivacy/geometry declarationsnotproof. Sourceboundsaccepted;genuinesimultaneoustaskpreview/replacementacceptance remains gated."
+            },
+            {
+              "id": "authority-behavior",
+              "description": "Preserve current policy and verify exact approval reuse/no-repeat and absent-authority/native ask/deny behavior, without inventing a replacement policy as a delivery prerequisite.",
+              "status": "pending",
+              "evidence": "Keep exact29read-only source exceptions distinct from any authorized runtime rollout; test policy behavior without remote mutation to probe permissions. Existing authority is reused, absent consequential grants remain operation-specific blockers; no blanket autoaccept or weakened security."
+            }
+          ]
+        },
+        {
+          "id": "final",
+          "objective": "Phase6: parent audits every original requirement and TODO against real evidence, source/index/history preservation and layered checks before any whole-goal completion or separately authorized release.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "full-coverage-evidence",
+              "description": "Audit all75identifiers, actual named artifacts, original acceptance layers, failure coverage, ownership and retained historical decisions; no silent omission/demotion.",
+              "status": "pending",
+              "evidence": "Parentprompt-to-artifactaudit rereadapproved268lineplan/fullcurrentnativegoal/all68+7coverage rows/opengates/benchmark/checkout/nativeAPI source. docs/codex-parity/open-gates.md current8criteriontablemapsactualartifacts/commands/layers/missingoutcomes;detailed75IDmap/crosswalk preserved. Historicalrationale keptverbatimbesideupdates;onlyfulfilledSOURCE O21/O27/F04close,notO13/O18/S06/O28/native/model/live. Native-row/legacy/memory-importsourceTASKScompletedwithboundedevidence;overallcriteriaandserialPRblockedcursorunchanged. Fresh29/29legacy+logic(actualscratchnotheldbackend)and44/44coverage/inventory/instruction PASS/noskips. ActualcanonicalCLI68requirements+7findings/75IDs/22reviewedfingerprints zero input/mapping/reviewerrors,27bundles,ONLY483fplanmismatch exit1/freshnessunverified. Bundlegrowthnotcompleteness/provenanceproof. Benchmarkguidenowrecordsactual46+35/fullstrictsourceclosureandoriginaldependencyfailureashistory;checkoutguideoriginalnative/modelgatekept. Parentindependentnative1280RSSfailure/nospawnfollowuprecordedtruthfully;noactualfullhost/model/visible/humanoutcomeasserted. Thisiscurrentauditcheckpoint,notfinalall-deliverablesacceptance;remainingrequiredoutcomesandlost637baselinegapretained."
+            },
+            {
+              "id": "health-preservation",
+              "description": "Rerun relevant source/package/syntax/link/inventory/health/coverage checks, meaningful cadence audit and complete baseline byte/index comparison; keep real archive failures honest.",
+              "status": "pending",
+              "evidence": "Freshaftercompatibility source/types integration:healthPASS2.1.1/service/plugins/GitHub+Playwright/31skills/companions;13/13inventory+documentationcasesPASSnoskips;node--checkandtrackeddiffcheckPASS. Parentnewaggregate regressionACTUALRED missingexpectedexception:non-firstglobalerror dropped. Fixexactshardcounts/IDs+ALLwhole-programgroups equality+disjointcompletecoverage;focused1/1PASS;latersemantic/declarationerrorsretained. REPLAYcurrentactualaggregationfunctionagainstimmutableREALsource/type/valid-inputreceipts yields0/0/3TS2578 (nocompilerrepeat),auditSHA24211890145536e4e262bebe8d00b4e669c4ef7c3d461f5ff4bf2d9075e31c66/currentchecker12301967aba1c74b32706a28122da3343e91627eb6b512a1c33534dfef67525b. ActualcoverageCLI68+7/75IDs/22reviewedfingerprints NOinput/mapping/reviewerrors,NOW32bundles,sole483fplanmismatchexit1/freshnessunverified;bundle growthNOTcompleteness. ActualstdoutSHA3a2aa7232f1604db2dbac940163536d6aba0563501bce2eea572b115b48f8d0c. FinalpreservationreceiptSHAe64b7aada3fa363322bc46d1583c21ee7b2b7e3e7dc4a07e0778ba9631b43023 capturesactualindex/all16selectedhashes/nativeoriginal4dirtypaths. HEAD70e0477496e25655911341a07e00d55b2a5a61d9/stagedR10091d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805/config9fcd0b084a3f30995408963e52a9bd0d3f31b98c5ee1f65b6b699b028fbc47c4EXACT;acceptedbase/bridge/producer/consumerhashesunchanged,nativeAI+manifest+lockclean. Docsupdatedalloriginalrequiredlayersretained. Priorbrowser51+39/plugin149/connector121/fullstrict/launcher14 acceptedNOTrerun orsummed. Newcompatibilitypassesareseparateoverlaidconfigs,NOTunchangedlock/combinedall/nativehost/model/liveacceptance. No children/install/deploy/activation/sharedrestart/security/permission/credentials/commit/push/removal;original637baselinegap/conditionalcleanup open. Overallgoalactiveincomplete/PRblockedcursorunchanged."
+            },
+            {
+              "id": "release-boundaries",
+              "description": "Verify actual scope and exact separate authority for any commit/push/publication/deployment/security operation; no release or complete claim inferred from a source pass.",
+              "status": "pending",
+              "evidence": "Freshread-onlyscopeaudit: exactown-sessionuserturnmsg_186a7180e001Xp7v2QN3wabsdv says'remove this folder after moving over and consolidating';precedingmsg_186a655dc001Yj6OHOWdeAjDAm identifieswrongrepo/canonicalmain+2peers. No separateforcedremoval/connectionchangegrant found. NativeOpenAPI+v2docs/pinnedba546ec1source show POST /api/experimental/mcp/github/disconnect?location[directory]=EXACTOLD isruntimeconnectiondeactivation only,notconfig/accountlogout; locationmiddleware selectsperdirectoryMcp.Service/entryscopeclosure. DebuglocationevictisBROADERcachedservice disposal;notchosen. Fresh23oldscope sessions/4pages allidle/notactive,0shells/0PTY; PID171560,parent100227 stilloldcwd;canonicalGitHub+Playwrightconnected,oldGitHubconnected/Playwrightfailedmissingdependency. Freshcomplete tar--comparePASS. No disconnect/evict/signal/force/remove/restart performed;oldfolderintact. Safephysicalroot observations retain0775repo/tmpguards;home750/Documents755 notruntimeauthorization. PR4supportedget_mejtmb/getstilllockdowndenied. Scopeauthoritynotexpanded;all75/layers and conditionalcleanup remain."
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "Approvedconsolidatedplanexecuteshere;oldunmet97ac9852/50e7f33ecloseduntouched;no concurrent successor.",
+        "No inferredtoken/duration/autoturnlimits;parentonlygoalplans/lifecycle;childrennevergoalplanfixtures.",
+        "UserexplicitdisjointparallelLunaxhighimplementation/Solhighfallback/DeepSeekfactualpreferencesretained;boundedbatchnotfillcap.",
+        "OriginalsourceAarchive4paths/Bbenchmarknewrunner/runtime/test/guide/Ccoordinationstrict/preflight/package/Dacceptancepreflight/runbook;allsharedintegrationparent.",
+        "Technicalgapsengineeringtasks;privateentry/deploy/security/activation/restart/media/commit/push/publicationgatesremainseparate.",
+        "ArchiveCLIincluded;DeepSeekfactualonly;childrennodescendants/goals/deploy/publish.",
+        "Originalchildrenarchive ses_e7c6a70f3ffewZDBplrEZOqKHc;benchmark ses_e7c6a7101ffe41A1iaW2DnG0E1;coordination ses_e7c6a707cffe8r7KjlESkpVMbr;acceptance ses_e7c6a6f4fffeitNqUiYxAwVgeA;DeepSeek ses_e7c6a6ecfffe94kUXysIYciFED. Exactownershipanddatedreportsearlierrevisions/toolhistory.",
+        "All68+7rows/needs/layers/dispositions/hashes/decisionsretained;parentonlycoverage/inventory/audit;no realarchiveapply.",
+        "Coverageownerandcollectorwordingcorrected;reservedgoal-docs-verification.mdreadashistory,notedited/released;missingreportnotartificialprerequisite.",
+        "GitHubjtmb/PR2lockdownpreserved;PR3draft11cbb763/b47765e4,GitGuardianpass/pending0contexts;local5filepin/asset91ea399/Splice/indexpreserved;notfullfreshremoteintegration.",
+        "Durable75IDcrosswalkparser/testsrejectomission/duplicates/unknownIDs/structuralbudgets;realarchivefailurepreserved.",
+        "Childrenownuntilterminal;activechildinventoryfailuresqueued,notcauseforoverlap/polling.",
+        "DeepSeekAPIauditindependentlyverified2.1.1title/model/variant/status/customslots;builtinrow/precompactionveto notverified;noimitation/launchlabelacceptance.",
+        "Onein-progresstasknativecursor;parallelregistryseparate;failedmulticursorupdateleftrev5unchanged.",
+        "AcceptancepreflightFIFOredgreen;originalrestorefollowupreserved3pathswithsourcepreservationconstraint.",
+        "ActualSessionInfo/ModelRef/TUIData/SlotMap/PanelInput/voidcompactionhook+officialV2guidesverified;nativeaudit/open-gatescorrectedwithoutpolicyprerequisite.",
+        "OriginalLunarestorerestricteddeployer/tests/newguide;noinstalledapply/activation.",
+        "Runbook/API/indexintegrated;75IDsunchanged;missingrestorewasengineeringwork,nothandbackmenu.",
+        "NativeAPIguidelengthcorrection56linesincidental,notverificationproof.",
+        "Firstbenchmarkterminalofflineonly;parentreviewwithoutcredential/scratchpermissionchanges.",
+        "Benchmarkinitialreceipt-offset/budget/collectiongapsverified;nativeCLIstandalone/session/model/jsonhelpactual;noauto;authfreecapabilitymustbeobserved.",
+        "Samebenchmarkchildcorrectedoriginalscope;forbidcredentialcopies/sharedsession/chmod/bypasses;terminalnowparentowned.",
+        "ArchiveparentfixesactualIObounds/cancel/journal/CAS/rollback;ordinarywriter/index/exporter/realarchiveuntouched.",
+        "OriginalLunarestoredeleted/reconstructedpreexistinguntrackeddeployer;returnrejected/forensicssaved;pyc/similarcodenotprovenance.",
+        "Archiveforgedjournal/bodyandportablecloneidentityredgreenfixedcanonicalpreservedsnapshot/header/exactroot;19/full142/strictpass/readonlypreview,noapply.",
+        "FreshSolrestorefallbackONLY4NEWpaths,parentownsexistingdeployer/test,minimallockintegration;actualSolhighdiscovered.",
+        "Solrestore ses_e7c21d418ffeTa1eDEDRcn05SL terminal;originalsrecoveredfromboundedchildnativeevidenceSHAs e9960c03/51fc14d0,modes0664,original6pass;rejectedreturnnotaccepted.",
+        "Coordination83/strict19acceptedafteractualauthenticpin/boundedreaderredgreen;noTSrewrite/node_modules/configactivation/participantmutation.",
+        "Coordinationguides/features/C09/auditretainolder80/pass/timeoutashistory;nosham/librarybypass/nativeUIclaim.",
+        "Datedhealth2.1.1/service/plugins/MCPs/29skills;coverage68+7/75withreal483farchivefailure;notruntime/modelacceptance.",
+        "Acceptedarchive/coordination/restoreandoriginalindex/media/historyretained;benchmarknowparentowned;nativeSolchildretainsexactdisjointupstreamscope.",
+        "Latest user-approved inline plan supersedes earlier title-first scheduling: phase1 parent resolves permitted PR4 content/discussion access; phase2 parent reviews/consolidates PR4 and completes titles plus /checkout. A denied read remains open, never unread integration. No new implementation child assignments before TODO completion; already-running owners may finish their exact scopes. After TODOs, reconcile native-row worker and discover configured agent/model/variant availability and actual runtime admission limit; use small disjoint batches for benchmark corrections, legacy source fixtures and memory/import source gaps. Existing Luna/Sol/DeepSeek preferences are conditional on verified availability, not invented identities; read-only agents never receive implementation. Parent owns all goal planning, shared integration, exact live/consequential actions and independent acceptance. Each future child prompt must state exact paths/exclusions, shared contract, preservation, tests, expected return and no descendants/goals/deploy/publish; verify terminal diff/tests before accepting or reassigning. Runtime/model then inherited outcomes then final75ID/preservation audit retain every required layer. Updating paused goal plan does not resume execution or claim any new tests/content access; no budget, permission or release gate changed."
+      ],
+      "revision": 129,
+      "updatedAt": 1793295166,
+      "changes": [
+        {
+          "revision": 98,
+          "reason": "Persist exact removal-scope observations without inventing consequential authority, and turn the observed archive-read race into a bounded source-verification fix with real-file regressions.",
+          "timestamp": 1793271182
+        },
+        {
+          "revision": 99,
+          "reason": "Persist independently reproduced archive-read red/green, full adjacent source verification and exact preservation checks without erasing stable corruption, cleanup authority gaps or required runtime/model/live outcomes.",
+          "timestamp": 1793271547
+        },
+        {
+          "revision": 100,
+          "reason": "Pursue the unfinished full native-host semantic check under a fresh, explicitly bounded safe resource envelope and canonical dependency closure; retain all prior failures and required runtime/UI gates.",
+          "timestamp": 1793271678
+        },
+        {
+          "revision": 101,
+          "reason": "Record the actual no-spawn resource refusal and reduce the proposed worker allowance to fit current memory while retaining the stronger system floor and complete diagnostic scope.",
+          "timestamp": 1793271889
+        },
+        {
+          "revision": 102,
+          "reason": "Record both honest no-spawn memory refusals and passing canonical runtime seam checks, then make the verified layer directly runnable without weakening or skipping the unchanged full package contract.",
+          "timestamp": 1793272066
+        },
+        {
+          "revision": 103,
+          "reason": "Persist genuine canonical native dependency and fixture-runtime acceptance plus both no-spawn resource refusals, retaining the unchanged full-host obligation and all separate native/live gates.",
+          "timestamp": 1793272347
+        },
+        {
+          "revision": 104,
+          "reason": "A fresh measured increase in available memory now satisfies the previously refused guarded prelaunch requirement; execute the prepared full native-host source check once without changing its guards or coverage.",
+          "timestamp": 1793272666
+        },
+        {
+          "revision": 105,
+          "reason": "Record the genuine canonical full-host resource failure and use its measured safe system-memory margin for one distinct original-proposal 1.5 GiB trial without reducing the stronger memory floor or diagnostic scope.",
+          "timestamp": 1793272797
+        },
+        {
+          "revision": 106,
+          "reason": "Reconcile the completion audit with actual bounded source-task evidence instead of leaving achieved preparation perpetually pending; retain every original live/native/model outcome and the concrete full-host resource failure.",
+          "timestamp": 1793273111
+        },
+        {
+          "revision": 107,
+          "reason": "Record the completion audit's real bounded source progress and exact remaining native resource blocker, retaining all 75 identifiers, historical rationale and required live/model layers rather than confusing source-task completion with whole-goal success.",
+          "timestamp": 1793273537
+        },
+        {
+          "revision": 108,
+          "reason": "Recover the completed compiler outcome from durable native tool history after restart without rerunning it, then resume one disjoint factual investigation of the original unresolved native effective-metadata requirement.",
+          "timestamp": 1793283737
+        },
+        {
+          "revision": 109,
+          "reason": "Synchronize the recovered completed compiler failure and observed restart state into owning records without rerunning completed work or overstating provenance/runtime acceptance.",
+          "timestamp": 1793284312
+        },
+        {
+          "revision": 110,
+          "reason": "Treat a concrete unqueued benchmark-receipt publication defect as bounded source engineering while isolation execution prerequisites remain missing; preserve the blocked serial PR cursor and disjoint metadata ownership.",
+          "timestamp": 1793285008
+        },
+        {
+          "revision": 111,
+          "reason": "Accept independently reproduced benchmark receipt race/failure corrections after real strict and staged-source checks; correct the stale native-host blocker to the already recovered second actual failure, without promoting source readiness to benchmark/native acceptance.",
+          "timestamp": 1793285560
+        },
+        {
+          "revision": 112,
+          "reason": "Accept nine independently reported in-scope security/correctness findings without promoting peer text to new authority; reserve a small literal disjoint source-fix batch and preserve parent verification and all existing workers.",
+          "timestamp": 1793285921
+        },
+        {
+          "revision": 113,
+          "reason": "Record reproduced parent password-transport fix and the returned read-only metadata worker, then use the now-free conservative slot for a disjoint connector epoch repair while parent owns launcher regressions.",
+          "timestamp": 1793286316
+        },
+        {
+          "revision": 114,
+          "reason": "Record independent acceptance of all nine disjoint peer-review source fixes, full relevant package/plugin/strict checks and honest retained failures; preserve original live/model/native scope and pending metadata-report acceptance.",
+          "timestamp": 1793287520
+        },
+        {
+          "revision": 115,
+          "reason": "Accept independently checked native metadata absence/alias/hook facts and turn the missing response-observation channel into a bounded producer patch with actual offline protocol regressions, preserving all existing source work and live gates.",
+          "timestamp": 1793287840
+        },
+        {
+          "revision": 116,
+          "reason": "Persist independently verified durable message/cache binding and the explicit private test-runtime acquisition; retain exact pending producer ownership and distinguish syntax-ready verification tooling from unrun native protocol acceptance.",
+          "timestamp": 1793288452
+        },
+        {
+          "revision": 117,
+          "reason": "Accept the producer only after genuine six-red/thirty-three-green native protocol execution and upstream preservation, then reserve the dependent source-only native row consumer without reclassifying response reports as effective execution.",
+          "timestamp": 1793288970
+        },
+        {
+          "revision": 118,
+          "reason": "Reserve an exact one-file additive native consumer patch with disjoint parent verification ownership after producer acceptance; preserve all prior row work and genuine source-versus-live evidence boundaries.",
+          "timestamp": 1793289041
+        },
+        {
+          "revision": 119,
+          "reason": "Persist the finalized actual producer entrypoint, durable red/green source evidence and preservation checks while keeping the separately owned native consumer explicitly pending and every original live/model layer unachieved.",
+          "timestamp": 1793289543
+        },
+        {
+          "revision": 120,
+          "reason": "Attempt one resource-guarded complete AI-package semantic check for the newly verified producer, using a smaller independently scoped graph rather than retrying or narrowing the failed full-host check.",
+          "timestamp": 1793290228
+        },
+        {
+          "revision": 121,
+          "reason": "Record independently verified final consumer entrypoint, parent red/green corrections and the completed-but-failing AI semantic check without promoting source fixtures to original native/model/live acceptance or advancing the blocked PR cursor.",
+          "timestamp": 1793291840
+        },
+        {
+          "revision": 122,
+          "reason": "Persist diagnostic localization independent of the producer and fresh whole-scope mapping, health and exact staged/config/source preservation evidence; retain every original unfinished native/model/live outcome and the blocked coordinator phase.",
+          "timestamp": 1793292198
+        },
+        {
+          "revision": 123,
+          "reason": "Turn the independently localized dependency mismatch into a bounded source-correction/compatibility experiment using an actual upstream callable-contract fix, while retaining the pinned failure, complete-graph obligation and separate runtime gates.",
+          "timestamp": 1793292420
+        },
+        {
+          "revision": 124,
+          "reason": "Record actual upstream-derived declaration red/green and meaningful signature/library negatives, and explicitly scope the upcoming complete-config checks to separate unchanged per-checker resource guards rather than silently enlarging a prior combined trial.",
+          "timestamp": 1793292765
+        },
+        {
+          "revision": 125,
+          "reason": "Record the actual type-config heap failure and missing partial-receipt defect, then pursue a genuinely different complete-graph diagnostic-sharding route with unchanged per-worker limits and explicit equivalence/coverage controls.",
+          "timestamp": 1793293096
+        },
+        {
+          "revision": 126,
+          "reason": "Recover the preserved completed-source result after interruption, verify unchanged checker bytes, and run only the never-executed type-config shards after a fresh resource observation meets the existing prelaunch threshold.",
+          "timestamp": 1793294137
+        },
+        {
+          "revision": 127,
+          "reason": "Record the first completed full-graph type-shard result and turn the three concrete existing test-directive placement defects into a narrowly scoped source-only patch with unchanged invalid inputs and a meaningful acceptance-mutation control.",
+          "timestamp": 1793294354
+        },
+        {
+          "revision": 128,
+          "reason": "Persist real complete type-config compatibility acceptance, unchanged invalid inputs with meaningful valid-input negative controls, and an independent full-file graph readback binding both separately observed configs without rerunning completed source checks.",
+          "timestamp": 1793294758
+        },
+        {
+          "revision": 129,
+          "reason": "Record the final independently tested aggregation guard correction and real-receipt replay, fresh health/inventory/coverage results, and exact source/index/config preservation without repeating completed compiler checks or promoting compatibility evidence to native/live completion.",
+          "timestamp": 1793295166
+        }
+      ]
+    },
+    "planRevision": 129,
+    "createdAt": 1793208649,
+    "updatedAt": 1793297083,
+    "closedAt": 1793297083,
+    "completionEvidence": null,
+    "blocker": null,
+    "stopReason": "replaced",
+    "history": [
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 122): Persist diagnostic localization independent of the producer and fresh whole-scope mapping, health and exact staged/config/source preservation evidence; retain every original unfinished native/model/live outcome and the blocked coordinator phase.",
+        "timestamp": 1793292198
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Verified the final native-row consumer: **82/82 tests pass**, with 45 expected failures before applying its source changes. - Reproduced all six declaration errors without loading the producer; strict checking remains failed. - Updated documentation and goal evidence. - Health...",
+        "timestamp": 1793292207
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 25 reserved.",
+        "timestamp": 1793292208
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll check whether a compatible published dependency tuple resolves the native declaration failure. This stays in isolated source preparation: no existing dependency tree, source pin, runtime profile or security setting will change.",
+        "timestamp": 1793292300
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 123): Turn the independently localized dependency mismatch into a bounded source-correction/compatibility experiment using an actual upstream callable-contract fix, while retaining the pinned failure, complete-graph obligation and separate runtime gates.",
+        "timestamp": 1793292420
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The published gaxios8 declaration fixes the exact issue: it checks fetch’s callable signature, not Bun’s extra static properties. I backported that one-line correction into a separate patch artifact. The controls now show **six errors → two with Node26 types → zero with the ba...",
+        "timestamp": 1793292691
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 124): Record actual upstream-derived declaration red/green and meaningful signature/library negatives, and explicitly scope the upcoming complete-config checks to separate unchanged per-checker resource guards rather than silently enlarging a prior combined trial.",
+        "timestamp": 1793292765
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 125): Record the actual type-config heap failure and missing partial-receipt defect, then pursue a genuinely different complete-graph diagnostic-sharding route with unchanged per-worker limits and explicit equivalence/coverage controls.",
+        "timestamp": 1793293096
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The first complete AI config finished, but the type-test config then exhausted its **768 MiB heap**. The combined command failed. That also exposed a verifier flaw: it withheld earlier receipts until the whole batch passed. I’ll make receipts emit as each check finishes, then ...",
+        "timestamp": 1793293097
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m resuming at the preserved compiler receipt. The next unfinished check is the 35-root type-test config; I won’t rerun the completed source config.",
+        "timestamp": 1793294120
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 126): Recover the preserved completed-source result after interruption, verify unchanged checker bytes, and run only the never-executed type-config shards after a fresh resource observation meets the existing prelaunch threshold.",
+        "timestamp": 1793294137
+      },
+      {
+        "type": "checkpoint",
+        "detail": "All four shards completed within the unchanged limits. They exposed three misplaced existing `@ts-expect-error` comments, producing six diagnostics. I’ll prepare a test-only patch that moves those comments to the rejected calls while leaving the invalid inputs unchanged. A sec...",
+        "timestamp": 1793294330
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 127): Record the first completed full-graph type-shard result and turn the three concrete existing test-directive placement defects into a narrowly scoped source-only patch with unchanged invalid inputs and a meaningful acceptance-mutation control.",
+        "timestamp": 1793294354
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The scoped type-config command now passes. All **35 roots and 1,334 files** were covered across four shards with zero diagnostics. Making the three invalid calls valid produced exactly three unused-expectation errors, as required. I’m now binding that result to the preserved s...",
+        "timestamp": 1793294740
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 128): Persist real complete type-config compatibility acceptance, unchanged invalid inputs with meaningful valid-input negative controls, and an independent full-file graph readback binding both separately observed configs without rerunning completed source checks.",
+        "timestamp": 1793294758
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 129): Record the final independently tested aggregation guard correction and real-receipt replay, fresh health/inventory/coverage results, and exact source/index/config preservation without repeating completed compiler checks or promoting compatibility evidence to native/live completion.",
+        "timestamp": 1793295166
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The unfinished type-config compatibility check now passes: **35 roots, 1,334 files, zero diagnostics**, without rerunning completed source compilation. - Preserved invalid-input coverage and verified three meaningful negative controls. - Fixed and tested an aggregation guard d...",
+        "timestamp": 1793295179
+      },
+      {
+        "type": "limited",
+        "detail": "max auto-continues reached (25); wrap-up required.",
+        "timestamp": 1793295180
+      },
+      {
+        "type": "limited",
+        "detail": "usageLimited: max auto-continues reached (25); requested final handoff.",
+        "timestamp": 1793295180
+      },
+      {
+        "type": "cancelled",
+        "detail": "Goal cancelled because it was replaced.",
+        "timestamp": 1793297083
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "Verified the final native-row consumer: **82/82 tests pass**, with 45 expected failures before applying its source changes. - Reproduced all six declaration errors without loading the producer; strict checking remains failed. - Updated documentation and goal evidence. - Health...",
+        "timestamp": 1793292207
+      },
+      {
+        "summary": "I’ll check whether a compatible published dependency tuple resolves the native declaration failure. This stays in isolated source preparation: no existing dependency tree, source pin, runtime profile or security setting will change.",
+        "timestamp": 1793292300
+      },
+      {
+        "summary": "The published gaxios8 declaration fixes the exact issue: it checks fetch’s callable signature, not Bun’s extra static properties. I backported that one-line correction into a separate patch artifact. The controls now show **six errors → two with Node26 types → zero with the ba...",
+        "timestamp": 1793292691
+      },
+      {
+        "summary": "The first complete AI config finished, but the type-test config then exhausted its **768 MiB heap**. The combined command failed. That also exposed a verifier flaw: it withheld earlier receipts until the whole batch passed. I’ll make receipts emit as each check finishes, then ...",
+        "timestamp": 1793293097
+      },
+      {
+        "summary": "I’m resuming at the preserved compiler receipt. The next unfinished check is the 35-root type-test config; I won’t rerun the completed source config.",
+        "timestamp": 1793294120
+      },
+      {
+        "summary": "All four shards completed within the unchanged limits. They exposed three misplaced existing `@ts-expect-error` comments, producing six diagnostics. I’ll prepare a test-only patch that moves those comments to the rejected calls while leaving the invalid inputs unchanged. A sec...",
+        "timestamp": 1793294330
+      },
+      {
+        "summary": "The scoped type-config command now passes. All **35 roots and 1,334 files** were covered across four shards with zero diagnostics. Making the three invalid calls valid produced exactly three unused-expectation errors, as required. I’m now binding that result to the preserved s...",
+        "timestamp": 1793294740
+      },
+      {
+        "summary": "The unfinished type-config compatibility check now passes: **35 roots, 1,334 files, zero diagnostics**, without rerunning completed source compilation. - Preserved invalid-input coverage and verified three meaningful negative controls. - Fixed and tested an aggregation guard d...",
+        "timestamp": 1793295179
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "98ce229f2022cefa162f5ed2ce65aa1aab281817da1b849a4c170cfdba59630b",
+  "generatedFiles": {
+    "plan.md": "a9b2ce0abfe2a7f51b47314e449ae3d0d6ec874e4111109dcd8dd18e6b441495",
+    "HANDOFF.md": "3d249a6a66257f456b4f1c198dfc90cfa3abbfa66439cc755df848d6f4174662",
+    "work-history.md": "46217f52e29c5ef6adcac77e78861c58878b2bac0fadc1ebea25264453d79aef"
+  }
+}

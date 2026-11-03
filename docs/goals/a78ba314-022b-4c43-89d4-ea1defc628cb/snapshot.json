@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-30T18:28:48.902Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "a78ba314-022b-4c43-89d4-ea1defc628cb",
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "objective": "Finish the authorized local continuation of the four user-selected chats—Fix task-title updates, Verify voice workflow, Skills Audit and Adoption, and Enable ChatGPT Images—in /home/james/repos/computer-use, retaining completed evidence and all unfinished requirements in docs/request-coverage.md (68+7/75 IDs) and docs/session-consolidation-2026-10-29.md under its 2026-10-30 user correction. Begin with the in-progress authenticated image-preview history recovery fix, its regression/type/native-renderer checks and real click-to-original acceptance without regenerating images; then finish local task-title/checkout/runtime and voice acceptance (manual second-press stop, timeout default off, distinct Queue/Send, honest Copy, complete above-composer Hearing, /voice_read enabling readout and session-isolated /voice_read_last). Retain outstanding self-learning/selected skill adoption, corpus/CI/research, native/compiler/benchmark, coordination/handoff/memory/import/monitor, archive recovery, desktop/browser/clipboard/private-entry, existing-instance gateway, simultaneous demo and preservation acceptance at their actual evidence layers. Do not repeat completed audits, generation, deployment or accepted fixes. The user explicitly excludes GitHub PR fetching/checkouts/merges/imports and the no-model inbox fixture; inherited PR-first dependencies are superseded and must not block local work. Do not reopen cancelled goal 4cbaf68c-9b82-43bd-a8da-154811dd61eb or source goals. Preserve unrelated dirty/staged/untracked work, independent voice submodule, settings, media, original index and executable/core/launchers; do not weaken security or substitute fixtures for live/model/human outcomes. Parent owns plan, integration, verification and lifecycle; do not spawn new workers without applicable authorization. Continue independent permitted work without routine questions; deployment/activation/shared restart, installation, network/account/security changes, archive apply/export, human...",
+    "status": "cancelled",
+    "plan": {
+      "summary": "Finish independent local work before gated operational acceptance. Preserve the original image phase ID and every completed task; retain real click-to-original as an unfinished operational outcome, not a blocker on unrelated title/voice source work.",
+      "completionCriteria": [
+        "All retained 68+7 requirements and additional lanes from the consolidation ledger have source-qualified outcomes at their required source/runtime/model/UI/human evidence layers; completed work remains preserved and no unfinished requirement is silently dropped.",
+        "Image previews recover authenticated completed attachments beyond the latest cached page with bounded history, ambiguity rejection and lifetime/session isolation; regression/type/native-renderer checks and the real unchanged-original click flow pass without new image generation.",
+        "Local task-title/checkout and voice workflows have verified actual loaded behavior, preserving manual second-press/default-off timeout, Queue versus Send, honest Copy, complete Hearing placement, enabling /voice_read and session-isolated /voice_read_last; unsupported public capabilities are not bypassed.",
+        "Outstanding selected adoption, self-learning, corpus/CI/research, native/compiler/benchmark, coordination/handoff/memory/import/monitor, archive, desktop/browser/clipboard/private-entry, gateway and demo requirements are verified without treating synthetic/source checks as operational acceptance.",
+        "The original staged work, unrelated combined tree, voice submodule, assets/media, settings, executable/core/launchers, historical goals and provenance are preserved; no forbidden GitHub PR input, unauthorized consequential change, commit or push occurs."
+      ],
+      "phases": [
+        {
+          "id": "image-recovery",
+          "objective": "Finish image recovery source and loaded-card verification plus independent local delivery while preserving gated original-viewer acceptance later.",
+          "status": "in_progress",
+          "tasks": [
+            {
+              "id": "image-existing-evidence",
+              "description": "Retain completed image generation, original-file identity and existing native image-only interaction tests without repeating account generation.",
+              "status": "completed",
+              "evidence": "Historical lighthouse1536x1024 SHA256412f1d7e7009e9b2d55a69f398f5e2af046a03b683eae09cefd25d6eb191bf97; original2 native cases pass; no new generation."
+            },
+            {
+              "id": "image-history-fix",
+              "description": "Verify and finish the in-progress authenticated bounded history recovery, cursor/ambiguity/session/cancellation/disposal regressions, strict types and native renderer integration.",
+              "status": "completed",
+              "evidence": "Connector strict+127/127; direct8/8; host strict; native renderer5/5; health and whitespace pass. Real authenticated15-page recovery and loaded cards, unchanged PNG."
+            },
+            {
+              "id": "image-evidence-docs",
+              "description": "Update features, image acceptance and consolidation with actual tests, loaded outcome and remaining limitations.",
+              "status": "completed",
+              "evidence": "Updated direct README, features, consolidation and test-quality audit with127+8+5 checks, real15-page recovery/live cards and POINTER_CONSTRAINED click limit."
+            },
+            {
+              "id": "titles-checkout-local",
+              "description": "Verify current task-title/goal-tool hooks and safe checkout in the combined tree; resolve local defects and prove exact loaded/model/title/disposable-worktree behavior within existing authority.",
+              "status": "blocked",
+              "evidence": "One genuine native goal transition now verified: public status RPC changed task hash to da1d1b7eae38205ee24a4de8a0b0f39c7e06861c38f433c22988cc9f39074fc7, action:generated, currentTitle=recordedTitle='Voice Workflow Verification · ses_e78fdcc9affeNOlKMRek7Yobo3', eligible true, suspended/pending false. No manual rename/replayed attempt/new model session.169/169 companion tests, pure-core strict with libraries, actual2.1.1SDK host-source strict(skipLibCheck), health/whitespace pass. Checkout catalogue discovered; exact source5794bytes/5abcd145… still differs from candidate4837bytes/72af752c….",
+              "blocker": "Remaining checkout command/model/native-creation acceptance requires exact approved profile-template deployment and refreshed native Git/strategy preflight. No deploy or worktree create performed. Semantic root model-title transition is now observed; full child/manual/concurrency native matrix remains separately scoped. No GitHub prerequisite."
+            },
+            {
+              "id": "voice-live-workflow",
+              "description": "Retain accepted 109 TS/91 Python and 20 offscreen outcomes; verify loaded commands, physical/manual recording/Queue/Send/Copy/full Hearing and session-isolated assistant readout, with no keys into unrelated drafts.",
+              "status": "blocked",
+              "evidence": "Registration preview from voice-assistant: node --experimental-strip-types scripts/register.ts --source ../global/cli.json reports Already registered; no changes, active pilot cli.json canonical voice plugin with recognitionBackend:sherpa. Prior109TS+91Python/20offscreen outcomes retained; only voice ACCEPTANCE documentation edited.",
+              "blocker": "Approved desktop.windows now returns NameHasNoOwner for org.gnome.Shell.Extensions.OpenCodeWindowControl; exact owning-seat loaded command/F9/Queue/Copy/readout/audio acceptance unavailable. No stale captures/blind keys/alternate backend/restart. Physical wake-phrase speaker trials withheld beside uncontrolled hands-free TUI to prevent unintended prompt admission."
+            },
+            {
+              "id": "self-learning-host",
+              "description": "Finish self-learning dependency/readiness and actual permitted host registration/invocation plus reviewed evidence-backed proposal/full-bundle workflow, distinguishing scratch SDK compatibility.",
+              "status": "blocked",
+              "evidence": "Verified exact source user approval msg_1848e51930016cyaT19ObwYWAN for scoped project-only activation/host test in ses_e7ba9d353ffeK56PqN1qQssSF3, read-only; only coordinator active. Backed up current project config, added only ./tools/self-learning, actual scoped loader failed before registration: err_c545d820, Cannot find package @opencode/client imported from tools/self-learning/index.ts. Removed only own trial entry; byte-identical config SHA903508e66ba335bf72e55e9c26c9a955694c69d70bf1cf2cdd7dfbc07d580722, original staged hash unchanged, both goal plugins active, no remaining registration, health pass. Backup opencode.json.backup-self-learning-dc1503d3-2e8d-4e81-b9f2-abfc3ba2d5d5 preserved. No dependency install/global edit/shared restart. Source entrypoint unchanged; receipt documented.",
+              "blocker": "Actual host confirms missing pinned @opencode/client@2.1.1 peer; package-local resolution of metadata/service also MODULE_NOT_FOUND. Applicable dependency installation/link authority is missing. Existing project-only activation/host-test approval remains reusable after prerequisite resolution; do not re-ask unchanged activation scope. Successful tool registration, native permission/cancellation and real reviewed full-bundle learning workflow remain unfinished; no unbounded session.context or unrelated dependency-tree workaround."
+            },
+            {
+              "id": "selected-skills-documents",
+              "description": "Finish the selected useful-skills/document adoption work with rights/pinned prerequisites and trusted/untrusted conversion boundaries; preserve completed audit and Calc/CSV outcomes.",
+              "status": "in_progress",
+              "evidence": "Retained Office reader20/20 and preserved Calc outcomes. Added manual scripts/document_sandbox_probe.py (fixed freshly-authored trusted controls only; no arbitrary input) +9 offline policy tests, required in existing CI step. Real16 boundary checks pass (read-only input/runtime, hidden home/bus/sentinel, cleared environment, private PID/net, capabilities/no-new-privileges, tmpfs/file/core bounds); separate strict user+cgroup namespace recheck passes. Actual confined LibreOffice fixed Unicode text =>14296byte/1page PDF with exact text, no export/visual claim. Real aggregate256MiB/zero-swap cgroup OOM-killed two bounded160MiB children;32task control refused after29children;1s control timed out1.003s. Already-installed UNO private-pipe trial passes8 actual macro/active-content/NEVER_EXECUTE/NO_UPDATE/read-only/text readbacks. Receipts: ~/Documents/computer-use-document-isolation-qeew9our/{receipt,load-policy-receipt,namespace-refinement-receipt}.json. Ruff lint/format+strict mypy+8required offlineCI+health pass. Index/config/originalimage hashes preserved. No install/deploy/security-policychange/commit/push. Untrusted macro/link controls, hardened XML, general converter/complex authoring/render/human acceptance remain open."
+            },
+            {
+              "id": "corpus-ci-research",
+              "description": "Retain accepted source/CI/research and candidate corpus; finish authorized real calibration/model routing and human-review/hosted-enforcement layers without promoting unreviewed candidates to gold.",
+              "status": "pending"
+            },
+            {
+              "id": "native-compiler-benchmark",
+              "description": "Resolve supported runtime/native graph/control diagnostics and safe isolated benchmark exposure/prerequisites without relaxing memory/path guards or fabricating effective metadata/measurements.",
+              "status": "pending"
+            },
+            {
+              "id": "coordination-handoff-memory",
+              "description": "Finish actual coordination native rows/settings/lifecycle/mixed/unknown acceptance, handoff OFF/manual/compaction, memory/import/fallback/monitor and model routing with exact participant/write/provider authority.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "operational-acceptance",
+          "objective": "Complete retained operational outcomes through exact authority; do not replace missing live/human evidence with source tests.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "image-live-original",
+              "description": "Verify the loaded image card in the exact selected image chat, click to unchanged original and restore coordinator view without sending a message or altering another draft.",
+              "status": "blocked",
+              "evidence": "Both recovered cards observed in exact image chat, no submission/empty composer. Latest capture confirms coordinator exact ses_e78fdcc9affeNOlKMRek7Yobo3 already restored; no redundant navigation key sent.",
+              "blocker": "GNOME refused deliberate image click with POINTER_CONSTRAINED before button dispatch. Real click-to-original unverified; no blind retry, alternate backend or deployed bridge change."
+            },
+            {
+              "id": "voice-public-placement",
+              "description": "Complete exact above-composer placement on supported Home/session surfaces; preserve the public API boundary and record any genuinely unavailable Home capability.",
+              "status": "blocked",
+              "blocker": "Public slot surface has session.composer.top but no exact Home above-composer slot; core/private API modifications not authorized."
+            },
+            {
+              "id": "archive-provenance",
+              "description": "Complete supported preview/CAS/backup/rollback archive recovery and any separately authorized fresh export; retain original mismatch and unknown provenance honestly.",
+              "status": "pending"
+            },
+            {
+              "id": "desktop-browser-clipboard",
+              "description": "Use the working supported GNOME integration for disposable-target desktop/browser/input/release/rollback and real terminal clipboard acceptance; retain held legacy capture and process-quiescence limits.",
+              "status": "pending"
+            },
+            {
+              "id": "private-entry-callback",
+              "description": "Complete human-controlled private entry and conditional callback only under exact authority without exposing or extracting secrets.",
+              "status": "pending"
+            },
+            {
+              "id": "gateway-distinct-device",
+              "description": "Finish existing-instance Docker gateway backup/tested restore/network/state migration, loaded /web, distinct-device same-session HTTPS, negative-network and lifecycle/rollback acceptance.",
+              "status": "pending"
+            },
+            {
+              "id": "simultaneous-demo-cleanup",
+              "description": "Complete genuine simultaneous OpenCode/tool/app demo with human preview before replacement; perform old-tree cleanup only with exact authority and fresh preservation/quiescence proof.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "final-reconciliation",
+          "objective": "Audit every retained requirement, evidence layer and preservation boundary before closing.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "coverage-preservation-audit",
+              "description": "Reconcile all 75 IDs and additional lanes, original staged hash, source/index/media/modes/settings/executable/history and unfinished gates against actual outcomes; preserve completed audits and forbidden-PR correction.",
+              "status": "pending"
+            },
+            {
+              "id": "final-health-and-close",
+              "description": "Run relevant integration health/checks, document failures/skips and loaded limitations, then close only after every immutable completion criterion has verified evidence.",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "User requested new unbudgeted goal; predecessor4cbaf68c stays cancelled revision41 and no source goal resumed.",
+        "No PR fetching/checkouts/merges/imports; no-model inbox fixture excluded. No new worker spawned.",
+        "Preserve completed audit/generation/deployment/source evidence and all75IDs/additional lanes; separate consequential gates remain.",
+        "Image source/types/native/history/live cards pass; actual click refused by GNOME. Keep unresolved click task in operational acceptance without falsely completing it or dropping its immutable criterion.",
+        "Preserve original image phase ID and completed task history when regrouping independent local tasks into the active phase; native sequencing must not induce false completion.",
+        "Latest capture already confirms coordinator tab exact sessionID restored and model-authored Verify Image Preview title visible; no redundant navigation input.",
+        "Task-title diagnostic RPC is read-only and loaded; legacy record action is unknown, not retroactively labelled generated/manual. Native checkout template remains stale under separate deployment gate. Continue voice while retaining both actual acceptance gaps; no new model session, source-goal resumption or manual title mutation.",
+        "Genuine native task transition now proves one model-authored root title (Voice Workflow Verification, action generated) without manual rename. Voice config already registered; current GNOME bridge absence is a real owning-seat dependency, not a reason to reinstall voice or repeat accepted source/offscreen work. Continue independent self-learning host source/readiness.",
+        "Self-learning project-only activation approval was recovered and actually exercised, rather than invented as missing. Real native load failed on unresolved client; exact additive rollback/config/index/goal-plugin preservation verified. Only peer installation/resolution and actual runtime/workflow outcomes remain gated. No new approval question, global mutation or shared restart.",
+        "Document work is not closed as blocked solely on authoring-library installation: the dependency-free bounded Office ZIP reader is now implemented/tested, and a Bubblewrap namespace prerequisite succeeds. Continue independent converter-confinement/macro/link/resource design and negative controls within unchanged safety gates; complex DOCX/PDF-form/XLSX authoring, hardened XML, native/human outcomes remain required and unachieved.",
+        "Namespace/accounting smoke is no longer the only converter evidence: trusted fixed-input confined conversion, actual whole-service resource denials and loaded UNO policy readbacks are observed. This does not authorize an arbitrary/untrusted document route, macro execution, dependency installation or general conversion acceptance. Continue missing macro/link adversarial controls and format-specific/human layers; keep selected-skills-documents in progress, not silently complete or globally blocked.",
+        "2026-10-30 user now explicitly enables asynchronous DeepSeek Flash background subagents and asks for parallel work tracked in this chat, not separate root/successor chats. Start a conservative two-worker batch because no reliable numeric runtime cap is exposed. Parent retains plan/lifecycle, shared docs/CI/config and final integration. Assign exact disjoint source scopes: document probe hardening/tests and native-event evaluation trace adapter/tests. Neither assignment authorizes dependency installation, live GUI/audio, untrusted conversion, model fanout, deployment, security changes, commits or pushes. Child reports are not completion; parent independently verifies. This authorizes independent bounded source preparation for corpus-ci-research in parallel without changing the coordinator cursor or waiving its real-model/human/hosted layers."
+      ],
+      "revision": 10,
+      "updatedAt": 1793379087,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "User explicitly requested tracking a new goal; persist current in-progress edits and all retained scope without reviving the cancelled PR sequence.",
+          "timestamp": 1793372929
+        },
+        {
+          "revision": 2,
+          "reason": "Record verified source/type/native-renderer results and advance to the separate live interaction outcome.",
+          "timestamp": 1793373130
+        },
+        {
+          "revision": 3,
+          "reason": "Record actual image outcomes and blocker without falsely completing its phase or prematurely advancing the native phase cursor.",
+          "timestamp": 1793373547
+        },
+        {
+          "revision": 4,
+          "reason": "Reorder unfinished work around the evidenced external pointer gate while preserving the original image phase identity, all completed task IDs/descriptions and immutable criteria.",
+          "timestamp": 1793373712,
+          "revisitEvidence": "Fresh desktop.input observation50b710b9-16da-415a-b6d4-16ff78a948ea returned POINTER_CONSTRAINED before button dispatch; production resolver15-page/native5/5/live-card checks independently pass. Original click scope moves intact to operational acceptance. Local title/voice work has no dependency on pointer input or forbidden PRs; no verified task is reopened."
+        },
+        {
+          "revision": 5,
+          "reason": "Record concrete title diagnostics/tests and stale checkout identity without false operational completion; advance to independent authorized voice work.",
+          "timestamp": 1793374729
+        },
+        {
+          "revision": 6,
+          "reason": "Record actual model-title transition and voice registration/current owning-seat blocker; advance to independent self-learning work.",
+          "timestamp": 1793374972
+        },
+        {
+          "revision": 7,
+          "reason": "Record the actual approved negative host trial and exact restoration; continue independent selected document/skill work rather than retry unchanged missing dependencies.",
+          "timestamp": 1793375622
+        },
+        {
+          "revision": 8,
+          "reason": "Persist concrete independent document-readiness progress and the available isolation-preparation path without substituting metadata tests for the original authoring/operational outcomes.",
+          "timestamp": 1793377424
+        },
+        {
+          "revision": 9,
+          "reason": "Record verified converter-confinement progress at its actual trusted-host evidence layer while retaining every unfinished selected-adoption/document outcome and original gates.",
+          "timestamp": 1793378542
+        },
+        {
+          "revision": 10,
+          "reason": "Record the user's explicit new background-agent authorization and disjoint parent-owned dispatch boundaries before launching.",
+          "timestamp": 1793379087
+        }
+      ]
+    },
+    "planRevision": 10,
+    "createdAt": 1793372877,
+    "updatedAt": 1793384915,
+    "closedAt": 1793379244,
+    "completionEvidence": null,
+    "blocker": null,
+    "stopReason": "cancelled",
+    "history": [
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 7): Record the actual approved negative host trial and exact restoration; continue independent selected document/skill work rather than retry unchanged missing dependencies.",
+        "timestamp": 1793375622
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Verified a real automatic task-title transition; all 169 companion tests pass. The approved self-learning host trial failed on missing `@opencode/client`; its trial config change was rolled back byte-for-byte. Voice live checks remain blocked by the unavailable GNOME bridge. G...",
+        "timestamp": 1793375677
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793375678
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Document authoring still needs separately approved packages. I’m adding a useful prerequisite that needs none: a read-only Office ZIP preflight and bounded member reader, with adversarial tests. It will not parse XML, render untrusted files or claim authoring acceptance.",
+        "timestamp": 1793375902
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The reader passes 20 tests and inspects both preserved Calc workbooks without changing them. Review caught and fixed three gaps, including a ZIP64 locator hidden by a maximum-length comment. It’s now wired into offline CI. XML validation, safe conversion and complex authoring ...",
+        "timestamp": 1793377216
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 8): Persist concrete independent document-readiness progress and the available isolation-preparation path without substituting metadata tests for the original authoring/operational outcomes.",
+        "timestamp": 1793377424
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Added a bounded, read-only Office ZIP reader with 20 passing tests, strict typing and lint checks. All eight offline-CI steps pass. Original files, index and config remain unchanged. The goal stays active; converter isolation is next. Complex document authoring remains unfinis...",
+        "timestamp": 1793377470
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 3 reserved.",
+        "timestamp": 1793377471
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m checking whether the installed sandbox and user service manager can enforce document-job limits without changing host settings. A namespace smoke test alone is not enough to accept converter isolation.",
+        "timestamp": 1793377602
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The user service manager enforces the limits: a 64 MiB job was OOM-killed, a 12-task job refused further forks, and a one-second job timed out. These were bounded trusted controls; no host policy changed. Next I’m checking filesystem, environment and network isolation before t...",
+        "timestamp": 1793377794
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The confined LibreOffice trial converted a fixed Unicode text fixture and passed its PDF text and one-page checks. All 16 boundary checks passed, including hidden home/session bus, read-only input/runtime, cleared environment and denied network access. This is not untrusted-do...",
+        "timestamp": 1793378040
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 9): Record verified converter-confinement progress at its actual trusted-host evidence layer while retaining every unfinished selected-adoption/document outcome and original gates.",
+        "timestamp": 1793378542
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Verified trusted document isolation: 16 boundary checks, real memory/task/time enforcement, confined PDF conversion and eight loaded policy checks passed. Nine new tests, offline CI, typing, lint and health pass. Originals and index remain unchanged. Goal remains active. Untru...",
+        "timestamp": 1793378595
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 4 reserved.",
+        "timestamp": 1793378596
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m testing an actual linked-document case next. This checks whether `NO_UPDATE` prevents reading a synthetic external target, rather than relying only on the loaded setting. Existing conversion and resource-limit results will stay preserved.",
+        "timestamp": 1793378629
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The linked-document trial passed: the link was recognized, cached content stayed intact, and tracing saw no target open. I strengthened the check to use a separate positive-control file so caching could not mask a read. A native ODT fixture also preserved its embedded on-load ...",
+        "timestamp": 1793378971
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll launch a small batch of DeepSeek Flash background agents on separate, bounded tasks. I’ll keep goal management and final verification here; they won’t install, deploy, commit, push or change security settings.",
+        "timestamp": 1793379020
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 10): Record the user's explicit new background-agent authorization and disjoint parent-owned dispatch boundaries before launching.",
+        "timestamp": 1793379087
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Two **DeepSeek V4.1 Flash** background agents are now running in parallel: | Agent | Assignment | |---|---| | Document probe | Fix demonstrated failure-path defects and add regression tests | | Native trace adapter | Build version-qualified evaluation evidence handling and tes...",
+        "timestamp": 1793379228
+      },
+      {
+        "type": "cancelled",
+        "detail": "Goal cancelled.",
+        "timestamp": 1793379244
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "I’m checking whether the installed sandbox and user service manager can enforce document-job limits without changing host settings. A namespace smoke test alone is not enough to accept converter isolation.",
+        "timestamp": 1793377602
+      },
+      {
+        "summary": "The user service manager enforces the limits: a 64 MiB job was OOM-killed, a 12-task job refused further forks, and a one-second job timed out. These were bounded trusted controls; no host policy changed. Next I’m checking filesystem, environment and network isolation before t...",
+        "timestamp": 1793377794
+      },
+      {
+        "summary": "The confined LibreOffice trial converted a fixed Unicode text fixture and passed its PDF text and one-page checks. All 16 boundary checks passed, including hidden home/session bus, read-only input/runtime, cleared environment and denied network access. This is not untrusted-do...",
+        "timestamp": 1793378040
+      },
+      {
+        "summary": "Verified trusted document isolation: 16 boundary checks, real memory/task/time enforcement, confined PDF conversion and eight loaded policy checks passed. Nine new tests, offline CI, typing, lint and health pass. Originals and index remain unchanged. Goal remains active. Untru...",
+        "timestamp": 1793378595
+      },
+      {
+        "summary": "I’m testing an actual linked-document case next. This checks whether `NO_UPDATE` prevents reading a synthetic external target, rather than relying only on the loaded setting. Existing conversion and resource-limit results will stay preserved.",
+        "timestamp": 1793378629
+      },
+      {
+        "summary": "The linked-document trial passed: the link was recognized, cached content stayed intact, and tracing saw no target open. I strengthened the check to use a separate positive-control file so caching could not mask a read. A native ODT fixture also preserved its embedded on-load ...",
+        "timestamp": 1793378971
+      },
+      {
+        "summary": "I’ll launch a small batch of DeepSeek Flash background agents on separate, bounded tasks. I’ll keep goal management and final verification here; they won’t install, deploy, commit, push or change security settings.",
+        "timestamp": 1793379020
+      },
+      {
+        "summary": "Two **DeepSeek V4.1 Flash** background agents are now running in parallel: | Agent | Assignment | |---|---| | Document probe | Fix demonstrated failure-path defects and add regression tests | | Native trace adapter | Build version-qualified evaluation evidence handling and tes...",
+        "timestamp": 1793379228
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "6c0553132d355b6a73063de8b47504a2dc60202337049265b4fb32f54b29158f",
+  "generatedFiles": {
+    "plan.md": "4cf70b3c9d7429bf7cee36a9aa566c586f0333471eff8fdb4db2dc72a1c679e2",
+    "HANDOFF.md": "422b815d2d7a154e4d2664edc31c568d5b30920295b3eedc334a9e2da2670e02",
+    "work-history.md": "8cfa1dedd8cb1ec0e31bf334078c1f165f18f6672454c345c61ebf2c25f0487e"
+  }
+}

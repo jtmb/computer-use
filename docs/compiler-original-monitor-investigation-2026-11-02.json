@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only read-only investigation of the original35/36compiler-monitor refusal. Existing artifact discovery, retained TAP/JSON inspection and monitor/cleanup source comparison only. No test, tiny-worker, compiler, native host, live process monitor, syntax, API/history, credential, helper model or deployment execution.",
+  "continuation": {
+    "reviewRevision": 300,
+    "scheduledRevision": 301,
+    "verdictNumber": 24,
+    "actualVerdict": "Blocker reviewer requires continued work: The gateway reconciliation and measured resource/consequential gates are supported. However, d3-compiler still explicitly retains an unexplained original 35/36 monitoring failure. The audit cites later scoped passes and admission refusals, but supplies no evidence that the original failing diagnostics were investigated or are inaccessible. Locate the preserved original TAP/receipt within existing acquisition limits, identify the failing assertion and compare its monitor/cleanup source. Record the evidenced cause or a concrete access limitation. This is independent read-only investigation, requiring no repeated test, compiler launch, credential access, deployment or new approval.",
+    "result": "The specific artifact/source investigation is performed, with a concrete evidence-access limitation. The original raw35/36failure diagnostic was not located in the inspected known archive set. The source-derived likely assertion is labelled an inference, not recovered original TAP. The old failure remains unexplained and unaccepted; later green tests and admission refusals are not its cause or repair."
+  },
+  "artifactSearch": {
+    "root": "/home/james/Documents/computer-use-native-host-20261029",
+    "archives": [
+      "compiler-fifth-return-q0eQS8",
+      "compiler-final38-8aAgjB",
+      "compiler-lifecycle-return-sCtDlj",
+      "compiler-parent-followup-wzu13e",
+      "compiler-race-return-WfqPxv",
+      "compiler-teardown-parent-nwstm7",
+      "fullgraph-driver-review-m36Y3J"
+    ],
+    "coverage": "54metadata entries, including the registered source snapshots/manifests,14complete text/TAP/log bodies and14complete JSON artifact bodies. No35pass/1fail/36test raw TAP or JSON-wrapped failure body is found. Summary mentions are retained but not mistaken for original diagnostics. The JSON pass also inspects both retained source-text wrappers rather than assuming a .json extension cannot contain output.",
+    "scratchMetadata": "A bounded top-level /tmp/opencode scan visits102names with no truncation under8192names. The sole compiler/fullgraph-prefixed entry is the ready compiler-gc10-restage-BzpXGb directory. No historical compiler/fullgraph log filename is exposed there. The large stage is not recursively scanned or executed. Earlier targeted filename globs likewise returned no original35/36log. This is not a search of every directory, output store or historical transcript.",
+    "primaryReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/compiler-original-monitor-review-lDzou1/investigation.json", "bytes": 31041, "sha256": "40f086c761b4ff41161a1b79a45b10abf03ff1a45108de421f21adeb3847d6ba" },
+    "structuredArtifactReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/compiler-original-monitor-review-lDzou1/json-artifacts.json", "bytes": 7577, "sha256": "97674f33fcf780d4537a52226ecc22639eed67fffdfdf5660a9bef12b55a4c63" },
+    "accessLimitation": "No exact raw original-failure path, exception, failed TAP stack, failure-time PID/start identity, process snapshot, sample timing or cleanup result is supplied by this inspected set. The historical source explicitly predates exception-detail instrumentation. This is a concrete limitation of available preserved evidence, not proof of global absence, deletion, inherent impossibility or a permission gate on routine local reads. No private conversation/database/output-store search, credential lookup or unchanged authenticated-API retry is used to fill the gap. The preceding current native service activity request actually refused authentication."
+  },
+  "retainedWitnesses": {
+    "fifthReturn": "The exact686-byte/c6b497c5preservation receipt binds the91467-byte/059f2d2bdriver. Its1645-1654catch discards the caught exception and reports generic monitor-unavailable unless the observed root is treated as exited. It supplies no original35/36exception detail.",
+    "closest36CaseRecord": "The2517-byte/80810e5cparent preservation receipt binds the93485-byte/ca3c70b4driver,73715-byte/994b9f1ctests,26802-byte/094a7560guide and8384-byte/f00a1da2checks/compiler-36.txt. That actual TAP reports36passed/0failed/0cancelled/0skipped in19349.109147ms; real tiny-worker test34passes. It is a later green result, not the missing failed run.",
+    "historicalSummary": "The saved guide382-389 and preservation receipt scope explicitly retain an earlier35/36real-tiny-worker monitor-unavailable refusal before monitor-error detail. They do not contain a failed TAP stack or detailed process sample. The current owning guide726-752 preserves the same distinction and says the later measured RSS-teardown race does not establish the old cause.",
+    "later38": "The final38receipt76d17d09binds95429-byte/14cf444edriver and8874-byte/29482826source38.txt. Its later38/38green and root-RSS correction are different observations, not evidence that the original35/36failure was identified or fixed.",
+    "otherFailuresNotConflated": "Consolidation677describes a separate model-metadata35/36malformed-negative-fixture failure. Compiler teardown acceptance d6994e7eand its143cd956owning log retain52/53with a different GOGC25prelaunch refusal. The631f2ad2root-exit observation has zero trials because actual admission2530.1640625<2816refused. Neither fixture error, later refusal nor full2827RSS failure explains the original monitor exception."
+  },
+  "assertionAndSourceComparison": {
+    "closestTest": "Saved parent test1362-1387, the real tiny worker completes under the injected supervisor seam with verified cleanup, asserts spawned===true at1376, reason===null at1377with the serialized result, verifiedcleanup at1378and a completed worker receipt/family iteration afterward. Current test1741-1765retains that shape, including reason===null at1756.",
+    "inferenceOnly": "Given the historical summary that this tiny worker returned monitor-unavailable, reason===null is the closest preserved owning assertion that would reject it. The actual original failing TAP/assertion location and exact at-failure source hash are not recovered. Do not rewrite this inference as an observed original stack or import the unrelated malformed-fixture cause.",
+    "monitor": "Fifth-return catch1645-1654omits exception data. Later parent catch1665-1676accepts error and writes String(error.message ?? error).slice(0,512) before the same monitor-unavailable refusal. Current production2258-2259retains bounded detail and fail-closed refusal with the existing observation budget. Later fixes to stat identity, registry, sampler budgets, group RSS or teardown may explain their own measured cases only; none recovers the old discarded exception.",
+    "cleanup": "Closest parent stop1588-1591keeps the first reason, signals only a verified owned root and finishes. Its finalCleanup1679onwardseparately considers known descendants, unknown identities, drain bounds, root identity and closure. Current finalCleanup2262onwardskeeps shared budgeted ownership checks. A monitor-unavailable reason alone does not prove that original cleanup was verified or that the failure was merely teardown timing.",
+    "currentSource": { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 120527, "sha256": "a058744d7ece8474cb6af6a85cd5a9cfe7bfa46cd6dec7f911e4f5ecd63f7a60" },
+    "currentTests": { "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs", "bytes": 118869, "sha256": "55558435666e6a6ae49aca8152a1b1fc61cd5ae44449e58bd2f35183b2d3ffc0" },
+    "changeDecision": "No new source defect or defensible historical-cause correction is established by this read-only investigation. No code, test, sampler, ownership, signal, cleanup, resource or full-graph input setting is changed. Rerunning the old test cannot reconstruct its missing historical diagnostic and would violate the retained no-replay constraint."
+  },
+  "readerFailurePreserved": {
+    "path": "/home/james/Documents/computer-use-native-host-20261029/compiler-original-monitor-review-lDzou1/reader-failure.json",
+    "bytes": 1305,
+    "sha256": "0d1dfceb19fb5467380e6777b9d65965fcb562b0995629fbe9ea1189408ef29c",
+    "cause": "The first reader supplied an unsupported full expected hash and exits1at eval1:30:135. That wrong caller expectation is not a real historical source digest or evidence of source drift. The actual a058744dhash exactly matches the already-existing owner record docs/lower-gogc-verification-2026-11-02.json:17. The continuation reads owner-derived expectations; no source is changed to clear this caller error. Eleven initial copies remain.",
+    "accounting": "Initial caller did not persist its byte counter. Its completed419071-byte copies,69568bytes of unchanged known candidate logs and the120527-byte actual failing-hash read reconstruct609166initial bytes, explicitly not original telemetry. Continuation795467and structured-artifact pass255187bring the recorded charge to1659820under the unchanged2MiB aggregate.256KiB/file,10seconds per read job,256archive entries and8192scratch names remain; no fictional continuous multi-call deadline, refunded refusal or larger cap is claimed."
+  },
+  "remaining": "This300reviewer's original-artifact/assertion/source lead is performed with the specific preserved-evidence limitation recorded. The old35/36compiler-monitor failure remains unknown/unaccepted, not converted to green by later tests, inferred from a different35/36fixture or declared impossible. Legitimate exact original raw diagnostics or an authorized supported source may permit further attribution later; no private-store or credential workaround is inferred. Full2827positive/error/library execution still needs actual admissible resources within unchanged2816prelaunch/1536RSS/1280floor/90second guards. All20unfinished tasks/eight criteria/75IDs/additional lanes, genuine failures, accepted source results, full native/build/type/CI/operational/original/human/device and separate consequential gates remain. No staging, commit, push, deployment, shared restart, source/test edit or closed-goal reopening occurs."
+}

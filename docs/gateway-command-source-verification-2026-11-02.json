@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only read-only reconciliation of the current separate /tailscale-web command, native command resolution, owning runbooks and remaining operational gates. No gateway test replay, source correction, module import, Docker inspection/start, network deployment, pairing request, private conversation or peer steering.",
+  "continuation": {
+    "reviewRevision": 298,
+    "scheduledRevision": 299,
+    "verdictNumber": 23,
+    "actualVerdict": "Blocker reviewer requires continued work: The measured resource gates, current decision-note verification and unapplied learning candidate are supported. However, the conversation establishes a new gateway change from native /web and /pair routing to a separate /tailscale-web command, which the audit explicitly leaves unreviewed while relying on older gateway instructions. Check ownership read-only, then trace the current canonical command definition against the gateway runbooks and acceptance prerequisites. Preserve concurrent changes and distinguish source reconciliation from adopting peer-reported operational success. This investigation requires no deployment, networking mutation, private data, model, guard change or repeated test; independent verification is not yet exhausted.",
+    "result": "This specific ownership/source/runbook lead is performed. Current command and owning runbooks agree on separate opt-in /tailscale-web; no production correction is evidenced by that reconciliation. Actual owner activity remains unknown after authentication refusal, so no overlapping edit is made. Nothing here completes the gateway task, operational phase or full goal."
+  },
+  "ownership": {
+    "documented": "tailscale/docs/gateway-acceptance.md:3 names this coordinator; docs/session-consolidation-2026-10-29.md:2984-2993 distinguishes this in-repository gateway from the separate Tailscale project. Those historical documents do not identify the author of the observed 43-byte feature delta or prove current process quiescence.",
+    "publicGoalRead": "One supported list_all_goals snapshot returns 19 public summaries, untruncated. It includes the separate Tailscale session ses_e82032444ffeP7hG18Zqr3hsp3 with an active goal and old persisted update. Active goal status, elapsed accounting and a historical title are not live worker activity or a path release. No other goal is modified, adopted or resumed.",
+    "actualActivityAttempt": {
+      "receipt": "/home/james/Documents/computer-use-native-host-20261029/gateway-command-review-qDB7D6/ownership-activity.json",
+      "bytes": 2204,
+      "sha256": "36fabf7e781a6489e5d317cf19addd08a935d3687821f9bb03d59e6f229b2ff7",
+      "operation": "Direct installed native binary: api --server <the exact endpoint returned by service status> get /api/session/active. Explicit-server source uses a health GET and inherited native authentication, not ensure/start/standalone.",
+      "result": "Exit1, authentication unavailable, zero stdout; stderr594bytes/cf9fc0c873f11e741e635e08186b23a8874e44191c991c6dd43fb1ec8625e4bf. No activity response, credential lookup, password prompt, config grant, managed-service fallback or retry follows. No live ownership, inactive status or background-process cleanup is inferred.",
+      "limits": "Shared64KiB raw pipe capture and5second owned-client deadline,193ms observed. Native HTTP buffering is separate; this does not claim a server-side response-byte cap."
+    },
+    "wrapperQualification": "The preceding opencode service status returns only the loopback endpoint. Static inspection then reveals that the installed opencode-pilot wrapper conditionally imports legacy provider credentials before commands. Whether that legacy file existed or was read internally is not observed; zero internal credential reads cannot be claimed. No credential values were inspected, printed or saved by this review. The later metadata attempt bypasses the wrapper. No deployed-wrapper edit, private-file lookup or auth fallback is performed.",
+    "writeBoundary": "Unknown or active concurrent ownership remains reserved. Gateway/plugin/runbook/config/features/native files are read only. Only this uniquely named verification record and its private source receipts are authored; no peer prompt, ownership transfer or reported operational result is adopted."
+  },
+  "currentCommand": {
+    "entry": { "path": ".opencode/plugins/tailscale-web/tui.js", "bytes": 198, "sha256": "31767fa579bf448d229818eacbe265a16a8c1ddd482b644ac724658c7e696148" },
+    "controller": { "path": ".opencode/plugins/tailscale-web/controller.mjs", "bytes": 5449, "sha256": "c3a9e6a1d315ca18435a6f80f15a69f816711219e2b1766f39ac2147f92479bb" },
+    "registration": "Entry lines4-6 identifies computer-use.tailscale-web and registerDockerWeb. Controller22-32 adds computer-use.tailscale-web.open with title Open Docker web over private Tailscale and slash {name:tailscale-web, arguments:true}. It does not register server.pair, web or pair, and does not replace native commands.",
+    "dispatch": "Controller34-48 accepts only empty arguments or stop; other arguments are refused, busy actions do not overlap and disposed callbacks return. stop calls only web.stop and requests neither backend discovery nor a pairing token. Registration creates the lifecycle object but does not invoke a gateway start or stop.",
+    "pairing": "Controller50-89 captures selected route, reads public connected server identity, starts the gateway, rechecks backend before and after native server.pair and checks selection/lifetime before presentation. Backend mismatch/unverifiable identity stops only the gateway with explicit unconfirmed-stop feedback. Navigation alone suppresses a stale link without stopping a still-valid gateway. Malformed/expired metadata is refused; valid single-use links are presented only through the native dialog. No real code was requested or observed here.",
+    "nativeNonreplacement": "Native reference packages/tui/src/app.tsx:1042-1047 retains server.pair with slash pair and alias web. context/keymap.tsx:204-250 maps a plugin command id to native name, preserving slash metadata. component/prompt/index.tsx:174-183,1141-1153 matches the argument-taking slash name and dispatches its arguments directly. The distinct gateway ID/name does not shadow native server.pair or either native slash name.",
+    "nativeReferenceLimit": "Of16selected current native files,15match their blobs at the frozen ba546ec pin. The current72848-byte prompt/index.tsx is already modified (SHA2567f7f3d1b); its differing blob is explicitly retained, not replaced or called pinned/installed source. The command-resolution excerpts describe current reference source, not an installed TUI acceptance result. Native HEAD and the567-byte status baseline remain unchanged.",
+    "loadingTrace": "Current native TUI plugin/discovery.ts:8-52 finds plugin directories; plugin/context.tsx:288-306 explicitly admits TUI-only discovery, and652-696 resolves Host.resolve(target).tui and validates its definition. plugin/src/host.ts:17-43 resolves conventional tui entrypoints. Core config/plugin/source.ts:159-168 intentionally filters server-less entries from server inventory. Thus an absent server plugin entry alone cannot establish absence of this TUI-only command. Current source discovery is still not proof the running client loaded or enabled it.",
+    "threeDifferentWebNames": "The native /web slash alias, the HTTP /web UI route and this machine's opencode web wrapper are different surfaces. The gateway's public command is /tailscale-web even though its verified URL/readiness path remains /web. Historical /web wording is not globally replaced, and invoking the installed wrapper would not verify this gateway."
+  },
+  "lifecycleAndPrerequisites": {
+    "helper": { "path": "tailscale/scripts/web-on-demand.mjs", "bytes": 13682, "sha256": "6dca76681acc4af9bdb72725de9218f16163ade8775453798f924a136196456d" },
+    "discovery": "gateway-discovery.mjs:1-40 requires one explicit nonzero IPv4 loopback endpoint, PID/version equality with the connected server, supported service status plus authenticated native /api/info, and exact selected-session identity where present. No fixed port, unrelated process/credential scan or second-backend fallback is defined. The helper invokes opencode through PATH; the installed wrapper's conditional import means its internals are not attested credential-free by this source inspection.",
+    "startStop": "web-on-demand.mjs:117-144 discovers before Docker mutation, requires the preprovisioned exact gateway identity/hardening/mounts, checks state-volume writers and targets only its immutable container ID. It cannot provision/recreate/build/pull as a fallback. stop validates the gateway then stops/rechecks only that ID; OpenCode is not a stop target.",
+    "serveAndCleanup": "Lines147-188 require ready enrollment, the discovered target's protected API401 and UI200, rediscovered backend identity and one exact private foreground Serve route. Extra/persistent/Funnel/differing routes are refused. Cleanup is armed at dispatched start only; lines189-198 stop only the gateway that this operation attempted to start, reporting uncertainty. Same-command identity checks are sampled, not continuous monitoring after return. runCommand uses execFile/maxBuffer; this review does not promote that option into a hard before-read HTTP/output quota.",
+    "owningGuideAgreement": "web-on-demand.md:9-26,54-61,119-127; existing-instance-gateway.md:26,74-79,107,134-138; gateway-acceptance.md:17-20 all explicitly use the separate /tailscale-web and stop behavior while retaining native /web and /pair. docs/features.md:2090-2120 agrees and still labels deployment/loaded/remote acceptance pending. No correction to those shared sources is required by this command-name comparison.",
+    "migrationOrder": [
+      "Exact host-network/security/deployment and state-migration authority must exist before live work; generic continuation or this source record cannot supply it.",
+      "Reverify container/image/volume identities, stopped legacy containers, no other identity writer and unchanged loopback-only OpenCode.",
+      "Make the approved opaque private identity backup and test restore against a disposable volume; preserve originals and do not inspect state contents.",
+      "Under exact migration authority, clear only the retained old background HTTPS root route in the legacy bridge namespace before reusing its identity on host networking. Any unrelated route blocks migration; do not reset all state or start the old OpenCode container.",
+      "Provision only the digest-pinned non-root/read-only/drop-ALL/no-new-privileges userspace gateway with approved external identity state, host networking and bounded resources. No OpenCode rebind, host Tailscale, Docker socket, NET_ADMIN, TUN, Funnel, credential mount or second backend.",
+      "Observe loaded command, effective foreground route, real same-existing-session sign-in over valid HTTPS from an authorized distinct device, unauthorized-tailnet and non-tailnet denial, and actual cold/warm/concurrent/error/stop/restart/rollback outcomes. Login and device participation remain human-controlled."
+    ],
+    "remainingAuthoritySources": [
+      "tailscale/AGENTS.md:3-8, including the user's repeated no-secrets/concurrent-work/separate-mutation instructions",
+      "tailscale/docs/existing-instance-gateway.md:9-37,81-138",
+      "tailscale/docs/gateway-acceptance.md:66-79",
+      "AGENTS.md Routine authorization and Safety; docs/maintainer-policy.md:98-117"
+    ]
+  },
+  "earlierEvidence": {
+    "retainedNotReplayed": "The runbooks'76gateway/83with-inventory source results and2026-10-29native discovery remain dated historical observations. The current selected registration and native-UI test bodies were read for assertion ownership; no test suite is rerun, and their old counts are not refreshed for current bytes. Older isolated-backend Docker success does not satisfy existing-instance remote acceptance.",
+    "staleHistoricalReferences": "Consolidation tables at2869and3038retain older /web labels and earlier test counts. This record reconciles their lineage to the current canonical independent command; it does not edit history or mistake those dated labels for current command registration.",
+    "unrelatedFeatureChange": "The earlier185261-byte/5e9af286feature preimage becomes185304-byte/9c9b1838with the preserved43-byte separate-command wording change. Current feature bytes match that preserved version. No actor, permission, new deployment or peer-reported success is inferred."
+  },
+  "sourceReadback": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/gateway-command-review-qDB7D6/source-readback.json",
+    "bytes": 14281,
+    "sha256": "9c3e04d7b0299b78d297a7660c967afeee4c4e242f5c4c3e15ac9056784905d1",
+    "result": "All32complete copied canonical/native-reference sources match current bytes. Final components and ancestors are nonsymlink; each native reference is separately compared to the frozen pin. Original raw index29854B/5079c677, staged179B/91d6022a, parent70e04774, nativeba546ec and native567B/663af5bdstatus remain exact. The preexisting config diff and all untracked gateway/feature source are preserved.",
+    "callerFailure": "The first snapshot driver exits1 on its mistaken zero-tracked-diff assumption:634!==0. The634-byte diff is entirely preexistingopencode.jsongoal/self-learning configuration, not a new gateway edit. All32first copies and the1423-byte/37fa51e4failure record remain; continuation corrects only that assumption and does not clear or overwrite the dirty file.",
+    "bounds": "628714initial source bytes plus1290909continuation bytes are1919623charged bytes under2MiB;256KiB/file and10seconds per job remain. Continuation Git capture3496bytes/64KiB,146ms. Initial failed driver's exact pipe total was not persisted; no fictional continuous cross-call capture/deadline total is claimed."
+  },
+  "officialSourcesRead": [
+    "https://opencode.ai/v2/docs/cli",
+    "https://opencode.ai/v2/docs/build/plugins",
+    "Previously opened V2 API, public TUI plugin and web/pairing references are retained as current documentation context, not installed-byte or live-gateway proof."
+  ],
+  "remaining": "The298reviewer's current-command/source reconciliation is performed. Live ownership remains unverified after the actual auth refusal; existing overlapping source stays untouched. Required opaque backup/tested restore, exact route/host-network approval, effective deployed foreground Serve, loaded command, real distinct-device same-session HTTPS/auth/negative/lifecycle/rollback are still unfinished. This source review neither grants those actions nor proves they are impossible. All20unfinished tasks/eight criteria/75IDs/additional lanes, accepted source results, genuine failures and other resource/original/native/human gates remain. No secrets lookup, new model/helper/worker, peer send, runtime/container/network/security/config change, old test/heavy/build/GUI/history replay, staging/commit/push/publication or closed-goal reopening occurs."
+}

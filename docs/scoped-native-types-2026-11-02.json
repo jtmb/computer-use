@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 260,
+  "scope": "One materially different native compiler route for the identical four-root RPC strict check, not the full native/plugin/current-controller/2827-input diagnostic task.",
+  "previousEvidence": "docs/rpc-cancellation-verification-2026-11-02.json remains8921B/SHA bf2d19bdd3b3e0fef6a90ec1bacd655bf3b55da49e698d34a0b172bd64ed1442. Both actual TS6.0.3 failures remain: SDK resolution, then heap exhaustion after authentic2.1.1 resolution. Neither is rerun or relabelled successful.",
+  "compiler": {
+    "path": "/home/james/repos/opencode-native-row/node_modules/.bun/@typescript+typescript-linux-x64@7.0.2/node_modules/@typescript/typescript-linux-x64/lib/tsc",
+    "declaredArtifactVersion": "7.0.2",
+    "bytes": 24101026,
+    "sha256": "4f2de678286401759b3fb4475bafe35b8f32b4b3a07d92642bbf37eadc9b34a4",
+    "identityMethod": "Existing fixed executable streamed through hashStableFile within the unchanged128MiBcompiler allowance; no install, copy, native source edit or bytecode/minify/build change."
+  },
+  "inputs": {
+    "configuration": "/tmp/opencode/rpc-types-iw1q8tl8/tsconfig.json",
+    "configurationSHA256": "9cb844c8eba2345e1c60a06e3629b828ca20d99992fd5d82d20fdb4340686604",
+    "roots": ["rpc-handlers.ts", "session.ts", "exporter.ts", "goal-docs.test.ts"],
+    "rootDirectory": ".opencode/plugins/goal-docs/",
+    "checks": "Exact same four absolute source roots and hashes, authentic existing2.1.1SDK path mapping, strict/noEmit/skipLibCheck:false and dependency/library graph. No compiler input is removed, no SDK declaration stub or library bypass. This selected closure is not presented as the full native graph."
+  },
+  "supervisor": {
+    "source": "tools/opencode-native-row/full-graph-diagnostics.mjs",
+    "sha256": "aa774e9721ca7e7296a8db0e7f4f5db9f7249d9d3b7207742cdbbd093638dbba",
+    "actualDefaults": "Real available-memory, process sampler, ownership observer and clock; no test-seam injections.",
+    "jobLimits": { "ownedRSSMiB": 256, "deadlineMs": 30000, "stdoutBytes": 65536, "stderrBytes": 65536, "prelaunchMiB": 2816, "availableFloorMiB": 1280 },
+    "qualification": "The job's256MiBwhole-owned-RSS threshold is stricter than a256MiBV8heap limit. Frozen production1536MiBmaximum,8192entries/100mssampling/250mscleanup remain unchanged. Polling observes threshold crossings rather than preventing every transient overshoot. GOGC25 is requested in a fresh minimal environment, not measured native collector behavior."
+  },
+  "actualResult": {
+    "spawned": true,
+    "accepted": false,
+    "reason": "owned-rss-budget",
+    "initialAvailableMiB": 2878.9296875,
+    "minimumAvailableMiB": 2777.078125,
+    "peakOwnedRSSMiB": 265.55078125,
+    "rssSamples": 15,
+    "elapsedSeconds": 1.456004437,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "rootSignalReason": "owned-rss-budget",
+    "cleanup": { "signalled": true, "verified": true, "reason": "worker-close", "remainingObservedOwnedProcessCount": 0 },
+    "qualification": "The guard stopped the worker and verified its scoped cleanup. Original command exit/signal remain null because the guard returned before normal completion; do not invent a successful exit or interpret empty output as completed diagnostics. No whole-host quiescence proof."
+  },
+  "receipt": {
+    "path": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/native-7.0.2-256rss.json",
+    "bytes": 4518,
+    "sha256": "73a35a15f2af3d6ae329cf03a95844b7040fb31017fd2f1f3093ec4af88d16a5"
+  },
+  "remaining": "No strict-type pass, cap increase, input omission or unchanged retry follows. Required full native/build/types and original full-input failures remain unachieved; this scoped safety probe is not proof that every legitimate future environment or route is impossible. No install, activation/shared restart, permission/security change, worker/model, independent computer/browser edit, commit or push."
+}

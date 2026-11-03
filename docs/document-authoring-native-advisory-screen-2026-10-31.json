@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-10-31",
+  "status": "Declaration-to-published-range comparison only; unresolved native security gate, not a wheel vulnerability verdict or clearance.",
+  "headerFacts": { "path": "docs/document-authoring-native-header-facts-2026-10-31.json", "sha256": "27bc7f211f41d1a11c569cd4419dab47154248957620185122a79d5118191692" },
+  "childReport": { "directory": "/home/james/Documents/computer-use-native-host-20261029/xml-advisories-readonly-oNk63a", "reportSha256": "bb7a90e8145ff0818334e377cffd166d6c4b2735454d95733509f5b564fc0be2", "factsSha256": "a9f55cc23c7d5377d5a17d66330cec798ac5d4710e60e8087fe3d145183b8900", "independentlyReadByParent": true },
+  "acquisition": {
+    "childReportedSearchCalls": 2,
+    "childReportedFetchCalls": 6,
+    "childReportedGitlab406Responses": 2,
+    "childNetworkCountsIndependentlyAudited": false,
+    "parentFetchCalls": 12,
+    "parentCveRecordsOpened": 4,
+    "parentGnomeNotesOrIndexRequests": 8,
+    "parentGnome404Responses": 1,
+    "boundedBeforeFetch": false,
+    "rawBodiesRetained": false,
+    "byteIntegrityVerified": false,
+    "scope": "Tool-managed public documentation/CNA reads. Parent independently opens four CNA records and distinct public GNOME distribution notes/index, not the denied GitLab pages. No archive, package, source-code or candidate download. Returned content is not a byte-verified complete database."
+  },
+  "advisories": [
+    {
+      "id": "CVE-2025-49794", "source": "https://cveawg.mitre.org/api/cve/CVE-2025-49794", "published": "2025-06-16", "recordUpdated": "2026-10-29", "cna": "redhat",
+      "packageName": "libxml2", "declaredVersion": "2.14.6",
+      "upstreamRange": { "version": "0", "lessThan": "2.15.0", "versionType": "semver", "status": "affected", "defaultStatus": "unaffected" },
+      "classification": "inside-published-range-only",
+      "relevance": "Schematron/XPath schema processing.",
+      "qualification": "The exclusive range boundary is not proof of the first fixed release or all branch backports. The 2.14.5 release notes describe Schematron memory-safety fixes but name no CVE here; mapping to this ID and the wheel's patch state remain unresolved."
+    },
+    {
+      "id": "CVE-2026-0989", "source": "https://cveawg.mitre.org/api/cve/CVE-2026-0989", "published": "2026-01-15", "recordUpdated": "2026-09-01", "cna": "redhat",
+      "packageName": "libxml2", "declaredVersion": "2.14.6", "upstreamRange": null,
+      "classification": "unknown-no-upstream-range",
+      "relevance": "RelaxNG external-schema inclusion recursion.",
+      "qualification": "The opened CNA affected array lists Red Hat products, not an upstream GNOME version range. Do not treat distribution package versions or missing upstream bounds as an unaffected verdict."
+    },
+    {
+      "id": "CVE-2025-7424", "source": "https://cveawg.mitre.org/api/cve/CVE-2025-7424", "published": "2025-07-10", "recordUpdated": "2026-10-12", "cna": "redhat",
+      "packageName": "libxslt", "declaredVersion": "1.1.43",
+      "upstreamRange": { "version": "0", "lessThan": "1.1.44", "versionType": "semver", "status": "affected", "defaultStatus": "unaffected" },
+      "classification": "inside-published-range-only",
+      "relevance": "XSLT stylesheet/source-node psvi type confusion.",
+      "qualification": "Upstream 1.1.45 notes include the 1.1.44 section explicitly naming this fix. That supports a release-level fix observation, not linked identity or downstream/wheel backport status."
+    },
+    {
+      "id": "CVE-2025-7425", "source": "https://cveawg.mitre.org/api/cve/CVE-2025-7425", "published": "2025-07-10", "recordUpdated": "2026-10-15", "cna": "redhat",
+      "packageName": "libxml2", "declaredVersion": "2.14.6",
+      "upstreamRange": { "version": "0", "lessThan": "2.15.2", "versionType": "semver", "status": "affected", "defaultStatus": "unaffected" },
+      "classification": "inside-published-range-only",
+      "titleAlsoNamesLibxslt": true,
+      "relevance": "XSLT key()/tree fragments, atype corruption and ID cleanup.",
+      "qualification": "The CNA upstream product is libxml2 despite the libxslt description/title. The 2.14.6 release notes name an atype-corruption guard but do not name this CVE; component/backport applicability is unresolved, not inferred from similar wording."
+    }
+  ],
+  "releaseEvidence": [
+    { "source": "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.0.news", "version": "2.14.0", "releaseDate": "2025-03-27", "finding": "Binary compatibility is restricted to 2.14 or newer; ELF soname changes from libxml2.so.2 to libxml2.so.16. RelaxNG remains enabled by default. Schematron is only a planned removal here.", "provesSelectedWheelAbi": false },
+    { "source": "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.4.news", "version": "2.14.4", "releaseDate": "2025-06-16", "finding": "Security note names an xmlBuildQName integer-overflow fix; no mapping to the four reviewed CVE IDs is inferred." },
+    { "source": "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.5.news", "version": "2.14.5", "releaseDate": "2025-07-10", "finding": "Security notes include Schematron memory-safety fixes in xmlSchematronReportOutput and a null-pointer fix; no exact CVE/backport mapping is established." },
+    { "source": "https://download.gnome.org/sources/libxml2/2.14/libxml2-2.14.6.news", "version": "2.14.6", "releaseDate": "2025-09-08", "finding": "Security notes name regexp integer-overflow/OOB fixes and a tree atype-corruption guard; no exact CVE/backport mapping is established." },
+    { "source": "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.43.news", "version": "1.1.43", "releaseDate": "2025-03-12", "finding": "Names fixes for CVE-2025-24855/CVE-2024-55549, not the two reviewed 7424/7425 IDs. Dynamic plugins and EXSLT crypto are disabled by default, not verified disabled in this wheel." },
+    { "source": "https://download.gnome.org/sources/libxslt/1.1/", "finding": "The opened distribution index lists 1.1.43 and 1.1.45 news, not a 1.1.44 news member. This is the observed listing, not universal release absence." },
+    { "source": "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.44.news", "accessStatus": "HTTP404", "finding": "No release contents acquired; no absence/fix conclusion follows." },
+    { "source": "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.news", "version": "1.1.45", "releaseDate": "2025-11-30", "includedReleaseVersion": "1.1.44", "includedReleaseDate": "2025-11-23", "explicitFixIds": ["CVE-2025-7424", "CVE-2025-11731"], "finding": "States rebuild of 1.1.44 and includes that release's security fixes. Does not establish this wheel's linked versions or patch state." }
+  ],
+  "limits": {
+    "wheelAffectedEstablished": false, "linkedIdentityVerified": false, "abiVerified": false, "branchBackportsVerified": false,
+    "exhaustiveVulnerabilityReview": false, "securityClearance": false, "installationAuthorized": false, "humanAcceptance": false
+  },
+  "actions": { "pypiRequests": 0, "osvQueries": 0, "candidateImports": 0, "artifactDownloads": 0, "installs": 0, "parserOrExploitRuns": 0 },
+  "remaining": [
+    "These four descriptions identify schema/XSLT paths; their silence does not prove generic parsing safe.",
+    "CNA exclusive boundaries are not automatically the earliest fixed release, all branch backports or the actual wheel's vulnerability status.",
+    "Resolve linked/native identity, patch/backport/component mapping, ABI/build options, reachability and other advisories before security acceptance.",
+    "The exhausted PyPI pass, unresolved cffi-to-pycparser edge, pandas notice refusal and transitive rights/XML/authoring/render/human gates remain."
+  ]
+}

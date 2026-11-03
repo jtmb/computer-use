@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 269,
+  "scope": "Parent-only extension of the existing compiler initial-collection setting from exact25to exact10or25; source and tiny native mechanism checks, then one same-four-root strict CLI request. No full graph/build, native memory permission, model or whole delivery acceptance.",
+  "readOnlyInvestigation": {
+    "sources": ["https://go.dev/doc/gc-guide", "https://pkg.go.dev/runtime@go1.26.4"],
+    "findings": "The version-matched runtime describes GOGC as an initial new-allocation/live-data percentage, default100. The living guide's model is explicitly as ofGo1.19: a lower percentage reduces allocation headroom at a CPU cost, but cannot control live heap or guarantee RSS. A runtime SetGCPercent call can override the initial setting. This does not prove the effective internals of the Microsoft-modified compiler.",
+    "exactSource": "Driver804-865,1275-1301,1474-1486,1669and1955-1962at120363B/aa774e97hardcode25in normalization, clean environment, worker observation and parsing/completion. Final expectation binding is already value-specific. Owning tests1822-2101cover descriptor/privacy/legacy25boundaries; they are retained unchanged.",
+    "authority": "Current user verification/fix instructions authorize reversible in-scope source implementation and tests. Adding one strictly lower initial-allocation setting does not raise or bypass LIMITS, permissions, security, identity or diagnostic checks. No new installation, activation or environment passthrough authority is inferred. The earlier assistant no-further-tuning wording is not treated as a new user prohibition or permission grant.",
+    "missingFullStage": "Actual stat of the exact retained /tmp/opencode/compiler-sequenced-restage-ebgvT2AX/mirror.json and mirror-graph.json returnsENOENT; the preserved external receipt is not a current stage. The exact four-root /tmp/opencode/rpc-types-iw1q8tl8/tsconfig.json remains present. No full2827inputrestage/trial or input omission is part of this unit."
+  },
+  "sourceChange": {
+    "path": "tools/opencode-native-row/full-graph-diagnostics.mjs",
+    "before": { "bytes": 120363, "sha256": "aa774e9721ca7e7296a8db0e7f4f5db9f7249d9d3b7207742cdbbd093638dbba" },
+    "after": { "bytes": 120527, "sha256": "a058744d7ece8474cb6af6a85cd5a9cfe7bfa46cd6dec7f911e4f5ecd63f7a60" },
+    "behavior": "Only numeric10and25are allowed, not a range, string,off,zero,larger value or additional knob. Frozen descriptor-based snapshots retain own/enumerable/plain-data, no-getter/symbol/inherited-field boundaries. The fresh environment transmits only the normalized selected value. Worker observation, receipt parsing and completed-receipt validation require that same percentage, with onlymatch/mismatch/unset evidence; final binding still compares exact expected/observed values. Omission and25remain compatible.",
+    "unchanged": "All resource constants, ownership/sampler/signal/cleanup logic, identity/config/graph/overlay checks, strict/library requirements and native source are unchanged. The accepted monitor implementation is not reworked or rerun. No GOMEMLIMIT/GODEBUG/GOMAXPROCS, parent environment copy or global environment mutation."
+  },
+  "tests": {
+    "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs",
+    "before": { "bytes": 110350, "sha256": "be8e1b6df5dd0dad3b015a27f42b722e88caecc139a85069acc798518dd2c39a" },
+    "after": { "bytes": 118869, "sha256": "55558435666e6a6ae49aca8152a1b1fc61cd5ae44449e58bd2f35183b2d3ffc0" },
+    "addedCases": 4,
+    "redFirst": { "selected": 2, "passed": 0, "failed": 2, "durationMs": 278.618727, "log": "before.tap", "bytes": 2619, "sha256": "a08c59deff7bc23c68cad98d0c954224d537ba29c9f0789eca7b71dfdd84026f", "cause": "The unchanged implementation rejects10as unsupported. No compiler starts in these initial cases." },
+    "firstChangedRun": { "selected": 4, "passed": 3, "failed": 1, "skipped": 0, "durationMs": 3535.370838, "log": "after.tap", "bytes": 1686, "sha256": "8212d8b2e67450d3755124c1e5adf3a9b5b83602593b0237d6f103d9d2a9606f" },
+    "callerFailure": "The last new case filters parsed diagnostic records by kind, but the existing parser deliberately returns only family/file/diagnostic there, with no kind property. That caller filter drops real results and reports missing2322. Remove only that erroneous filter; do not alter the compiler, parser, diagnostic inputs or prior tests.",
+    "correctedCase": { "selected": 1, "passed": 1, "failed": 0, "skipped": 0, "durationMs": 4489.121013, "log": "corrected-case.tap", "bytes": 381, "sha256": "79783531f67a4ab7bfabb51bb7165f461565a119c4426d2c1aadd4fc34495514" },
+    "coverage": "Exact10snapshot/refusals and legacy25/omission compatibility; environment isolation including a real child; pre-import worker refusal for absent/25/arbitrary4096byte mismatch with redaction; exact receipt cross-value/completed-observation binding. Actual pinned7.0.2tiny clean and error/library graphs finish every seven-family query, retain compiler libraries and produce TS2322plus a declaration-file TS2304. No skipLibCheck or input omission.",
+    "qualification": "These four new cases now pass across the recorded corrected runs, not a fabricated fresh4/4run. Existing child-test available-memory seams supply4096rather than real admission; tiny native compiler outcomes and observed worker environment are genuine, but neither is full real-host resource admission or an internal Go GC measurement. All original test bodies and earlier failure artifacts remain; no old source/monitor/GUI or failed full graph is replayed.",
+    "syntax": "Actual node --check tools/opencode-native-row/full-graph-diagnostics.mjs exits0."
+  },
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/controls.json",
+    "bytes": 2501,
+    "sha256": "2b5a6d5c3aee496c0b41616aa0614195b59fa843fde92b8621e76354347efc7d",
+    "result": "Four isolated exact source faults each exit1at the intended single assertion: admit unsupported100, transmit old25instead of10, compare the worker to old25, and omit completed-observation binding. The last exercises the real tiny compiler; none runs a full graph or grants permissions. These deliberate mutations are not four production bugs."
+  },
+  "selectedStrictAttempt": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/same-four-root-gc10.json",
+    "bytes": 5036,
+    "sha256": "3098115ded95538196c4e73787d17a8508745117b2992858e353142207b8efda",
+    "configSHA256": "9cb844c8eba2345e1c60a06e3629b828ca20d99992fd5d82d20fdb4340686604",
+    "compilerSHA256": "4f2de678286401759b3fb4475bafe35b8f32b4b3a07d92642bbf37eadc9b34a4",
+    "requestedRuntime": { "goGcPercent": 10 },
+    "otherInputs": "Identical four source-root hashes/config/authentic2.1.1SDK/strict/noEmit/library checking and --singleThreaded --checkers1. Same256MiBwhole-owned-RSS/30s/2816prelaunch/1280floor/real default sampler, observer and clock. The hardened builder constructs PATH/HOME/TMPDIR/GOGC only; no direct environment override.",
+    "accepted": false,
+    "spawned": false,
+    "reason": "prelaunch-memory-guard",
+    "initialAvailableMiB": 2533.78125,
+    "requiredPrelaunchMiB": 2816,
+    "elapsedSeconds": 0.0007594899999999996,
+    "rssSamples": 0,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "cleanup": { "signalled": false, "verified": false, "reason": "no-child" },
+    "qualification": "This genuinely changed request never launches; it does not test whether10would fit the four-root closure or produce diagnostics. Parent construction of the CLI environment is not a child-header/internal target measurement. No-child is not verified process cleanup. Prior25parallel/single-worker RSS failures and TS6failures remain separate. No readiness polling, forced admission, further tuning or unchanged retry follows."
+  },
+  "qualityReview": "Review covers the changed runtime normalization, sanitized environment, pre-import worker gate, strict header/completed receipt and final expectation binding, with existing adjacent sampler/identity/resource boundaries inspected but not rerun. The new consumer test failure is resolved from the actual parser contract, not by changing production results. Existing tests/failures are retained and each new safety boundary has positive and deliberate fault coverage.",
+  "documentationCheck": { "command": "node --max-old-space-size=256 --test --test-name-pattern '^inventory links resolve and source/runtime/unfinished states stay explicit' scripts/features-contract.test.mjs", "tests": 1, "passed": 1, "failed": 0, "skipped": 0, "durationMs": 218.015004, "qualification": "Only the changed link/status case is run; not full inventory, CI, health or native acceptance." },
+  "documentaryCallerRefusal": "One multi-file patch used a partial feature-heading line that did not match; it was refused. Fresh guide grep confirms that section was not applied either. The corrected patch uses the actual complete feature context; no partial application is promoted to success.",
+  "preservedArtifacts": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/ holds exact before-source/test/guide/feature preimages and actual red, corrected and fault-control logs. Prior health/memory/native-Git/compiler/GUI failures and receipts are unchanged, not rewritten to current hashes.",
+  "fullStageFollowUp": {
+    "scheduledAtPlanRevision": 271,
+    "recoverability": { "receipt": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/full-stage-recoverability.json", "bytes": 2967, "sha256": "4c33a12520efcc5157cc7faff36c026d53fe9d9f63bcf9b7c7544e4e4ed13967", "result": "The entire preserved8601entrynative list matches current names and all8558regular sources/43symlinks/four overlay originals+replacements and2827graph input hashes match. Zero missing, extras or mismatches. Read-only160371660source bytes/11389hashes/3212ms; no RAM/admission read or compiler execution. Thus missing scratch is recoverable, not impossibility or an invented approval gate." },
+    "restoration": { "receipt": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/full-stage-restored.json", "bytes": 3123, "sha256": "41a152615ce390a83f2b646c155e2178deb263006bcff18a028ad24db27d0847", "stage": "/tmp/opencode/compiler-gc10-restage-BzpXGb", "result": "Complete fresh scratch copy8558files/43source symlinks/344module links (56workspace/288external),1087directories, four identical overlays, no exclusions/extras/dangling links. Native138075906source bytes become138076827only through those four exact overlays. Independent output hashes and all2827graph entries/22226348bytes match. Only metadata roots relocate; options/roots retain strict/library/single-thread/checker semantics. Native HEAD/list/status remain identical. This is historical graph reconstruction, not newly observed compiler enumeration.", "sourceReadBytes": 293280133, "metadataReadBytes": 5213585, "elapsedMs": 5841, "bounds": "Same64MiBsource-file/512MiBsource-total/8MiBmetadata/32768entries/120srestage caps and remaining-length command capture; no guard increase. Files are new0600fixtures, not executable/settings/media backups." },
+    "helperCallerFailure": "A discretionary read of the authenticated4450816bytearchived helper receipt succeeds, then a caller .files.map fails because files is an object. No archived script is extracted or executed, and the failed full-body read is not retried/refunded. The separate complete-data restoration uses the already authenticated standalone manifests and overlay files, not an alternate client or a relaxed acquisition cap.",
+    "documentationCheck": { "selectedChangedLinkStatusCase": 1, "passed": 1, "failed": 0, "durationMs": 244.394998, "qualification": "Run after the restored-stage status is documented; no other accepted source/native/GUI cases are repeated." },
+    "fullRequest": { "receipt": "/home/james/Documents/computer-use-native-host-20261029/lower-gogc-verification-g0kwr8/full-gc10-run.json", "bytes": 9160, "sha256": "11312c66fdf728181828e5f754456a4e932b3626c3e7e70ac4eff8a4529518f1", "runtime": { "goGcPercent": 10 }, "identityComplete": true, "graphEntriesVerified": 2827, "graphBytesVerified": 22226348, "graphMismatches": 0, "overlaysVerified": true, "spawned": false, "status": "incomplete", "reason": "prelaunch-memory-guard", "initialAvailableMiB": 2546.1953125, "requiredPrelaunchMiB": 2816, "rssSamples": 0, "familiesExecuted": 0, "elapsedSeconds": 0.44160128900000006, "cleanup": { "signalled": false, "verified": false, "reason": "no-child" }, "qualification": "One materially changed full2827inputrequest with10rather than25, using canonical guardedRun and unchanged1536RSS/1280floor/2816prelaunch/90s/real ownership/sampler/clock. Complete preflight passes but no worker or diagnostic family starts. Missing .ndjson is expected after no spawn, not a completed empty result. No internal target/resource-fit/type success, forced admission, further readiness retry or native/model/installed operation follows." }
+  },
+  "remaining": "The complete authentic full stage is now restored and passes identity preflight, superseding only its earlier missing-input status. Actual seven-family full diagnostics and selected strict types still await admissible resources; neither changed10request starts. Installed selector/title/manual CAS/current-controller build, native memory permission, current combined CI/health, model/human/device/original preservation and all exact consequential gates remain unfinished. This unit does not clear those blockers or authorize a new model, peer work, install, activation, security change, publication, commit or push."
+}

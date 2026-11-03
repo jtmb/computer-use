@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only investigation of the default zero-duration click dispatch/cleanup path against version-matched native contracts. New offline conformance/fault coverage only; no new pointer, GUI, native input, deployment or production correction is claimed.",
+  "reviewContinuation": {
+    "attemptedAtPlanRevision": 272,
+    "actualResult": "Blocker reviewer requires continued work: The RAM refusals genuinely block heavy native jobs, but do not exhaust independent work. The audit leaves the default 0 ms click's no-effect cause unknown without demonstrating investigation of that specific dispatch/cleanup path. Trace the canonical GNOME input implementation and owning tests against the native input contract; if a defect is evidenced, add a non-GUI regression and verify the smallest correction. This requires neither another pointer attempt, deployment, changes to reserved computer/browser source, nor increased resource limits.",
+    "readback": "One supported get_goal summary confirms active272, not waiting. Parent schedules source investigation at273and disjoint new fake-boundary tests at274. No repeated unchanged lifecycle request, new worker or paused/closed goal mutation."
+  },
+  "sourceTrace": {
+    "input": { "path": "tools/gnome-window-control/input.mjs", "bytes": 22752, "sha256": "b324cf745afa5b56ea76c7b772513cd636f027bd542503f39471d3610a635518", "changed": false },
+    "oldTests": { "path": "tools/gnome-window-control/input.test.mjs", "bytes": 30275, "sha256": "e0f41073982f2c7ac3bee7e625adb92491de55fcec6b8df04a9d081d26543750", "changedOrRerun": false },
+    "extension": { "path": "tools/gnome-window-control/extension.js", "bytes": 29308, "sha256": "03e21d4d93320ee56427f1ce0316d402228411f614aa75da8a29906ca3f06820", "changed": false },
+    "path": "click defaults durationMs0, validates exact target, waits only for pointer convergence, then pressButton→releaseFrom for EACH click pair. releaseOne removes the tracked held item only after notify release returns; completeRun releases remaining run-owned modifiers, not an already removed button. The pointer device remains cached. Positive durations instead retain ownership/held button until the requested timer. Failure cleanup retains failed releases; earlier owning tests already cover those negative branches and are not replayed.",
+    "invocation": "extension.js:364-382supplies GLib monotonic microseconds;505-519awaits the controller dispatch result and returns it over D-Bus.562-569releaseAll sees no remaining held button after a normal0msclick. No device disposal or implicit extra native button release is found in this successful path. None of these void notifications carries an application-delivery acknowledgement."
+  },
+  "nativeContract": {
+    "actualPackageMetadata": { "gnome-shell": "50.1-0ubuntu1.4", "libmutter-18-0": "50.1-0ubuntu2.5", "mutter-common": "50.1-0ubuntu2.5", "libgtk-4-1": "4.22.4+ds-0ubuntu0.1", "gnome-calculator": "1:50.0-1ubuntu1" },
+    "command": "dpkg-query -W -f='${binary:Package} ${Version}\\n' libmutter-18-0 mutter-common gnome-shell libgtk-4-1 gnome-calculator",
+    "openedSources": [
+      "https://mutter.gnome.org/clutter/method.VirtualInputDevice.notify_button.html",
+      "https://raw.githubusercontent.com/GNOME/mutter/50.1/clutter/clutter/clutter-virtual-input-device.c",
+      "https://raw.githubusercontent.com/GNOME/mutter/50.1/src/backends/native/meta-virtual-input-device-native.c",
+      "https://raw.githubusercontent.com/GNOME/mutter/50.1/src/backends/native/meta-seat-impl.c",
+      "https://raw.githubusercontent.com/GNOME/gtk/4.22.4/gtk/gtkbutton.c",
+      "https://raw.githubusercontent.com/GNOME/gtk/4.22.4/gtk/gtkgestureclick.c"
+    ],
+    "versionLimit": "The live generated Clutter page is API52, not the installed host version; do not use it as host authority. Version50.1source supplies the actual signature/dispatch comparison. Ubuntu package patch deltas, loaded native bytes, live input-thread event order and GTK/application state are not measured or attested here.",
+    "mutterFindings": "The Clutter wrapper forwards uint64time_us/button/state and returnsvoid. The native implementation allocates an event/GTask and queues a high-priority idle on the input context. In the queued task it updates per-device button counts and forwards valid presses/releases; seat code also counts and queues the Clutter event. Native source does not require a positive minimum press duration or special zero-duration discard. Void queueing is not a synchronous event-delivery acknowledgement.",
+    "gtkFindings": "Version4.22.4GtkButton sets button_down on gesture press, and release emits clicked when a matching down exists, the widget is sensitive/contains the release, and keyboard activation is not pending. GtkGestureClick checks sequence/device/button/coordinates and upper double-click timing/distance; these selected paths impose no minimum press-to-release delay. The250msACTIVATE_TIMEOUT is the keyboard activation animation/fallback, not a prescribed mouse hold. This does not identify the historical target/gesture/native state or explain why the old0msobservation had no visible effect."
+  },
+  "newTests": {
+    "path": "tools/gnome-window-control/input-zero-duration.test.mjs",
+    "bytes": 5976,
+    "sha256": "0232f03c3b9fd63902233e1e73b9f827f223d2a19802c00c0244dac6ed51ac4d",
+    "command": "node --max-old-space-size=256 --test --test-concurrency=1 tools/gnome-window-control/input-zero-duration.test.mjs",
+    "result": { "tests": 3, "passed": 3, "failed": 0, "skipped": 0, "durationMs": 170.459732 },
+    "coverage": "Default and explicit0queue exact two down/up pairs, modifier down/up, same valid microsecond timestamps, no release timer, no duplicate completion release, cached pointer reuse and no native-drain acknowledgement. The100mstimed contrast retains BUSY/held state until the timer and still queues rather than acknowledges native release. Controlled seat/device counters refuse unmatched duplicate press/release sequences.",
+    "qualification": "Production controller executes against a deliberately queued fake I/O boundary. This is not a live Mutter/GTK/app event model, proof of FIFO host scheduling, historical cause, physical click success or a fresh GUI replay. Conformance cases pass unchanged production initially: no production defect/red is fabricated and no arbitrary hold/default delay is added."
+  },
+  "controls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/zero-duration-click-ghvm1Y/controls.json",
+    "bytes": 3108,
+    "sha256": "14cf44ce3fe03651aedbbf5625cdd31d94744684680f1682850ac64a3a458414",
+    "result": "Three exact scratch-only source faults each fail the intended default-click assertion: remove interclick release, remove completion modifier release, or stop caching the pointer device. Deliberate faults are not newly discovered production defects.",
+    "callerFailure": "First flat control fixture lacks the existing shim's relative computer-use-runtime module, so it exits1with ERR_MODULE_NOT_FOUND, not an intended assertion. Original1636B/82bb2c6fTAP is retained. Correct only scratch topology and copy the exact unchanged1866B/ed3f40a1shared constants/error module; rerun that previously unexecuted fault and execute the two remaining controls. Canonical runtime/limits are not edited or stubbed."
+  },
+  "ci": {
+    "omissionRed": "New required-suite inclusion assertion initially exits1at ERR_ASSERTION,205.028801ms.",
+    "registration": "Only the new fake-only suite is added to existing REPO_CONTRACT_TESTS. The changed omission and curated-file/no-network/no-service contracts then pass2/2in276.025142ms. No full CI, health, native-input or reserved computer-use test is run.",
+    "remainingBoundary": "The complete native-dependent input.test.mjs suite, GJS smoke/activation and actual GUI are not covertly made default offline checks."
+  },
+  "documentationCheck": { "changedLinkStatusCase": 1, "passed": 1, "failed": 0, "durationMs": 289.206262, "qualification": "Only the changed feature link/status case is run, not full CI/health or the independent integration." },
+  "documentaryCallerRefusal": "A feature patch uses a partial heading line rather than the actual complete line and is refused before application. A fresh scoped read supplies the exact line; the corrected insertion preserves the full prior feature body. This caller error is not native input failure.",
+  "conclusion": "The requested canonical/native dispatch-and-cleanup investigation is performed. No evidence supports a production0mscleanup defect or a mandated minimum hold; changing the default to100mswould be speculative. Queue acceptance versus visible application effect is now explicitly source- and test-backed. Historical0msno-effect cause remains unknown, not repaired or reproduced, while earlier actual100mspointer/text/key and sample-window results remain accepted at scope.",
+  "preservation": "Exact source/test/extension/runtime-shim/CI/feature preimages are retained in /home/james/Documents/computer-use-native-host-20261029/zero-duration-click-ghvm1Y/. Production bridge/input/runtime, older tests, deployed files, resource/security guards, independent computer/browser source, private data, originalGUIwindows/drafts/clipboard and native source are not changed. No native input/capture/GUI, service/restart/deploy, helper model/agent, publication, commit or push.",
+  "remaining": "Historical root cause would require genuinely available target/native/application evidence, not an unchanged pointer replay or guessed delay. Full lifecycle/browser/clipboard/physical/native matrices, heavy-job resource gates, exact operational approvals and all retained75requirements/eightcriteria remain; this source investigation is not full delivery or a successful waiting transition."
+}

@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-11-02T17:30:53.368Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "3c15c374-cdb3-4af1-a767-d81398605f63",
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "objective": "Finish the consolidated delivery in this chat from the current verified state. Collect and independently verify the twenty outstanding bounded assignments, reject unsupported claims, apply accepted source patches, run the real checks, then deploy/activate/commit/push under the user's standing approval of all gates (no further gate questions). Verify the retained 75 requirements and additional lanes at their required source, runtime, model, GUI/audio and human layers, or record them as genuinely blocked. Complete selector, voice, titles/checkout, compiler diagnostics, archive recovery, document dependency closure, self-learning skill application, corpus/evaluation, matched benchmark, handoff/import/monitor, browser isolation and clipboard, desktop bridge work, then handle the final three human/device items last: private value entry, distinct-device gateway restore, and the simultaneous demo. Preserve the original staged patch SHA256 91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805, raw index 5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d, frozen native pin ba546ec1598a70db2570e9c6258028d955ba8f58, and unrelated dirty/staged/untracked and voice work. No GitHub PR fetching/checkouts/merges/imports, no no-model inbox fixture, no weakened resource or security guards, no duplicate workers, no fabricated results. Do not reopen closed goals. Report honestly at the end which criteria are met and which remain blocked.",
+    "status": "active",
+    "plan": {
+      "summary": "Five phases: verify and integrate the twenty dispatched assignments under standing gate approval; close the technical foundation; close the independent lanes; finish operational source work and then the three human/device items last; final coverage/preservation audit and honest report. Accepted work from the cleared predecessor goal is carried forward; nothing is replayed, reopened or upgraded without real evidence.",
+      "completionCriteria": [
+        "All twenty dispatched assignments are independently verified against real files; unsupported claims rejected; accepted patches and integrations applied to canonical source with unrelated work preserved.",
+        "Technical foundation closed or precisely blocked: package type checks, fused build strategy, full compiler diagnostics, title conditional-CAS integration, safe checkout and requested-versus-effective metadata each have real evidence or a named resource/authority blocker.",
+        "Independent lanes closed or precisely blocked: archive recovery readiness, document dependency closure, self-learning patch with approval, benchmark eligibility and matched run, corpus/offline CI, handoff/import/monitor behaviour, each with real outcomes.",
+        "Operational source criteria met for voice, image, browser isolation, clipboard, desktop bridge, private entry, gateway and demo; the final three human/device items (private value entry, distinct-device gateway restore, simultaneous demo) are performed with the user or documented as blocked with the exact missing input.",
+        "The 75 retained requirements and additional lanes are mapped to their actual evidence layer, with stale or superseded entries marked and no requirement silently waived.",
+        "Preservation audit passes: staged SHA91d6022a, raw index5079c677, native pin ba546ec, and unrelated dirty/staged/untracked and voice work unchanged; no guard, permission or security weakening occurred.",
+        "Final report states honestly which criteria are met and which remain blocked, with the evidence and the exact remaining dependency for each blocked item."
+      ],
+      "phases": [
+        {
+          "id": "integration",
+          "objective": "Verify every returned assignment and apply what is actually supported.",
+          "status": "in_progress",
+          "tasks": [
+            {
+              "id": "verify-returns",
+              "description": "Independently verify each of the twenty returned reports against real files and commands; reject unsupported claims; record actual outcomes and preserved failures.",
+              "status": "in_progress"
+            },
+            {
+              "id": "apply-source",
+              "description": "Apply accepted patches and integrations to canonical source, re-running affected focused tests and preserving unrelated work.",
+              "status": "pending"
+            },
+            {
+              "id": "checks-deploy",
+              "description": "Run real package and health checks, then deploy/activate/commit/push in dependency order under standing approval, recording each actual result.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "technical",
+          "objective": "Close the technical foundation or name the exact blocker.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "selector-build",
+              "description": "Establish real package types and either an eligible fused build or a precise resource blocker; verify selector persistence to the extent source permits.",
+              "status": "pending"
+            },
+            {
+              "id": "compiler-diagnostics",
+              "description": "Produce full compiler diagnostics or an admissible refusal with exact admission numbers.",
+              "status": "pending"
+            },
+            {
+              "id": "titles-checkout",
+              "description": "Complete title conditional-CAS integration evidence and the safe checkout/native metadata procedure without applying to frozen source.",
+              "status": "pending"
+            },
+            {
+              "id": "desktop-bridge",
+              "description": "Resolve or precisely block the remaining desktop cancel/disconnect/rollback defect work.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "independent",
+          "objective": "Close the independent document, archive, learning, benchmark, corpus and handoff lanes.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "archive-recovery",
+              "description": "Diagnose the archive mismatch and execute supported recovery under standing approval, or record the exact remaining dependency.",
+              "status": "pending"
+            },
+            {
+              "id": "documents-closure",
+              "description": "Record the full dependency closure and run every author/render/reopen and XML/conversion check the installed environment permits.",
+              "status": "pending"
+            },
+            {
+              "id": "selflearning-apply",
+              "description": "Verify the corrected skill texts and apply the reviewed patch, then check instruction integrity and report loaded/model limits.",
+              "status": "pending"
+            },
+            {
+              "id": "benchmark-run",
+              "description": "Establish eligible isolation if available and run the matched benchmark, or record the exact eligibility blocker and the single change that would clear it.",
+              "status": "pending"
+            },
+            {
+              "id": "corpus-eval",
+              "description": "Run the corpus validator, offline CI and all admissible evaluation checks, recording real counts and the model/human/hosted remainder.",
+              "status": "pending"
+            },
+            {
+              "id": "handoff-monitor",
+              "description": "Verify handoff OFF/passive/manual/compaction, memory overhead, import retirement and monitor behaviour with real checks.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "operational",
+          "objective": "Finish operational source criteria, then the three human/device items last.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "voice-selector-live",
+              "description": "Complete voice and selector source evidence and the exact physical test script; perform live audio only with the user present.",
+              "status": "pending"
+            },
+            {
+              "id": "image-click",
+              "description": "Resolve the unchanged-image original click path, or record its precise live blocker.",
+              "status": "pending"
+            },
+            {
+              "id": "browser-clipboard",
+              "description": "Verify browser two-session isolation, Code Mode rollback and clipboard dispatch, recording what needs a live worker or real clipboard.",
+              "status": "pending"
+            },
+            {
+              "id": "private-entry",
+              "description": "LAST-THREE: verify the private-entry helper and run the human staging/callback procedure with the user's real value at the end.",
+              "status": "pending"
+            },
+            {
+              "id": "gateway-device",
+              "description": "LAST-THREE: back up, restore and verify the existing-instance gateway including the distinct-device HTTPS check at the end.",
+              "status": "pending"
+            },
+            {
+              "id": "demo-simultaneous",
+              "description": "LAST-THREE: produce and then perform the simultaneous real activity demo with preview approval before replacement at the end.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "final-audit",
+          "objective": "Map every requirement, audit preservation and report honestly.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "coverage-map",
+              "description": "Map all 75 requirements and additional lanes to their actual evidence layer and flag stale, superseded or missing rows.",
+              "status": "pending"
+            },
+            {
+              "id": "preservation-audit",
+              "description": "Verify staged patch, raw index, native pin and unrelated work are unchanged after all integration activity.",
+              "status": "pending"
+            },
+            {
+              "id": "final-report",
+              "description": "Deliver the honest met-versus-blocked report with evidence and the exact remaining dependency for each blocked item.",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "Standing user approval covers source application, deployment, activation, skill/archive apply, commit and push; no further gate questions are asked.",
+        "The three human/device items are handled last: private value entry, distinct-device gateway restore, simultaneous demo."
+      ],
+      "revision": 1,
+      "updatedAt": 1793639415,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "New goal created at the user's request after the predecessor was cleared; persist the governed plan for the remaining delivery so work, approvals and the three-last ordering are tracked.",
+          "timestamp": 1793639415
+        }
+      ]
+    },
+    "planRevision": 1,
+    "createdAt": 1793639065,
+    "updatedAt": 1793640649,
+    "closedAt": null,
+    "completionEvidence": null,
+    "blocker": null,
+    "stopReason": null,
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793639065
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): New goal created at the user's request after the predecessor was cleared; persist the governed plan for the remaining delivery so work, approvals and the three-last ordering are tracked.",
+        "timestamp": 1793639415
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Done. The old goal record is archived, and a fresh goal now owns the work. **New goal** — `3c15c374-cdb3-4af1-a767-d81398605f63`, active, with a five-phase plan: 1. **Integration** — verify the twenty returns, apply what's supported, then checks, deploy, commit and push. This ...",
+        "timestamp": 1793639806
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 1 reserved.",
+        "timestamp": 1793639811
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Standing check while the twenty assignments run — nothing is stuck. **Verified just now** - The original staged patch, the raw index and the frozen native checkout all still match byte-for-byte; your 220 dirty and untracked entries are untouched. No child has written to the re...",
+        "timestamp": 1793640635
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793640641
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "Done. The old goal record is archived, and a fresh goal now owns the work. **New goal** — `3c15c374-cdb3-4af1-a767-d81398605f63`, active, with a five-phase plan: 1. **Integration** — verify the twenty returns, apply what's supported, then checks, deploy, commit and push. This ...",
+        "timestamp": 1793639806
+      },
+      {
+        "summary": "Standing check while the twenty assignments run — nothing is stuck. **Verified just now** - The original staged patch, the raw index and the frozen native checkout all still match byte-for-byte; your 220 dirty and untracked entries are untouched. No child has written to the re...",
+        "timestamp": 1793640635
+      }
+    ],
+    "sourceKind": "current",
+    "historyNotice": "The goal plugin retains bounded lifecycle history. This export cannot prove that no earlier history entries were pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. The goal plugin retains bounded lifecycle history. This export cannot prove that no earlier history entries were pruned.",
+  "contentFingerprint": "8ed5c9d018f9ac923b734c3cb7bfe2f2cc4d272a4dbac9ae10a6680e4cb56761",
+  "generatedFiles": {
+    "plan.md": "ebba7f3f2c61975f3d1f2bbe87d6fbee049cec982dd3e16929ed85ef091a03ad",
+    "HANDOFF.md": "04f98cdebdf75d3a0f84ae76955aaa9e6e714f0700646caef81f989d0eda3711",
+    "work-history.md": "166fd324cd9b74c3ed55b1c8ec9f023e7ec4854bfa653526b370d11a4a44a038"
+  }
+}

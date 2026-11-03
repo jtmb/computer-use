@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e7b2588f9ffex9fhCMGyFF15LJ",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T18:08:11.039Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "103fa0ed-8d50-49de-b27f-0f837db9bed9",
+    "sessionID": "ses_e7b2588f9ffex9fhCMGyFF15LJ",
+    "objective": "Implement and verify the approved critical voice-assistant review: redesign transcript review as compact professional OpenCode-native-themed responsive UI preserving Enter/C/E/Esc; repair worker terminal-failure settlement, retained-draft and ambiguous-submission recovery, review/edit/dialog lifecycle, and honest new-session creation-race handling. Preserve previously implemented offline Sherpa/Piper voices, timing, first-message routing and all unrelated dirty work. Add regression tests and verify relevant source checks plus supported live TUI mic/F9, settings/picker/preview and review/edit/continue/send/readout flows where available; distinguish controlled/synthetic from human acceptance and record concrete unavoidable blockers rather than claim success. Update user docs and acceptance status including fresh bridge evidence. Use only supported public APIs, unchanged host binary/shared service, no security bypass, no commit/push or unrelated deletion. Work autonomously until all achievable approved scope is verified.",
+    "status": "unmet",
+    "plan": {
+      "summary": "Reliability and review source delivered; finish independent documentation while live acceptance remains blocked by desktop input/native FFI.",
+      "completionCriteria": [
+        "Compact responsive themed review preserves editing, continuation, discard and explicit send with regression and rendered evidence.",
+        "Worker death and pending selection settle without stuck controls; failed/uncertain submission retains visible recoverable text without automatic duplicate admission.",
+        "Session navigation and review/editor lifecycle preserve original scope and unrelated UI; new-session race semantics are accurate.",
+        "Relevant full checks and supported live voice workflow checks are recorded separately; genuine environmental/human blockers are explicit.",
+        "Docs reflect current verified behavior; unrelated work, host/service, security and no-commit/no-push boundaries preserved."
+      ],
+      "phases": [
+        {
+          "id": "reliability",
+          "objective": "Repair terminal failures and recoverable submission state with regressions.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "baseline",
+              "description": "Verify current tree, ownership and supported UI/client capabilities.",
+              "status": "completed",
+              "evidence": "Nested dirty/untracked baseline preserved; SDK2.1.1 inspected; only owning TUI9393/worker47009; bridge inventory available."
+            },
+            {
+              "id": "worker_failure",
+              "description": "Settle worker terminal failure and pending selection; regression tests.",
+              "status": "completed",
+              "evidence": "New exit/spawn/stdin failure, controller finishing release and picker settlement regressions pass; test transpilation corrected to ESNext."
+            },
+            {
+              "id": "submission",
+              "description": "Retain visible failed/uncertain submission and prevent blind duplicates; test new-session races.",
+              "status": "completed",
+              "evidence": "submitOnce reconciles pending/delivered IDs without another prompt. Exact edited text retained after uncertainty; displaced review resumable only at original epoch. Creation-in-flight orphan race tested and accurately reported."
+            }
+          ],
+          "verification": "SDK typing and reliability regressions pass, including actual controller/transport and public client helper with mocked I/O only."
+        },
+        {
+          "id": "review",
+          "objective": "Deliver compact transcript-first review with safe owned lifecycle.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "review_ui",
+              "description": "Implement responsive themed review and keyboard/mouse/scroll lifecycle regressions.",
+              "status": "completed",
+              "evidence": "Medium size, bounded content height, explicit row/narrow action grouping, semantic colors, release hit areas, scroll bindings, in-place editor and input-mode deferral with six passing review regressions."
+            }
+          ],
+          "verification": "SDK typecheck and82TS/87Python checks pass; native rendering explicitly remains unverified."
+        },
+        {
+          "id": "docs",
+          "objective": "Publish accurate local docs and audit objective.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "documentation",
+              "description": "Update README/acceptance/contract and feature inventory as needed, verify final diff and goal criteria.",
+              "status": "completed",
+              "evidence": "README, ACCEPTANCE current banner/latest checkpoint, recording contract and only parent features voice row updated; prior checkpoints retained. Links/fences and nested/parent whitespace pass. Final full suite83TS+87Python/types/lint passes; targeted7review tests pass after strengthened full-draft assertion. ELF baseline matches; no staged/commit/push, unrelated work preserved."
+            }
+          ],
+          "verification": "Final docs/source audit separates source, installed-model, historical service and current desktop evidence. Current bridge capture is available; input INPUT_FAILED/nativeFFI blocker explicit. No live redesigned UI/key/human claim."
+        },
+        {
+          "id": "acceptance",
+          "objective": "Run source checks and supported live UI/voice checks; fix defects.",
+          "status": "blocked",
+          "tasks": [
+            {
+              "id": "checks",
+              "description": "Run full package checks, whitespace and relevant parent health; quality audit.",
+              "status": "completed",
+              "evidence": "npm run check82TS+87Python/types/lint; parent health and whitespace pass. Actual installed Sherpa PCM smoke12conditions, paused speech, explicit/empty finish, idle/noise and network refusal pass; first partial0.859s."
+            },
+            {
+              "id": "live",
+              "description": "Verify supported rendered controls and bounded real voice flows, separately recording human-only limits.",
+              "status": "blocked",
+              "blocker": "Fresh GNOME windows/capture works but desktop.input Ctrl+P returns INPUT_FAILED; release succeeds. Standalone renderer fails on Node22 native FFI. Actual redesigned review/settings/picker/F9/human workflows unverified."
+            }
+          ],
+          "blocker": "Live input refuses Ctrl+P with INPUT_FAILED; Node22 lacks native FFI. No bypass or unrelated installation."
+        }
+      ],
+      "decisions": [
+        "Documentation of verified source and explicit failed live checks is independent of achieving live acceptance; it must not be skipped due to acceptance phase gate. No completion criteria removed.",
+        "Final audit: reliability, submission recovery, lifecycle and compact UI source plus regression/documentation work delivered. Criterion requiring rendered review evidence remains unmet: supported input fails and installed Node22 renderer lacks nativeFFI. No further independent approved work can close that gate without fixing the desktop input integration/appropriate runtime or user-driven live acceptance. Do not mark complete from83TS+87Python/PCM/health evidence."
+      ],
+      "revision": 6,
+      "updatedAt": 1793295885,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "User explicitly approved implementation and goal tracking; previous unmet goal remains historical.",
+          "timestamp": 1793294936
+        },
+        {
+          "revision": 2,
+          "reason": "Baseline and supported capability inspection complete.",
+          "timestamp": 1793294970
+        },
+        {
+          "revision": 3,
+          "reason": "Reliability repairs and regressions established; compact review implemented pending native rendering verification.",
+          "timestamp": 1793295292
+        },
+        {
+          "revision": 4,
+          "reason": "Source and installed-model checks verified; live input and standalone renderer have concrete separate failures, not the outdated absent-bridge blocker.",
+          "timestamp": 1793295596
+        },
+        {
+          "revision": 5,
+          "reason": "Record independent documentation before blocked acceptance so all achievable approved work can finish without claiming the live gate passed.",
+          "timestamp": 1793295622,
+          "revisitEvidence": "Supported desktop input returned INPUT_FAILED and standalone OpenTUI native renderer failed; source/native checks passed. Documentation can truthfully record those results without live acceptance."
+        },
+        {
+          "revision": 6,
+          "reason": "All independent source/native/documentation work finished and audited; live acceptance remains concretely blocked.",
+          "timestamp": 1793295885
+        }
+      ]
+    },
+    "planRevision": 6,
+    "createdAt": 1793294921,
+    "updatedAt": 1793297278,
+    "closedAt": 1793295898,
+    "completionEvidence": null,
+    "blocker": "All achievable approved source/regression/native/documentation work is finished, but required rendered/live acceptance cannot be completed with the exposed working capabilities. Fresh supported GNOME windows/capture succeeds and shows owning OpenCode/Ptyxis/footer mic; fresh desktop.input Ctrl+P returns org.gnome.Shell.Extensions.OpenCodeWindowControl.Error.INPUT_FAILED, and desktop.release succeeds. Standalone @opentui/core/testing renderer fails on installed Node22.22.2 because native FFI is unavailable. Thus redesigned review appearance and real F9/settings/picker/preview/edit/continue/send/audible reply/human workflow remain unverified; no bypass, security change, runtime install, private API or shared restart used. Achieved evidence: compact themed medium review with bounded scrolling/responsive grouped release actions and owned in-place editing; input-mode deferral and latest-text recovery; worker exit/spawn/stdin settles finish/selection; public original-ID readback without resend and visible unknown-outcome recovery; honest in-flight creation race reporting. Final npm run check passes83TS+87Python, strictSDK/mypy/lint; targeted7review tests also pass after full-draft assertion. Parent health and whitespace/docs links pass. Installed offline Sherpa actual-worker PCM smoke12phraseconditions, pausedspeech, explicit/emptyfinish, pacedidle/noise/networkrefusal pass; firstpartial0.859s, model4.439s, synthesis5.843s. README/ACCEPTANCE/contract/parent voice feature row distinguish all evidence layers. Host ELF baseline unchanged; existing dirty/untracked work preserved, no commit/push. Remaining live gate needs functioning supported desktop input/compatible native renderer and explicit human/live acceptance, not more source-test counts.",
+    "stopReason": "blocked",
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793294921
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): User explicitly approved implementation and goal tracking; previous unmet goal remains historical.",
+        "timestamp": 1793294936
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ve created a new tracked goal; the earlier unmet goal stays in the history. I’ll fix failure recovery first, then redesign review and verify the live workflow. Existing changes will be preserved, with no commit, push, or shared-service restart.",
+        "timestamp": 1793294947
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): Baseline and supported capability inspection complete.",
+        "timestamp": 1793294970
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The desktop bridge responds now, so I’ll check the actual TUI rather than carry forward the old blocker. The SDK also confirms there’s no dialog ownership handle; I’ll keep editing inside the review component and defer opening it while another input mode is active.",
+        "timestamp": 1793294971
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m capturing the OpenCode window to inspect its current state before live checks.",
+        "timestamp": 1793295114
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): Reliability repairs and regressions established; compact review implemented pending native rendering verification.",
+        "timestamp": 1793295292
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The full source suite passes: 81 TypeScript tests and 87 Python tests, plus typechecks and lint. Recovery now retains uncertain submissions without resending, and review has compact grouped actions with an in-place editor. I’ll check native rendering and key delivery next; moc...",
+        "timestamp": 1793295324
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Capture works, but Ctrl+P input still fails with the bridge’s `INPUT_FAILED` error. Held keys were released successfully. I won’t use an alternate input route or change desktop security to bypass it. I’ll finish the remaining source checks and documentation, and record live re...",
+        "timestamp": 1793295441
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 4): Source and installed-model checks verified; live input and standalone renderer have concrete separate failures, not the outdated absent-bridge blocker.",
+        "timestamp": 1793295596
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 5): Record independent documentation before blocked acceptance so all achievable approved work can finish without claiming the live gate passed.",
+        "timestamp": 1793295622
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Source checks now pass at 82 TypeScript and 87 Python tests, and the installed offline speech smoke test passes too. Documentation distinguishes the current failure precisely: desktop capture is available, but input still fails. I’m doing the final regression and diff audit; I...",
+        "timestamp": 1793295779
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 6): All independent source/native/documentation work finished and audited; live acceptance remains concretely blocked.",
+        "timestamp": 1793295885
+      },
+      {
+        "type": "unmet",
+        "detail": "All achievable approved source/regression/native/documentation work is finished, but required rendered/live acceptance cannot be completed with the exposed working capabilities. Fresh supported GNOME windows/capture succeeds and shows owning OpenCode/Ptyxis/footer mic; fresh desktop.input Ctrl+P returns org.gnome.Shell.Extensions.OpenCodeWindowControl.Error.INPUT_FAILED, and desktop.release suc...",
+        "timestamp": 1793295898
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "I’ve created a new tracked goal; the earlier unmet goal stays in the history. I’ll fix failure recovery first, then redesign review and verify the live workflow. Existing changes will be preserved, with no commit, push, or shared-service restart.",
+        "timestamp": 1793294947
+      },
+      {
+        "summary": "The desktop bridge responds now, so I’ll check the actual TUI rather than carry forward the old blocker. The SDK also confirms there’s no dialog ownership handle; I’ll keep editing inside the review component and defer opening it while another input mode is active.",
+        "timestamp": 1793294971
+      },
+      {
+        "summary": "I’m capturing the OpenCode window to inspect its current state before live checks.",
+        "timestamp": 1793295114
+      },
+      {
+        "summary": "The full source suite passes: 81 TypeScript tests and 87 Python tests, plus typechecks and lint. Recovery now retains uncertain submissions without resending, and review has compact grouped actions with an in-place editor. I’ll check native rendering and key delivery next; moc...",
+        "timestamp": 1793295324
+      },
+      {
+        "summary": "Capture works, but Ctrl+P input still fails with the bridge’s `INPUT_FAILED` error. Held keys were released successfully. I won’t use an alternate input route or change desktop security to bypass it. I’ll finish the remaining source checks and documentation, and record live re...",
+        "timestamp": 1793295441
+      },
+      {
+        "summary": "Source checks now pass at 82 TypeScript and 87 Python tests, and the installed offline speech smoke test passes too. Documentation distinguishes the current failure precisely: desktop capture is available, but input still fails. I’m doing the final regression and diff audit; I...",
+        "timestamp": 1793295779
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "8cc6d1df732e602a66f5178107d7d33dfa7ef50efdd1588dde6e3b49c9fb2b28",
+  "generatedFiles": {
+    "plan.md": "f2ee318673c5dd4dcff7b113ff98781a739ff17683f7a04d8c0a8ad97dfc5676",
+    "HANDOFF.md": "c9c9270ee998ab4301435e07355b7b7675a6fc2b552a5ee75c29276b7a54055c",
+    "work-history.md": "785df247598c4737e372457c3d61e3d3624a88428d6812b26e1ee1acfceb55f3"
+  }
+}

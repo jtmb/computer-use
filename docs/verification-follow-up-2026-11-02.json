@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only follow-up: materially different selected strict scheduling request, conditional native-fixture resumption, combined offline admission and a demonstrated health service-readiness source fix. None completes a whole task/phase/goal or authorizes peer source, installation, publication or security changes.",
+  "strictSchedulingAttempt": {
+    "basis": "Existing session-active.md:376-387 records authentic7.0.2CLI capability for --singleThreaded/--checkers. The four-root config9cb844c8 has neither option, whereas the previously failed full2827-input route already has both. This is a new selected-closure scheduling request, not another full graph/build attempt.",
+    "commandChange": "Only add --singleThreaded --checkers1to the existing native7CLI --project request. Same four source hashes/config/authentic2.1.1SDK/strict/noEmit/skipLibCheck:false/GOGC25, same256MiBwhole-owned-RSS/30s/2816prelaunch/1280floor/real default sampler/observer/clock.",
+    "spawned": true,
+    "accepted": false,
+    "initialAvailableMiB": 2834.66015625,
+    "peakOwnedRSSMiB": 264.9453125,
+    "rssSamples": 24,
+    "elapsedSeconds": 2.365796142,
+    "reason": "owned-rss-budget",
+    "cleanupVerified": true,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/rpc-verification-istsku1k/native-7.0.2-single-thread-256rss.json",
+    "receiptBytes": 4606,
+    "receiptSHA256": "5b7bd54786d939f1d50221fd1e0e5bb7a5fd3649af87f810605c54a0426172eb",
+    "qualification": "Requested scheduling flags, not measured internal worker count. Guard refusal with null code/signal and empty output is not completed diagnostics or a type pass. Earlier TS6and parallel native7failures remain. No cap/input/library/GC-environment bypass or unchanged retry."
+  },
+  "nativePermissionResumption": {
+    "basis": "The independent strict job actually admits at2834.66015625MiB and verifies its cleanup. That is new resource evidence, not a RAM polling loop; it permits one ordinary-guard resumption of a previously unstarted fixture.",
+    "spawned": false,
+    "passed": false,
+    "reason": "prelaunch-memory-guard",
+    "initialAvailableMiB": 2779.90234375,
+    "requiredPrelaunchMiB": 2816,
+    "rssSamples": 0,
+    "capturedBytes": 0,
+    "elapsedSeconds": 0.0008235329999999976,
+    "cleanup": { "verified": false, "signalled": false, "reason": "no-child" },
+    "sampleUnchanged": true,
+    "noNoteStore": true,
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/memory-native-acceptance-5lEiUn/resumed-attempt.json",
+    "receiptBytes": 3473,
+    "receiptSHA256": "2a2f6b5507d05bfe4bd85d0be87a60a07ea1c8baea4189fd64273899a53cdc13",
+    "qualification": "The first2646.5MiBadmission refusal is retained in the separate memory-native record. Both requests stop before a native process, session, permission prompt or model. No further readiness retry, guard relaxation or unrelated-process termination follows; helper11tests/fourfaults are still source-only."
+  },
+  "combinedOfflineAndHealth": {
+    "review": "Complete scripts/ci-offline.mjs and health-check.sh command scopes reviewed. Default offline plan has12required source/fixture steps and no reserved .opencode/plugins/computer-use/ test or actual native-host launch. Full health explicitly requests the reserved computer-use/*.test.ts suite; it is not executed or patched out.",
+    "offlineAttempt": {
+      "runnerBytes": 19833,
+      "runnerSHA256": "fb156e1d21c3de21e7a92cd4dd9502ca1a1f58a5e16d2bb157fed9de945ab207",
+      "spawned": false,
+      "accepted": false,
+      "reason": "prelaunch-memory-guard",
+      "initialAvailableMiB": 2757.41015625,
+      "elapsedSeconds": 0.0008396869999999978,
+      "stepsExecuted": 0,
+      "receipt": "/home/james/Documents/computer-use-native-host-20261029/combined-offline-verification-6jFdH7/verification.json",
+      "receiptBytes": 2614,
+      "receiptSHA256": "1a70b30be83d99ff544eb2c049e147a0daabf29e6d2f7ebee38b7ec38670950a"
+    },
+    "qualification": "Real unchanged1536RSS/2816prelaunch/1280floor/90s guards; no child/verified cleanup, failed leaf suite or combined pass. This request predates the later health-source fix/CI addition below. No raw combined bodies, split-job bypass, optional corpus, source-cap increase or repeated launch loop. Existing inner runner maxBuffer is not claimed a hard pre-acquisition bound for all buffering."
+  },
+  "healthReadinessSourceFix": {
+    "source": "scripts/health-check.sh",
+    "tests": "scripts/health-check.test.mjs",
+    "nativeContract": "Pinned2.1.1commands/handlers/service/status.ts:10-13 emits the discovered URL OR stopped on ordinary success;597B/SHA bac9407ba3f68a967830431e7803bc421026c5de471dafb09e160a3300b5eb53. Runtime.handler:57-62returns the supplied Effect unchanged. Official https://opencode.ai/v2/docs/cli corroborates automatic discovery/start by ordinary clients, so reaching API discovery is consequential to the script's read-only promise.",
+    "realSourceDefect": "The preflight tested exit status only and discarded that documented body. A successful stopped/empty/malformed response could reach API discovery; full mode also continued after a status-command error. No real shared-service start was attempted to reproduce this: actual canonical shell code runs against private fake commands.",
+    "preservedPreimages": {
+      "directory": "/home/james/Documents/computer-use-native-host-20261029/health-service-guard-U0oJ7F/",
+      "script": { "bytes": 5614, "sha256": "0db61d56b0296a4ebcdf0d6897233b1810ddb80a6c7664c97a6e03f9ed9f8780" },
+      "oldTests": { "bytes": 4149, "sha256": "a507d8c0f184f564acfb5db92de9a3892a53d043d5f64cb67edddb041ad822cc" }
+    },
+    "testChanges": "Existing six inventory/failed-unit-result scenarios and their assertions are retained. Correct the old empty-success service stub to the documented URL, bound helper stdout/stderr reads before acquisition, isolate its environment and add command tracing. Add ten unavailable-response/mode combinations and one successful status-only case. All opencode and node invocations are private fakes; real Python JSON filtering/file-presence checks remain.",
+    "before": { "tests": 17, "passed": 8, "failed": 9, "skipped": 0, "durationMs": 3210.126767, "log": "before.tap", "outputBytes": 18564, "outputSHA256": "42da07ea2da725ccbd4c2e4529d58085cac556cf2938b574e633ebe8c69212c8" },
+    "fix": "Accept a successful single HTTP(S) service-URL response, not arbitrary successful stdout. Stopped/empty/malformed/multiline/error statuses exit1before API/MCP/config discovery or tests in BOTH modes. Preserve all existing required plugins, inventory checks and source-test paths; no peer test is removed, executed or accepted.",
+    "after": { "tests": 17, "passed": 17, "failed": 0, "skipped": 0, "durationMs": 3126.949238, "log": "after.tap", "outputBytes": 3911, "outputSHA256": "a4faf3abfa7b52c13aae57d5ad04bd9ec2e06b7f8feb1f74495fa8f17a43959a" },
+    "syntax": "Actual bash -n scripts/health-check.sh exits0.",
+    "ci": "Add this existing suite to required offline repo-contracts only after the new omission assertion first fails:1ERR_ASSERTION/250.808699ms. After registration, the changed omission and curated-file safety contracts pass2/2in188.383283ms; no unchanged fullCI or completed leaf suite is replayed.",
+    "qualification": "Nine failing scenarios expose the guard defect, not nine independent production bugs. Fake healthy output is not actual service/plugin/peer-test acceptance. URL-shaped status is a readiness gate, not end-to-end health. No operator CLI/profile, service restart, real computer-use/goal-docs suite, browser, audio, model or deployment is invoked."
+  },
+  "documentaryCallerError": "The first final readback incorrectly assumes physical health-script mode0755; actual mode is0775 (decimal509versus493), so that caller assertion refuses. No permission is changed to make it pass. The corrected check records actual mode and verifies the executable bits against the preserved tracked executable flag; no pre-edit physical-mode measurement is invented.",
+  "documentationCheck": { "command": "node --max-old-space-size=256 --test --test-name-pattern '^inventory links resolve and source/runtime/unfinished states stay explicit' scripts/features-contract.test.mjs", "tests": 1, "passed": 1, "failed": 0, "durationMs": 215.862373, "qualification": "Only the changed documentation-link/status contract is rerun; the six unaffected inventory cases and prior completed source suites are not repeated." },
+  "remaining": "Required native memory permission, full strict/native/build/controller, current complete offline/health, fresh-primary/model, original-history/asset, physical/human/device and exact consequential layers remain unfinished. Current source tests/Git scratch/GUI slices do not replace them. No new helper agents, independent source edits or adopted results, permission/resource relaxation, commit or push; the goal remains active."
+}

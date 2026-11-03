@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-01T06:53:01Z",
+  "scope": "Exact retained WHEEL/RECORD manifests, later METADATA declaration reconciliation and version-specific official build/backport observations. Publisher declarations and source recipe are not selected-binary provenance or security acceptance.",
+  "wheel": {
+    "source": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/lxml/lxml-6.1.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 5099355,
+    "sha256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+    "inventorySHA256": "2ee0e93a54e831f0aa51553545ce339f441ee5f3b8cabf3e05385b71cc2a6b10",
+    "beforeAfterMatch": true
+  },
+  "manifests": [
+    { "member": "lxml-6.1.3.dist-info/WHEEL", "bytes": 151, "sha256": "a584f0d5a041dc972523f13f097e900c3a533ae0aa121e102c36cac8c99d9c4f", "completeRead": true },
+    { "member": "lxml-6.1.3.dist-info/RECORD", "bytes": 15144, "sha256": "dfe4fd4f56390c29a6cb8d4a82581ba032c3bc4bdbba182505ad6ab7f956e6e3", "completeRead": true }
+  ],
+  "wheelHeaders": {
+    "Wheel-Version": "1.0",
+    "Generator": "setuptools (84.0.0)",
+    "Root-Is-Purelib": "false",
+    "Build": null,
+    "Tag": ["cp314-cp314-manylinux_2_17_x86_64", "cp314-cp314-manylinux2014_x86_64"],
+    "expandedFilenameTagsMatch": true,
+    "qualification": "These are stored publisher metadata, not a measured build environment, interpreter compatibility test or actual loader acceptance."
+  },
+  "record": {
+    "rows": 174,
+    "wheelEntryMatchesActualSelectedWHEELHashAndSize": true,
+    "recordOwnEntry": { "hash": "", "size": "" },
+    "allArchiveMembersVerifiedFromRECORD": false,
+    "metadataCoverageComplete": true,
+    "metadataCoverageObservation": "recordCoverageFollowUp below; name/declared-size coverage only, not every member CRC/hash",
+    "nativeDeclarations": [
+      { "member": "lxml/_elementpath.cpython-314-x86_64-linux-gnu.so", "bytes": 200944, "sha256": "8c2ce80a6b548df8eb91b808282955b6a4ca83e0cc6b24bd1252f41902c316d3", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/builder.cpython-314-x86_64-linux-gnu.so", "bytes": 120928, "sha256": "3507e348b54f492347c410b1ecce285160c62918820bd95652e144a09a03f51d", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/etree.cpython-314-x86_64-linux-gnu.so", "bytes": 5112760, "sha256": "7a7b3ce3cd3dafb7eb7766af59f1322953df65b11dbe4565e19864472e25fb02", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/objectify.cpython-314-x86_64-linux-gnu.so", "bytes": 2875840, "sha256": "a3564bfbb3676a8219cdc6762506bcc801b9d248a8728c454841de3f7f685a71", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/sax.cpython-314-x86_64-linux-gnu.so", "bytes": 173920, "sha256": "93e1d6705b08750cc72fdf4aa950f1255b946bf0cc9b0cbeba017e24c7c224b4", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/html/_difflib.cpython-314-x86_64-linux-gnu.so", "bytes": 521120, "sha256": "115df5b80fda44305caba8f7d6c729d7a245faac275d33333ce7ac0581385c0d", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null },
+      { "member": "lxml/html/diff.cpython-314-x86_64-linux-gnu.so", "bytes": 332752, "sha256": "9c0bd1dfaa406b53d1722012eedd81c185d4b0caca34c7bb08c95863b9d5acd6", "sizeMatchesPriorInventory": true, "actualFullMemberSHA256": null }
+    ],
+    "nativeHashQualification": "These canonical base64url SHA-256 declarations decode to full-member hashes. Earlier actual4096byte ELF-prefix hashes cannot be compared with them; no full native member digest was measured or fabricated.",
+    "priorCompleteMemberComparisons": [
+      { "member": "lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl", "bytes": 3172, "sha256": "39b79bb01f16b7e777b8803f539354f394e99d0dcfc4f5f7f1374e02aa2c31a7", "matchesPriorCompleteObservation": true },
+      { "member": "lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl", "bytes": 4563, "sha256": "430791ac820cfb315c820f7c19703609a59f21b8151345ca11e6127efbfaec0d", "matchesPriorCompleteObservation": true },
+      { "member": "lxml/isoschematron/resources/rng/iso-schematron.rng", "bytes": 18337, "sha256": "56c5b13f28b78958890c36e3249c34c169041e42ebcfdce8080f3324ba2bf4de", "matchesPriorCompleteObservation": true },
+      { "member": "lxml/includes/libxml/xmlversion.h", "bytes": 5112, "sha256": "a15a5a13fc5bb6d69e64d14a4ae49f70b39c796cfb2d080a3fbd59d66b1764da", "matchesPriorCompleteObservation": true },
+      { "member": "lxml/includes/libxslt/xsltconfig.h", "bytes": 2910, "sha256": "715e6c71d44aeb198e1de3a0dce0b0ea105f710fe7aed36cfed29e7d7ebbdf4e", "matchesPriorCompleteObservation": true }
+    ],
+    "priorEvidence": ["docs/document-authoring-native-resource-facts-2026-10-31.json", "docs/document-authoring-native-header-facts-2026-10-31.json", "docs/document-authoring-native-elf-prefix-facts-2026-11-01.json"],
+    "qualification": "Only selected declarations were compared with prior observations; the five earlier complete resource/header members were not reread. RECORD self-binding is not a signature or independent publisher identity."
+  },
+  "manifestAcquisition": {
+    "interpreter": "/usr/bin/python3 -I -B",
+    "reader": "scripts/office_package.py, existing bounded read_member and inspect_package",
+    "selectedPayloads": 2,
+    "selectedPayloadBytes": 15295,
+    "remaining": 50241,
+    "elapsedMs": 69,
+    "archiveMetadataAndSourceHashCalls": 2,
+    "completedMemberCRCSizeAndSourceChecks": true,
+    "supportingFactReadLimitation": "The original manifest script used Path.read_text for the three prior ELF/resource/header JSON fact files without its own acquisition cap or identity recheck. The selected wheel/manifests used the bounded reader, but that does not make the whole script's supporting acquisition bounded. The later bounded supporting read binds current identities only; it does not retroactively repair or authenticate the earlier reads.",
+    "limits": { "archiveBytes": 8388608, "directoryBytes": 262144, "entries": 5000, "memberBytes": 16777216, "expandedBytes": 67108864, "selectedMembers": 16, "selectedAggregateBytes": 65536, "perCallSeconds": 5, "jobSeconds": 20 },
+    "qualification": "One separately identified two-manifest job with shared pre-read payload allowance and cooperative deadline; not a reset/continuation of the completed ELF-prefix job or partition of refused pandas notices. Full archive hashing and ZIP directory checks are separate from selected payload counts; internal allocations were not measured. Raw manifests remain available inside the preserved wheel rather than copied into source."
+  },
+  "recordCoverageFollowUp": {
+    "observedAt": "2026-11-01T07:00:43Z",
+    "scope": "Metadata-coverage comparison and bounded supporting-fact identity readback, not additional full native-member verification.",
+    "wheelSHA256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+    "inventorySHA256": "2ee0e93a54e831f0aa51553545ce339f441ee5f3b8cabf3e05385b71cc2a6b10",
+    "beforeAfterMatch": true,
+    "recordBytes": 15144,
+    "recordSHA256": "dfe4fd4f56390c29a6cb8d4a82581ba032c3bc4bdbba182505ad6ab7f956e6e3",
+    "archiveEntries": 188,
+    "directoryEntries": 14,
+    "regularEntries": 174,
+    "recordRows": 174,
+    "missingRegularEntries": [],
+    "extraRows": [],
+    "nonSelfDeclaredSizeMismatches": 0,
+    "recordSelfRow": { "hash": "", "size": "" },
+    "exactSignatureEntryQueries": {
+      "lxml-6.1.3.dist-info/RECORD.jws": false,
+      "lxml-6.1.3.dist-info/RECORD.p7s": false
+    },
+    "supportingFacts": [
+      { "path": "docs/document-authoring-native-elf-prefix-facts-2026-11-01.json", "bytes": 8756, "sha256": "1e9b94bacd189f5200c169be838a966c4e9a0c647a425f1e9809774b233c8376" },
+      { "path": "docs/document-authoring-native-resource-facts-2026-10-31.json", "bytes": 5582, "sha256": "4876c895282dc794ee31890c0cd00db354f3d9aea9c4d36ab000bf7440f3acd5" },
+      { "path": "docs/document-authoring-native-header-facts-2026-10-31.json", "bytes": 2094, "sha256": "27bc7f211f41d1a11c569cd4419dab47154248957620185122a79d5118191692" }
+    ],
+    "acquisition": {
+      "selectedMembers": 1,
+      "selectedPayloadBytes": 15144,
+      "selectedAggregateCeiling": 65536,
+      "remaining": 50392,
+      "elapsedMs": 104,
+      "archiveMetadataAndSourceHashCalls": 2,
+      "supportingFactReservedBytesIncludingProbes": 16435,
+      "supportingFactPerFileCap": 65536,
+      "supportingFactAggregateCap": 2097152,
+      "archiveReaderLimits": "Same unchanged limits as manifestAcquisition; supporting facts use regular/single-link/no-follow checks and descriptor/path identity readback.",
+      "qualification": "RECORD payload overlaps the earlier two-manifest job; the15295 and15144byte counters must not be added as unique content. This metadata follow-up does not continue the ELF-prefix job or partition the pandas notice refusal. Cooperative deadlines and sampled identities are not hard syscall preemption or an atomic hostile-writer guarantee."
+    },
+    "qualification": "All174regular paths have RECORD rows and all non-self declared sizes match ZIP metadata. This is not all-member CRC/hash verification. Only the two exact RECORD.jws/.p7s paths were queried; no general signature, SBOM, attestation or external provenance absence is established. The new supporting read does not repair the original uncapped acquisition."
+  },
+  "metadataDeclarationFollowUp": {
+    "observedAt": "2026-11-01T07:18:26Z",
+    "scope": "Complete exact retained METADATA and supporting RECORD reads; selected declaration reconciliation without dependency execution or rights approval.",
+    "wheelSHA256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+    "inventorySHA256": "2ee0e93a54e831f0aa51553545ce339f441ee5f3b8cabf3e05385b71cc2a6b10",
+    "beforeAfterMatch": true,
+    "members": [
+      { "member": "lxml-6.1.3.dist-info/METADATA", "bytes": 3279, "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef", "completeRead": true },
+      { "member": "lxml-6.1.3.dist-info/RECORD", "bytes": 15144, "sha256": "dfe4fd4f56390c29a6cb8d4a82581ba032c3bc4bdbba182505ad6ab7f956e6e3", "completeRead": true }
+    ],
+    "metadataMatchesRecordHashAndSize": true,
+    "historicalOverlap": {
+      "priorReceipt": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/receipt.json",
+      "priorReceiptSHA256": "3aa4d9e2a8a7e45f8f64f3931faf6297c112eb5d01141036d476642a97629672",
+      "sameRetainedMetadataBytesAndSHA256": true,
+      "currentBoundedReadback": "docs/document-authoring-pandas-metadata-2026-11-01.json, historicalLxmlMetadataOverlap",
+      "qualification": "Owning-guide/history review confirms this same3279B/aad89f81 METADATA was already acquired/read in the original notice review. The later exact-wheel job adds explicit RECORD binding and candidate comparison, not first content acquisition. Do not add its payload again as unique historical content."
+    },
+    "metadataHeaders": {
+      "Metadata-Version": ["2.4"],
+      "Name": ["lxml"],
+      "Version": ["6.1.3"],
+      "Requires-Python": [">=3.8"],
+      "Requires-Dist": ["cssselect>=0.7; extra == \"cssselect\"", "html5lib; extra == \"html5\"", "BeautifulSoup4; extra == \"htmlsoup\"", "lxml_html_clean; extra == \"html-clean\""],
+      "Provides-Extra": ["source", "cssselect", "html5", "htmlsoup", "html-clean"],
+      "License": ["BSD-3-Clause"],
+      "License-Expression": [],
+      "License-File": ["LICENSE.txt", "LICENSES.txt"],
+      "Dynamic": ["author", "author-email", "classifier", "description", "home-page", "license", "license-file", "maintainer", "maintainer-email", "project-url", "provides-extra", "requires-python", "summary"]
+    },
+    "licenseClassifiers": [],
+    "declaredLicenseFileInventory": [
+      { "declaration": "LICENSE.txt", "member": "lxml-6.1.3.dist-info/licenses/LICENSE.txt", "present": true, "declaredBytes": 1507 },
+      { "declaration": "LICENSES.txt", "member": "lxml-6.1.3.dist-info/licenses/LICENSES.txt", "present": true, "declaredBytes": 6221 }
+    ],
+    "candidateReconciliation": {
+      "directRecord": "docs/document-authoring-candidates-2026-10-30.json",
+      "transitiveRecord": "docs/document-authoring-transitive-candidates-2026-10-31.json",
+      "bothVersionRequiresPythonWheelIdentityAndExtrasMatch": true,
+      "baseRequiresDist": [],
+      "extraGuardedRequiresDist": 4,
+      "extrasSelected": [],
+      "licenseStringMatches": true,
+      "finding": "The retained wheel confirms lxml6.1.3, Requires-Python>=3.8, the five saved extras names and BSD-3-Clause as a License string, not License-Expression. All four observed Requires-Dist strings are guarded by a named extra; no base dependency is declared in this exact member.",
+      "projectionQualification": "The saved direct record and reused graph node contain baseRequiresDist and extras names only. The graph's environmentMarkers.limitations already discloses omitted extra requirement strings for direct nodes. Its lxml requirementStringCount:0 and extraRequirementStringCount:0 describe that saved projection, not absence of all wheel requirements. The four strings above supplement that scope without changing the original graph, selecting extras or claiming a complete resolver run."
+    },
+    "rightsReconciliation": {
+      "priorNoticeMember": "lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "priorCompleteNoticeSHA256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+      "finding": "License headers and presence of two named license files do not override the earlier complete notice/resource findings for unlicensed RNG2Schtrn.xsl/XSD2Schtrn.xsl, separately licensed ISO resources or linked/native/transitive components.",
+      "qualification": "License payloads were not reread in this job. No general grant, full selected rights closure, installation authority or permission to redistribute/reuse the transforms is inferred."
+    },
+    "supportingFacts": [
+      { "path": "docs/document-authoring-candidates-2026-10-30.json", "bytes": 8679, "sha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f" },
+      { "path": "docs/document-authoring-transitive-candidates-2026-10-31.json", "bytes": 54657, "sha256": "de0d2d81288c59da8602601c147614a3c35529440b919cbadd8c5254a46133f1" },
+      { "path": "docs/document-authoring-native-resource-facts-2026-10-31.json", "bytes": 5582, "sha256": "4876c895282dc794ee31890c0cd00db354f3d9aea9c4d36ab000bf7440f3acd5" },
+      { "path": "docs/document-authoring-wheel-provenance-2026-11-01.json", "bytes": 23817, "sha256": "c8a802c8316844799f07fa1370bbac06d548a172ed794d25d7aa0b9cab7b2cce", "epoch": "Pre-append provenance file acquired before this METADATA observation; not a claim about its later edited bytes" },
+      { "path": "scripts/office_package.py", "bytes": 15279, "sha256": "f4bb5e09557661a85d94359393a2ed935bd92ebf0bf4fe216dd5d95fd480c5bc" }
+    ],
+    "acquisition": {
+      "selectedMembers": 2,
+      "selectedPayloadBytes": 18423,
+      "remaining": 47113,
+      "selectedAggregateCeiling": 65536,
+      "archiveMetadataAndSourceHashCalls": 2,
+      "supportingReservedBytesIncludingProbes": 108019,
+      "supportingPerFileCap": 65536,
+      "supportingAggregateCap": 2097152,
+      "elapsedMs": 108,
+      "readerLimits": "Same unchanged8MiBarchive/256KiBdirectory/5000entries/16MiBmember/64MiBexpanded/16selected/64KiBpayload/5scall/20sjob limits as earlier jobs; one shared allowance for these two exact members.",
+      "qualification": "The15144B RECORD reread overlaps earlier jobs and is not new unique content. Supporting fact acquisition reserves bytes before reads and checks regular/single-link/no-follow/sample identity. This does not retroactively repair earlier uncapped reads, bound internal allocations or establish an atomic hostile-writer boundary."
+    },
+    "qualification": "Selected complete reads pass existing CRC/size/source-identity checks. Header/description text is inert publisher data, not an executed requirement, runtime compatibility/security test or rights grant. The description body and unrelated classifier text were not exported or executed. No tests, network/PyPI requests, candidate code/patch/fixture import or execution, extraction, installation, model, worker or peer action occurred."
+  },
+  "officialProvenance": {
+    "checkedDate": "2026-11-01",
+    "repository": "https://github.com/lxml/lxml",
+    "tag": "lxml-6.1.3",
+    "tagRefURL": "https://api.github.com/repos/lxml/lxml/git/ref/tags/lxml-6.1.3",
+    "annotatedTagObject": "9d4b2d4e5038f051c3b648e546b5bc33f2132361",
+    "tagObjectURL": "https://api.github.com/repos/lxml/lxml/git/tags/9d4b2d4e5038f051c3b648e546b5bc33f2132361",
+    "commit": "3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1",
+    "tagVerification": { "verified": false, "reason": "unsigned" },
+    "releaseClaim": {
+      "source": "https://lxml.de/changes-6.1.3.html",
+      "matchingTagSource": "https://raw.githubusercontent.com/lxml/lxml/lxml-6.1.3/CHANGES.txt",
+      "locator": "6.1.1 (2026-05-18), Bugs fixed; preserved in6.1.3 changelog",
+      "finding": "The project states Linux wheels use patched libxslt1.1.43 fixing CVE-2025-7424 and CVE-2025-11731. This is new specific publisher/backport evidence, not proof that the selected retained binary contains it.",
+      "otherFindings": ["The6.0.2 section names libxml2 2.14.6 for Linux/macOS binary wheels.", "The6.1.3 section records the external-parameter-entity default fix; that is not tested parser safety here."]
+    },
+    "commitPinnedSourcesRead": [
+      {
+        "source": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/.github/workflows/wheels.yml",
+        "finding": "Published workflow environment selects libxml2 2.14.6, libxslt1.1.43, libiconv1.18 and zlib1.3.2. It describes cibuildwheel4.2.0 and release artifact uploads; this read does not establish that a particular workflow execution produced the selected wheel."
+      },
+      {
+        "source": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/pyproject.toml",
+        "finding": "Linux build settings enable STATIC_DEPS, repeat the selected dependency versions, use auditwheel repair --strip and specify core2/generic optimization for x86_64. These are recipe declarations, not measured compiler flags or runtime ABI."
+      },
+      {
+        "source": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/buildlibxml.py",
+        "finding": "The inspected download/build path calls _patch_library after unpacking. Its LIBRARY_PATCHES map names libxslt-1.1.43-backport1.patch for libxslt1.1.43. It collects static .a libraries; this matters because dynamic dependency names alone would not identify statically incorporated libraries.",
+        "declaredSelectedSourceSHA256": { "libxml2-2.14.6.tar.xz": "7ce458a0affeb83f0b55f1f4f9e0e55735dbfc1a9de124ee86fb4a66b597203a", "libxslt-1.1.43.tar.xz": "5a3d6b383ca5afc235b171118e90f5ff6aa27e9fea3303065231a6d403f0183a" },
+        "qualification": "Declared source hashes were read, not downloaded/verified archives. No libxml2 patch is selected by this specific map; that is not proof no change exists elsewhere in a build."
+      },
+      {
+        "source": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/libxslt-1.1.43-backport1.patch",
+        "finding": "The published patch changes EXSLT ancestor traversal and document() stylesheet-document handling, including copying/cleanup of psvi fields and an internal-header addition. The changelog supplies the CVE mapping; patch text itself is not a selected-binary or exploit verification."
+      }
+    ],
+    "patchApplierAlsoRead": "https://raw.githubusercontent.com/lxml/lxml/lxml-6.1.3/patch_lxml_deplibs.py",
+    "generalGuideAlsoRead": "https://lxml.de/installation.html",
+    "releaseMetadataLookup": {
+      "checkedDate": "2026-11-01",
+      "source": "https://api.github.com/repos/lxml/lxml/releases/tags/lxml-6.1.3",
+      "result": "404 from one unauthenticated public webfetch attempt",
+      "retried": false,
+      "qualification": "This exact lookup did not return release metadata. It does not prove that official distribution, other release records or build provenance are absent. No authentication escalation, alternate account or repeated unchanged lookup was attempted."
+    },
+    "qualification": "The installation guide is current/general and not used as a6.1.3 artifact attestation. Tag resolution was a public API observation; the annotated tag is unsigned. No release execution, reproducibility, signed provenance, selected-binary backport, full native hash/CRC or linked-runtime identity is established. Third-party source was read only, never imported, applied, compiled or copied as implementation into this repository."
+  },
+  "advisoryReconciliation": {
+    "priorRecordPreserved": "docs/document-authoring-native-advisory-screen-2026-10-31.json",
+    "CVE-2025-7424": "Specific official lxml release/recipe/patch evidence now supports a Linux-wheel backport at source/publisher level despite the1.1.43 version string. Selected binary patch state and security acceptance remain unverified.",
+    "CVE-2025-11731": "The later newly opened CNA record declares libxslt below1.1.44 affected, consistent with the publisher's explicit1.1.43 backport claim. This narrows source-level understanding without proving selected-binary fixes or runtime safety.",
+    "CVE-2025-49794": "Later Debian and accepted OpenEmbedded patch records explicitly map this ID to libxml2 commit71e1e8af5ee46dad1b57bb96cfbf1c3ad21fbd7b and the named Schematron repair. That is more than similar release-note wording, but direct upstream access returned406 and containment in the selected2.14.6 source/binary remains unverified.",
+    "CVE-2025-7425": "Later Red Hat/Debian sources identify the underlying libxslt behavior and a mitigation in libxml2, explaining why both components matter. Debian names a2.14branch commit and a2.14.5+dfsg-0.1 sid landing. That downstream version is not proof of the bare upstream2.14.6 source or this selected wheel's mitigation.",
+    "CVE-2026-0989": "New official2.15.2 news explicitly names the RelaxNG include-limit fix; Debian also names its upstream commit. This supersedes an upstream-fix-unknown description at release-reference level, not the prior CNA's missing upstream range or the selected wheel's unverified2.14.6 backport state."
+  },
+  "upstreamAdvisoryFollowUp": {
+    "checkedDate": "2026-11-01",
+    "scope": "Additional public CNA, upstream release and downstream maintainer mapping. No new artifact/source archive, patch application, parser execution or package installation.",
+    "findings": [
+      {
+        "id": "CVE-2025-11731",
+        "source": "https://cveawg.mitre.org/api/cve/CVE-2025-11731",
+        "sourceClass": "CNA record, redhat",
+        "recordPublished": "2025-10-14",
+        "recordUpdated": "2026-09-01",
+        "upstreamDeclaredRange": { "package": "libxslt", "version": "0", "lessThan": "1.1.44", "versionType": "semver", "status": "affected" },
+        "finding": "Names type confusion in exsltFuncResultComp during EXSLT func:result stylesheet parsing. The source mapping is consistent with the already-read lxml patch's document-node ancestor guard and explicit changelog claim; consistency is not selected-binary verification."
+      },
+      {
+        "id": "CVE-2025-49794",
+        "sources": ["https://security-tracker.debian.org/tracker/CVE-2025-49794", "https://patchwork.yoctoproject.org/project/oe-core/patch/b0f34931f7ae35538d007add80e2f81c85fa950f.1752720827.git.steve@sakoman.com/"],
+        "sourceClass": "Downstream maintainer tracker and accepted/archived OpenEmbedded backport submission, not direct upstream commit contents",
+        "referencedUpstreamCommit": "71e1e8af5ee46dad1b57bb96cfbf1c3ad21fbd7b",
+        "finding": "Both explicitly associate the commit with the Schematron memory-safety fix. The accepted July17,2025 submission carries an explicit CVE-2025-49794/CVE-2025-49796 mapping for a2.13.8 recipe. It does not establish2.14.6 release ancestry or a selected lxml build.",
+        "qualification": "The related49796 ID is source-context only, not a new complete advisory screen. Patch/fixture text was read as public evidence, not executed, copied into implementation or treated as a passing test."
+      },
+      {
+        "id": "CVE-2025-7425",
+        "sources": ["https://access.redhat.com/security/cve/cve-2025-7425", "https://security-tracker.debian.org/tracker/CVE-2025-7425"],
+        "sourceClass": "CNA vendor explanation and downstream maintainer tracker",
+        "libxml2MitigationBranchCommit": "9de92ed78d8495527c5d7a4d0cc76c1f83768195",
+        "libxml2MitigationMasterCommit": "f1e1f13b766eb580a8dcc0c4e7a447346dfd862e",
+        "debianMitigationLanding": "2.14.5+dfsg-0.1 in sid, per tracker notes",
+        "finding": "Red Hat describes libxslt xsltSetSourceNodeFlags/atype corruption. Debian explains that the underlying issue is in libxslt but a mitigation can be implemented in libxml2. This narrows the prior product/title ambiguity rather than silently treating one component label as authoritative for the whole wheel.",
+        "qualification": "The mitigation commits were referenced, not directly opened. A distro's landing/version or fixed/vulnerable package rows cannot establish bare upstream release containment or this wheel's state. The prior CNA observation remains intact."
+      },
+      {
+        "id": "CVE-2026-0989",
+        "sources": ["https://download.gnome.org/sources/libxml2/2.15/", "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.2.news", "https://security-tracker.debian.org/tracker/CVE-2026-0989", "https://www.suse.com/security/cve/CVE-2026-0989.html"],
+        "sourceClass": "Official GNOME distribution news/index and downstream maintainer trackers",
+        "upstreamReleaseFixNamed": "2.15.2, news dated March03,2026",
+        "referencedUpstreamFixCommit": "66c52b3ac6c32ab112ec2a3bf41e6c30948be113",
+        "finding": "Official news explicitly says CVE-2026-0989 fix: Add RelaxNG include limit. Debian identifies the same release and commit. SUSE reports distro-specific resolved package versions, not a generic upstream/wheel verdict.",
+        "qualification": "The SUSE tool output is partial and no exhaustive package-table claim is made. The release's fix reference does not establish an earliest fixed branch version, a full affected range, the selected2.14.6 backport state or actual parser safety."
+      }
+    ],
+    "unavailableDirectSource": {
+      "source": "https://gitlab.gnome.org/GNOME/libxml2/-/commit/71e1e8af5ee46dad1b57bb96cfbf1c3ad21fbd7b",
+      "result": "HTTP406, one exact commit request; no commit contents acquired",
+      "retried": false,
+      "accessBypassAttempted": false,
+      "qualification": "This was a newly referenced exact commit, not a repeat of the earlier release-page requests. No alternate client, mirror, authentication, proxy or endpoint was used to bypass the failure. Other separately opened public maintainer/release sources retain their own narrower evidence class."
+    },
+    "acquisition": {
+      "searchCalls": 2,
+      "webfetchAttempts": 10,
+      "successfulWebfetchCalls": 9,
+      "failedDirectCommitCalls": 1,
+      "includedInPublicResearchTotalsBelow": true,
+      "preFetchByteBoundClaimed": false,
+      "rawBodiesOrDigestsRetained": false,
+      "qualification": "Tools manage public response acquisition/truncation. Search results were discovery only; the sources named in findings were opened. These are distinct source classes, not independent confirmations of the selected binary. No private data or new PyPI allowance was used."
+    },
+    "stoppingBasis": "Material source-level ambiguities now have explicit public references and remaining limits. Duplicate searches or another unchanged406/404 would not prove selected-binary containment, full native hashes, ABI, rights or operational acceptance. Those layers remain required, not waived or declared impossible."
+  },
+  "publicResearchAcquisition": {
+    "searchCalls": 4,
+    "firstSearch": "Focused site/version/year query returned no results; not proof of absence.",
+    "secondSearch": "Changed broader public build/version query found official build/installation sources; snippets were discovery only.",
+    "followUpSearches": "Two additional focused public version/backport queries led to the opened CNA/vendor/downstream and official GNOME release sources in upstreamAdvisoryFollowUp.",
+    "webfetchCalls": 27,
+    "successfulWebfetchCalls": 25,
+    "failedReleaseMetadataLookups": 1,
+    "failedDirectUpstreamCommitLookups": 1,
+    "commitPinnedSourceCalls": 4,
+    "preFetchByteBoundClaimed": false,
+    "rawSourceBodyDigestsRetained": false,
+    "scope": "Initial17lxml manifest/provenance public fetches plus10upstream-advisory follow-up attempts; initial2searches plus2follow-up searches. Public docs/build/patch text, CNA/vendor/downstream records and official GNOME news only. No PyPI JSON, source archive, wheel download, PR fetch/checkout/import, workflow trigger, account/security change or private data was sent."
+  },
+  "actions": { "pypiRequests": 0, "newWheelDownloads": 0, "candidateImports": 0, "candidateExecution": 0, "sourcePatchApplications": 0, "extractedFiles": 0, "installs": 0, "tests": 0, "modelCalls": 0, "workers": 0, "peerActions": 0, "remoteMutations": 0 },
+  "acceptance": { "selectedManifestCRCSizeVerified": true, "selectedMetadataCRCSizeAndRecordBindingVerified": true, "selectedMetadataCandidateDeclarationConsistencyObserved": true, "filenameTagConsistencyObserved": true, "selectedPriorHeaderResourceHashConsistencyObserved": true, "recordPathAndDeclaredSizeCoverageObserved": true, "officialLibxsltBackportRecipeObserved": true, "fullNativeMemberHashesVerified": false, "selectedWheelBuildProvenanceVerified": false, "selectedWheelBackportsVerified": false, "linkedBinaryVersionsVerified": false, "abiVerified": false, "fullSecurityReview": false, "fullRightsApproval": false, "xmlSafety": false, "authoringReady": false, "installationAuthorized": false },
+  "remaining": ["Bind actual native content/linked and statically incorporated dependencies and selected build/backport provenance without weakening existing guards.", "Resolve remaining native advisories/component/backport mapping, reachability, full transitive/resource rights and ABI/XML safety before security or installation acceptance.", "Retain spent metadata allowance, unresolved cffi-to-pycparser, pandas16-member refusal and representative author/render/reopen/human gates."]
+}

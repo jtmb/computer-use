@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "status": "Actual selected transitive wheel and four complete text members observed; not complete dependency/native rights/security/ABI or authoring acceptance.",
+  "scope": "CFFI2.1.1 already selected by the historical transitive graph for CPython3.14/Linuxx86_64. No new version selection, PyPI metadata request, installation or candidate execution.",
+  "sourceReceipt": {
+    "path": "/home/james/Documents/computer-use-native-host-20261029/cffi-wheel-parent-9aqh5lti/facts.json",
+    "bytes": 12597,
+    "sha256": "69fdcefb3174d4525c38e5d0ab1d48936fa15f6f88187edb1c86654a150e2534",
+    "fullWheelAndSelectedTextsPreservedBesideReceipt": true
+  },
+  "selectionBinding": {
+    "candidateGraph": { "path": "docs/document-authoring-transitive-candidates-2026-10-31.json", "bytes": 54657, "sha256": "de0d2d81288c59da8602601c147614a3c35529440b919cbadd8c5254a46133f1" },
+    "historicalProjection": { "path": "/home/james/Documents/computer-use-native-host-20261029/document-metadata-parent-3d8QmU/historical-projections/exact3.json", "bytes": 61754, "sha256": "7ea8f570afe419caa2af7b606fa34fdb804024d266855e67a8ee38ebd960e4ac", "matchesItsPreservationReceipt": true },
+    "historicalRawResponsePreserved": false,
+    "qualification": "The projection retains filename/size/SHA256/BLAKE2b-256 but no artifact URL. Its historical raw-body hash/acquisition claims are not repaired or authenticated by this new artifact observation. Candidate and original projection files remain unchanged."
+  },
+  "artifact": {
+    "filename": "cffi-2.1.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 221525,
+    "sha256": "b0431303acaea1089ad4b3e9ce4e6518193def1118d4073ca848635ee4ea2e96",
+    "blake2b256": "e9024e7d553a7ac4b4238b38b3c1b80d486e9d4436f8d2acbf87a0997fe3f402",
+    "actualSizeAndBothDigestsMatchSelectedDeclarations": true,
+    "url": "https://files.pythonhosted.org/packages/e9/02/4e7d553a7ac4b4238b38b3c1b80d486e9d4436f8d2acbf87a0997fe3f402/cffi-2.1.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "urlBasis": "One explicitly derived content-address candidate from the preserved BLAKE2b-256 and exact filename, not a recovered original publisher URL or new release-metadata response.",
+    "publisherOrBuildSignatureVerified": false
+  },
+  "acquisition": {
+    "method": "One HTTPS GET, HTTP200, Content-Length221525 checked before body reads; identity content encoding, normal certificate/hostname verification, no redirects/retries/HTTP downgrade",
+    "requests": 1,
+    "bodyBytes": 221525,
+    "perResponseAndAggregateCap": 524288,
+    "chunkBytesMaximum": 65536,
+    "socketSeconds": 5,
+    "jobSeconds": 20,
+    "elapsedMsIncludingZIPAndSelectedTextWork": 102,
+    "newPyPIJSONOrFeedRequests": 0,
+    "spentMetadataAllowanceReset": false,
+    "qualification": "Body payload counts exclude HTTP/TLS overhead. Each read is bounded by remaining expected/cap allowance. The full wheel hash includes compressed text/native bytes; selected decompressed text bytes below are derived content, not additional unique transport bytes. No new pycparser candidate is acquired."
+  },
+  "container": { "entries": 34, "declaredExpandedBytes": 730993, "inventorySHA256": "9daf22724d876640f5bad6145bd515e3e77e11e76a64f06f46900018fef65d60", "allPayloadsVerified": false },
+  "selectedCompleteMembers": [
+    { "member": "cffi-2.1.1.dist-info/METADATA", "saved": "member-00.txt", "bytes": 2527, "sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918" },
+    { "member": "cffi-2.1.1.dist-info/RECORD", "saved": "member-01.txt", "bytes": 2413, "sha256": "80c92ff1b06fbd867b80412867e46e3f9473ae571da048855c08103f3f29178e" },
+    { "member": "cffi-2.1.1.dist-info/WHEEL", "saved": "member-02.txt", "bytes": 151, "sha256": "271703ac5090ffaef9c8a5cce47f5fde6e4f9d1408042bd56db2d1c77fe66077" },
+    { "member": "cffi-2.1.1.dist-info/licenses/LICENSE", "saved": "member-03.txt", "bytes": 1123, "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63" }
+  ],
+  "selectedRead": {
+    "payloadBytes": 6214,
+    "reservedPayloadIncludingProbes": 6218,
+    "completeSelectedTextsReadByParent": true,
+    "limits": { "archiveBytes": 524288, "directoryBytes": 131072, "entries": 1000, "memberBytes": 1048576, "expandedBytes": 8388608, "ratio": 100, "selectedMembers": 16, "sharedSelectedBytesIncludingProbeAllowance": 65536, "perCallSeconds": 5, "jobSeconds": 20 },
+    "method": "Existing reviewed scripts/office_package.py validates bounded ZIP directory/local ranges, normalizes/refuses unsafe paths, hashes the container and reads complete selected members with CRC/size/source rechecks. All selected notice-like/dist-info members fit together before the first payload read. No source-tree extraction or native payload read.",
+    "qualification": "The only notice-like path found by this job's filename selection is the complete LICENSE above. This does not prove absence of inline/per-file exceptions or identify all native third-party rights. No pandas notice selection is retried or partitioned."
+  },
+  "findings": {
+    "metadata": { "Name": ["cffi"], "Version": ["2.1.1"], "Requires-Python": [">=3.10"], "Requires-Dist": ["pycparser; implementation_name != \"PyPy\""], "License-Expression": ["MIT-0"], "License-File": ["LICENSE"] },
+    "wheel": { "Wheel-Version": ["1.0"], "Generator": ["setuptools (83.0.0)"], "Root-Is-Purelib": ["false"], "Tag": ["cp314-cp314-manylinux_2_17_x86_64", "cp314-cp314-manylinux2014_x86_64"] },
+    "notice": "The complete1123B notice supplies MIT No Attribution permission/disclaimer text, not just a metadata label. Its opening expressly excepts other LICENSE files and information at the beginning of individual files. The principal text has no attribution-retention condition; this observation is not a blanket grant/clearance for unreviewed exceptions, native linkage or the full stack.",
+    "record": "All31RECORD rows have three fields/unique names. Actual SHA256/size of METADATA, WHEEL and LICENSE match their rows; the RECORD self-row is empty. This is internal consistency for selected members, not a publisher/build signature or all-member/native hash verification.",
+    "nativeInventory": { "member": "_cffi_backend.cpython-314-x86_64-linux-gnu.so", "declaredBytes": 344680, "payloadRead": false, "fullDecompressedHashMeasured": false },
+    "nativeQualification": "The native backend is metadata-inventoried only. No linked libffi/libc identity/version, static contents, ABI/glibc/import compatibility, security or native-rights conclusion follows. It exceeds the unchanged64KiB selected payload scope and was not sliced/decompressed to discard around it.",
+    "dependencyQualification": "Actual wheel metadata confirms the existing CPython pycparser edge. Its version/artifact remains unselected/unacquired under the exhausted12-request metadata allowance. All other selected transitive artifacts/notices, pandas refusal, lxml transform exceptions and operational/human requirements remain."
+  },
+  "supportRead": { "fileCap": 262144, "jobCap": 2097152, "deadlineSeconds": 10, "reservedBytesIncludingProbes": 261952, "elapsedMs": 7 },
+  "preservationBoundary": "Receipt support identities bind unchanged candidate/projection/reader/owning-guide preimage, original parent index5079c677 and current memory f9349131/record0ee63e34. Final10:05:08Zlocal readback rehashes this wheel and four saved texts, all matching, alongside the later ten-wheel batch; both raw receipts remain unchanged. Record7949B8da0cfac and guide60826B665fb4bb are the pre-documentary-follow-up epoch, not hashes of future wording edits. The dated observation is reconciled in docs/document-authoring-transitive-native-declarations-2026-11-01.json. This is selected preservation, not full original history/settings/media/launcher or acceptance proof; no generated goal/archive or unrelated source is manually edited.",
+  "actions": { "testsAddedChangedOrRun": 0, "newVersionMetadataRequests": 0, "candidateImportsOrExecution": 0, "nativePayloadReads": 0, "XMLParsesOrTransforms": 0, "installs": 0, "modelOrChildren": 0, "peerActions": 0, "deploymentsOrRestarts": 0, "projectLicenseChanges": 0, "commits": 0, "pushes": 0 }
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Direct parent verification after the user says the assistant must verify with computer use and continue until cleared. This records actual scoped results, not completion of the retained75requirements or a replacement goal ledger.",
+  "authority": {
+    "verification": "The later direct 'you verify' instruction supersedes this continuation's earlier no-more-tests restriction. Parent-only/no-delegation and separate installation/deployment/activation/security/archive/private/callback/demo/deletion/publication/commit/push gates remain. The following /resume_goal command finds the goal already active255; no further lifecycle or plan mutation is performed for that command.",
+    "durableSource": "docs/session-consolidation-2026-10-29.md#latest-direct-work--2026-10-31",
+    "sourceChange": "One76-byte supersession paragraph is inserted before the historical no-more-tests text. The older dated instruction and all historical failures remain; removing only that paragraph recovers the complete262038B/d77ca9b1c518905a62731ff46392e223de10f73494b11fed96f834688f880a57preimage. The resulting262114Bsource remains below the unchanged262144Bfile cap."
+  },
+  "memorySourceVerification": {
+    "command": "node --max-old-space-size=256 --experimental-strip-types --test --test-concurrency=1 .opencode/plugins/memory/memory.test.ts",
+    "cwd": "/home/james/repos/computer-use",
+    "beforeAddingCoverage": { "tests": 24, "passed": 24, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 3459.532053 },
+    "afterAddingCoverage": { "tests": 38, "passed": 38, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 5728.303069 },
+    "newCoverage": [
+      "Malformed list/read/search and zero-token queries reject before session/permission/root/global/filesystem dependency access; lexical versus filter error precedence is checked.",
+      "Unicode/numeric/exact500-character valid queries and search-tag snapshotting across an awaited session lookup.",
+      "Pending read/external assertions receive exactly one argument, do not preempt the native pending promise, and cannot return success after cancellation; exact-path cached permission checks reject before another stat.",
+      "Valid late read results, skip-shaped abort reasons, missing exact paths and completed empty scans cannot return data/preview after cancellation. An already committed atomic rename is still truthfully reported written.",
+      "Growth/invalid-UTF8/ENOENT/invalid-count reads retain conservative pre-reserved charges across both fixture scopes, with the final read reduced for its probe. Success refunds,64versus65candidates and previously recorded directory truncation are checked.",
+      "History-only/metadata-only matches retain current decision context/citations; long Unicode context stays bounded and distinct. Unlabelled/nondecision/later-label cases and no-match behavior retain their separate results."
+    ],
+    "productionSourcesUnchanged": [
+      { "path": ".opencode/plugins/memory/core.ts", "bytes": 31241, "sha256": "f93491310cb81e9c1b804755a9489b473c5f5037a58021e3e9c87b77edf38e61" },
+      { "path": ".opencode/plugins/memory/filesystem.ts", "bytes": 8322, "sha256": "5ea32787982f944ab56373166e5b1ad2e8d53bcae8e1d1d24421e223892d25a7" },
+      { "path": ".opencode/plugins/memory/format.ts", "bytes": 10853, "sha256": "6797978074553e2fb9dababa6330c577e867f58711aba8cec10fc6fc9dcdd046" },
+      { "path": ".opencode/plugins/memory/paths.ts", "bytes": 2475, "sha256": "910a12dd7a661bacdb21cdb5793bbeace07dd9025ed686c7a94a3044a88e710d" },
+      { "path": ".opencode/plugins/memory/retrieval.ts", "bytes": 7583, "sha256": "85c8c4096729c2a4a24c48d09c76241cdb1ac1f100376b56dca37f9769c76441" },
+      { "path": ".opencode/plugins/memory/tool.ts", "bytes": 4370, "sha256": "50d9a1d0edc248b7f104ca7626b5fedc081948c2e3472333655f08ec6afa099f" }
+    ],
+    "testChange": { "path": ".opencode/plugins/memory/memory.test.ts", "beforeBytes": 39771, "beforeSHA256": "2382d7f7adc0f3f073cb8141389e646a5cf40931576b7b0481c88868978b2b2d", "afterBytes": 58780, "afterSHA256": "378c3ef0107c13d51ee6253261d4e32d8568574f12b289f63829dc9c87330057", "change": "Three import-line extensions plus14appended top-level tests/helper; all24prior tests remain. Exact whole-preimage reconstruction is required in final readback, not presumed from the count." },
+    "faultControls": {
+      "receipt": "/home/james/Documents/computer-use-native-host-20261029/memory-verification-0tgecwp6/controls.json",
+      "scratch": "/tmp/opencode/memory-controls-h9aoujor",
+      "at": "2026-11-02T00:10:39.451891+00:00",
+      "controls": ["validation-order", "cached-permission-abort", "exact-read-completion", "failed-read-refund", "current-decision-context"],
+      "allFive": "Each isolated targeted fault exits1at its intended assertion with one failed test, not setup/import failure; exact canonical source/test copies are used and only the named fault is introduced in scratch. Canonical production sources are not swapped or modified.",
+      "capturedOutputBytes": 6182,
+      "perControlOutputCapBytes": 65536,
+      "rawReadChunkCapBytes": 4096,
+      "elapsedMs": 3971,
+      "qualification": "Controlled source regressions with real temporary filesystem/Git fixtures and fake session/permission APIs. Not original fixture recovery, full native build, model evaluation or real global-store/native permission denial acceptance."
+    },
+    "strictTypes": {
+      "compiler": "/home/james/repos/opencode-goal-plugin/node_modules/typescript/bin/tsc",
+      "manifestVersion": "6.0.3",
+      "command": "node --max-old-space-size=256 /home/james/repos/opencode-goal-plugin/node_modules/typescript/bin/tsc --ignoreConfig --strict --noEmit --skipLibCheck false --module nodenext --target es2022 --allowImportingTsExtensions --types node --typeRoots /home/james/repos/opencode-goal-plugin/node_modules/@types .opencode/plugins/memory/core.ts .opencode/plugins/memory/filesystem.ts .opencode/plugins/memory/format.ts .opencode/plugins/memory/paths.ts .opencode/plugins/memory/retrieval.ts .opencode/plugins/memory/tool.ts .opencode/plugins/memory/memory.test.ts",
+      "exitStatus": 0,
+      "output": "No diagnostics.",
+      "shellTimeoutMs": 45000,
+      "qualification": "Seven selected memory implementation/test roots and their dependency/library graph, with library checking enabled. Existing installed TS6.0.3 is source-identified, not relabelled TS5.9.3or the frozen native compiler. No SDK loader/index/full native graph or runtime loading is certified.256MiBV8oldspace is not a measured whole-process RSS bound."
+    }
+  },
+  "adjacentDocumentationVerification": {
+    "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/repo-memory.test.mjs scripts/decision-memory-contract.test.mjs",
+    "initialResult": { "tests": 16, "passed": 15, "failed": 1, "skipped": 0, "durationMs": 892.403934 },
+    "actualFailure": "The existing case-sensitive /questions are discussion\\/steering, not automatic work stoppage/ assertion rejects the real AGENTS.md sentence beginning Questions. The policy text exists; this is a documentation-test case bug, not a missing instruction or permission to rewrite AGENTS.md.",
+    "repair": "Use one case-insensitive literal pattern for that exact clause and add a separate actual-source regression accepting lowercase/uppercase while requiring an in-memory omission of the clause to fail. All existing tests/clauses remain; no instruction or private preference body is edited.",
+    "testBefore": { "path": "scripts/repo-memory.test.mjs", "bytes": 10340, "sha256": "57bd1b6d6bc7c9d8e580c1610175d00ea146413b06203e7cf81e183c0bdf9d75" },
+    "AGENTSUnchanged": { "bytes": 10172, "sha256": "8e95e25e64475a827851609c71b276a2049b482832e4d1d89760b965fd5b375f" },
+    "finalResult": { "tests": 17, "passed": 17, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 448.09176 },
+    "qualification": "Current source/documentation contracts and local link/anchor checks only, not general fresh-chat model behavior or all runtime acceptance. The real initial red is preserved."
+  },
+  "serviceStatusVerification": {
+    "command": "./scripts/health-check.sh --status-only",
+    "exitStatus": 0,
+    "observed": "OpenCodev2.1.1/background service/required exact-location server plugins/GitHub+Playwright connections/repository skill path/supporting file presence/34skills all pass.",
+    "qualification": "Status-only explicitly skips both plugin test batches and is not full health acceptance. Independent computer/browser source tests are not executed or adopted. No service start/restart, deployment, configuration or permission change was requested by this run."
+  },
+  "actualRepositoryDecisionUpdate": {
+    "id": "orchestration-method",
+    "path": "docs/memory/orchestration-method.md",
+    "scope": "repo",
+    "operation": "Actual loaded memory search, exact read, remember preview, matching-revision apply, exact readback and decision-kind search.",
+    "beforeRevision": "795affca67f8be5f40a6fc5f44ab0b27780a68204eca4056b9f1f6c01fe50577",
+    "afterRevision": "8f48219e39c706b58682d70ce2bc581ff10b29b40f485a2f30bb8c2eac3d198f",
+    "afterBytes": 1928,
+    "metadataUpdatedAndVerified": "2026-11-02",
+    "readback": "Current leading decision authorizes assistant verification while retaining solo/no-delegation and separate consequential gates. Explicit history supersedes only the old no-more-tests component; older DeepSeek/reuse/Luna choices remain historical, not global or worker authority.",
+    "retrieval": "query parent-only no-further-tests with kind decision/limit3returns the updated current-context snippet atline25and explicit supersession atline29; agent-inbox also appears as a lower-score unrelated decision, not another changed note.",
+    "coverage": { "scanned": 5, "bytes": 14344, "chargedBytes": 14344, "failedReadChargeBytes": 0, "skipped": 1, "truncated": false },
+    "qualification": "Real scoped repository operation/readback, not general fresh-chat model behavior, global memory, native denial/cancellation or loaded-byte identity proof. The skipped unmanaged/malformed file is not deleted. No preview token, secret or private conversation is retained here."
+  },
+  "desktopDirectVerification": {
+    "epoch": "ff1a4553-4226-4d91-bc14-fbabdfc3a67f",
+    "windowId": "ff1a4553-4226-4d91-bc14-fbabdfc3a67f:21",
+    "app": "org.gnome.Calculator.desktop",
+    "pid": 43847,
+    "ATSPIScope": "Exact process-incarnation app:f6588d288337982f62cfb600ca3fea9c7558cc6ff2eda7b103ee0d30b2848b7b",
+    "ownership": "Calculator was absent from the initial application/window inventory and launched through the supported exact desktop ID; a matching new window appeared. Existing terminal/other chat and unsent drafts were not typed into, closed or captured. The initial dialog-active inventory was respected; no unknown system dialog was dismissed. Later inventory independently reported no blocking dialog.",
+    "captureGeometry": { "width": 820, "height": 1332, "inputPixels": [137, 925], "mappedLogicalPoint": [542.5, 577.5] },
+    "failuresPreserved": [
+      "The shallow accessibility tree was depth-truncated; a push button role query returned no matches. A complete107-node tree established the actual role button and the named7control; no control absence was inferred.",
+      "The first input observation expired before dispatch: EXPIRED. A subsequent hash-guarded capture differed, so no click was dispatched for that capture either.",
+      "A default zero-duration pointer click reported completed, but screenshot and later accessibility readback still showed an empty display. Dispatch was not accepted as actual application success; its cause remains unresolved.",
+      "A separated100msclick attempt refused FOCUS_CHANGED before dispatch when the operator selected another window. No compensating keys or blind input followed."
+    ],
+    "changedSuccessfulRoute": "One bounded fresh preview/apply focus, capture and100msheld pointer click were kept together for the exact Calculator. Current window/image dimensions and native protection/focus guards remained enforced. This was changed timing/dispatch coordination, not a retry of POINTER_CONSTRAINEDor a source/deployment/guard change.",
+    "observedStages": [
+      { "stage": "after timed pointer click", "display": "7", "PNGBytes": 55459, "PNGSHA256": "8cc75b28041d52418f6943b3d16ebeefb1ff93ab0f7525d1b2f17961276f06de", "evidence": "Fresh request-owned image and complete accessibility text readback." },
+      { "stage": "after native literal type_text +5", "display": "7+5", "PNGBytes": 56478, "PNGSHA256": "6d2c3b58353a24d1beca9a6e08dd1d10a02ddd2c462417b5c7042e62029e444a", "evidence": "Fresh request-owned image and complete accessibility text readback." },
+      { "stage": "after native press_key enter", "display": "12", "history": "7+5 =12", "PNGBytes": 58924, "PNGSHA256": "790238adf356dfa2b665c04fe166d2f108bffcdf46c3b9de53da0337656eec18", "evidence": "Fresh request-owned image and complete112-node accessibility traversal/text12." }
+    ],
+    "release": "Supported desktop.release reports released:true after the timed pointer result and again after final calculation.",
+    "qualification": "Actual current compositor pointer, literal text, key and visual/accessibility application outcomes, not just dispatch or inherited peer results. The current100msgesture succeeds; zero-duration success remains unproved. Drag/scroll/full stale/cancel/disconnect/rollback/multiwindow/clipboard/audio/image-card matrices and native module byte attestation remain separate. Request-owned captures were returned as attachments, not copied into the repository; managed attachment retention/cleanup is not claimed.",
+    "windowAtRecording": "Task-created Calculator remains open displaying12; no unrelated window is closed.",
+    "subsequentCleanup": "The first exact Calculator window.close preview with depth5was refused because traversal was truncated; no close was dispatched. Changed depth30/max250matches the previously complete112-node app traversal. Its exact fresh preview/apply dispatches window.close to the same process-bound Calculator frame. Fresh compositor readback omits window21and retains the existing terminal plus an unrelated newly opened Zed window. No unrelated window is closed/captured/typed into; process exit or managed screenshot retention deletion is not claimed."
+  },
+  "preservationBeforeThisRecord": {
+    "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "READMEBeforeBytes": 16136,
+    "READMEBeforeSHA256": "bd4354daa421484039491275e6c4f95e2bfb4e5033a68f50307d52c8ee8c30e4",
+    "featuresBeforeBytes": 173439,
+    "featuresBeforeSHA256": "58247439adccba715a4bcc190f372ab0bb638937b65b7f9a997e55a4ba8d2c19",
+    "memoryIndexBeforeBytes": 1216,
+    "memoryIndexBeforeSHA256": "423eadf9d520754f52a1aec81c8a2f096b7bad353e6594657f9b88ddbf0ae63a",
+    "qualification": "Source/status inspected before scoped edits. Exact post-edit preimage/source/index/pin readback remains required; no unrelated feature work is overwritten."
+  },
+  "remaining": "This unit advances real current verification after the user's correction; it does not close an entire task/phase/goal. Full fresh-chat/native/strict integration, other technical lanes, authentic originals and exact consequential/human/device layers remain. No further no-tests blocker may be inferred from the superseded instruction, and routine verification is not handed back to the user.",
+  "actions": { "newTopLevelMemoryTests": 14, "additionalDocumentationRegressionTests": 1, "documentationTestSourceRepairs": 1, "productionMemorySourceRepairs": 0, "actualScopedMemoryDecisionReplacements": 1, "statusOnlyHealthRuns": 1, "taskOwnedCalculatorWindowsClosedAfterReadback": 1, "correctedSessionMessageReaderRuns": 0, "unchangedNativeBuildOrFullGraphRetries": 0, "sourceRuntimeSecurityPermissionDeployChanges": 0, "childrenLaunchedOrResumed": 0, "independentComputerBrowserSourceEditsOrPeerSteering": 0, "realGlobalMemoryOperations": 0, "realRepositoryCommits": 0, "pushes": 0 }
+}

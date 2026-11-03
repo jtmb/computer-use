@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "scope": "Explicit resume of the existing goal and first bounded everyday-use resource/decision work; not completion of the goal or all ten everyday-use outcomes.",
+  "goal": {
+    "id": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+    "planRevisionObserved": 314,
+    "statusAfterSupportedResume": "active",
+    "objectiveEdited": false,
+    "earlierObjectiveEditAttempt": "Refused: YOLO edit requires an explicit user control; the worker cannot choose its own stop condition. Supported readback retained paused314. Later explicit /resume_goal and update_goal_status(active) succeed without an objective edit."
+  },
+  "decision": {
+    "id": "orchestration-method",
+    "scope": "repo",
+    "beforeRevision": "8f48219e39c706b58682d70ce2bc581ff10b29b40f485a2f30bb8c2eac3d198f",
+    "afterRevision": "bc2438b2c35e917886910430e7003d2de3fd94a92de15cb666e08afbd06ac000",
+    "actualPreviewApplyReadback": true,
+    "source": "docs/session-consolidation-2026-10-29.md#resumed-everyday-use-work--2026-11-02",
+    "supersession": "The new direct parallel DeepSeek request supersedes solo/no-helper direction for this execution. Necessary verification remains authorized; parent-only goal planning, native permission/resource guards and separate consequential approvals remain.",
+    "index": "MEMORY.md updated to match; no global preference or saved selector setting changed."
+  },
+  "resourceObservation": {
+    "kind": "One newly authorized read-only snapshot, not polling or proof of build fit",
+    "memTotalKiB": 7479772,
+    "memAvailableKiB": 2843496,
+    "swapTotalKiB": 4194300,
+    "swapFreeKiB": 3671800,
+    "ancestorMemoryMaxHigh": "No finite limits observed in the inspected ancestor cgroups; root memory.max/high/current files absent, retained as unavailable rather than inferred values.",
+    "oomKillsObserved": 0,
+    "processInformation": "Names, UID ownership, parent IDs, RSS and thread counts only; no arguments, environment or private logs.",
+    "loadedLocations": ["/home/james/repos/computer-use", "/home/james"],
+    "loadedLocationAction": "Supported GET succeeds. No eviction: these are shared/current locations, not proven disposable task-owned caches.",
+    "limitsChanged": false,
+    "processesKilledOrServicesRestarted": false
+  },
+  "delegation": {
+    "requestedAndSelectedModel": "deepseek/deepseek-flash#high",
+    "initialConcurrentReadOnlyBatch": 2,
+    "configuredNumericCapacity": "Not exposed; batch size is a conservative choice, not a runtime-limit claim.",
+    "prelaunchOwnership": "Supported authenticated active map returned this parent only; exact reused child metadata matched parent/project/directory/model and idle timestamps.",
+    "recallChild": "ses_e6fc51cc6ffeNEsH3ySwJQcsAt",
+    "buildChild": "ses_e6c458a33ffePT5GQ1l3TtXnzn",
+    "recallResult": "Native completion observed; reported current revision/supersession agrees with parent actual readback and selected source. Reused-child result only, not broad fresh-primary/native deny-cancel acceptance. Startup claims are reported, not completely parent trace-audited.",
+    "buildResult": "Read-only report, no proven memory-saving build route. Parent confirms current early-global ordering but does not accept unmeasured compiler-floor attribution or upstream-only proof of a pinned late-global defect. Follow-up is a new scratch-only bounded pinned counterexample probe; no canonical fix or schema change accepted."
+  },
+  "readerFailure": {
+    "actual": "Python whole-file reader exits1 with RuntimeError: file limit at line6 on the consolidation document.",
+    "completedBeforeFailure": "New MEMORY.md and current decision body/revision/supersession assertions passed.",
+    "chargedFailedReadBytes": 262145,
+    "limitBytes": 262144,
+    "qualification": "The reader checked size after acquisition, overshooting by one byte. Do not call it a valid hard-bounded read, refund costs or claim a full consolidation hash. Full document payload is not retried; a subsequent explicitly selected source-prefix inspection proves only that new section.",
+    "thenObservedConsolidationSize": 265860,
+    "indexCheck": "Previously unperformed29854-byte raw index check subsequently passes5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d; the179-byte staged rename remains unchanged."
+  },
+  "patchCallerFailure": "The first receipt/document patch had an extra End Patch marker and was rejected by the patch parser. No successful file change was reported; the corrected single-envelope patch is the actual source operation, not a product regression.",
+  "notPerformedOrClaimed": [
+    "No full native build/types/compiler/CI/health run or accepted memory saving.",
+    "No ordinary child report promoted to native permission, fresh-primary, GUI/audio or human/device acceptance.",
+    "No private history, credential read, permission grant, unsupported API fallback, shared-cache eviction or resource-guard weakening.",
+    "No target skill application, deployment, extension activation, installed-client replacement, shared restart, staging, commit or push.",
+    "No immutable criteria, completed task or remaining requirement removed; original failure evidence retained."
+  ]
+}

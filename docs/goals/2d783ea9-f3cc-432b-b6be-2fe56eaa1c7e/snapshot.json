@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e7b2588f9ffex9fhCMGyFF15LJ",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T18:27:27.512Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "2d783ea9-f3cc-432b-b6be-2fe56eaa1c7e",
+    "sessionID": "ses_e7b2588f9ffex9fhCMGyFF15LJ",
+    "objective": "Own and finish the complete voice-assistant workflow, carrying forward unmet goals103fa0ed-8d50-49de-b27f-0f837db9bed9 and db8d8476-0fa9-4d55-9ebc-fb65ac0b24f0, their unfinished acceptance requirements and all completed source/model evidence. Take responsibility for diagnosing and repairing prerequisite desktop INPUT_FAILED and compatible native-renderer execution errors, plus any integration/regression defects uncovered, rather than treating those failures as out of scope. Preserve the implemented compact themed review, safe in-place edit/continue/send/discard and retained-draft/uncertain-admission recovery; offline installed Sherpa/two Piper voices, original-session/New session agent/location/model/variant safety, timing/final-word/cleanup behavior. Obtain actual supported rendered and interaction evidence for F9/mic, settings/voice picker/preview, recording/review/edit/continue/discard/explicit send and spoken reply in new/existing sessions. Distinguish synthetic/control/human evidence accurately. Diagnose and repair canonical integration source and use reviewed scoped deployment/compatible isolated runtime when authorized by applicable gates; do not bypass native permissions, weaken security, edit deployed copies directly, modify OpenCode executable/private internals, restart shared services or delete unrelated work. Preserve all dirty/untracked work and completed evidence, add regression coverage and honest updated acceptance docs. No commit/push. Continue independently through resolvable errors; close complete only after all required behavior has concrete evidence.",
+    "status": "unmet",
+    "plan": {
+      "summary": "Renderer prerequisite solved; exercise production native interaction independently while shared bridge deployment awaits exact authority.",
+      "completionCriteria": [
+        "Supported desktop input and native rendering have actual positive execution evidence without security/permission bypass.",
+        "Compact review is visually inspected at representative sizes and keyboard/mouse/edit/continue/discard behavior verified.",
+        "New/existing-session voice workflows including safe explicit admission, voice selection/preview, spoken reply and cancellation/cleanup have clearly qualified actual evidence.",
+        "All found in-scope integration errors repaired with regression coverage and relevant full checks; docs accurately separate actual/synthetic/human evidence.",
+        "Completed prior work and unrelated changes preserved; no host binary/private API/shared restart/commit/push."
+      ],
+      "phases": [
+        {
+          "id": "carry",
+          "objective": "Preserve completed work and establish current prerequisite failure ownership.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "baseline",
+              "description": "Inspect source/deployed identity, Git changes, concurrent ownership and precise desktop input/native runtime failure paths.",
+              "status": "completed",
+              "evidence": "Deployer preview2/7 differences input.mjs/extension.js; canonical destroy()/timestamp correction already exists.19controller+8GJS checks pass; deployment/reload gates explicit."
+            },
+            {
+              "id": "prior",
+              "description": "Carry forward completed source/model checks and explicit unfinished acceptance from both unmet goals.",
+              "status": "completed",
+              "evidence": "83TS+87Python/types/lint/health/installed PCM checks preserved from prior goal; live host acceptance still unfinished."
+            }
+          ],
+          "verification": "Exact source/deployed diff, deployment preview and fresh tests establish root boundary; prior work preserved."
+        },
+        {
+          "id": "prerequisites",
+          "objective": "Repair supported input and establish compatible isolated rendering.",
+          "status": "blocked",
+          "tasks": [
+            {
+              "id": "input",
+              "description": "Diagnose INPUT_FAILED at exact runtime boundary, fix canonical source with regression and verify supported input.",
+              "status": "blocked",
+              "blocker": "Corrected source verified, exact two-file shared deployment and separate GNOME reload/login approval not established. No deployed copy edit or bypass."
+            },
+            {
+              "id": "renderer",
+              "description": "Establish compatible isolated OpenTUI renderer and render production review at short/long/narrow sizes.",
+              "status": "completed",
+              "evidence": "Official isolated Node26.4.0 vendor SHA256 verified. Actual production review native frames100x30,50x24,35x20 pass; wide edit/save and all discard assertions pass via canonical native test/loader scripts."
+            },
+            {
+              "id": "native_interactions",
+              "description": "Exercise actual renderer keyboard/mouse/scroll/edit/continue/send/recovery events and repair source defects before live-host acceptance.",
+              "status": "completed",
+              "evidence": "New npm run test:review:native executes production TSX with real OpenTUI frames/terminal byte parser/mouse hit testing.9cases each Kitty and legacy protocols PASS (18total): short/long/narrow, editor literalc/save, End final words, clickSend/Continue/right refusal, recovery keep/discard, abort/replacement, undo/empty send. Native35col frame exposed clipped subtitle; source flexShrink0 fix +native full-subtitle assertion pass. Fresh83TS+87Python/type/lint and whitespace pass. ACCEPTANCE prompt-to-artifact table preserves all outstanding live gates; README documents opt-in native command."
+            }
+          ],
+          "blocker": "Renderer and actual native interactions now pass. Shared input fix remains undeployed pending exact scoped two-file deployment and separate GNOME reload/login authority; generic ownership/continue request does not authorize those consequential actions."
+        },
+        {
+          "id": "workflow",
+          "objective": "Exercise full supported voice flow and repair defects.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "live",
+              "description": "Verify F9/mic/settings/picker/preview/review/edit/continue/discard/send/readout in new/existing chats with explicit test cues and safe scoped test requests.",
+              "status": "pending"
+            },
+            {
+              "id": "regressions",
+              "description": "Fix discovered defects and verify routing, timeout, uncertain submission and cleanup behavior.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "audit",
+          "objective": "Final independent source and acceptance audit.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "checks",
+              "description": "Run source/native/parent checks and review test quality; update acceptance/docs and audit every criterion.",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "Canonical input fix already exists; preserve it and keep shared deployment/reload gates separate.",
+        "Native FFI blocker solved with isolated official Node26, no system runtime/host upgrade.",
+        "Add native interaction verification in current phase because it can proceed independently of physical desktop input. It does not replace live host acceptance.",
+        "This turn made verified independent progress rather than repeating the bridge failure. Native frame inspection found and repaired actual narrow subtitle clipping. All remaining physical owning-host workflow checks depend on refreshed corrected shared bridge; no direct deployed edit, security bypass, shared restart, commit or push.",
+        "Final blocked audit after fresh read-only deployer preview: same exact2/7 delta (input.mjs,extension.js), no external deployment occurred. ACCEPTANCE lines901–918 map every remaining host workflow requirement to shared-deployment/refresh gate. All independent source/native interaction work complete; further repetition cannot establish host acceptance. Missing exact operator authority for shared deployment and separately GNOME session refresh is an actual impasse, not technical impossibility or clarification preference."
+      ],
+      "revision": 6,
+      "updatedAt": 1793298062,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "User explicitly requests ownership and successor goal including earlier unmet work and associated errors.",
+          "timestamp": 1793297312
+        },
+        {
+          "revision": 2,
+          "reason": "Root cause and precise deployment delta established; native renderer runtime failure resolved independently with actual positive execution.",
+          "timestamp": 1793297449
+        },
+        {
+          "revision": 3,
+          "reason": "Concrete positive production-review native rendering replaces previous runtime blocker; preserve remaining live acceptance and ownership.",
+          "timestamp": 1793297562
+        },
+        {
+          "revision": 4,
+          "reason": "Current prerequisite phase can make further independent progress with real native event dispatch rather than direct command callbacks.",
+          "timestamp": 1793297635,
+          "revisitEvidence": "Previous native script invoked command callbacks directly; mockInput/mockMouse API inspection confirms renderer-delivered interactions are available and currently untested."
+        },
+        {
+          "revision": 5,
+          "reason": "Complete native interaction verification and regression repair; record precise remaining operator gate without pretending the whole voice workflow passed.",
+          "timestamp": 1793298012
+        },
+        {
+          "revision": 6,
+          "reason": "Fresh external-state check confirms unchanged deployment boundary and no remaining independent path to required live acceptance.",
+          "timestamp": 1793298062
+        }
+      ]
+    },
+    "planRevision": 6,
+    "createdAt": 1793297289,
+    "updatedAt": 1793298432,
+    "closedAt": 1793298077,
+    "completionEvidence": null,
+    "blocker": "Concrete operator-authorization impasse after independent engineering work is completed: remaining actual owning-host input/voice acceptance requires deploying the existing reviewed canonical input.mjs and extension.js into /home/james/.local/share/gnome-shell/extensions/opencode-window-control@computer-use.local, followed by a separately authorized GNOME session refresh/login to load those changes. Fresh supported deployer preview still shows exactly those2/7 files differing, with unchanged managed marker and five preserved files; no apply or reload occurred. Applicable instructions explicitly retain separate deployment/activation/logout gates, so generic ownership and auto-continuation cannot grant them. No native denial bypass, deployed-copy patch, permission weakening, shared restart or user-work interruption is permitted. This is not claimed impossible: canonical fix for nonexistent virtual-device destroy() requirement and Clutter monotonic microsecond timestamps is present and19controller+8GJS checks pass. Original native-renderer failure is solved using vendor-hash-verified isolated Node26.4.0 without upgrading systemNode/host. Actual production review native frames and real renderer keyboard/mouse interaction now pass9scenarios under each of Kitty/legacy protocols (18total), including Send/Continue, literalc/save-before-send, final-word scroll, right-click refusal, recovery keep/discard, abort/replacement, undo and empty-send. Native35column subtitle clipping was found and repaired with an actual native assertion. Fresh full83TS+87Python/types/lint and whitespace pass; prior installed Sherpa PCM/two-voice/service evidence preserved. ACCEPTANCE current prompt-to-artifact audit maps every original requirement and remaining host gate; README and native test alias documented. No commit/push. Required external input: exact scoped deployment authority, then separate GNOME refresh/login authority/user-controlled refresh after saving work. All prior goal scope, c...",
+    "stopReason": "blocked",
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793297289
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): User explicitly requests ownership and successor goal including earlier unmet work and associated errors.",
+        "timestamp": 1793297312
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ve created goal `2d783ea9-f3cc-432b-b6be-2fe56eaa1c7e`, carrying forward both unmet goals and their unfinished requirements. I’ll own the desktop-input and renderer failures as part of delivery—not stop at reporting them—and preserve the work already verified. Existing permi...",
+        "timestamp": 1793297314
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I found a concrete source/deployment mismatch: the installed bridge requires virtual input devices to expose `destroy()`, which the current source no longer requires. The source also corrects Clutter event timestamps to monotonic microseconds. I’m verifying those existing fixe...",
+        "timestamp": 1793297387
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The input fix is already in canonical source; its 19 controller tests pass, and the deployment preview confirms only `input.mjs` and `extension.js` differ. I won’t duplicate or overwrite that work. I’m also preparing a checksum-verified Node 26 test runtime in scratch space, w...",
+        "timestamp": 1793297427
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): Root cause and precise deployment delta established; native renderer runtime failure resolved independently with actual positive execution.",
+        "timestamp": 1793297449
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The renderer failure is resolved. The production review component now renders through real OpenTUI at **100×30, 50×24 and 35×20**; all actions are visible, and edit/save/discard checks pass. This uses an isolated, verified Node 26 runtime and leaves system Node and OpenCode un...",
+        "timestamp": 1793297553
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): Concrete positive production-review native rendering replaces previous runtime blocker; preserve remaining live acceptance and ownership.",
+        "timestamp": 1793297562
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Ownership is recorded in active goal `2d783ea9-f3cc-432b-b6be-2fe56eaa1c7e`, including both unmet goals and associated errors. Already resolved: native rendering now passes at three terminal sizes. Desktop input’s source/deployment mismatch is identified; its existing fixes pa...",
+        "timestamp": 1793297597
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 1 reserved.",
+        "timestamp": 1793297598
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 4): Current prerequisite phase can make further independent progress with real native event dispatch rather than direct command callbacks.",
+        "timestamp": 1793297635
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll extend the native check from “renders correctly” to real renderer-delivered key and mouse events. That can expose focus, editing, scrolling, and click defects while the shared desktop-bridge deployment remains separately gated.",
+        "timestamp": 1793297637
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The native interaction checks pass under both legacy and Kitty keyboard protocols, including mouse Send/Continue, literal `c` in the editor, scrolling to the final words, and recovery controls. The rendered frames also exposed a narrow-layout defect: the destination/agent subt...",
+        "timestamp": 1793297858
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 5): Complete native interaction verification and regression repair; record precise remaining operator gate without pretending the whole voice workflow passed.",
+        "timestamp": 1793298012
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Made further verified progress: - **18 native interaction scenarios pass** across legacy and Kitty keyboard protocols. - Found and fixed narrow-terminal subtitle clipping. - **83 TypeScript + 87 Python tests**, types/lint and whitespace checks pass. - Added a requirement-by-re...",
+        "timestamp": 1793298021
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793298023
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 6): Fresh external-state check confirms unchanged deployment boundary and no remaining independent path to required live acceptance.",
+        "timestamp": 1793298062
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The fresh deployment preview is unchanged: only `input.mjs` and `extension.js` need updating. The remaining live checks now depend on two separately gated actions: deploying those reviewed files, then refreshing the GNOME session. I can’t infer either approval from an automati...",
+        "timestamp": 1793298064
+      },
+      {
+        "type": "unmet",
+        "detail": "Concrete operator-authorization impasse after independent engineering work is completed: remaining actual owning-host input/voice acceptance requires deploying the existing reviewed canonical input.mjs and extension.js into /home/james/.local/share/gnome-shell/extensions/opencode-window-control@computer-use.local, followed by a separately authorized GNOME session refresh/login to load those cha...",
+        "timestamp": 1793298077
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "I found a concrete source/deployment mismatch: the installed bridge requires virtual input devices to expose `destroy()`, which the current source no longer requires. The source also corrects Clutter event timestamps to monotonic microseconds. I’m verifying those existing fixe...",
+        "timestamp": 1793297387
+      },
+      {
+        "summary": "The input fix is already in canonical source; its 19 controller tests pass, and the deployment preview confirms only `input.mjs` and `extension.js` differ. I won’t duplicate or overwrite that work. I’m also preparing a checksum-verified Node 26 test runtime in scratch space, w...",
+        "timestamp": 1793297427
+      },
+      {
+        "summary": "The renderer failure is resolved. The production review component now renders through real OpenTUI at **100×30, 50×24 and 35×20**; all actions are visible, and edit/save/discard checks pass. This uses an isolated, verified Node 26 runtime and leaves system Node and OpenCode un...",
+        "timestamp": 1793297553
+      },
+      {
+        "summary": "Ownership is recorded in active goal `2d783ea9-f3cc-432b-b6be-2fe56eaa1c7e`, including both unmet goals and associated errors. Already resolved: native rendering now passes at three terminal sizes. Desktop input’s source/deployment mismatch is identified; its existing fixes pa...",
+        "timestamp": 1793297597
+      },
+      {
+        "summary": "I’ll extend the native check from “renders correctly” to real renderer-delivered key and mouse events. That can expose focus, editing, scrolling, and click defects while the shared desktop-bridge deployment remains separately gated.",
+        "timestamp": 1793297637
+      },
+      {
+        "summary": "The native interaction checks pass under both legacy and Kitty keyboard protocols, including mouse Send/Continue, literal `c` in the editor, scrolling to the final words, and recovery controls. The rendered frames also exposed a narrow-layout defect: the destination/agent subt...",
+        "timestamp": 1793297858
+      },
+      {
+        "summary": "Made further verified progress: - **18 native interaction scenarios pass** across legacy and Kitty keyboard protocols. - Found and fixed narrow-terminal subtitle clipping. - **83 TypeScript + 87 Python tests**, types/lint and whitespace checks pass. - Added a requirement-by-re...",
+        "timestamp": 1793298021
+      },
+      {
+        "summary": "The fresh deployment preview is unchanged: only `input.mjs` and `extension.js` need updating. The remaining live checks now depend on two separately gated actions: deploying those reviewed files, then refreshing the GNOME session. I can’t infer either approval from an automati...",
+        "timestamp": 1793298064
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "a5216173f5de3c3721b78eb376e3215022e079bf46679f3a1257d46ec17527c1",
+  "generatedFiles": {
+    "plan.md": "f26432ac820f22fba7b665dc09eeaf0e44793d2429ab2f816edd58134a333095",
+    "HANDOFF.md": "c19b93bf11b3b72f169c1985621855889b0230d588fd53179b521b8f4351fa9b",
+    "work-history.md": "16bff26f638d8db10d4c3ba2701e8d31d8d2af09ae9469db563f03c961a84e1d"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "computer-use.session-transfer.projection.v1",
+  "exported_at": "2026-10-27T12:57:33.985169+00:00",
+  "source": {
+    "repository": "https://github.com/jtmb/computer-use.git",
+    "worktree_kind": "primary",
+    "worktree_root": "/home/james/repos/computer-use",
+    "git_dir_relative": ".git",
+    "common_git_dir_relative": ".git",
+    "branch": "main",
+    "head": "b47765e4a9f5c124c4716deb52962e17d7fb4a2a",
+    "scope_relative": ".",
+    "sessionID": "ses_e84662388ffeN05ssgGLQ9yh4k",
+    "goalID": "d1ff47da-5c16-409d-997c-4478cd6737ae",
+    "goal_status_at_export": "active",
+    "planRevision": 9
+  },
+  "goal_projection": {
+    "objective": "Fix GNOME discovery and activation of the already-installed, reviewed OpenCode window-control bridge using supported, bounded mechanisms. Inspect live state first; preserve all unrelated desktop work, installed extensions, dirty repository changes, and existing recordings. Do not use unsafe Shell evaluation, security bypasses, or blind window hotkeys. Do not log out, restart the desktop or services, enable the bridge, or change security settings without specific approval; offer one consolidated approval for the necessary consequential steps rather than repeated routine prompts. Verify the bridge is actually available and the typed window tools identify, focus, place/tile, and lay out approved disposable windows with fresh single-use previews and real readback/screenshots. Then continue this conversation's unfinished README demo: genuine simultaneous footage of a clean OpenCode window beside sample-email or signed-out public-browser tasks, deliberate zooms/transitions, a short composition preview approved before replacing the main demo, canonical skill/docs updates, preserved branding, README under 170 physical lines, accurate acceptance evidence, and no commits, pushes, purchases, sending, or publication.",
+    "completionCriteria": [
+      "The reviewed installed bundle matches canonical source, GNOME discovers and activates it through supported mechanisms, and the actual typed inventory tool returns live compositor data.",
+      "Exact-ID focus, placement/tiling and multi-window layout pass actual readback and screenshot acceptance on disposable windows; stale/replayed previews refuse and unrelated windows are preserved.",
+      "No logout, restart, activation, permission/security change, deletion, commit, push, send, purchase, or publication occurs without the applicable explicit approval; routine inspections do not cause repeated prompts.",
+      "The main demo uses genuine simultaneous clean OpenCode/app footage with readable real tool activity and completed sample-email or signed-out browser results, deliberate zooms/transitions, and user approval of a short motion preview before main replacement.",
+      "Final media decodes, loops, has a still alternative and honest sample/timing disclosures; canonical skills/docs and acceptance evidence are accurate, branding preserved, README below 170 physical lines, relevant source/health and desktop/narrow light/dark checks verified or clearly blocked."
+    ],
+    "phases": [
+      {
+        "id": "runtime-recovery",
+        "status": "completed",
+        "tasks": [
+          "inspect-recovery",
+          "approve-recovery",
+          "apply-recovery"
+        ]
+      },
+      {
+        "id": "live-acceptance",
+        "status": "completed",
+        "tasks": [
+          "test-window-tools"
+        ]
+      },
+      {
+        "id": "demo-preview",
+        "status": "blocked",
+        "tasks": [
+          "stage-record",
+          "review-motion"
+        ]
+      },
+      {
+        "id": "final-media",
+        "status": "pending",
+        "tasks": [
+          "encode-final",
+          "verify-media"
+        ]
+      },
+      {
+        "id": "docs-audit",
+        "status": "pending",
+        "tasks": [
+          "verify-loaded-version2",
+          "skills-readme",
+          "audit-final"
+        ]
+      }
+    ],
+    "coverage": "Phase/task IDs and statuses projected from get_goal full; descriptions/evidence/history summarized in the matching HANDOFF. Not a complete native goal serialization."
+  },
+  "latest_observations": {
+    "desktop_session": "2",
+    "last_locked_hint": "no",
+    "registry_version": 2,
+    "registry_state": "ACTIVE",
+    "last_bridge_blockedReason": null,
+    "epoch_observed": "c8e77769-b9f4-463f-8468-993630dee05f",
+    "public_demo_pid": 6207,
+    "public_demo_window_id_observed": "c8e77769-b9f4-463f-8468-993630dee05f:4",
+    "public_demo_maximized": true,
+    "inventory_canResize": true,
+    "actual_v2_restore_verified": false,
+    "live_frame_smoke": "failed freshness then quarantined context stop",
+    "quarantined_directory": "/home/james/Downloads/opencode-simultaneous-demo-yi5it0bt/live-frame-smoke-v2",
+    "public_demo_session": "ses_e837ba5b9ffe6MjOPg5aYbrFu6",
+    "public_demo_prompt_submitted": false,
+    "main_demo_replaced": false,
+    "readme_lines_observed": 98
+  },
+  "destination": {
+    "sessionID": "ses_e85293a02ffe7Hlk5CfyoIgStT",
+    "title": "Pulling GitHub changes and listing available repo tools",
+    "repository_directory": "/home/james/repos/computer-use",
+    "requested_action": "Merge all incoming scope into existing goal using target-session goal tools; preserve existing scope/completed work/immutable completion criteria; acknowledge merge."
+  },
+  "history_coverage": {
+    "prior_goal": "512d114e-ee38-4d54-97f2-e1a189073974",
+    "current_goal_revisions_summarized": "1-9",
+    "native_full_history_included": false,
+    "complete_worker_status_coverage": false,
+    "notes": "session_context unavailable; target resolved with exact-title project-filtered deterministic API. No target transcript imported. Latest native recorder completion is acknowledged/quarantined; public demo session messages were empty."
+  },
+  "lifecycle_at_export": {
+    "delivery": "pending",
+    "source_stop": "pending after delivery; user explicitly requested stop; not completion of inherited scope"
+  }
+}

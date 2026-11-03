@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "status": "Official release/build declarations and one primary native-advisory lead; not measured wheel linkage, vulnerability verdict, rights clearance or operational acceptance.",
+  "scope": "Parent-only documentary follow-up for already-selected, byte-bound cryptography50.0.2 and pypdfium2 5.14.0. No new package selection, wheel/metadata acquisition, decompression, candidate execution or tests.",
+  "artifactEvidence": {
+    "record": "docs/document-authoring-transitive-wheel-bytes-2026-11-01.json",
+    "immutableRawReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/transitive-wheels-parent-8u1zq4jm/facts.json", "bytes": 34296, "sha256": "026bc3e966d7655df17ef70ed9e86cfdaa54addde316a2808bdb7df871bc2885" },
+    "qualification": "Earlier wheel/body hashes bind observed bytes to retained projected declarations, not signed build provenance or missing historical raw metadata. All original refused/unread notices, the et-xmlfile LICENCE omission and spent allowances remain."
+  },
+  "acquisition": {
+    "searchCalls": 1,
+    "searchQuery": "pypdfium2 5.14.0 PDFium version release 2026",
+    "primaryFetchCalls": 4,
+    "primaryFetchLimit": 4,
+    "tool": "Exposed websearch/webfetch; public documentation and a primary CVE record only",
+    "preFetchByteBoundEnforced": false,
+    "rawHTTPResponseBodiesRetainedOrHashed": false,
+    "qualification": "Tool-managed rendered documentation is source evidence, not a complete byte-verified database, raw HTTP receipt or publisher/build attestation. Large changelog/release-list outputs were tool-truncated; the exact selected-release sections and relevant installation section were visible. No pagination/exhaustive release or advisory coverage is claimed. The fixed four-fetch unit ends here without another search, mirrored page, alternate client, asset or private issue access."
+  },
+  "sources": [
+    {
+      "url": "https://cryptography.io/en/50.0.2/changelog/",
+      "section": "50.0.2 - 2026-09-30",
+      "finding": "Official exact-version changelog states that Windows/macOS/Linux wheels are compiled with OpenSSL4.0.3; it also names PyO3 0.29.2 and abi3.abi3t wheels for free-threaded CPython3.15+.",
+      "qualification": "Release-level publisher declaration. No passage binds the particular observed wheel SHA256 to a signed build/materials record or proves its actual linked library bytes. Extra/free-threaded wheel availability is not a claim about this selected cp39-abi3 wheel."
+    },
+    {
+      "url": "https://cryptography.io/en/50.0.2/installation/",
+      "section": "Static Wheels; Building cryptography on Linux",
+      "finding": "Official versioned installation guide says macOS/Windows/Linux manylinux/musllinux wheels are statically linked and include their OpenSSL dependency; source builds may use a chosen OpenSSL, BoringSSL, LibreSSL or AWS-LC.",
+      "inference": "Host OpenSSL version or a host-only package update cannot, by itself, attest or update a statically bundled wheel's OpenSSL. Native version/build provenance and applicable advisory mapping still need evidence for the actual wheel.",
+      "qualification": "Documentation, not a local host/library scan, installation or compatibility result. Its binary dependency wording does not resolve separately declared Python requirements such as cffi/pycparser. No displayed install/build/upgrade/cache commands were run."
+    },
+    {
+      "url": "https://github.com/pypdfium2-team/pypdfium2/releases",
+      "section": "Release5.14.0, Builds and Build info",
+      "canonicalReleaseLinkObservedButNotSeparatelyFetched": "https://github.com/pypdfium2-team/pypdfium2/releases/tag/5.14.0",
+      "releaseDateFromDisplayedAssetTimestamps": "2026-10-04",
+      "displayedTagCommitNotIndependentlyFetchedOrVerified": "21f85e273036f3bade4f67d896e1d05927e5f4b1",
+      "finding": "Exact5.14.0 release block declares a PDFium build pin change7913→8076 and gn-dist2407.3→2540.0. Its PBIN strategy list includes manylinux_x86_64. The notes describe buffer-reader length checking, unconditional bitmap-shell destruction and a foreign-bitmap close warning.",
+      "qualification": "Release notes are not measured selected-wheel linkage or proof of absence of other memory-safety issues. PDFium pin8076 alone is not an authenticated full semantic version/build/patch inventory. The page's immutable-release badge explicitly still permits title/notes changes; no release attestation, matrix or asset was downloaded/verified. The displayed first-page asset subset does not establish the selected x86_64 wheel digest. No linked PR, source archive, tree, commit or installation instruction was fetched/executed."
+    },
+    {
+      "url": "https://cveawg.mitre.org/api/cve/CVE-2026-113022",
+      "id": "CVE-2026-113022",
+      "state": "PUBLISHED",
+      "assigner": "Chrome",
+      "published": "2026-10-20T21:01:59.021Z",
+      "recordUpdated": "2026-10-23T12:51:16.340Z",
+      "cnaAffectedEntry": { "vendor": "Google", "product": "Chrome", "versions": [{ "version": "156.0.8078.47", "status": "affected", "lessThan": "156.0.8078.47", "versionType": "custom" }] },
+      "descriptionObservation": "The CNA describes PDFium memory corruption in Google Chrome prior to156.0.8078.47, with potential code execution inside the sandbox from a crafted HTML page, and labels Chromium severity Medium.",
+      "adpObservation": "Separate CISA ADP data supplies CVSS3.1 score8.8/HIGH and an SSVC exploitation:poc field. These are attributed record fields, not independently demonstrated exploits or interchangeable severity scales.",
+      "standaloneWheelApplicability": "Unresolved. The affected product is Chrome, not pypdfium2 or a standalone PDFium semantic-version range. The custom affected-entry fields and release pin8076 must not be mechanically converted into a standalone wheel affected/fixed comparison. Actual wheel PDFium revision/backports/build options/reachability and the specific fix mapping are unverified.",
+      "referencesReturnedButNotFetched": ["https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html", "https://issues.chromium.org/issues/494352583"]
+    }
+  ],
+  "publicAdvisoryFollowUpAfterReview200": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The revision200 waiting review accepted the pinned public-message-reader prerequisite but identified the two unopened primary references in the CVE record as independent native-security work. Supported readback remained active200; revisions201-202 scheduled this documentary follow-up, not a new package or operational trial.",
+    "earlierEpochQualification": "The acquisition object and sources[3].referencesReturnedButNotFetched above describe the earlier one-search/four-fetch declaration epoch. Both previously unopened references are now opened below. The earlier request allowance is not refunded, reset or reused, and none of the spent PyPI/artifact/notice allowances changes.",
+    "acquisition": { "tool": "Exposed webfetch", "primaryFetchesUsed": 3, "primaryFetchLimit": 4, "timeoutSecondsPerFetch": 30, "searches": 0, "fourthFetchTaken": false, "reasonFourthFetchNotTaken": "The complete inspected advisory entry links only the already-opened sign-in-only issue. The article's other code-host links are a broad n=10000 Chrome change log and generic libFuzzer documentation, not explicit CVE-specific fix/backport references. No such link is manufactured and no broad log is fetched as a substitute.", "preFetchByteBoundEnforced": false },
+    "responses": [
+      { "fetch": 1, "url": "https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html", "format": "markdown", "finding": "Title, date Tuesday October20,2026, and navigation were returned, but the article/security body was omitted. This is rendered-reader coverage, not absence from the public source or an access denial." },
+      { "fetch": 2, "url": "https://issues.chromium.org/issues/494352583", "format": "markdown", "finding": "The entire returned content was a Sign in link to Google Accounts. No issue body, fix, patch, backport or reachability data was obtained.", "qualification": "No HTTP403 or other undisplayed status is claimed. No sign-in, private access, alternate issue API/client/credential, mirror or denial bypass was attempted; the issue was not retried." },
+      { "fetch": 3, "url": "https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html", "format": "html", "finding": "The same unrestricted advisory contains its article in inert text/template and noscript blocks at lines1065-1073. This changed representation resolves the Markdown omission; no page JavaScript or browser session is run." }
+    ],
+    "savedToolHTML": { "path": "/home/james/.opencode-v2-pilot/data/opencode/tool-output/tool_196c830f1001PZKPjT7HkxcCvE", "bytes": 884408, "sha256": "f0b5ed49ba1747ead16092881b700dc178b8fa8068a6b452e645ade10a340828", "qualification": "Hash of the tool-managed saved HTML representation, not an authenticated raw HTTP response/headers, original transport bytes or signed publisher attestation. No manual copy or raw page is added to the repository." },
+    "localArticleReadback": {
+      "completedAt": "2026-11-01T11:13:41.122Z",
+      "template": { "bytes": 382661, "sha256": "c6b155fc882b1d35e3f381dc11bed7d6cb66720f33b2bc63aff82c4fc16e15e1" },
+      "noscript": { "bytes": 382531, "sha256": "0688132ced92f0d851e061a2d1b05a2f6af2ac9eec487e0c91d0117c640291b7" },
+      "normalizedTextsEqual": true,
+      "normalizedCharactersEach": 39990,
+      "normalizedTextSHA256Each": "4eba1fb79a9d8b0992cf41c1dffce1a0f349f5f544fe1772912a29db36e526c4",
+      "anchorListsEqual": true,
+      "templateParagraphs": 223,
+      "templateAnchorOccurrences": 372,
+      "qualification": "Complete local blocks were statically extracted; only the complete target entry/adjacent paragraphs and relevant links were displayed, not every other CVE. Template/noscript and Markdown/HTML are representations of one announcement, not independent corroboration. Native/plugin source caps remain unchanged; this already-acquired public-document extraction stays within the retained2MiB static-job budget, with no candidate source relabelled as documentation."
+    },
+    "findings": {
+      "release": "The advisory announces Chrome156.0.8078.47 on Linux and156.0.8078.47/.48 on Windows/Mac.",
+      "completeTargetEntry": "[$1,000][494352583] Medium CVE-2026-113022: Memory corruption in PDFium. Reported by Jamos Zhu, Sebastian Dowell on2026-03-19.",
+      "onlyLinkInTargetEntry": "https://issues.chromium.org/issues/494352583",
+      "accessCaveat": "The article says bug details/links may remain restricted until most users update, including restrictions for unfixed third-party dependents. This generic policy is not proof of why this exact issue returns sign-in-only or whether it exists privately.",
+      "otherCodeHostLinks": [
+        { "url": "https://chromium.googlesource.com/chromium/src/+log/155.0.8059.85..156.0.8078.47?pretty=fuller&n=10000", "classification": "Broad Chrome change log, not an identified PDFium/CVE fix; not fetched." },
+        { "url": "https://chromium.googlesource.com/chromium/src/+/HEAD/testing/libfuzzer/README.md", "classification": "Generic testing documentation, not a fix/backport; not fetched." }
+      ],
+      "publicFixMapping": "No CVE-specific fix commit, PDFium revision, backport or standalone reachability evidence was exposed by these inspected public responses. This bounded finding is not a claim that no public fix exists elsewhere."
+    },
+    "callerErrorsPreserved": [
+      "An initial extraction mistakenly applied the256KiB local-source file selector to the884408B managed public document; it stopped on metadata before reading body bytes. This was a caller scope error, not a source/access refusal.",
+      "A changed single256KiB documentary-prefix read did not reach the complete article boundaries and stopped; no continuation/partition of that prefix was used. The final whole-document read uses the already-applicable2MiB static-job allowance, not an increased native/plugin/source cap.",
+      "Displaying the entire extracted article exceeded the32KiB output guard and emitted no result. The next display selected the exact complete CVE paragraphs and relevant links within the same output cap, not truncated proof of a fix.",
+      "A preliminary otherExplicitFixReferenceFound=true flag incorrectly counted the generic libFuzzer README. It is rejected and corrected by explicit link classification; no fetch or applicability claim relies on it.",
+      "A preliminary template/noscript comparison used a+28 instead of the literal29-character opener length and retained a > character. Exact-delimiter readback gives equal normalized texts and link lists; the earlier false equality flag is not a source discrepancy."
+    ],
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T11:13:41.122Z", "nativeRecord": { "bytes": 12032, "sha256": "d6e52d8fd78b86e331cbffb19ab9b2b30e58f17dbd60bedbba020b1c4b1f8f99" }, "officeGuide": { "bytes": 63258, "sha256": "849df9bbc0469ea6b2bad39bfe6680500e8ce116b97b35318b97a83a225ed6ce" }, "lifecycleRecord": { "bytes": 15992, "sha256": "e0f5c86f6ec21ed3b1bb88b5ec229b9e22d0e932a72f4322fb6e92a43bdba70c" }, "goalGuide": { "bytes": 8782, "sha256": "73c674ad10b7f9ae67974d6cb629f02b5c55f7be89ecd3fc1c09adc09607064d" }, "bounds": { "sourceFileCap": 262144, "staticJobCap": 2097152, "reservedIncludingPublicDocumentAndGitAllowances": 1638693, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 44 }, "qualification": "Selected complete preimages/index/staged/native/config identities only; not full original-history preservation or a receipt for these later additions." },
+    "consequence": "The two previously unopened primary references and the advisory-reader omission are now investigated, not pending. Chrome's release/CVE entry does not resolve the saved pypdfium2 wheel's actual PDFium revision, backports, build options or reachability. Do not mechanically compare Chrome156.0.8078.47 with release pin8076, declare the wheel affected/clear, or treat sign-in-only access as a vulnerability verdict. All original rights/dependency/native/ABI/XML/install/author-render-reopen/human gates remain.",
+    "actions": { "newPyPIOrOSVOrArtifactRequests": 0, "newNativeOrNoticePayloadReads": 0, "acquisitionBudgetResets": 0, "testsAddedChangedOrRun": 0, "candidateImports": 0, "privateAccessOrIssueRetries": 0, "pageScriptsExecuted": 0, "childrenOrDirectModelTrials": 0, "peerOrGUIOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "opensslAdvisoryFollowUpAfterReview205": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The revision205 waiting review identifies the unperformed upstream OpenSSL advisory review for publisher-declared4.0.3. Supported readback remains active205; revision206 schedules this exact bounded documentary unit. Prior198public-reader/200Chrome-advisory/203Pillow-cause findings remain performed and separate.",
+    "acquisition": { "primaryFetchesUsed": 4, "primaryFetchLimit": 4, "timeoutSecondsPerFetch": 30, "searches": 0, "tool": "Exposed webfetch, public official documentation and one explicitly linked upstream commit page", "preFetchByteBoundEnforced": false, "qualification": "A distinct public-document unit, not reset/refund of earlier4-fetch declaration or3-fetchChrome units or any spent PyPI/artifact/selected-member allowance. No further fetch, alternate client, private access or unchanged denial retry is used." },
+    "sources": [
+      { "fetch": 1, "url": "https://openssl-library.org/news/vulnerabilities/", "finding": "Official all-version index supplies the4.0-filter link and current September29advisory/fix leads.", "coverage": "The large12188-line tool result is truncated in chat. Its visible current entries/routing are used, not a claim that every all-version entry was reviewed." },
+      { "fetch": 2, "url": "https://openssl-library.org/news/vulnerabilities-4.0", "finding": "The complete saved rendered4.0index contains43CVE entries. All43explicit4.0affected ranges were locally extracted and compared with declared4.0.3; the range groups below retain every ID.", "savedToolRepresentation": { "path": "/home/james/.opencode-v2-pilot/data/opencode/tool-output/tool_196e7048b001RNTESx2ZHZrJtZ", "bytes": 116259, "sha256": "6e90130fc8f27a6df439b41ea5e14536ba9cbc750d9c7e70b26aec14add74a5c" }, "qualification": "This is a dated publisher index/rendered-document digest, not an authenticated raw HTTP/database-completeness receipt. The filtered and all-version pages are views of the same source, not independent corroboration." },
+      { "fetch": 3, "url": "https://openssl-library.org/news/secadv/20260929.txt", "finding": "Official September29,2026advisory describes14issues, including High CVE-2026-84782DTLS stale-buffer retransmission and Moderate CVE-2026-84783X.509 extension-cache use-after-free, and directs4.0users to4.0.3. The corresponding index ranges are >=4.0.0 and <4.0.3.", "qualification": "The advisory says online text may be updated and only supported releases were analysed;3.1/3.2/3.3were not analysed. These upstream conditions/ranges do not prove this wheel's actual library or exposed code paths." },
+      { "fetch": 4, "url": "https://github.com/openssl/openssl/commit/d951e02ede8f6a6ff8150546db44b34f0518192c", "finding": "The explicitly linked4.0.3fix page names CVE-2026-84782. Visible production diffs guard dtls1_handle_timeout against a parked write and set s->init_off=0 before dtls1_retransmit_message resends. This matches the advisory's stated fix mechanism.", "qualification": "Public upstream commit-page review only. The page lists3changed files/433additions/2deletions but renders the two production hunks, not a complete independently verified patch/test diff. No PR, Git object/tag/ancestry verification, checkout/import/application or test execution occurs, and no selected-wheel commit inclusion is proved." }
+    ],
+    "rangeReview": {
+      "completedLocalReadbackAt": "2026-11-01T11:39:47.699Z",
+      "entryCount": 43,
+      "versionCompared": "4.0.3",
+      "groups": [
+        { "affectedFromInclusive": "4.0.0", "affectedBeforeExclusive": "4.0.3", "fixed4Series": "4.0.3", "count": 14, "ids": ["CVE-2026-35189", "CVE-2026-35191", "CVE-2026-42772", "CVE-2026-54872", "CVE-2026-54873", "CVE-2026-54875", "CVE-2026-72897", "CVE-2026-75804", "CVE-2026-75805", "CVE-2026-75806", "CVE-2026-77696", "CVE-2026-84782", "CVE-2026-84783", "CVE-2026-84784"] },
+        { "affectedFromInclusive": "4.0.0", "affectedBeforeExclusive": "4.0.2", "fixed4Series": "4.0.2", "count": 11, "ids": ["CVE-2026-75803", "CVE-2026-14457", "CVE-2026-18798", "CVE-2026-54874", "CVE-2026-63072", "CVE-2026-63073", "CVE-2026-63074", "CVE-2026-63075", "CVE-2026-63076", "CVE-2026-14456", "CVE-2026-54876"] },
+        { "affectedFromInclusive": "4.0.0", "affectedBeforeExclusive": "4.0.1", "fixed4Series": "4.0.1", "count": 18, "ids": ["CVE-2026-34180", "CVE-2026-34181", "CVE-2026-34182", "CVE-2026-34183", "CVE-2026-35188", "CVE-2026-42764", "CVE-2026-42765", "CVE-2026-42766", "CVE-2026-42767", "CVE-2026-42768", "CVE-2026-42769", "CVE-2026-42770", "CVE-2026-42771", "CVE-2026-45445", "CVE-2026-45446", "CVE-2026-45447", "CVE-2026-7383", "CVE-2026-9076"] }
+      ],
+      "listedAffectedRangeHitsForDeclared4_0_3": [],
+      "inference": "Upstream4.0.3is outside these43specific listed affected ranges; the14latest entries use4.0.3as the exclusive affected upper bound/fixed release. This closes the unreviewed-upstream-advisory lead at this source/date, not all security or actual artifact acceptance.",
+      "coverageLimit": "Not proof of index freshness/completeness, absence of undisclosed/unlisted issues, every other product/branch, signed build provenance, actual wheel OpenSSL version/backports/options or application reachability. No universal no-vulnerabilities or wheel-clear verdict follows.",
+      "callerCorrections": ["An initial substring4.0filter also captured3.4.0lines; the final anchored full-line extraction selects exactly one4.0range per entry.", "A missing Found by delimiter initially made the54872title helper overrun into its body; exact next-paragraph fields correct that caller error. No original advisory text/range is rewritten or rejected because of it."],
+      "bounds": { "publicDocumentJobCap": 2097152, "reservedBytesIncludingProbe": 116260, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 6 }
+    },
+    "notableConditionsAndFixes": [
+      { "id": "CVE-2026-84782", "severity": "High", "affected4Series": ">=4.0.0, <4.0.3", "fixed4Series": "4.0.3", "condition": "DTLS retransmission while a handshake message write is suspended can disclose heap data or crash; upstream fix resets the retransmission offset and defers retransmission during a parked write.", "fixCommitOpened": "d951e02ede8f6a6ff8150546db44b34f0518192c" },
+      { "id": "CVE-2026-84783", "severity": "Moderate", "affected4Series": ">=4.0.0, <4.0.3", "fixed4Series": "4.0.3", "condition": "First concurrent extension decoding of a shared X.509certificate can free cached data still used by another thread; upstream describes shared trusted CA certificates and concurrent first chain building.", "fixLinkReturnedButNotSeparatelyFetched": "https://github.com/openssl/openssl/commit/de97a1a54f43edefd43b5084ecac54ecadb33081" },
+      { "id": "CVE-2026-45447", "severity": "High", "affected4Series": ">=4.0.0, <4.0.1", "fixed4Series": "4.0.1", "condition": "The4.0index separately lists a PKCS7_verify heap use-after-free with an earlier fixed upper bound; this entry also excludes declared4.0.3.", "fixLinkReturnedButNotSeparatelyFetched": "https://github.com/openssl/openssl/commit/3aad5eb7af4de4ee0633c30a8541a54d9bbde63c" }
+    ],
+    "selectedWheelConsequence": "Cryptography50.0.2declares bundledOpenSSL4.0.3and static wheels, but its actual saved _rust.abi3.so remains unread/unmeasured. Upstream range comparison can be reported for the declared version only; no binary patch/ABI/reachability/FIPS-certification/security/rights clearance or host-OpenSSL substitution is inferred. Native/transitive notices, all original refusals and installation/authoring/human gates remain.",
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T11:40:58.104Z", "nativeRecord": { "bytes": 20577, "sha256": "073c74c09ea6603ba4b2ac9f2e179886a6ab47a8617ce8325bfd21339c1537b9" }, "officeGuide": { "bytes": 67198, "sha256": "2c249b1f1a1b742bb42c964b707c8f9f847b1146520ea8aca7c2e8135e88b3bb" }, "lifecycleRecord": { "bytes": 22065, "sha256": "cc7f0a4333a50d26c0e21141cf5af0a1660d59d0445713597ee8fd110230e38c" }, "goalGuide": { "bytes": 10582, "sha256": "4e5493c0d25e9c3b964925dd6361c9afaa5768e6138f9d641e26fbb041a57f35" }, "bounds": { "sourceFileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 809396, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 28 }, "qualification": "Selected current preimages/index/staged/native/source/artifact-record identities only, not this insertion's own post-edit receipt or full original-history proof." },
+    "actions": { "testsAddedChangedOrRun": 0, "candidateOrNativeExecution": 0, "artifactOrPyPIMetadataOrOSVRequests": 0, "archiveOrDecompressedMemberReads": 0, "acquisitionAllowanceResets": 0, "PRFetchOrGitCheckoutOrMergeOrImportOrPatchApply": 0, "privateAccessOrCredentials": 0, "childrenOrDirectModelTrials": 0, "peerOrGUIOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "pypdfiumReleaseProvenanceFollowUpAfterReview207": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The revision207 waiting review identifies uninspected public Build info/matrix/provenance references for pypdfium2 5.14.0. Immediate supported readback remains active207; revisions208-210 schedule release-reference discovery and the three newly exposed attestation references. Both bounded units are now performed, not pending.",
+    "earlierEpochQualification": "The original acquisition/sources[2] and selectedArtifactLimits describe the earlier declaration epoch, when the exact tag/asset digest/attestations were uninspected. The additions below supersede only that unopened-reference status. They do not upgrade unread native members, refused notices or the release pin to measured build/linkage/security acceptance. Earlier four-fetch declaration, three-fetch Chrome and four-fetch OpenSSL units remain distinct; spent calls, failures and package/member allowances are never refunded or reset.",
+    "releaseDiscoveryUnit": {
+      "primaryFetchesUsed": 4,
+      "primaryFetchLimit": 4,
+      "timeoutSecondsPerFetch": 30,
+      "searches": 0,
+      "preFetchByteBoundEnforced": false,
+      "responses": [
+        { "fetch": 1, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/tag/5.14.0", "format": "markdown", "finding": "The exact tag displays Build info/PBIN manylinux_x86_64/pin8076 and commit21f85e273036f3bade4f67d896e1d05927e5f4b1, but Assets33/Loading omits the asset filenames/digests. This is representation coverage, not absence or a private-access refusal." },
+        { "fetch": 2, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/tag/5.14.0", "format": "html", "finding": "A changed representation of the same public tag exposes the explicit public releases/expanded_assets/5.14.0 fragment URL. No page scripts, nonce or authenticated client are used to follow it.", "savedToolRepresentation": { "path": "/home/james/.opencode-v2-pilot/data/opencode/tool-output/tool_196f353f3001Pdqc1ZmLQmDpoL", "bytes": 166248, "sha256": "764815ca1092557cab0b1867e9e89e90cd4f161418ce79e9cdd2b8b6e6545f48" } },
+        { "fetch": 3, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/expanded_assets/5.14.0", "format": "html", "finding": "The complete saved public asset list contains33li rows/30uploaded release assets. It gives the exact selected-wheel filename and matching archive digest, matrix/custom attestation/strategy digests and the public release-attestation download reference.", "savedToolRepresentation": { "path": "/home/james/.opencode-v2-pilot/data/opencode/tool-output/tool_196f43e9c001TybXlMittzOXWg", "bytes": 129878, "sha256": "de6636fb64d6d8785c2b6b76b4b85f19529d45fb4fc753ff79b50eaa30ef63a4" } },
+        { "fetch": 4, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/download/5.14.0/matrix.txt", "format": "text", "result": "Unsupported fetched file content type: application/octet-stream", "bodyReturned": false, "HTTPStatusProvided": false, "qualification": "Actual tool MIME refusal, not HTTP403, missing asset, private content or proof that the body contains no build mapping. No retry, alternate client or allowance refund follows." }
+      ]
+    },
+    "selectedReleaseAssetComparison": {
+      "completedAt": "2026-11-01T11:54:07.342Z",
+      "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "publicAssetURL": "https://github.com/pypdfium2-team/pypdfium2/releases/download/5.14.0/pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "publishedSHA256": "11f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d",
+      "publishedTimestampFromAssetRow": "2026-10-04T15:19:24Z",
+      "retainedReceiptBytes": 34296,
+      "retainedReceiptSHA256": "026bc3e966d7655df17ef70ed9e86cfdaa54addde316a2808bdb7df871bc2885",
+      "retainedObservedWheelBytes": 3799581,
+      "exactFilenameAndSHA256Match": true,
+      "qualification": "Publisher-displayed archive identity matches the immutable batch's observed artifact, not a new wheel fetch/hash, decompressed native identity, verified signature or full PDFium source/build/patch mapping. The public wheel URL is recorded but not fetched in this unit. Tag, fragment and publisher statement are not independent publisher corroboration."
+    },
+    "attestationReferenceUnit": {
+      "primaryFetchesUsed": 3,
+      "primaryFetchLimit": 3,
+      "timeoutSecondsPerFetch": 30,
+      "searches": 0,
+      "preFetchByteBoundEnforced": false,
+      "qualification": "A distinct unit for three exact references newly exposed by the completed release-discovery unit, not a reset/refund of its four spent calls or a retry of matrix.txt. All three references were actually attempted.",
+      "responses": [
+        { "fetch": 1, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/download/5.14.0/pypdfium2-attestation.json", "format": "text", "result": "Unsupported fetched file content type: application/octet-stream", "bodyReturned": false, "HTTPStatusProvided": false },
+        { "fetch": 2, "url": "https://github.com/pypdfium2-team/pypdfium2/releases/download/5.14.0/strategy.json", "format": "text", "result": "Unsupported fetched file content type: application/octet-stream", "bodyReturned": false, "HTTPStatusProvided": false },
+        { "fetch": 3, "url": "https://github.com/pypdfium2-team/pypdfium2/attestations/52600866/download", "format": "text", "finding": "A public Sigstore bundle with declared mediaType application/vnd.dev.sigstore.bundle.v0.3+json is returned. Its DSSE payload is decoded locally below; no cryptographic/trust verification is performed." }
+      ],
+      "bodyAndAccessLimits": "The custom attestation and strategy bodies remain unobtained. Their MIME failures are not evidence of private access, missing content or absence of provenance fields. No alternate HTTP tool/client, credential, mirror, retry or denial bypass is used."
+    },
+    "decodedReleaseStatement": {
+      "completedAt": "2026-11-01T11:58:21.129Z",
+      "source": "https://github.com/pypdfium2-team/pypdfium2/attestations/52600866/download",
+      "method": "The exact returned public DSSE base64 payload is copied into an inert local decoding command; canonical base64 round-trip and JSON parsing only. No second fetch, candidate code, signature tool or package payload is involved.",
+      "encodedCharacters": 6724,
+      "decodedBytes": 5042,
+      "decodedSHA256": "e461926a33d7c2dd6d6b6bbc6827ca407cc5bf69290f5e4cc18e8070ff7ab070",
+      "statementType": "https://in-toto.io/Statement/v1",
+      "predicateType": "https://in-toto.io/attestation/release/v0.2",
+      "subjectCount": 31,
+      "selectedWheelSubject": { "name": "pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "digest": { "sha256": "11f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d" } },
+      "selectedDigestMatchesRetainedReceiptAndAssetList": true,
+      "predicate": { "databaseId": "403077501", "ownerId": "93039761", "packageId": "420412416", "purl": "pkg:github/pypdfium2-team/pypdfium2@5.14.0", "repository": "pypdfium2-team/pypdfium2", "repositoryId": "420412416", "tag": "5.14.0" },
+      "releaseURISubject": { "uri": "pkg:github/pypdfium2-team/pypdfium2@5.14.0", "digest": { "sha1": "e57b2760ea84aaaf794f6df7c8a1acdf9e2d1e07" } },
+      "unobtainedMetadataSubjectsAlsoListedInAssetHTML": [
+        { "name": "matrix.txt", "sha256": "8e1d590348e952b6827846c8d72b3c301eec528a4d59dff040ef0ec3244b399f" },
+        { "name": "pypdfium2-attestation.json", "sha256": "05b0885ba3c606fb4a09a8ba69bfa892657dbc216b215f736171f4c6a458f886" },
+        { "name": "strategy.json", "sha256": "810437ad96bc682aeac5e080cd014ae123582c8e20ac6afdd0f46850948fee55" }
+      ],
+      "mappingLimit": "This is a release-inventory predicate, not an explicit PDFium source revision/build/materials mapping or SLSA build predicate. Its seven predicate fields identify the repository/release but contain no PDFium revision, compiler/options, build dependency/backport or native payload fields. This bounded observation does not establish that such information is absent from the three unobtained bodies or all other public sources.",
+      "objectSemanticsLimit": "The release URI subject's SHA1 is not equated with the separately displayed tag commit21f85e273036f3bade4f67d896e1d05927e5f4b1. Their object semantics/relationship were not verified; the two different strings are not labelled a proved provenance mismatch.",
+      "verificationLimit": "Decoded-statement bytes/digest only, not raw HTTP or full-bundle bytes/digest. No DSSE signature, certificate identity/trust chain, timestamp, transparency proof or publisher/build authenticity was verified. A returned signed-format bundle is not a verified signature or measured selected-wheel linkage."
+    },
+    "callerReferenceLimitsPreserved": [
+      "The broad reference filter also returned GitHub /manifest.json, unrelated application metadata. It was rejected and not followed or treated as provenance.",
+      "A local public-tag preview emitted an anonymous fragment nonce. No nonce value is copied into repository evidence, reused or treated as build/authentication proof; only the public fragment URL is followed."
+    ],
+    "preservationBeforeDocumentation": {
+      "observedAt": "2026-11-01T12:06:19.057Z",
+      "matchesEarlierPreimagesAt": "2026-11-01T11:59:44.101Z",
+      "nativeRecord": { "bytes": 29537, "sha256": "41b9a575bc398e047864d632ae286a0defdbe1fe9357133dbecd3a780b3fa326" },
+      "officeGuide": { "bytes": 69420, "sha256": "90cd0cd7fa10fe48bfe45529de9cb95517ac63283fc9613c2b4759f5d626f575" },
+      "lifecycleRecord": { "bytes": 24976, "sha256": "af3e2087173d07ca9560430407888b9e6aa912f4f98889546042a0d2d6418d80" },
+      "goalGuide": { "bytes": 11333, "sha256": "1e68d93060e50989b25b1c91b44e919be3be143f4ce2f8900330c19b703b48c1" },
+      "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 1343991, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 40 },
+      "qualification": "Fresh selected preimages/raw receipt/public HTML/index/staged/native/source/config identities only; not this insertion's post-edit receipt, full original-history preservation or exclusive machine quiescence. Independent computer/browser work remains untouched."
+    },
+    "consequence": "The exact-tag/Build info/public-reference lead is investigated and the archive digest match established at the publisher-assertion layer. Matrix/custom build-attestation/strategy bodies remain unavailable through the exposed fetcher's MIME support; the returned release-inventory statement is decoded, not cryptographically verified build provenance. Actual full PDFium revision/build/backports/reachability, cryptography native linkage, complete rights/dependencies/ABI/XML and operational/human acceptance remain unresolved. All original refusals/spent allowances and exact consequential gates remain; no affected/clear wheel verdict or task/phase completion follows.",
+    "actions": { "testsAddedChangedOrRun": 0, "candidateOrNativeImportsOrExecution": 0, "wheelOrPackageOrSourceArchiveDownloads": 0, "newPyPIMetadataOrOSVRequests": 0, "archiveOrDecompressedMemberOrNoticeReads": 0, "spentAllowanceResetsOrRefunds": 0, "signatureOrTrustVerification": 0, "PRFetchOrGitCheckoutOrMergeOrImport": 0, "privateAccessOrAlternateClientOrCredentials": 0, "childrenOrDirectModelTrials": 0, "peerOrGUIOrAudioOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "certificateMetadataFollowUpAfterReview211": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The revision211 waiting review requests inspection of the already-returned public certificate for repository/workflow/commit identities or explicit provenance references. Immediate supported readback remains active211; revisions212-213 schedule local recovery/metadata decoding only. This follow-up is now performed, not signature/trust verification.",
+    "existingMaterialSource": { "publicURLAlreadyFetched": "https://github.com/pypdfium2-team/pypdfium2/attestations/52600866/download", "currentSessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3", "messageID": "msg_196f70934001Ore5HHBiZsNiOx", "toolID": "call_752aa5905e744012a68109c2f28c9c6e", "toolName": "webfetch", "toolStatus": "completed", "qualification": "The exact existing completed public tool result is recovered through supported current-session message reads, not a new external fetch or private/original-source/database read. Only public certificate fields and structural acquisition counts are emitted; no raw conversation/full message/bundle is saved." },
+    "retrievalFailuresAndChangedRoute": [
+      "An exact public-certificate prefix search of managed tool outputs returns no match. That is not global absence or lost certificate evidence.",
+      "The guessed packages/protocol/src/message.ts supporting path does not exist; glob locates packages/protocol/src/groups/message.ts. Its actual type/limit/opaque-cursor contract and the owning message handler are read, not changed. This caller path error does not affect the certificate finding.",
+      "The initial supported current-session assistant10-per-page lookup reaches a cursor-following call but execFileSync returns ENOBUFS at its512KiB output scope. The error reports584704Bstdout/0stderr/exit0 and a structural buffer preview; no certificate is extracted. Exact preceding successful-page/aggregate totals were not emitted before the caller exception and remain unknown, not reconstructed. This is a caller output-limit failure, not HTTP denial, missing history or permission refusal.",
+      "No unchanged10-row retry or larger cap is used. A distinct changed one-row/page lookup starts at the exact observed opaque cursor, preserving the earlier failed calls. It finds the target after15pages/15assistant rows/1281445response bytes in4050ms, within30rows/512KiB-per-call/2MiB-job/10s. The largest successful page is219861B. No original/foreign-session full-history retry, raw store, profile switch, alternate HTTP client or external refetch occurs."
+    ],
+    "publicCertificate": {
+      "recoveredAt": "2026-11-01T12:22:10.393Z",
+      "derBytes": 559,
+      "derSHA256": "a69a47367524e2ad7b911dc194178e76501b8dd5420fe8332c740157805d332a",
+      "subject": { "organization": "GitHub, Inc.", "commonName": "Attester" },
+      "issuer": { "organization": "GitHub, Inc.", "commonName": "Fulcio Intermediate l1" },
+      "validityAsEncoded": { "notBefore": "2026-06-12T00:00:00Z", "notAfter": "2027-06-12T00:00:00Z" },
+      "subjectAlternativeNameURI": "https://dotcom.releases.github.com",
+      "certificateAuthority": false,
+      "extendedKeyUsage": "Code Signing",
+      "completeDisplayedExtensionNames": ["Key Usage", "Extended Key Usage", "Basic Constraints", "Subject Key Identifier", "Authority Key Identifier", "Subject Alternative Name"],
+      "completeExtensionDisplayAt": "2026-11-01T12:22:53.154Z",
+      "decoders": "Node X509Certificate parses the559B public DER. Host openssl x509 -inform DER -noout -text receives the same hash-bound public DER on stdin and displays the complete extension block;65536B DER/output caps,2s command timeout, actual35ms. No files or native candidate payload are read/written.",
+      "finding": "The certificate asserts a generic release-service URI, not a repository/workflow/commit identity. Its complete displayed extension block has the six standard extensions above; no custom repository/workflow/commit field, authority-information-access URL or additional explicit provenance reference is exposed. The service SAN is not treated as a build-materials link and is not fetched.",
+      "qualification": "Subject/issuer/validity/SAN/key-use fields are unverified certificate assertions. Neither decoder verifies certificate issuance/chain/trust, DSSE signature, signed timestamp/transparency, publisher authority, native source or wheel build inclusion. The host OpenSSL decoder is not evidence of the wheel's bundled OpenSSL. Absence of build fields in this certificate is not absence from other public/unobtained materials."
+    },
+    "otherReturnedMaterialObservedNotVerified": { "verificationMaterialKeys": ["timestampVerificationData", "certificate"], "rfc3161TimestampCount": 1, "signedTimestampBase64Characters": 968, "dssePayloadType": "application/vnd.in-toto+json", "dssePayloadCharacters": 6724, "dsseSignatureCount": 1, "qualification": "Structural fields in the recovered existing bundle only; no timestamp/signature/certificate-chain/transparency verification, authenticated signing time or trusted workflow identity follows." },
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T12:23:52.345Z", "nativeRecord": { "bytes": 41153, "sha256": "3a00d657ac567cb9c0e9ae9ed2458c75d0983c016658b5b6d57196c6293ac471" }, "officeGuide": { "bytes": 72108, "sha256": "d028033b6a9b92b71a727ac3f59fc6a178920f8043ff7810cc08f18763667924" }, "lifecycleRecord": { "bytes": 28473, "sha256": "6e7644bd7dfe8d853441edeedb336685a489c310f25daa8f91af6880acdd6ee8" }, "goalGuide": { "bytes": 12358, "sha256": "7878c2c26baf8d4512d9a72602d197ad449cf734d94451dc81b638ac0aa4f71b" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 543774, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 37 }, "qualification": "Fresh selected preimages/index/staged/native/memory/config only, not this insertion's post-edit receipt, exclusive machine quiescence or full original-history proof." },
+    "consequence": "The specific available certificate-metadata lead is inspected and its release-service identity/extension coverage recorded, not left pending. It adds no explicit PDFium repository/workflow/commit/build mapping and does not verify trust. All prior seven public calls/three MIME refusals, spent package/member limits, missing native/rights/ABI/reachability and actual runtime/human gates remain unchanged. No task/phase or whole-goal acceptance follows.",
+    "actions": { "newExternalFetches": 0, "testsAddedChangedOrRun": 0, "candidateOrNativePayloadImportsOrExecution": 0, "packageOrMemberOrNoticeReads": 0, "signatureOrTimestampOrTrustVerification": 0, "spentAllowanceResetsOrRefunds": 0, "rawDatabaseOrForeignOriginalSessionReads": 0, "childrenOrModelTrialsOrPeerSteering": 0, "GUIOrAudioOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "dsseIntegrityFollowUpAfterReview214": {
+    "completedAt": "2026-11-01T12:33:43.442Z",
+    "trigger": "The revision214 waiting review requests a signature/public-key integrity calculation using the already-returned bundle. Immediate supported readback remains active214; revision215 schedules this exact document-integrity unit, not a software test suite, external acquisition or full trust validation.",
+    "earlierEpochQualification": "The preceding207/211records correctly state that signature verification had not then been performed. This additive result supersedes that fact only for the one DSSE signature versus its included certificate public key. Certificate-chain/root/issuer, timestamp/transparency and native-build trust remain unverified; earlier failures/counters/unknowns are preserved.",
+    "retrieval": { "method": "One supported current-session known-ID message GET, after reading its actual protocol/handler", "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3", "messageID": "msg_196f70934001Ore5HHBiZsNiOx", "toolID": "call_752aa5905e744012a68109c2f28c9c6e", "sourceURLAlreadyFetched": "https://github.com/pypdfium2-team/pypdfium2/attestations/52600866/download", "responseBytes": 14339, "externalRefetches": 0, "qualification": "Exact existing completed public tool result, not another history scan, original/foreign session, raw database or external fetch. No raw message/full bundle is emitted or saved." },
+    "boundInputs": {
+      "payload": { "bytes": 5042, "sha256": "e461926a33d7c2dd6d6b6bbc6827ca407cc5bf69290f5e4cc18e8070ff7ab070", "matchesEarlierDecode": true },
+      "certificateDER": { "bytes": 559, "sha256": "a69a47367524e2ad7b911dc194178e76501b8dd5420fe8332c740157805d332a", "matchesEarlierMetadata": true },
+      "signature": { "count": 1, "bytes": 71, "sha256": "eae51319c1f2c515cc87607e3968a8aa9fa1bd67915bac91266a71e5c297e7e3", "encoding": "ASN.1 DER" },
+      "publicKeySPKI": { "bytes": 91, "sha256": "13bebfbad4c5ce9d11a552657aea485fed077127f90e2a1a2016264afd1b32c9", "keyType": "ec", "namedCurve": "prime256v1" },
+      "payloadType": "application/vnd.in-toto+json",
+      "canonicalBase64AndOriginalPayloadCertificateHashesChecked": true
+    },
+    "preAuthenticationEncoding": { "formula": "ASCII DSSEv1 + space + decimal UTF8 payloadType byte length + space + exact payloadType bytes + space + decimal decoded payload byte length + space + exact decoded payload bytes", "payloadTypeBytes": 28, "prefixBeforePayload": "DSSEv1 28 application/vnd.in-toto+json 5042 ", "bytes": 5086, "sha256": "73d24b8369f1cab18a033ed98650561ece9330ab4242aafdfd77ca5bbb2be73d" },
+    "verification": { "implementation": "Node crypto.verify on the exact PAE bytes using the X509Certificate public key", "algorithm": "ECDSA with SHA-256", "signatureEncoding": "ASN.1 DER", "signatureMatchesIncludedKey": true, "algorithmEncodingFallbacksOrByteNormalizations": 0, "qualification": "The included public key verifies this exact DSSE signature/PAE for the stated algorithm and encoding. It does not establish who controls that key, a trusted issuer/chain/root/time, publisher authorization, transparency or authentic PDFium source/build provenance." },
+    "selectedSubjectDigestStillMatches": "The same decoded statement still contains the selected wheel name/SHA25611f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d. Its predicate remains release-inventory metadata, not a PDFium build/materials map.",
+    "bounds": { "singleMessageOutputCap": 524288, "binaryFieldCap": 65536, "staticJobCap": 2097152, "deadlineMs": 10000, "elapsedMs": 271 },
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T12:34:29.269Z", "nativeRecord": { "bytes": 48078, "sha256": "46c16a4a86f38ee8f38c72ec2bdb8b5712a35074d01d0df847bb1473def90690" }, "officeGuide": { "bytes": 73597, "sha256": "af748d1e957da662434c986a2a1541d629808d4ac7ea7a7e4211835914313909" }, "lifecycleRecord": { "bytes": 31686, "sha256": "34f8eae7814d5e6837651c9fdb8e2af64f86bcfd6ee69ff6dcbdfd4ae21f807f" }, "goalGuide": { "bytes": 13076, "sha256": "b8b3d7ed9f929b8685979c2ef152249342cde1b88b4930e9de3906f6e8bf02d7" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 523976, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 35 }, "qualification": "Fresh selected preimages/index/staged/native only, not this insertion's post-edit receipt or full original-history proof." },
+    "consequence": "The requested independent signature/public-key integrity result is now observed true, not pending or merely decoded. It does not upgrade the generic release-service certificate to trusted repository/workflow/build identity or resolve unobtained matrix/custom attestation/strategy bodies, actual PDFium revision/backports/reachability, cryptography linkage, complete rights/ABI/runtime/document/human acceptance. All seven earlier public fetches/three MIME refusals, spent package/member limits and exact consequential gates remain. No task/phase completion follows.",
+    "actions": { "signaturePublicKeyMatchingCalculations": 1, "certificateChainOrTimestampOrTransparencyVerifications": 0, "newExternalFetches": 0, "softwareTestsAddedChangedOrRun": 0, "candidateOrNativePayloadImportsOrExecution": 0, "packageOrMemberOrNoticeReads": 0, "spentAllowanceResetsOrRefunds": 0, "rawDatabaseOrForeignOriginalSessionReads": 0, "childrenOrModelTrialsOrPeerSteering": 0, "GUIOrAudioOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "timestampMetadataParentFollowUp217": {
+    "scope": "Parent-selected independent review of the remaining already-returned RFC3161 response metadata/message-imprint relation, proactively scheduled at revision217. This is not an eighth reviewer verdict, software test suite, new external fetch or timestamp trust verification.",
+    "completedAt": "2026-11-01T12:41:48.568Z",
+    "certificateContainerReadbackAt": "2026-11-01T12:42:58.842Z",
+    "existingResult": { "messageID": "msg_196f70934001Ore5HHBiZsNiOx", "toolID": "call_752aa5905e744012a68109c2f28c9c6e", "method": "Supported known-ID current-session GET only", "knownIDReadAttemptsInThisUnit": 4, "successfulFinalTwoResponseBytesEach": 14339, "qualification": "The first two local commands fail after acquiring their existing result; their exact response/aggregate counts were not emitted and are not invented. All local attempts/costs remain, not refunded. None is an external refetch, foreign/original history scan or raw database read." },
+    "timestampResponse": {
+      "bytes": 726,
+      "sha256": "88817f76a7b78c1d1eb613dab1352f54b0639628317ad90da40c19a589aebb5f",
+      "format": "RFC3161 TimeStampResp containing PKIStatusInfo and CMS ContentInfo/SignedData, not bare CMS at the outermost level",
+      "encodedPKIStatus": 0,
+      "encapsulatedTSTInfoBytes": 169,
+      "encapsulatedTSTInfoSHA256": "d1affe17b3e5d2e17fc0304c43f26e2a0ed85d717a4668bd7f796d503be38ae0",
+      "encodedVersionHex": "01",
+      "policyOID": "1.3.6.1.4.1.57264.2",
+      "encodedGeneralizedTime": "20261004151927Z",
+      "timeAsWrittenNotAuthenticated": "2026-10-04T15:19:27Z",
+      "optionalTSTInfoNameStrings": ["GitHub, Inc.", "TSA Timestamping"],
+      "signerInfoNameStrings": ["GitHub, Inc.", "TSA intermediate"],
+      "encodedSignerInfoTime": "261004151927Z",
+      "encodedSignerInfoCount": 1,
+      "certificateContainer": { "tagPresent": true, "valueBytes": 0, "containedDEREntries": 0 },
+      "CRLContainerPresent": false,
+      "qualification": "Encoded status/time/policy/name fields are assertions, not authenticated signing time, TSA identity/trust, repository/workflow/commit or PDFium build metadata. The certificate container is present but empty; a tag-presence flag alone is not a supplied X509 certificate or issuer chain."
+    },
+    "messageImprint": { "algorithm": "SHA-256", "algorithmOID": "2.16.840.1.101.3.4.2.1", "bytes": 32, "hex": "eae51319c1f2c515cc87607e3968a8aa9fa1bd67915bac91266a71e5c297e7e3", "matchesPreviouslyObservedDSSESignatureSHA256": true, "qualification": "The timestamp response's encoded hash equals the71B DSSE signature's hash. This is byte consistency, not CMS/TSA signature or trusted-time verification." },
+    "methodAndBounds": { "method": "Pure bounded local DER field decoder; required TimeStampResp/CMS/TSTInfo and SHA256-imprint structure inspected, then exact certificate-container content/count readback", "singleMessageOutputCap": 524288, "binaryResponseCap": 65536, "DERNodeCap": 128, "DERNodesInCompletedMetadataRead": 89, "metadataDepthCap": 16, "staticJobCap": 2097152, "deadlineMs": 10000, "completedMetadataElapsedMs": 246, "containerReadbackElapsedMs": 290, "qualification": "Local data/metadata inspection only, not a general ASN.1 validator, source test or authenticated timestamp implementation." },
+    "callerAndHostFailuresPreserved": [
+      "The first decoder incorrectly assumed signedTimestamp was bare CMS ContentInfo and stopped at CMS SignedData shape. The actual top-level TimeStampResp includes PKIStatusInfo. This caller format assumption is corrected, not a malformed/invalid timestamp finding; no byte/node/time limit is raised.",
+      "The next corrected structural decoder reaches imprint extraction, but optional host openssl ts -reply -text fails exit1/0stdout/662Bstderr. It reports missing default-configuration include paths and fopen(<NULL>,rb), with no explicit input filename supplied. This host/caller failure is not public-response invalidity, trusted-time denial or a failed cryptographic check. No system config/security repair, OPENSSL_CONF override, cap increase or unchanged host retry follows; the final already-planned pure metadata decoder omits this optional host display.",
+      "The completed metadata read's signedDataContainsCertificateField=true means tag presence only. Exact follow-up finds a0B/0-entry certificate container. Its earlier conditional absence wording is not adopted as a factual absence finding or evidence of an actual embedded signer certificate."
+    ],
+    "trustBoundary": "The returned verification material supplies one release-service certificate plus this timestamp response, whose certificate container is empty. No TSA signer certificate/public key, authenticated issuer chain or trust anchor is supplied by those inspected fields; signer name/serial/policy and the separate release leaf cannot be substituted as trusted TSA or issuer material. A legitimate independently authenticated chain/root/policy would be additional input, not something this bundle authenticates by itself. This bounded finding does not prove such material is absent elsewhere or that a legitimate future trust path is impossible. No root is selected, installed or fabricated here.",
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T12:43:53.521Z", "nativeRecord": { "bytes": 53599, "sha256": "adce8613223f224d0521d282be83c4150a421b644fc1cf4d4ac6d66fda45866f" }, "officeGuide": { "bytes": 74900, "sha256": "6943d8ad805f285f2c823b804468bf6f091dae118236e63f2423086eeb2ee78e" }, "lifecycleRecord": { "bytes": 34506, "sha256": "3d7c9f169eb2d74c2759cbe9cf703fd6f40c4d4accec56a476538d5ca5e7f5ad" }, "goalGuide": { "bytes": 13720, "sha256": "0a6048dd300cc8c910a8cff81ee8fa9189a5775ab610a3a056b2d3df6106d986" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 534264, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 37 }, "qualification": "Selected preimages/index/staged/native only, not this insertion's post-edit receipt or full original-history proof." },
+    "consequence": "The available timestamp metadata/imprint lead is performed, not pending: encoded hash consistency is true, timestamp trust remains unverified and its certificate container is actually empty. Earlier DSSE/included-key verification remains true, not repeated. Neither relation supplies PDFium build/materials/native identity or rights/ABI/runtime/human acceptance. All seven provenance web calls/three MIME refusals/spent package-member limits and exact consequential gates remain unchanged.",
+    "actions": { "newExternalFetches": 0, "CMSOrTSASignatureOrChainOrTrustedTimeVerifications": 0, "DSSESignatureRecomputations": 0, "softwareTestsAddedChangedOrRun": 0, "candidateOrNativePayloadImportsOrExecution": 0, "packageOrMemberOrNoticeReads": 0, "spentAllowanceResetsOrRefunds": 0, "trustRootSelectionOrInstallation": 0, "childrenOrModelTrialsOrPeerSteering": 0, "GUIOrAudioOrClipboardActions": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "officialTrustSourcesFollowUpAfterReview218": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The actual revision218 waiting reviewer requests official GitHub/Sigstore issuer, TSA and trust-root distribution investigation; an empty embedded timestamp certificate container does not exhaust public recovery. Supported readback remains active218. Revisions219-220 schedule two separately bounded public-document units, now both performed. This is the eighth actual continuation verdict; parent-selected217 timestamp work is not that verdict.",
+    "policyRoutingUnit219": {
+      "searchCallsUsed": 1,
+      "primaryFetchesUsed": 4,
+      "primaryFetchLimit": 4,
+      "timeoutSecondsPerFetch": 30,
+      "searchQuery": "site:docs.github.com OR site:docs.sigstore.dev \"releases\" \"trust\" \"attestation\" 2026",
+      "sources": [
+        { "url": "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/verify-attestations-offline", "finding": "Workflow artifact attestations use the public-good instance for public repositories and GitHub's instance for private repositories. The guide describes separate bundle, artifact, CLI and trusted-root inputs, recommends refreshing roots when importing new signed material and warns an offline root file cannot reveal later key revocation. Its repository-certificate ID checks are not automatically the semantics of a release-service certificate.", "existingResult": { "messageID": "msg_1972b1702001P0JBh2c8cRDr8u", "toolID": "call_08495896cd4b4deab374b027ca49406e" } },
+        { "url": "https://cli.github.com/manual/gh_attestation_trusted-root", "finding": "The normal command covers both public-good and GitHub Sigstore instances. For a custom TUF mirror, --tuf-root must be a root.json securely obtained out-of-band. --verify-only checks the local TUF repository without emitting a trusted_root.jsonl. No displayed command is executed.", "existingResult": { "messageID": "msg_1972b339400188k09x22P4aUaE", "toolID": "call_8371c3fff0e24642a0929ae82b0562af" } },
+        { "url": "https://cli.github.com/manual/gh_release_verify", "finding": "Release verification is documented separately: a cryptographically signed claim made by GitHub about a release and its assets. The command fetches that attestation and prints referenced asset digests. This fits the observed release-inventory predicate better than assuming a GitHub Actions workflow/build certificate. The manual does not itself authenticate the saved bundle or measure PDFium build materials.", "existingResult": { "messageID": "msg_1972b86c60012g2tJf5OtEQwKS", "toolID": "call_ab84bcdc7f724b61879ea2255998be21" } },
+        { "url": "https://docs.sigstore.dev/about/security/", "finding": "The security model treats certificate identity, trusted verification material and transparency/time as separate verification concerns. It provides the custom-components and timestamp documentation leads followed in the next unit; a leaf-key match does not authenticate those inputs." }
+      ]
+    },
+    "distributionUnit220": {
+      "searchCallsUsed": 1,
+      "primaryFetchesUsed": 4,
+      "primaryFetchLimit": 4,
+      "timeoutSecondsPerFetch": 30,
+      "searchQuery": "\"dotcom.releases.github.com\" \"trusted\"",
+      "sources": [
+        { "fetch": 1, "url": "https://docs.sigstore.dev/cosign/system_config/custom_components/", "finding": "The default Cosign client starts from an embedded TUF root and obtains updated verification material from Sigstore's public-good root-signing repository. Fulcio and TSA entries require certificate-chain material, while Rekor/CT entries use public keys. Manually assembling a custom root is documented, not authority to select/install one here.", "existingResult": { "messageID": "msg_1972cf42e001hClowQMqESgIse", "toolID": "call_07c55bc15e1346228d54d3e13bc27503" } },
+        { "fetch": 2, "url": "https://tuf-repo.github.com/1.root.json", "finding": "A historical version1 TUF root document is returned, not an issuer/TSA X509 chain. Discovery came from a third-party search snippet, not primary bootstrap authentication. Its encoded expiration is past, but historical bootstrap expiry does not prove current repository failure or impossibility of legitimate sequential root updates. No TUF signature, trusted bootstrap, version-update or current timestamp/snapshot/targets verification is performed.", "returnedText": { "bytes": 7660, "sha256": "b73aa59b16d2c4989de18e402e168183d0e58f8cf9249d7cb4dd0d1774830c6e", "qualification": "Exact returned UTF8 text, not raw HTTP bytes or authenticated root." }, "declaredMetadata": { "type": "root", "version": 1, "specVersion": "1.0.31", "expires": "2024-06-23T08:29:18Z", "consistentSnapshot": true, "keyCount": 9, "signatureEntries": 8, "rootRole": "threshold3of8", "targetsRole": "threshold3of8", "snapshotRole": "threshold1of1", "timestampRole": "threshold1of1" }, "existingResult": { "messageID": "msg_1972d20b7001514TJizw9BNM3v", "toolID": "call_bef7ab06b8f946929bb0d7411e9b20ed" } },
+        { "fetch": 3, "url": "https://docs.sigstore.dev/cosign/verifying/timestamps/", "finding": "TSA verification uses its certificate chain. The guide explicitly lists timestamp.githubapp.com among public TSAs and recommends countersigning the signature, consistent with the saved message-imprint relation. A hostname/name-string match or its default public-good configuration does not identify/authenticate the exact GitHub TSA signer in the saved response. No timestamp request, signing, client-install or verification command is executed." },
+        { "fetch": 4, "url": "https://github.com/sigstore/root-signing", "finding": "The explicitly linked official project documents public-good trust distribution at https://tuf-repo-cdn.sigstore.dev/, metadata/ and targets/ sources, keyholder signing events, online KMS signing, preproduction and production publication. That is a supported update/distribution description, not a cryptographically verified update chain or proof its public-good certificates match this GitHub release/TSA. No PR link, clone, checkout or workflow is fetched/run." }
+      ],
+      "acquisitionLimits": "The exposed fetcher enforces per-call timeouts, not a caller-selected pre-acquisition byte cap. The two distinct four-fetch units and two searches are spent; none refunds/resets the earlier seven release/provenance calls, three actual MIME refusals or package/member allowances. No third-party command instructions, alternate client, private access or denial bypass is used."
+    },
+    "existingPublicResultRecovery": { "completedAt": "2026-11-01T13:00:21.845Z", "purpose": "Recover five exact earlier public policy/distribution tool texts without duplicate external fetches", "method": "Supported current-session assistant projection, one row/page, maximum30rows/512KiBresponse/2MiBjob/10s; only matching public tool results emitted", "pages": 17, "responseBytes": 763337, "elapsedMs": 5259, "publicMatches": 5, "qualification": "No raw conversation, private/original-source recovery or trust-store write. Long public page tails are labelled tails, not whole-page/raw-HTTP hashes. Exact root text is complete and separately bound above; a managed-output grep with no match is not global absence." },
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T13:02:06.458Z", "nativeRecord": { "bytes": 60684, "sha256": "1257948cd8415d548df632087486e273110f54e86c634f44294b2c3a3941498d" }, "officeGuide": { "bytes": 76334, "sha256": "91018da6559431276746bfddc93e4c55153799db55a80f94043ddf0c15914e1b" }, "lifecycleRecord": { "bytes": 36829, "sha256": "2c8d4e89fbc871774c7cce2890c406cfe66775c4c9bba2843a09b0c80d4a5c3d" }, "goalGuide": { "bytes": 14313, "sha256": "0658161a95a9042e7a6d2e41e73c5c5ffd63367e3c5334584d1bdb40c5b7bc7b" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 570418, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 34 }, "qualification": "Fresh selected current preimages/index/staged/native/memory/config only, not this insertion's post-edit receipt, full originals or exclusive machine quiescence." },
+    "consequenceAndRemainingLead": "The requested official policy/distribution investigation is performed at this bounded scope and corrects any implication that an empty bundle container exhausts public recovery. It establishes supported verification/bootstrap distinctions, not authenticated GitHub issuer/TSA keys. The concrete remaining read-only lead is GitHub's release verifier implementation/distribution references to connect the observed release-service/TSA identities to its actual trust-material source. Do not call that lead exhausted or require trust installation merely to inspect public source. No issuer/TSA signature-chain/trusted-time/native-build verification, selected root, installed root, software suite, package/member read, delegation or operational acceptance follows. All20unfinished tasks/eightcriteria/75IDs+additional lanes and original failures/guards remain."
+  },
+  "officialGitHubVerifierSourceFollowUp221": {
+    "checkedDate": "2026-11-01",
+    "scope": "The separately scheduled revision221 official release-verifier source-binding unit, performed before the user-reported server restart. Supported post-restart readback is active221; completed searches/fetches are not repeated. This continues the actual218 eighth review, not a new verdict or operational acceptance.",
+    "searchCallsUsed": 1,
+    "searchQuery": "site:github.com/cli/cli \"dotcom.releases.github.com\" OR \"tuf-repo.github.com\"",
+    "primaryFetchesUsed": 4,
+    "primaryFetchLimit": 4,
+    "timeoutSecondsPerFetch": 30,
+    "sourceQualification": "All four successful reads are public raw source on cli/cli's moving trunk branch, checked2026-11-01. Paths were inferred from the official repository/package structure and actually returned; no failed/denied source is retried or alternate client used. They are not pinned upstream commit bytes, installed CLI identity, executed implementation or authenticated trust material. The search's advisory/issue snippets are discovery only and were not additionally fetched.",
+    "sources": [
+      { "url": "https://raw.githubusercontent.com/cli/cli/trunk/pkg/cmd/release/verify/verify.go", "finding": "The release command resolves a release-tag ref, queries GitHub-initiated release attestations, filters by tag, rejects zero/duplicate matches and invokes the shared attestation verifier. It does not equate any release-inventory digest with a native build/materials map. No API call/command from this implementation is executed." },
+      { "url": "https://raw.githubusercontent.com/cli/cli/trunk/pkg/cmd/release/shared/attestation.go", "finding": "The production release path constructs a verifier with NoPublicGood:true and a GitHub trust domain. Empty trust domain defaults to dotcom. Its SAN policy requires https://dotcom.releases.github.com for that domain; the issuer-extension matcher is unrestricted, not an omission of certificate-chain verification. This explains the saved release-service SAN/absence of workflow extensions. Mock/helper code in the returned file is not run or used as evidence." },
+      { "url": "https://raw.githubusercontent.com/cli/cli/trunk/pkg/cmd/attestation/verification/sigstore.go", "finding": "GitHub verification loads trusted_root.json (or a trust-domain-specific target) from the GitHub TUF client, then requires WithSignedTimestamps(1). Public-good verification separately requires certificate timestamps, transparency and observer timestamps. Issuer-organization dispatch chooses a verifier but does not itself authenticate a certificate; the selected verifier still verifies the bundle/policy. The observed GitHub leaf is not to be cleared with public-good roots or rejected merely for lacking the other branch's Rekor/SCT fields." },
+      { "url": "https://raw.githubusercontent.com/cli/cli/trunk/pkg/cmd/attestation/verification/tuf.go", "finding": "The official implementation declares GitHubTUFMirror=https://tuf-repo.github.com and embeds embed/tuf-repo.github.com/root.json. This gives primary-source association of the GitHub mirror and an explicit bootstrap-material path, beyond the earlier third-party discovery snippet. Cache/retry configuration is source behavior, not an action or configuration adopted here." }
+    ],
+    "policyReconciliation": "The saved service SAN now matches the documented source policy for GitHub release attestations. Missing workflow/repository certificate extensions are not by themselves a release-policy failure. Earlier transparency-unverified wording remains a fact, but this GitHub branch does not show the public-good branch's Rekor/SCT requirements; do not invent those as mandatory blockers for this bundle. Authentic GitHub issuer/TSA material and signed-time verification still need actual evidence. A moving upstream source read is not installed CLI loading or full policy acceptance.",
+    "postRestartWriteSafety": { "observedAt": "2026-11-01T17:40:01.082Z", "nativeRecord": { "bytes": 69717, "sha256": "c37a2b06a49c59df68cfba41f974869fe864229e9db900700e32711ef76d105d" }, "officeGuide": { "bytes": 78626, "sha256": "b5bb84cb82e54de941aea2ceb9fa5e08983a5ceb8802f50a20beadc2e79a6769" }, "lifecycleRecord": { "bytes": 40109, "sha256": "17f4116cd3d46968aeb9a10109ef7eedd7e3bf47c27979452fad7fb9ef08027d" }, "goalGuide": { "bytes": 15157, "sha256": "53bc7db2d7dd60a96da80d117f5734e6eb63ff5994d33f7bd477174f43f0e083" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 561148, "deadlineMs": 10000, "elapsedMs": 54 }, "qualification": "Fresh selected preimages/index/staged/native only. The user reports the restart; no restart/repair is issued or inferred as deployment acceptance." },
+    "consequenceAndNextLead": "This source-binding unit is performed/spent: one search/four fetches, separately from219-220two searches/eight fetches and the original seven release/provenance calls/three MIME failures. The now-explicit next read-only material is the official embedded bootstrap root and GitHub TUF timestamp/snapshot/targets distribution, followed by the exact named target. Inspecting those bytes does not select/install a trust root or authenticate bootstrap by itself. No software tests, package/member extraction, PR fetch/checkout/import, candidate execution, delegation, trust/config/security change, deployment, commit or push. All20unfinished tasks/eightcriteria/full75-ID scope and genuine original limits remain."
+  },
+  "officialGitHubTrustMaterialAndIntegrity222To226": {
+    "checkedDate": "2026-11-01",
+    "scope": "Completed read-only continuation of the actual218 official-trust lead. Public GitHub issuer/TSA material is recovered, bound and checked mathematically relative to the official-source bootstrap reference. No new reviewer verdict, software test suite, package/member acquisition, installed verifier, trust-root adoption or native-build acceptance.",
+    "separateSpentUnits": [
+      { "revision": 222, "searches": 0, "primaryFetchesUsed": 4, "primaryFetchLimit": 4, "scope": "GitHub timestamp→exact snapshot→exact targets→hash-qualified trusted_root.json" },
+      { "revision": 223, "searches": 0, "primaryFetchesUsed": 1, "primaryFetchLimit": 1, "scope": "Official CLI's explicitly embedded bootstrap-reference JSON" },
+      { "revision": 224, "searches": 0, "primaryFetchesUsed": 4, "primaryFetchLimit": 4, "scope": "Official TUF specification and sequential roots4/5/6" },
+      { "revision": 225, "searches": 0, "primaryFetchesUsed": 4, "primaryFetchLimit": 4, "scope": "Normatively linked canonical JSON definition and sequential roots7/8/9" },
+      { "revision": 226, "searches": 0, "primaryFetchesUsed": 1, "primaryFetchLimit": 4, "scope": "First next-version10.root.json returns404; stop immediately, no11/12/13requests. Three unused slots are not calls or refunds." }
+    ],
+    "acquisitionQualification": "Fourteen actual new public fetches/zero searches across these five distinct units, each30s timeout. Together with219-221 this is26trust-policy/source/distribution fetches and3searches, not a reset/refund of the original seven release/provenance fetches/three MIME failures or any package/notice budget. The fetcher does not expose a caller-selected pre-acquisition byte cap. No displayed download/sign/install/client/config command is executed; public JSON is data only.",
+    "metadataToTarget": {
+      "completedInspectionAt": "2026-11-01T17:46:27.503Z",
+      "sources": [
+        { "url": "https://tuf-repo.github.com/timestamp.json", "bytes": 452, "sha256": "edf39f450de78753db381283b12a1ead49ffa46a05fe8415799daece5648e6bc", "version": 1005, "expires": "2026-11-08T07:20:05Z", "namesSnapshotVersion": 82, "messageID": "msg_198357c26001FsYMV5jFsZWfPB", "toolID": "call_06c25b0d76a24a59829cfbdf12927b03" },
+        { "url": "https://tuf-repo.github.com/82.snapshot.json", "bytes": 448, "sha256": "2252a951efa4c0947c444e9454883db4c9e5348da1748d60a70384bcf2f3d90a", "version": 82, "expires": "2026-11-17T19:20:31Z", "namesTargetsVersion": 10, "messageID": "msg_19835b3bf001bBpZYHSwmKiGHB", "toolID": "call_d828cf044d0f4cd4b8240e73560b7b12" },
+        { "url": "https://tuf-repo.github.com/10.targets.json", "bytes": 2974, "sha256": "0fa9dec2a92ff98570d611080ae334b6f0db4af42551d957de0fc447a18acc9c", "version": 10, "expires": "2027-02-08T01:48:44Z", "messageID": "msg_198361495001AxBa7pQC0srQte", "toolID": "call_3bb26b21d19142139e0216fe819d69e8" },
+        { "url": "https://tuf-repo.github.com/targets/484cdfe1a7c65479c5ba2a22193d1be90f0020db1997de696ab207434c62fbb7.trusted_root.json", "bytes": 31645, "sha256": "484cdfe1a7c65479c5ba2a22193d1be90f0020db1997de696ab207434c62fbb7", "exactPublishedLengthAndSHA256Match": true, "messageID": "msg_198365091001sxf15CQr3JGUjO", "toolID": "call_4ca165901eb94d809d061616b3525c76" }
+      ],
+      "qualification": "Hashes bind exact returned UTF8 text, not separate raw-HTTP receipts. No normalization/retry is needed: the target really matches both31645B and the published SHA256. Metadata version links agree. Signature/authority findings are separately recorded below; names/version/hash consistency alone is not bootstrap trust.",
+      "publicMaterial": { "certificateAuthorityRows": 6, "timestampAuthorityRows": 6, "certificateEntries": 36, "uniqueDERCertificates": 15, "issuerURI": "fulcio.githubapp.com", "TSAURI": "timestamp.githubapp.com", "latestAuthorityWindowStart": "2026-06-12T00:00:00Z", "qualification": "Historic authority windows remain present, not discarded as failures. The latest rows supply the actually inspected candidate paths; no claim issuer/TSA material is still missing from all public sources." },
+      "existingResultRecovery": { "assistantRows": 5, "responseAndDecodedCertificateBytes": 116058, "elapsedMs": 1233, "qualification": "Supported current-session public-result recovery, not external duplicate fetches or raw-conversation output." }
+    },
+    "publicCertificatePaths": {
+      "release": [
+        { "role": "Attester leaf", "bytes": 559, "sha256": "a69a47367524e2ad7b911dc194178e76501b8dd5420fe8332c740157805d332a" },
+        { "role": "Fulcio Intermediate l1", "bytes": 537, "sha256": "b4fbed2859cb16ceaf3a41f055319f4ed2446e1ab85f45d080d4580a5643a324" },
+        { "role": "Internal Services Root", "bytes": 505, "sha256": "dc64d3af9fd46dd840486935c903986d06edd35788769696d2f145d38b7f7887" }
+      ],
+      "TSA": [
+        { "role": "TSA Timestamping leaf", "bytes": 543, "sha256": "4416c8ae73146a63a137c2e55be8de70e3c9af3073bf398baabaa8db0817ced7", "serial": "1733DBD6E9FE0EFA1FA853F3017881E6C9473352", "publicKeySPKISHA256": "77fc043df8240ff6eea76f3e9910c02d7f249e46b3fe61006ad3755efddc4750" },
+        { "role": "TSA intermediate", "bytes": 552, "sha256": "4e0f064a5faf69bf1e4672ce947bd425b5ac899985adb8013ea449814cc7cb02" },
+        { "role": "Internal Services Root", "bytes": 505, "sha256": "dc64d3af9fd46dd840486935c903986d06edd35788769696d2f145d38b7f7887" }
+      ],
+      "signatureLinkInspectionAt": "2026-11-01T17:50:34.642Z",
+      "signatureLinksAndIssuerIdentifiersAllMatch": true,
+      "lastCertificateSelfSignaturesMatch": true,
+      "encodedTimeWithinAllInspectedCertificateValidityWindows": true,
+      "qualification": "Node X509.verify/checkIssued establish the stated mathematical signature/name/identifier relations, including root self-signatures, not independently trusted anchors or general PKIX/revocation acceptance. The release leaf is directly issued by l1; the unused l2 certificate is not forced into its path."
+    },
+    "timestampCMSIntegrity": {
+      "completedAt": "2026-11-01T17:50:34.642Z",
+      "responseBytes": 726,
+      "responseSHA256": "88817f76a7b78c1d1eb613dab1352f54b0639628317ad90da40c19a589aebb5f",
+      "TSTInfoBytes": 169,
+      "TSTInfoSHA256": "d1affe17b3e5d2e17fc0304c43f26e2a0ed85d717a4668bd7f796d503be38ae0",
+      "digestAlgorithmOID": "2.16.840.1.101.3.4.2.2",
+      "signatureAlgorithmOID": "1.2.840.10045.4.3.3",
+      "algorithm": "ECDSA/SHA-384 with selected secp384r1 TSA public key, DER signature",
+      "signatureBytes": 104,
+      "signatureSHA256": "f435da5c5cc3187994e310d2d191cfef40f5c82fe9f608413019be206ed11fd5",
+      "signedAttributeInputBytes": 265,
+      "signedAttributeInputSHA256": "abac40d355d5360e6ad6dc9302fdcd0aca017900c693e5068e149b8100512441",
+      "signedAttributeInputRule": "RFC5652 universal SET tag0x31 replaces the implicit0xa0 tag; exact original length/content/order retained, with no fallback, sorting or byte-normalization search.",
+      "exactIssuerDERAndSerialSelectOneTSACertificate": true,
+      "selectedAuthorityIndex": 5,
+      "signedContentTypeIsTSTInfo": true,
+      "signedSHA384MessageDigestMatchesTSTInfo": true,
+      "ESSv2SHA256CertificateBindingMatchesSelectedSigner": true,
+      "CMSsignatureMatchesSelectedPublicKey": true,
+      "TSTInfoSHA256ImprintMatchesOriginalDSSESignature": true,
+      "encodedTime": "2026-10-04T15:19:27Z",
+      "encodedTimeWithinSelectedAuthorityWindow": true,
+      "qualification": "This now goes beyond the earlier imprint-only observation: the CMS signature, signed content digest and signer-certificate binding are actually checked. Trusted time remains conditional on accepting/authenticating the bootstrap/authority policy; no system trust setting or independent out-of-band root authentication follows. The older DSSE key-match is retained, not rerun."
+    },
+    "TUFCanonicalCorrectionAndRotation": {
+      "officialSpecification": { "url": "https://theupdateframework.github.io/specification/latest/", "version": "1.0.37", "lastModified": "2026-10-08", "relevantSections": ["4.1 Metaformat", "5.2 Load trusted root", "5.3 Update root", "5.4-5.7 Metadata/target verification", "6.1 Key migration"] },
+      "normativelyLinkedCanonicalDefinition": "https://web.archive.org/web/20251209150702/http://wiki.laptop.org/go/Canonical_JSON",
+      "initialCallerFailurePreserved": "The initial helper used JSON.stringify for strings. That escaped the PEM LF bytes, yielding4984B signed-root inputSHA7efcfe1a3dd38bac140a920c39f64a00fd9a116d2f1218e2cd022177f1c478a2 and0matching authorized self-signatures. This is a caller format error, not a malformed/invalid GitHub root, revoked keys or failed public trust-recovery verdict.",
+      "evidenceBackedCorrection": "The opened normative definition explicitly escapes only quote/backslash, permits embedded control/LF bytes and lexicographically sorts keys. The corrected helper preserves LF and all signed-root x-tuf annotations; it does not change algorithms, remove fields, normalize Unicode, search encodings or ignore final expiry.",
+      "completedAt": "2026-11-01T17:57:43.354Z",
+      "fixedComparisonTime": "2026-11-01T17:57:37.291Z",
+      "bootstrapReference": { "url": "https://raw.githubusercontent.com/cli/cli/trunk/pkg/cmd/attestation/verification/embed/tuf-repo.github.com/root.json", "version": 3, "bytes": 7480, "sha256": "98cba97be9075bc98b2322de3de85fbd1b70ec7392991dfd2f53d215bede1a8d", "expires": "2025-04-11T14:36:57Z", "correctCanonicalSignedBytes": 4948, "correctCanonicalSignedSHA256": "c776688864e787dcf9f76f9b51d7aa0108f1c50217bebbf0f5d117fb2fe986a5", "matchingAuthorizedSelfSignatures": 5, "threshold": 3, "independentlyAuthenticatedOutOfBand": false },
+      "successorRoots": [
+        { "version": 4, "bytes": 6537, "sha256": "a9fdd07ba2dfc9cc603e6250ea210356f5a5cf06028f329f527abc055af34fd3", "expires": "2025-07-19T13:19:33Z", "oldRoleMatches": 4, "newRoleMatches": 3 },
+        { "version": 5, "bytes": 7482, "sha256": "546470a4aa294c76c75039d87ccca20b9e7e3494bfc89026afcd3b83c2d1541e", "expires": "2025-07-31T08:45:52Z", "oldRoleMatches": 5, "newRoleMatches": 6 },
+        { "version": 6, "bytes": 7376, "sha256": "42e225b5eaed55755a637fb5150135d2930ecdf0b291c615fcd54a52a3fd2522", "expires": "2026-01-27T13:26:47Z", "oldRoleMatches": 6, "newRoleMatches": 6 },
+        { "version": 7, "bytes": 6679, "sha256": "5f14db09da4f13783f2e25778f0f02685a5b5d3270cfca2763b720acc020db8b", "expires": "2026-04-08T11:39:40Z", "oldRoleMatches": 5, "newRoleMatches": 4 },
+        { "version": 8, "bytes": 6976, "sha256": "87a67338159679a4e3f7b5c8cdc302cb364fd5e1d7d37ee2531a1cd8eb782999", "expires": "2026-08-01T17:27:39Z", "oldRoleMatches": 6, "newRoleMatches": 7 },
+        { "version": 9, "bytes": 6734, "sha256": "eb303461e0109458144b6ebcbfd62aaa6f6d7481e9ca77504b85f17761661462", "expires": "2027-01-28T20:18:53Z", "oldRoleMatches": 6, "newRoleMatches": 6 }
+      ],
+      "allExactNplusOneAndOldNewThreshold3RelationsMatch": true,
+      "standardCoreKeyIdentityChecks": { "objects": 59, "distinctKeyIDs": 11, "allSHA256CoreKeyIdentitiesMatch": true, "qualification": "Core keytype/scheme/keyval identities checked; policy annotations remain part of the complete signed root input." },
+      "metadataUnderRecoveredRoot9": { "timestamp": "1matching key/threshold1", "snapshot": "1matching key/threshold1", "targets": "6matching keys/threshold3", "versionLinksAndFutureEncodedExpiriesAtFixedTimeMatch": true },
+      "terminalNextVersionRead": { "url": "https://tuf-repo.github.com/10.root.json", "result": "StatusCode: non 2xx status code (404 GET https://tuf-repo.github.com/10.root.json)", "furtherVersionsRequested": false, "qualification": "The exact next version is unavailable in this observed response; no unchanged retry, alternate endpoint/client, private access or global absence claim. Root9 is the last recovered version for this observation, not a perpetual latest-version guarantee." },
+      "qualification": "Conditional mathematical continuity from the inspected official-source reference through root9, metadata signatures/version/expiry consistency and the target hash. Per the opened protocol, past intermediate expiry is not a root-update failure; the recovered final root has a future encoded expiry. No independently authenticated bootstrap, persisted prior-state rollback protection, full client implementation acceptance, trusted-root selection/install or repository-wide revocation/compromise verdict is claimed. No protocol persistence/deletion instructions from the page are executed."
+    },
+    "selectedCertificateConstraintReadback": { "completedAt": "2026-11-01T18:00:40.404Z", "releaseSANMatchesOfficialDotcomPolicy": true, "leafNonCAAndDigitalSignatureAndPurposeEKUsMatch": true, "TSAEKUIsCriticalAndExclusivelyTimestamping": true, "issuerCAAndCertificateSigningUsagesMatch": true, "releasePathLengthLimits": [null, 1, 2], "TSAPathLengthLimits": [null, 0, 2], "pathLengthsSufficient": true, "issuerEKURestrictionsPermitRespectivePurpose": true, "unknownCriticalExtensions": [], "qualification": "Selected actual DER constraint fields, not a general PKIX validator or fresh signature/crypto rerun. Prior mathematical signature links and encoded-time checks are retained. Revocation/independent bootstrap/installed-client/runtime/human acceptance remain separate." },
+    "localInspectionBounds": { "responseCap": 524288, "publicJSONAndDERCap": 65536, "jobCap": 2097152, "deadlineMs": 10000, "CMSAndLinkInspection": "153558B/7178ms/157of512DERnodes", "correctedTUFInspection": "376056B/6063ms/1557of4096canonicalJSONnodes", "constraintReadback": "54818B/549ms/177of512DERnodes", "qualification": "These bound selected input/result work, not whole-process RSS or raw HTTP acquisition. Only supported current-session public result projections/known-ID reads; no raw conversation/full bundle saved or emitted." },
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T18:01:08.493Z", "nativeRecord": { "bytes": 75239, "sha256": "32cf281e3c70542ca577e01877e35203e61e880fd56ede9edfdf854d61c7bf3a" }, "officeGuide": { "bytes": 79785, "sha256": "48609b2a303cffaeabb06be0b44c08dece7ee58e576394df78844662c32528cb" }, "lifecycleRecord": { "bytes": 41857, "sha256": "4428d01b08aea23a5e18a68d3ca6b23516f89750d3d1587cb63d534b319f5767" }, "goalGuide": { "bytes": 15783, "sha256": "69b983ff5f1f59b01265a081f39faf20f648a78b94b30a2767d5a183a7dc9aba" }, "bounds": { "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowances": 570203, "deadlineMs": 10000, "elapsedMs": 88 }, "qualification": "Fresh owning preimages/index/staged/native only, not this insertion's post-edit receipt or full original-history/quiescence proof." },
+    "epochReconciliation": "Earlier missing/uninspected public issuer/TSA material, imprint-only status and unperformed TUF signature/update wording are historical observations, superseded only by these actually performed reads/checks. The empty embedded timestamp certificate container remains true; its external public signer material is now recovered. The initial canonical-encoder failure is preserved and explained, not erased. No new reviewer verdict, package-budget refund or full security/build acceptance is inferred.",
+    "remaining": "Bootstrap acceptance stays conditional on a legitimately authenticated/approved reference, not self-granted trust adoption; no further routine-read approval is invented. The release statement remains an inventory claim without PDFium source/build/materials/backport/reachability mapping. Actual cryptography linkage, full native/transitive notices/rights, pycparser/NumPy/original refused sets and original source/resource limits, permitted ABI/import/XML/conversion/author-render-reopen/human outcomes remain unresolved. More generic trust text or repeated successful signature calculations cannot supply those missing required layers. All20unfinished tasks/eightcriteria/all75IDs+additional lanes remain.",
+    "actions": { "softwareTestsAddedChangedOrRun": 0, "candidateOrNativePayloadImportsOrExecution": 0, "packageOrMemberOrNoticeReads": 0, "packageAllowanceResetsOrRefunds": 0, "DSSERecomputations": 0, "independentlyTrustedRootSelectionsOrInstalls": 0, "systemTrustOrSecurityOrConfigChanges": 0, "persistedTUFStateOrRollbackStoreWrites": 0, "childrenOrDirectModelTrialsOrPeerSteering": 0, "GUIOrAudioOrClipboard": 0, "installsOrDeploysOrRestarts": 0, "PRFetchesOrCheckoutsOrMergesOrImports": 0, "commitsOrPushes": 0 }
+  },
+  "discoveryOnly": {
+    "url": "https://github.com/Aelira-AI/aelira-core/issues/747",
+    "finding": "One search snippet claims pypdfium2 5.14.0 bundles PDFium156.0.8076.0 and names the CVE. The issue was not opened and is not primary authority for selected-wheel version/applicability. It only supplied an advisory lead; the primary CVE and upstream release notes above were opened independently. Do not promote its full-version/bundling/latestness claim to a verified fact."
+  },
+  "selectedArtifactLimits": [
+    {
+      "distribution": "cryptography",
+      "version": "50.0.2",
+      "filename": "cryptography-50.0.2-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "observedArchiveBytes": 4749145,
+      "archiveSha256": "ee247f5c245c9a2fe7c8e2214e295918838e44e00a45a6718451e4004219e767",
+      "nativeMemberInventoryOnly": { "member": "cryptography/hazmat/bindings/_rust.abi3.so", "declaredBytes": 14396752, "decompressedPayloadRead": false, "nativeSha256Measured": false },
+      "limitation": "The batch reserved0remaining member slots before this selection; all six29845Bselected notice/dist-info members were refused together. No native payload, OpenSSL string/symbol/build-id, full native table, notice or metadata read is added here. Docs do not clear Rust/OpenSSL/CFFI licences, ABI, runtime imports, XML/PDF safety or installation."
+    },
+    {
+      "distribution": "pypdfium2",
+      "version": "5.14.0",
+      "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "observedArchiveBytes": 3799581,
+      "archiveSha256": "11f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d",
+      "nativeMemberInventoryOnly": { "member": "pypdfium2_raw/libpdfium.so", "declaredBytes": 7834920, "decompressedPayloadRead": false, "nativeSha256Measured": false },
+      "limitation": "Its21member/202754Bnotice-dist-info set already exceeded whole16member/64KiBbounds and was refused without payload reads. Neither source documentation nor an unread attestation/matrix repairs the refused licence coverage or proves actual PDFium linkage, all bundled third-party versions, ABI or CVE applicability."
+    }
+  ],
+  "earlierReadbackReconciled": {
+    "recordedAt": "2026-11-01T10:05:08.849Z",
+    "scope": "Completed local artifact/saved-text/source preservation readback before the later documentary wording additions",
+    "artifactFiles": 11,
+    "artifactBytesHashed": 23277682,
+    "allArtifactSha256ChecksMatched": true,
+    "savedTextFiles": 20,
+    "savedTextBytes": 63275,
+    "allSavedTextSha256ChecksMatched": true,
+    "rawCFFIAndBatchReceiptsUnchanged": true,
+    "coverageAddendum": { "bytes": 2095, "sha256": "bad4134f5cece7ffa5b9949249b4113e8ad24865fd9947d4315395cb9360353e" },
+    "guideAtThatReadback": { "bytes": 60826, "sha256": "665fb4bb90b8eecf84310df31f2df7035953f0979162b48f0dee1ddbf436d670", "removingOnlyTwoOwnedArtifactSectionsRecovers": { "bytes": 56775, "sha256": "9fd15fbdf407bb43e2e66249e6a1b91e8bc7611f9a53f9ecd64f2ba0ee638c4b" } },
+    "qualification": "Already-performed local hash/readback, not new HTTP/decompression requests, licence/security/ABI/authoring acceptance or a test run. The current new research record/paragraphs have a separate later static readback; this earlier observation does not hash future edits."
+  },
+  "preEditSourceObservation": {
+    "recordedAt": "2026-11-01T10:14:55.430Z",
+    "reservedBytesIncludingProbes": 443431,
+    "elapsedMs": 12,
+    "files": [
+      { "path": "docs/document-authoring-cffi-wheel-2026-11-01.json", "bytes": 7949, "sha256": "8da0cfac22b65199dec9187d7b7b562b44128760bcc720dca3c4d11d999af4d9" },
+      { "path": "docs/document-authoring-transitive-wheel-bytes-2026-11-01.json", "bytes": 9734, "sha256": "93f53b61e2fa31c4d5cd4abc1b5e2397f5386621c1c7fd6f0124228141f604ef" },
+      { "path": "docs/local-office-packages.md", "bytes": 60826, "sha256": "665fb4bb90b8eecf84310df31f2df7035953f0979162b48f0dee1ddbf436d670" },
+      { "path": "docs/request-coverage.md", "bytes": 73024, "sha256": "e3de193a5fd0b30b0d522f33724ec451d8199b0edfe63a45ef3c69a1f445528f" },
+      { "path": "docs/session-consolidation-2026-10-29.md", "bytes": 262038, "sha256": "d77ca9b1c518905a62731ff46392e223de10f73494b11fed96f834688f880a57" },
+      { "path": ".git/index", "bytes": 29854, "sha256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d" }
+    ]
+  },
+  "consequence": "Two native-version leads are now source-qualified: OpenSSL4.0.3 as a cryptography release declaration, and PDFium pin8076 as a pypdfium2 release declaration. A real primary PDFium/Chrome advisory adds an unresolved applicability question, not a verdict. A PyPI-name OSV query's earlier21empty slots do not screen these native components. No repeated OSV query or manufactured known-affected control is needed to preserve that limit.",
+  "remaining": "Actual selected-wheel native/build/patch identity; applicable advisory/fix/backport/reachability mapping; all unread/refused notices, per-file/native third-party rights and unresolved pycparser; NumPy bytes; lxml/pandas limits; permitted ABI/import/XML/conversion/author-render-reopen and human acceptance. More general release text cannot substitute for measured selected-artifact or required operational proof. No source change, new authority or full-stack approval follows.",
+  "actionsInThisDocumentaryFollowUp": { "testsAddedChangedOrRun": 0, "candidateImportsOrExecution": 0, "newArtifactOrPyPIMetadataRequests": 0, "newDecompressedMemberOrNoticeReads": 0, "OSVQueries": 0, "privateIssueAccess": 0, "PRFetchingOrCheckoutsOrMergesOrImports": 0, "installs": 0, "modelOrChildren": 0, "peerActions": 0, "GUIOrAudioOrClipboard": 0, "deploymentsOrRestartsOrPermissionChanges": 0, "commits": 0, "pushes": 0 }
+}

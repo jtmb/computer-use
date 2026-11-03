@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only operational slice on a new standalone Text Editor window containing generated public text: physical wheel, scrollbar drag, placement/restoration, advertised close and release. Coordinator remains inbox-memory-acceptance; no full task, phase or goal completion.",
+  "sample": {
+    "path": "/tmp/opencode/desktop-scroll-acceptance-5elydruo/OpenCode-generated-scroll-sample.txt",
+    "bytes": 5608,
+    "sha256": "d4d5a3c2d32ba20c19eca24ae07b5bc007835133770ef782ebbdfe57a8ec2678",
+    "contents": "Two public explanatory header lines, one blank line and120numbered generated verification lines. No real document, private text, image, selected conversation or clipboard data.",
+    "preservation": "After the owned app closes, bounded stable read confirms the original5608bytes/SHA match. The temporary sample remains scratch; no final deliverable is saved only in /tmp, and no screenshot is copied to source or another service."
+  },
+  "launch": {
+    "installedContract": "The installed desktop entry identifies gnome-text-editor; actual --help documents --standalone (implies --ignore-session) and --new-window. The sample is supplied as an explicit file, without restoring existing documents.",
+    "firstAttempt": {
+      "shellID": "sh_199f7842b001J8GwYkXs0QaLPq",
+      "timeoutMs": 10000,
+      "windowID": "5ce2a847-0dc1-4f41-9575-fc8fa9d44c7c:31",
+      "outcome": "The mistakenly specified launcher timeout ends the app. Capture refuses STALE and AT-SPI refuses stale/ambiguous identity; no input reaches another target. Automatic shell notification reports timeout. Fresh inventory confirms the first app/window absent before relaunch. This caller lifecycle failure is retained, not a successful capture or a new bridge defect."
+    },
+    "changedAttempt": {
+      "shellID": "sh_199f9559f0011qCCJRl0BWR0D0",
+      "command": "gnome-text-editor --standalone --new-window /tmp/opencode/desktop-scroll-acceptance-5elydruo/OpenCode-generated-scroll-sample.txt",
+      "explicitTimeout": false,
+      "completion": "Following the advertised close, automatic completion notification reports completed with no output. No shell-output polling, sleep loop, process kill or forced close is used."
+    }
+  },
+  "target": {
+    "windowID": "5ce2a847-0dc1-4f41-9575-fc8fa9d44c7c:32",
+    "pid": 57747,
+    "appID": "app:25f2f73753a2ca35f689f520602d6ee5ec7e3028049e55f8622e932a8c5e3981",
+    "desktopID": "org.gnome.TextEditor.desktop",
+    "title": "OpenCode-generated-scroll-sample.txt (/tmp/opencode/desktop-scroll-acceptance-5elydruo) - Text Editor",
+    "initialRect": { "x": 491, "y": 296, "width": 700, "height": 520 },
+    "monitorWorkArea": { "x": 63, "y": 32, "width": 1557, "height": 1048 },
+    "context": "Fresh exact app/window inventory, unlocked/no blockedReason, one matching app/window. Complete88node accessibility traversal; later complete frame find advertises window.close. IDs and input observations belong to this new target, not the earlier Calculator epoch."
+  },
+  "scrollAndDrag": {
+    "initial": { "captureWidth": 1500, "captureHeight": 1140, "captureBytes": 367891, "captureSHA256": "e80391572d753d337ba6f4b814f249f1d7df1bcf7b777cc9f631813385dce105", "visible": "Public header and approximately generated lines001–019." },
+    "wheel": {
+      "action": "desktop.input scroll down4at image750,600using fresh initial observation",
+      "mappedNativePoint": { "x": 841, "y": 571 },
+      "toolResult": "available:true,ok:true,action:scroll",
+      "captureWidth": 1500,
+      "captureHeight": 1140,
+      "captureBytes": 392945,
+      "captureSHA256": "170a4e05bbe739bb38052ef1f9bc2bf14add2953d295d9358d26c3a990f6ed49",
+      "visible": "Generated lines006–028; actual view moved, not dispatch-only acceptance."
+    },
+    "scrollbarDrag": {
+      "action": "desktop.input drag from image1438,280to1438,780over300msusing fresh post-scroll observation",
+      "mappedNativePoints": [{ "x": 1185, "y": 411 }, { "x": 1185, "y": 661 }],
+      "toolResult": "available:true,ok:true,action:drag",
+      "captureWidth": 1500,
+      "captureHeight": 1140,
+      "captureBytes": 392308,
+      "captureSHA256": "f3614e24c0dc567382cfb00f000672ec6720577ff78dda254f270c5fcfba9cca",
+      "visible": "Generated lines approximately087–108. The scrollbar, not text selection, is dragged; no sample edit occurs.",
+      "release": "desktop.release is awaited in finally; its first return value was not printed. Later final release explicitly returns available:true,ok:true,released:true."
+    },
+    "rerunAfterCheckpoint": false
+  },
+  "placementAndRestore": {
+    "contract": "Each exact single-window place request has its own immediately preceding30second/single-use preview token. Both apply responses report verified/contextVerified/focusVerified:true and actual rectangle equality. Tokens are freshness guards, not new authority; none is replayed or persisted here.",
+    "moved": {
+      "requestedAndActualRect": { "x": 123, "y": 112, "width": 800, "height": 600 },
+      "captureWidth": 1700,
+      "captureHeight": 1300,
+      "captureBytes": 447804,
+      "captureSHA256": "a7b2c9475020c5e225d8cbae4bd67a8494bb40b0ae062234f837abc1958d6c8e",
+      "visible": "The same sample, approximately lines087–112, in the larger window."
+    },
+    "restored": {
+      "requestedAndActualRect": { "x": 491, "y": 296, "width": 700, "height": 520 },
+      "captureWidth": 1500,
+      "captureHeight": 1140,
+      "captureBytes": 389010,
+      "captureSHA256": "12f09feef66ee1971eacf1ce54c01d906298b3cfde0fb527d1db37b73a805e78",
+      "visible": "The same unedited sample, approximately lines087–108, at the original size."
+    },
+    "qualification": "Logical global placement is established by compositor readback, not inferred from a window-only image. Captures establish window content/appearance and changed/restored image dimensions. No unrelated window, multi-window layout, maximize/fullscreen or rollback failure scenario is exercised."
+  },
+  "cleanup": {
+    "close": "Fresh complete frame observation advertises window.close; exact app/title/role preview followed by matching-token apply dispatches once. Dispatch initially says unverified; subsequent independent app/window inventory and automatic launcher completion establish closure. No unsaved-state prompt is observed and no sample text or save action is changed.",
+    "windowAbsent": true,
+    "appIncarnationAbsent": true,
+    "releaseVerified": true,
+    "preservedWindows": [
+      { "windowID": "5ce2a847-0dc1-4f41-9575-fc8fa9d44c7c:2", "pid": 10210, "desktopID": "org.gnome.Ptyxis.desktop", "rect": { "x": 63, "y": 32, "width": 1557, "height": 1048 }, "maximized": true },
+      { "windowID": "5ce2a847-0dc1-4f41-9575-fc8fa9d44c7c:22", "pid": 45328, "desktopID": "dev.zed.Zed.desktop", "rect": { "x": 63, "y": 32, "width": 1557, "height": 1048 }, "maximized": true }
+    ],
+    "qualification": "Pre/post metadata for these exact current-workspace windows matches; Terminal regains focus naturally after owned close. No mutation or capture of their contents is requested. Not all workspaces, app settings/bookkeeping, full-host process absence or every historical original."
+  },
+  "documentaryPreservation": {
+    "checked": "The performed native7strict failure's4518B/73a35a15receipt, config9cb844c8, all four actual source-root hashes and empty stdout/stderr files match its4052B/c13ae11fsource record. Real owned-RSS refusal265.55078125MiB/1.456s and verified cleanup remain a failure, not a pass or pending experiment.",
+    "staticReadBytes": 408558,
+    "elapsedMs": 34,
+    "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "stagedBytes": 179,
+    "stagedSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58"
+  },
+  "documentaryCallerRefusal": "The first final readback passes a relative filename to readStableFile; the unchanged guard refuses acquisition-path/path must be absolute before reading source bytes. The caller is corrected to use the verified absolute checkout, not a guard relaxation or claimed source/test failure.",
+  "documentationContract": { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/features-contract.test.mjs", "tests": 7, "passed": 7, "failed": 0, "skipped": 0, "durationMs": 314.098685, "qualification": "Current GUI/native-type documentary links and inventory only; not a repeat of completed memory/title/RPC/monitor suites or execution of the independent computer/browser integration." },
+  "remaining": "Covered scrolling/drag/placement/restoration/close/release now have actual current GUI evidence; do not repeat the accepted Calculator or these sample actions. Native permission/cancellation, fresh-primary/general model, browser two-session isolation, Code Mode rollback, terminal clipboard/copy_session_id, image-original card, complete installed selector/physical voice, human/private/device/demo and full types/build acceptance remain separate. No clipboard read/write/paste, private entry, keyboard typing, new child/model, independent computer/browser source edit or adopted peer outcome, install/deploy/activation/shared restart, security setting, publication, deletion, commit or push. Earlier failures and exact authority gates remain."
+}

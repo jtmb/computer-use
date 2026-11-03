@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only read-only metadata, link-closure, routing and conflicting-guidance review of the complete canonical development-conventions bundle. Skill files are inert review data, not instructions being loaded or applied. The exact proposed testing-reference append exists only in process memory. No skill/source/config change, skill invocation, native preview/application/rollback, model, test or completed-suite replay.",
+  "continuation": {
+    "reviewRevision": 304,
+    "scheduledRevision": 305,
+    "verdictNumber": 26,
+    "actualVerdict": "Blocker reviewer requires continued work: The resource gates and both original-failure evidence limitations are supported. However, the self-learning candidate explicitly leaves full-bundle validation unperformed, and the audit groups validation with separately gated application. Exact application approval and native proposal eligibility do not prohibit read-only preparation. Perform a bounded metadata, link-closure, routing and conflicting-guidance review of the development-conventions bundle with the proposed reference addition represented in memory. Do not modify, load or apply skills, fabricate session references or replay completed tests. Record actual validation findings or a concrete acquisition limitation before claiming independent work is exhausted.",
+    "result": "The requested read-only preparation is performed. All78files are acquired within the existing limits; no bundle-content acquisition refusal prevents this review. The exact virtual append preserves metadata and local links. Findings include preexisting filename/category routing drift and an absent named companion, plus a scope ambiguity in the candidate's no-replay wording. The bundle is not given a blanket clean acceptance, and no application or native learning acceptance is claimed. Application approval/native eligibility were not used to block this preparation."
+  },
+  "completeBundle": {
+    "root": ".opencode/skills/development-conventions",
+    "files": 78,
+    "markdownFiles": 72,
+    "jsonFiles": 6,
+    "bytes": 250488,
+    "metadataEntries": 99,
+    "coverage": "The recursive bounded inventory includes all regular files, the empty scripts directory, all migrated source indexes and their references. Every file body is fully acquired as UTF-8 text. All selected paths and ancestors reject symlinks. No bundle file exceeds262144bytes; the complete18459-byte root is read without confusing the separate8192-byte native proposal cap with this read-only acquisition limit.",
+    "sourceIdentity": "Canonical repository configuration contains skills:[./.opencode/skills]. Root/catalog/usage/metadata, candidate, applicable repository policies and self-learning source contracts are compared as saved text. The historical37-entry native catalog is not refreshed or promoted to current complete bundle/runtime discovery. No live skill API or loader is called.",
+    "primaryReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/fault-bundle-review-rNOcs2/inventory-review.json", "bytes": 120384, "sha256": "ae4e417262fe5008f564a28c5f9701857064b426f09e66fd2fcf7566d05a61bb" },
+    "reviewExcerpts": "/home/james/Documents/computer-use-native-host-20261029/fault-bundle-review-rNOcs2/review-excerpts.json",
+    "preservation": "All original bundle/support bytes are copied into the new uniquely owned evidence directory; only original testing-reference bytes are saved. No virtual proposed skill file is written. Scoped dirty/untracked status and the entire preexisting scoped diff are preserved rather than assumed empty. No peer liveness/quiescence or shared-source ownership release is inferred."
+  },
+  "candidateInMemory": {
+    "path": "docs/fault-control-learning-candidate-2026-11-02.md",
+    "bytes": 7983,
+    "sha256": "fb3a5170d5d6559d4aab720fc3574e061ea91622773da3050601f2b5f51c65a8",
+    "target": ".opencode/skills/development-conventions/references/testing/patterns.md",
+    "baseBytes": 3415,
+    "baseSHA256": "600cc55597ed51f72150e8ffd086f066afa39a87f8414aadf86896056d0cac6b",
+    "appendBytes": 1157,
+    "proposedBytes": 4572,
+    "proposedSHA256": "e0ff0fa9404201ef86be2fbb6442d5a2e605194412235aabb317513523f74c53",
+    "verification": "Extract the single markdown fence from the actual candidate, prepend one separator newline and append in memory only. Both the baseline and virtual proposed digest/length exactly match the preexisting candidate verification receipt. All original3415bytes remain an identical prefix; the new heading is Evidence for deliberate fault controls. Metadata, other files and the parsed link graph are unchanged. No candidate text or skill is silently revised to clear a finding."
+  },
+  "metadataReview": {
+    "observed": "All six JSON files parse. The root frontmatter name matches the directory and metadata.json; its complete description and ordered six tags match metadata.json. Frontmatter category maintenance agrees with the usage guide and catalog entry. The mandatory testing route remains in the root and usage guide. No root metadata change, new dependency, command, executable or permission request is introduced by the virtual append.",
+    "nestedSourceMetadata": "Migrated api-aggregation-patterns metadata retains alwaysApply:true; visual/message metadata retain alwaysApply:false. These are nested historical source files, not new root skills or authority. The root routes migrated indexes by relevant domain. Their native loader effect is not measured here, and no unconditional load or permission is inferred from these flags.",
+    "limits": "The actual root fields, complete JSON values and reference frontmatter/title inventory are reviewed as data. This is not execution of a native YAML/schema validator, a skill discovery/load test, or proof that every framework example is correct. Unrouted authoring-template metadata is distinguished below rather than counted as an active rule."
+  },
+  "linkClosure": {
+    "parsedEdges": 101,
+    "localEdges": 74,
+    "externalEdges": 27,
+    "unresolvedLocalTargets": 0,
+    "unparsedInlineLinkConstructs": 0,
+    "localFragments": 0,
+    "observed": "All parsed local Markdown targets exist as nonsymlink files inside this bundle. No parsed link leaves it. The virtual target has the identical edge list, so this append introduces no missing file or dangling local anchor. External URL destinations are inventoried, not fetched or declared reachable/current.",
+    "inlineCodeFalsePositive": "The approximate reference-link scanner reports [0-9a-f] from regex-reference/patterns.md:35. Reading the complete line shows it belongs to an inline-code UUID regular expression, not a Markdown reference label. It is not a broken documentation link. The raw scanner output remains preserved; no source is edited to silence it.",
+    "plainPathLocators": "The Markdown-only graph reaches68of72Markdown files. Three apparent orphans are explicitly named as inline-code paths at computer-use-operations/source-index.md:49-52: references/mcp-tool-parity.md, references/layered-crud.md and references/dashboard-ui.md. Their complete files are present/acquired and the relative paths resolve. These are discoverable plain-text locators, not missing requirements; they are not silently reclassified as clickable Markdown links.",
+    "unroutedTemplate": "The remaining _sections.md contains Rule Title Here, example() and an example.com authoring template. It has no incoming bundle Markdown route and is not the actual section index. The root correctly labels action-pending-states.md as the section/category index. The template is retained unchanged and is not treated as validated runtime guidance or proof of external-link freshness.",
+    "parserLimit": "Fenced examples are excluded; the reader is a bounded inline/reference-link and heading scanner, not a full CommonMark renderer. The sole reported undefined reference is manually disambiguated. No HTTP checks or rendered-click acceptance are claimed."
+  },
+  "routingAndConflictFindings": [
+    {
+      "id": "nextjs-category-prefix-drift",
+      "assessment": "preexisting routing defect, unchanged by candidate",
+      "evidence": "references/nextjs-conventions/action-pending-states.md:3-4 explicitly declares filename prefixes as category IDs; its build/cache/server/route/action/meta descriptions follow those categories. But build-barrel-files.md contains the useFormStatus pending-state rule, cache-fetch-options.md contains serverExternalPackages build configuration, and meta-generate-metadata.md contains dead-code removal. These titles/bodies do not belong to their declared filename-prefix groups. The root table describes those actual contents, so a prefix-driven category sweep can disagree with root-caption routing.",
+      "relatedConcreteMismatch": "The review algorithm action-optimistic-updates.md:139 points client-boundary demotion candidates to cross-boundary-coherence, while that file's actual title/body concerns server/client initial-HTML hydration equality; the demotion material is cross-extract-shared-logic.md. This is an existing topic-to-locator mismatch, not a broken file link.",
+      "disposition": "Record the actual routes/body mismatch; do not rename, rewrite, load or apply any skill. A later specifically authorized source-maintenance scope must reconcile the prefix contract, topic locators and captions together rather than bless this bundle as clean. The reference-only testing candidate does not fix or cause it."
+    },
+    {
+      "id": "absent-named-companion",
+      "assessment": "preexisting unresolved companion, not a new candidate dependency",
+      "evidence": "SKILL.md:138 names @devops-conventions for shell/container conventions. The exact canonical .opencode/skills/devops-conventions path returns ENOENT and the inspected local catalog has no corresponding entry. No companion is loaded and no other configured source or live runtime availability is assumed.",
+      "disposition": "Report this as a source/catalog dependency gap for users following that cross-reference. Do not invent/install a replacement or broaden shell/container authority. It is separate from the already-present testing route."
+    },
+    {
+      "id": "candidate-replay-scope",
+      "assessment": "candidate wording needs a bounded interpretation before unqualified acceptance",
+      "evidence": "The append says Recheck changed work without replaying accepted, unchanged cases. The root requires repository-specific verification, the testing guide:10-19 requires regression checks for changes, and meta-generate-metadata.md:80 separately requests the full suite after deletion. Reusing genuinely unchanged evidence is compatible; treating an unchanged test-file name as sufficient to skip newly affected regression or combined checks is not. The candidate does not explicitly define unchanged as the complete source/test/environment/required-check scope.",
+      "disposition": "Flag this precision risk without changing the exact proposal. It does not grant a blanket testing exemption or let prior scoped greens replace current required full checks. A future exact approved wording revision should make that boundary explicit; any changed proposal needs fresh review. No test or model behavior is exercised here."
+    },
+    {
+      "id": "fault-evidence-compatibility",
+      "assessment": "no direct classifier contradiction found in the reviewed guidance",
+      "evidence": "The current testing guide requires behavior assertions, meaningful regressions and I/O-boundary-only mocking. The candidate additionally requires the intended selected-test assertion/trap and expected failing outcome, rejects cancellation/capture/resource/setup failures and passing mutants, and retains original output and spent costs. Neither ERR_ASSERTION nor ERR_TEST_FAILURE alone is declared decisive. Python/Go/Rust test-tool guidance does not supply a competing deliberate-control classifier.",
+      "disposition": "The narrow evidence principle is consistent with these existing rules, subject to the replay-scope precision risk above. The prior two same-parent episodes and import/survivor contrasts remain the medium-confidence evidence; no new independent sessions, live evaluation or universal Node-version acceptance is invented."
+    },
+    {
+      "id": "generic-workflow-versus-consumer-gates",
+      "assessment": "preexisting workflow tensions must remain bounded by actual project instructions",
+      "evidence": "The Next.js algorithm:98 says Ask for ambiguity and:100 says Never refuse a whole-repo audit; web-design/reviewer.md:24,55 says confirm/consult the user. The root:16-22 and autonomous-work.md:22-38 explicitly limit interactive wording in auto mode, retain genuine blockers and give repository safety/test instructions precedence. The README:15-19 points to applicable project instructions rather than supplying authority. Generic ruff/mypy/go-test commands, E2E launch examples and WSL-only browser wording are not this host's permission, actual configured command set or reason to retry a refused/ended workflow.",
+      "disposition": "Do not use a generic always/never example to override acquisition, mode, privacy, ownership or consequential-action gates. No current no-tests prohibition is asserted. This bounded review does not run any of those commands or adopt their platform/tool assumptions."
+    }
+  ],
+  "callerFailuresPreserved": [
+    {
+      "path": "/home/james/Documents/computer-use-native-host-20261029/fault-bundle-review-rNOcs2/reader-failure.json",
+      "actual": "First inline reader exits1with SyntaxError: Illegal return statement at eval1:35. An extra brace closes graph too early. Node rejects it before any module body/source acquisition or write executes.",
+      "correction": "Correct only the reader brace. No skill, test or source is changed and no product failure is claimed."
+    },
+    {
+      "path": "/home/james/Documents/computer-use-native-host-20261029/fault-bundle-review-rNOcs2/reader-binary-failure.json",
+      "actual": "Second reader exits1with ERR_ENCODING_INVALID_ENCODED_DATA at read eval1:14:352, called from eval1:49:295. It attempts to UTF-8-decode the binary operator .git/index after the textual bundle/support reads succeeded. This is not an invalid UTF-8 bundle file.",
+      "correction": "Hash the index as binary; keep UTF-8 validation for actual text. The earlier reader did not persist its byte counter/copies or exact pipe total. Its433856-byte completed read cost is explicitly reconstructed from the enumerated file lengths and29854-byte index read, not original telemetry or proof that every initial source byte stayed stable. No refund or resource increase."
+    },
+    {
+      "path": "/home/james/Documents/computer-use-native-host-20261029/fault-bundle-review-rNOcs2/preservation-reader-failure.json",
+      "actual": "The final-preservation reader exits1with ERR_ASSERTION at eval1:21:93 after78current/original bundle hash pairs and five critical support pairs have passed. Its deepEqual compares own bytes:undefined directory properties to serialized JSON rows that omit undefined. The printed metadata differs only in that caller representation, not source paths/kinds/file sizes.",
+      "correction": "Preserve the error and754915-byte reconstructed completed-read cost, bringing the charge to1930145. Finish the metadata comparison fieldwise and perform only the remaining final checks within167007bytes; do not replay the already-completed78body comparisons or refund their costs. The failed invocation wrote no completed final verification receipt and ran no Git command."
+    }
+  ],
+  "boundsAndRemaining": {
+    "acquisition": "Primary completed reader:161602bytes conservatively charged for dedicated previews/grep/partial catalog reads,433856reconstructed failed-reader bytes and433856measured completed-reader bytes =1029314. Reading its120384-byte report for semantic excerpts gives1149698; six complete reference reads total25532,giving1175230. The preservation caller's16911-byte then-current document,120384-byte receipt,500976bytes of complete bundle/current-copy pairs and116644critical-support pair bytes reconstruct754915more, total1930145; no completed-body replay or refund follows. Final remaining-check accounting is recorded separately. Retain262144/file,2097152aggregate,10seconds per job,2048metadata entries and64KiB per-job Git capture. No continuous multi-call deadline or complete process-internal IO cap is claimed; the earlier text/binary reader's exact Git total is unknown.",
+    "priorRefusal": "The previous candidate unit's actual269766-byte quality-audit refusal at262144and its charged costs remain. That known-oversized body is not read, split, copied or retried through another tool. Prior excerpts only support its local-audit comparison; this is not complete review of that separate document.",
+    "separateNativeGates": "Read-only full-bundle preparation is now performed, not blocked by application approval. Exact skill application/rollback and native deny/cancellation still require their actual prerequisites. The native proposal's2-6distinct actual session/message references/root-SKILL diff are not manufactured from two same-parent file episodes. No native reviewedHash, eligibility, skill loading, applied learning or broader acceptance follows from this report.",
+    "goal": "The whole bundle is not declared clean: retain the routing/companion findings and candidate precision risk for explicitly authorized maintenance/review. All20unfinished tasks/eight criteria/75IDs/additional lanes, seven completed tasks/one phase and historical failures remain. Both original failure investigations remain performed but do not establish historical causes. Full native/build/type/currentCI/health/model/physical/human/device/original evidence and exact consequential approvals remain separate; no staging, commit, push, deployment, security change or closed-goal reopening occurs."
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-01",
+  "scope": "Read-only investigation of known task-owned backup/receipt manifests, retained Git-index snapshots and one exact native source-session lookup. This is not a replacement original baseline, restored index, new test or full preservation acceptance.",
+  "sourceLocators": {
+    "oldTreeGuide": "docs/codex-parity/main-consolidation.md, Complete old-tree preservation",
+    "lostBaselineHistory": "docs/test-quality-audit.md, User-reported server restart — 2026-10-28",
+    "modelIndexHistory": "docs/session-consolidation-2026-10-29.md, local index-refresh control follow-up",
+    "backupRoot": "/home/james/Documents/computer-use-delivery-preservation-20261029",
+    "taskReceiptRoot": "/home/james/Documents/computer-use-native-host-20261029"
+  },
+  "discovery": {
+    "knownTaskRootEntriesListed": 109,
+    "knownDirectBlockerEntriesListed": 100,
+    "scope": "Metadata listing of these two named task roots, selected receipt-name glob and source-linked preservation directories only. Not a recursive full-home search or proof no other copy exists.",
+    "manifestProjection": {
+      "observedAt": "2026-11-01T07:35:27.130Z",
+      "selectedManifests": 13,
+      "completeReads": 12,
+      "fullReadRefusals": 1,
+      "reservedBytesIncludingProbes": 299497,
+      "elapsedMs": 13,
+      "finding": "Root before/after files describe native compiler/dependency preparation, not the original path inventory. Decision-inbox receipt covers17selected source/build files, not637paths. Source-dispositions-provisional.json has652rows and is explicitly provisional, not full semantic or original-baseline acceptance.",
+      "selectedManifestIdentities": [
+        { "path": "source-dispositions-provisional.json", "root": "backupRoot", "bytes": 253540, "sha256": "8fff776e12f3c76eeba6c1e2e3b10656b3010311d9339e2978afeafc89f12217" },
+        { "path": "parent-imports.json", "root": "backupRoot", "bytes": 7736, "sha256": "e8439f94f05b6f932295c8745ec19a1365ea251608aa1d21a67f143ef370d82f", "rows": 33 },
+        { "path": "branch-preservation-parent-Yw5LUg/native-audit.json", "root": "taskReceiptRoot", "bytes": 13484, "sha256": "741247f2eed6b48d7b800200dd50e99051f59dec2a9a71f6d00a955ce296ce20", "scope": "Schema/array counts only; raw tool inputs, messages and reasoning were not exported by this projection" }
+      ]
+    }
+  },
+  "oldTreeBackup": {
+    "receipt": { "path": "preservation-receipt.json", "bytes": 878, "sha256": "fa48737968955b785d65e995834a94d3aed4c9d1e4b5597ba08f7bdca095323a" },
+    "declaredSourceRoot": "/home/james/repos/computer-use-delivery",
+    "declaredInventoryEntries": 115355,
+    "declaredVerifiedFiles": 102815,
+    "declaredVerifiedSymlinks": 114,
+    "declaredExclusions": [],
+    "declaredHead": "c71b8cc57004a65ed4198cf0e5ae8f256e56f532",
+    "declaredFullRestoreVerified": true,
+    "qualification": "The current receipt is read and hash-bound. Its historical tar-compare/full-restore claims remain dated observations, not newly rerun verification or proof of the lost earlier637path baseline.",
+    "largeArtifacts": [
+      { "path": "computer-use-delivery.tar", "observedBytes": 1240821760, "declaredSHA256": "84fd74d7dc00460b3bbcef7a3daded4eeef01ef44f9438fea036cd9c01ee91b4", "currentContentsReadOrRehashed": false },
+      { "path": "delivery-complete-inventory.json", "observedBytes": 34606122, "currentContentsRead": false }
+    ],
+    "canonicalOnlyReceipt": {
+      "path": "canonical-only-preservation.json",
+      "bytes": 737,
+      "sha256": "dc585fce43e7a62f77c1a0dd23df55c79b89982e8689d5f0dad3db0bd57fafcf",
+      "declaredPaths": 193,
+      "declaredUnchanged": 188,
+      "declaredMissing": ["tools/chatgpt-connector/verify-dependencies.d.mts"],
+      "declaredChangedGoalBundleFiles": 4,
+      "qualification": "This is a point-in-time subset, not the full lost baseline. No generated goal file is read as current state, edited or restored here."
+    },
+    "consolidationReceipt": {
+      "path": "consolidation-checkpoint.json",
+      "bytes": 1255,
+      "sha256": "b81c06afc92c7ac01e746e2688ad334afa5bd3b524c6c73b7f748d8c402cd0ee",
+      "declaredDispositionRows": 652,
+      "declaredOriginalPreservedDeclarationBytes": 64,
+      "declaredOriginalPreservedDeclarationSHA256": "d13844f5938f70678a996ef55f79921d8e2705a113c7690aebe3da86ddef6cad",
+      "qualification": "The prior missing declaration has a separately named preserved original in this receipt. No new restoration/readiness/quiescence or declaration-body acceptance is inferred."
+    }
+  },
+  "laterTwoRootBaseline": {
+    "path": "/home/james/Documents/computer-use-delivery-preservation-20261029/baseline.json",
+    "observedBytes": 406214,
+    "fullRead": false,
+    "fullReadWhyRefused": "The complete file exceeds the unchanged262144byte selected-file acquisition cap.",
+    "prefixBytes": 262144,
+    "prefixSHA256": "6bbe221df5c16eade8b6ba49b9df899e0ca22fd41e7e90f7c580ec003dfcaf11",
+    "completeObjectWithinPrefix": {
+      "byteOffset": 170,
+      "bytes": 186427,
+      "pathKeys": 793,
+      "keySetSHA256": "49079599a111e5097e642b546c8e7ba5f7c661aaf285f55d860efcb4d80835be",
+      "valueFields": ["type", "size", "mode", "sha256"],
+      "rootAssociation": "Not independently decoded from the complete enclosing root object; do not label this as the original637path inventory"
+    },
+    "projectionCorrection": "The first prefix projection looked for arrays and missed the object-keyed inventory. A corrected object-aware projection of the SAME forward prefix found the complete793key object. This second prefix read overlaps every earlier byte; it is not new unique content, a second partition or a full406214byte read/hash.",
+    "original637pathBaselineRecovered": false,
+    "qualification": "The owning guide identifies this as a later two-root preservation baseline. A later/current793path object or652row union cannot be relabeled or filtered into authoritative original637path evidence. The unread remainder and large full inventory/tar are not claimed investigated or reverified."
+  },
+  "historicalModelIndex": {
+    "caseId": "AGR-PS-027",
+    "sessionID": "ses_e6cc8516cffeoNMVDNeoXn1o82",
+    "fixtureRoot": "/tmp/opencode/branch-model-qaSzeF",
+    "beforeManifest": { "path": "branch-preservation-parent-Yw5LUg/before.json", "bytes": 8150, "sha256": "a34298bd4112dc833b522ddc69891999f0b89db3e5ae98dc07f1c1c2f8664273", "declaredFiles": 40 },
+    "outcomeReceipt": { "path": "branch-preservation-parent-Yw5LUg/preservation.json", "bytes": 2177, "sha256": "a3942d26e0c8812c1f0e2c755453efa621d6e23d302d277e795c471468c66830", "declaredUnchangedFiles": 39 },
+    "originalBeforeIndex": { "bytes": 342, "sha256": "39632427060d4a103b69b649bb18bed7589437e0485234736084c9264ccc5f2b", "rawBytesRecovered": false },
+    "savedAfterIndex": { "path": "branch-preservation-parent-Yw5LUg/index-after.bin", "bytes": 342, "sha256": "683ef8d15b97ff2933d99bdc39f865eefae70e2e558f3d6edd768fbd7d9708c7", "matchesAcceptanceReceipt": true },
+    "currentFixtureIndexMatchesSavedAfter": true,
+    "currentFixtureBeforeManifestMatchesRetainedCopy": true,
+    "currentFixtureRootEntries": ["before.json", "repository"],
+    "currentFixtureGitDirectoryEntries": ["HEAD", "config", "description", "hooks", "index", "info", "logs", "objects", "refs"],
+    "savedAfterStaticProjection": {
+      "format": "DIRC",
+      "version": 2,
+      "entries": 4,
+      "internalSHA1Matches": true,
+      "projectedModeObjectStageEntriesMatchRetainedOutcome": true,
+      "unparsedExtensionBytes": 14,
+      "qualification": "Static after-index projection only, not a before/after changed-field comparison. The raw before state and write actor cannot be derived from its hash, authored stage entries or the current after state."
+    },
+    "laterControlSnapshots": {
+      "root": "index-refresh-controls-EUoLf1",
+      "acceptanceReceiptBytes": 6088,
+      "acceptanceReceiptSHA256": "af0450dc32d672cb536217c27583b91f713f1a121878e69093b7cfa0350d5c6d",
+      "snapshotsCompared": 14,
+      "allMatchOwnReceipt": true,
+      "eachBytes": 270,
+      "originalBeforeHashMatches": 0,
+      "names": ["environment-protected-after.bin", "environment-protected-before.bin", "environment-protected-diff-after.bin", "environment-protected-diff-before.bin", "fixed-diff-after.bin", "fixed-diff-before.bin", "model-protected-after.bin", "model-protected-before.bin", "model-protected-diff-after.bin", "model-protected-diff-before.bin", "pinned-provider-flags-after.bin", "pinned-provider-flags-before.bin", "unguarded-positive-control-after.bin", "unguarded-positive-control-before.bin"],
+      "qualification": "Actual saved-byte hash comparisons, not rerun controls. Different fixtures/epochs cannot supply the missing original342byte body or causally attribute its write."
+    },
+    "writeActorAttributed": false,
+    "originalFailedOutcomePreserved": true
+  },
+  "archivedLinkedWorktreeGitMetadata": {
+    "path": "/home/james/Documents/computer-use-delivery-preservation-20261029/worktree-git-metadata.tar",
+    "bytes": 40960,
+    "sha256": "5e014d8d9715db4df7383b3c1a59feb7ec27166c2a6a875281b7fc6f01138f71",
+    "matchesPriorReceipt": true,
+    "tarHeadersInspected": 9,
+    "declaredExpandedBytes": 30096,
+    "selectedIndexMember": "computer-use-delivery/index",
+    "selectedIndexBytes": 29686,
+    "selectedIndexSHA256": "f830a1aee3d05d5ac06230b11f449585d21246cc9db1ef54b809a7e259ac47ae",
+    "matchesHistoricalDeliveryIndexAnchor": true,
+    "matchesOriginalModelBefore": false,
+    "indexVersion": 2,
+    "declaredEntries": 212,
+    "internalSHA1Matches": true,
+    "fullEntryProjectionPerformed": false,
+    "fullEntryProjectionWhyNot": "The one-off index projection only decodes at most64entries;212is outside that projection scope, not evidence that the retained archive/index is invalid.",
+    "qualification": "Only the exact regular index member was read in memory; other metadata bodies/logs were not read. No filesystem extraction, restoration, Git invocation or source execution. This is the old linked-worktree index, not the synthetic model-case original or complete user-history preservation."
+  },
+  "knownLostScratch": {
+    "path": "/tmp/opencode/consolidated-752bcef4",
+    "currentObservation": "ENOENT",
+    "causeEstablished": false,
+    "replacementBaselineCreated": false
+  },
+  "nativeSourceSessionLookup": {
+    "observedOn": "2026-11-01",
+    "goalRevisionBeforeReconciliation": 196,
+    "purpose": "Investigate whether supported source-session retrieval can supply the missing original637path inventory, separately from the already-investigated local receipts. Stop at source identity/not-found before message acquisition; do not reconstruct an original from later subsets.",
+    "sourceLocator": { "path": "docs/goals/752bcef4-29b6-4147-a97b-03725d4b8e39/snapshot.json", "sourceSessionID": "ses_e7d3c547dffeCv5RIH5zPCmbN0", "sourceDirectory": "/home/james/repos/computer-use", "historicalExportStatus": "cancelled", "historicalPlanRevision": 129, "qualification": "This source-qualified historical export identifies the session/earlier baseline narrative, not live state or the raw637path inventory. No closed goal/export is edited or reopened." },
+    "supportedInterface": { "documentation": "https://opencode.ai/v2/docs/api", "client": "/home/james/.local/opt/opencode-v2/bin/opencode", "clientLocator": "command -v resolves to the existing313Bpilot cutover shim; source was read, not edited", "method": "GET /api/session/<exactID> through the ordinary managed api command" },
+    "initialConnectionModeError": { "operation": "opencode api --server http://127.0.0.1:49374 get /api/session/ses_e7d3c547dffeCv5RIH5zPCmbN0", "result": "CLI exit1: explicit-server health resolution requires authentication; it did not establish a target-session denial or retrieve messages", "correction": "Use the documented ordinary managed CLI connection once, without reading/setting/extracting a password, changing credentials, using another client/server/profile or granting permission. Pinned CLI resolver distinguishes explicit Env.password mode from managed service discovery. This corrects the caller's connection-mode error, not an authentication bypass." },
+    "sourceMetadataResult": { "operation": "opencode api get /api/session/ses_e7d3c547dffeCv5RIH5zPCmbN0", "exitCode": 1, "HTTPStatus": 404, "errorTag": "SessionNotFoundError", "sourceMessagePagesAcquired": 0, "sourceMessagesOrRawBaselineRecovered": false },
+    "sameServerContext": { "serviceStatusURL": "http://127.0.0.1:49374", "info": { "version": "2.1.1", "pid": 243444, "tmp": "/tmp/opencode" }, "currentSessionMetadataReadSucceeded": true, "currentSessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3", "projectID": "3e1e6f73bded105bf412f16b6aea04e05f44d605", "directory": "/home/james/repos/computer-use", "qualification": "The exact current-coordinator read corroborates the intended task context and a responsive service. Its saved model/outcome/idle/cost/token fields are not effective execution, activity, billing, ownership, quiescence or complete-history proof and are not copied here." },
+    "sourceContractsRead": [
+      { "path": "/home/james/repos/opencode-native-row/packages/protocol/src/groups/message.ts", "bytes": 3823, "sha256": "ff94abd42b7fc34751f91a3cb3de49108849eb43657ee08ce9eef5a7deed2d0b", "finding": "Message listing supports type/limit, first-page order and opaque cursors. No message query is made after the metadata404." },
+      { "path": "/home/james/repos/opencode-native-row/packages/server/src/handlers/message.ts", "bytes": 2541, "sha256": "5d9ee85bf955e8d1d9c1827c70a9e24e4ba70e026f1539a8c4bbf0b0f11d6883", "finding": "Cursor carries order/direction and must not be combined with an explicit order. This is source review, not a new pagination/behaviour trial." },
+      { "path": "/home/james/repos/opencode-native-row/packages/cli/src/services/server-connection.ts", "bytes": 4226, "sha256": "9ab1863048e60f427d5e27daff8536fb888b8c261d2e89d9bfb937f60b785dd7", "finding": "Explicit-server authentication differs from managed discovery; the managed path may ensure a service. Service status was checked first and the same existing server was observed. No service start/restart was requested; this is not an atomic no-lifecycle race guarantee." }
+    ],
+    "relatedModelAudit": { "path": "/home/james/Documents/computer-use-native-host-20261029/branch-preservation-parent-Yw5LUg/native-audit.json", "bytes": 13484, "sha256": "741247f2eed6b48d7b800200dd50e99051f59dec2a9a71f6d00a955ce296ce20", "finding": "Already-retained12assistant/26completed-tool audit is read completely. It deliberately omits output bodies/reasoning/live events and contains no original342Bbefore-index body; its command list is not a causal attribution. No new model-case query or rerun occurs." },
+    "commandAccounting": { "managedApiCommands": 3, "explicitServerApiAttempt": 1, "serviceStatusCommands": 1, "CLIHelpCommands": 1, "commandPathLookups": 1, "sourceSessionMessagePages": 0, "qualification": "These are actual CLI invocations, not a count of internal HTTP health/discovery requests or a pre-acquisition transport-byte bound. Native results and public API documentation are tool-managed. No raw transcript, user-message body, reasoning, credential or private file payload is persisted." },
+    "preEditReadback": { "at": "2026-11-01T10:29:33.926Z", "selectedFiles": 10, "reservedBytesIncludingProbes": 506289, "elapsedMs": 7, "limits": { "fileBytes": 262144, "jobBytes": 2097152, "chunkBytes": 65536, "deadlineMs": 10000 }, "recordPreimage": { "bytes": 30384, "sha256": "3ed8daf55b3ed406ae4060d4c99ef3c3c9f8da22c4af9b02283bcdd8e83d2288" }, "guidePreimage": { "bytes": 55664, "sha256": "8ad903bb219cfc3d1f22b12e718b703fa0402f4e91258ee3623a6439eae8d3a7" } },
+    "conclusion": "The exact historical source-session route is unavailable through the inspected current managed API. This narrows one recovery alternative; it does not prove global deletion, loss of every history copy, the cause of the404, or that another profile/server should be searched. No unchanged retry, cross-project/profile/credential switch, raw database access, import/export, baseline manufacture or closed-goal mutation follows. Original637inventory/model-before/voice-old-index/full-preservation gaps remain.",
+    "actions": { "testsAddedChangedOrRun": 0, "modelOrChildren": 0, "sourceMessagePages": 0, "rawDatabaseReads": 0, "sessionAPIMutations": 0, "credentialOrPermissionChanges": 0, "importsExportsRestores": 0, "peerActions": 0, "GUIOrAudioOrClipboard": 0, "installsDeploymentsOrRequestedServiceRestarts": 0, "commitsOrPushes": 0 }
+  },
+  "publicReaderDependencyFollowUp": {
+    "goalRevision": 199,
+    "reason": "The fresh full-scope revision198waiting request returned a concrete reviewer requires-continued-work verdict: inspect pinned Session.messages/storage metadata dependency before exhausting the source recovery route. Immediate supported readback confirmed active198, not waiting. This is distinct from the four earlier unexplained aborts.",
+    "frozenNativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "sourceIdentityObservation": { "at": "2026-11-01T10:50:45.828Z", "reservedBytesIncludingProbesAndGitOutputAllowances": 475037, "elapsedMs": 94, "fileCap": 262144, "jobCap": 2097152, "deadlineMs": 10000 },
+    "files": [
+      { "path": "packages/core/src/session.ts", "bytes": 23245, "sha256": "b4eb5aa67ca511ef901b97ec63b83632f4c6e5764e60f9215ca48bbc12848fac", "currentAndPinnedGitBlob": "46a6eb0b8e3cd533f01e701cd2701c444867ff80" },
+      { "path": "packages/core/src/session/session.ts", "bytes": 16705, "sha256": "2cc1b9c0027640ee8430f9ec66aa08d47e4c987c01df9271246421bb1b0cf68a", "currentAndPinnedGitBlob": "0e44a456b4f2c2452edb677e270812e4392ea652" },
+      { "path": "packages/core/src/session/store.ts", "bytes": 11173, "sha256": "7513471e1e96e91926f351505435042e9831d74e87c33be9a0f74dd0dde0d747", "currentAndPinnedGitBlob": "d86cd6ab60c59f0577423d7a056ec09505eb8688" },
+      { "path": "packages/server/src/handlers/message.ts", "bytes": 2541, "sha256": "5d9ee85bf955e8d1d9c1827c70a9e24e4ba70e026f1539a8c4bbf0b0f11d6883", "currentAndPinnedGitBlob": "5bf8d6213952461b27175ebc9b79e3faf7fc0269" },
+      { "path": "packages/server/src/handlers/session.ts", "bytes": 26501, "sha256": "ea5609b1947962755088b302a594f366da78883ed4526c1b0b69c9f1d218a3c0", "currentAndPinnedGitBlob": "0386bd44931a8c4b8d74bdcc414024552e88abae" },
+      { "path": "packages/server/src/handlers/session-error.ts", "bytes": 1650, "sha256": "0016c2f51205fa2e42f4235584a528e9fab7cad5968c5af7754391a7b5d70f9c", "currentAndPinnedGitBlob": "6a4ab921dca75c62fad67562c85a18df3a9cfdab" }
+    ],
+    "publicCallPath": [
+      "Metadata GET: server/handlers/session.ts:158-165 calls session.get(exactID); core/session.ts:371 delegates to sessions.forSession(id).get().",
+      "The bound handle at core/session/session.ts:382-413 uses the get operation defined at52-56: store.get(id), then Session.NotFoundError when absent.",
+      "Store metadata read at core/session/store.ts:96-99 selects SessionTable by exact ID and returns undefined when no row; this selected path has no archive/project filter.",
+      "Message list: server/handlers/message.ts:42-52 calls Session.messages; core/session.ts:415-418 awaits result.get(input.sessionID) BEFORE store.messages(input). A failed metadata get prevents that later message query under this pinned contract.",
+      "Known-ID single-message GET: server/handlers/session.ts:604-607 ALSO awaits session.get(sessionID) before session.message(ctx.params). Thus the public handler gates the lower-level single-message read too.",
+      "Both public handlers map Session.NotFoundError through server/handlers/session-error.ts:6-11 to SessionNotFoundError, retaining the exact session ID."
+    ],
+    "storageDistinction": "SessionStore.messages at143-181 directly queries message rows by session ID/type/cursor; SessionStore.message at183-195 directly looks up a message ID, and core/session/session.ts:57-60 verifies its session association without its own metadata get. These internal functions alone do not establish the public prerequisite. The inspected public list AND single-message wrappers supply it. No direct internal-store/database call is an authorized recovery bypass or performed here.",
+    "knownMessageReferenceCheck": "A targeted literal msg_ search of the selected current752bcef4bundle finds three narrative lines, including one already-recovered compiler-result ID; the captured active96bundle has no matches. This is bounded reference discovery, not proof that every historical message ID is absent or that those references contain the original637inventory. No message GET, guessed ID, brute-force scan or raw transcript acquisition follows; the known-ID public handler has the same metadata prerequisite.",
+    "conclusion": "For the exact frozenba546eccontract, both supported public message readers require metadata existence before message storage. The earlier source metadata404 therefore is not bypassed by switching to these readers under that contract. This closes the reviewer's specific source-dependency question, not original-body recovery, installed-code attestation, a new live message outcome, orphan-row absence, global history deletion or its cause. Metadata can change after an observation; source equality is not an atomic/live or cross-profile guarantee.",
+    "newActions": { "sourceOrTestImplementationEdits": 0, "testsAddedChangedOrRun": 0, "repeatedMetadataOrMessageRequests": 0, "directStoreOrDatabaseReads": 0, "credentialOrProfileSwitches": 0, "modelOrChildTrialsToDemonstrateDependency": 0, "APIOrClosedGoalMutations": 0, "installsOrDeploysOrRestarts": 0, "peerOrGUIActions": 0, "commitsOrPushes": 0 }
+  },
+  "archiveAndVoiceFollowUp": {
+    "goalRevisionBeforeObservation": 182,
+    "reason": "The revision181 waiting audit was refused for two still-available exact task-owned sources: canonical-archive-check-LqmUsg and voice-assets-parent-YmasER. Both are now inspected and reconciled rather than only listed.",
+    "archiveCapture": {
+      "root": "/home/james/Documents/computer-use-delivery-preservation-20261029/canonical-archive-check-LqmUsg",
+      "observedAt": "2026-11-01T07:59:13.111Z",
+      "captureReceipt": { "path": "capture-receipt.json", "bytes": 1376, "sha256": "141543f4aec02b23acf696d7c89c09b7759da7f0aa7f62f1763e87f17cc2fff8" },
+      "declaredCaptureReason": "coverage observed current-goal snapshot hash mismatch in addition to historical483fplan; preserve before read-only diagnosis",
+      "declaredSourceRoot": "/home/james/repos/computer-use/docs/goals",
+      "allSixCapturedFilesMatchReceiptBytesHashAndPermissionMode": true,
+      "files": [
+        { "path": ".goal-docs-manifest.json", "bytes": 30082, "sha256": "92855ee95ebdbb437ab11e0306b8891e04b59eee88a2a1385fb229db398df12f" },
+        { "path": "README.md", "bytes": 7151, "sha256": "0ee69c3d8ed6b875726819cafff11d8864c70e3b3dd77dea5718eb36ae1c17a9" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/HANDOFF.md", "bytes": 65946, "sha256": "5d227fb6feda8de1762a73192e30302e8cdb0525a43771be0c1b0e471f01fe5d" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/plan.md", "bytes": 38742, "sha256": "d5d38e359731c11d48face10a05545e86b3e1631752f8ced355c9faad4cd61cf" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/snapshot.json", "bytes": 73151, "sha256": "968b2e02cc8d85f3673159d828b791c4d5113548f8bfdd028d610e32f6d92b3c" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/work-history.md", "bytes": 26964, "sha256": "cb4916da506c714cb9c49324fd12e9cdc58de00a26b23e0052e3f040f2a24fc3" }
+      ],
+      "manifest": { "version": 1, "owner": "goal-docs", "declaredGoals": 25, "declaredOwnedFiles": 101, "integrityMatchesInspectedWriterSemantics": true },
+      "readmeManagedBlock": { "bytes": 7128, "sha256": "7a10cba0cf3d7b7fbdb5ef997da7636c0bf066eb694984d50773866cd7ba5ec1", "matchesOwnership": true },
+      "selectedGoal": {
+        "id": "752bcef4-29b6-4147-a97b-03725d4b8e39",
+        "sessionID": "ses_e7d3c547dffeCv5RIH5zPCmbN0",
+        "directory": "/home/james/repos/computer-use",
+        "exportedAt": "2026-10-29T09:34:23.211Z",
+        "status": "active",
+        "planRevision": 96,
+        "contentFingerprint": "28f129cdda856ecce1629101320e9ee4b3a9b7daee1a81891fe340297600f34a",
+        "planFingerprint": "7c9bdaa9cae356a41e91b6b00c32e89939922d321f672b3a51c999affa6c2ffb",
+        "historyEntries": 50,
+        "checkpoints": 8,
+        "snapshotIdentitySemanticAndPlanFingerprintsMatchIndex": true,
+        "allFourBundleOwnershipHashesMatch": true,
+        "threeMarkdownHashesMatchSnapshotGeneratedFiles": true
+      },
+      "inventoryFinding": "The bounded snapshot contains goal/plan/history/checkpoint data and generated-document hashes. Selected document references preserve the original637path capture and lost scratch locator as narrative evidence, not the637path raw inventory or original model342Bbefore-index. No files/inventory/baseline/paths named data field is present in the inspected snapshot projection; no embedded original inventory is inferred from prose.",
+      "qualification": "This capture contains one four-file goal bundle plus README/manifest/receipt, not all25indexed bundles. Other indexed paths are not declared lost. The original reported coverage mismatch and historical483fplan failure remain dated failures; current internal consistency does not establish their cause, repair, live freshness or full historical completeness. Initial discovery compared whole README/self-manifest hashes to ownership entries: those false values were inapplicable, not integrity failures; README ownership is managed-block-only and the manifest has no self-file entry."
+    },
+    "currentRepositoryExportComparison": {
+      "observedAt": "2026-11-01T08:02:08.412Z",
+      "root": "/home/james/repos/computer-use/docs/goals",
+      "files": [
+        { "path": ".goal-docs-manifest.json", "bytes": 52952, "sha256": "348cba338901dd21b95d89984dac655bffadf9bd1a8ac2adc1ae67cac54a21f3" },
+        { "path": "README.md", "bytes": 12577, "sha256": "538ae712e9453d507f829dd603595fd1f11156686dd5f5c4fd172aaea5cc2275" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/HANDOFF.md", "bytes": 61553, "sha256": "3d249a6a66257f456b4f1c198dfc90cfa3abbfa66439cc755df848d6f4174662" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/plan.md", "bytes": 43231, "sha256": "a9b2ce0abfe2a7f51b47314e449ae3d0d6ec874e4111109dcd8dd18e6b441495" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/snapshot.json", "bytes": 67368, "sha256": "43a480b1bb47a9aa40f9803d7bbf21473cbcc27197d01e979893adcf38c9348b" },
+        { "path": "752bcef4-29b6-4147-a97b-03725d4b8e39/work-history.md", "bytes": 18099, "sha256": "46217f52e29c5ef6adcac77e78861c58878b2bac0fadc1ebea25264453d79aef" }
+      ],
+      "sameGoalSessionDirectoryIdentityAsCapture": true,
+      "exportedAt": "2026-10-29T18:39:50.113Z",
+      "status": "cancelled",
+      "planRevision": 129,
+      "contentFingerprint": "98ce229f2022cefa162f5ed2ce65aa1aab281817da1b849a4c170cfdba59630b",
+      "planFingerprint": "803251a77f2c9046744fd37c400d9d9f483c19f0db192e7beecbc736ae1c6c43",
+      "historyEntries": 20,
+      "checkpoints": 8,
+      "manifestIntegrityReadmeManagedHashAndSelectedBundleHashesMatch": true,
+      "snapshotIdentitySemanticPlanAndGeneratedDocumentHashesMatch": true,
+      "readmeManagedBytes": 12554,
+      "readmeManagedSHA256": "fa145727168d2ea09bb21f62ce8c4c83417e8cdff135ce17b18b06ee4d7acb6d",
+      "qualification": "Both are historical exports of752bcef4, not live current goal21e84866, not identical epochs and not a request to reopen a closed goal. The current repository export is later cancelled129, not the captured active96. Bounded history counts differ and do not prove deletion/full history completeness. No renderer/plugin import, goal mutation, archive recovery/export, generated-file write or483frepair occurred.",
+      "inspectedHashSemanticsSources": [
+        { "path": ".opencode/plugins/goal-docs/writer.ts", "bytes": 35873, "sha256": "dc70f6ec26cb47bbfee5ff95eaf045d55924ef173ed6e8429af7d04a1cc86791" },
+        { "path": ".opencode/plugins/goal-docs/model.ts", "bytes": 14985, "sha256": "d867450ce09d79097caf3faa5e79ab3cc41c42a2d8132558bc72131b7dcee6df" },
+        { "path": ".opencode/plugins/goal-docs/render.ts", "bytes": 9715, "sha256": "7b4f7930f0e2909f38589ea3e5faef9202b51687b70086351edd11be26bd6f07" }
+      ]
+    },
+    "voiceManifestReconciliation": {
+      "root": "/home/james/Documents/computer-use-native-host-20261029/voice-assets-parent-YmasER",
+      "manifests": [
+        { "path": "facts.json", "bytes": 9185, "sha256": "180793f91c5769ef57203df21fe8326e904d52c9f5820e3c0edfaa9c01cbbd89" },
+        { "path": "host-artifacts.json", "bytes": 2684, "sha256": "dd54eab234704a6e694ae07331af238133d2ef748a1e8774dd59bd0dc5332551" },
+        { "path": "source-identity.json", "bytes": 13833, "sha256": "0b2689594f814b74232318d804d999098de5d48762bdf0952ecd187a5f5635a6" }
+      ],
+      "completeManifestReads": true,
+      "sourceIdentityAssetReceiptHashMatchesActualFacts": true,
+      "bothPinSourceHashesMatchSourceIdentityRows": true,
+      "hostBaselineMatchesSourceIdentityAcceptanceRow": true,
+      "owningHistoricalGuide": "docs/session-consolidation-2026-10-29.md:746-784",
+      "qualification": "Manifest agreement is historical declaration binding. The current source, selected asset and host-byte observations below are separate jobs; no old receipt is rewritten or silently promoted to full original preservation."
+    },
+    "currentVoiceSelectedSources": {
+      "observedAt": "2026-11-01T08:04:09.769Z",
+      "filesCompared": 63,
+      "bytes": 761601,
+      "allSelectedFileBytesHashesAndModesMatchSavedReceipt": true,
+      "currentGitSelectedFileSetMatchesSaved63Paths": true,
+      "head": "906e8dd51192adc0d32a39c0406077dbc5e5507c",
+      "headStableAndParentGitlinkMatches": true,
+      "parentStagedBytes": 179,
+      "parentStagedSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+      "sourcePins": [
+        { "path": "voice-assets.json", "bytes": 2085, "sha256": "13b06a24dbadc95e761ba61921a68f7191ac296c192281a5cd6e2d665ea73881" },
+        { "path": "audio/models.py", "bytes": 1242, "sha256": "b96ae07a0f43ced4f171688846bf8f9aceb3cffb0c32859c7d17789ad1ae458b" },
+        { "path": "scripts/download_models.py", "bytes": 6204, "sha256": "d7b4b5f92aa4c75fdb2386e93fcc52beeb183b130d40ec99dd1731b2887926fe" },
+        { "path": "ACCEPTANCE.md", "bytes": 89022, "sha256": "98bbe591459d6943129aab919a4288146f9a0ae1f3ac506bf46344cdb65b5eee" }
+      ],
+      "rawIndexDifference": {
+        "path": "/home/james/repos/computer-use/.git/modules/voice-assistant/index",
+        "historicalBytes": 1946,
+        "historicalSHA256": "193b2062b4f563a3234ccf493b2d672cc2a03cdea9a4462b74a0a457bbacf47f",
+        "currentBytes": 2591,
+        "currentSHA256": "0a2da647956e63207e2b028d6331f19760124465a028a4857d67d47a859ca4ec",
+        "matchesHistoricalRawIndex": false,
+        "stableBeforeAfterBothCurrentReadOnlyObservations": true,
+        "contextObservedAt": "2026-11-01T08:06:48.795Z",
+        "format": "DIRC",
+        "version": 2,
+        "internalSHA1Matches": true,
+        "currentStageEntries": 29,
+        "currentStageEntriesMatchCurrentHEAD": true,
+        "currentUnmergedEntries": 0,
+        "currentCachedNameStatusBytes": 0,
+        "oldRawBodyRecoveredOrCompared": false,
+        "writeActorTimeOrCauseAttributed": false,
+        "qualification": "The raw-byte difference is retained, not undone or explained as stat-cache-only without old bytes. Current stage equality to HEAD is not original-index preservation or proof of its old stage entries. This is a real nested voice index, separate from the historical AGR-PS-027342Bsynthetic fixture."
+      },
+      "qualification": "This binds the current selected source set to the dated63-file receipt, not every earlier dirty/untracked byte, branch/history/object, ignored model expansion, venv, preference or recording. Hashing test files is not reviewing/executing/accepting their behavior. No tests or source/index mutation."
+    },
+    "currentVoiceSelectedAssets": {
+      "observedAt": "2026-11-01T08:05:31.985Z",
+      "modelsRoot": "/home/james/repos/computer-use/voice-assistant/models",
+      "rootLocator": "scripts/download_models.py:50, read as source only, never executed",
+      "assetsCompared": 11,
+      "assetBytes": 498149620,
+      "allCurrentSizesAndSHA256MatchSavedFactsAndCurrentManifest": true,
+      "sixSynthesisPinsComparedDirectlyAsJSON": true,
+      "fiveRecognitionAssetsBoundToUnchangedPreviouslyReviewedPinSource": true,
+      "inventories": [
+        { "name": "manifest.json", "entries": 11, "bytes": 3309, "sha256": "a9544e30e60af65174c1db2eb5113358ebed2dfbf4ac0fce9f993574af203341" },
+        { "name": "manifest.json.backup-voice-activation", "entries": 4, "bytes": 1061, "sha256": "808f53a35df9e5f133750237da3cee39b705a367f2ac9f3977e7d92cc0209572" },
+        { "name": "manifest.json.backup-voice-followup-6164289e50e64dc68f75aa5de8325c5f", "entries": 8, "bytes": 2445, "sha256": "72d9c829cbc520cde28a97083cd6ce6728b230c44f40209b1b0146752dfe6c16" }
+      ],
+      "allInventoryHashesMatchSavedFactsAndAllBackupEntriesRetained": true,
+      "limits": { "jobBytes": 536870912, "modelBytes": 268435456, "metadataBytes": 65536, "deadlineMs": 20000, "chunkBytes": 65536 },
+      "reservedBytesIncludingProbes": 498175169,
+      "actualAcquiredBytes": 498175151,
+      "metadataBeforeFirstAsset": 25531,
+      "elapsedMs": 3014,
+      "assetBodiesRetained": false,
+      "qualification": "Original separately recorded512MiBjob/256MiBasset lane, not an enlarged256KiBsource job. Exact eleven stored payloads rehashed without loading/decoding/extracting models or acquiring audio. The Vosk ZIP does not bind its expanded runtime tree. Not all ignored media/preferences/history, new upstream authenticity/security/license or physical/live acceptance. Earlier quoted-key parser failure remains in the saved facts; it was not retried or relabeled as integrity evidence."
+    },
+    "currentInstalledHostArtifacts": {
+      "observedAt": "2026-11-01T08:05:30.935Z",
+      "baseline": { "path": "voice-assistant/ACCEPTANCE.md:381-396", "bytes": 89022, "sha256": "98bbe591459d6943129aab919a4288146f9a0ae1f3ac506bf46344cdb65b5eee", "matchesSavedSourceAndHostManifests": true },
+      "artifacts": [
+        { "path": "/home/james/.local/opt/opencode-v2/bin/opencode", "bytes": 313, "sha256": "0255c36705a0d1a60fd528034870301247b27125d4a702adcc28300ad88065ce", "mode": "33261" },
+        { "path": "/home/james/.local/opt/opencode-v2/opencode-pilot", "bytes": 3274, "sha256": "acf760c76484974bbba79c90130071d0d7308e79eb59cac87db7d3df64aa4276", "mode": "33261" },
+        { "path": "/home/james/.local/opt/opencode-v2/opencode", "bytes": 213648864, "sha256": "0e81c77fcc27b263708b133bbf9880cd641060c20e22d3dec8a79b9a8db90450", "mode": "33261" }
+      ],
+      "allCurrentBytesHashesModesAndExactBaselineTableLinksMatch": true,
+      "limits": { "jobBytes": 268435456, "binaryFileBytes": 268435456, "wrapperFileBytes": 65536, "sourceFileBytes": 262144, "bufferBytes": 65536, "deadlineMs": 10000 },
+      "reservedBytesIncludingProbes": 213744162,
+      "actualAcquiredBytes": 213744157,
+      "elapsedMs": 1622,
+      "binaryOrWrapperBodiesRetained": false,
+      "qualification": "The exact original256MiBbinary/job lane was read before this eligible hash pass; no source cap was raised or frozen-source refusal bypassed. Installed binary and two existing wrappers are unchanged, not executed, replaced or supplemented. This does not inspect every desktop launcher/arbitrary PATH, a running process, actual loaded frontend or all settings/media/history. No new upstream/security provenance or live voice acceptance."
+    },
+    "supportingReadJobs": [
+      { "observation": "Exact archive/voice manifest capture and receipt discovery", "at": "2026-11-01T07:59:13.111Z", "reservedBytesIncludingProbes": 269124, "elapsedMs": 28 },
+      { "observation": "Retained versus current repository export semantics", "at": "2026-11-01T08:02:08.412Z", "reservedBytesIncludingProbes": 558404, "elapsedMs": 28 },
+      { "observation": "Current63voice source/index readback", "at": "2026-11-01T08:04:09.769Z", "reservedBytesIncludingProbesAndCommandOutputAllowances": 1173898, "actualAcquiredBytes": 782274, "elapsedMs": 92 },
+      { "observation": "Current voice index stage versus HEAD context", "at": "2026-11-01T08:06:48.795Z", "reservedBytesIncludingProbesAndCommandOutputAllowances": 201792, "actualAcquiredBytes": 9161, "elapsedMs": 49 }
+    ],
+    "supportingReadLimits": { "fileBytes": 262144, "jobBytes": 2097152, "chunkBytes": 65536, "deadlineMs": 10000 },
+    "acquisitionQualification": "These source/manifest/index jobs and the separately scoped asset/host jobs have their original distinct limits. Repeated manifest/source/payload bytes overlap older observations and are not unique content totals or a single enforced aggregate. Counters exclude dedicated-tool reads; working buffers are64KiB, not measured process peak allocations. Before/after descriptor/path/ancestor checks are sampled, not atomic hostile-writer protection; cooperative deadlines do not preempt syscalls. No private settings, transcripts, credentials, audio or ignored history bodies were exported.",
+    "actions": { "tests": 0, "repoCodeImportsOrExecution": 0, "modelLoadOrDecode": 0, "audioDeviceActions": 0, "installs": 0, "newLaunchers": 0, "configOrPreferenceWrites": 0, "indexWrites": 0, "generatedArchiveWritesOrRestores": 0, "peerActions": 0, "networkRequests": 0, "commits": 0, "pushes": 0 },
+    "acceptance": { "exactReviewRequestedArchiveAndVoiceManifestsReconciled": true, "selectedCurrentVoiceSourceAssetAndThreeHostArtifactBytesCompared": true, "original637pathInventoryRecovered": false, "originalSyntheticModelBeforeIndexRecovered": false, "historicalVoiceRawIndexPreserved": false, "eitherIndexWriteActorAttributed": false, "allHistorySettingsMediaLaunchersOrLoadedVoiceAccepted": false },
+    "remaining": ["Original637path inventory and historical AGR-PS-027before-index remain unrecovered from the inspected sources; the two export epochs supply narrative/history, not those raw bodies.", "Current nested voice raw index differs from the dated1946Breceipt; only current stage equality to HEAD and stability during these reads are observed. Historical raw preservation/cause is not established or reconstructed.", "Current selected source/assets/three installed artifacts now have direct measured preservation evidence, but complete ignored settings/media/history/Vosk expansion/all launchers and all live/physical/human/current regression outcomes remain unverified and retain separate applicable authority."]
+  },
+  "postRestartSelectedSourceFreshness228": {
+    "observedAt": "2026-11-01T18:09:51.769Z",
+    "trigger": "The user reports a server restart and asks to continue without repeating completed work. Parent independent-work review schedules one changed-epoch metadata availability observation at revision228, rather than assume the earlier source404 remains current. No completed source-reader analysis, receipt/asset hash job or original history scan is replayed.",
+    "method": "Supported opencode api get /api/session/<exact ID>, existing configured discovery/auth context only: first current-session identity, then the already-selected original source metadata. No message endpoint/page/body is read and neither session is mutated.",
+    "currentSession": { "id": "ses_e78fdcc9affeNOlKMRek7Yobo3", "exitCode": 0, "projectID": "3e1e6f73bded105bf412f16b6aea04e05f44d605", "metadataAvailable": true, "stdoutBytes": 555, "stdoutSHA256": "e5862904e011888ea8b90705415060b3cbb7f6530d54a95126fe85e3d97206ad", "stderrBytes": 0, "qualification": "Current identity is returned in the existing context; absent directory/location fields are not fabricated or treated as a different project/profile." },
+    "selectedOriginalSource": { "id": "ses_e7d3c547dffeCv5RIH5zPCmbN0", "exitCode": 1, "metadataAvailable": false, "errorTag": "SessionNotFoundError", "responseContains404Marker": true, "stdoutBytes": 139, "stdoutSHA256": "fa26ff04420c8dc17717483b7482085fbbe388a374fc2184ff1720a8461fc09e", "stderrBytes": 19, "stderrSHA256": "3c3973a1fbfe603975e00207c83a11431d8b739797b791f10bf8326af4efdead", "callerFailure": null, "messageBodiesOrPagesRead": 0, "rawMetadataOrErrorsSavedOrEmitted": false },
+    "bounds": { "metadataReads": 2, "maximumMetadataReads": 2, "perCallOutputCap": 262144, "totalByteCap": 524288, "bytesAcquired": 713, "deadlineMs": 5000, "elapsedMs": 742 },
+    "consequence": "The specific selected source still returns missing metadata after the reported restart, while the current session is available. Stop immediately: no repeat, pagination, message storage/raw database, private/profile/credential workaround or global session scan. The earlier404 and pinned public-reader metadata-prerequisite inference remain dated, separate evidence; this new observation does not identify deletion, orphaned storage, actor, cause or every possible future recovery path. Original637inventory/model342Bbefore/voice1946Bold-index body and full original preservation remain unrecovered, not reconstructed or waived.",
+    "preservationBeforeInsertion": { "observedAt": "2026-11-01T18:10:48.327Z", "thisRecord": { "bytes": 41968, "sha256": "3c362b44a11f6971697d3c66be50f8616afcf19a9ca9645ab6d9acad7bdfddd1" }, "lifecycleRecord": { "bytes": 44925, "sha256": "0aeb972fe2ecc6e588a78c8823b8b6e9755781dacb2ce0f724ed7c020b5fa18b" }, "qualification": "Fresh selected preimages and original staged179B/SHA91d6022a only; not this insertion's post-edit receipt or full quiescence." },
+    "actions": { "testsAddedChangedOrRun": 0, "modelOrChildTrials": 0, "sourceSessionChangesOrPrompts": 0, "foreignGoalChanges": 0, "rawDatabaseOrPrivateStoreOrProfileBypass": 0, "messagePages": 0, "originalArtifactOrAssetHashJobsReplayed": 0, "runtimeOrServiceStartsOrRestartsIssued": 0, "peerOrGUIOrClipboard": 0, "installsOrDeploysOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "localLauncherSettingsMediaFollowUpAfterReview229": {
+    "checkedDate": "2026-11-01",
+    "trigger": "The actual revision229 waiting reviewer accepts the no-tests/deployment/security/human/original-session404 barriers but identifies unperformed local launcher/settings/media/quiescence preservation investigation. Supported readback remains active229; revisions230-232 schedule and record the following parent-only read-only preparation. This is the ninth actual continuation verdict, not accepted waiting, an older abort or a new test.",
+    "sourceLocators": [
+      "voice-assistant/AGENTS.md:9-23,49-56 and README.md:42-57,108-120,168: native registration, public preferences storage, models/ and ignored state/; no separate launcher may be added or maintained",
+      "voice-assistant/ACCEPTANCE.md:381-396 and Documents/computer-use-native-host-20261029/voice-assets-parent-YmasER/host-artifacts.json: exact previously reviewed ELF/two wrappers",
+      "docs/deployments/2026-10-29-goal-plugin.md:27-37,262-269: exact active profile, two transaction backups/receipts and old47Bshim",
+      "scripts/session-relogin.sh:21,43-52: exact historical one-shot autostart entry and current source recipe; script only read, not run",
+      "docs/codex-parity/main-consolidation.md:351-368 and Documents/computer-use-delivery-preservation-20261029/old-directory-liveness.json: exact old tree and dated process identities",
+      "voice-assistant/src/tui.tsx:26-29; packages/tui/src/plugin/api.tsx:200-202; context/storage.tsx:47-57,145-146: id/key, public namespace and source storage-path rule; actual path additionally confirmed by public CLI path discovery and directory metadata"
+    ],
+    "launcherAndTransactionObservation": {
+      "observedAt": "2026-11-01T18:32:24.556Z",
+      "directories": [
+        { "path": "/home/james/.local/share/applications", "entriesExamined": 7, "truncated": false, "OpenCodeNamedEntries": 0 },
+        { "path": "/home/james/.config/autostart", "entriesExamined": 1, "truncated": false, "OpenCodeNamedEntries": 0 },
+        { "path": "/home/james/.opencode/bin", "entriesExamined": 5, "truncated": false, "OpenCodeNamedEntries": ["opencode2", "opencode"] },
+        { "path": "/home/james/.local/opt/opencode-v2/bin", "entriesExamined": 1, "truncated": false, "OpenCodeNamedEntries": ["opencode"] }
+      ],
+      "exactHistoricalAutostartEntry": { "path": "/home/james/.config/autostart/opencode-post-login-acceptance.desktop", "result": "ENOENT", "retry": false, "qualification": "Historical armed-entry prose is dated, not proof the entry still exists or how/when it disappeared. The current canonical recipe is312B/SHA839ac1772ca28509841ac934b595d41de13207a1bd562f7f543946ea316f226f; no actual matching entry is observed, created, armed, run or removed." },
+      "previouslyReviewedBodiesSkipped": ["/home/james/.opencode/bin/opencode2", "/home/james/.local/opt/opencode-v2/bin/opencode"],
+      "additionalBinaryMetadataOnly": [
+        { "path": "/home/james/.opencode/bin/opencode", "bytes": 213648864, "mode": "0755", "uid": 1000, "reasonBodyNotRead": "Exceeds unchanged262144B selected-file scope; no prefix/partition or newly enlarged lane." },
+        { "path": "/home/james/.local/opt/opencode-v2/opencode.2.0.7.bak", "bytes": 212661728, "mode": "0755", "uid": 1000, "reasonBodyNotRead": "Exceeds unchanged262144B selected-file scope; no prefix/partition or newly enlarged lane." }
+      ],
+      "opaqueSettingsAndBackupHashes": [
+        { "path": "/home/james/.opencode-v2-pilot/config/opencode.jsonc", "bytes": 6836, "sha256": "5bf24c83bce2563553cdfccc4f21cd56969ff63b34df5bf44e797645130f521a", "mode": "0600" },
+        { "path": "/home/james/.opencode-v2-pilot/config/cli.json", "bytes": 816, "sha256": "210cda4ff607ddeedbfc64f31bcdf4186ad60c2f25bb10e2adb4b8a0df307fe8", "mode": "0600" },
+        { "path": "/home/james/.opencode-v2-pilot/config/.mcp-config-transaction-452482b6850b644a6fb238e3acb67108.backup", "bytes": 6682, "sha256": "9ffe1a2b8dbe7013324f04a23984eb43e31faea55e3953e572f26e9ebb04347f", "mode": "0600" },
+        { "path": "/home/james/.opencode-v2-pilot/config/.mcp-config-transaction-94edfd2650c20944131a8b669be018fa.backup", "bytes": 919, "sha256": "7244817a110609552add72c0914e0f09e44c2b55d01b13b88bb316b6ffaa4282", "mode": "0600" }
+      ],
+      "transactionReceiptBinding": [
+        { "token": "452482b6850b644a6fb238e3acb67108", "bytes": 811, "receiptSHA256": "bdc22ffd5fbc8e043c32872c566dcc97d3cd05e65dfea6bc42d095de89b989eb", "backupMatchesReceiptBeforeAndBackupSHA256": true, "receiptDesiredSHA256": "c3cff07b93ef9a947c63a8df9a949648a19bbdb826fd6ca9543c146bdc05c792", "currentMatchesAnyReceiptDigest": false },
+        { "token": "94edfd2650c20944131a8b669be018fa", "bytes": 805, "receiptSHA256": "3c32e9c21d99943662da330f2b3f2b50750335c4514de7ae3d7ef8d4b431589c", "backupMatchesReceiptBeforeAndBackupSHA256": true, "receiptDesiredSHA256": "210cda4ff607ddeedbfc64f31bcdf4186ad60c2f25bb10e2adb4b8a0df307fe8", "currentMatchesReceiptDesiredSHA256": true }
+      ],
+      "qualification": "Both backups bind to their exact receipts; current CLI raw bytes match that receipt's desired bytes. Current global raw bytes differ from that older transaction, which is NOT loss, corruption, actor attribution or evidence non-plugin values changed. No private config/preference values were parsed/emitted or compared semantically; earlier non-plugin equality is historical. Receipts are projected only to SHA256-shaped fields,25nodes each. Matching names only is not every possible desktop Exec/PATH alias or historical launcher preservation.",
+      "bounds": { "perDirectoryEntryCap": 64, "newFilesHashed": 6, "newFileCap": 24, "fileCap": 262144, "jobCap": 2097152, "reservedBytesIncludingEOFProbes": 16875, "actualBodyBytes": 16869, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 11, "heldReadsetStable": true }
+    },
+    "oldTreeAndProcessMetadataObservation": {
+      "observedAt": "2026-11-01T18:36:49.901Z",
+      "oldRoot": "/home/james/repos/computer-use-delivery",
+      "oldRootLstatResult": "ENOENT",
+      "historicalPIDs": [ { "pid": 171560, "processDirectoryResult": "ENOENT" }, { "pid": 100227, "processDirectoryResult": "ENOENT" } ],
+      "procDirectoryEntriesExamined": 330,
+      "PIDCandidatesExamined": 267,
+      "ownUIDCandidates": 99,
+      "otherUIDSkipped": 168,
+      "stableOwnUIDCwdObservations": 96,
+      "cwdAccessEACCES": 3,
+      "oldRootCwdMatches": 0,
+      "enumerationTruncated": false,
+      "bounds": { "PIDCandidateCap": 512, "statFileCap": 4096, "jobCap": 2097152, "actualStatAndCwdBytes": 63324, "deadlineMs": 5000, "elapsedMs": 20 },
+      "qualification": "The old folder is not currently present at its exact retained path; historical intact-folder/live-PID prose is not current. This chat issued no deletion, process signal, MCP disconnect or service change, and this observation does not establish when/why/by whom the path disappeared or that its contents are fully preserved elsewhere. Complete sampled enumeration with0matches still does not establish all-descendant/open-file/connection quiescence;3own-UID access failures remain. No argv, environment, descriptor list/content or unrelated cwd was emitted. No restore/deletion/quiescence acceptance is inferred."
+    },
+    "preferencesAndRemainingMediaObservation": {
+      "observedAt": "2026-11-01T18:42:28.622Z",
+      "publicPathDiscovery": { "command": "opencode debug paths", "callsIncludingCallerFormatMiss": 2, "bytesEach": 518, "sha256Each": "090ddfc881e851a0065b79411b59f90b804576ec618351ac6aa72709aa01c753", "firstAt": "2026-11-01T18:38:26.333Z", "correctedProjectionAt": "2026-11-01T18:39:16.951Z", "elapsedMs": [290, 275], "statePath": "/home/james/.opencode-v2-pilot/state/opencode", "callerFailureRetained": "First caller assumed JSON, but the successful response is plain label/path text and returned no projected paths. The second caller corrects only that format assumption, emitting allowlisted path fields. No alternate profile/client, credential/private-store bypass, service start, registration or acceptance test." },
+      "exactVoicePreference": { "path": "/home/james/.opencode-v2-pilot/state/opencode/latest/tui/plugin.voice-assistant.preferences.json", "bytes": 60, "sha256": "c70ca2f4210662c47fb9acc13f1222bcc1465c3804fa010a7e0675211156ddca", "mode": "0664", "uid": 1000, "valuesParsedOrEmitted": false, "historicalDigestMatchInSelectedReceipts": false, "qualification": "Actual latest/tui directory entries agree with the source id/key/path rule. Current fingerprint is not historical preference equality or loaded-source behavior." },
+      "expandedVoskRoot": "voice-assistant/models/vosk-model-en-us-0.22-lgraph",
+      "newSmallExpandedFiles": [
+        { "path": "README", "bytes": 159, "sha256": "722534312e1a64c449a02aa487b231f018c234ea238f19cfe921fcfe19278df4" },
+        { "path": "conf/model.conf", "bytes": 293, "sha256": "f867cc746ce8633b747f723a8b78ea36a6e5db291e8c37bfefc5fb155420b10c" },
+        { "path": "conf/mfcc.conf", "bytes": 154, "sha256": "df62f0c23a628b6a2c2e030d43b72ca992fcbe9f2d6d768946579ae25898570f" },
+        { "path": "graph/disambig_tid.int", "bytes": 234, "sha256": "efbeb98e263f08d2de5477158854bd9e307a35600db4c58a935ccbaf4432e345" },
+        { "path": "graph/phones.txt", "bytes": 2176, "sha256": "6d01b4f94c7a161fc41a5573ace33f72d0c01b7b6e99cc7d14ffe9526d4fe4ca" },
+        { "path": "graph/phones/word_boundary.int", "bytes": 2454, "sha256": "9f63870f605d47e29a050117d255c4fc2cb1551d903883c0040aa16219856165" },
+        { "path": "ivector/global_cmvn.stats", "bytes": 1080, "sha256": "3d7d721fa592c21136597955fd550b1f84568d32e4de7adc35d3b9a033e65afe" },
+        { "path": "ivector/online_cmvn.conf", "bytes": 95, "sha256": "a2f3571754b64297cb7efb2e7ca3df61995c5a45fcbb97188f90613552bb2dfe" },
+        { "path": "ivector/final.mat", "bytes": 44975, "sha256": "29f411865e71494ff1ff03965b3a5812b5c38d3bcdff3e62aa80462978234f4f" },
+        { "path": "ivector/final.dubm", "bytes": 168048, "sha256": "76309d6d4f4612de0e6e2c1e836811becaa9a0adc0e0bfff53a90371488a413d" },
+        { "path": "ivector/splice.conf", "bytes": 35, "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756" }
+      ],
+      "expandedFilesOverUnchangedSelectedFileCap": [
+        { "path": "am/tree", "bytes": 880976 }, { "path": "am/final.mdl", "bytes": 73728293 },
+        { "path": "graph/Gr.fst", "bytes": 47168231 }, { "path": "graph/HCLr.fst", "bytes": 66551106 },
+        { "path": "graph/words.txt", "bytes": 5722620 }, { "path": "ivector/final.ie", "bytes": 19757687 }
+      ],
+      "expandedQualification": "Six source-qualified model directories were completely metadata-enumerated within64entries each.11new small expanded files total219703B and are fingerprinted without model load/decode/content emission; six larger files are metadata only under unchanged256KiB scope, not partitioned or assigned an enlarged lane. Earlier selected archive/model11-asset hashes are not rerun. No exact historical expanded-file SHA receipt was found in the inspected selected references; source archive hash alone does not authenticate these expanded bytes or prove runtime/ABI acceptance.",
+      "ignoredRuntimeMetadata": { "source": "voice-assistant/README.md:120", "directories": ["state/", "state/activation/", "state/pytest/", "state/voice-followup/"], "entryCounts": [22, 4, 34, 1], "truncated": false, "pytestSymlinkEntriesNotFollowed": 14, "deeperPytestDirectoriesNotTraversed": 20, "qualification": "Reports/screens/log/audio fixtures and lock are metadata only, not private-body review or new tests. Existing runtime lock is neither opened for locking nor removed. The selected preservation receipt is separately opaque-hashed/digest-projected below; deeper synthetic fixture trees are not complete original media/history evidence." },
+      "nativeSourceLocators": [
+        { "path": "packages/tui/src/context/storage.tsx", "bytes": 6256, "sha256": "2ef16bfa411fb999d94e219314712c75c94120baf302b9cbc80fc7773b93eea8", "expectedPinnedGitBlob": "57f45a68f86dbbd003c1c5bdf83cd9ab41e154b5" },
+        { "path": "packages/tui/src/context/runtime.tsx", "bytes": 2810, "sha256": "0cd854cade9c9d46dec58ff3b3de7f22478dcf3ed3de887d028f8554831f8703", "expectedPinnedGitBlob": "31a1142062ec297ae9d9c7cf17be3783527306a0" },
+        { "path": "packages/tui/src/plugin/api.tsx", "bytes": 15199, "sha256": "8e836be5f9178a6759dd36d9c68475a02e844ea039e6d1595d73f622bd63dbe5", "expectedPinnedGitBlob": "35a4eac6e563e94a307f45d0fb91599cf2f0b1aa" }
+      ],
+      "nativeSourceQualification": "Current source SHA256 and expected ba546ec tree entries are recorded separately; this job did not compute/assert actual Git-blob equality. No source is imported/edited and no loaded2.1.1 implementation equivalence is inferred. One guessed packages/cli/src/plugin search path failed once; glob discovery corrected the location to packages/tui/src without a failed-path retry.",
+      "bounds": { "perDirectoryEntryCap": 64, "newFilesHashed": 16, "newFileCap": 24, "fileCap": 262144, "jobCap": 2097152, "reservedIncludingCommandAllowance": 309685, "actualBodyBytes": 244133, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 43, "heldReadsetStable": true }
+    },
+    "remainingReceiptAndSystemLauncherObservation": {
+      "observedAt": "2026-11-01T18:44:22.856Z",
+      "SHAOnlyReceiptProjections": [
+        { "path": "voice-assistant/state/native-registration-preservation.json", "bytes": 105, "sha256": "286e966484bb89c711dd3d028bcaf814e10793740cef96f9ebbe9bbb6f08be5c", "SHA256Fields": 0, "projectionNodes": 4, "hashedInPreviousJob": true },
+        { "path": "voice-assistant/state/activation/config-baseline.json", "bytes": 324, "sha256": "bfb7778ddce4f4ccb2416b0afaac782e7cc6c861c864f0977148b881014a3aa6", "SHA256Fields": 2, "projectionNodes": 4 },
+        { "path": "voice-assistant/state/activation/config-deployment.json", "bytes": 423, "sha256": "5e5eb0643076498dad92b34f3a8b3929f8bbd0cc39d06e72545726429d18349b", "SHA256Fields": 0, "projectionNodes": 6 },
+        { "path": "voice-assistant/state/voice-followup/baseline.json", "bytes": 1645, "sha256": "ddc23cf9ed0ee5a398686d7df921d3d930de2193d55ad5304ade46298fd9628d", "SHA256Fields": 8, "projectionNodes": 35 }
+      ],
+      "currentPreferenceOrGlobalHashMatchesInThoseReceipts": 0,
+      "standardXDGDirectories": [
+        { "path": "/usr/share/ubuntu/applications", "entriesExamined": 3, "truncated": false, "OpenCodeNameMatches": 0 },
+        { "path": "/usr/share/gnome/applications", "result": "ENOENT", "retry": false },
+        { "path": "/usr/local/share/applications", "entriesExamined": 4, "truncated": false, "OpenCodeNameMatches": 0 },
+        { "path": "/usr/share/applications", "entriesExamined": 64, "truncated": true, "OpenCodeNameMatchesInObservedWindow": 0 },
+        { "path": "/var/lib/snapd/desktop/applications", "entriesExamined": 11, "truncated": false, "OpenCodeNameMatches": 0 }
+      ],
+      "qualification": "Only current process XDG_DATA_DIRS standard path metadata, not /proc environments, arbitrary home/PATH search or unrelated launcher Exec bodies. The64-entry system-directory window is PARTIAL; no global OpenCode-launcher absence/exhaustion follows. Three remaining named receipt projections have no current preference/global digest match; no private values are exported or inferred.",
+      "bounds": { "perDirectoryEntryCap": 64, "XDGRootCap": 8, "fileCap": 262144, "jobCap": 2097152, "reservedBytesIncludingEOFProbes": 2395, "actualBodyBytes": 2392, "previous231NewFiles": 16, "newFilesThisJob": 3, "aggregate231NewFiles": 19, "newFileCap": 24, "deadlineMs": 10000, "elapsedMs": 8, "heldReadsetStable": true }
+    },
+    "accountingAndPrivacy": "These are distinct bounded read jobs, not one enforced cross-job byte/RSS/deadline allowance. The explicit231file-slot accounting carries16+3=19/24, not resets/refunds. Dedicated tool locator/directory reads and preliminary truncated name globs are separate and are not claimed complete root inventories or included in shell counters. No private configuration/preference/report/audio/history values, unrelated cwd/argv/environment/descriptor content or raw session body is emitted/copied; only opaque selected hashes, receipt SHA fields and bounded metadata. No completed63source/11asset/threehost/body/calculation/API-recovery job is rerun.",
+    "preservationBeforeInsertion": { "observedAt": "2026-11-01T18:47:18.884Z", "thisRecord": { "bytes": 45320, "sha256": "acbc4133dfad13e8fa216afa6766d94825caf1f9b668eae7b71f15938e53f67d" }, "lifecycleRecord": { "bytes": 46378, "sha256": "2877b770a3df90d8fcedcbaad196e7dee8f52f96ce3e98f384672067cb57e1ce" }, "parentIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d", "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805", "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58", "qualification": "Exact current two-owner/index/staged/native preimages only; not this insertion's post-edit receipt or all original/history preservation." },
+    "remainingAndAvailableWork": "The ninth review's named locator/launcher/settings/preferences/expanded-media/cwd preparation is performed at these exact scopes. The unexamined remainder of /usr/share/applications is an available narrow metadata continuation, not a missing-approval/external blocker invented from a partial scan. Keep it explicit before another waiting submission. Complete original637/model342Bbefore/voice1946Bold-index bodies, full historical settings/media/history/launcher preservation and actual loaded/human outcomes remain unproved; selected current fingerprints do not reconstruct originals. Oversized additional binaries/six model files, symlink/privacy/access limits and missing historical matching receipts are concrete limits, not proof every possible legitimate future route is impossible. Current old-root ENOENT supersedes only historical intact/live-cwd observations; no deletion, restoration, authorization, actor/cause or full quiescence claim follows.",
+    "actions": { "testsAddedChangedOrRun": 0, "productionImportsOrModelLoadsOrDecodes": 0, "newOrEditedLaunchers": 0, "privateBodyValuesExportedOrSemanticallyInspected": 0, "settingsOrPermissionSecurityChanges": 0, "processSignalsOrMCPDisconnects": 0, "installsDeploysOrRestarts": 0, "rawDatabaseOrSessionHistoryReads": 0, "peerOrGUIOrClipboard": 0, "oldTreeRemovalsOrRestores": 0, "commitsOrPushes": 0 }
+  },
+  "localLauncherTerminalFollowUp233To234": {
+    "checkedDate": "2026-11-01",
+    "purpose": "Finish the available terminal system-directory and renamed-user-launcher alternatives after the ninth review, without treating a name filter or partial window as exhaustion. These are performed successors to the earlier dated230-231scope, not new reviewer verdicts or acceptance tests.",
+    "systemDirectoryPagination233": {
+      "path": "/usr/share/applications",
+      "supportedReadPages": [ { "offset": 1, "limit": 64, "returnedEntries": 64 }, { "offset": 65, "limit": 64, "returnedEntries": 58 } ],
+      "totalEntries": 122,
+      "terminalSecondPage": true,
+      "OpenCodeNamedEntries": 0,
+      "beforeAt": "2026-11-01T18:54:07.866Z",
+      "afterAt": "2026-11-01T18:54:50.238Z",
+      "sampledDirectoryIdentity": { "dev": "2050", "ino": "1050576", "mode": "0755", "bytes": 12288, "mtimeNs": "1793538067280369566", "ctimeNs": "1793538067280369566" },
+      "identityAndTimestampsUnchangedBeforeAfter": true,
+      "qualification": "The two supported Read pages return the full observed sorted122-name directory, superseding only the earlier unexamined remainder. No launcher body/Exec/settings/payload is read, no atomic hostile-writer/global-PATH/historical-alias guarantee. Earlier unordered64-entry observation stays separately spent and partial; no package/file/source allowance is refunded."
+    },
+    "allPerUserEntryOpaqueHashes234": {
+      "observedAt": "2026-11-01T18:57:37.242Z",
+      "directories": [
+        { "path": "/home/james/.local/share/applications", "entriesExamined": 7, "truncated": false, "mode": "0700", "uid": 1000, "ino": "4456641" },
+        { "path": "/home/james/.config/autostart", "entriesExamined": 1, "truncated": false, "mode": "0775", "uid": 1000, "ino": "5375799" }
+      ],
+      "files": [
+        { "path": "/home/james/.local/share/applications/discord.desktop", "bytes": 360, "mode": "0644", "sha256": "3cc326669bc7860380fe76d8437a835dfe8b5e089138dc2daa290f2db44a1db8" },
+        { "path": "/home/james/.local/share/applications/mimeapps.list", "bytes": 0, "mode": "0664", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+        { "path": "/home/james/.local/share/applications/io.github.jtmb.Tend.desktop", "bytes": 484, "mode": "0644", "sha256": "6151b18fe47fd3c5c60b1d61f67acfaf71c55f305a37d6956b7c0181e5097f8e" },
+        { "path": "/home/james/.local/share/applications/io.github.jtmb.Tend.desktop.backup.20261023T191813Z", "bytes": 291, "mode": "0644", "sha256": "7695023686e14e136025f3f84600ef54f352ef14434588389b0dd8b1545fd654" },
+        { "path": "/home/james/.local/share/applications/io.github.jtmb.Tend.desktop.backup.20261023T193920Z", "bytes": 401, "mode": "0644", "sha256": "e64577a645a23cb36939113d72d4ea02cc4c2a9fd42c88e6abf7df1f1bc87dce" },
+        { "path": "/home/james/.local/share/applications/mimeinfo.cache", "bytes": 55, "mode": "0664", "sha256": "a9c9808058c3ee9c7fcb39df7702b5fac7509f313e6a69673c9d70b25724fb5c" },
+        { "path": "/home/james/.local/share/applications/io.github.jtmb.Tend.desktop.backup.20261023T193851Z", "bytes": 289, "mode": "0644", "sha256": "92c72ca15142003aa04b3c5c4c1d85a91a6e95536ed609d5d5a84542c6be1154" },
+        { "path": "/home/james/.config/autostart/dev-maintenance-restore.desktop", "bytes": 208, "mode": "0664", "sha256": "0a20aec12e20178ddb0c76f712c7d4bbff6be9268c20482c686f226e62e2dd1f" }
+      ],
+      "allUID1000RegularSingleLinkAndReadsetStable": true,
+      "exactHistoricalEntryInInspectedThreeArtifactHostReceipt": false,
+      "qualification": "All8entries, including non-OpenCode names, backups/cache/association files, are now fingerprinted so a renamed alias is not silently omitted. No private Exec/body values are parsed/emitted and unrelated launchers are not adopted, maintained or changed. The existing installed-artifact receipt covers only exactELF/PATHshim/pilot-wrapper paths, not these8paths; it cannot prove their historical equality. Three adjacent Tend backups differ from current bytes, but their older versions are neither rewritten nor attributed to this task. No whole-store absence or initial-baseline manufacture.",
+      "bounds": { "perDirectoryEntryCap": 64, "newFileCap": 24, "filesHashed": 8, "fileCap": 262144, "jobCap": 2097152, "reservedBytesIncludingEOFProbes": 2096, "actualBodyBytes": 2088, "chunkBytes": 65536, "deadlineMs": 10000, "elapsedMs": 5 }
+    },
+    "epochReconciliation": "The prior localLauncherSettingsMediaFollowUpAfterReview229 remainingAndAvailableWork/remaining system-window text was true at its dated checkpoint; this actual233terminal observation and234all-entry fingerprints supersede that unperformed status only. No identified launcher-window/name-filter follow-up remains merely scheduled. Current metadata/hash preparation is not complete original history/settings/media/launcher preservation, loaded behavior or quiescence acceptance; oldrootENOENT and3procEACCES remain qualified, not successful authorized cleanup.",
+    "remaining": "Authentic original637inventory/model342Bbefore/voice1946Bold-index and matching historical preference/all-launcher/expanded-file baselines remain unrecovered. Existing receipts bind selected current assets/host artifacts/CLI transaction but not all these newly located paths. The newly observed oldroot absence has no actor/cause or full-copy proof. Current global raw mismatch is not a private-setting loss verdict. Additional binaries/six expanded files exceed unchanged selected scope; private bodies/alias meanings are not inspected or exported. A legitimately available original or exact additional authority/input can change those limits, but no current fingerprint, extra generic documentation or repeated completed asset/hash job can recreate the missing original state. All20unfinished tasks/eightcriteria/75IDs+additional lanes remain, with no tests/delegation/runtime/security/deployment/private-human/device/demo gate waived.",
+    "preservationBeforeInsertion": { "observedAt": "2026-11-01T18:59:15.179Z", "thisRecord": { "bytes": 63856, "sha256": "4dafa995359c1f5487e765c469bbfde8a58c1cb148eaa48c5f55c0bca82be825" }, "lifecycleRecord": { "bytes": 50482, "sha256": "0dd6fed338a52e4863fa286e3f4611e5927b13a4d263da748cc7fac16484e1f5" }, "qualification": "Exact preimages/index/staged179B91d6022a only, not this insertion's post-edit receipt." },
+    "actions": { "testsOrModelTrials": 0, "privateBodyOrExecValuesParsedOrEmitted": 0, "launchesOrNewLaunchers": 0, "settingsSecurityPermissionOrIndexChanges": 0, "peerOrGUIOrRuntimeChanges": 0, "installsDeploysRestarts": 0, "oldTreeDeletionOrRestore": 0, "completedAssetOrExecutableHashJobsReplayed": 0, "commitsOrPushes": 0 }
+  },
+  "newExpandedModelAndInstalledBinaryCategoryFollowUp236": {
+    "checkedDate": "2026-11-01",
+    "trigger": "Parent independent-work review after the full235plan identifies the existing separately recorded model/binary preservation lanes as a legitimate available alternative for the newly located six expanded Vosk files and two installed ELFs. Their earlier256KiB selected-file refusals were true for those230-231jobs, not proof these actual model/ELF files require an external cap increase. Supported236plan records this before acquisition; no new reviewer verdict or waiting submission.",
+    "unchangedCategoryAuthority": { "model": "currentVoiceSelectedAssets.limits:512MiBjob/256MiBmodel/64KiBchunks/20s", "binary": "currentInstalledHostArtifacts.limits:256MiBbinary/job/64KiBchunks/10s", "qualification": "These are the already retained model/installed-ELF category limits, not new/enlarged lanes or a reclassification of frozen source. Never applies to bun.lock, authentic title import, dist or compiler inputs. Each newly scoped binary has its own unchanged256MiBjob; the two are not combined into a larger binary allowance. All prior package/request/member budgets remain spent, unrefunded." },
+    "newExpandedModelJob": {
+      "completedAt": "2026-11-01T19:04:25.921Z",
+      "root": "voice-assistant/models/vosk-model-en-us-0.22-lgraph",
+      "files": [
+        { "path": "am/tree", "bytes": 880976, "sha256": "cc3f3ecb42b3e4513575e7c43c922eb1cf48657f46414350cdb48c165b51be2b" },
+        { "path": "am/final.mdl", "bytes": 73728293, "sha256": "c8586dfa7f571b8b01bac8217ef96493690c65aa512b72e6ce5acde39c262afe" },
+        { "path": "graph/Gr.fst", "bytes": 47168231, "sha256": "0edf01f3582de257e89415cd508c21790bb6f0e820e743d87adcafd2bcbd9545" },
+        { "path": "graph/HCLr.fst", "bytes": 66551106, "sha256": "96981cf4a3d5fe9e8f4a5205b681fadec0e85221972c929192b121a9f7e7c175" },
+        { "path": "graph/words.txt", "bytes": 5722620, "sha256": "2714049587071344be482fa0e6b7b33792020ba689f422f9895dde5bedbd667b" },
+        { "path": "ivector/final.ie", "bytes": 19757687, "sha256": "ed35fa2f46d8853370f89480a53d3e0184ceaab9afef7f112b43cdda492e5326" }
+      ],
+      "allUID1000Mode0664SingleLinkNoFollowAndStable": true,
+      "limits": { "fileBytes": 268435456, "jobBytes": 536870912, "chunkBytes": 65536, "deadlineMs": 20000 },
+      "actualBodyBytes": 213808913,
+      "reservedBytesIncludingEOFProbes": 213808919,
+      "elapsedMs": 860,
+      "qualification": "Only these six previously unhashed expanded files are read; earlier11selected assets/archive and11new small expanded files are not rehashed. Together the latter11small plus these6cover the17expanded files/214028616B listed in231. Current opaque fingerprints now exist for that whole enumerated expanded tree, not historical per-file equality, archive extraction verification, model load/decoding or runtime/ABI acceptance."
+    },
+    "newLegacyInstalledELFJob": {
+      "completedAt": "2026-11-01T19:04:26.775Z",
+      "path": "/home/james/.opencode/bin/opencode",
+      "bytes": 213648864,
+      "sha256": "0e81c77fcc27b263708b133bbf9880cd641060c20e22d3dec8a79b9a8db90450",
+      "ELFMagic": "7f454c46",
+      "equalsPreviouslyRecordedInstalled211ELFSHA256": true,
+      "mode": "0755",
+      "uid": 1000,
+      "ino": "4468126",
+      "limits": { "fileBytes": 268435456, "jobBytes": 268435456, "chunkBytes": 65536, "deadlineMs": 10000 },
+      "actualBodyBytes": 213648864,
+      "reservedBytesIncludingEOFProbes": 213648865,
+      "elapsedMs": 853,
+      "qualification": "Actual bytes at the newly located legacy install path match the separately recorded installed2.1.1ELF hash. That is observed current identity to that baseline, not an original exact-path inode/history receipt, installed/loaded-process attestation or binary execution."
+    },
+    "newInstalledBackupELFJob": {
+      "completedAt": "2026-11-01T19:04:27.591Z",
+      "path": "/home/james/.local/opt/opencode-v2/opencode.2.0.7.bak",
+      "bytes": 212661728,
+      "sha256": "a6fb8f172bbdd41d8ae3a2b933cc9665dd05894540bd64278c472b4cf5df6a7a",
+      "ELFMagic": "7f454c46",
+      "equalsPreviouslyRecordedInstalled211ELFSHA256": false,
+      "mode": "0755",
+      "uid": 1000,
+      "ino": "5169557",
+      "limits": { "fileBytes": 268435456, "jobBytes": 268435456, "chunkBytes": 65536, "deadlineMs": 10000 },
+      "actualBodyBytes": 212661728,
+      "reservedBytesIncludingEOFProbes": 212661729,
+      "elapsedMs": 816,
+      "qualification": "This differently named/sized older backup gets a new current fingerprint; differing from the2.1.1hash is not an integrity failure. Its filename is not an executed version result or authenticated upstream provenance. No exact historical matching backup receipt is invented."
+    },
+    "combinedQualification": "Three distinct eligible new-file jobs total640119505B/2529ms, not one enlarged combined allowance or measured whole-process RSS. All nofollow/single-link/ancestor/size identities are sampled stable before/after; per-read remaining size/job budgets checked and64KiB buffers used. No payload copies/emission, model load/decode/extraction or ELF execution. Earlier selected-scope refusals remain dated and explained; their unperformed-body status is superseded by these actual category-scoped reads. No new independent source/metadata category lead is left merely scheduled in this scoped review.",
+    "preservationBeforeInsertion": { "observedAt": "2026-11-01T19:05:09.516Z", "thisRecord": { "bytes": 70600, "sha256": "b1bc6ba6e0e394b6f31fff076e74d9c4b3cc66d7066ec6eb23ee3ff660796d13" }, "lifecycleRecord": { "bytes": 52293, "sha256": "197786a6a0a5e1b92068b106c7d5c72a0ad998df52cbfcaecaf01ca1433a1284" }, "qualification": "Exact current two-owner/staged179B91d6022a preimages, not this insertion's post-edit receipt." },
+    "remaining": "The earlier size-only barriers for these exact8files no longer justify stopping: their permitted original-category opaque hashes are now performed. Authentic original637inventory/model342Bbefore/voice1946Bold-index and historical all-launcher/preference/expanded-file baselines, complete original histories/media/settings, actor/cause of oldrootENOENT and complete quiescence remain unproved. Current comprehensive enumerated-tree fingerprints, existingCLIreceiptmatch and newlegacyELFhashmatch are real but not missing historical bytes or current behavior. Privacy/access limits and standing no-tests/native-build/runtime/human/device/consequential gates remain. No newly inferred model/source/package budget or exception for frozen compiler inputs.",
+    "actions": { "testsOrModelTrials": 0, "modelLoadDecodeOrExtraction": 0, "ELFExecution": 0, "completed11AssetsThreeHost63SourceHashesReplayed": 0, "sourceCapRaisesOrFrozenInputReclassification": 0, "packageBudgetResetsOrRefunds": 0, "privateSettingsAudioHistoryValuesExported": 0, "sourceIndexSettingsSecurityPermissionRuntimePeerGUIChanges": 0, "installsDeploysRestartsDeletionRestore": 0, "commitsOrPushes": 0 }
+  },
+  "acquisition": {
+    "selectedFileCap": 262144,
+    "perJobCap": 2097152,
+    "cooperativeDeadlineMs": 10000,
+    "jobs": [
+      { "observation": "manifest/schema discovery", "at": "2026-11-01T07:35:27.130Z", "reservedBytesIncludingProbes": 299497, "elapsedMs": 13 },
+      { "observation": "prefix/receipt and15saved-index comparisons", "at": "2026-11-01T07:37:46.245Z", "reservedBytesIncludingProbes": 287511, "elapsedMs": 16 },
+      { "observation": "corrected object-prefix projection/current fixture metadata", "at": "2026-11-01T07:39:43.322Z", "reservedBytesIncludingProbes": 270981, "elapsedMs": 30 },
+      { "observation": "small Git-metadata TAR and saved/current model-index comparison", "at": "2026-11-01T07:41:50Z", "reservedBytesIncludingProbes": 60127, "elapsedMs": 4 }
+    ],
+    "selectedTarPayloadBytes": 29686,
+    "selectedTarMemberCap": 65536,
+    "tarHeaderCap": 128,
+    "tarDeclaredExpandedCap": 262144,
+    "qualification": "These counters cover the named bounded scripts, not every dedicated-tool read in the investigation, one enforced cross-job allowance, unique content or measured peak allocations. Repeated receipt/prefix/snapshot bytes overlap. TAR-member bytes come from the already acquired40960byte archive and are separately bounded, not additional filesystem acquisition. Descriptor/path identities were rechecked; cooperative checks are not syscall preemption or atomic hostile-writer protection."
+  },
+  "postRestartSelectedSourceFreshness247To248": {
+    "trigger": "Actual246waiting reviewer returns THIRTEENTH continued-work verdict:228metadata404predates the newest user-reported server restart, and refreshing only goal state does not establish current original-source availability. Immediate supported readback remains active246;247schedules one bounded supported read-only exact-original metadata request, not history recovery. This is distinct from12earlierverdicts/four older unexplained aborts and parent244-245syntax preparation.",
+    "selectedSource": { "id": "ses_e7d3c547dffeCv5RIH5zPCmbN0", "historicalLocator": "docs/goals/752bcef4-29b6-4147-a97b-03725d4b8e39/snapshot.json", "scope": "Same already-identified original source and existing managed CLI/auth/profile only; no source-session or closed-goal mutation." },
+    "servicePrecheckAndCallerFailure": {
+      "observedAt": "2026-11-01T20:45:36.397Z",
+      "operation": "/home/james/.local/opt/opencode-v2/bin/opencode service status",
+      "exitStatus": 0,
+      "signal": null,
+      "callerFailureCode": null,
+      "stdoutBytes": 23,
+      "stdoutSHA256": "49e0af4502edb8dbe8743d9174bf1e006353e92f2f3732635ee83b0b5d072a30",
+      "stderrBytes": 0,
+      "commandElapsedMs": 303,
+      "unitElapsedMs": 304,
+      "initialParentKnownRunningPredicate": false,
+      "sourceMetadataRequestsInThisAttempt": 0,
+      "actualCallerDefect": "Parent incorrectly expected the word running or a running JSON field. The read-only status command succeeded, but that invented output-shape predicate skipped the sourceGET. This is a parent classification failure, not a service-unavailable, authentication or source404 observation. It is retained rather than hidden or promoted to a completed metadata request.",
+      "changedPremise": "Read exact canonical CLI commands/handlers/service/status.ts:12-13: Service.discover(versionundefined) writes found.url or stopped plusEOL, not running prose. Prior23B output is distinct from the8Bstopped branch. The existing313Bcutover shim delegates to opencode-pilot and was read, not changed. Use this observed result plus owning source contract without another status invocation; do not invent loaded-byte attestation or an atomic service-lifecycle guarantee.",
+      "owningSource": { "path": "/home/james/repos/opencode-native-row/packages/cli/src/commands/handlers/service/status.ts", "bytes": 597, "sha256": "bac9407ba3f68a967830431e7803bc421026c5de471dafb09e160a3300b5eb53", "gitBlob": "ade0a391993d5fa3da34b5398e08fc49cff29476", "equalFrozenPinBytes": true, "pin": "ba546ec1598a70db2570e9c6258028d955ba8f58", "loadedByteAttestation": false }
+    },
+    "actualMetadataAvailabilityRequest248": {
+      "observedAt": "2026-11-01T20:48:08.484Z",
+      "client": "/home/james/.local/opt/opencode-v2/bin/opencode",
+      "args": ["api", "get", "/api/session/ses_e7d3c547dffeCv5RIH5zPCmbN0"],
+      "existingManagedDiscoveryAndAuthenticationOnly": true,
+      "exitStatus": 1,
+      "signal": null,
+      "callerFailure": null,
+      "metadataAvailable": false,
+      "errorTag": "SessionNotFoundError",
+      "responseContains404Marker": true,
+      "stdoutBytes": 139,
+      "stdoutSHA256": "fa26ff04420c8dc17717483b7482085fbbe388a374fc2184ff1720a8461fc09e",
+      "stderrBytes": 19,
+      "stderrSHA256": "3c3973a1fbfe603975e00207c83a11431d8b739797b791f10bf8326af4efdead",
+      "elapsedMs": 483,
+      "currentOrOtherSessionMetadataRequests": 0,
+      "messagePagesOrBodiesRead": 0,
+      "rawMetadataStatusOrErrorBodiesEmittedOrSaved": false
+    },
+    "accountingAndLimits": {
+      "actualSourceMetadataRequests": 1,
+      "maximumSourceMetadataRequests": 1,
+      "serviceStatusInvocations": 1,
+      "serviceStatusRepeated": false,
+      "originalPerStreamOutputMaximum": 262144,
+      "originalCombinedCLIOutputCap": 524288,
+      "priorOutputBytesNotRefunded": 23,
+      "selectedGETPerStreamOutputCap": 262132,
+      "currentGETCLIOutputBytes": 158,
+      "combinedActualCLIOutputBytes": 181,
+      "priorUnitElapsedMsNotRefunded": 304,
+      "selectedGETChildTimeoutMs": 4696,
+      "originalPerJobDeadlineMs": 5000,
+      "qualification": "Separate bounded command jobs with intervening source analysis, not one continuous five-second cross-analysis wall-clock job. Prior304ms execution allowance/23Boutput remain spent; the final source request uses reduced time/output bounds, not another status/read retry or cap increase. These are CLI output bytes/invocations, not HTTP transport acquisition/internal health-discovery request counts. One required official V2 API documentation fetch is separate tool-managed source evidence, not included in the CLI byte totals."
+    },
+    "conclusion": "The original source still returns SessionNotFoundError/404 after the newest reported restart. This is a fresh selected public metadata outcome, not a replayed history-recovery scan, global deletion/orphan-storage/actor/cause proof or proof no future legitimate source can become available. Stop at metadata: no message reader/body/page, global session scan, raw/private storage, profile/server/credential alternative or source-session mutation. The previous228availability claim remains its earlier epoch; this248result supersedes freshness only, not the pinned public-reader metadata-prerequisite qualification or missing authentic637inventory/model342Bbefore/voice1946Bold-index/full historical preservation. No currently available message/body route is established by this observation.",
+    "preEditPreservation": { "at": "2026-11-01T20:49:12.840Z", "thisRecordBytes": 77627, "thisRecordSHA256": "c16d5bb611ab4396958d778176b1013bfc767001ecf5f1c4ca523e1bc472dbd7", "lifecycleBytes": 71514, "lifecycleSHA256": "3815216fcb85f4961ac4aee0f840f1b20a7b29f7ec5ec71a1d0b94eb5df74c49", "syntaxRecordUnchangedSHA256": "b58b9466d7ba13599492ed207aef6cf1bb53f2b9090d9e9c4a3fc6b5c9dd190d", "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d", "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805", "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9", "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58", "qualification": "Two exact untracked documentary owners/scoped tracked numstat empty, immutable original anchors/frozen status-source binding before additive edits. Final documentary readback remains separate, not already claimed here." },
+    "remaining": "Thirteenth-review changed-epoch metadata availability unit is performed, not pending, blocked by invented new approval, or a reason for an unchanged request. All12earlierreviewleads/parentTypeScriptsyntax/current fingerprints remain done; none repeated. All20unfinished tasks/eightcriteria/75IDs+additional lanes and behavioral/native/build-rights-runtime/human/device/exactconsequential/original-input gates remain; unavailable metadata does not waive preservation.",
+    "actions": { "sourceMetadataRequests": 1, "currentSessionMetadataRequests": 0, "serviceStatusInvocations": 1, "requestedServiceStartsOrRestarts": 0, "messagePagesOrBodies": 0, "sourceSessionOrForeignGoalMutations": 0, "rawDatabasePrivateStorageOrProfileBypasses": 0, "credentialOrPermissionChanges": 0, "testsOrModelOrChildTrials": 0, "pointerGUIOrClipboardActions": 0, "syntaxOrCompletedAssetJobsReplayed": 0, "sourceOrRuntimeConfigurationEdits": 0, "installsDeploysOrSecurityChanges": 0, "commitsOrPushes": 0 }
+  },
+  "actionsScope": "The original local read-only file-evidence jobs, not the later nativeSourceSessionLookup with its separate CLI/network accounting and not a claim that no documentation file was written.",
+  "actions": { "tests": 0, "fixtureGitCommands": 0, "repositoryOrFixtureCodeImportsOrExecution": 0, "implementationWritesDuringInvestigation": 0, "indexWrites": 0, "archiveExtractionsToDisk": 0, "archiveRestores": 0, "networkRequests": 0, "peerActions": 0 },
+  "acceptance": { "knownRetainedReceiptsAndSnapshotsInvestigated": true, "original637pathBaselineRecovered": false, "originalModelBeforeIndexBytesRecovered": false, "historicalIndexWriteActorAttributed": false, "fullLargeBackupReverified": false, "wholeHistoryMediaSettingsExecutableLauncherPreservationVerified": false, "oldTreeQuiescenceVerified": false, "oldTreeDeletionAuthorized": false },
+  "remaining": ["Authentic original637path inventory or its source-qualified saved bytes remain unrecovered from the inspected sources; later/current subsets are not substitutes.", "Original AGR-PS-027before-index bytes and exact causal write attribution remain unverified; known saved controls/after state/linked-worktree archive do not supply them.", "Unread large baseline remainder/full inventory/archive and current all-history/media/settings/executable/launcher plus old-tree quiescence are not newly verified or waived. No deletion, restore, generated-goal rewrite or commit/push follows."]
+}

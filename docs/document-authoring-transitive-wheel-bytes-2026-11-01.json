@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "status": "Ten additional selected wheel byte identities observed; selected text evidence is partial, with one acknowledged filename-selector coverage defect. Not dependency/rights/security/ABI/authoring acceptance.",
+  "scope": "One bounded batch for the eleven remaining historical transitive selections, excluding separately observed CFFI. No new version selection or PyPI metadata request; all earlier failures and budgets remain.",
+  "rawReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/transitive-wheels-parent-8u1zq4jm/facts.json", "bytes": 34296, "sha256": "026bc3e966d7655df17ef70ed9e86cfdaa54addde316a2808bdb7df871bc2885" },
+  "coverageAddendum": "/home/james/Documents/computer-use-native-host-20261029/transitive-wheels-parent-8u1zq4jm/selection-coverage-addendum.json",
+  "selectionSource": { "path": "docs/document-authoring-transitive-candidates-2026-10-31.json", "sha256": "de0d2d81288c59da8602601c147614a3c35529440b919cbadd8c5254a46133f1", "projections": "The same preservation-receipt-bound exact.json/exact2.json/exact3.json, not original raw release responses" },
+  "transport": {
+    "artifactRequests": 10,
+    "bodyBytes": 23056157,
+    "allRequestedSizeSHA256AndBLAKE2b256MatchSelectedDeclarations": true,
+    "normalTLS": true,
+    "redirectsOrRetries": 0,
+    "newPyPIJSONOrFeedRequests": 0,
+    "spentMetadataAllowanceReset": false,
+    "urlQualification": "All ten files.pythonhosted.org content-address URLs are explicitly derived from saved projected BLAKE2b-256 and exact filenames. They are not recovered original publisher URLs, fresh release metadata, signed identity or build attestation.",
+    "limits": { "requests": 10, "perArtifactArchiveAndBodyBytes": 8388608, "aggregateBodyBytes": 25165824, "socketSeconds": 5, "jointJobSeconds": 20 },
+    "elapsedMsIncludingInspectionAndSelectedTextWork": 1291,
+    "payloadAccountingQualification": "Network body bytes exclude protocol overhead. Selected decompressed texts and later local hash readbacks are derived/repeated content, not additional unique transport bytes. CFFI is a separate221525Bacquisition and was not reacquired in this batch."
+  },
+  "sharedInspection": {
+    "limits": { "directoryBytes": 262144, "entriesPerArchive": 5000, "memberBytes": 16777216, "expandedBytesPerArchive": 67108864, "ratio": 100, "perCallSeconds": 5, "jointJobSeconds": 20, "globalSelectedMembers": 16, "globalSelectedPayloadIncludingProbes": 65536 },
+    "selectedMembersReserved": 16,
+    "selectedPayloadReservedIncludingProbes": 57077,
+    "completedSelectedPayloadBytes": 57061,
+    "successfulContainerInventories": 9,
+    "counterPolicy": "Shared member/payload counters are never reset; complete heuristic per-artifact sets must fit before any member read, failures retain reservations and refused sets are not partitioned. Notice completeness still needs authoritative declaration reconciliation; see the real selector defect below."
+  },
+  "results": [
+    { "distribution": "typing_extensions", "version": "4.16.0", "wheelBytes": 45571, "actualSizeAndBothHashesMatch": true, "containerEntries": 5, "selectedMembers": 4, "selectedPayloadBytes": 17755, "observation": "METADATA/RECORD/WHEEL and complete13936B LICENSE read; selected RECORD hashes/sizes agree. No Requires-Dist; License-Expression PSF-2.0. Parent reads the full layered PSF/BeOpen/CNRI/CWI/0BSD notice, with retention/change-summary/no-endorsement/disclaimer terms, not a plain MIT/GPL label or all-file clearance." },
+    { "distribution": "pdfminer.six", "version": "20260107", "wheelBytes": 6592252, "actualSizeAndBothHashesMatch": true, "containerEntries": 189, "selectedMembers": 4, "selectedPayloadBytes": 22153, "observation": "METADATA/RECORD/WHEEL and complete1093B MIT notice read; retain copyright/permission notice and disclaimer. Actual metadata confirms charset-normalizer>=2.0.0, cryptography>=36.0.0 and Pillow only for extra image. Selected RECORD consistency is not all-member/native verification." },
+    { "distribution": "Pillow", "version": "13.0.0", "wheelBytes": 7142574, "actualSizeAndBothHashesMatch": true, "containerAccepted": false, "selectedPayloadReads": 0, "error": "PackageRefused: Member expansion budget exceeded", "qualification": "Guard refusal does not distinguish the specific member/size-versus-ratio branch. No inventory acceptance, notice/metadata payload, larger cap, unguarded parser or retry is claimed." },
+    { "distribution": "pypdfium2", "version": "5.14.0", "wheelBytes": 3799581, "actualSizeAndBothHashesMatch": true, "containerEntries": 71, "selectedPayloadReads": 0, "selectionRefusal": "21members/202754Bincludingprobes exceeds the global16/64KiB bounds as well as remaining8members/25620B. No partition/reset." },
+    { "distribution": "charset-normalizer", "version": "3.5.2", "wheelBytes": 255056, "actualSizeAndBothHashesMatch": true, "containerEntries": 25, "selectedPayloadReads": 0, "selectionRefusal": "4members/49575Bincludingprobes does not fit remaining25620B in the same batch. No new budget or partial license subset." },
+    { "distribution": "et-xmlfile", "version": "2.0.0", "wheelBytes": 18059, "actualSizeAndBothHashesMatch": true, "containerEntries": 10, "selectedMembers": 4, "selectedPayloadBytes": 3725, "observation": "Only AUTHORS/METADATA/RECORD/WHEEL read and internally bound; no Requires-Dist and MIT metadata label observed.", "coverageFailure": "The heuristic missed declared LICENCE.python14688B and LICENCE.rst1131B, present in already-read RECORD. Both payloads remain unread. Do not call AUTHORS+MIT label a full license observation or silently upgrade the raw status to rights clearance." },
+    { "distribution": "numpy", "version": "2.5.4", "wheelBytesDeclaredOnly": 16721710, "downloaded": false, "refusal": "Exceeds this batch's unchanged8MiBarchive/body ceiling. No actual artifact hash or notice observation. This is a scoped refusal, not universal infeasibility or evidence no legitimate future scope can inspect it." },
+    { "distribution": "python-dateutil", "version": "3.0.0", "wheelBytes": 94659, "actualSizeAndBothHashesMatch": true, "containerEntries": 27, "selectedMembers": 4, "selectedPayloadBytes": 13428, "observation": "METADATA/RECORD/WHEEL and complete2889B LICENSE read; metadata confirms six>=1.6 and tzdata. Notice references Apache2 for post2017/relicensed contributions and includes BSD3conditions stated applicable to all code. Full Apache reference/contributor/other-file applicability is not independently settled; do not turn Dual License into blanket stack clearance." },
+    { "distribution": "six", "version": "1.17.0", "wheelBytes": 11050, "actualSizeAndBothHashesMatch": true, "containerEntries": 6, "selectedPayloadReads": 0, "selectionRefusal": "4members/3272Bincludingprobes; remaining global member allowance is0. No retry/reset despite byte room." },
+    { "distribution": "cryptography", "version": "50.0.2", "wheelBytes": 4749145, "actualSizeAndBothHashesMatch": true, "containerEntries": 141, "selectedPayloadReads": 0, "selectionRefusal": "6members/29845Bincludingprobes; remaining0members/8459B. Native payloads/notices unreviewed." },
+    { "distribution": "tzdata", "version": "2026.6", "wheelBytes": 348210, "actualSizeAndBothHashesMatch": true, "containerEntries": 633, "selectedPayloadReads": 0, "selectionRefusal": "5members/68153Bincludingprobes exceeds whole64KiB ceiling and remaining allowance. No slicing/reset around the refusal." }
+  ],
+  "pillowRefusalSourceFollowUp": {
+    "checkedAt": "2026-11-01T11:27:09.791Z",
+    "trigger": "The revision203 waiting review requested tracing Pillow's retained expansion refusal/member metadata against the canonical reader without tests, repeated extraction, downloads, allowance reset, installation or deployment. Immediate supported readback remained active203; revision204 schedules this exact read-only evidence comparison.",
+    "earlierEpochQualification": "The Pillow result/qualification above records what the original batch exposed: only a generic exception, no identified member or disjunct. This additive follow-up now identifies a source-supported cause from the same retained artifact. The raw facts/status/selectedPayloadReads=0 and nine successful container inventories are not rewritten or upgraded.",
+    "sourceAndReceipt": { "reader": { "path": "scripts/office_package.py", "bytes": 15279, "sha256": "f4bb5e09557661a85d94359393a2ed935bd92ebf0bf4fe216dd5d95fd480c5bc", "matchesOriginalReceipt": true }, "rawReceipt": { "bytes": 34296, "sha256": "026bc3e966d7655df17ef70ed9e86cfdaa54addde316a2808bdb7df871bc2885", "unchanged": true }, "retainedPillowDirectory": "Only the selected wheel exists in02-pillow; no successful inventory/member sidecar was saved. The Pillow raw row has artifact identity, status and error fields, but no container/member/traceback fields." },
+    "canonicalCallPath": [
+      "inspect_package enters _package at257; _package calls _directory at237 before constructing ZipFile at239 or yielding a validated archive.",
+      "_directory takes compressed/expanded fields from the central record at125-130 and checks member path/type/metadata before the combined expansion condition at164-168.",
+      "The exact message Member expansion budget exceeded occurs at168 for expanded > limits.member_bytes OR expanded > max(1, compressed) * limits.ratio. Total expansion uses a different message at169-171.",
+      "The member-specific decompression path is read_member at338-350, not this pre-ZipFile guard. The generic retained exception alone could not identify the member or OR disjunct."
+    ],
+    "retainedArtifactRead": { "path": "/home/james/Documents/computer-use-native-host-20261029/transitive-wheels-parent-8u1zq4jm/02-pillow/pillow-13.0.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", "bytes": 7142574, "sha256": "e91c2b1cbeae768c98752e67e717e283d68dae45717b41f2d91eaee648e37b7d", "wholeArtifactSHARecomputedAndMatched": true, "heldDescriptorAndPathStable": true, "qualification": "Whole compressed-artifact checksum and header fields, not decompressed native/member identity, CRC/rights validation or a fresh BLAKE2b-256 comparison. The original batch's distinct BLAKE2b-256 observation remains dated evidence." },
+    "centralDirectoryDiagnostic": { "offset": 7132485, "bytes": 10067, "sha256": "0462130b0be15ba3ace13178125d1c070c20b14df38701de5953581114af5c86", "endRecordOffset": 7142552, "declaredAndParsedEntries": 144, "ordinaryEndRecordCountLayoutAndDirectoryAcquisitionBoundsChecked": true, "qualification": "Read-only field comparison, not a second canonical inspect_package run, complete local-header/path/CRC validation, accepted inventory or member extraction. No candidate code/reader module/ZipFile is imported or executed and no member is opened/decompressed." },
+    "identifiedCause": {
+      "member": "pillow.libs/libXau-154567c4.so.6.0.0",
+      "centralIndexZeroBased": 116,
+      "entryNumberOneBased": 117,
+      "centralRelativeOffset": 7710,
+      "compressionMethod": 8,
+      "flags": 0,
+      "compressedBytes": 9389,
+      "declaredExpandedBytes": 2100545,
+      "memberSizeLimit": 16777216,
+      "memberSizePredicate": false,
+      "ratioLimit": 100,
+      "ratioThresholdBytes": 938900,
+      "ratioPredicate": true,
+      "declaredRatio": 223.72403876877198,
+      "precedingExpandedBytes": 5612977,
+      "hypotheticalExpandedBytesIncludingRefusingEntry": 7713522,
+      "totalExpansionLimit": 67108864,
+      "earlierTotalExpansionExceeded": false,
+      "otherExpansionPredicateCandidatesIn144CentralRecords": 0,
+      "inference": "The hash-identical retained artifact has exactly one central entry meeting the reader's member-expansion condition, and it exceeds only the ratio disjunct. With the same bound reader/recorded limits, this source-supported trace identifies the first expansion refusal as the100:1 ratio check on this entry, not16MiB member size,64MiB total expansion or shared selected-notice exhaustion. The canonical guard throws before adding the refusing entry to its running total. This is an inference from original refusal plus matching artifact/source/metadata, not a new runtime reproduction or recovered traceback."
+    },
+    "unchangedBounds": { "archiveBytesIncludingWholeHashAndHeaderReads": 7218203, "perArtifactReadCeiling": 8388608, "directoryByteCeiling": 262144, "entryCeiling": 5000, "chunkBytes": 65536, "deadlineMs": 5000, "elapsedMs": 55, "sourceAndReceiptBytes": 49575, "globalSelectedMemberAllowanceStillSpent": 16, "globalSelectedPayloadReservedIncludingProbesStill": 57077, "globalSelectedPayloadRemainingStill": 8459 },
+    "preservationBeforeDocumentation": { "observedAt": "2026-11-01T11:28:07.442Z", "batchRecord": { "bytes": 10306, "sha256": "8903a183e4353ef9ac90a1cecf9794f3219f4f567deffd6d63ddc25962b38140" }, "officeGuide": { "bytes": 65265, "sha256": "c2a78c8d4367de4f9589d5a2cde7df06b7dffe55e2fedf7da65471893da3e0b4" }, "lifecycleRecord": { "bytes": 19037, "sha256": "db3137d3fb366628dc2dbd8cdac5d915270f5ba0d7a1cd937ec59d6e345f8582" }, "goalGuide": { "bytes": 9756, "sha256": "17cddcc2a4dcba87062f2075fe0d8f1ca679b20759c055ebcdfd9879f4783570" }, "qualification": "Selected current preimages and unchanged raw receipt/addendum/reader/graph/native-source record/index/staged/native anchors only; not a post-edit receipt or full original-history proof." },
+    "consequence": "The refusing member and ratio guard are no longer unidentified. The original refusal remains genuine and no larger-cap inspection is authorized by this diagnosis. High declared compression is not by itself proof of malice, corruption or vulnerability, nor does identifying it clear Pillow/native libraries/notices/ABI/runtime or all other rights/dependency/document/human gates. No member/native version or third-party rights are inferred merely from its filename.",
+    "actions": { "testsAddedChangedOrRun": 0, "canonicalReaderImportsOrRuns": 0, "ZipFileOrMemberOpens": 0, "newDecompressedPayloadOrNoticeReads": 0, "downloadsOrMetadataRequests": 0, "acquisitionAllowanceResets": 0, "readerOrGuardEdits": 0, "installsOrDeploysOrRestartsOrSecurityChanges": 0, "modelOrChildrenOrPeerActions": 0, "GUIOrClipboardActions": 0, "commitsOrPushes": 0 }
+  },
+  "selectorCorrection": {
+    "kind": "Acknowledged parent acquisition-harness coverage error, not a production fix or a passed completeness check",
+    "cause": "The ephemeral selector searched license/copying/notice/authors spellings, but not licence and did not reconcile License-File declarations before treating its chosen set as complete. et-xmlfile metadata and RECORD expose the two missed British-spelled names.",
+    "effect": "All actual wheel and selected-member hashes remain evidence, but license coverage for et-xmlfile is incomplete. The raw receipt remains immutable, with the separate bound addendum correcting interpretation.",
+    "noRetrospectiveRepair": "The batch already spent16member slots. The two extra payloads require2slots/15821Bincludingprobes, more than the final8459B remainder. No allowance reset, successful-file deletion/refund, unrecorded extra read or second batch hides this mistake.",
+    "futureRequirement": "A valid future full-notice review must reconcile every declared License-File with inventory/actual reads, handle both spellings and preserve inline/native/contributor exceptions. No redesigned production reader, tests or actual additional payloads are claimed."
+  },
+  "remainingGates": "NumPy bytes; refused/unread notices and et-xmlfile omissions; all native/linked-library rights/versions/security/ABI/import/XML; unselected pycparser under spent metadata allowance; original pandas16-member refusal and lxml unlicensed transforms; install/author-render-reopen/human acceptance. Artifact evidence does not create approval or clear the full stack.",
+  "preservation": "Raw receipt reports supportReadsetStableAtEnd true for retained projections/canonical graph/reader/index/current owning guide/memory source. Final10:05:08Zlocal readback verifies this batch plus CFFI:11wheels23277682B and20savedtexts63275B, all SHA256 checks match; raw receipts and2095Bbad4134fcoverage addendum remain unchanged. Removing only the two owning-guide artifact sections recovers56775B9fd15fbd exactly; original staged/index/native/memory/graph/reader anchors agree. Batch record9734B93f53b61 and guide60826B665fb4bb describe that epoch before later documentary wording edits, not future hashes. See docs/document-authoring-transitive-native-declarations-2026-11-01.json for reconciliation. No historical candidate flags/raw receipts or unread payloads are rewritten; this is selected preservation, not complete rights/ABI/security/operational acceptance.",
+  "actions": { "testsAddedChangedOrRun": 0, "newPyPIMetadata": 0, "candidateImportsOrExecution": 0, "nativeDecompressedPayloadReads": 0, "XMLOrTransforms": 0, "installs": 0, "modelOrChildren": 0, "peerActions": 0, "deployOrRestart": 0, "projectLicenseChanges": 0, "commits": 0, "pushes": 0 }
+}

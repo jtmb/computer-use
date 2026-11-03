@@ -1,0 +1,56 @@
+{
+  "status": "applied",
+  "approvedScope": "Permanent pilot-only command cutover; explicit final manifest execution approval obtained.",
+  "manifest": "docs/handoff-pilot-cutover-manifest.md",
+  "approvedManifestSHA256": "963ba108e2d53ef417c71e47a164040b5f121767867f1d27c559f36c261882a4",
+  "startedAt": "2026-10-27T06:59:08.863Z",
+  "completedAt": "2026-10-27T06:59:09.454Z",
+  "profile": "/home/james/.opencode-v2-pilot/config",
+  "retired": {
+    "handoff.md": {
+      "originalSHA256": "8f53405441607fb20f2df0ca325a089ef65548edc622e65900a9d891d9b1250e",
+      "bytes": 827,
+      "verifiedCopy": "/home/james/.opencode-v2-pilot/config/commands.backup-handoff-cutover-20261027/handoff.md.backup",
+      "originalRetainedAt": "/home/james/.opencode-v2-pilot/config/commands.backup-handoff-cutover-20261027/handoff.md.retired",
+      "originalModeAndInodePreserved": true
+    },
+    "resume.md": {
+      "originalSHA256": "de730405361e8295f9f622c8ddcb8e2f791315ae3df6a0cc226838ac37dcc0fa",
+      "bytes": 946,
+      "verifiedCopy": "/home/james/.opencode-v2-pilot/config/commands.backup-handoff-cutover-20261027/resume.md.backup",
+      "originalRetainedAt": "/home/james/.opencode-v2-pilot/config/commands.backup-handoff-cutover-20261027/resume.md.retired",
+      "originalModeAndInodePreserved": true
+    }
+  },
+  "deployed": {
+    "canonicalSource": "/home/james/repos/computer-use/global/commands/handoff_resume.md",
+    "destination": "/home/james/.opencode-v2-pilot/config/commands/handoff_resume.md",
+    "sha256": "12b407c7543019eb8a6d63026492d629c0051f8a31007378cecb7a7660c4cf9d",
+    "bytes": 4635,
+    "mode": "0600"
+  },
+  "privateReceipt": {
+    "path": "/home/james/.opencode-v2-pilot/config/commands.backup-handoff-cutover-20261027/receipt.applied.json",
+    "sha256": "75c697e9f64727694a76f85a843f037108106ada70c41ea96d31702f1fe5563b"
+  },
+  "serverCommandDelta": {
+    "removed": [
+      "handoff",
+      "resume"
+    ],
+    "added": [
+      "handoff_resume"
+    ],
+    "unrelatedNamesUnchanged": true
+  },
+  "unrelatedCommandsUnchanged": true,
+  "separateConfigTreeUnchanged": true,
+  "projectStagingConfigScreenshotUnchanged": true,
+  "commandDirectoryModeUnchanged": true,
+  "noCommandInvocationModelScreenshotGoalChangeOrRestart": true,
+  "limitations": [
+    "Actual replacement TUI registration/loading/focus not yet verified.",
+    "Live /handoff and /handoff_resume invocation require separate acceptance approval.",
+    "Retirement affects all pilot-profile repositories; no global companion rollout was performed."
+  ]
+}

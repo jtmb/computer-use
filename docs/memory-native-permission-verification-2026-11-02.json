@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only current memory task: inspect the authentic native permission contract, prepare a source-bound disposable native-host test and record its actual admission refusal. Helper tests are not native permission acceptance, a fresh-primary/model evaluation or an inbox UX fixture.",
+  "contractInspection": {
+    "officialSources": ["https://opencode.ai/v2/docs/build/plugins", "https://opencode.ai/v2/docs/build/plugins/server", "https://opencode.ai/v2/docs/build/sdk"],
+    "versionMatchedSource": "/home/james/repos/opencode-native-row at HEAD ba546ec1598a70db2570e9c6258028d955ba8f58; plugin/SDK manifests2.1.1, promise/permission.ts:23-31, promise/adapter.ts:254-263,448-455,646-655 and core/src/permission.ts:173-312.",
+    "findings": "Promise permission.assert accepts one input and runs on plugin scope. The native tool executor separately binds its AbortSignal; source inspection does not prove a pending assertion is dismissed when that executor is cancelled. The test must observe both states, reject only its exact disposable pending request and never turn cancellation into permission approval.",
+    "sourceStatus": "The frozen checkout still has the four retained TUI source/fixture modifications; no SDK/core edit, native build or installed activation is made here. Selected source inspection is not attestation of every loaded module.",
+    "alternativeLocator": "command -v bun returns no entry. The exact prior receipt's /tmp/opencode/provider-observation-runtime-oc8H85/package/bin/bun is ENOENT. This is not exhaustive runtime absence; no install or copied runtime follows. The existing installed OpenCode executable is a separate available test route."
+  },
+  "newSource": {
+    "runner": ".opencode/plugins/memory/acceptance/native-host.mjs",
+    "probe": ".opencode/plugins/memory/acceptance/native-probe.mjs",
+    "tests": ".opencode/plugins/memory/acceptance/native-host.test.mjs",
+    "productionUnchanged": "All seven actual loader/production modules are copied byte-for-byte, including index.ts;65239source bytes/136887staging read bytes in the actual attempt. The attempt receipt owns their exact hashes. No production memory, native supervisor, independent computer/browser integration or deployed source is edited.",
+    "design": "Fresh private HOME/config/data/state/cache, public sample and empty Git fixture. Explicit existing installed binary, owned loopback listener only, no inherited operator credential/provider/proxy environment. Native startup output stays in memory; no raw credential/log is returned or saved. Pipe acquisition shares65536bytes before read with4096maximum requests; activation body32768bytes. These helper acquisition limits do not measure all native/kernel/HTTP buffering. Native guard uses real admission/sampling/ownership/clock, not test data.",
+    "plannedNativeAssertions": "Actual registered memory executor; restrictive deny and ask sessions only; native deny, pre-abort without prompt, actual ask source/session/resource binding, cancelled caller versus still-pending assertion, exact reject-only cleanup, another denied call still usable, no model request. There is no once/always reply or operator-profile permission update.",
+    "bounds": "The existing frozen1536MiBowned-RSS maximum/2816MiBprelaunch/1280MiBfloor/8192entries/100mssampler/250mscleanup remain. This separate host job reduces deadline to30s and each supervisor output to64KiB. It is not a cap increase or retry of the four-root compiler's stricter256MiBjob. Admission must succeed independently."
+  },
+  "actualNativeAttempt": {
+    "binary": "/home/james/.local/opt/opencode-v2/opencode",
+    "fixture": "/tmp/opencode/memory-native-r1fJ8Q",
+    "passed": false,
+    "spawned": false,
+    "reason": "prelaunch-memory-guard",
+    "initialAvailableMiB": 2646.5,
+    "requiredPrelaunchMiB": 2816,
+    "elapsedSeconds": 0.0010395890000000066,
+    "rssSamples": 0,
+    "capturedBytes": 0,
+    "cleanup": { "signalled": false, "verified": false, "reason": "no-child" },
+    "publicSampleUnchanged": true,
+    "noNoteStore": true,
+    "nativeSessionsOrPermissionPromptsCreated": 0,
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/memory-native-acceptance-5lEiUn/attempt.json",
+    "receiptBytes": 3459,
+    "receiptSHA256": "49478ab1ba1bd85e8594a0c5f79fa93a78b4399c99bd880e1bccb1c4c8d00654",
+    "qualification": "The source/data fixture is prepared, but no native host or probe starts. No host version, native deny/cancel outcome, actual private listener/authentication or prompt cleanup is claimed. The no-child cleanup result is not a verified process cleanup. No unchanged launch loop, lowered guard, unrelated-process termination, install, shared service start/restart or permission grant follows."
+  },
+  "helperVerification": {
+    "command": "node --max-old-space-size=256 --test --test-concurrency=1 .opencode/plugins/memory/acceptance/native-host.test.mjs",
+    "first": "6/6pass280.318028ms; later controlled-I/O probe coverage makes10/10pass266.309271ms. These are real shell results, not fabricated saved TAPs or native acceptance.",
+    "coverage": "No inherited authentication/proxy/options, deny/ask-only fixture rules, complete startup credential line/loopback parsing, shared before-read quota, complete small stream, actual-result admission/cleanup/no-model/no-allow gates, foreign-request refusal, reject-only cleanup and unexpected model dispatch refusal.",
+    "reviewRegression": "Source review identifies overbroad post-report shutdown error suppression. Extract its unchanged classification and run a new regression: exit1/one ERR_ASSERTION, startup-pipe-bound actualtrue versus expectedfalse,319.431231ms. Narrow the whitelist to interrupted activation request/response only; acquisition, timeout, report and guard failures remain failures. The initial no-child attempt never exercises this branch, so it is not a native defect or a hidden successful launch.",
+    "final": { "tests": 11, "passed": 11, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 393.693408 },
+    "preimages": "The actual attempt's before-review runner10458B/2d01e6b9, probe6409B/16ae0c09 and six-test4918B/ae67bfc7 are preserved next to the external receipt. New tests extend rather than erase those original assertions.",
+    "controls": {
+      "receipt": "/home/james/Documents/computer-use-native-host-20261029/memory-native-acceptance-5lEiUn/controls.json",
+      "receiptBytes": 3875,
+      "receiptSHA256": "ce62881c0782dfe61f1cd839dd703e9f27f36f44e412f30381cf45c3935dc4f8",
+      "result": "Four exact source faults each exit1at one intended assertion: foreign prompt binding removed, shared pipe allowance ignored, resource refusal accepted and a fixture allow grant. The last is an inert pure-helper mutant, not a real native grant. Full saved source/log bindings precede the later shutdown-classification regression; they are retained, not falsely rewritten as new runs.",
+      "qualification": "No actual native host/model/network/permission or production memory execution. Four controlled source copies and their owned Node processes only;256MiBV8heap is not measured whole-process RSS."
+    }
+  },
+  "ci": {
+    "omissionRegression": "New helper-suite omission contract first exits1with one ERR_ASSERTION,197.906572ms. The11pure helper tests are then added to the existing required repo-contracts list; actual native-host.mjs launch remains explicitly selected, never default offline CI.",
+    "combinedRun": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/ci-offline.test.mjs scripts/features-contract.test.mjs:35tests/34passes/1failure,3912.104355ms. The curated-file contract requires the existing literal double-quoted node:test import; the new helper uses a single quote. Change only that import to conform, without weakening the network/service or file-bound contract. All34other cases pass; do not relabel the original combined run green.",
+    "correctedCase": "node --max-old-space-size=256 --test --test-name-pattern '^curated suite is file-bounded' scripts/ci-offline.test.mjs now passes1/1in210.519935ms. Only the failed case is rerun after the import spelling fix; the other34completed cases are not repeated. This is not a single fresh35/35run or full offline/native/hosted acceptance.",
+    "qualification": "Required registration is not execution of the complete offline runner, hosted CI or a native test pass."
+  },
+  "qualityReview": "Changed helper/probe tests reviewed alongside the actual native permission/adapter contract and adjacent CI/feature contracts. Preserve native versus controlled-I/O boundaries and the real prelaunch failure. Whole-profile settings, original history, hostile-path claims, full types/build, model startup and human outcomes remain separate; no case or original failure is deleted.",
+  "existingHostPublicInterfaceReview": {
+    "status": "Read-only child report returned and parent independently checked the selected contract clauses. This is a source/API boundary finding, not an executed native matrix.",
+    "version": "Frozen native checkout ba546ec1598a70db2570e9c6258028d955ba8f58, client/plugin2.1.1; installed public client2.1.1 is a separate artifact, not native binary byte attestation.",
+    "publicCapabilities": "Session creation can carry initial permission rules; the public client can list/get/reply to permission requests. permission.create calls permission.ask directly with caller-supplied metadata/source. No public registered-tool executor, permission.assert or ToolCallContext.signal is exposed by AppApi; debug/experimental/shell interfaces do not supply a registered-memory-tool call context.",
+    "pluginOnlyBoundary": "core/src/plugin/host.ts:438-445 exposes permission.assert in process,482-487 exposes the tool registry; memory index.ts registers a tool only. memory core.ts:212-238 calls assert from that tool with the real caller source and signal checks. Public permission.create is not that path.",
+    "parentSourceReadback": [
+      ".opencode/plugins/memory/acceptance/native-probe.mjs:16-108, especially real executor/no-model assertions and caller AbortSignal",
+      ".opencode/plugins/memory/tool.ts:15-20,74-89 and index.ts:6-14",
+      ".opencode/plugins/memory/core.ts:201-238",
+      "/home/james/repos/opencode-native-row/packages/core/src/plugin/host.ts:438-445,482-487",
+      "/home/james/repos/opencode-native-row/packages/server/src/handlers/permission.ts:44-55",
+      "/home/james/repos/opencode-native-row/packages/client/src/effect/api/api.ts:1753-1806,2077-2089,2137-2141,2245-2247,2309-2337",
+      "/home/james/repos/opencode-native-row/packages/core/src/permission.ts:87-101,148-190"
+    ],
+    "childPolicyOverclaimCorrected": "Configured deny is checked before saved allow. Configured ask is NOT guaranteed to remain ask: evaluate uses last matching rule, and later saved allow rules can upgrade it. The parent corrects that overclaim from the actual source, without inspecting or changing operator policy.",
+    "matrixDisposition": {
+      "deny": "Still needs the real memory gate/executor to propagate native denial without a prompt; a synthetic permission ask cannot prove that.",
+      "pending": "Still needs the real tool-bound assertion/source/resource/session. A public permission.create request would be a state change and the wrong boundary, not a harmless substitute.",
+      "callerCancel": "The external client's HTTP abort cannot supply the memory executor's ToolCallContext.signal. Session interruption is a different action and not this matrix.",
+      "modelAlternative": "A real model might call memory but cannot satisfy the prepared zero-model direct-executor contract or deterministic caller-signal cancellation. No model turn, synthetic permission request or new session is created for this review."
+    },
+    "actualLoadedNegativeControls": "docs/everyday-use-followup-2026-11-02.json records actual repo-only no-match and exact-missing reads. Those narrow loaded-tool outcomes are useful but remain separate from native deny/pending/caller-cancel.",
+    "authority": "The existing isolated native memory fixture already has routine in-scope testing authority. Do not invent another approval question from the child's generic new-host warning. Its unchanged admission/owned-process/resource guards and real activation/permission boundaries still apply; no fourth native attempt or RAM polling is scheduled.",
+    "limits": "No native/API/session/permission/model action, operator/global policy inspection, credential access, plugin activation, new host, raw store/history read or fallback tool invocation occurs. The no-start authenticated metadata reader's success does not imply arbitrary tool-execution capability."
+  },
+  "remaining": "Native deny/pending assertion/caller cancellation remains unverified until a genuinely admissible faithful in-process host run. The public-interface review is performed and does not substitute a synthetic prompt/model turn for the real memory tool. No approval gap is invented for routine testing, but no permission grant/security change or resource relaxation is inferred. Existing direct memory38/strict/controls, actual repository decision operations, fresh-subagent recall, repo-only live negative controls, inert-history preservation, title/RPC/monitor/GUI results and failed strict compiler attempts remain separate. No publication, commit or push; goal remains active and incomplete."
+}

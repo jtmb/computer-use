@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e84662388ffeN05ssgGLQ9yh4k",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-27T08:04:26.523Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "512d114e-ee38-4d54-97f2-e1a189073974",
+    "sessionID": "ses_e84662388ffeN05ssgGLQ9yh4k",
+    "objective": "Track only the work requested in this conversation: build and test bounded GNOME multi-window tools for stable window IDs, verified activation, placement/tiling, and multi-window layouts, with fresh single-use preview tokens and no unsafe Shell evaluation, blind hotkeys, or security bypasses. Obtain separate explicit approval before installing or enabling the GNOME compositor bridge or restarting services. Then remake this repository's README demo from genuine simultaneous footage of a clean OpenCode session beside the applications it controls, using the inspected official OpenCode demo's deliberate zooms, transitions, and readable pacing. Use sample email and signed-out public browsing only; do not send mail, purchase, or publish. Present a short composition/motion preview for approval before replacing the main demo. Update the relevant canonical desktop and README/GIF skills and documentation, preserve this repo's branding, and keep the human-facing root README under 170 physical lines. Verify real outcomes and distinguish source tests from live acceptance. Preserve unrelated dirty work and exclude work from other sessions/windows, including their handoff, goal-docs, orchestration, and configuration changes. Do not commit or push without separate explicit approval.",
+    "status": "unmet",
+    "plan": {
+      "summary": "Add reliable, approval-gated multi-window control, then produce a polished real OpenCode-plus-app demo and update the relevant skills and short README. Exclude unrelated work from other windows/sessions.",
+      "completionCriteria": [
+        "Typed desktop tools identify current-workspace windows unambiguously and support verified focus, placement/tiling, and bounded multi-window layouts through a reviewed GNOME bridge, with fresh single-use previews, explicit permission checks, protected-state refusals, and meaningful tests.",
+        "No GNOME bridge installation/activation, permission change, or service restart occurs without separate explicit user approval; live focus and geometry are verified on the approved disposable demo windows before relying on the tools.",
+        "The replacement demo shows a real clean OpenCode window alongside the real applications it controls, recorded simultaneously without fabricated chat/tool calls, using deliberate zooms, transitions, and readable pacing informed by the inspected OpenCode reference.",
+        "The user approves a short composition/motion preview before the main README demo is replaced; the final GIF decodes correctly, loops, shows completed useful actions, and has a non-animated alternative and honest sample-data/editing disclosures.",
+        "Relevant canonical skills, catalog entries, and focused documentation reflect the new tooling and demo requirements; the branded human-facing root README remains under 170 physical lines and its links/assets are verified.",
+        "Source tests, real desktop acceptance, and desktop/narrow light/dark README checks are documented accurately. Unrelated dirty work is preserved, other-session work is not tracked or altered, and nothing is committed, pushed, or published without separate approval."
+      ],
+      "phases": [
+        {
+          "id": "scope-reference",
+          "objective": "Establish this window's scope, actual reference style, and the window-control limitation.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "scope-confirmed",
+              "description": "Confirm that this goal tracks only this conversation's window tooling, demo, skills, and README work, excluding other-session changes.",
+              "status": "completed",
+              "evidence": "The user explicitly requested a new goal and said to track only this window. Existing dirty changes were inspected and preserved."
+            },
+            {
+              "id": "reference-inspected",
+              "description": "Inspect the actual official OpenCode animated demo rather than inferring motion from its README screenshot.",
+              "status": "completed",
+              "evidence": "Downloaded and decoded anomalyco/opencode commit 5f8ee0f5074f99a8b5d5cafb94126f879a274b50's opencode-min.mp4: 36.534 seconds, 1920x1080. Contact sheets show wide context, prompt/tool-output push-ins, result emphasis, and pull-backs. References are retained under Downloads/opencode-demo-reference-wa3uk332."
+            },
+            {
+              "id": "window-gap-verified",
+              "description": "Verify the native window-control gap and obtain authority for source implementation without enabling integrations.",
+              "status": "completed",
+              "evidence": "GNOME Shell 50.1; org.gnome.Shell.Introspect.GetWindows returned AccessDenied. Existing AT-SPI frame bounds did not reflect global placement; hotkeys tiled the wrong window. Installed tiling-assistant exposes no D-Bus window-control API. User selected Build window tools, with separate installation/activation approval."
+            }
+          ],
+          "verification": "Read-only environment/API inspection and actual screenshots verified the limitation. User rejected the app-only GIF and explicitly required the OpenCode window plus zooms/transitions. No compositor bridge has been installed or enabled."
+        },
+        {
+          "id": "window-source",
+          "objective": "Implement bounded, tested window-control source without changing desktop permissions.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "window-design",
+              "description": "Define the minimal window bridge and typed tool contracts: stable compositor IDs, current-workspace state, focus/place/tile/layout, one-use fresh previews, readback, and failure/partial-apply reporting.",
+              "status": "completed",
+              "evidence": "Canonical tools/gnome-window-control/{metadata.json,policy.mjs,extension.js} specify current-workspace compositor IDs, focus/place/tile/layout, logical work-area coordinates, single-use 30-second previews bound to identity/focus/monitor state, protected/modal/lock refusals, and partial-result reporting. Nine policy tests pass. Read-only Mutter-18 ABI inspection verified GNOME 50's parameterless maximize/unmaximize and get_maximize_flags APIs; JS syntax check passes. Extension is not installed or live-accepted."
+            },
+            {
+              "id": "window-implementation",
+              "description": "Implement the canonical GNOME bridge, bounded client adapter, and OpenCode typed window tools while preserving existing desktop tools and unrelated dirty code.",
+              "status": "completed",
+              "evidence": "Canonical GNOME 50 extension/policy, fixed-method Python client, three typed permission-gated tools, and plugin registration implemented. Reviewed installed Mutter 18 method signatures. Readback rejects minimized/fullscreen/protected placement states; partial failures include observations. No installation/activation performed."
+            },
+            {
+              "id": "window-tests",
+              "description": "Add and run tests for identity, ambiguity, bounds and layout validation, stale/expired/replayed tokens, permission denial, lock/protected states, partial failure, and verified readback.",
+              "status": "completed",
+              "evidence": "45 plugin tests passed, including exact IDs/bounds/layouts, stale/expired/replayed tokens, independent permission gates, lock/modal/protected refusals, partial outcomes, and three canonical-extension tests with mocked GJS/compositor boundaries. Four client and five deployment tests passed. JS syntax and whitespace checks pass. Mocked tests are not live acceptance."
+            },
+            {
+              "id": "window-deployment-source",
+              "description": "Provide reviewed dry-run-first deployment and rollback instructions/tooling that preserve unrelated files and do not auto-enable the extension or restart services.",
+              "status": "completed",
+              "evidence": "Explicit-target dry-run produced three-file SHA-256 manifest for /home/james/.local/share/gnome-shell/extensions/opencode-window-control@computer-use.local with no existing files/marker. Deployer tests verify preservation, backups, idempotence, symlink refusal, and mandatory destination. Bridge guide documents local-bus capability, rollback, GNOME 50 login constraint, separate install/enable/restart gates."
+            }
+          ],
+          "verification": "45 plugin, 4 client, 5 deployment tests pass; JS syntax, scoped links/skill structure, git diff --check pass. Normal-PATH health check passes on v2.1.1. Actual desktop_windows returns bridge-unavailable. Evidence and requirement checklist: docs/demo/window-control-verification.md. No live acceptance claimed."
+        },
+        {
+          "id": "window-live",
+          "objective": "Obtain explicit activation approval and verify real multi-window behavior.",
+          "status": "blocked",
+          "tasks": [
+            {
+              "id": "activation-approval",
+              "description": "Present exact source/deployment manifest, target path, new local-session window-control capability, risks, and rollback; ask immediately before installation/enablement and any required restart.",
+              "status": "blocked",
+              "evidence": "Installation-only approval executed at the reviewed explicit target. Independent SHA-256 readback matches all three canonical files and ownership marker; second dry-run reports changes: []. Exactly four entries installed. No enablement, service restart, or logout occurred.",
+              "blocker": "Running GNOME registry reports the UUID does not exist despite verified installed files. GNOME 50 cannot ReloadExtension; fresh desktop login is needed for discovery. User selected installation only, so activation/restart authority is not established. Do not repeat routine confirmation prompts or act beyond that approval."
+            },
+            {
+              "id": "live-window-acceptance",
+              "description": "On approved disposable demo windows, verify stable IDs, correct activation, side-by-side placement, global geometry/readback, stale-token refusal, and preservation of unrelated windows.",
+              "status": "pending"
+            }
+          ],
+          "blocker": "Bridge files are installed and verified but undiscovered by the current Shell session; fresh desktop login and activation authority are required before real focus/layout acceptance."
+        },
+        {
+          "id": "demo-preview",
+          "objective": "Record a genuine OpenCode-plus-app composition and obtain preview approval.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "clean-demo-stage",
+              "description": "Stage one clean public demo execution with OpenCode visible beside signed-out browsing or an isolated real sample mailbox; exclude private history and unrelated windows.",
+              "status": "pending"
+            },
+            {
+              "id": "simultaneous-capture",
+              "description": "Record prompt, real tool activity, visible app actions, and completed results on one synchronized capture timeline, preserving source footage and action evidence in approved locations.",
+              "status": "pending"
+            },
+            {
+              "id": "motion-preview",
+              "description": "Produce and show a short wide-to-prompt/tool zoom-to-app-result preview with smooth transitions and readable text; obtain user approval before replacing the main demo.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "demo-final",
+          "objective": "Produce and verify the approved cinematic computer-use demo.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "final-edit",
+              "description": "Complete the approved feature cut with real email/browser task results, controlled zooms/transitions, honest timing/sample disclosures, versioned GIFs, still alternative, and recording evidence.",
+              "status": "pending"
+            },
+            {
+              "id": "final-media-checks",
+              "description": "Decode the final GIFs, verify durations/dimensions/loop and completed scenes, inspect full playback and the loop seam, and preserve source/evidence without automatic cleanup.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "docs-acceptance",
+          "objective": "Update only this task's canonical skills/docs and verify the short README.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "skills-docs",
+              "description": "Update desktop-control and README/GIF skills and their focused references/catalog as needed, making real simultaneous OpenCode visibility and polished motion mandatory for this demo.",
+              "status": "pending"
+            },
+            {
+              "id": "readme-update",
+              "description": "Embed the approved demo while preserving branding and setup prompt, keeping the human-facing README under 170 physical lines and linking to operational detail.",
+              "status": "pending"
+            },
+            {
+              "id": "final-audit",
+              "description": "Run scoped source and health checks, validate links/asset metadata and line count, review desktop/narrow light/dark rendering, and audit that unrelated work and other-session tasks remain untouched.",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "Only this conversation's work is in scope. Do not incorporate unrelated handoff, goal-docs, orchestration, global configuration, or other-window work.",
+        "The old CLI prototype and app-only GIFs are preserved but rejected as the target design; do not mark them as completion of the new demo.",
+        "User authorized a clean public demo session and source implementation of window tools, but has not authorized compositor bridge installation/enablement or service restart.",
+        "Do not use unsafe GNOME Shell evaluation, bypass AccessDenied, disable sandboxing, or substitute blind keyboard tiling for verified window control.",
+        "Existing real email/browser frame sets survive in Downloads; original temporary MP4s became unavailable after the prior service restart. A simultaneous OpenCode/app recording must be newly captured, not fabricated by placing unrelated old UI footage beside app clips.",
+        "Keep all save locations within approved folders, preserve user work and rejected drafts, and maintain separate gates for installation/enablement, preview acceptance, commit, push, and publication.",
+        "Canonical desktop-control and readme-gif bundle/catalog were tightened: require verified window layouts and simultaneous real OpenCode/app footage with deliberate zooms/transitions and short-preview approval. App-only drafts are now explicitly labelled rejected in demo docs. Scoped links/structure pass; final skill/docs acceptance remains in docs-acceptance after media work.",
+        "User objected to repeated handholding and selected installation only with no further prompts. Do not re-ask routine checks or installation already approved. Broader approval should have been offered, but do not reinterpret installation-only selection as permission to enable, restart, or log out. Installed reviewed bundle; current Shell registry has not discovered it."
+      ],
+      "revision": 4,
+      "updatedAt": 1793086028,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "Create the expanded plan requested by the user, limited to this conversation and preserving completed research without treating rejected demos or uninstalled tooling as accepted outcomes.",
+          "timestamp": 1793083585
+        },
+        {
+          "revision": 2,
+          "reason": "The bounded compositor contract is implemented as independently tested pure policy; proceed to the client/tool and deployment layers without enabling anything.",
+          "timestamp": 1793084140
+        },
+        {
+          "revision": 3,
+          "reason": "Source implementation, deployment safety, and current tests are verified; advance to explicit installation/activation approval without treating mocked tests as live desktop acceptance.",
+          "timestamp": 1793085819
+        },
+        {
+          "revision": 4,
+          "reason": "User approved installation only and requested no repeated prompts. Installed the exact reviewed bundle, independently verified hashes and a no-change dry-run. Running GNOME has not discovered the new extension, so live acceptance cannot start yet.",
+          "timestamp": 1793086028
+        }
+      ]
+    },
+    "planRevision": 4,
+    "createdAt": 1793083520,
+    "updatedAt": 1793088255,
+    "closedAt": 1793086074,
+    "completionEvidence": null,
+    "blocker": "External desktop-session gate confirmed again: installed bridge files and marker exactly match the reviewed manifest (deployment dry-run changes: []), but gnome-extensions info reports the UUID is absent from the running Shell registry and desktop_windows returns bridge-unavailable/NameHasNoOwner. GNOME 50 does not support ReloadExtension, so a fresh desktop login is needed for discovery. Only installation was approved; activation, logout, and service/Shell restart were not authorized. Therefore live focus/layout acceptance and the dependent genuine simultaneous OpenCode/app recording and motion-preview approval cannot proceed without user action/authority. Source tests, deployment, relevant skill updates, and acceptance checklist are already recorded in docs/demo/window-control-verification.md. No automatic logout/restart, unsafe workaround, main-demo replacement, commit, or push was performed.",
+    "stopReason": "blocked",
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793083520
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): Create the expanded plan requested by the user, limited to this conversation and preserving completed research without treating rejected demos or uninstalled tooling as accepted outcomes.",
+        "timestamp": 1793083585
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Created a new goal tracking **only this conversation’s work**: - Safe multi-window tools and tests. - Separate approval before enabling the GNOME bridge. - Real OpenCode/app footage with zooms and transitions. - Updated skills and README under 170 lines. Unrelated work from ot...",
+        "timestamp": 1793083600
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 1 reserved.",
+        "timestamp": 1793083600
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m starting with the safety contract: IDs tied to the compositor session, current-workspace-only targets, fresh single-use previews, and verification of the actual focused window and logical-desktop geometry. A layout that only partially succeeds will be reported as partial, ...",
+        "timestamp": 1793083749
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): The bounded compositor contract is implemented as independently tested pure policy; proceed to the client/tool and deployment layers without enabling anything.",
+        "timestamp": 1793084140
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The core and tool contracts pass 41 tests, and the client and deployment tests pass too. Nothing has been installed or enabled. I also found a deployment constraint: GNOME 50 does not support D-Bus extension reload, so this new bridge may need a fresh desktop login. I’m docume...",
+        "timestamp": 1793084945
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The latest checks pass: 42 plugin tests, 4 client tests, and 5 deployment tests. I’m checking the extension’s runtime wiring and tightening the demo guidance before the installation gate. Live desktop acceptance and recording remain pending; nothing is installed or enabled.",
+        "timestamp": 1793085518
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): Source implementation, deployment safety, and current tests are verified; advance to explicit installation/activation approval without treating mocked tests as live desktop acceptance.",
+        "timestamp": 1793085819
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Fair point—the choices should have included broader approval. I’ll install and verify the reviewed bundle now without another prompt. Since you selected installation only, I’ll leave activation and restarts untouched. Routine checks won’t need further confirmation.",
+        "timestamp": 1793085958
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 4): User approved installation only and requested no repeated prompts. Installed the exact reviewed bundle, independently verified hashes and a no-change dry-run. Running GNOME has not discovered the new extension, so live acceptance cannot start yet.",
+        "timestamp": 1793086028
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Installed and hash-verified the bridge. All 54 source tests and the health check pass. GNOME hasn’t discovered the new extension yet; a fresh desktop login is needed before live testing. I haven’t enabled it, restarted anything, or logged you out. Skills now require simultaneo...",
+        "timestamp": 1793086037
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793086038
+      },
+      {
+        "type": "unmet",
+        "detail": "External desktop-session gate confirmed again: installed bridge files and marker exactly match the reviewed manifest (deployment dry-run changes: []), but gnome-extensions info reports the UUID is absent from the running Shell registry and desktop_windows returns bridge-unavailable/NameHasNoOwner. GNOME 50 does not support ReloadExtension, so a fresh desktop login is needed for discovery. Only ...",
+        "timestamp": 1793086074
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "Created a new goal tracking **only this conversation’s work**: - Safe multi-window tools and tests. - Separate approval before enabling the GNOME bridge. - Real OpenCode/app footage with zooms and transitions. - Updated skills and README under 170 lines. Unrelated work from ot...",
+        "timestamp": 1793083600
+      },
+      {
+        "summary": "I’m starting with the safety contract: IDs tied to the compositor session, current-workspace-only targets, fresh single-use previews, and verification of the actual focused window and logical-desktop geometry. A layout that only partially succeeds will be reported as partial, ...",
+        "timestamp": 1793083749
+      },
+      {
+        "summary": "The core and tool contracts pass 41 tests, and the client and deployment tests pass too. Nothing has been installed or enabled. I also found a deployment constraint: GNOME 50 does not support D-Bus extension reload, so this new bridge may need a fresh desktop login. I’m docume...",
+        "timestamp": 1793084945
+      },
+      {
+        "summary": "The latest checks pass: 42 plugin tests, 4 client tests, and 5 deployment tests. I’m checking the extension’s runtime wiring and tightening the demo guidance before the installation gate. Live desktop acceptance and recording remain pending; nothing is installed or enabled.",
+        "timestamp": 1793085518
+      },
+      {
+        "summary": "Fair point—the choices should have included broader approval. I’ll install and verify the reviewed bundle now without another prompt. Since you selected installation only, I’ll leave activation and restarts untouched. Routine checks won’t need further confirmation.",
+        "timestamp": 1793085958
+      },
+      {
+        "summary": "Installed and hash-verified the bridge. All 54 source tests and the health check pass. GNOME hasn’t discovered the new extension yet; a fresh desktop login is needed before live testing. I haven’t enabled it, restarted anything, or logged you out. Skills now require simultaneo...",
+        "timestamp": 1793086037
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "152998e2030f72d0420f3d5ed40f2aa799889a13e5891b3860fd090200ef5676",
+  "generatedFiles": {
+    "plan.md": "caa051252f094163c58e8e6aea0733f8253d92d4fa6f11b83e9036f46ee05f53",
+    "HANDOFF.md": "73ae171a769cbec9302e5b6fa99df0de4f7a61fbb75244f05a52712e1eb38b6f",
+    "work-history.md": "a5e1999495d273668cb6386235c6fcbf1e3834b7699d466b6a04d75ab5b1eee4"
+  }
+}

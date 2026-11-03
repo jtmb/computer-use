@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only source verification of Focus image preview and recovered-card ownership. Complete actual module logic executes against injected renderer/time/SDK/data boundaries, with synthetic image metadata only. No PNG, original-history request, viewer, GUI, ChatGPT/model, native renderer, deployment or old test/control replay.",
+  "continuation": {
+    "revision": 287,
+    "actualVerdict": "Blocker reviewer requires continued work: The status-fallback lead is performed, and resource/consequential gates are supported. But the conversation still records the Focus image preview command and recovered-card callbacks as untested source. Historical metadata404 blocks original-card recovery, not independent source verification. Trace tools/chatgpt-direct/tui.tsx and image-preview.ts against owning tests, then cover missing route-change/destruction, deferred-focus cancellation and stale/multiple-card target behavior using injected renderer boundaries. This needs no GUI replay, unavailable original, model, deployment or increased limits; source verification must remain distinct from actual pointer acceptance.",
+    "state": "This is the19thactual continuation verdict, not waiting or an unexplained abort. Supported read confirms active287; parent schedules288and refines289after full source/owning-test inspection. The earlier empty/incomplete update call's503overload is neither an additional reviewer verdict nor a lifecycle transition. Five older unexplained review aborts and transport1012remain distinct."
+  },
+  "sourceTrace": {
+    "tui": { "path": "tools/chatgpt-direct/tui.tsx", "bytes": 6722, "sha256": "a60fa66a9859e454256fb93285a2bc941496bdeb5d90ac3612b36deefbc6687e", "changed": false },
+    "card": { "path": "tools/chatgpt-direct/image-preview.ts", "bytes": 3512, "sha256": "edf3fcc739486c73df61f708d0489354eabda3101068ca0a646aa5a169700dc5", "changed": false },
+    "commandAndOwner": "tui.tsx19-50owns plugin/route lifetimes and one session/directory+preview/signal candidate. Owner changes abort and clear it. Each destroy callback clears only its own still-current candidate, not a newer card. Command54-81snapshots before one1msdeferral and rechecks lifetime/candidate signal/modal/current session/directory/candidate identity/destruction/parent/dimensions/terminal intersection and at most128visible ancestors before focus. It does not activate the original-image action.",
+    "recoveryAndDisposal": "Renderer84-108registers both immediate cards and recovered ready callbacks through rememberPreview. Cleanup120-127clears/aborts and unregisters the renderer/permission listeners. image-preview.ts6-39combines route/container/deadline signals, checks alive before publishing the recovered card and calls ready after attaching it. Card42-86retains its original mouse/Enter/Space/layout/open-action code and per-card destruction cancellation.",
+    "owningTests": "Complete existing image-preview.render.test.ts6517B/88762d06and preview-action.test.ts3564B/f70d1649are read. Five native-renderer cases cover image-only interaction/recovery and eight action/layout cases cover coalescing/error/disposal/sizing, but neither suite executes the new tui setup/focus command/ready candidate ownership. Those tests, assertions, resolvers and production files are unchanged and not rerun.",
+    "dependency": "The owner's already installed tools/chatgpt-connector/node_modules/typescript is5.9.3. No dependency is installed/updated, no native SDK/FFI bundle is imported and no foreign runtime is borrowed. The new explicit test:focus command uses that existing declared development prerequisite."
+  },
+  "preimages": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/preimages.json",
+    "bytes": 2752,
+    "sha256": "c1f6b0318c24ec9eb0a84fc1b039970d302b359f78378ee857aa7470d8d62419",
+    "sourceAcquiredBytes": 238606,
+    "elapsedMs": 10,
+    "qualification": "Complete selected production/helper/owning-test/package/guide/feature/previous-status-record files before edits, under256KiBper-file/2MiBaggregate/10secondbounds. Raw operator index29854B/5079c677matches. No image/history/profile content or full media/settings/executable backup is acquired."
+  },
+  "tests": {
+    "path": "tools/chatgpt-direct/test/focus-lifecycle.test.mjs",
+    "bytes": 13832,
+    "sha256": "b412dd457a46a294823a3840eefe3be40b4a1ece91c2aac5158a89661977f770",
+    "command": "node --max-old-space-size=256 --test --test-concurrency=1 test/focus-lifecycle.test.mjs",
+    "directory": "/home/james/repos/computer-use/tools/chatgpt-direct",
+    "packageCommand": "npm --prefix tools/chatgpt-direct run test:focus",
+    "result": { "tests": 7, "passed": 7, "failed": 0, "cancelled": 0, "skipped": 0, "durationMs": 918.296992, "log": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/first-run.tap", "bytes": 1862, "sha256": "a32f949941a2caa7f2d2e798bb76032bea02341d784f2ed103633344bbc1bf8e" },
+    "coverage": [
+      "Exactly one deferred focus, image-option gating, no focus before release, no original/viewer call and successful visible-card focus.",
+      "Session/directory changes cancel the pending snapshot, forget its target and do not revive an old card after home navigation.",
+      "Old-card destruction cannot clear a newer candidate; replacement during deferral neither focuses a superseded card nor silently redirects to the replacement.",
+      "Plugin teardown and modal transitions stop deferred focus without stale feedback; renderer/permission listeners unregister and command disables after teardown.",
+      "Detached/hidden/zero-size/fully offscreen/hidden-ancestor/cyclic-ancestor targets are refused; a still-visible intersecting rectangle remains eligible.",
+      "Actual recovered ready callback registers the attached card; old-route recovery is aborted and a late result cannot publish or replace the new current target.",
+      "Destroying a recovering container aborts its load and prevents late registration; destroying a ready recovered container clears its target."
+    ],
+    "executionBoundary": "The existing compiler parses complete source files and transpiles complete actual tui/card/layout modules with imports replaced by explicit dependency bindings; the actual createOriginalAction declaration is also used. Source factories, target state, guards, ready callbacks and recovery publication are not mocked or copied. Renderer objects/events, SDK registration, Solid effect scheduling, attachment lookup, asynchronous history response, viewer, permission-refresh and timer boundaries are injected. Route effects and1mstimer release are explicitly driven. setImmediate is only a microtask-settlement barrier, not a fixed sleep or live GUI wait. Recovery timeout uses an owned test signal rather than a real30secondwait; actual deadline behavior is not newly claimed.",
+    "limits": "Parent capture is65,536bytes/15seconds, child heap256MiB; source acquisition256KiBper-file/2MiBaggregate/10seconds. Synthetic image metadata contains no PNG bytes or real path. Unexpected viewer/history calls fail the test. No native renderer/Solid scheduling or real palette restoration timing is measured. No complete strict/native/build or default offline-CI pass is inferred.",
+    "integration": "Only an additive test:focus package script is introduced, pointing to the exact selected command already run. Existing default test, native-renderer command, dependency declarations, typecheck command and source/CI/config are preserved. The optional source-root override is test-only for complete scratch mutation fixtures, not a production seam or activation setting."
+  },
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/controls.json",
+    "bytes": 5793,
+    "sha256": "d2562651afd9fb3312dd14297822de09aa9ef698d3f3737910713bd11dc105e9",
+    "result": "Seven exact scratch-only faults each fail the intended single assertion: focus before the deferred boundary, omit owner abort, omit in-flight candidate identity, let old destruction clear a new candidate, omit recovered ready registration, omit teardown aborts, or omit final visibility/ancestor guard. Complete four-file fixture topology is copied with only one exact fragment changed per control. These are deliberate faults, not seven discovered production defects.",
+    "sourceAcquiredBytes": 17771,
+    "capturedBytes": 7238,
+    "elapsedMs": 6075,
+    "qualification": "65,536-byte shared capture budget across all controls; existing source/time/heap limits remain. No original-source edit, native/GUI/PNG/history/API/viewer/model call, old accepted control replay or helper agent."
+  },
+  "strictHostAttempt": {
+    "scheduledAtPlanRevision": 291,
+    "basis": "Parent independent-work audit identifies the existing whole-owning-package host typecheck as a distinct current path after the focus addition, not a native2827-input/prior four-root/build retry. Actual direct tsconfig.host.json includes all four direct sources, existing TypeScript tests and all connector source; strict/noEmit are true. Default skipLibCheck:truedoes not satisfy the retained library requirement, so only an explicit CLI --skipLibCheck false override is used, without editing config or omitting inputs.",
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/image-focus-source-utL1Ua/strict-host/verification.json",
+    "bytes": 9058,
+    "sha256": "98c95250ca2b7d2bafa0aecd03b20989e571d4be2cefa1ecba189cc24c2495d6",
+    "ownerConfig": { "path": "tools/chatgpt-direct/tsconfig.host.json", "bytes": 1467, "sha256": "ee3058348b81696970b3a62319e37985b5f1b6bf072c6007d38705c964dd48cc", "unchanged": true },
+    "compilerAndSDK": "Existing owner TypeScript5.9.3entry45B/8d5fa5bdand actual host SDK manifest2.1.1/610693e4are recorded; no installation/update, stub or independent attestation of every transitive compiler module. Seventeen declared include-matching source files/config/compiler entry/SDK manifest recheck unchanged. This is not an actually enumerated compiler program or proof a worker loaded them.",
+    "command": "node --max-old-space-size=256 ../chatgpt-connector/node_modules/typescript/bin/tsc --noEmit -p tsconfig.host.json --skipLibCheck false",
+    "guards": "Canonical superviseProcess with real default admission/ownership/sampler/observer/clock,256MiBwhole-owned-RSS/256MiBNodeheap/30s/64KiBstreams, unchanged2816MiBprelaunch/1280MiBfloor. Fresh sanitized scratch HOME/TMPDIR, no inherited environment/GOGC/tuning. All owner include patterns retained.",
+    "spawned": false,
+    "accepted": false,
+    "reason": "prelaunch-memory-guard",
+    "initialAvailableMiB": 2815.1875,
+    "requiredPrelaunchMiB": 2816,
+    "rssSamples": 0,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "elapsedSeconds": 0.0008226590000000016,
+    "cleanup": { "signalled": false, "verified": false, "reason": "no-child" },
+    "identityAcquiredBytes": 487899,
+    "identityAndAttemptElapsedMs": 32,
+    "locatorError": "Guessed tools/chatgpt-connector/tsconfig.host.json is absent; the real direct-package config exists and is used. This locator miss is not dependency absence or a reason to create a replacement config.",
+    "qualification": "One legitimate distinct full-owner request never starts, even though measured headroom is close to the fixed gate. Do not round down the gate, retry/poll, infer compiler diagnostics, verified child cleanup or a type pass. This supplies no admitted-resource basis for resuming other blocked heavy jobs. Earlier source7/7and seven fault results are not rerun. The new receipt preserves all actual before/after input identities and separate empty output files."
+  },
+  "qualityReview": "Each new case covers the missing cross-module command/ready ownership path, rather than rerunning the old native image/action/layout tests. Assertions observe which actual card is focused, which late result may publish, cancellation signals and user-facing success/unavailable feedback. Real module logic executes with only external boundaries injected; no source grep or count-only success substitutes for behavior. Every critical route/identity/readiness/lifetime/visibility guard has a decisive exact fault. All seven cases pass unchanged production code, so no speculative source fix is justified. The separately attempted strict/library owner check is preserved as an actual no-spawn resource refusal, not promoted from green source tests.",
+  "adjacentDocumentationCheck": { "command": "node --max-old-space-size=256 --test --test-name-pattern '^inventory links resolve and source/runtime/unfinished states stay explicit' scripts/features-contract.test.mjs", "tests": 1, "passed": 1, "failed": 0, "skipped": 0, "durationMs": 201.052696, "qualification": "Only the materially changed feature/guide/image-focus links and acceptance labels, not full CI/health/native or earlier accepted suites." },
+  "remaining": "The287reviewer's independent focus/card source lead is performed. This supersedes only the earlier no-automated-focus-regression status, not complete types, actual Solid/OpenTUI scheduling, real recovery deadlines/native lifecycle, supported original metadata404, original-card availability or actual pointer-click acceptance. Historical keyboard-to-Loupe success and original PNG identity remain preserved; no PNG/history/API/GUI operation is repeated. All full-delivery native/compiler/CI/build/types, authentic-original, approval/human/device requirements remain. No installation/activation/restart/security change, model/agent, PR access, reserved computer/browser source/result, publication, operator staging/commit/push or completion/waiting transition is inferred."
+}

@@ -1,0 +1,345 @@
+# Handoff — `8915ecd8-7a22-4f8c-b494-433d29e38f3a`
+
+- Goal ID: `8915ecd8-7a22-4f8c-b494-433d29e38f3a`
+- Source session ID: `ses_e78fdcc9affeNOlKMRek7Yobo3`
+- Source directory: `/home/james/repos/computer-use`
+- Exported at: `2026-10-31T03:52:12.415Z`
+- Repository identity: `github.com/jtmb/computer-use`
+- Worktree identity: `main`
+- Relative scope: `.`
+- Repository metadata status: `git`
+- Repository metadata gaps: `none`
+- Status: `cancelled`
+- Plan revision: `96`
+- Record: `archive`
+
+## Objective
+
+> Finish the minimal native OpenCode chat\-bar orchestration selector and the explicitly requested /voice\_read \(enable assistant reading\) and /voice\_read\_last \(read only the last assistant reply\), then complete the retained scoped continuation of the cancelled goal a78ba314\-022b\-4c43\-89d4\-ea1defc628cb without reopening it or predecessor 4cbaf68c\-9b82\-43bd\-a8da\-154811dd61eb\. Preserve all 68\+7/75 requirements and decision/evidence layers in docs/request\-coverage\.md, the 2026\-10\-30 correction and all additional outstanding lanes in docs/session\-consolidation\-2026\-10\-29\.md: task\-title/checkout; voice manual/default\-off\-timeout/Queue/Send/Copy/Hearing/readout; selected useful\-skills/documents/self\-learning; corpus/CI/research/real model evaluation; native/compiler/isolated benchmark/effective metadata; coordination lock reliability, orchestration skills, native inbox/rows/settings/handoff/OFF/memory/import/fallback/monitor; archive provenance; image click\-to\-unchanged\-original; desktop/browser/clipboard/private\-entry/callback; existing\-instance gateway; simultaneous demo and final preservation\. Retain accepted image recovery, generation, audits, deployments, title transition and document boundary/resource/macro/link checks; do not repeat them without a demonstrated reason\. Independently verify and reconcile the two already\-returned document/evaluation workers, preserving their uncommitted work\. Use authorized DeepSeek Flash asynchronous child subagents tracked in this chat, never independent successor/root chats; parent owns all goal planning, integration, acceptance and lifecycle\. Start with disjoint selector and voice command assignments\. Keep the existing composer/styling/controls unchanged except the selector, persist explicit chat\-bound named methods, and distinguish source tests, loaded client, model behavior, GUI/audio and human acceptance\. Native build dependencies are authorized locally and must remain version/hash inventoried for later bootstrap inclusion; pres\.\.\.
+
+## Current state
+
+Goal status is `cancelled`; the persisted plan revision is `96`.
+
+Completion evidence:
+
+No completion evidence is recorded.
+
+Goal-level blocker:
+
+No goal-level blocker is recorded.
+
+Stop reason:
+
+> cancelled
+
+## Plan
+
+Plan revision: `96` · updated 2026-10-31T03:40:05.000Z
+
+> Five phases: selector and voice commands; coordination reliability; returned\-worker integration and remaining local implementation; loaded/model/GUI/human acceptance; final75ID/additional\-lane and preservation audit\. Begin with two disjoint asynchronous DeepSeek Flash children, with selector as coordinator cursor\. Preserve prior accepted outcomes and cancelled goals\.
+
+### Completion criteria
+
+- The existing native OpenCode chat bar has only the requested minimal selector beside Build/Plan with named Solo/Background subagents/Foreground subagent methods, chat\-bound persistence/readback/no guessing and actual native menu/loaded\-client acceptance; preserve other controls/style and unrelated native changes\.
+- /voice\_read enables assistant reply reading and /voice\_read\_last reads only the last eligible assistant reply once, isolated to the selected session\. Preserve manual stop/default\-off timeout/Queue/Send/Copy/full Hearing and distinguish source checks from required loaded/audio acceptance\.
+- All68\+7/75 source\-qualified requirements, decisions and additional lanes in docs/request\-coverage\.md and docs/session\-consolidation\-2026\-10\-29\.md have verified outcomes at their retained source/runtime/model/GUI/human layers; no unfinished requirement disappears and later exclusions/corrections remain explicit\.
+- Preserve accepted generation/audits/image recovery/deployments/automatic title transition/document controls; independently integrate the two returned workers; fix coordination lock reliability and orchestration\-method guidance with relevant contention/failure checks, without automatic prompt hooks or expanded permissions\.
+- Remaining selected adoption/self\-learning, corpus/CI/research, native/compiler/benchmark/effective metadata, coordination/handoff/OFF/memory/import/fallback/monitor, archive/image\-original/title/checkout, desktop/browser/clipboard/private\-entry/callback, gateway and simultaneous demo satisfy retained actual acceptance requirements rather than synthetic approximations\.
+- Preserve original staged\-patch SHA25691d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805, unrelated combined tree/index/voice submodule/media/settings/executable/launchers/history and frozen native pins\. Keep dependencies inventoried for bootstrap\. No forbidden PR input, no\-model inbox fixture, unauthorized consequential change, commit or push\.
+
+### Phase `selector-voice` — in_progress
+
+> Finish selector and requested voice commands first, with disjoint child ownership and independent parent acceptance\.
+
+- **`retained-image-evidence` · completed:**
+  > Retain accepted image generation/recovery/types/renderer/loaded\-card evidence without new generation or claiming click\-to\-original passed\.
+  - Evidence:
+    > Cancelled goal revision10 records127 connector,8 direct,5 native cases, authenticated15\-page recovery and unchanged original\. Live cards observed; pointer\-refused original click remains operational scope\.
+- **`selector-finish` · blocked:**
+  > Finish existing minimal selector source/native menu/chat persistence and supported build/load path, preserving style/resource/security boundaries and separate client replacement gate; parent independently verifies\.
+  - Evidence:
+    > Existingselector/nativefixtureacceptanceretained; fullbuild/installedclientstillblocked\. Userrequestedblocker\-ownerfanout: D2nativebuildgetsnewboundedreadonlyinvestigationreusingpriorBunflag/failedOOM/invocationabsence evidence, notunchangedretry\. D1desktopbridgeisindependentfirstbatchpartner\. No sourceinput/buildartifact/executable replacement/install/activation/permission/newfullbuild authorized by delegation; agents mustfindeligibleconcretefixandproveoridentifyexactremaininggate\.
+  - Blocker:
+    > Full build/package\-wide types and installed\-client/visual acceptance remain unverified after960MiB failures\. Documented driver \-\-smol candidate exists but prior exact invocation is unavailable, so a genuinely changed retry is not proven; no unchanged OOM retry or guard relaxation\. Approved GNOME bridge still NameHasNoOwner; termctrl unavailable\. No client replacement/shared restart/blind or alternate input authorized\.
+- **`voice-read-commands` · completed:**
+  > Audit existing /voice\_read and /voice\_read\_last; fix demonstrated gaps and verify native registration/enable\-reading/last\-only session\-isolated semantics without rewriting accepted voice behavior\.
+  - Evidence:
+    > Parent read actual readout/controller/native command handlers and five added regression cases\. Independently reran npm run typecheck \(exit0\), targeted79/79 and full npm test114/114, zero skips; voice git diff \-\-check clean, original parent staged SHA91d6022a preserved\. Existing commands already implement requested semantics, no duplicated feature needed\. Child released scope\. These are synthetic transpiled\-TUI/SDK/audio\-boundary cases, not loaded slash dispatch/live history/audio; selector\-voice\-loaded remains pending\.
+- **`current-scope-registry` · completed:**
+  > Reconcile current goal/ownership/cancellation wording and exact disjoint child registry while retaining75ID/additional\-lane routing and historical reservations\.
+  - Evidence:
+    > Updated request\-coverage/current consolidation with active new goal, both cancelled histories and exact2 child identities/scopes/watch IDs; no child scope edited by parent\. Fresh node scripts/request\-coverage\-audit\.mjs confirms68\+7=75,10 lanes, zero input/crosswalk/review errors\. Expected overall exit1 remains known483f plan archive mismatch \(41 bundles\), not scope success waiver\. Feature inventory7/7 and git diff \-\-check pass\.
+
+### Phase `coordination-reliability` — pending
+
+> Fix actual coordination contention and align method guidance before expanding agent work; only explicit disjoint preparation may run ahead\.
+
+- **`coordination-lock` · completed:**
+  > Reproduce/fix nonblocking flock contention in tools/session\-coordination/store\.ts with real contention/cancel/error checks, no persistent lock deletion or automatic wake hook\.
+  - Evidence:
+    > Child explicitly released store\.ts/new store\-lock\.test\.ts scope\. Parent read full127\-line store and179\-line real cross\-process tests, independently reran5/5 focused, full138/138 zero skips and package strict types with library checking\. Two\-second permanent\-fd flock wait distinguishes conflict75 vs helper failure; tests preserve inode/state, serialize updates, abort\+reap owned helper\. Loaded runtime not verified or reloaded\.
+- **`orchestration-guidance` · completed:**
+  > Update canonical orchestration/coordination skill guidance for named chat\-locked methods, asynchronous children, parent\-only goals and independently accepted results; test source contracts separately from model behavior\.
+  - Evidence:
+    > Parent read new method sections in both SKILL/README pairs and all five new contracts, including per\-chat/no\-inheritance/no\-guess/no\-root\-substitution, unchanged delegation/native/goal gates, mailbox ownership and runtime\-availability limits\. Independently reran45/45 orchestration/portability/autonomy/architecture source contracts, zero failures; git diff \-\-check and original staged SHA91d6022a pass\. Child explicitly released all five paths\. No selector command/storage key universally promised, no loaded/model enforcement claimed or deployed\.
+- **`coordination-acceptance-preflight` · completed:**
+  > Prepare exact participant/native\-row/settings/restart/policy/mixed/unknown acceptance, retaining existing mailbox/seen\-only ACK evidence and separate security/activation gates\.
+  - Evidence:
+    > ACCEPTANCE\.md now maps native rows/full bodies, visible inbox/settings, Off/allowlist/denial/steer/idle\-wake, mixed/unknown/replay/restart and model comprehension to retained vs fresh vs still\-required evidence/gates\. Fresh metadata confirms4DeepSeek children with exact parent/project/location/model; ownership RPC7/7stopped, active\-map sample parent only \(not descendant proof\)\. Exact location header corrected an irrelevant /home/james plugin read; canonical plugin active/server\+tui\+rpc, policy read inheritedrev0/inbox\-only/idleWake:false\. Preflight ready\-source/preview\-ready/config present/state0700/action:none\. Updated stopped\-worker registry/features;18source contracts, whitespace and original staged SHA pass\. No trial participant reused, write/delivery/ACK/policy/wake/restart\.
+
+### Phase `local-continuation` — pending
+
+> Independently integrate returned workers and complete remaining authorized local implementation/readiness without repeating accepted audits\.
+
+- **`returned-document-worker` · completed:**
+  > Review actual document probe child changes and15 tests, reproduce failure receipts/fixture preservation and fix stale12\-count offline\-CI expectation before acceptance\.
+  - Evidence:
+    > Parent read run\_control/fixture preservation/main receipt paths and all15 tests; independently15/15 pass, Ruff lint\+format and strict mypy on both files pass\. Reproduced stale CI12 assertion \(16pass/1fail\), changed it to15 plus three named failure\-path requirements; final CI contracts17/17, all8 required offline steps pass\. No live converter rerun/untrusted input or prior fixture bytes removed\.
+- **`returned-eval-worker` · completed:**
+  > Review native\-format adapter and21 new synthetic cases/74 reported total in evals/agent\-rules; verify2\.1\.1 schema/provenance limits and CI/manifests without claiming real record export/model evaluation\.
+  - Evidence:
+    > Parent read full776\-line adapter/737\-line original tests and pinned2\.1\.1 schema\. Three added regressions first failed on duplicate step terminals, replaced start baseline and negative execution/step latency; corrected with guards and matched optional failed\-step finish to content\-filter\.25 adapter/78total tests pass\. Added native\-trace suite to required offline CI, all8steps pass; updated package guide/native\-trace/features/quality audit\. Inputs/mapping review still unauthenticated; no genuine record export/model compatibility accepted\.
+- **`documents-selected-adoption` · pending:**
+  > Finish rights/pinned dependency/hardened XML/bounded untrusted conversion and representative DOCX/PDF/XLSX authoring/render/reopen; preserve reader20, Calc/CSV and actual boundary/resource/UNO/link/macro controls\.
+  - Evidence:
+    > Owning guide/features now record all3remaining actualwheel hashes under originalbounds, lxml fullselected BSD\+exceptions notice \(bundledLGPL2\.1/iconv,PSF/ElementTree,GPLtest/resources\) and ReportLab3clauseBSD/year\-discrepancy; no pureBSD/fullrights inference\. Pandas containerpassed1720entries43774982expandedbytes, notice\-selection&gt;16 refused beforememberread; no batchworkaround/raisedbound\.12unchangedfiles preserved Documents/remaining\-wheel\-notices\-nCRdUp receipt3aa4d9e2\. HistoricalcandidateSHA304601a7 unchanged; no install/import/packagecodeexecution/authoring acceptance\. Earlier preflight36/CI8,XML17\+13, priorlicenses remainretained notrerun\. Completeclosure/transitiverights/security/ABI/XML/format/render/human stillunfinished\.
+- **`self-learning-host` · blocked:**
+  > Resolve exact pinned client/readiness prerequisite with applicable authority; reuse prior project\-only host activation approval and verify actual registration/permissions/cancellation/reviewed full\-bundle workflow/rollback\.
+  - Evidence:
+    > Read current package/index/adapter/acceptance, verified package\-local createRequire still MODULE\_NOT\_FOUND for @opencode/client/package\.json and /service\. Imports are required for bounded no\-start discovery/pagination, not unused\. Existing project\-only activation/host\-test approval retained; native\-selector dependency approval does not cover this package\. Added exact current dependency reconciliation to tools/self\-learning/ACCEPTANCE\.md\. No install/borrowed tree/new failing activation/session scan/skill edit\.
+  - Blocker:
+    > Pinned @opencode/client@2\.1\.1 remains unresolvable in tools/self\-learning; applicable exact dependency provisioning authority is not established\. Host\-tested bounded access/native permissions/cancellation and real reviewed full\-bundle learning remain unfinished after dependency resolution; existing scoped activation approval is retained, not re\-asked\.
+- **`corpus-ci-research` · pending:**
+  > Finish reference/exemplar/candidate separation, offline CI and authorized real calibration/model routing/human\-review/hosted enforcement, preserving research provenance and no PR input\.
+  - Evidence:
+    > AGR\-AU019 child ses\_e71113c63ffecxJGA7xsW17rUn terminal/exactscope released/watchstopped\. Parent inspected all8calls/7assistantrecords/40130bytes and25line actualdraft\. Preconnected capture73actual durableevents/7steps/8completedtools under2MiB/2048/120s, launch/parent/project/location binding\. Draft fictional/DRAFT/unpublished0\.4\.1,897bytes matches canonicalcopy SHAa07334a3; inputSHA597a2495\. Exclusive5file Documents/authority\-calibration\-20261030\-VGbT3q receiptd067f4ff verified,scratchretained,no rawprivate/reasoning/credentials persisted\. Actualwriter write\(callAH1U\.\.\.\) not requiredpatch; genericpatchmapping remainszeroactions/rawgradefails2targets\. Separate parentreview actualwrite\+finaldeployblocker passesnarrowcandidate; mandatoryauthoring/policyread omissions\+patchmethodviolation keep broadercompliancefailed\. CatalogueGitHubdescriptions notremoteGitHubaccess\. Added4retained/counterfactualchecks:21focused/99totalpass after correctinginitialtestwildcardID toactualproductionforbid rule; no case/control/grader/humanstatuschanged\. README/features/qualityaudit/consolidationregistry reconciled\. Native48956ms/tokenclasses/recordedcost retained, billing/total/effectiveidentity/benchmark unknown\. EarlierCLI/injection/routing/conflict failures preserved; hosted/human/generalcriteria unfinished\.
+- **`native-compiler-benchmark` · blocked:**
+  > Finish supported full\-host graph/positive/error/library compiler diagnostics and safely isolated matched Code Mode/direct\-tools benchmark/effective metadata without relaxing resource/path guards or inventing measurements\.
+  - Evidence:
+    > Fifth3fixesindependentlyverified/33pass20\.104s thenparentreleasedscope corrections: wrongstatPID/start/unsafeancestry, postexitunknownerasure/swallowederrors, registrycap/identityreplacement/sharedforestbudgets, truthfulsignalreporting\+boundedactualrootexitconfirmed\. Furtherrealboundedlost\-enumeration regressionRED thenfixed live\-rootretainedRSSaggregation \(virtual2098while rootalive\); deterministictransientrootRSSmissingRED then3bounded1msrechecks chargedtooriginalentry/timebudget, persistentbad/entrycapstillrefuse\.6focusedpass; latest38/38pass21\.398s/0skips; tinyhostrefusedprelaunch, injectedtinyrealworkercompleted\. Earlier35/36 uninstrumentedmonitorrefusal notprovedsamecause/fixed; retainedunknown\. Testnormalreasonnowasserted, pre\-samplekillremainsno\-sample; actualtristateprobe confirmskilledsamechildgone/unknownchildalive0signals\. Final3source\+actual38log Documents/compiler\-final38\-8aAgjB receipt76d17d09 \(driver14cf444e/test00b2888c/guide36142b6c\); intermediate12files80810e5c/fifthc6b497c5/earlier1060d095 unchanged\. Sourceonlynotfullgraphacceptance\. No fullpreflight/run/nativebuild, guardraise/narrowing/benchmarkpermissionchange\.
+  - Blocker:
+    > Fresh full current2827\-file original/mirror/API/CLI graph equivalence is verified, and tiny source/library diagnostics are verified\. Full direct\-CLI diagnostics actually ran under original1536RSS/1280floor/2816prelaunch/90s but hit ownedRSS1537\.800781MiB after70\.873589s with no diagnostic output\. No unchanged retry/cap ratchet or skip/narrowing is permitted; full semantics/construction remain incomplete under current limits\. Matched real model/browser benchmark still lacks eligible scratch/browser ancestry and private\-provider/loaded exposure acceptance; existing0775 permitted roots fail guards\. No permission change/fallback root/profile/deploy is authorized by this progress\.
+- **`title-checkout-local` · pending:**
+  > Preserve actual root\-title transition and169 tests; finish remaining child/manual/concurrency title matrix and exact safe checkout\-template/strategy/native Git/preflight/creation readiness without PR dependencies\.
+  - Evidence:
+    > Correctedtransportindependentlyacceptedcheckpointcfef0205 retained:37positivecasesacross11runner/9core/6generated/6HTTP/5host,4intendednegativecontrols, actualstagedcodegen/privateemptytrees/publicmethodfakefetchproof\. Freshmodeldiscovery confirmsDSFlashhigh; sameactualchild ses\_e707ddbeeffeFryPtUMIASrVK8 nowexplicitlyresumedbackground ONLYtools/opencode\-title\-cas/ for\(A\)separateconditionalcoremethod preservingnativelegacyrename signature/implementation/NotFounderrorchannel,\(B\)properstagedcore→stagedplugin→stagedgeneratedclientresolution\. KeeppublicHTTPpayload/legacyempty/fullID/lastread/ABA/field/409/controlsemantics andparentharnesssafety; no any/cast\-away\-error, falsecompilerred, partialgraph/typepassclaim, native/currentplugin/cache/installededits, sourcepermissions or activation\. Parentregistry/features sayactiveunacceptedfollowup; onechild/nativecompletion/noextra watches or parentoverlap\. Properfulltypes/sourcecorecompatibilityandruntime/integration/human/checkoutgatesremainopen\.
+- **`handoff-memory-import-monitor` · pending:**
+  > Finish remaining local handoff OFF/manual/compaction, scoped memory/global\-explicit/poisoned\-note/overhead routing, import/fallback/monitor and effective\-metadata readiness with runtime gates separate\.
+  - Evidence:
+    > Returned capture\-analysis child independently reconciled and released:72messages/5pages through empty/627420bytes under1MiB; task\-memory1repo search/protocol/preferences/maintainer reads observed, missing regex/integration refs, late comments/testing/OpenCode, broadhomeglobs/out\-of\-scope stat retained\. Pinned event\-feed64\-67 fails overflow, so silentdrop/decisiveH1H2/complete\-via\-projection claims rejected\. Native idle vsreport \-69866\.849/\-67561\.061/\+3254\.236ms: poison outlastedwindow; firsttwo direct\-onlypredicate broken, no proofallframes/assertions\. Parent prepared3fixturecapture/helper/test files only: knownexecute/errorchecks, per\-frame terminal/evidence\+busyreset, exacttitle/newoutputdir, stages/timing/histogram/discardreasons; caps120s2MiB2048 and predispatchorigin unchanged\. Meaningfulred unidentifiedouter accepted; lateroldterminal falselyendsnewexecution \(8pass1fail\); final9/9pure tests and scriptsyntax pass\. Firstcombinedload missingexports is not behavioralred\. No capture/model rerun orprojectionfallback; completeLiveTrace alwaysfalse, actuallaunchID comparison stillrequired\.12selectedcapture\+tiny\-supervisorfiles preserved Documents/capture\-lifecycle\-review\-w39w9W receipt50a35778\. Original3failedreports\+11syntheticfiles hashes/mode/mtime unchanged\. All broad routing/overhead/OFF/import/monitor/model/human criteria remain\.
+
+### Phase `operational-outcomes` — pending
+
+> Verify retained actual loaded/model/GUI/audio/human outcomes through exact authority; fixtures never replace these layers\.
+
+- **`selector-voice-loaded` · pending:**
+  > Verify loaded selector menu/persistence/chat switching and voice command/settings/readout/manual stop/default\-off timeout/Queue/Send/Copy/full Hearing on supported surfaces; no unrelated draft input or private TUI bypass\.
+- **`image-live-original` · pending:**
+  > Complete real recovered\-card click\-to\-unchanged\-original and restore coordinator view; retain POINTER\_CONSTRAINED/NameHasNoOwner limits until supported integration works\.
+- **`coordination-handoff-model` · pending:**
+  > Verify actual participant/native\-row/settings/permission/concurrency/restart/mixed/unknown/recovery and passive/explicit handoff/OFF/compaction/model memory/import/monitor outcomes without root substitutes or guessed effective metadata\.
+  - Evidence:
+    > Ownershipsource/retrialchildren terminal/released,watchesstopped\. Parentreviewed4productiondiffs/newtests and added3initialred\+maxidentitycase; corrected finalpathfalsewholecoverage, rawmessagecursor skip,500charUnicode validator mismatch and newly exposed messagebudgetstranding\.2claim pages reserve fullbody/continuationhints; all13oldops\+newreadonlyownership remain strict14schema,512chunk/2KiBvisible/32KiBresponse unchanged\.31focused\+maxboundary/final159full tests zeroskips and freshTS5\.9\.3strict/noEmit/skipLibCheck:false pass\. Same realnegativechild retrial independently audited afterpriornativeanchor:4assistantrecords/45454bytes, exactlycompletedread/ownership/policy, executedDeepSeekFlashhigh\. Exactparentclaim active50codepointpath/fingerprint2ad15266 observed; child correctlydeniesownedit authority\. Parentexplicitrelease thenownershipread yieldsactivefalse/releasedAt1793399051832/fingerprintb28cfcde; recordretained\. Noactivation/reloadcauseinferred,nochildwrite/ACK/policy/wake\. README/acceptance/features/consolidation/qualityaudit reconciled, only4reviewedsourcehashesrefreshed\. Selected11file baseline/current snapshot Documents/ownership\-visibility\-20261030\-rivnua67 receiptb11e3bd4 verified,currentbytesmatch\. Prior147bodyreader/native745charACK outcome retained\. BroadGUI/settings/nativepolicy/restart/mixed/unknown/otherhandoffmatrix unfinished\.
+- **`archive-provenance` · pending:**
+  > Recover proven\-owned archive bytes only via fresh preview/CAS/backup/rollback and authorized export; preserve483f mismatch/unknown provenance/source history/reservations\.
+- **`desktop-browser-clipboard` · pending:**
+  > Complete disposable\-target desktop/window/input/release/browser isolation/Code Mode rollback/terminal clipboard through supported GNOME and exact deploy/activation/rollback authority; legacy screenshot holds remain\.
+- **`private-entry-callback` · pending:**
+  > Complete human\-controlled private entry/file staging/exact callback with no credential extraction or synthetic\-human claims\.
+- **`gateway-distinct-device` · pending:**
+  > Finish existing\-instance gateway opaque\-state backup/tested restore/network exception/stale\-route migration, loaded /web, distinct\-device same\-session HTTPS and negative/lifecycle/rollback checks\.
+- **`simultaneous-demo-preservation` · pending:**
+  > Complete real simultaneous OpenCode/tool/app demo with preview approval before replacement; old\-tree deletion requires exact authority/fresh preservation/quiescence\.
+
+### Phase `final-reconciliation` — pending
+
+> Audit every retained/new outcome and preservation boundary against real evidence before completion\.
+
+- **`coverage-final-audit` · pending:**
+  > Reconcile75IDs/additional lanes/corrections/child acceptance/skips/failures/gates at required layers; preserve cancelled goals/archive history and original index/media/settings/executable identities\.
+- **`integration-health-quality` · pending:**
+  > Run relevant combined\-tree checks/health/syntax/types/test\-quality cadence/preservation; document full\-host/resource/GUI limits and close only when all immutable criteria are achieved\.
+  - Evidence:
+    > Newdirectuserrequests: delegateoneDeepSeekagentperblocker;urgent/thorough/no\-mistakes wording\. Parenttranslatesurgencytoactualevidence/negativechecks/no\-shortcuts, notthreats/guarantees/newauthority\. Elevenlanes: D1desktopbridge,D2selectorbuild,D3fullcompilerresource,D4archiveprovenance,D5documentdepsrights,D6selflearningpin,D7benchmarkisolation,D8privateentrycallback,D9gatewaydistinctdevice,D10simultaneousdemo,D11titletypesintegration\. D11existingDSchildjustterminal/released15files,parentacceptancepending\(no duplicateworker\)\. No reliable numericcapacityfoundinexposedconfig/targetednativeproviderchecks;retain2activebatch/nativeadmission,queuedlanesnotfalselylaunched\. Newworkersinitiallyreadonlycanonical\+task\-ownedscratchproposals,nooverlappingwrites/goals/plans/agentfanout\. Eachmissionpursuespermittedalternativestoclearblocker, mustproveactualcriterionorreturnpreciseexternalgatewithoutfalseclear\. No blanketauthorityforinstall/deploy/activation/restart/security/archiveapply/privatehuman/demo replacement/delete/commit/push\. All75IDs/old32decisions/criteria/frozeninputs/sourceacceptance/historyretained\.
+
+### Decisions
+
+- Latest user explicitly requests new goal before delegation now; supersedes earlier wait\-to\-create\-goal sequencing\. No cancelled goal is reopened and no budget/time/auto\-turn cap is inferred\.
+- Use discovered deepseek/deepseek\-flash\#high, display DeepSeek V4\.1 Flash 1017\. Conservative initial batch2 because numeric runtime capacity is unknown; native admission remains authoritative\. Parent alone plans/manages goals and verifies results\.
+- Parallel registry: selector child owns four native selector prompt paths, its native tests and tools/opencode\-orchestration; voice child owns bounded readout/controller/command/tests/docs inside independent voice\-assistant\. Parent owns shared goal/coverage/CI/config/skills and will not edit child scopes while owned\. Voice preparation has no selector dependency and may run with selector as coordinator current task\.
+- Existing voice commands are already implemented: inspect/test first and fix demonstrated gaps, never duplicate/rewrite or alter recording/Queue/Send behavior\.
+- Retain all75IDs/additional lanes, no PR fetching/checkouts/merges/imports, no no\-model inbox fixture, no repeated accepted generation/audits/deployments\. Exact installation/deploy/activation/shared restart/security/archive apply/private\-human action/demo replacement/deletion/commit/push gates stay separate\.
+- Native local dependencies and bootstrap inventory verified; inventory remains uncommitted and not onboard\-wired\. Full check/build remain resource failures, loaded selector unobserved\. Both earlier workers returned/released but require independent parent integration\.
+- Dispatched asynchronous deepseek/deepseek\-flash\#high children after goal\+revision1 persisted: selector ses\_e71eafa38ffeomNGnG3RpABzJ1 owns exact native selector prompt paths/test and tools/opencode\-orchestration; voice ses\_e71eaf9d6ffe0VdwePauDYe09K owns bounded voice\-assistant command/readout/controller tests/docs\. Both are child sessions, not roots\. Parent shared\-doc/coverage/config/CI ownership retained; watch IDs goal8915\-selector and goal8915\-voice\-read track finite observation windows, never automatic ownership release\. Reports remain pending independent parent verification\.
+- Both watch registrations now confirmed\. Second initially failed existing nonblocking flock contention; same\-ID retry succeeded without lock removal or duplicate dispatch\. Fresh retained archive audit remains acceptance:not\_observed due known483f plan hash mismatch; no archive bytes/manifest rewritten\. Current phase cursor remains selector\-finish while independent voice child prepares its pending task\.
+- Voice child ses\_e71eaf9d6ffe0VdwePauDYe09K is terminal and explicitly released assigned scope; bounded result accepted after parent reruns\. Selector child continues unchanged\. Permit one disjoint phase2 preparatory child for coordination\-lock now, since fresh watch registration reproduced contention and this safety/reliability work does not depend on selector\. Keep max2 simultaneous children and selector coordinator cursor; do not begin other later\-phase implementation or claim phase1 complete\.
+- Launched phase2 independent preparation child ses\_e71dab317ffeFgc3vrwsNaZnmn using deepseek/deepseek\-flash\#high for coordination\-lock only: tools/session\-coordination/store\.ts, test/store\-process\.test\.ts and optional new test/store\-lock\.test\.ts\. Watch goal8915\-coord\-lock installed\. No runtime state/config/docs/fingerprint mutation delegated\. Voice monitor stopped and exact completion message seen\-only ACKed after independent114/114/type/79 targeted verification; selector child remains the other active slot\. Goal still active and current task selector\-finish\.
+- Parent reproduced scripts/ci\-offline\.test\.mjs16pass/1fail: test299 still requires Ran12 while actual independently rerun document probe suite now15/15\. The returned document and evaluation workers were already terminal/released before this goal; scripts/CI/evals are outside current children\. Authorize parent independent phase3 integration of returned\-document\-worker and returned\-eval\-worker now \(review/test and exact shared CI/manifests/docs only\), superseding the earlier general no\-later\-implementation decision for these two bounded slices\. Preserve selector currentTask and phase ordering; no other phase3 implementation starts, no fixture is promoted to loaded/model acceptance\.
+- Selector child terminal report is NOT accepted as task completion\. Parent read actual code: module\-local known Map and no read on mount leave fresh\-process saved label unhydrated, and wheel can use stale hint\. Reject that fidelity tradeoff despite12\+3 reported tests\. Resume same child for bounded correction: retain menu footer/real\-DialogSelect fixes, restore authoritative mount/chat\-change hydration and fresh action reads/no stale cached lock; add explicit GET entries default to native test/fixture/tui\-client\.ts only \(overrides remain first, unknown endpoints remain strict\) plus orchestration\-specific native reload/navigation coverage\. Fixture\-only failure does not justify weakening persistent selector semantics\. No binary replacement/guard relaxation; currentTask remains selector\-finish\.
+- Current source reconciliation: parent reviewed whole store\.ts, focused5/full138/strict library checks pass; refreshed only store reviewed digest to28079802c8abd4cf02a5aa9a993781e6ea4700a72ebd79333e78a4b7218119df\. Fresh coverage audit retains68\+7=75/10lanes and zero input/mapping/review errors; expected exit1 remains483f archive hash mismatch across41bundles\. Feature\+CI contracts24/24, health and whitespace pass; original staged SHA91d6022a unchanged\. Selector same\-child persistence revision is running under watch goal8915\-selector\-persistence; source\-only cache tradeoff remains rejected, no loaded success claimed\.
+- Fresh supported desktop\.apps lists current GNOME/ptyxis applications, but desktop\.windows still fails bridge\-unavailable / NameHasNoOwner for org\.gnome\.Shell\.Extensions\.OpenCodeWindowControl; command \-v termctrl also finds no supported native PTY test driver\. No capture/blind input/alternate backend/extension change/install/shared restart/client replacement attempted\. Loaded physical selector/voice acceptance remains an explicit unresolved operation, not inferred from health or fixtures\. Continue the resumed selector child and remaining independent source scope; no goal waiting/closure or claim of impossibility\.
+- Native goal plan will not start phase2 before phase1 verification; keep phase1/current selector gate intact rather than falsely complete it\. Schedule only independent preparatory source\-maintenance for orchestration\-guidance, analogous to accepted lock/returned\-worker preparation, while all loaded selector/voice criteria remain required\. One DeepSeek Flash child may own exact canonical orchestration/coordination method\-guidance/tests, not goal planning/fixtures, runtime deployment/config/security or publication\. Parent independently verifies; no overlapping child remains\.
+- Selector correction child terminal/released; parent independently accepted bounded source/native\-fixture results, added typed slash/menu\-save integration and stopped its monitor\. selector\-finish remains blocked solely at recorded complete\-build/installed\-client acceptance boundaries\. Launched one independent preparatory child ses\_e71b98b08ffeXaek3TBpAsTXYF \(deepseek/deepseek\-flash\#high\) for orchestration\-guidance: exact agent\-orchestration and cross\-session\-coordination SKILL/README sources plus scripts/orchestration\-methods\.test\.mjs; watch goal8915\-method\-guidance\. No goal planning/fixtures, config/CI/runtime activation or unrelated scope delegated\. Current/nextTask null was checked against fullplan at revision10; later backlog is not empty and phase1 has not completed\.
+- Guidance child ses\_e71b98b08ffeXaek3TBpAsTXYF is terminal/released and bounded source result accepted after parent45case rerun, not its unverified report of89\. Stop its watch\. Native phase1 selector gate remains open; prepare remaining coordination\-acceptance\-preflight read\-only using current exact location/policy/native capability evidence, without dispatching participants, waking roots, restarting or changing settings/permissions\.
+- All bounded coordination preparation tasks are source/preflight complete, but native phase transition remains disallowed until selector phase actual verification; do not declare either phase verified\. Next independent preparation: read\-only self\-learning dependency/authority reconciliation from current source/local resolution and existing acceptance record\. No installation or reactivation inferred from native selector dependency approval; preserve exact separate authority before any dependency install/config/plugin/restart action\.
+- Fresh self\-learning package\-local resolution still MODULE\_NOT\_FOUND for pinned client/service; retain dependency\-install gate and existing scoped activation authority, no repeat host load/install\. Independently scheduled actual coordination visibility trial: explicitly reassign terminal/released child ses\_e71b98b08ffeXaek3TBpAsTXYF for read\-only native coordination read/inbox/policy only, no file writes/source/goal tools/ACK unless entire body actually seen, no delivery/policy/permission/restart changes\. Parent posts one harmless synthetic long mailbox notice to this exact child, then explicitly resumes it as authorized asynchronous DeepSeek Flash high \(fresh model lookup confirms\)\. No root participant or goal reopening\. Trial distinguishes full structured body from120char direct content preview; no prior worker implementation ownership regranted\. Selector/phase1 still unverified; this is bounded independent model observation, not phase transition\.
+- Actual visibility trial terminal/released: parent independently inspected6bounded native messages;3completed coordination tool records with executed deepseek\-flash\#high show policy/read/inbox only\. Read/inbox contain120char preview, no body/length/continuation and metadata truncated:false\. Child did not see terminal marker and performed no ACK/write\. This is real negative model/native evidence, not a no\-model inbox fixture\. Stopped watch goal8915\-body\-visibility\. Schedule exact source correction under unfinished coordination\-handoff\-model scope: bounded read\-only full\-body chunk operation with strict message/offset schema, recipient/sender scope checks, escaped text, stable continuation and existing2048content/32768response/8192body/storage/security limits unchanged\. Preserve all12old operation behaviors; no settings/permissions/config/deploy/restart edits or production fixture substitution\. One resumed DeepSeek child may implement exact package model/service/tool/result and focusedtests; parent owns docs/plan/acceptance/runtime gates\.
+- Resumed one actual child ses\_e71b98b08ffeXaek3TBpAsTXYF with deepseek/deepseek\-flash\#high for bounded model/service/tool/result/new message\-body tests and narrow all\-operation fixture only; watch goal8915\-message\-body\-source installed\. Parent docs now source\-qualify the real preview\-only failure using three native message IDs, distinguish parent post/watch from earlier no\-write preflight and retain no\-deliver/no\-policy/restart gates\. Latest feature\+guidance18/18, whitespace and staged SHA91d6022a pass\. Do not edit child source paths, promote source correction as loaded, or close goal while this and other independent work remains\.
+- Body\-reader child terminal/released; parent read full model/service/tool/result and focused/all\-operation tests\. Rejected nested anyOf used to preserve obsolete12branch assertion: replaced with normal13\-operation union and operation\-set contract\. Parent red tests exposed tail\-only 'complete message body' mislabel and summary continuation skipping unshown final\-page records; corrected both, added all\-control8192 reconstruction and explicit output total bounds\. Focused44pass; full147pass before last tiny summary\-cursor/type\-cast followup; current33focused and strict library types pass\. Initial strict rerun caught unknown\-typed test property, fixed by explicit cast; no failed result counted as pass\. Stopped source watch\. No broad loaded/fullmatrix claim\.
+- New op:message is actually exposed/callable in current session; parent performed two read\-only native calls on original harmless probe \(offset0 then510\) and saw all745ASCII characters, same fingerprint502b3c4147f2609a46d048ce41efb75c619a2ed8ffb319a20868c4609ca94537 and original end marker\. No activation/reload/restart/config/permission command was issued by this parent; loading cause not inferred\. Schedule same verified actual child for bounded recipient retrial via direct coordination only: policy/read plus exact message chunks, optional single seen\-only ACK for this exact notice only after every codepoint is seen, and one unread readback\. No new post/delivery/steering/policy/file/goal work\. Parent independently audits native records\. Selector and broader coordination GUI/restart/mixed/unknown criteria remain open\.
+- Accepted bounded full\-body source correction after parent full\-file review, correction of nested schema/tail completeness/summary cursor issues and final147/147 package tests \(zero skips\), strict library types and health\. Latest required offline CI8/8 passes\. Refreshed only reviewed model/service/tool/result fingerprints: fd71635f/b78ad432/480dc8fd/9dc2b82c prefixes; exact hashes in request\-coverage\. Fresh auditor75IDs/10lanes has zero input/mapping/review errors, still exits1 only for retained483f archive plan mismatch/freshness unknown\. Original staged SHA91d6022a and whitespace preserved\. No install/cfg/permission/restart/commit/push performed\.
+- Recipient retrial terminal/released, watch stopped\. Parent independently parsed bounded10\-message native page and verified6completed coordination records executed deepseek\-flash\#high: policy revision0 inbox\-only/no\-idle\-wake; exact preview read; message offsets0and510 yielding all745codepoints/bytes with fingerprint502b3c4147f2609a46d048ce41efb75c619a2ed8ffb319a20868c4609ca94537 and actual withheld end marker; one exact authorized seen\-only ACK; same\-thread unread0\. Native messageIDs in ACCEPTANCE\.md\. Fingerprint stability observed across chunks, not inferred from ACK which doesn't expose it\. No parent activation/reload command; source\-loading mechanism/every\-client hash not asserted\. This fixes narrow model\-visible body defect; broad coordination\-handoff\-model GUI/policy/restart/mixed/unknown and other criteria remain pending, selector\-finish remains blocked\. All children/monitors terminal; preserve scope rather than close goal\.
+- Independent corpus\-ci\-research preparation now schedules one fresh actual DeepSeek Flash high child for candidate AGR\-FA\-013: read a newly authored scratch README claiming an installed CLI flag, inspect only installed \`opencode api \-\-help\`, and report observed support without editing files/config or invoking any request/service lifecycle\. Parent creates private scratch input under /tmp/opencode, captures only that fresh child's bounded native durable log via documented no\-follow read, and independently checks exact command/model/source response\. Keep raw events separate from reviewed semantic annotations; no guessed labels, token/latency/effective\-model facts or automatic corpus promotion\. No goal tools/plan fixtures, root successor, PR input, live inbox fixture, install/permission/activation/restart/publication/deletion/commit/push\. Native adapter compatibility and grading gaps may fail honestly; immutable criterion and current selector phase remain unchanged\.
+- Initial CLI child ses\_e718ed4cfffe9D6ffeiNpfx9Os terminal/released; parent independently read4native completed tool records: exact scratch README read, shell \`opencode api \-\-help 2&gt;&amp;1\` exit0 with exact \-\-header/\-H line, readonly repo memory search and shellversion exit0\. Recorded executed model DeepSeek Flash high\. Historical session\.log\(follow:false\) twice returned only log\.synced seq46 and0events; bounded structural report recorded failure \(no raw payloads\)\. Pinned Bus source defaults persist:false; do not invent events, change retention or treat watermark as replay\. Schedule one fresh capture\-aware CLI baseline because missing native trace is a demonstrated prerequisite failure, not a repeat accepted audit: attach documented live /api/event before dispatch, bind only newly created exact\-parent/current\-project child metadata, discard unrelated frames, cap acquisition2MiB/2048records/120s, persist no raw text/reasoning/credentials\. Parent checks actual child identity against launch result\. New harmless input checks \-\-data/\-d help only; no requests/activation/restart/settings\. Preserve initial outcome and capture failure separately\. Generic shell effects must not be mislabeled CLI\-help \(version command differs\); semantic annotations require explicit actual\-call review\.
+- Live\-capture baseline ses\_e7187dac3ffeCf9xlSucHKM2Rk terminal/released, watch stopped\. Parent capture exact child/parent/project/location matched native launch and accepted54actual2\.1\.1 durable events through success; 4steps/6tools, 94,191bytes under2MiB/2048records/120s\. Parent independently inspected6projected tools and finalanswer\. Recorded native components input3114/output812/reasoning295/cacheRead82560/cacheWrite0, costUSD0\.00137898 and run30,635ms; total/effective provider identity/billing/matched benchmark remain unknown\. Raw prose/reasoning/credentials/unrelatedframes not persisted; structural report/digest is not replayable raw export\. Initial no\-replay failure retained\.
+- Canonical runs/2026\-10\-30\-cli\.md \+ native\.json \+ reviewed\-trace\.json preserve generic adapter trace separately from exact help\-call/final\-message parent annotations\. Raw grade fails2semantic targets\(score0\.5\); reviewed trace passes candidate checks\(score1\), not human gold or automatic inference\. Case/control manifests unchanged\. Added5retained\-evidence/negative controls to required CI; package83/83, focused30/30, CI8/8 pass\. Fresh coverage75IDs/10lanes no input/mapping/review errors; known483f archive mismatch remains\. Original stagedSHA91d6022a and whitespace preserved\. corpus\-ci\-research remains pending for representative routing/security/human/hosted outcomes; no phase completion\.
+- Next independent permitted title\-checkout\-local observation is read\-only: use documented location\-scoped computer\-use\.task\-titles/status on the two fresh calibration children, paired with native parent metadata, to check actual child exclusion without renaming/manual simulation/generation or repeating accepted root transition\. No new model launch, source edit, goal fixture, checkout/deployment/security change, title write or shared restart\. Keep remaining manual/concurrency/checkout acceptance open\.
+- Parent read\-only native title observation completed for calibration children ses\_e718ed4cfffe9D6ffeiNpfx9Os and ses\_e7187dac3ffeCf9xlSucHKM2Rk\. Exact parent/project/location metadata verified; location\-scoped computer\-use\.task\-titles/status returns eligible:false, suspended:false, pending:false and null task/attempt/current/recorded/action fields for each \(202\-byte responses\)\. Their native DeepSeek/model\-effort launch labels are unchanged across paired sampled reads\. No rename/generation/migration or new model launch; sampled equality not atomic/CAS proof\. Updated companion guide/features/consolidation with narrow loaded child\-exclusion evidence; existing root transition retained without rerun\. Manual/concurrency/native\-CAS and checkout acceptance remain unfinished\.
+- Final current\-unit checks: eval package83/83, native\+retained\-evidence30/30, required offlineCI8/8 and latest features7/7 pass; whitespace clean and original stagedSHA91d6022a unchanged\. Canonical calibration record and JSON retain actual native summary separately from reviewed trace; no raw private/credential/reasoning data or human\-gold claim, no new runtime settings/deploy/install/restart/commit/push\. All observation children released and watches stopped\. Goal stays active with selector full\-build/loaded/GUI gate and all unfinished75ID/additional lanes intact; neither a single calibrated case nor child exclusion completes a phase or the goal\.
+
+## Historical documentation
+
+### Historical record coverage
+
+Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven.
+This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.
+Only allowlisted goal lifecycle, checkpoint, and plan-revision records are included. No session transcript, screenshot, or unrelated project data is read or copied.
+The goal plugin also bounds archives, checkpoints, lifecycle history, and plan change records; older entries may have been pruned.
+
+### Lifecycle history
+
+- 2026-10-31T02:49:47.000Z · **`checkpoint`**
+  > The revised title test now checks the intended race window, and the missing import is fixed\. The runner still has a deadline gap: a descendant can hold its pipes open after the root exits\. Its short\-deadline test also sends SIGTERM at about 1 ms, not the requested 400 ms\. I’ll\.\.\.
+- 2026-10-31T02:49:58.000Z · **`updated`**
+  > Goal plan updated \(revision 90\): Second title return is terminal; independent source review accepts the intended race/import corrections provisionally but finds runner deadline/capture gaps\. Parent takes released runner scope for red tests and corrections before core proof execution\.
+- 2026-10-31T02:55:41.000Z · **`checkpoint`**
+  > Independent verification now passes: \*\*11 runner tests\*\* and \*\*9 real SQLite/Bus title tests\*\*\. Removing the guard fails at the manual\-title assertion, and the positive test confirms both the pre\-check and guarded reads occurred\. This remains an unapplied core prototype\. Type \.\.\.
+- 2026-10-31T02:59:38.000Z · **`updated`**
+  > Goal plan updated \(revision 91\): Persist completed independent core\-prototype verification, then authorize bounded source\-only public/plugin contract extension and isolated legitimate client generation; no frozen checkout or live runtime changes\.
+- 2026-10-31T02:59:38.000Z · **`checkpoint`**
+  > The core prototype is verified\. The next gap is making that guard available through a supported interface, without changing frozen native inputs or the live plugin\. I’m checking the protocol, plugin\-host and client\-generation paths for a separate unapplied extension\.
+- 2026-10-31T03:01:50.000Z · **`updated`**
+  > Goal plan updated \(revision 92\): Record actual asynchronous contract\-extension launch and exact ownership after independent core acceptance; keep all deployment and full\-goal gates unchanged\.
+- 2026-10-31T03:02:06.000Z · **`checkpoint`**
+  > Continued with a tracked DeepSeek child preparing the unapplied API/plugin extension and isolated client generation\. The live API, plugin and frozen native checkout remain unchanged\. Goal records are updated; verification is pending the child’s return\.
+- 2026-10-31T03:14:56.000Z · **`checkpoint`**
+  > The transport return is ready for independent review\. Two coverage gaps stand out: successful conditional HTTP updates silently skip other fields, and the conflict test claims permission protection without sending a permission change\. I’ll test and correct those before accepta\.\.\.
+- 2026-10-31T03:16:05.000Z · **`updated`**
+  > Goal plan updated \(revision 93\): Transport child released; preserve all returned bytes and independently check successful mixed updates, actual permission conflict input and generated operation binding before acceptance\.
+- 2026-10-31T03:26:39.000Z · **`checkpoint`**
+  > The corrected harness passes: \*\*6 generated\-client checks, 6 in\-process HTTP tests and 5 plugin\-host tests\*\*, plus the retained runner/core suites\. Dropped forwarding still fails on manual\-title preservation; dropped 409 mapping fails on status while preserving the title\. Type\.\.\.
+- 2026-10-31T03:28:41.000Z · **`updated`**
+  > Goal plan updated \(revision 94\): Independently verify corrected transport and generated method behavior; preserve proof, then select source\-level legacy\-error compatibility and staged plugin/client resolution as remaining local work without claiming a type pass\.
+- 2026-10-31T03:29:58.000Z · **`updated`**
+  > Goal plan updated \(revision 95\): Record exact asynchronous source\-compatibility assignment after independent transport acceptance; retain full type/runtime and all goal completion gates\.
+- 2026-10-31T03:30:15.000Z · **`checkpoint`**
+  > Corrected the conditional\-update bug and independently verified HTTP, plugin\-host and generated\-client behavior, including failure controls\. The tracked child is now addressing legacy error compatibility and staged type resolution\. Everything remains unapplied; the live plugin\.\.\.
+- 2026-10-31T03:33:40.000Z · **`checkpoint`**
+  > \#\# Overall status \*\*The goal is active, but the requested installed experience is not finished\.\*\* Source implementation and testing are ahead of live UI/audio acceptance\. None of the five overall phases is complete\. \| Area \| Verified progress \| Still open \| \|\-\-\-\|\-\-\-\|\-\-\-\| \| \*\*O\.\.\.
+- 2026-10-31T03:36:09.000Z · **`checkpoint`**
+  > I’ll make the assignments urgent and outcome\-focused, with mandatory evidence and regression checks—not permission to cut corners\. I can’t promise zero mistakes, but I’ll require independent verification before accepting any blocker as cleared\.
+- 2026-10-31T03:40:05.000Z · **`updated`**
+  > Goal plan updated \(revision 96\): User explicitly requests one DeepSeek owner per blocker with urgent, mistake\-resistant execution\. Split the blockers into disjoint lanes and dispatch in the existing conservative two\-active\-child batches; separate action gates and parent acceptance remain\.
+- 2026-10-31T03:40:26.000Z · **`checkpoint`**
+  > I’ll check the recorded decision rather than guess\. The old entries I just read were retained mailbox history—I haven’t posted, reactivated or deleted them\. Your question isn’t authorization to delete the inbox\.
+- 2026-10-31T03:41:53.000Z · **`checkpoint`**
+  > The written decision was to \*\*remove automatic inbox injection and stop peer traffic cluttering the human prompt queue—not delete the stored mailbox\*\*\. It also says there should be no automatic polling or mandatory mailbox reads\. So my delegation\-startup inbox read was unneces\.\.\.
+- 2026-10-31T03:42:57.000Z · **`cancelled`**
+  > Goal cancelled\.
+- 2026-10-31T03:52:04.000Z · **`cleared`**
+  > Goal cleared from the active session\.
+
+### Checkpoints
+
+- 2026-10-31T03:02:06.000Z
+  > Continued with a tracked DeepSeek child preparing the unapplied API/plugin extension and isolated client generation\. The live API, plugin and frozen native checkout remain unchanged\. Goal records are updated; verification is pending the child’s return\.
+- 2026-10-31T03:14:56.000Z
+  > The transport return is ready for independent review\. Two coverage gaps stand out: successful conditional HTTP updates silently skip other fields, and the conflict test claims permission protection without sending a permission change\. I’ll test and correct those before accepta\.\.\.
+- 2026-10-31T03:26:39.000Z
+  > The corrected harness passes: \*\*6 generated\-client checks, 6 in\-process HTTP tests and 5 plugin\-host tests\*\*, plus the retained runner/core suites\. Dropped forwarding still fails on manual\-title preservation; dropped 409 mapping fails on status while preserving the title\. Type\.\.\.
+- 2026-10-31T03:30:15.000Z
+  > Corrected the conditional\-update bug and independently verified HTTP, plugin\-host and generated\-client behavior, including failure controls\. The tracked child is now addressing legacy error compatibility and staged type resolution\. Everything remains unapplied; the live plugin\.\.\.
+- 2026-10-31T03:33:40.000Z
+  > \#\# Overall status \*\*The goal is active, but the requested installed experience is not finished\.\*\* Source implementation and testing are ahead of live UI/audio acceptance\. None of the five overall phases is complete\. \| Area \| Verified progress \| Still open \| \|\-\-\-\|\-\-\-\|\-\-\-\| \| \*\*O\.\.\.
+- 2026-10-31T03:36:09.000Z
+  > I’ll make the assignments urgent and outcome\-focused, with mandatory evidence and regression checks—not permission to cut corners\. I can’t promise zero mistakes, but I’ll require independent verification before accepting any blocker as cleared\.
+- 2026-10-31T03:40:26.000Z
+  > I’ll check the recorded decision rather than guess\. The old entries I just read were retained mailbox history—I haven’t posted, reactivated or deleted them\. Your question isn’t authorization to delete the inbox\.
+- 2026-10-31T03:41:53.000Z
+  > The written decision was to \*\*remove automatic inbox injection and stop peer traffic cluttering the human prompt queue—not delete the stored mailbox\*\*\. It also says there should be no automatic polling or mandatory mailbox reads\. So my delegation\-startup inbox read was unneces\.\.\.
+
+### Plan revision history
+
+- Revision 65 · 2026-10-30T23:48:00.000Z
+  > Record independent initial results and refill two disjoint authorized background lanes for correction rather than accept reported completions\.
+- Revision 66 · 2026-10-30T23:53:43.000Z
+  > Accept bounded XML wording/routing result and record disjoint parent memory/import review; prior append\_decision refused32\-limit atomically, no decision history removed\.
+- Revision 67 · 2026-10-30T23:55:48.000Z
+  > Read\-only parent memory review reproduced JSON kind\-array acceptance in validation and persisted\-note parser; authorize exact disjoint regression correction preserving real\-note/runtime gates\.
+- Revision 68 · 2026-10-31T00:00:29.000Z
+  > Record independently reproduced and fixed memory JSON\-boundary defect and fresh relevant health/coverage without promoting source to real memory/model outcomes\.
+- Revision 69 · 2026-10-31T00:07:08.000Z
+  > Prepare actual synthetic\-memory model routing under existing authorized lane; establish location/tool prerequisites without altering real notes, activation/config or child concurrency\.
+- Revision 70 · 2026-10-31T00:13:29.000Z
+  > Continue independent rights prerequisites while two correction workers own code: exact small\-wheel license acquisition is static only and does not cross installation/runtime gates\.
+- Revision 71 · 2026-10-31T00:25:49.000Z
+  > Track actual memory trials, failed capture evidence, new disjoint follow\-up assignments and static license preservation; no task or phase completion\.
+- Revision 72 · 2026-10-31T00:33:21.000Z
+  > Independent parent verification exposes four real compiler defects despite green23tests; schedule exact correction and disjoint capture failure analysis while parent integrates returned preflight/model evidence\.
+- Revision 73 · 2026-10-31T00:48:24.000Z
+  > Independently accept bounded dependency\-presence/CI unit and reconcile actual memory evidence, preserved failures and current integrity\. Broader tasks and all phases remain unfinished\.
+- Revision 74 · 2026-10-31T00:50:37.000Z
+  > Advance remaining selected primary\-package rights evidence while the two disjoint correction/review children run\. These are new predeclared larger artifacts, not retries of refused acquisitions or compiler guard changes\.
+- Revision 75 · 2026-10-31T00:58:47.000Z
+  > Independent review of both returned children, new tiny supervisor lifecycle reproduction, and completed static notice review/preservation\. No full\-host run authorized or accepted\.
+- Revision 76 · 2026-10-31T01:08:53.000Z
+  > Finish independent capture diagnosis/source preparation and remaining\-wheel notice preservation, with current verification and unchanged evidence/index/native inputs\. Await event\-driven compiler lifecycle return; no phase completion\.
+- Revision 77 · 2026-10-31T01:10:15.000Z
+  > Continue disjoint remaining title\-concurrency preparation while compiler lifecycle worker owns its exact files; do not repeat accepted title transition or attempt gated checkout deployment\.
+- Revision 78 · 2026-10-31T01:25:43.000Z
+  > Independently reproduce remaining task\-title final\-write race and reconcile native guarded\-generation alternative without changing accepted controller/runtime or claiming missing atomic acceptance\.
+- Revision 79 · 2026-10-31T01:27:39.000Z
+  > Investigate the available guarded\-title source alternative with a new bounded isolated native test, not a repeated live title trial or full compiler attempt\.
+- Revision 80 · 2026-10-31T01:30:41.000Z
+  > Record new genuine isolated native title source result and extend it with a deterministic final\-commit race plus negative control, without editing frozen native files or using live sessions\.
+- Revision 81 · 2026-10-31T01:35:51.000Z
+  > Independently establish native guarded final\-commit behavior with a meaningful negative control; continue exact nonmutating feasibility work on connecting the existing title controller safely, rather than declaring atomic acceptance\.
+- Revision 82 · 2026-10-31T01:36:45.000Z
+  > Record actual disjoint readonly bridge assignment after supported launch; ownership registry must not still describe its previous terminal assignment as current\.
+- Revision 83 · 2026-10-31T01:44:34.000Z
+  > Independent verification of fourth compiler return exposes three concrete remaining guard failures despite33green tests; exact correction required before any full\-run acceptance\. Returned bridge feasibility remains unverified and must not invent prohibitions/impossibility\.
+- Revision 84 · 2026-10-31T01:54:36.000Z
+  > Persist independent failure evidence and reconcile title\-bridge claims against actual loader resolution/served2\.1\.1 contract\. Preserve all unfinished scope while the exact compiler correction continues\.
+- Revision 85 · 2026-10-31T02:01:15.000Z
+  > Fifth return independently passes original three parent reproductions and33tests; further owning\-boundary review finds post\-exit error and identity\-validation gaps needing red tests before acceptance\. No full\-run permission inferred\.
+- Revision 86 · 2026-10-31T02:08:28.000Z
+  > Record independently verified compiler corrections and remaining intermittent refusal; authorize one disjoint source\-only conditional\-rename prototype without changing frozen native inputs or the current plugin\.
+- Revision 87 · 2026-10-31T02:17:31.000Z
+  > Record latest38\-case owning\-boundary proof and preserved final source separately from earlier checkpoints; record actual asynchronous title prototype ownership without advancing any phase\.
+- Revision 88 · 2026-10-31T02:26:20.000Z
+  > Independent review of returned title prototype withholds acceptance for unsafe runner, missing conflict\-error import and insufficient final\-read race coverage; preserve original bytes and authorize exact\-scope corrections only\.
+- Revision 89 · 2026-10-31T02:44:47.000Z
+  > Record actual exact\-scope correction dispatch and source inventory checks; no unsafe prototype execution or acceptance occurred\.
+- Revision 90 · 2026-10-31T02:49:58.000Z
+  > Second title return is terminal; independent source review accepts the intended race/import corrections provisionally but finds runner deadline/capture gaps\. Parent takes released runner scope for red tests and corrections before core proof execution\.
+- Revision 91 · 2026-10-31T02:59:38.000Z
+  > Persist completed independent core\-prototype verification, then authorize bounded source\-only public/plugin contract extension and isolated legitimate client generation; no frozen checkout or live runtime changes\.
+- Revision 92 · 2026-10-31T03:01:50.000Z
+  > Record actual asynchronous contract\-extension launch and exact ownership after independent core acceptance; keep all deployment and full\-goal gates unchanged\.
+- Revision 93 · 2026-10-31T03:16:05.000Z
+  > Transport child released; preserve all returned bytes and independently check successful mixed updates, actual permission conflict input and generated operation binding before acceptance\.
+- Revision 94 · 2026-10-31T03:28:41.000Z
+  > Independently verify corrected transport and generated method behavior; preserve proof, then select source\-level legacy\-error compatibility and staged plugin/client resolution as remaining local work without claiming a type pass\.
+- Revision 95 · 2026-10-31T03:29:58.000Z
+  > Record exact asynchronous source\-compatibility assignment after independent transport acceptance; retain full type/runtime and all goal completion gates\.
+- Revision 96 · 2026-10-31T03:40:05.000Z
+  > User explicitly requests one DeepSeek owner per blocker with urgent, mistake\-resistant execution\. Split the blockers into disjoint lanes and dispatch in the existing conservative two\-active\-child batches; separate action gates and parent acceptance remain\.
+
+## Continuation constraints
+
+- This handoff is a bounded export of goal state, not a transcript. Do not infer unrecorded work or claim history is complete.
+- Preserve the source session and goal record. This companion does not create, migrate, rebind, or close goals.
+- Use the current plan revision and its completion criteria; do not silently remove or reopen verified work.
+- No screenshots, credentials, raw session messages, or data from another repository are included.
+

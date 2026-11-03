@@ -1,0 +1,98 @@
+{
+  "scope": ".opencode/plugins/goal-docs/*.ts including source and tests; not the whole repository",
+  "verifiedAt": "2026-10-27T09:20:54.355Z",
+  "compiler": {
+    "version": "6.0.3",
+    "library": "/usr/share/code/resources/app/extensions/node_modules/typescript/lib/typescript.js",
+    "sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39"
+  },
+  "options": {
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ]
+  },
+  "resolution": "Normal TypeScript resolution, falling back to the isolated dependency workspace for unresolved imports; real published SDK/peer/Node declarations, no stubs.",
+  "dependencyWorkspace": "/tmp/opencode/goal-docs-typecheck-0ansHU",
+  "installation": {
+    "targetAndCache": "isolated scratch only",
+    "ignoreScripts": true,
+    "omitOptional": true,
+    "legacyPeerDeps": true,
+    "repoOrRuntimeDependenciesChanged": false,
+    "warning": "@opentui/core requires newer Node or Bun for runtime use; declarations only were checked, no OpenTUI runtime was executed."
+  },
+  "dependencies": {
+    "@opencode/plugin": {
+      "version": "2.1.1",
+      "integrity": "sha512-wvbvx/GeFNL7lb2Aj0IlXxPN01J6L1qJ2IbkUE5FaLmnC78aLjibzFP+wuzb28yUAM65dYw7WJRvHv+5GZRL8Q=="
+    },
+    "@opencode/theme": {
+      "version": "2.1.1",
+      "integrity": "sha512-wLOEwyzNki+RHVFX/qz5bf+0VwmRgJfWwlG3tOLKem3xe4O5dWA/hNMtApoppY95aOc4gZfYQiaXHS8jOQZsSQ=="
+    },
+    "@opentui/core": {
+      "version": "0.6.6",
+      "integrity": "sha512-GhlGB8iG4YDzL6hIaxAYUZpHXDy76sQKuI6mQiCFCKXjfv6xH53pEcPX5gn+qYYYPjfjSaUevAVZBaS5Srtl/g=="
+    },
+    "@opentui/solid": {
+      "version": "0.6.6",
+      "integrity": "sha512-YqwrLIiqjUCLUNQuN4kA1pDEVcoYaXaSbg6kt8OlKh+uuHRwq43qmCAIz19md6Ld0FrPtKKbkxPMLKyiSyVLUg=="
+    },
+    "@types/json-schema": {
+      "version": "7.0.15",
+      "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
+    },
+    "@types/node": {
+      "version": "22.20.5",
+      "integrity": "sha512-U2+DNr+wSjpsTS/wZGYHq7GcwfuSmKiKvoPvK22zwTlRhU91yOniN4qRR5KhIjvif7ysw/dz/hKmfDH0Ris4aA=="
+    },
+    "solid-js": {
+      "version": "1.9.15",
+      "integrity": "sha512-EeiY2xfpZJqPLjXspVEKjAII4yv8NyG//NxZ3IpOFHdUNnnTyL0uJOeS9LWGvA7cFCz5y94cjFwYlmw5Luncsg=="
+    }
+  },
+  "dependencyLockSHA256": "77d2dbe99047b7a6e0c087a759121ec744b7969141c6894927db0f07189c6139",
+  "before": {
+    "ownDiagnostics": 35,
+    "externalDiagnostics": 2
+  },
+  "after": {
+    "diagnostics": 0,
+    "rootFiles": 21
+  },
+  "sources": {
+    ".opencode/plugins/goal-docs/abort.ts": "82ab62131fcdd968d437cd088eb95da0f8b24a43fedff9724ccda4e3b53953d0",
+    ".opencode/plugins/goal-docs/exporter.ts": "a6c43fe36856957fad1f5e2e424d5880b49f70558c8818e63759dfba3abeab2d",
+    ".opencode/plugins/goal-docs/goal-docs.test.ts": "faad71ac7edea0ccb1a7a09e78f3b1fe935d06a0f64936fe5799ff030b798bc6",
+    ".opencode/plugins/goal-docs/handoff.ts": "bff4548538e6c5d0e9baed9b045db5d9f3beab54da6bde63fbf73cb704f126c6",
+    ".opencode/plugins/goal-docs/index.ts": "f60f6d83ffadb1c03cc041f50e46a11dafdaabbc7750d2069eb12f3ced79d47f",
+    ".opencode/plugins/goal-docs/model.ts": "a9d59321ef859cf5a983bd0ac53098cac4fc4077c14852fcdce3f57912baf7ca",
+    ".opencode/plugins/goal-docs/observer.ts": "6de0397887400d9167e7240adbe4f6003bf19e66430982c34f7f08603ead558c",
+    ".opencode/plugins/goal-docs/process-lock.test.ts": "4923852579ca47685092eab40c45f544d7535543ee3fe8f7c35686643c9b6b80",
+    ".opencode/plugins/goal-docs/process-lock.ts": "94186c60f06c7a39bec144fce2f60deb4900afab8999801f2ecdc8b43c3086b8",
+    ".opencode/plugins/goal-docs/render.ts": "7b4f7930f0e2909f38589ea3e5faef9202b51687b70086351edd11be26bd6f07",
+    ".opencode/plugins/goal-docs/repository.ts": "36c1a548a602fbed33a2505435a686a0efbb24a760cb3d0a0ed56c1bd3d50742",
+    ".opencode/plugins/goal-docs/rpc-definition.ts": "9410cab18fe99b187b1c342731029ecedced395db0a2eaf1be7bfc055a6e95cd",
+    ".opencode/plugins/goal-docs/rpc-handlers.ts": "ddf0fe58f01b43a32c61570dfbee3d594ce189f53c3bae7fad758f9acfaacb0c",
+    ".opencode/plugins/goal-docs/rpc-output.ts": "e098308d9ceec624bacdb462fe659c84c5ddb3ec40356155727a38b29b89e5ab",
+    ".opencode/plugins/goal-docs/rpc.ts": "939517968b293b3007560e77806d9f64ce25343234ee45b23adb279e84ca04f2",
+    ".opencode/plugins/goal-docs/session.ts": "a58095b27a64ec59bf046a43aa57c429b7a6ab19204b6361825097eaaf527140",
+    ".opencode/plugins/goal-docs/state.ts": "6aabd591029dd1915c4941351ba87aa3c70b8e2314e515bb2da193cec32843de",
+    ".opencode/plugins/goal-docs/tui-contract.ts": "be17e7481cf1c7117d61aef977437f994ecae49610a6f0d83dbd70a620d174f3",
+    ".opencode/plugins/goal-docs/tui-wiring.test.ts": "ebaae759920c65139ad18f7ab2bac46df24110d94234a69b4826d6ac31106bd3",
+    ".opencode/plugins/goal-docs/tui.ts": "af0567be70e54a9f95882566847f139323e1761503c6168484dee8e06b46efc5",
+    ".opencode/plugins/goal-docs/writer.ts": "dc70f6ec26cb47bbfee5ff95eaf045d55924ef173ed6e8429af7d04a1cc86791"
+  },
+  "limitations": [
+    "Not rendered TUI/client execution evidence.",
+    "Does not verify deferred screenshot behavior or runtime cutover.",
+    "SDK JSON Schema output types are unknown; runtime narrowing uses the shared wire schema before returning the local result type."
+  ]
+}

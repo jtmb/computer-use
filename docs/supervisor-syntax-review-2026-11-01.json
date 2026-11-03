@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 242,
+  "status": "Syntax-only PASS; behavioral/current full acceptance remains untested and incomplete.",
+  "trigger": "Actual241TWELFTH continuation reviewer distinguishes non-evaluating syntax verification from the user's prohibition on adding/editing/executing tests. The parent's no-syntax restriction was not user-grounded. Supported readback active241;242schedules one bounded sanitized check, not a test or source/runtime activation.",
+  "check": {
+    "completedAt": "2026-11-01T20:09:01.107Z",
+    "executable": "/home/james/.local/lib/node-v22.22.2-linux-x64/bin/node",
+    "nodeVersion": "v22.22.2",
+    "args": ["--max-old-space-size=64", "--check", "/home/james/repos/computer-use/tools/opencode-native-row/full-graph-diagnostics.mjs"],
+    "cwd": "/home/james/repos/computer-use",
+    "sanitizedEnvironmentKeys": ["PATH", "HOME", "TMPDIR"],
+    "NODE_OPTIONSOrPreloadOrCompileCacheEnvironmentForwarded": false,
+    "exitStatus": 0,
+    "signal": null,
+    "failure": null,
+    "stdoutBytes": 0,
+    "stderrBytes": 0,
+    "emptyOutputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "elapsedMs": 48,
+    "sourceBeforeAndAfter": { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 120363, "sha256": "aa774e9721ca7e7296a8db0e7f4f5db9f7249d9d3b7207742cdbbd093638dbba", "dev": "2050", "ino": "4900346", "mode": "0664", "uid": 1000, "nlink": 1, "mtimeNs": "1793562663681772384", "ctimeNs": "1793562663681772384", "sameExactSourceIdentityAndBytes": true },
+    "bounds": { "fileBytes": 262144, "jobBytes": 2097152, "reservedTwoSourceReadsAndTwoOutputAllowances": 371800, "chunkBytes": 65536, "childTimeoutMs": 5000, "stdoutAndStderrCapEach": 65536, "V8OldSpaceMiB": 64, "totalUnitDeadlineMs": 10000, "totalElapsedMs": 51 },
+    "qualification": "Node --check parses syntax without evaluating the target or importing its production dependencies. Sanitized child environment carries no --test/loader/preload/code-cache options.64MiB is a V8 old-space ceiling, not measured or enforced whole-process RSS. One successful check, no syntax errors or repair/retry; this is not module evaluation, tests, types, a build, monitor/compiler execution, cleanup/resource behavioral proof or goal completion."
+  },
+  "preservedEpochs": {
+    "sourceRepairRecord": { "path": "docs/supervisor-observation-budget-2026-11-01.json", "bytes": 16898, "sha256": "967a55331c3c383b494b82c8ab28726a9b76004d9b0e2520335e28081ff9a17a", "qualification": "Unedited240source-preparation epoch; its zero syntax runs described that earlier unit. This actual242parse supersedes only syntax-not-yet-checked status, not its untested behavior/fullgraph/type/native limits." },
+    "test": { "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs", "bytes": 109230, "sha256": "cf09d67baa96b3ece2da75d8bddc57676bfb96944824cd4f853524737dffef73", "editedImportedOrExecuted": false },
+    "history": "Dated238coverage record, five static harness contradictions, four genuine old reds, missing original fixture and original full-input/build/model/GUI failures remain. No syntax pass upgrades them or supplies behavioral acceptance. Independent computer/browser/personality/CUA work stays unedited/unadopted."
+  },
+  "writeSafety": {
+    "observedAt": "2026-11-01T20:09:27.926Z",
+    "newDestinationWasAbsent": true,
+    "lifecyclePreimage": { "bytes": 64221, "sha256": "c84f0541cc68e7b7fed379ad9d47443d0f9d6feaea3797ba7480c4cff73fc955" },
+    "rawIndex29854BSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "scopedStatus": "New syntax record absent, lifecycle untracked, scoped tracked numstat empty; exact source-repair record/test/index hashes match before edits. No overwrite of unrelated untracked work."
+  },
+  "parentSelectedTypeScriptSyntaxPreparation244To245": {
+    "context": "After the242monitor parse and20:13:36Zpost-edit readback, parent243remaining-work review finds a separate permitted syntax-only lane for four latest TypeScript corrections.244schedules that preparation. This is not a thirteenth blocker-review verdict or permission for tests/types/build/runtime. The user reports another server restart; supported readback remains active244,245continues only uncompleted work and later supported rename returns TypeScript Syntax Review. No completed monitor/core/help parse is repeated after restart.",
+    "installedCapabilityHelp": { "at": "2026-11-01T20:16:42.950Z", "nodeVersion": "v22.22.2", "args": ["--max-old-space-size=64", "--help"], "exitStatus": 0, "stdoutBytes": 24827, "stdoutSHA256": "082631056f52f091f2c0d864fe58f52fa3b8a29a88238be3ce27e09b85f9c1e2", "stderrBytes": 0, "elapsedMs": 120, "selectedText": ["-c, --check: syntax check script without executing", "--experimental-transform-types: enable transformation of TypeScript-only syntax into JavaScript"], "qualification": "Help confirms exposed flags, not correctness of every direct TypeScript file-format path." },
+    "initialDirectBatch": {
+      "at": "2026-11-01T20:17:16.213Z",
+      "commandShape": "Sanitized Nodev22.22.2 --max-old-space-size=64 --experimental-transform-types --check <exact canonical .ts path>",
+      "plannedFiles": 4,
+      "performedFiles": 2,
+      "batchStoppedOnFailure": true,
+      "results": [
+        { "path": ".opencode/plugins/memory/core.ts", "bytes": 31241, "sha256": "f93491310cb81e9c1b804755a9489b473c5f5037a58021e3e9c87b77edf38e61", "exitStatus": 0, "signal": null, "failure": null, "stdoutBytes": 0, "stderrBytes": 0, "elapsedMs": 42, "sameExactSourceIdentityAndBytes": true },
+        { "path": ".opencode/plugins/goal-docs/goal-tool-titles.ts", "bytes": 4870, "sha256": "e6542839d4887b8f9f3e816b8373b5fbf9ecef8935f32b59deaf4d3f8fe68ac3", "exitStatus": 1, "signal": null, "stdoutBytes": 0, "stderrBytes": 322, "stderrSHA256": "f8434b044ce48e78afc6cd92c862f0df6a4dcbe41e3e96b4d4d69e90bd89d74d", "diagnostic": "SyntaxError: Unexpected identifier 'GoalToolExecution' at line1 type GoalToolExecution = {; stack includes wrapSafe and internal/main/check_syntax:78.", "elapsedMs": 68, "sameExactSourceIdentityAndBytes": true }
+      ],
+      "notAttemptedInThisBatch": [".opencode/plugins/goal-docs/rpc-handlers.ts", ".opencode/plugins/goal-docs/session.ts"],
+      "bounds": { "fileBytes": 262144, "jobBytes": 2097152, "reservedTwoReadsAndTwoOutputAllowancesPerPlannedFile": 621198, "actualSourceReadBytes": 72222, "chunkBytes": 65536, "childTimeoutMaxMs": 5000, "stdoutAndStderrCapEach": 65536, "V8OldSpaceMiBPerChild": 64, "totalUnitDeadlineMs": 10000, "totalElapsedMs": 113 },
+      "qualification": "The exit1 is a genuine failed parser invocation and stays failed. It does not establish invalid TypeScript, a behavioral regression or a source repair. Do not remove the valid type declaration, alter package/module configuration or silently relabel this command green. The successful core parse is retained and not repeated."
+    },
+    "sourceAndPathInvestigation": {
+      "officialVersion": "Nodev22.22.2",
+      "openedPrimarySources": [
+        { "url": "https://raw.githubusercontent.com/nodejs/node/v22.22.2/lib/internal/main/check_syntax.js", "finding": "Already read before restart; --check reads source and selects a module/CommonJS parsing route, without executing the target. No repeated fetch. This source alone does not prove the exact runtime format-resolution cause of the title refusal." },
+        { "url": "https://raw.githubusercontent.com/nodejs/node/v22.22.2/lib/internal/modules/typescript.js", "finding": "Public stripTypeScriptTypes validates options, parses source through the built-in parser and returns transformed text. It does not evaluate that returned text. Transform mode is distinct from strip-only unsupported-syntax errors." },
+        { "url": "https://raw.githubusercontent.com/nodejs/node/v22.22.2/doc/api/module.md#modulestriptypescripttypescode-options", "finding": "Documented since22.13.0: mode transform, sourceMapfalse and optional sourceUrl; output text is version-dependent. This supports an explicit in-memory transformation followed by JavaScript syntax parsing, not semantic typechecking or production loading." }
+      ],
+      "retainedPathLookupErrors": "Guessed per-plugin package.json reads for goal-docs and memory both return ENOENT; a shallow .opencode/package.json glob has no matches. These are caller path-lookup limits, not proof no relevant package metadata exists elsewhere. No package/config edit, broad search or unchanged direct-title retry follows.",
+      "acquisitionQualification": "Three official source/document webfetch calls total across the interruption, not a software/package test or new provenance/asset job. Managed tool responses are source evidence; this record does not invent exact external transport byte totals or fold them into a local syntax job's counters."
+    },
+    "changedExplicitTransformAndParse": {
+      "at": "2026-11-01T20:27:55.530Z",
+      "executable": "/home/james/.local/lib/node-v22.22.2-linux-x64/bin/node",
+      "nodeVersion": "v22.22.2",
+      "parentAndChildrenSanitizedEnvironmentKeys": ["HOME", "PATH", "TMPDIR"],
+      "inheritedNodeOptionsPreloadOrCompileCache": false,
+      "route": "Exact no-follow single-link source read with fatal UTF8 decoding -> built-in node:module stripTypeScriptTypes(code,{mode:transform,sourceMap:false,sourceUrl:canonical path}) -> bounded in-memory JavaScript bytes -> sanitized Node --max-old-space-size=64 --input-type=module --check with those exact bytes on stdin. No target evaluation/linking/dependency import or output file.",
+      "results": [
+        { "path": ".opencode/plugins/goal-docs/goal-tool-titles.ts", "sourceBytes": 4870, "sourceSHA256": "e6542839d4887b8f9f3e816b8373b5fbf9ecef8935f32b59deaf4d3f8fe68ac3", "sameExactSourceIdentityAndBytes": true, "transformedBytes": 4262, "transformedSHA256": "e37a22eb6b6e9ccb5cd5979447faca76157027fbaa6a40c892e69c4682d6708b", "transformElapsedMs": 142, "parserExitStatus": 0, "parserSignal": null, "parserErrorCode": null, "parserStdoutBytes": 0, "parserStderrBytes": 0, "parserElapsedMs": 187 },
+        { "path": ".opencode/plugins/goal-docs/rpc-handlers.ts", "sourceBytes": 3202, "sourceSHA256": "22504b2bd4893d0b5079728576ebfb6043e94c9e2fcc7d8b80295701251cadd3", "sameExactSourceIdentityAndBytes": true, "transformedBytes": 2881, "transformedSHA256": "1dce9ce85a144b8d3d61fd9f4b888ac55d0fc6c86a4fce173e7e9b3931c27018", "transformElapsedMs": 19, "parserExitStatus": 0, "parserSignal": null, "parserErrorCode": null, "parserStdoutBytes": 0, "parserStderrBytes": 0, "parserElapsedMs": 162 },
+        { "path": ".opencode/plugins/goal-docs/session.ts", "sourceBytes": 9138, "sourceSHA256": "cce6e4a1472caff992fb508cfa0a5f551bafe26355578543ed436e477d833105", "sameExactSourceIdentityAndBytes": true, "transformedBytes": 7800, "transformedSHA256": "9aec6e21ad3cf76ab6dbe686b45a9bcc3af28b6d329e36c3aa8a37f4ee480006", "transformElapsedMs": 28, "parserExitStatus": 0, "parserSignal": null, "parserErrorCode": null, "parserStdoutBytes": 0, "parserStderrBytes": 0, "parserElapsedMs": 143 }
+      ],
+      "builtInWarningRetained": "ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time. Printed and captured once; not a syntax error or suppressed result.",
+      "bounds": { "fileAndTransformedInputCapBytes": 262144, "jobBytes": 2097152, "reservedSourceReadsTransformedAndPipeBuffersParserAndHelperOutputs": 2066042, "actualSourceReadBytes": 34420, "chunkBytes": 65536, "childTimeoutMaxMs": 5000, "stdoutAndStderrCapEach": 65536, "V8OldSpaceMiBPerNode": 64, "totalUnitDeadlineMs": 10000, "totalElapsedMs": 704 },
+      "qualification": "Three explicit transform-plus-JavaScript syntax results pass. Original direct-title exit1 remains distinct; the changed route is documented, not an unchanged retry or a source fix. Only the failed title and the two previously unattempted sources are parsed here. Core, monitor and help checks are not repeated. Transformation is built-in, data-only and in-memory, not third-party TypeScript compiler import, semantic types, build, tests or production/native behavior. No source maps/output/caches are saved.64MiB V8 old-space is not measured or enforced whole-process/combined RSS; transformed-size guard is checked after transformation before parser dispatch, not a preemptive bound inside the synchronous parser."
+    },
+    "preEditPreservation": { "at": "2026-11-01T20:29:44.131Z", "syntaxRecordBeforeBytes": 5094, "syntaxRecordBeforeSHA256": "9e27252a3b4e59072ccbf59e253506adc0abfe70f418dd08520ce2de61cd2add", "lifecycleBeforeBytes": 67524, "lifecycleBeforeSHA256": "d7cac5f905c41205d71aa906e224526a2e8dd93c2fca764dfeb4cbe14c2c8600", "sourceRepairRecordUnchangedSHA256": "967a55331c3c383b494b82c8ab28726a9b76004d9b0e2520335e28081ff9a17a", "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d", "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805", "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9", "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58", "qualification": "Both exact documentary owners untracked, scoped tracked numstat empty. This necessary fresh write-safety check is not a repeated acceptance/asset/syntax job. Only additive owned sections will change." },
+    "actionsForThisParentPreparation": { "helpInvocations": 1, "directSyntaxInvocations": 2, "directSyntaxSuccesses": 1, "directSyntaxFailuresPreserved": 1, "explicitBuiltInTransforms": 3, "transformedJavaScriptSyntaxChecks": 3, "unchangedCommandRetries": 0, "sourceOrConfigurationRepairs": 0, "targetEvaluationsOrProductionDependencyImports": 0, "testsAddedEditedImportedOrExecuted": 0, "semanticTypechecksBuildsOrCompilerDiagnosticRuns": 0, "fixturesGeneratedOrRecreated": 0, "modelsChildrenOrIndependentIntegrationActions": 0, "runtimeSecurityPermissionDeploymentChanges": 0, "assetBinaryHashReplays": 0, "commits": 0, "pushes": 0 },
+    "remainingAndAccounting": "All four selected current TypeScript sources now have a successful syntax-only outcome with exact source bytes preserved. No syntax-only action from244/245remains merely scheduled. The top-level check/actions above/below retain the dated242monitor-only unit, not aggregate totals; this nested section records the separate parent preparation including its real failed command. These results do not establish types, dependency resolution, memory/title/RPC/permission/monitor behavior, loaded code or whole-goal acceptance. All20unfinished tasks/eightcriteria/75IDs+additional lanes,12actualreviewverdicts/four olderaborts and consequential/original-input/human gates remain. Final documentary readback is still a separate required step."
+  },
+  "remaining": "The twelfth review's syntax-only action is performed and passed for exactaa774source. No syntax-only blocker remains. Current regression/full strict/native/full2827-input/model/GUI/audio/human/device verification remains barred or unachieved; authentic original and exact archive/deployment/security/private/callback/demo prerequisites survive. All20unfinished tasks/eightcriteria/75IDs+additional lanes retained. Routine source and permitted syntax work are not misclassified as requiring fresh approval; no behavioral tests are added/edited/run to evade the user's restriction.",
+  "actions": { "nonEvaluatingSyntaxChecks": 1, "syntaxRepairsOrRetries": 0, "productionModuleEvaluationsOrDependencyImports": 0, "testsAddedEditedImportedOrExecuted": 0, "fixtureGenerationOrRecreation": 0, "typesBuildOrCompilerRuns": 0, "monitorAppModelOrChildRuns": 0, "targetProcessSignals": 0, "sourceOrGuideChangesInThisUnit": 0, "runtimeSecurityPermissionDeploymentChanges": 0, "independentIntegrationReadsWritesOrAdoption": 0, "assetBinaryHashReplays": 0, "commits": 0, "pushes": 0 }
+}

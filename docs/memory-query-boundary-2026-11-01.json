@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 190,
+  "status": "Untested canonical source correction; no runtime reproduction, regression/typecheck or acceptance claim.",
+  "scope": "Move the existing lexical no-token search error before session/store discovery, native permissions and note scanning. This is current inbox/decision-memory task preparation, not a new store, note write, model recall result or whole-goal completion.",
+  "sourceObservation": {
+    "before": "core.ts validateReadInput checked type/500-character length/nonblank text, but retrieval.ts rankNotes rejected zero tokenizer terms only after executeMemory resolved roots and scanned. A nonblank length-valid query containing no searchable Unicode letter/number could therefore reach dependency work before its existing lexical rejection.",
+    "sourcesBeforeEdit": [".opencode/plugins/memory/core.ts:152-176,642-714", ".opencode/plugins/memory/retrieval.ts:15-17,115-122"],
+    "observedAtRuntime": false,
+    "examplesAreNotExecutedTests": "Punctuation or pictographic-emoji text illustrates the zero-token category; the unchanged tokenizer, not an ASCII-only rule or a broad ban on emoji, determines membership. Queries containing searchable Unicode letters/numbers remain outside that rejection category. No example was submitted to the live memory tool or executed through production functions."
+  },
+  "sourceChange": {
+    "path": ".opencode/plugins/memory/core.ts",
+    "before": { "bytes": 31121, "sha256": "6b3b41ecd11fb82cfc99d8c8ab76218af7927dd774cb04aae9a5c50d13a73dc8" },
+    "after": { "bytes": 31241, "sha256": "f93491310cb81e9c1b804755a9489b473c5f5037a58021e3e9c87b77edf38e61" },
+    "ownedDeltaBytes": 120,
+    "edits": ["Import the already-exported tokenize alongside rankNotes from the already-imported retrieval module.", "After existing type/length/nonblank checks, reject tokenize(input.query).length === 0 using the ranker's existing error: query must include at least one letter or number."],
+    "whyReuse": "Both entry validation and ranking use the same en-US lowercasing and Unicode letter/number tokenizer. No duplicate regex, new dependency or different ASCII rule is introduced.",
+    "defensiveRankingCheckRetained": true,
+    "validQueryQualification": "Original query text is retained for ranking. A valid query may now be tokenized both at early validation and ranking, with the existing 500-character input cap; no performance/overhead result is claimed.",
+    "errorPrecedence": "For a nonblank zero-token query, the existing lexical error is intended to occur before session/permission/path/scan errors and before later search-filter validation. Whitespace-only/type/oversized errors keep their earlier checks. This precedence is a source change, not verified behavior.",
+    "scopeBoundary": "Only search validation receives this guard. List/exact-read defaults, tool schema, ranking/scoring/snippets, read/edit/external-directory assertions, store selection, scan accounting, cancellation, preview/revision and remember/forget write code are not edited.",
+    "limitsUnchanged": { "queryCharacters": 500, "noteBytes": 8192, "candidateNotes": 64, "sharedScanBytes": 524288, "responseBytes": 32768 },
+    "wholePriorCoreReconstructedExactly": true
+  },
+  "owningDocumentation": [
+    {
+      "path": ".opencode/plugins/memory/README.md",
+      "before": { "bytes": 15424, "sha256": "f7cd536afafc4c7a5ddd5aeabbeaa11749d18a86656ae23daaf796eae2a26feb" },
+      "after": { "bytes": 16136, "sha256": "bd4354daa421484039491275e6c4f95e2bfb4e5033a68f50307d52c8ee8c30e4" },
+      "ownedInsertionBytes": 712,
+      "wholePriorDocumentReconstructedExactly": true
+    },
+    {
+      "path": "docs/memory/README.md",
+      "before": { "bytes": 12215, "sha256": "4e10777f88a616e8ed7efe1f2cf2e284631c4c059de286e2972276e212fc93e2" },
+      "after": { "bytes": 12569, "sha256": "9612ac7333f058d2543ae76602c8f194e6bc380a0d5f4c2fa4340b413b622230" },
+      "ownedInsertionBytes": 354,
+      "wholePriorDocumentReconstructedExactly": true
+    },
+    {
+      "path": "docs/features.md",
+      "before": { "bytes": 167196, "sha256": "219e5c34d5120e3a2747fba819bc7fea6627e555450a5ea1fc74286efe4a1df7" },
+      "after": { "bytes": 167437, "sha256": "aa6f5bcd8fc0d5c6618ed119faf9867471ac2e05768f85bdf5f7cc6ffe777db2" },
+      "ownedInsertionBytes": 241,
+      "wholePriorCombinedDocumentReconstructedExactly": true,
+      "qualification": "The current combined feature guide, including unrelated prior work, was the baseline; no older hash was substituted."
+    }
+  ],
+  "unchangedSiblingAndTestFiles": [
+    { "path": ".opencode/plugins/memory/retrieval.ts", "bytes": 7583, "sha256": "85c8c4096729c2a4a24c48d09c76241cdb1ac1f100376b56dca37f9769c76441" },
+    { "path": ".opencode/plugins/memory/memory.test.ts", "bytes": 39771, "sha256": "2382d7f7adc0f3f073cb8141389e646a5cf40931576b7b0481c88868978b2b2d" },
+    { "path": ".opencode/plugins/memory/filesystem.ts", "bytes": 8322, "sha256": "5ea32787982f944ab56373166e5b1ad2e8d53bcae8e1d1d24421e223892d25a7" },
+    { "path": ".opencode/plugins/memory/format.ts", "bytes": 10853, "sha256": "6797978074553e2fb9dababa6330c577e867f58711aba8cec10fc6fc9dcdd046" },
+    { "path": ".opencode/plugins/memory/index.ts", "bytes": 395, "sha256": "27f604b3c9aa35704a94951794d61aee2626a0d7480e0ad2149c998cea75ad2b" },
+    { "path": ".opencode/plugins/memory/paths.ts", "bytes": 2475, "sha256": "910a12dd7a661bacdb21cdb5793bbeace07dd9025ed686c7a94a3044a88e710d" },
+    { "path": ".opencode/plugins/memory/tool.ts", "bytes": 4370, "sha256": "50d9a1d0edc248b7f104ca7626b5fedc081948c2e3472333655f08ec6afa099f" }
+  ],
+  "preservation": {
+    "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "frozenNativeHEAD": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "stagedPatch": { "bytes": 179, "sha256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805" },
+    "rawParentIndex": { "bytes": 29854, "sha256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d" },
+    "projectConfig": { "bytes": 900, "sha256": "dda30316c4829bd964551ab11e6e3fe9a4ae767038b62a40097d3b8bdee3e71d" },
+    "qualification": "Selected unchanged identities and exact reverse-owned edits, not a fresh audit of all histories/settings/media/launchers. No managed note or global-store content is read or written; the repository protocol README is documentation, not a managed note. Inert inbox history is untouched. Independent computer/browser integration and its peers are not changed, steered or adopted."
+  },
+  "staticReadback": {
+    "before": { "schema": "memory-lexical-query-pre-edit/v1", "observedAt": "2026-11-01T09:27:36.565Z", "reservedBytesIncludingProbesAndCommandAllowances": 527100, "elapsedMs": 38 },
+    "afterSourceAndGuides": { "schema": "memory-lexical-query-source-readback/v1", "observedAt": "2026-11-01T09:30:43.843Z", "reservedBytesIncludingProbesAndCommandAllowances": 528527, "elapsedMs": 33 },
+    "bounds": { "fileCap": 262144, "jobCap": 2097152, "chunkBytes": 65536, "deadlineMs": 10000 },
+    "method": "No-follow regular/single-link reads, bounded allocation/chunks, descriptor/path identity and held-readset rechecks; process-local Git no-optional-locks/diff.autoRefreshIndex=false for selected metadata/staged observation.",
+    "qualification": "Static text/hash/reconstruction only. tokenize, rankNotes and executeMemory were not imported or executed, no fixture/production validator or test ran, and this new factual record still needs its own saved-file readback."
+  },
+  "remainingAcceptance": [
+    "Permitted regression/strict verification for all latest memory corrections, including zero-token rejection before every dependency and both selected scopes.",
+    "Valid default/explicit/Unicode-letter/numeric/mixed queries, filter/error precedence, unchanged defensive ranker and list/read/write/permission/cancellation boundaries.",
+    "Required general fresh-chat/current decision/stale/poison/no-match/scope/overhead, loaded client/native completion/history outcomes remain separate; earlier24/5greens and narrow actual CAS/search/recall do not validate this source.",
+    "No full task/phase/criterion completion is claimed. Standing no-more-tests/no-delegation and all consequential/operational gates remain; the four recent lifecycle aborts are neither retried nor diagnosed as fixed by this memory correction."
+  ],
+  "actions": { "testsAddedChangedOrRun": 0, "syntaxOrTypeChecks": 0, "candidateOrProductionImports": 0, "liveMemoryCalls": 0, "nativePermissionCalls": 0, "noteOrGlobalStoreReadsWrites": 0, "newModelOrReviewerCalls": 0, "childrenLaunchedOrResumed": 0, "peerActions": 0, "builds": 0, "installsOrDeploys": 0, "explicitReloadsOrRestarts": 0, "rawGoalStateWrites": 0, "commits": 0, "pushes": 0 },
+  "loadedRuntimeImpact": "Unobserved. Canonical source changed; no explicit activation/reload/restart or current runtime identity/behavior claim follows."
+}

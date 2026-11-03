@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_goal_docs_e51bdf9cf361797e5ad2593e5b530dc9",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-28T03:58:34.686Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "483f6755-70a7-4912-aee3-816fbe0b7546",
+    "sessionID": "ses_goal_docs_e51bdf9cf361797e5ad2593e5b530dc9",
+    "objective": "Complete the remaining Codex-parity computer/browser-use acceptance work in /home/james/repos/computer-use and fix the handoff-resume failure observed in this conversation. Keep source goal ec2a347f-8071-4358-bc93-a223a846247d untouched at usageLimited. First reconcile the source session's current state, worker ownership, and post-export login evidence; then diagnose, implement, and test a reliable explicit /handoff_resume continuation flow without auto-resuming context-only seeds; complete remaining live acceptance and efficiency evidence under existing separate approval gates; and obtain a final independent GPT-6.1 Sol review. Preserve unrelated dirty work; do not deploy, alter session/security settings, commit, or push without separate explicit approval.",
+    "status": "active",
+    "plan": {
+      "summary": "Coordinate authorized disjoint Luna xhigh background units for instruction cleanup, explicit resume, input diagnosis, acceptance safety, and efficiency; preserve existing handoff automation writer and original acceptance obligations. Parent alone manages plan and verifies results. No deployments or gated actions.",
+      "completionCriteria": [
+        "The source goal and its export remain unchanged; current source status, post-export p9 evidence and the complete relevant worker set are reconciled. No overlapping edits occur while source or relevant workers are active or unknown; unrelated dirty work is preserved.",
+        "The handoff failure is reproduced and fixed: a context-only resume:false seed remains passive, while one explicit /handoff_resume is sufficient to continue without another user reprompt. Regression tests cover both paths and preserve separate approval gates.",
+        "Remaining p9 work is accurately reconciled and completed only under existing separate approvals: reviewed deployment/fresh-session discovery, real visible desktop/browser outcomes, real-seat compositor input/launch, human-operated private sign-in, and demonstrated rollback. Any unavailable operator prerequisite or missing approval stays an explicit blocker.",
+        "Efficiency evidence covers tokens, turns, latency and recovery cost, including a Code Mode versus direct-tools comparison; measurements are observed rather than modeled or inferred.",
+        "All relevant tests and documentation are independently verified, and the completed work receives a bounded read-only review from the specified parent chat using GPT-6.1 Sol; findings are reconciled by this session without changing the source goal.",
+        "No commit, push, publication, deployment/activation, or security/session-setting change occurs without its separate explicit approval."
+      ],
+      "phases": [
+        {
+          "id": "p0",
+          "objective": "Reconcile the live source-session state, worker ownership, post-export p9 evidence, and repository baseline before any overlapping edit.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "p0-identity",
+              "description": "Verify source repository/worktree and goal package identity, status, revision, export time, and generated-file integrity.",
+              "status": "completed",
+              "evidence": "pwd and realpath confirmed /home/james/repos/computer-use; origin github.com/jtmb/computer-use, branch main, HEAD c71b8cc. Initial ec2a347f usageLimited revision46 export2026-10-28T01:06:23.819Z hashes matched; subsequent external cancellation is recorded separately, never reverted."
+            },
+            {
+              "id": "p0-live-state",
+              "description": "Reconcile the source session's latest live status, all descendant workers, current pending inputs, and post-export login evidence; preserve source ownership.",
+              "status": "completed",
+              "evidence": "Source now inactive after transfer, handoff independent root active and reserved; full prior closure21 descendants inactive, no PTYs. Source export now cancelled/cleared rev46 export03:41:03.197Z with matching regenerated hashes, externally changed. Shell184812 ACTIVE, capture pass2466x1664, Calculator launch/capture820x1332 pass; input INPUT_FAILED. Updated docs/codex-parity live record."
+            },
+            {
+              "id": "p0-baseline",
+              "description": "Record the current dirty/staged/untracked worktree and identify exact path overlap before implementation.",
+              "status": "completed",
+              "evidence": "Broad pre-existing staged rename, modified skills/config/scripts and untracked packages preserved; git diff --check passes. Active worker owns goal-docs automation and docs/features.md; four instruction-cleanup files separately transferred."
+            }
+          ],
+          "verification": "Live API source/worker identities, pending inputs, descendant closure, PTYs, source export hashes and post-login evidence reconciled. Preservation criterion cannot claim original usageLimited state: external source cancellation is explicitly recorded."
+        },
+        {
+          "id": "instructions",
+          "objective": "Remove the newly imposed dedicated reviewer workflow from instructions only while preserving handoff implementation and ordinary parent verification.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "instructions-cleanup",
+              "description": "Narrowly update agent-orchestration SKILL.md/README.md, skill catalog and orchestration-methods.test.mjs for authorized background subagents plus unchanged successor handoff; preserve gates and goal-parent-only ownership.",
+              "status": "completed",
+              "evidence": "Child ses_e7f5efd04ffeckj10pnlVBs1m0 released four scoped files. Parent read all revised skill/guide/test plus catalog route: dedicated reviewer/worker-chat prescription removed; authorized background subagents, parent ownership/verification, separate approvals and one-root successor handoff remain."
+            },
+            {
+              "id": "instructions-verify",
+              "description": "Parent inspect exact edits and run orchestration/autonomy guidance tests; verify handoff implementation unchanged by this unit.",
+              "status": "completed",
+              "evidence": "Parent independently ran orchestration+autonomy tests15/15, adjacent shared-skill-portability7/7 (links and metadata), node --check and git diff --check. Bounded source-contract audit recorded in docs/test-quality-audit.md; no runtime behavior inferred."
+            }
+          ],
+          "verification": "Independent inspection and22 source/adjacent checks pass. Four instruction files only changed by this child; existing handoff implementation/settings preserved as separate owner scope. Runtime title correction remains a different active child unit."
+        },
+        {
+          "id": "p1",
+          "objective": "Diagnose and fix the explicit handoff-resume flow without making context-only seeds auto-resume.",
+          "status": "in_progress",
+          "tasks": [
+            {
+              "id": "p1-diagnose",
+              "description": "Analyze the current interaction and source command/skill flow to identify why the context-only seed stayed passive and why the explicit /handoff_resume did not proceed without another reprompt.",
+              "status": "in_progress"
+            },
+            {
+              "id": "p1-fix",
+              "description": "Implement the smallest bounded fix in the canonical handoff source so one explicit /handoff_resume starts continuation while resume:false remains non-executing; preserve unrelated edits.",
+              "status": "pending"
+            },
+            {
+              "id": "p1-tests",
+              "description": "Add or update regression tests for context-only seeding, one-shot explicit resume, source identity checks, and preservation of existing approval gates.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "objective": "Finish the remaining p9 deployment and live acceptance only after reconciliation and separate approvals.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "p2-deploy",
+              "description": "After separate deployment/extension-activation approval, use the reviewed deployer and verify the fresh GNOME session and stock OpenCode tool discovery.",
+              "status": "blocked",
+              "blocker": "No new deployment or activation approval. Read-only deployed bridge preview0/7 drift, current capture passes; handoff runtime command remains stale."
+            },
+            {
+              "id": "p2-input-fix",
+              "description": "Diagnose real-seat INPUT_FAILED against installed Mutter contracts, add a bounded source fix and regression if confirmed; do not deploy or send live input.",
+              "status": "pending"
+            },
+            {
+              "id": "p2-harness-safety",
+              "description": "Harden the existing visible-outcome acceptance helper's target selection and cleanup so unrelated windows/processes cannot be selected or killed; add isolated regressions without live GUI actions.",
+              "status": "pending"
+            },
+            {
+              "id": "p2-live",
+              "description": "Reconcile post-login state, then complete representative visible browser/desktop acceptance, real-seat input and launch, human-operated private sign-in, and rollback verification.",
+              "status": "blocked",
+              "blocker": "Current real Shell capture and launch pass, typing returns INPUT_FAILED; successful visible-change input, human sign-in and live rollback remain absent. Fix deployment and human interaction need separate prerequisites."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "objective": "Measure actual efficiency and reconcile acceptance evidence after live workflows are available.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "p3-efficiency",
+              "description": "Measure token and turn use, latency, recovery cost, and Code Mode versus direct-tools workflows using reproducible runs.",
+              "status": "pending"
+            },
+            {
+              "id": "p3-docs",
+              "description": "Reconcile acceptance documentation and the human-readable feature inventory against independently verified outcomes and remaining blockers.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "objective": "Obtain final independent review after implementation and acceptance work is complete.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "p4-parent-review",
+              "description": "Request a bounded read-only review from parent chat ses_e81c877d7ffe5NB5Y7DyeSEPGd (GPT-6.1 Sol) after goal work; reconcile its findings without changing its limited source goal.",
+              "status": "blocked",
+              "blocker": "Latest transferred user instruction explicitly ditches dedicated reviewer workflow and source stops after transfer. Retain historical criterion but do not wake or recreate reviewer ceremony; ordinary parent verification applies."
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "User directly authorizes openai/gpt-6-luna#xhigh background agents, up to10. Supported general subagent available. Runtime numeric admission limit not established; start conservative5 disjoint children, obey native admission, do not broaden permissions.",
+        "Exact child reservations: A four instruction files (.opencode/skills/agent-orchestration/{SKILL.md,README.md}, .opencode/skills/README.md, scripts/orchestration-methods.test.mjs); B tools/gnome-window-control/input.mjs,input.test.mjs and extension.js input adapter only; C global/commands/handoff_resume.md and dedicated scripts/handoff-resume-contract.test.mjs only; D new tools/computer-use-browser/efficiency-acceptance.mjs and its test plus docs/codex-parity/efficiency.md only; E tools/gnome-window-control/desktop-workflow-acceptance.py and dedicated safety test only. Parent owns all goal updates and shared acceptance docs.",
+        "Existing independent handoff worker ses_handoff_b1ecb64b69f84bbaaacf3c5e0a0d08ac exclusively owns goal-docs automation implementation/tests and docs/features.md; none of our children may edit them or spawn descendants.",
+        "Transferred latest user requirement removes dedicated independent reviewer/worker prescription from instructions; keep handoff code/settings/naming unchanged. Existing source changes remain intact.",
+        "Source historical goal was externally cancelled/cleared and re-exported. Do not restore, resume, rebind, merge or mutate it. This continuation goal stays unchanged in objective; record preservation discrepancy honestly.",
+        "No commit, push, publication, deployment/activation, service restart, logout, credentials entry, account/security or permission changes authorized. Context-only resume:false stays passive; explicit continuation is not lifecycle approval.",
+        "Launched six general background children on verified openai/gpt-6-luna#xhigh: instructions ses_e7f5efd04ffeckj10pnlVBs1m0; input ses_e7f5ebee8ffe9cjbtFDo9yQqlY; naming ses_e7f5e510fffeo8T0KzkyO00gHI (read-only until exact naming ownership release); explicit resume ses_e7f5d962effeokB16SSCKuxYrD; efficiency ses_e7f5d5e16ffe9h2DdlY4rJTIQd; helper safety ses_e7f5d2fd4ffekliHo5NNltbYt8. All write scopes reserved as recorded; naming is added user scope, no descendants allowed. Parent accepts each result only after independent checks.",
+        "Latest direct title requirement supersedes hash-in-title design: concise human-readable task label first, then ' · ' plus actual full session ID. Session naming is not goal tracking; no goal hashes/IDs or instruction/file dumps in display title. Preserve internal lineage metadata and unrelated handoff mechanics. Naming child and active automation owner received exact stable-ID steering corrections; naming edits await explicit scoped release.",
+        "Naming owner released exactly automation.ts naming functions, automation.test.ts, automation-wiring.test.ts, source-handoff.ts title instructions, goal-docs/README.md naming paragraphs to child ses_e7f5e510fffeo8T0KzkyO00gHI; worker retains other automation/settings/TUI and docs/features.md/scoped docs. Child resumed with these exact constraints. Parent manually renamed current session and all six owned child sessions to short task labels plus full actual session IDs using supported session_rename; returned values verify titles. Automatic formatter correction still awaiting child completion; no new hash title mechanism or code rollback.",
+        "Accepted instruction child independently and released its four paths; audit records source-only limitations. Other children remain owned and pending; do not equate reported completion or successful titles rename with runtime formatter acceptance."
+      ],
+      "revision": 5,
+      "updatedAt": 1793159719,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "Persist the separately authorized continuation scope before implementation, including the handoff-resume fix, all unfinished p9/efficiency evidence, current ownership blockers, and the requested parent-chat review.",
+          "timestamp": 1793157456
+        },
+        {
+          "revision": 2,
+          "reason": "Reconcile live post-login evidence and externally cleared source goal; incorporate transferred instruction cleanup and direct authorization for up to ten Luna xhigh background agents. Keep historical criteria visible and separate gated work.",
+          "timestamp": 1793159363,
+          "revisitEvidence": "Source export independently re-read: ec2a347f status cancelled/cleared, revision46, exported2026-10-28T03:41:03.197Z; parent transferred current instruction cleanup and latest user dropped dedicated reviewer workflow. This session did not clear the source. Current live capture passes but Calculator input returns INPUT_FAILED. Existing handoff automation writer remains reserved."
+        },
+        {
+          "revision": 3,
+          "reason": "Persist actual child ownership registry and latest user naming requirements before further integration.",
+          "timestamp": 1793159558
+        },
+        {
+          "revision": 4,
+          "reason": "Record scoped naming handover and verified immediate title cleanup while background units continue.",
+          "timestamp": 1793159643
+        },
+        {
+          "revision": 5,
+          "reason": "Accept first child after independent verification and phase-boundary quality audit; advance parent cursor without losing parallel scope.",
+          "timestamp": 1793159719
+        }
+      ]
+    },
+    "planRevision": 5,
+    "createdAt": 1793157202,
+    "updatedAt": 1793159914,
+    "closedAt": null,
+    "completionEvidence": null,
+    "blocker": null,
+    "stopReason": null,
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793157202
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): Persist the separately authorized continuation scope before implementation, including the handoff-resume fix, all unfinished p9/efficiency evidence, current ownership blockers, and the requested parent-chat review.",
+        "timestamp": 1793157456
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Saved the workflow to repository memory: **this session builds and coordinates; the parent chat performs the final read-only review.** Note: `docs/memory/coordination-workflow.md`, linked from `MEMORY.md`. Verified the saved note and `git diff --check`; nothing was staged or G...",
+        "timestamp": 1793157566
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 1 reserved.",
+        "timestamp": 1793157566
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ve corrected the repository memory to match your direction: the parent chat coordinates and reviews; I carry out the assigned goal work. I’m continuing with read-only ownership and post-login reconciliation before touching the handoff source.",
+        "timestamp": 1793157670
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Ownership checks now show the source session idle, all 20 descendants inactive, and no unrelated project shell/PTY work; the only shell-list entry was my own transient query. The last post-login runner failed capture because no NORMAL window was open, and its one-shot autostar...",
+        "timestamp": 1793157864
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The latest status snapshot now shows the source session active again, despite the earlier idle snapshot. I’m pausing all overlapping edits and will reconcile that new activity before proceeding; the test run was local and has ended.",
+        "timestamp": 1793158021
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Updated `docs/memory/coordination-workflow.md`: the parent chat coordinates and reviews; this session carries out the assigned goal. Goal work is **not complete**. The source session became active again and now has one active descendant doing handoff-related work, so I stopped...",
+        "timestamp": 1793158172
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 2 reserved.",
+        "timestamp": 1793158172
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The source session is still active. The complete descendant scan found 21 workers, with none active, but the parent says it is currently editing the handoff skill. I’m avoiding further overlapping repository work until that ownership clears. The post-login evidence is unchange...",
+        "timestamp": 1793158237
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 3 reserved.",
+        "timestamp": 1793158237
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I rechecked live ownership. The parent session is active again, and a separate active root session (`ses_handoff_b1ec…`) is in the same worktree with `handoff-automation` scope. The 21 older descendants are inactive. The project shell list shows only my transient status query;...",
+        "timestamp": 1793158307
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 4 reserved.",
+        "timestamp": 1793158307
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The source session is idle, but its independent **handoff-automation** worker is still active in the same worktree. Its exact file scope is unavailable, so I’m holding repository edits that could overlap. Progress: the continuation-contract test now passes **6/6**. The broader...",
+        "timestamp": 1793158417
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 5 reserved.",
+        "timestamp": 1793158417
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I rechecked ownership: the parent session is inactive, but its independent `handoff-automation` worker remains active in this worktree. All 21 enumerated descendants are inactive; the only project shell listed was my status query, and there are no PTYs. I’m avoiding handoff-re...",
+        "timestamp": 1793158469
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 6 reserved.",
+        "timestamp": 1793158469
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll recheck the active goal and live ownership before continuing, then make progress only outside any active worker’s file scope.",
+        "timestamp": 1793158584
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The compositor now reports one unlocked Ptyxis/OpenCode window, unlike the earlier failed post-login run. I’ll capture only that exact window (no input or other windows) to verify the current live bridge; I will not treat this as deployment acceptance.",
+        "timestamp": 1793158671
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The bounded capture returned a validated PNG, so the earlier “no normal window” blocker has cleared for capture. I’ll run the repository’s read-only live-capture check against the same exact window; it sends no input and writes no image.",
+        "timestamp": 1793158733
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The read-only check passed on the current Shell. The repository’s bounded acceptance workflow is explicitly within the requested live-acceptance scope: it launches only Calculator, types `1+1=`, verifies a changed capture, releases input, and closes only the launched process. ...",
+        "timestamp": 1793158757
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The live post-login checks are recorded; capture and launch pass, but the real-seat typing refusal remains explicit. The remaining handoff worker owns the goal-docs automation files and inventory, not the `/handoff_resume` command/test paths, so I’m proceeding there without to...",
+        "timestamp": 1793159140
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The acceptance record now reflects the fresh Shell: deployer preview is 0/7 drift, `live-capture-check.py` passes, and Calculator launch/confirmation/pre-input capture pass; `INPUT_FAILED` still prevents a visible-change result. The explicit-resume source contract test passes ...",
+        "timestamp": 1793159215
+      },
+      {
+        "type": "checkpoint",
+        "detail": "A final ownership recheck shows the reviewer session is active again, as is the independent handoff-automation worker; all 21 enumerated descendants are inactive, with no project PTYs. I’m holding any further handoff-source edits while either owner is active. The source/deploy...",
+        "timestamp": 1793159244
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll keep the existing goal and handoff implementation intact, and handle only the requested orchestration-instruction cleanup. I’ll first inspect the dirty skill/test files and current worker ownership, then make the smallest scoped edits and run the named tests.",
+        "timestamp": 1793159265
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Delegation is now explicitly authorized. I found `openai/gpt-6-luna#xhigh`; I’ll use disjoint background assignments, up to your cap of 10, while retaining plan control and final verification here. I won’t overlap the existing handoff worker or delegate gated actions such as d...",
+        "timestamp": 1793159299
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): Reconcile live post-login evidence and externally cleared source goal; incorporate transferred instruction cleanup and direct authorization for up to ten Luna xhigh background agents. Keep historical criteria visible and separate gated work.",
+        "timestamp": 1793159363
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m starting five parallel units: instruction cleanup, explicit-resume contracts, compositor-input diagnosis, acceptance-helper safety, and efficiency instrumentation. The existing handoff worker retains its automation files. Five non-overlapping units are useful now; filling ...",
+        "timestamp": 1793159398
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Yes—the task description is being copied into the session title. I’ll assign a Luna `general` agent to make titles short and task-focused. Since the existing handoff worker owns the naming code, I’ll coordinate that ownership before edits.",
+        "timestamp": 1793159442
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Understood—session titles should be concise task labels, not goal trackers. I’ll steer the agent to use names like **“Simplify agent instructions”** or **“Fix desktop input”**, without goal hashes, IDs, or file lists.",
+        "timestamp": 1793159464
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll use **`Fix session titles · ses_<actual-session-id>`**: a short, readable task name first, followed by the session ID. No goal hash or instruction dump.",
+        "timestamp": 1793159478
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): Persist actual child ownership registry and latest user naming requirements before further integration.",
+        "timestamp": 1793159558
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 4): Record scoped naming handover and verified immediate title cleanup while background units continue.",
+        "timestamp": 1793159643
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Renamed the current sessions to **`Short task name · full session ID`**. The Luna agent is updating automatic naming to preserve that style—no goal hashes or instruction dumps.",
+        "timestamp": 1793159654
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The instruction cleanup passed independent verification: **15/15 guidance tests**, syntax checking, and whitespace checks. The dedicated reviewer/worker-chat prescription is removed; parent verification, goal ownership, approval gates, and successor handoff remain intact. Auto...",
+        "timestamp": 1793159684
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 5): Accept first child after independent verification and phase-boundary quality audit; advance parent cursor without losing parallel scope.",
+        "timestamp": 1793159719
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Agreed. The tab should begin with **“Agent instructions”**, not “Narrowly update…”. Automatic naming is overwriting the manual rename. Luna is fixing that formatter; I won’t call it fixed until the visible title stays correct.",
+        "timestamp": 1793159794
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I changed this chat’s title to **Session naming · [session ID]**. I’m checking the visible tab now.",
+        "timestamp": 1793159829
+      },
+      {
+        "type": "checkpoint",
+        "detail": "No. **“Analyze the current” is still meaningless.** I’m updating the model instructions to choose a real task label—not truncate a task sentence—and preventing automatic updates from overwriting that label with plan text.",
+        "timestamp": 1793159914
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "Yes—the task description is being copied into the session title. I’ll assign a Luna `general` agent to make titles short and task-focused. Since the existing handoff worker owns the naming code, I’ll coordinate that ownership before edits.",
+        "timestamp": 1793159442
+      },
+      {
+        "summary": "Understood—session titles should be concise task labels, not goal trackers. I’ll steer the agent to use names like **“Simplify agent instructions”** or **“Fix desktop input”**, without goal hashes, IDs, or file lists.",
+        "timestamp": 1793159464
+      },
+      {
+        "summary": "I’ll use **`Fix session titles · ses_<actual-session-id>`**: a short, readable task name first, followed by the session ID. No goal hash or instruction dump.",
+        "timestamp": 1793159478
+      },
+      {
+        "summary": "Renamed the current sessions to **`Short task name · full session ID`**. The Luna agent is updating automatic naming to preserve that style—no goal hashes or instruction dumps.",
+        "timestamp": 1793159654
+      },
+      {
+        "summary": "The instruction cleanup passed independent verification: **15/15 guidance tests**, syntax checking, and whitespace checks. The dedicated reviewer/worker-chat prescription is removed; parent verification, goal ownership, approval gates, and successor handoff remain intact. Auto...",
+        "timestamp": 1793159684
+      },
+      {
+        "summary": "Agreed. The tab should begin with **“Agent instructions”**, not “Narrowly update…”. Automatic naming is overwriting the manual rename. Luna is fixing that formatter; I won’t call it fixed until the visible title stays correct.",
+        "timestamp": 1793159794
+      },
+      {
+        "summary": "I changed this chat’s title to **Session naming · [session ID]**. I’m checking the visible tab now.",
+        "timestamp": 1793159829
+      },
+      {
+        "summary": "No. **“Analyze the current” is still meaningless.** I’m updating the model instructions to choose a real task label—not truncate a task sentence—and preventing automatic updates from overwriting that label with plan text.",
+        "timestamp": 1793159914
+      }
+    ],
+    "sourceKind": "current",
+    "historyNotice": "The goal plugin retains bounded lifecycle history. This export cannot prove that no earlier history entries were pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. The goal plugin retains bounded lifecycle history. This export cannot prove that no earlier history entries were pruned.",
+  "contentFingerprint": "f78eeaf1ee8a63b9d586960af454304fd847fc68f1261627203ac30c718e8a67",
+  "generatedFiles": {
+    "plan.md": "96ef0de60816e811f1fbc81ebc8c893658013d8115552deb3789246d67dd9891",
+    "HANDOFF.md": "c61c4e51af14c90ed7fea462b268e97ac315a5013f17897f00f11880b38584ac",
+    "work-history.md": "7fef4c84d7582d5b2d5bddf893c8e89702564c283110dd55b1032f5f954467dc"
+  }
+}

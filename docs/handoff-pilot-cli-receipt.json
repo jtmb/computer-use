@@ -1,0 +1,53 @@
+{
+  "status": "applied",
+  "approvedScope": "User selected Wiring + transfer test for the exact manifest; this records wiring and the one test attempt separately.",
+  "manifest": "docs/handoff-pilot-cli-manifest.md",
+  "approvedManifestSHA256": "4bd0fd237852dbe2ef8f856e26d2653417313b8da46d27d87b8cee966a84fb26",
+  "completedAt": "2026-10-27T08:39:09.270106+00:00",
+  "target": "/home/james/.opencode-v2-pilot/config/cli.json",
+  "installedSHA256": "33777226840a92518b2edc8838032caca9567a7f78f2ecbb49c5641b1694c862",
+  "bytes": 668,
+  "mode": "0600",
+  "backup": "/home/james/.opencode-v2-pilot/config/cli.json.backup-handoff-client-20261027",
+  "backupSHA256": "f053be32107160d139cea487435f55a6648200b13a8fbe58388f06b5fd22c700",
+  "backupVerifiedBeforeAtomicApply": true,
+  "existingPluginEntriesAndOtherSettingsPreserved": true,
+  "separateCLIConfigPreserved": true,
+  "stagingProjectConfigScreenshotAndContinuationPreserved": true,
+  "approvalPinnedTypeEvidenceArchive": "docs/goals/a0ce8b0f-91fe-413a-9c4e-8ce4da5d40d7/typecheck-evidence-2026-10-27T081245386Z.json",
+  "approvalPinnedTypeEvidenceSHA256": "552810b7a6495f206cea2e6b9e505562a082f103298382d4457272b4545b8f81",
+  "liveAttempt": {
+    "sourceSessionID": "ses_e85293a02ffe7Hlk5CfyoIgStT",
+    "sourceGoalID": "a0ce8b0f-91fe-413a-9c4e-8ce4da5d40d7",
+    "producerSubmissionAttempts": 1,
+    "ownedClientPID": 38335,
+    "normalHomeLaunchWithoutInlineConfig": true,
+    "exactlyOnePaletteProducerObservedBeforeSubmission": true,
+    "outcome": "not_complete",
+    "sourceExportObservedAt": "2026-10-27T08:41:32.934Z",
+    "sourceExportPlanRevision": 56,
+    "transferRecordsObserved": 0,
+    "ourDestinationSessionsObserved": 0,
+    "focusChangedToDestination": false,
+    "unrelatedConcurrentDemoSessionUntouched": true,
+    "ownedClientCleanedUp": true,
+    "additionalSubmissionsDuringInitialApproval": 0
+  },
+  "separatelyApprovedRetry": {
+    "approval": "User explicitly selected Approve one retry",
+    "pinnedTypeEvidenceSHA256": "081f615de14b94fc5435d18532ec9959d444c0974b8da8ee7a73a24e3c3ce749",
+    "producerSubmissionAttempts": 1,
+    "outcome": "producer_verified_continuation_not_invoked",
+    "acceptanceRecord": "docs/handoff-live-acceptance.json",
+    "targetSessionID": "ses_goal_docs_e947f92f5e4b276263707296dc80e591",
+    "ownedClientCleanedUp": true,
+    "furtherProducerSubmissions": 0
+  },
+  "noContinuationModelGoalChangeScreenshotRestartCommitOrPush": true,
+  "limitations": [
+    "Wiring is applied. The initial producer test did not complete a transfer; the separately approved retry created, seeded and focused one destination.",
+    "Pending-input visibility needed a related read-only client correction after retry; actual preview was verified in the same retained destination without another producer submission.",
+    "Source corrections after apply are recorded by the current type-check evidence; the original approved source evidence remains archived byte-identically.",
+    "Any further producer invocation and all continuation/model behavior need separate explicit approval."
+  ]
+}

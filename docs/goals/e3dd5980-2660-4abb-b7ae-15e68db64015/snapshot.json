@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T17:01:12.635Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "e3dd5980-2660-4abb-b7ae-15e68db64015",
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "objective": "Implement and locally verify the authorized keep-working safeguards in the canonical prevalentWare/opencode-goal-plugin source, starting from published commit b5a6c6a0449a213c29ff34ea2d07c4ccbd351725: prevent unsupported premature `unmet` closure with a goal/plan-revision-bound stop audit and resumable waiting, remove implicit handback limits for unbudgeted goals while preserving explicit limits and permission boundaries, and add regression plus isolated V2 lifecycle coverage. Do not deploy, activate in the live OpenCode runtime, publish, commit, or push; those remain separate approvals/follow-up.",
+    "status": "complete",
+    "plan": {
+      "summary": "Implement and verify goal-level stop-audit and keep-working safeguards in the pinned upstream source. Preserve explicit limits, user cancellation, platform permissions and the live runtime boundary; local implementation does not imply deployment or publication.",
+      "completionCriteria": [
+        "The central lifecycle path rejects `unmet` closure unless a structured audit is current for the goal ID and plan revision, represents the full unfinished plan and specific external blocker, includes concrete sourced evidence and alternatives, and no reasonable in-scope authorized work remains; marking every task blocked or supplying generic blocker prose is insufficient.",
+        "A genuine external dependency can be recorded as resumable waiting on the same goal without terminal `unmet`; explicit user pause/cancel and verified completion continue to behave correctly.",
+        "Unbudgeted goals have no hidden automatic turn/duration/low-output handback ceiling; meaningful tool/evidence/task progress is recognized, stalls trigger bounded diagnosis/recovery with backoff rather than handback or tight loops, and explicit user/platform limits remain enforced.",
+        "Regression coverage reproduces premature-stop-while-independent-preparation-remains, stale audits and concurrent plan changes, blocked phase vs independent work, all-blocked claims, existing authorization, tool-only progress, >25 turns, transient failures, pause/cancel, Plan mode and explicit budgets/permissions.",
+        "Plugin lint, typecheck, unit/integration tests, build, package checks and an isolated V2 lifecycle smoke test pass; no live runtime activation, publish, commit or push is performed."
+      ],
+      "phases": [
+        {
+          "id": "baseline",
+          "objective": "Establish the pinned source baseline and map lifecycle, plan, continuation, package and test seams before editing.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "inspect-upstream-instructions",
+              "description": "Read repository instructions, package scripts and contribution constraints; verify clean checkout at published commit b5a6c6a0449a213c29ff34ea2d07c4ccbd351725.",
+              "status": "completed",
+              "evidence": "Created /home/james/repos/opencode-goal-plugin and verified detached HEAD b5a6c6a0449a213c29ff34ea2d07c4ccbd351725; initial git status was clean."
+            },
+            {
+              "id": "map-lifecycle-and-continuation",
+              "description": "Trace lifecycle transitions, goal-plan validation, auto-continuation limits and existing V2 smoke/test harness; identify mutation serialization and persistence boundaries.",
+              "status": "completed",
+              "evidence": "Traced closeGoal/markGoalUnmet and setGoalStatus in src/state.ts; all writes use the serialized atomic mutate queue, while updateGoalPlan enforces goalID and expectedRevision. Traced V1/V2 update_goal schemas and continuation hooks in src/server.ts, prompt policy in src/prompts.ts, state/TUI/i18n schemas, and scripts/smoke-v2-lifecycle.ts."
+            },
+            {
+              "id": "record-verification-baseline",
+              "description": "Run relevant current package tests or document exact baseline failures before behavior changes.",
+              "status": "completed",
+              "evidence": "Baseline `bun test test/state.test.ts test/goal-plan.test.ts`: 75 passed, 0 failed. Full `bun run test` exceeded 120s while running test/server-v2.test.ts; this is recorded as a timeout, not a test failure, and will be rerun with a longer limit."
+            }
+          ],
+          "verification": "Pinned clean v0.1.67 checkout verified; lifecycle and serialized persistence seams mapped. Relevant state/plan baseline passed 75 tests; full suite timeout will be distinguished and rerun later."
+        },
+        {
+          "id": "audited-closure",
+          "objective": "Implement the structured, revision-bound stop audit and central `unmet` guard without weakening completion, pause or cancel semantics.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "define-stop-audit-contract",
+              "description": "Design audit fields and validation for goal/plan revision, unfinished plan coverage, blocked action and sourced evidence, existing authority, investigated alternatives, remaining independent work and dependency rationale.",
+              "status": "completed",
+              "evidence": "Implemented the strict goal-ID/plan-revision-bound stop-audit schema and coverage/evidence/authorization/alternatives/remaining-work validation in src/stop-audit.ts. test/stop-audit.test.ts passes 8 tests, including all-blocked-plan and remaining-work rejection."
+            },
+            {
+              "id": "guard-central-close-path",
+              "description": "Enforce current audit and whole-plan exhaustion atomically at the central lifecycle mutation so every tool/command/direct API path is covered; persist audit evidence and reject stale/concurrent bypasses.",
+              "status": "completed",
+              "evidence": "src/state.ts validates status, audit classification, blocker equality, and current plan scope inside the serialized closeGoal mutation. State/server tests cover stale revisions, concurrent plan mutation, missing audits, and terminal closure."
+            },
+            {
+              "id": "add-resumable-waiting",
+              "description": "Represent genuine external dependency as a resumable nonterminal state on the same goal with clear blocker, distinct from terminal audited `unmet`.",
+              "status": "completed",
+              "evidence": "waiting persists the same goal as paused with stopReason external dependency, blocker, and closure audit; state tests verify persisted identity and successful resume without clearing the dependency context."
+            }
+          ],
+          "verification": "Current audit scope is validated atomically at closure; stale/concurrent changes and remaining work are rejected, and external waits remain resumable on the same goal."
+        },
+        {
+          "id": "continuation",
+          "objective": "Remove implicit handback for unbudgeted goals while preserving explicit constraints and safe bounded recovery.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "remove-hidden-limits",
+              "description": "Eliminate default 25-turn/duration and short-output stopping for unbudgeted goals while honoring explicit user and platform limits.",
+              "status": "completed",
+              "evidence": "Unspecified auto-turn, duration, prompt-failure, and no-progress limits now remain null; explicit limits remain enforced. State tests verify 30 unbudgeted turns and continuing after five unbudgeted prompt failures."
+            },
+            {
+              "id": "recognize-meaningful-progress",
+              "description": "Count tool activity, verified evidence and plan advancement as progress independent of response length; trigger diagnosis and changed strategy for stalls.",
+              "status": "completed",
+              "evidence": "Tool output and plan updates increment continuation progress independently of response length; tests verify tool and plan progress reset no-progress accounting and unrelated assistant observations do not consume it."
+            },
+            {
+              "id": "bound-retry-recovery",
+              "description": "Recover transient continuation/transport failures with exponential or otherwise bounded backoff, avoiding tight loops and preserving deliberate waiting when external input is required.",
+              "status": "completed",
+              "evidence": "Continuation retry/stall delays use increasing backoff capped at 60 seconds or the configured minimum interval, with explicit failure ceilings preserved. Server tests verify increasing retry spacing, minimum interval, and configured failure limits."
+            }
+          ],
+          "verification": "Hidden defaults were removed while explicit limits remain enforced; tool/plan progress is recognized and failure/stall retries back off. Tests cover >25 turns, low-output tool progress, explicit failure limits, and retry spacing."
+        },
+        {
+          "id": "regressions-and-docs",
+          "objective": "Add failure-reproducing tests and explain the new audit, waiting and continuation behavior in the plugin's user/developer documentation.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "test-stop-audit-and-concurrency",
+              "description": "Cover premature Tailscale-style stop with independent preparation, all-blocked laundering, stale plan revision, concurrent updates, restart persistence and genuine exhaustion details.",
+              "status": "completed",
+              "evidence": "Regression tests cover stale goal/revision, full plan coverage, pending work despite blocked items, all-blocked plans with remaining independent work, sourced impossibility, authorization, same-goal waiting/resume, and concurrent plan/close races."
+            },
+            {
+              "id": "test-continuation-and-compatibility",
+              "description": "Cover tool-only progress, over-25 unbudgeted continuation, low-output turns, backoff, explicit budgets, platform limits, Plan mode, pause/cancel, and permissions/authorization.",
+              "status": "completed",
+              "evidence": "The full suite covers >25 unbudgeted turns, tool/plan progress, backoff and explicit limits, Plan mode, pause/cancel, V1/V2 schemas and lifecycle compatibility; final full run passed 396 tests across 11 files."
+            },
+            {
+              "id": "extend-v2-lifecycle-smoke",
+              "description": "Demonstrate in isolated V2 lifecycle fixture: premature stop rejected, continuation scheduled, remaining work executed, and verified completion accepted.",
+              "status": "completed",
+              "evidence": "Isolated native V2 smoke passed on OpenCode v2.1.1: premature audited wait rejected, one uncapped automatic continuation delivered, remaining work executed, goal completed with evidence; the command-array smoke also completed."
+            },
+            {
+              "id": "document-contract",
+              "description": "Document audit schema/limits, resumable waiting, unbudgeted behavior, and runtime rollout boundary without claiming loaded-runtime acceptance.",
+              "status": "completed",
+              "evidence": "README, continuation/system/compaction prompts, and English/Chinese tool/status messages document audited impossible closure, resumable waiting, truthful remaining work, and uncapped-by-default continuation."
+            }
+          ],
+          "verification": "Stop-audit, lifecycle, continuation and V2 smoke regressions pass; README, prompts, and localized tool/status text reflect the new contract."
+        },
+        {
+          "id": "full-verification",
+          "objective": "Run the upstream quality gates and review the final combined diff for correctness, compatibility and scope.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "run-quality-gates",
+              "description": "Run lint, typecheck, full tests, build and package checks using the repository's documented commands; fix relevant failures and rerun.",
+              "status": "completed",
+              "evidence": "Final bun run lint and bun run typecheck passed; bun run test passed 396 tests/0 failures; bun run build succeeded."
+            },
+            {
+              "id": "review-packaging-and-isolated-runtime",
+              "description": "Verify exports/package contents and execute the isolated V2 lifecycle smoke test against the reviewed source build.",
+              "status": "completed",
+              "evidence": "bun run pack:dry-run passed with the expected 7 package files; isolated V2 smoke passed against the reviewed local dist/server.js build without live runtime state."
+            },
+            {
+              "id": "audit-final-diff",
+              "description": "Review complete status/diff and confirm the live OpenCode runtime remains untouched and no commit/push/release occurred.",
+              "status": "completed",
+              "evidence": "Final git diff --check passed; HEAD remains the pinned b5a6c6a0449a213c29ff34ea2d07c4ccbd351725 on detached HEAD, with only intended source/docs/tests/smoke/dist changes and no staged files. No deployment, publication, commit, or push occurred."
+            }
+          ],
+          "verification": "Lint, typecheck, full 396-test suite, build, package dry-run, isolated OpenCode v2.1.1 lifecycle smoke, and final diff checks all passed."
+        }
+      ],
+      "decisions": [
+        "Implementation target is the canonical prevalentWare/opencode-goal-plugin checkout at published commit b5a6c6a0449a213c29ff34ea2d07c4ccbd351725; do not patch installed npm cache or use a companion after-hook.",
+        "This goal covers local source implementation and isolated verification only. Runtime deployment/activation, commit, push, release, and publication are excluded and require separate explicit authorization.",
+        "Do not alter or reopen the earlier unmet Tailscale goal; this is a separate plugin implementation goal."
+      ],
+      "revision": 3,
+      "updatedAt": 1793292086,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "The user explicitly asked to track the implementation plan as a goal before source changes.",
+          "timestamp": 1793283328
+        },
+        {
+          "revision": 2,
+          "reason": "The baseline inspection and targeted test evidence are complete; begin the central audited-closure implementation.",
+          "timestamp": 1793283969
+        },
+        {
+          "revision": 3,
+          "reason": "All implementation phases and final local verification gates are complete; recording evidence after the final full test run and combined-diff audit.",
+          "timestamp": 1793292086
+        }
+      ]
+    },
+    "planRevision": 3,
+    "createdAt": 1793283266,
+    "updatedAt": 1793293265,
+    "closedAt": 1793292119,
+    "completionEvidence": "Implemented in the canonical plugin checkout from pinned commit b5a6c6a0449a213c29ff34ea2d07c4ccbd351725. The central lifecycle now requires a current goal/plan-revision-bound audit for waiting/unmet, rejects remaining or actionable work, preserves resumable external waits, and allows terminal unmet only with sourced impossibility evidence. Unbudgeted continuation limits are unset by default; explicit limits remain enforced, progress is recognized from tools/plans, and retry/stall recovery backs off. Verified with `bun run lint`, `bun run typecheck`, `bun run test` (396 passed, 0 failed across 11 files), `bun run build`, `bun run pack:dry-run`, and the isolated OpenCode v2.1.1 lifecycle smoke (premature wait rejected, one automatic continuation, remaining work completed, goal completed). `git diff --check` passed; HEAD remains the pinned baseline with only intended local modifications. No deployment, live-runtime activation, publication, commit, or push occurred.",
+    "blocker": null,
+    "stopReason": null,
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793283266
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): The user explicitly asked to track the implementation plan as a goal before source changes.",
+        "timestamp": 1793283328
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): The baseline inspection and targeted test evidence are complete; begin the central audited-closure implementation.",
+        "timestamp": 1793283969
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The state layer centralizes writes through a serialized atomic mutation queue, so the guard can validate the goal ID, plan revision, and entire persisted plan in the same mutation that changes lifecycle state. I’ll represent an external dependency as a paused, resumable goal w...",
+        "timestamp": 1793284214
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Resuming the active plugin goal at the audited-closure phase. The next focus is finishing the audit contract and wiring it through both server tool paths; then I’ll continue the continuation safeguards and verification without touching deployment or publication.",
+        "timestamp": 1793284714
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The closure path is now wired to require a revision-bound audit for waiting/unmet, and external waits remain paused/resumable on the same goal. I’ve also removed the default turn/failure/low-progress cutoffs and made tool/plan progress reset stall accounting; I’m running the a...",
+        "timestamp": 1793287573
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The active goal is still in its audited-closure phase. The latest targeted run exposed an audit-fixture mismatch: an objective-only goal is being given an audit scope that doesn’t exactly match its current objective. I’ll correct the fixture/test expectation, rerun the affecte...",
+        "timestamp": 1793287626
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll resume from the checkpoint, first confirming the live goal state and the target repository’s current instructions and diffs. Then I’ll verify the latest smoke-script edits, finish the pending README update, and run the remaining local checks without deploying or publishing.",
+        "timestamp": 1793289678
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The live goal is active, but its saved cursor is behind the implementation: it still points at defining the audit contract. The target checkout contains the expected uncommitted source/tests and an extended smoke script. I’m reviewing that script and the lifecycle handlers bef...",
+        "timestamp": 1793289787
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The audit/state/prompt tests now pass (85 tests), and typecheck is clean. I also tightened the stop audit so it can accurately report remaining work and then reject the stop, instead of requiring callers to falsely claim the list is empty. The V2 smoke now checks that specific...",
+        "timestamp": 1793290218
+      },
+      {
+        "type": "checkpoint",
+        "detail": "V1/server regression tests and the standalone V2 suite pass (135 and 106 tests respectively), with lint and typecheck clean. I’m moving to the isolated runtime check now; it uses the installed V2 binary with a private home, database, config, state file, and deterministic local...",
+        "timestamp": 1793290596
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The isolated smoke reached a new failure mode on rerun: it exceeded the harness timeout rather than finishing its internal stage timeout. I’m checking whether the private OpenCode child is lingering and inspecting the preserved isolated artifacts before changing cleanup or sta...",
+        "timestamp": 1793290953
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The isolated native V2 smoke now passes on OpenCode v2.1.1: it rejected the fully scoped premature wait because work remained, delivered one automatic continuation without an auto-turn cap, completed the remaining plan tasks, and closed with evidence. The second command-array ...",
+        "timestamp": 1793291245
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m continuing the active goal from the saved checkpoint. The last prompt/i18n wording changes landed after the broad test run, so I’ll recheck the live plan and target diff, then rerun the final local verification and record goal-plan evidence.",
+        "timestamp": 1793291567
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The checkout is still detached with only the intended plugin source, tests, docs, smoke script, and generated bundle modified; `git diff --check` is clean. During the final review I’m also checking audit-size bounds against the plan schema’s maximum shape, then I’ll rerun the ...",
+        "timestamp": 1793291751
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The final audit-size check passed: the audit cap (610 entries) matches the plan validator’s 576-ID ceiling plus objective, summary, and 32 completion criteria. The full suite currently passes (396 tests), and the isolated V2 smoke and package dry-run pass. I added an explicit ...",
+        "timestamp": 1793292037
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): All implementation phases and final local verification gates are complete; recording evidence after the final full test run and combined-diff audit.",
+        "timestamp": 1793292086
+      },
+      {
+        "type": "completed",
+        "detail": "Implemented in the canonical plugin checkout from pinned commit b5a6c6a0449a213c29ff34ea2d07c4ccbd351725. The central lifecycle now requires a current goal/plan-revision-bound audit for waiting/unmet, rejects remaining or actionable work, preserves resumable external waits, and allows terminal unmet only with sourced impossibility evidence. Unbudgeted continuation limits are unset by default; e...",
+        "timestamp": 1793292119
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "The live goal is active, but its saved cursor is behind the implementation: it still points at defining the audit contract. The target checkout contains the expected uncommitted source/tests and an extended smoke script. I’m reviewing that script and the lifecycle handlers bef...",
+        "timestamp": 1793289787
+      },
+      {
+        "summary": "The audit/state/prompt tests now pass (85 tests), and typecheck is clean. I also tightened the stop audit so it can accurately report remaining work and then reject the stop, instead of requiring callers to falsely claim the list is empty. The V2 smoke now checks that specific...",
+        "timestamp": 1793290218
+      },
+      {
+        "summary": "V1/server regression tests and the standalone V2 suite pass (135 and 106 tests respectively), with lint and typecheck clean. I’m moving to the isolated runtime check now; it uses the installed V2 binary with a private home, database, config, state file, and deterministic local...",
+        "timestamp": 1793290596
+      },
+      {
+        "summary": "The isolated smoke reached a new failure mode on rerun: it exceeded the harness timeout rather than finishing its internal stage timeout. I’m checking whether the private OpenCode child is lingering and inspecting the preserved isolated artifacts before changing cleanup or sta...",
+        "timestamp": 1793290953
+      },
+      {
+        "summary": "The isolated native V2 smoke now passes on OpenCode v2.1.1: it rejected the fully scoped premature wait because work remained, delivered one automatic continuation without an auto-turn cap, completed the remaining plan tasks, and closed with evidence. The second command-array ...",
+        "timestamp": 1793291245
+      },
+      {
+        "summary": "I’m continuing the active goal from the saved checkpoint. The last prompt/i18n wording changes landed after the broad test run, so I’ll recheck the live plan and target diff, then rerun the final local verification and record goal-plan evidence.",
+        "timestamp": 1793291567
+      },
+      {
+        "summary": "The checkout is still detached with only the intended plugin source, tests, docs, smoke script, and generated bundle modified; `git diff --check` is clean. During the final review I’m also checking audit-size bounds against the plan schema’s maximum shape, then I’ll rerun the ...",
+        "timestamp": 1793291751
+      },
+      {
+        "summary": "The final audit-size check passed: the audit cap (610 entries) matches the plan validator’s 576-ID ceiling plus objective, summary, and 32 completion criteria. The full suite currently passes (396 tests), and the isolated V2 smoke and package dry-run pass. I added an explicit ...",
+        "timestamp": 1793292037
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "c5748cf3ad6a42fce748e833abc75178d46abda4538940503a5b8d2dd630e7e2",
+  "generatedFiles": {
+    "plan.md": "140ee0ad5dc6577af17181a7570f141899a26ee64c72c8ee5944fd83b6a31532",
+    "HANDOFF.md": "726e5a69b63b9b9fd7316457cdfcea82fa00c603b06e379536a9c8c5e640b7a2",
+    "work-history.md": "163bfd828a38b5997a918e324f7bb78e4ff3ffaede2ee8da747c956ad86c4db5"
+  }
+}

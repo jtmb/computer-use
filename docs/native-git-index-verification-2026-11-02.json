@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "evidenceDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only independent validation of the existing unapplied native Git index-protection patch against its exact pinned file, using disposable source trees. Not a native provider, real checkout, model or full type/build result.",
+  "source": {
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "path": "packages/core/src/plugin/vcs/git.ts",
+    "bytes": 26732,
+    "sha256": "88a417a5e28e66d1e6474432adf3fa6f4bad141cb3a7d2be7db14996155f782e",
+    "gitBlob": "d44ba281352789914e3c08a50d7f3b19d5b146d4",
+    "binding": "Current native file, the exact frozen commit's complete git-show bytes and actual git hash-object agree. The common cfg/makeGit call site is inspected; prior full752line review remains recorded, not replayed as native execution."
+  },
+  "patch": {
+    "path": "tools/opencode-native-row/native-git-index.patch",
+    "bytes": 432,
+    "sha256": "09baf73cd78f64161f42dfc1f7e24bbd2996e373971793da72f1675e3ebe41bd",
+    "changed": false,
+    "expectedPatchedBytes": 26850,
+    "expectedPatchedSHA256": "e9c01d92b13ffdb3fcb19628c7a484fc7a9c6b682fa982c383e8220df51ca119",
+    "delta": "Exactly118added bytes/three lines: the explanation, -c and diff.autoRefreshIndex=false after --no-optional-locks. Whole patched source equals the independently constructed exact delta, not just a matching substring."
+  },
+  "actualGitChecks": {
+    "scratch": "/tmp/opencode/native-git-index-apply-DGk28e",
+    "positive": "git apply --check --whitespace=error-all exits0and leaves the complete source unchanged. Scratch-only application exits0and equals the full expected patched source. Reverse --check exits0; scratch-only reverse application exits0and restores every original byte.",
+    "negative": [
+      "Applying the check again to the already patched copy exits1; the complete patched file remains unchanged.",
+      "Wrong central context: --check exits1and preserves the entire wrong-preimage file.",
+      "Wrong central context: actual scratch apply exits1and preserves the entire wrong-preimage file without partial target changes.",
+      "Corrupted hunk line count: --check exits128and leaves the complete valid source unchanged."
+    ],
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/native-git-index-apply-owqJpd/verification.json",
+    "receiptBytes": 10825,
+    "receiptSHA256": "4bdaa13d6dba01e1d5207d1e18ac13ab6bcf93be08d92c35aa4ee27ce4809c56",
+    "sourceReadBytes": 464811,
+    "cliCapturedBytes": 27807,
+    "elapsedMs": 148,
+    "limits": "256KiBsource file/2MiBsource acquisition,64KiBcommand/256KiBaggregate captured output,4096maximum remaining-length pipe reads,2secondowned Git command/10secondjob. Ordinary Git defaults cannot consult operator global/system config or hooks in these disposable fixtures.",
+    "qualification": "The receipt owns the actual scratch path and exact argv/exits/output digests. These four parser/preimage failures are deliberate CLI refusal controls, not four newly discovered native production bugs. Earlier actual Git2.53local-index observations are retained and not repeated or substituted for native execution."
+  },
+  "syntaxOnly": {
+    "compiler": "Existing TypeScript6.0.3 createSourceFile,128MiBV8heap",
+    "inputBytes": 26850,
+    "inputSHA256": "e9c01d92b13ffdb3fcb19628c7a484fc7a9c6b682fa982c383e8220df51ca119",
+    "wholeFile": true,
+    "parseDiagnostics": 0,
+    "malformedControlCodes": [1110, 1109, 1005],
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/native-git-index-apply-owqJpd/syntax.json",
+    "receiptBytes": 920,
+    "receiptSHA256": "8b5909cfa6687af48c683d9d82d97029469d1a3bbfbb88b811bf132f1443d4c3",
+    "qualification": "Non-evaluating syntax for this complete selected file and an explicit malformed suffix control. No dependency/library/typecheck, target import/execution, compiler build or repeat of the failed four-root/full2827-input attempts; no omitted inputs are presented as full type acceptance."
+  },
+  "preservation": {
+    "canonicalPatchAndNativeFileUnchanged": true,
+    "nativeTrackedDirtyPathsUnchanged": ["packages/tui/src/component/prompt/index.tsx", "packages/tui/src/component/prompt/metadata.tsx", "packages/tui/src/routes/session/composer/subagents-tab.tsx", "packages/tui/test/fixture/tui-client.ts"],
+    "rawIndexSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "stagedBytes": 179,
+    "stagedSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "qualification": "No canonical/native application, user worktree/branch creation, persistent Git config, installed executable/launcher, source/resource/security guard, independent computer/browser integration, model/agent, deployment, publication, commit or push."
+  },
+  "documentationContract": { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/features-contract.test.mjs", "tests": 7, "passed": 7, "failed": 0, "skipped": 0, "durationMs": 304.676318, "qualification": "Changed artifact/guide/evidence links and inventory only; no old native/local-index/model test, independent integration or complete CI run." },
+  "remaining": "The patch is still unapplied to the frozen native checkout and installed runtime. Exact native provider status/diff/untracked-pipeline raw-index preservation, complete required types/build, loaded/model/effective metadata and authorized real checkout remain unverified. The original unexplained actual-model index mutation is not causally assigned by scratch patch compatibility. Full strategy/321325Bdist versus unchanged256KiBsource review limits remain; no cap increase or artifact omission. Whole task/phase/goal remains incomplete."
+}

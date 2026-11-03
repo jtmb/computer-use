@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 240,
+  "status": "Canonical source correction applied and statically reviewed; UNTESTED, not monitoring/full-graph/type or operational acceptance.",
+  "trigger": "The actual revision239 waiting reviewer identifies unexhausted routine source work in the aggregate registry/observer/signalling/final-cleanup budget. Supported readback remains active239, then supported240plan schedules contract/call-chain review and the smallest confirmed canonical repair. No new approval is invented for this in-scope source correction; no-more-tests/no-delegation remains.",
+  "contractSources": [
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs:11-34", "contract": "Frozen limits:8192sampler work entries/100mssampler,250msdrain,90srun,1536MiBowned RSS/1280MiBfloor/2816MiBprelaunch; per-proc text64KiB at185-205. No numeric constant changes." },
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.md:309-323,481-514 before this insertion", "contract": "Sampling and ownership stay bounded after root exit; whole known surviving forest continues under guards. Missing/reused/unknown identity is not permission to signal, unknown means unverified cleanup. Cooperative checks cannot preempt a blocked synchronous read." },
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs:2406-2444 after correction", "contract": "Actual guardedRun supplies frozen LIMITS and real default spawn/sampler/observer, not injected test callbacks. The worker/graph/compiler inputs and guardedRun body are outside the changed source envelopes." },
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs:1863-1889,2393-2402 after correction", "contract": "A guard reason or unverified cleanup cannot classify clean. Cleanup failure propagates to an incomplete result; no classifier/receipt acceptance weakening." }
+  ],
+  "confirmedStaticEscape": {
+    "sourceBefore": { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 117534, "sha256": "95596d4084d5ffcc7af4cd7216ca288b6abcc01a9172f35c3a3c6b0921388ab5" },
+    "beforeCallChain": [
+      { "path": "2013-2014,2053-2062", "finding": "observeRegistry loops over the bounded registry but calls observe(pid,start) with no remaining shared entry/deadline state. Every real observeOwnedProcess starts its own default8192/100ms budget." },
+      { "path": "2064-2095", "finding": "Individual descendant and root-group signalling checks start independent observations; stop/catch paths can repeat a root observer with a fresh allowance after sampling consumed its budget." },
+      { "path": "2097-2121,2142-2169,2172-2196", "finding": "Forest sampleTree reports are cumulatively charged, but intervening retained/registry/error observers are not charged to that forest budget. The new local observer accounting does not by itself establish aggregate loop compliance." },
+      { "path": "2199-2235", "finding": "Final cleanup starts repeated registry/signalling/root observations with fresh per-PID limits. Descendant and root drainUntil deadlines are separately created after work, so neither all observations nor both loops share one existing cleanup allowance." }
+    ],
+    "conclusion": "Confirmed source-level aggregate-bound escape, not merely missing executed regression evidence. A finite registry and bounded individual observer do not enforce one sampler batch or cleanup budget. The dated238review correctly located it, but calling it unchanged/not an observed new regression was insufficient to stop routine source work. No executed overrun, old ROOT/35-of36 cause, kernel behavior reproduction or successful behavioral fix is claimed."
+  },
+  "canonicalCorrection": {
+    "sourceAfter": { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 120363, "sha256": "aa774e9721ca7e7296a8db0e7f4f5db9f7249d9d3b7207742cdbbd093638dbba", "netBytes": 2829 },
+    "changes": [
+      { "source": "observeOwnedProcess:413,430; walkOwnedTree:481,496", "change": "Optional internal accountWork callback charges the supervisor's shared allowance at each existing low-level account point. Direct low-level calls without it retain their own prior limits and behavior. No per-read resource limit or group/identity rule is relaxed." },
+      { "source": "assertSupervisorLimits:1982-1991", "change": "Include samplerMs in existing positive/reduce-only supervisor limit validation, so this scheduling option cannot raise the frozen100ms bound." },
+      { "source": "observationBudget:2019-2057", "change": "One sticky8192-entry budget with injected-clock and independent real-wall deadlines. Remaining entries/time are passed forward; exhaustion/invalid counts remain failed and cannot be refunded or replenished by another PID. Per-call deadline is at most the existing samplerMs, including inside the longer cleanup phase." },
+      { "source": "observe/sample wrappers:2058-2074", "change": "Each dispatch consumes one entry. Real low-level work charges as it occurs. An injected sampler's nonnegative integer reported work consumes any difference not already charged through callbacks; no callback work is charged twice. Invalid reported work fails closed. No guarantee of preempting an arbitrary injected callback or measuring work it never reports." },
+      { "source": "registry/signalling/forest:2113-2190", "change": "Registry, retained-root forest, positive-exit error rechecks and signal eligibility all receive the same phase budget. Successful descendant signals increment the result immediately, preserving already-issued effects if a later observation exhausts the budget. Root signalling still requires an alive identity; exhausted/unverifiable eligibility never permits a signal." },
+      { "source": "tick:2191-2259", "change": "Each monitoring tick creates one existing100ms/8192-entry allowance covering root sample, retained/registry observers, remaining forest samples, error rechecks and any resulting signals. No fresh per-PID/catch allowance. A failed/exhausted budget cannot be discarded merely because a root-exit event or positive root state is also present. Repeated stop callbacks do not signal again after settlement." },
+      { "source": "finalCleanup:2261-2313", "change": "One existing250ms drain deadline and8192-entry allowance span initial registry checks, individual/root signal eligibility and both drain loops. Each observer is still capped at100ms and remaining shared time/entries. Wait duration is capped by remaining time. Errors/exhaustion return unverified descendant-cleanup-unverified with bounded cleanupError, never clean; unknown/reused identities are not signalled." }
+    ],
+    "phaseBoundary": "Normal monitoring ticks are distinct bounded polling batches. Final cleanup is a distinct purpose-limited phase using the existing250ms drain bound, not an extra250ms for every PID or a second root drain reset. An out-of-tick single root stop observation uses one standalone bounded allowance; settled stop callbacks cannot repeat that signal. The one initial worker-start lookup and memory-availability guard remain existing bounded single lookups, not registry loops.",
+    "limitsAndSemantics": "Work entries retain the low-level logical accounting points plus conservative dispatch cost, not a claimed exact count of kernel bytes/reads or process RSS. Successful callback accounting is not doubled; no failed shared allowance is refunded. Numeric LIMITS block, graph/worker/compiler/diagnostic/classifier/native inputs, environment, acquisition scopes, positive-identity conditions and signal targets remain unchanged. Tighter accounting can refuse earlier, so old exact injected budget-count expectations are not promoted to passing behavior. Deadlines remain cooperative checks between synchronous operations, not OS-level interruption or a whole-process memory measurement."
+  },
+  "staticCoverageOfCorrection": [
+    { "branch": "More than one retained/registered PID", "review": "All calls in observeRegistry, retained-PID loop, sampleDescendants error recheck, descendant signal loop and root eligibility take the caller budget. No per-PID observationBudget factory remains in those loops." },
+    { "branch": "Root sample plus surviving forest", "review": "Same budget callback counts root work before observing retained PIDs or later roots. sampleTree has one supervisor call site in the wrapper, and sampleDescendants cannot reset maxEntries/until for each root." },
+    { "branch": "Observer swallows a budget error to return unknown", "review": "Shared failure is sticky; wrapper budget.check rethrows it. Subsequent error/root signalling checks use that same exhausted object, not a new default budget." },
+    { "branch": "Injected sampler reports work or invalid count", "review": "Wrapper validates nonnegative safe integer and charges only work not already callback-accounted. This is source inspection, not an instantiated fake sampler or new regression case." },
+    { "branch": "Root-exit race after aggregate exhaustion", "review": "tick checks whether shared budget failed before taking the old root-exit transition. A budget failure keeps monitor-unavailable/incomplete rather than being silently classified as harmless exit." },
+    { "branch": "Partial signal side effects before later refusal", "review": "descendantSignals increments immediately after each successful syscall. Later budget failure cannot skip a deferred end-of-loop increment and falsely report no issued signals. No actual signal is sent during this work." },
+    { "branch": "Final descendant and root cleanup", "review": "Both loops share the one budget/deadline created at finalCleanup entry; repeated observations and waits consume/check the same state. budget failure is caught as unverified cleanup. The existing clean classifier still rejects unverified cleanup." }
+  ],
+  "existingTestsPreservedNotRun": {
+    "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs",
+    "bytes": 109230,
+    "sha256": "cf09d67baa96b3ece2da75d8bddc57676bfb96944824cd4f853524737dffef73",
+    "relevantExistingRanges": ["1396-1454 cumulative registry/identity/forest injected seams", "1457-1553 retained RSS/post-exit unknown identity", "1555-1723 actual lifecycle/cleanup/floor/non-signalling"],
+    "gaps": "No existing inspected assertion establishes the new shared real-observer-plus-sample accounting, sticky exhaustion across fallback/signalling, one complete cleanup phase, partial signal count or two-clock aggregate deadlines. Existing forest fakes report work and use immediate observers rather than real group/rebind accounting. Narrow tests/strict/current runtime verification remain required but barred.",
+    "fixtureWarning": "The existing forest-entry fixture assumes a second sample occurs before marking fabricated descendants unknown. New conservative dispatch/observer charging can refuse earlier; its exact budgets.length/maxEntries and no-signal fixture assumptions need future permitted review, not an unchanged run or silent fixture repair now. This is a static possibility, not a new observed failed control.",
+    "retainedHistory": "The dated238review/H1-H5, four authentic3903Bf8f3f5f0parent reds, original full graph RSS failures and older52/53,60/61/35of36unknown remain. No old failure is relabelled green, missing/tmpfixture recreated, tests edited/deleted or current behavioral acceptance claimed."
+  },
+  "sourceEpochAndDocumentation": {
+    "datedCoverageRecord": { "path": "docs/corrections-coverage-review-2026-11-01.json", "bytes": 30598, "sha256": "93a514e4c2afc8a1b198b302767924fd408183f9117ea6f05774a0f470695217", "unchanged": true, "qualification": "Its95596d40source binding and adjacent limitation remain truthful at the238epoch. This applied240source preparation supersedes the unperformed correction only, not its missing tests/current acceptance or authentic failures." },
+    "owningGuide": { "path": "tools/opencode-native-row/full-graph-diagnostics.md", "bytes": 47693, "sha256": "5c36e7279664f9384ae54520873641a2b42f995bfeb4efe440e1dd469e1eaa83", "ownedAdditionBytes": 1620, "entirePreimageBytes": 46073, "entirePreimageSHA256": "63e76c40886361c0e0763c5fe9f78d192906d418b6762c3df8da3c39ea67dde5" },
+    "sharedAudit": "docs/test-quality-audit.md and independent personality/CUA/integration work remain unedited/unadopted. The earlier263607B shared-guide fullhash refusal stays recorded; no body partition/cap raise or unrelated edit follows."
+  },
+  "staticReadbackBeforeThisRecord": {
+    "observedAt": "2026-11-01T19:52:27.175Z",
+    "canonicalSourceTextDiff": { "bytes": 18925, "sha256": "7abca997fe5d704f00a1fc8504874ad11031bf1087930d539b082092606b9d29", "scope": "Full inert diff against saved authentic117534B95596d40monitor-after.txt, not a test/import/syntax run." },
+    "reviewedSourceEnvelopes": [
+      { "start": "export function observeOwnedProcess(", "end": "export function sameOwnedProcess(", "beforeBytes": 2507, "afterBytes": 2540, "qualification": "Only optional accountWork parameter and shared callback line differ." },
+      { "start": "function walkOwnedTree(", "end": "export function sampleOwnedTree(", "beforeBytes": 14910, "afterBytes": 14943, "qualification": "Only optional accountWork parameter and shared callback line differ." },
+      { "start": "const SUPERVISOR_LIMIT_KEYS =", "end": "export async function guardedRun(", "beforeBytes": 14871, "afterBytes": 17634, "qualification": "Full changed supervisor section and every diff hunk read; this is the reviewed budget/loop/cleanup correction scope." }
+    ],
+    "entireSourceOutsideReviewedEnvelopesUnchanged": true,
+    "verificationMethod": "Replace the three explicitly reviewed current sections with the authentic saved pre-correction sections; the complete in-memory file returns117534B/SHA95596d40. For the two low-level sections, independently remove only the new option/callback lines and compare complete section text. Remove only1620Bguide insertion and recover complete46073B63e76c40guide preimage. No file is restored/rewritten by these read-only calculations.",
+    "bounds": { "fileBytes": 262144, "jobBytes": 2097152, "chunkBytes": 65536, "reservedIncludingDiffOutputAllowance": 351129, "deadlineMs": 10000, "elapsedMs": 17, "heldReadsetStable": true }
+  },
+  "preEditPreservation": {
+    "observedAt": "2026-11-01T19:47:34.541Z",
+    "lifecycleRecordBeforeInsertion": { "bytes": 59057, "sha256": "f0d9c933239f57199cb339d7f68aa7c56625c56267e843ad3fced418f02fd5ba" },
+    "newFactDestinationWasAbsent": true,
+    "scopedStatus": "Monitor/source/test/guide/datedquality/lifecycle are untracked, tracked numstat empty. These exact combined-tree bytes, not an old commit omitting untracked source, were inspected and preserved.",
+    "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "rawIndex29854BSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "qualification": "Parent-owned released monitor scope only; no new peer polling/delegation, independent integration overlap, unrelated source/settings/history/media/launcher mutation or consequential authority. Final documentary/index/source readback is a separate required step, not already claimed by this preimage."
+  },
+  "remaining": "The eleventh review's source contract/call-chain investigation and smallest confirmed aggregate-budget correction are performed, not pending or blocked by invented source-edit approval. Actual correctness, regression/full strict/native/full graph/model/GUI/human/device acceptance remains UNTESTED under no-more-tests; no source-only completion claim. The source correction does not provide a bounded successful full2827-input run, resolve authentic original inventory/index/media/history gaps, supply trusted archive approval, actual native build/rights/ABI/document outcomes or exact deployment/security/private/callback/device/demo authority. All20unfinished tasks/eightcriteria/75IDs+additional lanes and genuine failures survive. Numeric/resource/security/compiler-input guards stay unchanged.",
+  "actions": { "canonicalBehavioralSourceFilesChanged": 1, "owningGuideSectionsAdded": 1, "testsAddedEditedImportedOrExecuted": 0, "syntaxTypesBuildOrCompilerRuns": 0, "productionModuleImportsOrBehavioralProbes": 0, "fixturesGeneratedChangedOrRecreated": 0, "monitoredCompilerAppOrTestSpawnsOrSignals": 0, "modelsOrChildren": 0, "independentIntegrationReadsWritesOrAdoption": 0, "privateBodiesOrSettingsValues": 0, "numericLimitRaisesOrCompilerInputChanges": 0, "runtimeSecurityPermissionDeploymentChanges": 0, "assetBinaryHashReplays": 0, "commits": 0, "pushes": 0 }
+}

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "status": "Rights provenance narrowed; no affirmative grant for the two selected transforms established by this investigation, not a universal legal absence or full-stack clearance.",
+  "scope": "Exact lxml6.1.3 RNG2Schtrn.xsl/XSD2Schtrn.xsl rights-provenance research only. Existing wheel/resource notices remain preserved; no transform, parser, candidate code or test is executed.",
+  "localEvidence": {
+    "resourceFacts": { "path": "docs/document-authoring-native-resource-facts-2026-10-31.json", "bytes": 5582, "sha256": "4876c895282dc794ee31890c0cd00db354f3d9aea9c4d36ab000bf7440f3acd5" },
+    "resourceReceipt": { "path": "/home/james/Documents/computer-use-native-host-20261029/lxml-resource-rights-8b1w4mt1/facts.json", "bytes": 3601, "sha256": "d80cc87bda44d230f01a136ce6b00242ca24f8c7a7b9e3e01ed5e31963512e41", "matchesResourceFacts": true },
+    "wheelSHA256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+    "existingCompleteWheelNoticeSHA256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+    "selectedResourceCopies": [
+      { "member": "lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl", "savedCopy": "member-0-RNG2Schtrn.xsl.txt", "bytes": 3172, "sha256": "39b79bb01f16b7e777b8803f539354f394e99d0dcfc4f5f7f1374e02aa2c31a7", "currentSavedCopyMatchesEarlierCompleteResourceFacts": true },
+      { "member": "lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl", "savedCopy": "member-1-XSD2Schtrn.xsl.txt", "bytes": 4563, "sha256": "430791ac820cfb315c820f7c19703609a59f21b8151345ca11e6127efbfaec0d", "currentSavedCopyMatchesEarlierCompleteResourceFacts": true }
+    ],
+    "attributionNotPermission": "Local texts name Eddie Robertsson and the2009Holger Joukl namespace changes; XSD2Schtrn also records earlier fn/er changes. Attribution/date and public availability are not an observed permission grant, nor proof all contributors' rights have been resolved.",
+    "bindingReadback": { "schema": "transform-rights-pre-edit-local-bindings/v1", "observedAt": "2026-11-01T08:36:03.252Z", "reservedBytesIncludingProbes": 102355, "elapsedMs": 11, "fileCap": 262144, "jobCap": 2097152, "chunkBytes": 65536, "deadlineMs": 10000 },
+    "qualification": "These are rereads/hashes of existing selected text copies and factual records, not new wheel-member acquisition, a unique-content total or new authenticated upstream distribution proof. No XML parser is used."
+  },
+  "releasePinnedPrimarySources": {
+    "commit": "3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1",
+    "commitLocator": "docs/document-authoring-wheel-provenance-2026-11-01.json, officialProvenance; retained unsigned release-tag resolution, not a signed build attestation",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/LICENSES.txt",
+        "class": "Official release-commit-pinned publisher notice",
+        "finding": "The general BSD statement explicitly has exceptions. The notice calls the xsd/rng extraction transformations unlicensed and copyright their respective authors, and names these exact paths. Its separate binary-wheel library notices do not grant rights to these transforms.",
+        "selectedDeclarationConsistentWithStoredWheelNotice": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/src/lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl",
+        "class": "Official release-commit-pinned source text",
+        "finding": "Complete displayed source has the same named attribution/change history and no explicit permission grant observed. Source text is inert research data, not executed or installed."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/lxml/lxml/3c1a4c7f2d5a3c19efe01adfd3c33ac3c8fe52c1/src/lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl",
+        "class": "Official release-commit-pinned source text",
+        "finding": "Complete displayed source names the original author and modifications without an explicit permission grant observed. No remote/local raw-byte digest comparison is claimed."
+      }
+    ],
+    "qualification": "The tool-returned public texts support a named release/source declaration and attribution comparison. They are not authenticated raw-body hashes, author permission, exact wheel build provenance or a complete legal conclusion."
+  },
+  "originalAuthorPublication": {
+    "article": "https://www.xml.com/pub/a/2004/02/11/relaxtron.html?page=5",
+    "title": "Combining RELAX NG and Schematron",
+    "author": "Eddie Robertsson",
+    "published": "2004-02-11",
+    "finding": "The author's article explicitly offers RNG2Schtrn.xsl through a Topologi ZIP link and describes extracting embedded Schematron rules. This supplies a concrete historical author/distribution lead, not a permission to copy/modify/distribute the exact later lxml resource.",
+    "articleCopyrightNotice": "Content licensed from and copyright1998-2008 O'Reilly Media, Inc.; no transform-specific grant observed in the opened article",
+    "publisherCopyrightPolicy": {
+      "url": "https://www.xml.com/about/copyright/",
+      "finding": "The site says named authors/copyright holders retain copyright in their articles and directs readers to contact them for permission to reprint or copy. This is not a blanket code/resource permission grant and is not silently applied as a new license to a separately hosted archive or2009modifications."
+    },
+    "historicalDownloadMetadataAttempt": {
+      "articleLink": "http://www.topologi.com/public/Schtrn_XSD/RNG2Schtrn.zip",
+      "requestedURL": "https://www.topologi.com/public/Schtrn_XSD/RNG2Schtrn.zip",
+      "method": "HEAD",
+      "observedAt": "2026-11-01T08:34:41Z",
+      "result": "gaierror: Errno -3 Temporary failure in name resolution",
+      "elapsedMs": 134,
+      "socketTimeoutSeconds": 5,
+      "shellWallLimitSeconds": 10,
+      "TLSVerification": "Default certificate and hostname verification; only the HTTPS upgrade of the exact article-linked URL attempted",
+      "bodyBytesAcquired": 0,
+      "archiveDownloadedOrInspected": false,
+      "redirectsFollowed": 0,
+      "retriedOrDowngradedToHTTP": false,
+      "qualification": "This local resolver failure does not establish NXDOMAIN, global unavailability, absence of an archive/license or a denial by the author. No alternate client/account, redirect, HTTP downgrade or certificate bypass was used. The possible archive contents remain unknown."
+    }
+  },
+  "downstreamContextNotGrants": [
+    {
+      "url": "https://github.com/citation-style-language/utilities",
+      "class": "Downstream project's current README, mutable branch, not a rightsholder grant or release-pinned lxml source",
+      "finding": "The README explicitly excepts RNG2Schtrn.xsl from its MIT-licensed utilities because its exact license status is unknown, despite the author's download offer; it links the original article above. A repository MIT badge/file cannot override that named exception."
+    },
+    {
+      "url": "https://lore.ptxdist.org/ptxdist/20250605132006.33686-1-glaser@iotmaxx.de/T/",
+      "class": "Public downstream patch/review thread,2025-06-05/27",
+      "finding": "A proposed license checksum list includes the transform header lines; the maintainer asks why they were included because no license is visible in those files. A checksum, proposed aggregate SPDX expression or inclusion in a package recipe is not an affirmative author permission grant.",
+      "patchAppliedOrImported": false
+    },
+    {
+      "url": "https://www.openembedded.org/pipermail/openembedded-devel/2018-January/192376.html",
+      "class": "Public historical downstream recipe patch,2018-01-15",
+      "finding": "The beginline correction includes the RNG transform's attribution comment in its license-checksum input. It provides historical provenance for that practice, not a grant within the comment or authority to license the selected wheel. Other quoted ISO/skeleton grants concern distinct files."
+    }
+  ],
+  "generalSiteStatementNotSelectedResourceLicense": {
+    "url": "https://lxml.de/",
+    "finding": "The general homepage says lxml ships under BSD and names MIT for native libraries. The opened page is generated2026-06-16 and advertises7.0.0a3, not an exact6.1.3resource license. Its broad statement does not override the exact release notice's named exceptions. No upgrade/download or new latest-version claim follows."
+  },
+  "unavailableOrUnusedPublicSources": [
+    { "url": "https://lxml.de/lxml-license.html", "result": "One404, not retried", "qualification": "This guessed standalone license-page path was not confirmed by the site navigation. The failed lookup is preserved, not treated as missing licensing information; subsequent root navigation is a separate public source." },
+    { "url": "https://gitlab.archlinux.org/archlinux/packaging/packages/python-lxml/-/blob/6.1.0-1/PKGBUILD", "result": "Anubis bot-challenge HTML, not the requested PKGBUILD", "qualification": "No source-license claim is made from the search snippet or challenge. No browser/challenge execution, alternate endpoint/client/account or access bypass attempted." },
+    { "url": "https://xml.coverpages.org/schemas.html", "result": "Large catalog response with tool-managed truncated preview", "qualification": "Discovery only, not relied upon for a permission grant, complete catalog review or exact source binding." }
+  ],
+  "publicResearchAcquisition": {
+    "searchCalls": 3,
+    "queries": ["\"RNG2Schtrn.xsl\" \"XSD2Schtrn.xsl\" license Eddie Robertsson", "\"RNG2Schtrn\" license permission Robertsson", "\"XSD2Schtrn\" \"license\" Schematron"],
+    "webfetchAttempts": 12,
+    "returnedBodies": 11,
+    "non2xx404": 1,
+    "returnedAccessChallengeBodies": 1,
+    "largeCatalogDiscoveryNotReliedUpon": 1,
+    "materialSourceTextsUsed": 9,
+    "separateHTTPSHeadAttempts": 1,
+    "separateHTTPSHeadFailuresBeforeResponse": 1,
+    "newPyPIJSONRequests": 0,
+    "artifactDownloads": 0,
+    "preFetchByteBoundClaimed": false,
+    "agentSavedRawHTTPBodiesOrDigests": false,
+    "qualification": "Public response acquisition/truncation is tool-managed; these are actual request counts for this distinct rights investigation, not a reset or reuse of the exhausted12-request PyPI metadata allowance and not additions to earlier unique-content totals. Search snippets are discovery only. The three commit-pinned source texts are one publisher evidence family, not independent confirmations or signed author grants. Local saved-copy hashes are separate from remote text interpretation."
+  },
+  "resolutionBoundary": {
+    "affirmativeTransformGrantEstablished": false,
+    "fullSelectedRightsApproved": false,
+    "rightsQuestionResolvedByPublisherBSDOverview": false,
+    "rightsholderContactMade": false,
+    "sourceResourceDeletedOrRelicensed": false,
+    "finding": "The inspected exact publisher notice, author article/policy and downstream named exception support retaining the unresolved rights gate. They do not prove that no grant exists anywhere, or that every use is prohibited; full legal/applicability acceptance remains unverified. Current permission for source research is not permission to contact/publish, install, redistribute or delete resources.",
+    "remainingEvidence": ["An applicable authoritative grant or clarification covering both exact selected transforms and relevant modifications, or a separately approved reviewed alternative preserving required functionality.", "Any rights-bearing historical archive contents remain uninspected after the single HTTPS metadata attempt failed local DNS. A materially changed legitimate source/availability can be reviewed later; do not downgrade security or loop failed requests.", "Full other-resource/native/bundled/transitive notices and selected-library/build/ABI/security/XML/representative author-render-reopen/human evidence remain separate. Pycparser/PyPI-budget/pandas-notice/current verification/installation gates are unchanged."]
+  },
+  "actions": { "tests": 0, "candidateImportsOrExecution": 0, "XMLParsesOrTransforms": 0, "installs": 0, "archiveDownloadsOrExtractions": 0, "resourceCopiesIntoImplementation": 0, "sourceResourceDeletion": 0, "licenseRelabeling": 0, "rightsholderMessages": 0, "modelOrSubagentRuns": 0, "peerActions": 0, "commits": 0, "pushes": 0 }
+}

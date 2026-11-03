@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "status": "metadata-only candidates; not approved pins or an installation lock",
+  "checkedDate": "2026-10-30",
+  "target": {
+    "interpreter": "/usr/bin/python3",
+    "versionObserved": "3.14.4",
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "soabiObserved": "cpython-314-x86_64-linux-gnu",
+    "allNineModuleSpecsAbsent": true
+  },
+  "parentAcquisition": {
+    "source": "Exact-version official PyPI JSON only; normal TLS verification, redirects refused",
+    "method": "Python standard-library HTTPS, fixed byte reads before JSON parsing",
+    "actualBytes": 331749,
+    "perResponseCapBytes": 2097152,
+    "aggregateCapBytes": 10485760,
+    "socketTimeoutSeconds": 5,
+    "shellWallLimitSeconds": 120,
+    "elapsedSeconds": 0.604,
+    "artifactDownloads": 0,
+    "codeModeAttempt": "No requests: AbortSignal timeout unavailable; bounded standard-library HTTPS used instead"
+  },
+  "childReview": {
+    "sessionID": "ses_e70f939e5ffeHxyCd5wnj2ePsZ",
+    "status": "terminal/released; not accepted as a bounded acquisition",
+    "failure": "Child disclosed reading lxml/pandas root documents before its per-response size check. Its total-byte accounting is not independently established. Parent independently reacquired all nine exact versions within byte caps.",
+    "startupCompliance": "reported, not independently audited; no blanket compliance claim",
+    "corrections": "Seven selected universal wheels, not six; lxml's declared extras also include source. Parent verifies version existence, not a latest-version or general compatibility claim."
+  },
+  "limits": {
+    "installationAuthorizedByThisRecord": false,
+    "installed": false,
+    "artifactBytesVerified": false,
+    "resolvedTransitiveClosure": false,
+    "licenseFilesAudited": false,
+    "vulnerabilityReviewComplete": false,
+    "importsTested": false,
+    "python314RuntimeAcceptance": false,
+    "abiOrGlibcCompatibilityVerified": false,
+    "authoringOrHardenedXmlReady": false,
+    "latestVersionVerifiedByParent": false,
+    "extrasSelected": [],
+    "note": "License/Python/dependency fields and artifact hashes are registry declarations, not audited distribution contents or import/format acceptance. No restricted imported document helper was reused."
+  },
+  "packages": [
+    {
+      "distribution": "python-docx", "module": "docx", "version": "1.2.0",
+      "metadataURL": "https://pypi.org/pypi/python-docx/1.2.0/json", "metadataBytes": 4072,
+      "requiresPython": ">=3.9", "declaredLicense": "MIT",
+      "baseRequiresDist": ["lxml>=3.1.0", "typing_extensions>=4.9.0"],
+      "wheel": {
+        "filename": "python_docx-1.2.0-py3-none-any.whl",
+        "sha256Declared": "3fd478f3250fbbbfd3b94fe1e985955737c145627498896a8a6bf81f4baf66c7",
+        "bytesDeclared": 252987, "yanked": false,
+        "uploaded": "2025-06-16T20:46:22.506016Z"
+      }
+    },
+    {
+      "distribution": "lxml", "module": "lxml", "version": "6.1.3",
+      "metadataURL": "https://pypi.org/pypi/lxml/6.1.3/json", "metadataBytes": 155078,
+      "requiresPython": ">=3.8", "declaredLicense": "BSD-3-Clause (license string, not SPDX field)",
+      "baseRequiresDist": [], "declaredExtras": ["source", "cssselect", "html5", "htmlsoup", "html-clean"],
+      "wheel": {
+        "filename": "lxml-6.1.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+        "sha256Declared": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+        "bytesDeclared": 5099355, "yanked": false,
+        "uploaded": "2026-09-02T14:49:07.343252Z"
+      }
+    },
+    {
+      "distribution": "defusedxml", "module": "defusedxml", "version": "0.7.1",
+      "metadataURL": "https://pypi.org/pypi/defusedxml/0.7.1/json", "metadataBytes": 35962,
+      "requiresPython": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+      "declaredLicense": "PSFL; Python Software Foundation License classifier",
+      "baseRequiresDist": [],
+      "wheel": {
+        "filename": "defusedxml-0.7.1-py2.py3-none-any.whl",
+        "sha256Declared": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+        "bytesDeclared": 25604, "yanked": false,
+        "uploaded": "2021-03-08T10:59:24.450195Z"
+      }
+    },
+    {
+      "distribution": "pypdf", "module": "pypdf", "version": "6.21.4",
+      "metadataURL": "https://pypi.org/pypi/pypdf/6.21.4/json", "metadataBytes": 9370,
+      "requiresPython": ">=3.9", "declaredLicense": "BSD-3-Clause (SPDX expression; license string null)",
+      "baseRequiresDist": ["typing_extensions>=4.0; python_version < \"3.11\""],
+      "declaredExtras": ["brotli", "crypto", "cryptodome", "dev", "docs", "fonts", "full", "image", "rtl-text"],
+      "wheel": {
+        "filename": "pypdf-6.21.4-py3-none-any.whl",
+        "sha256Declared": "33e4fb41ca352810eb4e9838aa0d82d6888a5f8bf682f43e99cce5faa666255c",
+        "bytesDeclared": 410430, "yanked": false,
+        "uploaded": "2026-10-28T17:00:53.146109Z"
+      }
+    },
+    {
+      "distribution": "pdfplumber", "module": "pdfplumber", "version": "0.11.10",
+      "metadataURL": "https://pypi.org/pypi/pdfplumber/0.11.10/json", "metadataBytes": 46618,
+      "requiresPython": ">=3.8", "declaredLicense": "MIT License classifier only; license/SPDX fields null",
+      "baseRequiresDist": ["pdfminer.six==20260107", "Pillow>=12.2.0", "pypdfium2>=5.9.0"],
+      "wheel": {
+        "filename": "pdfplumber-0.11.10-py3-none-any.whl",
+        "sha256Declared": "7741ea81bf165b474b153e6789d10d18e06b6ddcf3ec84289c3ef2fed6802580",
+        "bytesDeclared": 60047, "yanked": false,
+        "uploaded": "2026-06-15T03:31:29.702225Z"
+      }
+    },
+    {
+      "distribution": "reportlab", "module": "reportlab", "version": "5.1.0",
+      "metadataURL": "https://pypi.org/pypi/reportlab/5.1.0/json", "metadataBytes": 3636,
+      "requiresPython": "<4,>=3.9",
+      "declaredLicense": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.; BSD classifier",
+      "baseRequiresDist": ["pillow>=9.0.0", "charset-normalizer"],
+      "declaredExtras": ["accel", "pycairo", "bidi", "shaping"],
+      "wheel": {
+        "filename": "reportlab-5.1.0-py3-none-any.whl",
+        "sha256Declared": "59fdbaec5efe437095ad1d7292ec9a271c8ca2d3ec75e889c6e61400929b90df",
+        "bytesDeclared": 2018647, "yanked": false,
+        "uploaded": "2026-10-22T07:26:40.754265Z"
+      }
+    },
+    {
+      "distribution": "openpyxl", "module": "openpyxl", "version": "3.1.5",
+      "metadataURL": "https://pypi.org/pypi/openpyxl/3.1.5/json", "metadataBytes": 4748,
+      "requiresPython": ">=3.8", "declaredLicense": "MIT",
+      "baseRequiresDist": ["et-xmlfile"],
+      "wheel": {
+        "filename": "openpyxl-3.1.5-py2.py3-none-any.whl",
+        "sha256Declared": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+        "bytesDeclared": 250910, "yanked": false,
+        "uploaded": "2024-06-28T14:03:41.161372Z"
+      }
+    },
+    {
+      "distribution": "xlsxwriter", "module": "xlsxwriter", "version": "3.3.1",
+      "metadataURL": "https://pypi.org/pypi/xlsxwriter/3.3.1/json", "metadataBytes": 5052,
+      "requiresPython": ">=3.8", "declaredLicense": "BSD-2-Clause (SPDX expression; license string null)",
+      "baseRequiresDist": [],
+      "wheel": {
+        "filename": "xlsxwriter-3.3.1-py3-none-any.whl",
+        "sha256Declared": "8e2c89e59d733fe59e112317218c64fbbc276d90a8c144ebd6f7fa15e7ab184a",
+        "bytesDeclared": 180583, "yanked": false,
+        "uploaded": "2026-10-28T22:52:45.048756Z"
+      }
+    },
+    {
+      "distribution": "pandas", "module": "pandas", "version": "3.1.0",
+      "metadataURL": "https://pypi.org/pypi/pandas/3.1.0/json", "metadataBytes": 67213,
+      "requiresPython": ">=3.11", "declaredLicense": "BSD-3-Clause (SPDX expression; license string null)",
+      "baseRequiresDist": [
+        "numpy>=2.0.2; python_version < \"3.14\"",
+        "numpy>=2.3.3; python_version >= \"3.14\"",
+        "python-dateutil>=2.9.0", "tzdata; sys_platform == \"win32\"", "tzdata; sys_platform == \"emscripten\""
+      ],
+      "declaredExtras": ["test", "pyarrow", "performance", "computation", "fss", "aws", "gcp", "excel", "parquet", "feather", "iceberg", "hdf5", "spss", "postgresql", "mysql", "sql-other", "html", "xml", "plot", "output-formatting", "clipboard", "compression", "timezone", "all"],
+      "wheel": {
+        "filename": "pandas-3.1.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+        "sha256Declared": "e4455cdcc03e42c17233184e8e4ea65c3ed2925d8b1d9d7dd8e6fced3f6e43c1",
+        "bytesDeclared": 12029136, "yanked": false,
+        "uploaded": "2026-10-22T11:55:53.823774Z"
+      }
+    }
+  ]
+}

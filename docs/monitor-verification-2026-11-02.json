@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-02",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scope": "Parent-only independent monitor verification. Main coordinator remains inbox-memory-acceptance. No full compiler graph/build or whole task/phase/goal completion.",
+  "production": {
+    "path": "tools/opencode-native-row/full-graph-diagnostics.mjs",
+    "bytes": 120363,
+    "sha256": "aa774e9721ca7e7296a8db0e7f4f5db9f7249d9d3b7207742cdbbd093638dbba",
+    "changed": false,
+    "limits": "8192 shared work entries/100ms sampler,250ms cleanup drain,1536MiB owned RSS/1280MiB available floor/2816MiB prelaunch/90s full-run limits remain unchanged. Tests reduce some limits, never raise them. Deadlines remain cooperative between operations, not interruption of a blocked synchronous read."
+  },
+  "owningTestChanges": {
+    "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs",
+    "beforeBytes": 109230,
+    "beforeSHA256": "cf09d67baa96b3ece2da75d8bddc57676bfb96944824cd4f853524737dffef73",
+    "afterBytes": 110350,
+    "afterSHA256": "be8e1b6df5dd0dad3b015a27f42b722e88caecc139a85069acc798518dd2c39a",
+    "preservedPreimage": "/home/james/Documents/computer-use-native-host-20261029/monitor-verification-pk_bbopc/before-full-graph-diagnostics.test.mjs",
+    "repairs": [
+      "H4: preserve missing-status plus malformed/empty-stat fixture as an unknown/refusal negative. Add a separate proven missing-stat positive. No lost status alone becomes exit proof.",
+      "H3 plus actual newly exposed live-mode drift: retain exact work/identity assertions, counting7rather than5zombie work entries and3rather than2live identity reads. Missing remains4entries/2reads; unknown/denied/reused stay distinct. Existing maxEntries3refusal-before-more-stat remains.",
+      "H1: complete Name/State without VmRSS remains a live, unmeasured refusal, not zero RSS or proof exit_mm ran. Existing incomplete-status and all-zombie/multi-thread/identity tests remain separate.",
+      "H2: maxEntries1now proves directory reads0/thread reads0, because initial stat pre/post charges exhaust it. H5matches the actual negative-deadline refusal wording; that assertion was not reached in the initial H4failed test and is not invented as an observed initial red.",
+      "Forest fixture retains two samples while accounting for two registry observations and dispatch overhead; second allowance1rather than2. A refusing mocked kill seam prevents any fabricated identity reaching a real signal. Registry-bound explicitly supplies cheap injected work so the distinct registry-size guard is exercised rather than masked by earlier sampler quota; assert its exact error separately from identity drift."
+    ],
+    "qualification": "Retain every top-level and nested scenario; change incorrect expectations/fixture provenance, not production safety or historical evidence. Current initial failure includes five leaf failures and parent subtest failure totals, not eight independent production bugs."
+  },
+  "newAggregateTests": {
+    "path": "tools/opencode-native-row/full-graph-monitor-budget.test.mjs",
+    "bytes": 9228,
+    "sha256": "8540ffc38781259c731da5b5742d5e1bec57127a1e4030d034d7244e532c0fb5",
+    "tests": 8,
+    "coverage": [
+      "Exact dispatch-inclusive capacity and invalid reported work; sticky refusal cannot be hidden by root exit.",
+      "No double charge for real callback-accounted sample work.",
+      "Real observeOwnedProcess group/stat/rebind accounting with controlled proc I/O is shared across registry PIDs, not reset per observer.",
+      "Retained-tree sampling plus actual low-level identity reads share the tick allowance; a racing positive root exit cannot erase exhaustion.",
+      "A successful mocked signal remains counted if the next eligibility observation exhausts cleanup.",
+      "One cleanup deadline spans descendant and root drain phases, passing remaining time rather than replenishing the root allowance.",
+      "Independent wall-clock deadline still refuses with a frozen injected clock; backwards injected time cannot extend the budget."
+    ],
+    "isolation": "EventEmitter/PassThrough fake children and controlled proc I/O only. Every process.kill is intercepted, including faulty mutants; none of these eight tests creates or signals a real process or needs a native compiler. Existing real-owned-process cases are a separate run below."
+  },
+  "actualRuns": {
+    "directory": "/home/james/Documents/computer-use-native-host-20261029/monitor-verification-pk_bbopc/",
+    "before": { "exitStatus": 1, "tests": 20, "passed": 12, "failed": 8, "skipped": 0, "cancelled": 0, "durationMs": 403.062122, "log": "before-low-level.tap", "outputBytes": 9684, "outputSHA256": "6c677c3771412f648fdbad579d3882a2f69f03a82bcce02351b33935e600b54b" },
+    "beforeSelection": "Only synthetic sampler, child-losing-VmRSS, zombie-leader/live-sibling and missing-task suites; no unsafe original fabricated-PID forest signalling, compiler worker or full graph. Normal owning setup/native-compiler availability checks are not disabled.",
+    "afterFocused": { "exitStatus": 0, "tests": 29, "passed": 29, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 820.385318, "log": "after-focused.tap", "outputBytes": 5954, "outputSHA256": "d3775ca942b4255a4f8faedd512e0a9f1740d93be30f936dd1ff818df7044339" },
+    "afterSelection": "Repaired four low-level suites, cumulative registry/forest case and eight new aggregate tests. Exact argv is retained in after-focused.json.",
+    "realOwnedProcesses": { "exitStatus": 0, "tests": 4, "passed": 4, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 6529.230714, "log": "owned-processes.tap", "outputBytes": 1075, "outputSHA256": "0ff54504d456e3535275597a794b2eb2e49d3f04dcb1dcabd924c24a93b4b146" },
+    "realSelection": "Actual disposable32MiB/pthread live-sibling/zombie-leader C probe, retained descendant RSS, post-exit read failure and bounded lifecycle cleanup. The available-memory seam reports4096synthetically; real process/RSS/lifecycle observations do not certify full-host admission. No user window/process or real compiler graph is targeted. Intentionally unknown identities are not signalled; source includes bounded self-exiting helpers, not a whole-host quiescence proof.",
+    "execution": "Node --max-old-space-size=256 --test --test-concurrency=1 --test-timeout=8000; exact selections/argv in before.json, after-focused.json, owned-processes.json. Pipe reads are remaining-length limited to65536captured bytes per process and4096per read; 15/20/30second capture deadlines and bounded owned-process waits. Heap setting/capture quota are not whole-process RSS or all host-buffer measurements."
+  },
+  "faultControls": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/monitor-verification-pk_bbopc/controls.json",
+    "receiptBytes": 6784,
+    "receiptSHA256": "6f91d5048ba64aa695fc2513fe0c89b153f1375a7c4db82847ae517bee6459df",
+    "scratch": "/tmp/opencode/monitor-aggregate-controls-4adqoft4/",
+    "controls": ["sampler-dispatch-not-charged", "callback-work-charged-twice", "real-observer-work-not-shared", "aggregate-failure-not-sticky", "issued-signal-count-lost", "root-cleanup-budget-reset", "real-wall-deadline-dropped", "clock-rollback-not-refused"],
+    "result": "Each isolated exact source/new-test copy exits1with one intended ERR_ASSERTION, not setup/import failure. Production source is never swapped; no real process or signal occurs. The saved receipt owns the actual scratch path and all mutant/log hashes."
+  },
+  "ci": {
+    "initialOmissionContract": "node --max-old-space-size=256 --test --test-name-pattern '^aggregate monitor guards' scripts/ci-offline.test.mjs exits1: one ERR_ASSERTION, the aggregate monitor regression suite must not be omitted,211.136644ms. Actual shell result, not an invented TAP file.",
+    "change": "Register the eight-test fake-only suite as required monitor-budget-tests, Node-only, concurrency1. Do not add compiler/real-process fixtures to credential-free CI or claim the entire runner/hosted workflow passed merely from registration.",
+    "runnerBefore": { "bytes": 19509, "sha256": "2c4c7a9739a4af37c3490248cf78cd3d9b4673eedfe6852ededabed01ccf56d7" },
+    "testBefore": { "bytes": 22523, "sha256": "aa3afc400bc60ed098db6f66ef851c9b0656998ae6461b8fc2e017e3818d8682" },
+    "finalContracts": { "command": "node --max-old-space-size=256 --test --test-concurrency=1 scripts/ci-offline.test.mjs scripts/features-contract.test.mjs", "tests": 34, "passed": 34, "failed": 0, "skipped": 0, "cancelled": 0, "durationMs": 5314.524514 },
+    "listing": "Actual node scripts/ci-offline.mjs --list exits0and includes monitor-budget-tests as required, Node-only. Listing does not execute the twelve required steps or optional corpus interface; no full CI/hosted pass is claimed."
+  },
+  "documentationBefore": [
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.md", "bytes": 47693, "sha256": "5c36e7279664f9384ae54520873641a2b42f995bfeb4efe440e1dd469e1eaa83" },
+    { "path": "docs/features.md", "bytes": 175077, "sha256": "944049b4c0a73c74b725d632bb8ef4dcf0dcf3cfd09a7e5795c2bc41cf2da13e" }
+  ],
+  "qualityReview": "Reviewed changed low-level/forest cases and eight aggregate tests against the actual tri-state observer, real wall/injected clock checks and full cleanup call chain; adjacent CI/feature contracts pass34/34. Preserve exact count and error/provenance distinctions rather than delete cases as duplicates. Boundary positives and eight decisive negative source controls complement separate real owned-process observations. Dated five stale assumptions, newly observed live-count drift, original five-leaf/eight-total red and the unexecuted initial deadline assertion are distinguished. No whole-graph/type/loaded/human inference or independent-integration adoption.",
+  "remaining": "The earlier four genuine parent reds and35/36/root-monitor unknown cause remain dated evidence, not erased or newly attributed. Covered current monitor behavior is now tested; do not restore the superseded no-tests blocker. Neither full2827-input route is rerun; both original RSS failures and required complete diagnostics/types/native acceptance remain. No cap/input/library/security relaxation, delegation, independent computer/browser source change, deployment, commit or push."
+}

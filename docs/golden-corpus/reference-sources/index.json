@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "collection": "reference-sources",
+  "corpusVersion": "2026-10-29.1",
+  "status": "candidate",
+  "review": {
+    "status": "unreviewed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "evidence": null
+  },
+  "notes": "Internal sources were read locally. The 12 public references were re-opened by the parent on 2026-10-30 UTC; original reported retrieval dates are retained. public_read records a dated agent source read, not human review or replicated measurements. See public-source-review-2026-10-30.md; no statistic is restated as established truth.",
+  "sources": [
+    {
+      "id": "REF-001",
+      "title": "Consolidated session ledger, 2026-10-29",
+      "kind": "incident",
+      "location": "docs/session-consolidation-2026-10-29.md",
+      "retrieved": "2026-10-29",
+      "verification": {
+        "status": "local_read",
+        "checkedAt": "2026-10-29",
+        "notes": "Read in this repository; describes incidents and dispositions, not fresh external verification."
+      },
+      "versionScope": "Repository-local ledger dated 2026-10-29.",
+      "scope": "Incident provenance, recovered scope and known evidence limits for the research/PR/corpus lane.",
+      "limits": "A consolidation record is not an execution log and does not prove live model, runtime or hosted behavior.",
+      "statisticsCopied": false,
+      "tags": [
+        "incident",
+        "consolidation",
+        "provenance"
+      ]
+    },
+    {
+      "id": "REF-002",
+      "title": "Repository agent instruction index",
+      "kind": "internal",
+      "location": "AGENTS.md",
+      "retrieved": "2026-10-29",
+      "verification": {
+        "status": "local_read",
+        "checkedAt": "2026-10-29",
+        "notes": "Current repository source read for authority and preservation boundaries."
+      },
+      "versionScope": "Working-tree source, not a deployed copy.",
+      "scope": "Authority gates, Plan/Build limits, commit/push separation, preservation and security invariants.",
+      "limits": "Source wording and links do not prove runtime loading, model compliance or hosted enforcement.",
+      "statisticsCopied": false,
+      "tags": [
+        "authority",
+        "instructions",
+        "safety"
+      ]
+    },
+    {
+      "id": "REF-003",
+      "title": "Maintainer policy",
+      "kind": "internal",
+      "location": "docs/maintainer-policy.md",
+      "retrieved": "2026-10-29",
+      "verification": {
+        "status": "local_read",
+        "checkedAt": "2026-10-29",
+        "notes": "Read for source layout and verification boundaries."
+      },
+      "versionScope": "Repository-local policy.",
+      "scope": "Source ownership, verification layers and release evidence boundaries.",
+      "limits": "Policy text is not an executed check or a deployment receipt.",
+      "statisticsCopied": false,
+      "tags": [
+        "verification",
+        "source-layout"
+      ]
+    },
+    {
+      "id": "REF-004",
+      "title": "Test-quality audit and cadence",
+      "kind": "internal",
+      "location": "docs/test-quality-audit.md",
+      "retrieved": "2026-10-29",
+      "verification": {
+        "status": "local_read",
+        "checkedAt": "2026-10-29",
+        "notes": "Read for useful-test criteria and acceptance-layer separation."
+      },
+      "versionScope": "Repository-local guidance.",
+      "scope": "Distinct failure coverage, positive results, source-versus-runtime labeling and regression practice.",
+      "limits": "Audit guidance does not make any particular suite complete or non-flaky.",
+      "statisticsCopied": false,
+      "tags": [
+        "testing",
+        "evidence"
+      ]
+    },
+    {
+      "id": "REF-005",
+      "title": "Useful tests — patterns",
+      "kind": "internal",
+      "location": ".opencode/skills/development-conventions/references/testing/patterns.md",
+      "retrieved": "2026-10-29",
+      "verification": {
+        "status": "local_read",
+        "checkedAt": "2026-10-29",
+        "notes": "Skill reference read before test authoring."
+      },
+      "versionScope": "Deployed skill source in this checkout.",
+      "scope": "Behavior-oriented assertions, failure paths and avoidance of tautological tests.",
+      "limits": "Generic testing guidance; no project-specific acceptance is implied.",
+      "statisticsCopied": false,
+      "tags": [
+        "testing",
+        "skill-reference"
+      ]
+    },
+    {
+      "id": "REF-006",
+      "title": "Harness engineering",
+      "kind": "practice",
+      "location": "https://openai.com/index/harness-engineering/",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "We made repository knowledge the system of record; What we are still learning",
+        "notes": "Direct publisher read: short instruction map, repository-local knowledge and mechanical feedback are this team's practice. The article explicitly limits generalization; it does not establish an optimal line count or local performance."
+      },
+      "versionScope": "OpenAI engineering article published 2026-02-11; live page read 2026-10-30, no immutable revision pin.",
+      "scope": "Engineering precedent for structured repository guidance and feedback loops.",
+      "limits": "Not controlled proof of an optimal instruction length or of model compliance.",
+      "statisticsCopied": false,
+      "tags": [
+        "research",
+        "instructions"
+      ]
+    },
+    {
+      "id": "REF-007",
+      "title": "Effective context engineering for AI agents",
+      "kind": "practice",
+      "location": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "The anatomy of effective context; Context retrieval and agentic search; Compaction",
+        "notes": "Direct publisher read: selective retrieval, progressive disclosure and high-recall compaction are recommended, with explicit exploration/latency and missing-context tradeoffs. This is vendor practice, not a measured result for this repository."
+      },
+      "versionScope": "Anthropic engineering article published 2025-09-29; live page read 2026-10-30, no immutable revision pin.",
+      "scope": "Selective context and progressive disclosure as design motivations.",
+      "limits": "No local measurement; retrieval can miss context or add overhead.",
+      "statisticsCopied": false,
+      "tags": [
+        "research",
+        "context"
+      ]
+    },
+    {
+      "id": "REF-008",
+      "title": "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?",
+      "kind": "study",
+      "location": "https://arxiv.org/html/2602.11988v3",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Sections 3, 4.1-4.4, 5 and 6 in arXiv HTML v3",
+        "notes": "Read pinned full-text methods, results and limitations: tested Python task-resolution settings show higher cost without a significant overall success benefit versus no file. Developer-authored files and generated files differ. Security outcomes and this runtime were not evaluated; findings do not authorize removing safety instructions."
+      },
+      "versionScope": "arXiv:2602.11988v3, dated 2026-09-29; pinned HTML read 2026-10-30.",
+      "scope": "Motivation to measure local agent behavior rather than infer it from instruction text.",
+      "limits": "Author-reported results in selected Python benchmarks/models, not a universal verdict, independent replication, security evaluation or local result.",
+      "statisticsCopied": false,
+      "tags": [
+        "research",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "REF-009",
+      "title": "On the Impact of AGENTS.md Files on the Efficiency of AI Coding Agents",
+      "kind": "study",
+      "location": "https://arxiv.org/abs/2601.20404v2",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Abstract page and linked arXiv HTML v2, sections 3.1.1-3.1.8, 4 and 5",
+        "notes": "Read pinned abstract and full-text: one Codex model, selected root-instruction repositories and small code changes in paired runs. Runtime/output-token improvements are author-reported; comprehensive semantic correctness is explicitly out of scope. This does not establish superiority over the different task-resolution study."
+      },
+      "versionScope": "arXiv:2601.20404v2, revised 2026-03-30; abstract and linked full HTML read 2026-10-30.",
+      "scope": "Motivation to retain conflicting evidence and evaluate locally.",
+      "limits": "Comprehensive correctness is explicitly out of scope; selected small-task, single-model efficiency results are not independent replication or local quality evidence. No statistic copied.",
+      "statisticsCopied": false,
+      "tags": [
+        "research",
+        "evaluation",
+        "conflict"
+      ]
+    },
+    {
+      "id": "REF-010",
+      "title": "OpenCode v2 instructions documentation",
+      "kind": "vendor-doc",
+      "location": "https://opencode.ai/v2/docs/instructions/",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Scope; Discovery; Ordering; Updates; Configuration",
+        "notes": "V2 docs state that instruction sources combine without automatic conflict resolution and distinguish ambient updates from already-loaded nested guidance. This supports explicit conflict handling, not an invented nearest-file override. Live docs are not pinned to installed 2.1.1."
+      },
+      "versionScope": "Live V2 documentation read 2026-10-30; exact documentation build and installed-version equivalence not established.",
+      "scope": "Instruction composition behavior and the existence of documented configuration surfaces.",
+      "limits": "Documentation is not the installed runtime and does not resolve conflicting instructions.",
+      "statisticsCopied": false,
+      "tags": [
+        "opencode",
+        "instructions",
+        "version"
+      ]
+    },
+    {
+      "id": "REF-011",
+      "title": "OpenCode v2 skills documentation",
+      "kind": "vendor-doc",
+      "location": "https://opencode.ai/v2/docs/skills/",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Frontmatter; IDs; Loading; Permissions",
+        "notes": "V2 docs identify path-derived exact case-sensitive IDs, explicit skill invocation and supporting references not auto-loaded. Frontmatter is optional in documented runtime; stricter repository validators are local contracts, not universal native constraints. Source presence still does not prove routing."
+      },
+      "versionScope": "Live V2 documentation read 2026-10-30; exact documentation build and installed-version equivalence not established.",
+      "scope": "Skill invocation by ID and explicit loading of supporting references.",
+      "limits": "Source presence is not runtime availability or successful routing.",
+      "statisticsCopied": false,
+      "tags": [
+        "opencode",
+        "skills",
+        "routing"
+      ]
+    },
+    {
+      "id": "REF-012",
+      "title": "Git worktree documentation",
+      "kind": "vendor-doc",
+      "location": "https://git-scm.com/docs/git-worktree",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Description; Commands/add; Refs; Configuration file; Details; Bugs",
+        "notes": "Official manual confirms shared repository state/refs/config alongside per-worktree HEAD and index, plus submodule limitations. Security-sandbox refusal is an inference from shared state and absent OS confinement, not a claim the manual certifies a security boundary. No worktree was created or removed."
+      },
+      "versionScope": "Live manual identifies last update 2.56.0 (2026-09-28); read 2026-10-30, not an installed-Git compatibility claim.",
+      "scope": "Worktree mechanics and the fact that worktrees share repository objects.",
+      "limits": "A worktree is not a security sandbox and does not isolate credentials or processes.",
+      "statisticsCopied": false,
+      "tags": [
+        "git",
+        "worktree",
+        "security"
+      ]
+    },
+    {
+      "id": "REF-013",
+      "title": "GitHub CODEOWNERS documentation",
+      "kind": "vendor-doc",
+      "location": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "About code owners; CODEOWNERS file location; CODEOWNERS and branch protection",
+        "notes": "Official docs require eligible write access and base-branch ownership metadata; mandatory owner approval requires separate protections/rulesets. Routing text and same-account agent agreement do not establish independent approval. No repository protection or reviewer eligibility was observed."
+      },
+      "versionScope": "Live GitHub documentation read 2026-10-30; repository plan/settings remain unknown.",
+      "scope": "What CODEOWNERS can request and the difference between text and enforced review.",
+      "limits": "A CODEOWNERS file does not itself enforce review, branch protection or reviewer eligibility.",
+      "statisticsCopied": false,
+      "tags": [
+        "github",
+        "review",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "REF-014",
+      "title": "GitHub merge queue documentation",
+      "kind": "vendor-doc",
+      "location": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Configuring CI workflows for merge queues; How merge queues work",
+        "notes": "Official docs distinguish merge-group validation of latest base plus queued changes from standalone PR checks; GitHub Actions queues require merge_group events. This is an integration alternative, not evidence of a configured queue or permission to enable one."
+      },
+      "versionScope": "Live GitHub documentation read 2026-10-30; no hosted configuration inspected.",
+      "scope": "Merge-queue concepts and integration ordering concerns.",
+      "limits": "Documentation does not prove this repository has a queue or that checks are required.",
+      "statisticsCopied": false,
+      "tags": [
+        "github",
+        "integration",
+        "ci"
+      ]
+    },
+    {
+      "id": "REF-015",
+      "title": "GitHub Actions secure use reference (historical security-hardening URL)",
+      "kind": "vendor-doc",
+      "location": "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Writing workflows; Mitigating risks of untrusted code checkout; Using third-party actions",
+        "notes": "Historical URL serves Secure use reference: least privilege, untrusted-code boundaries, dependency identity and source review. Current guidance favors workflow dependency lockfiles where supported, with full SHA pins as an alternative. Existing SHA pin is not full transitive attestation; no lockfile adoption or hosted change was performed."
+      },
+      "versionScope": "Live GitHub Secure use reference read 2026-10-30 through the retained historical URL; mutable hosted guidance, not a repository security audit.",
+      "scope": "Untrusted code, secret exposure and least-privilege workflow concerns.",
+      "limits": "Guidance is not a scan of this repository's workflows or a guarantee of isolation.",
+      "statisticsCopied": false,
+      "tags": [
+        "github",
+        "security",
+        "ci"
+      ]
+    },
+    {
+      "id": "REF-016",
+      "title": "OWASP LLM prompt-injection prevention cheat sheet",
+      "kind": "practice",
+      "location": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "Structured Prompts; Agent-Specific Defenses; Secure Implementation Pipeline; Smoke-Testing Your Defenses",
+        "notes": "Guidance distinguishes untrusted content from authority and requires tool-boundary permission/argument checks. Labels and keyword filters are not enforcement; observed effects and benign controls matter. Its smoke cases are illustrative, not population rates or certification of this corpus. No helper code reused."
+      },
+      "versionScope": "Live OWASP cheat sheet read 2026-10-30; immutable revision not established.",
+      "scope": "Treat retrieved content as untrusted data and constrain tool authority.",
+      "limits": "Generic prevention guidance does not certify this agent's resistance.",
+      "statisticsCopied": false,
+      "tags": [
+        "security",
+        "prompt-injection"
+      ]
+    },
+    {
+      "id": "REF-017",
+      "title": "Google small CLs guidance",
+      "kind": "practice",
+      "location": "https://google.github.io/eng-practices/review/developer/small-cls.html",
+      "retrieved": "2026-10-28",
+      "verification": {
+        "status": "public_read",
+        "checkedAt": "2026-10-30",
+        "locator": "What is Small?; Splitting CLs; Keep related test code in the same CL; Don't Break the Build",
+        "notes": "Guidance favors self-contained reviewable changes with related tests and dependency-aware splitting, explicitly rejecting a simplistic line-count definition. This supports bounded packets, not an automatic numeric limit or permission to merge."
+      },
+      "versionScope": "Live Google engineering-practices page read 2026-10-30; immutable revision not established.",
+      "scope": "Small isolated changes and reviewability as integration practice.",
+      "limits": "Not a numeric size policy for this repository and not evidence of review quality.",
+      "statisticsCopied": false,
+      "tags": [
+        "review",
+        "integration",
+        "practice"
+      ]
+    }
+  ]
+}

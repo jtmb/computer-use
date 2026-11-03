@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-31T09:30:43Z",
+  "scope": "Two packaged version headers in the existing selected lxml wheel; declarations only, not loaded or linked binary versions.",
+  "sourceReceipt": "/tmp/opencode/lxml-header-facts-xgcc9x31/facts.json",
+  "wheel": {
+    "filename": "lxml-6.1.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 5099355,
+    "sha256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8"
+  },
+  "containerEntries": 188,
+  "members": [
+    {
+      "member": "lxml/includes/libxml/xmlversion.h",
+      "status": "read",
+      "bytes": 5112,
+      "sha256": "a15a5a13fc5bb6d69e64d14a4ae49f70b39c796cfb2d080a3fbd59d66b1764da",
+      "macros": [
+        { "name": "LIBXML_DOTTED_VERSION", "declaredValue": "\"2.14.6\"" },
+        { "name": "LIBXML_VERSION", "declaredValue": "21406" },
+        { "name": "LIBXML_VERSION_STRING", "declaredValue": "\"21406\"" }
+      ]
+    },
+    {
+      "member": "lxml/includes/libxslt/xsltconfig.h",
+      "status": "read",
+      "bytes": 2910,
+      "sha256": "715e6c71d44aeb198e1de3a0dce0b0ea105f710fe7aed36cfed29e7d7ebbdf4e",
+      "macros": [
+        { "name": "LIBXSLT_DOTTED_VERSION", "declaredValue": "\"1.1.43\"" },
+        { "name": "LIBXSLT_VERSION", "declaredValue": "10143" },
+        { "name": "LIBXSLT_VERSION_STRING", "declaredValue": "\"10143\"" }
+      ]
+    }
+  ],
+  "selectedHeaderBytes": 8022,
+  "elapsedMs": 363,
+  "limits": {
+    "archiveBytes": 8388608,
+    "directoryBytes": 262144,
+    "entries": 5000,
+    "memberBytes": 16777216,
+    "expandedBytes": 67108864,
+    "selectedReadBytes": 65536,
+    "perCallCooperativeSeconds": 5,
+    "jobCooperativeSeconds": 20
+  },
+  "sourcePreserved": true,
+  "actions": { "candidateImports": 0, "artifactExecution": 0, "extraction": 0, "networkRequests": 0, "installs": 0 },
+  "acceptance": {
+    "linkedBinaryVersionsVerified": false,
+    "abiVerified": false,
+    "nativeAdvisoryReviewComplete": false,
+    "fullSecurityReview": false,
+    "rightsApproval": false,
+    "installationAuthorized": false
+  }
+}

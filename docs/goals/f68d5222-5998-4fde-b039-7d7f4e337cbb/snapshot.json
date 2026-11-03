@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e7bc63eaeffeOdexMk6GFp6VE7",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T02:20:56.038Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "f68d5222-5998-4fde-b039-7d7f4e337cbb",
+    "sessionID": "ses_e7bc63eaeffeOdexMk6GFp6VE7",
+    "objective": "Implement the agreed CPU/RAM monitor and ChatGPT connector repair plan and verify both integrations in this OpenCode chat, preserving existing settings and unrelated work. Retain the no-subprocess, no-sign-in, no-credential-access during verification, and no-real-ChatGPT-message constraints unless explicitly amended. Establish a permitted verification path, fix bounded process-tree sampling and selective permission cancellation/SDK compatibility/image-output safety, run current checks, and perform live activation only with separate exact authority.",
+    "status": "unmet",
+    "plan": {
+      "summary": "Execute the approved repair plan without silently relaxing constraints: establish permitted baseline/verification access, repair monitor and connector, verify current source, preview exact activation and rollback, then accept both in this chat only after separate activation authority.",
+      "completionCriteria": [
+        "Monitor is loaded in this chat and produces valid CPU/RAM samples with bounded per-thread descendant discovery and documented live-sampling limitations.",
+        "Connector is available in this chat and passes a verified non-message probe without credential access, sign-in or real ChatGPT requests.",
+        "Selective permission cancellation clears server and TUI pending state, prevents late dispatch and preserves unrelated permissions; target SDK compatibility is verified.",
+        "Image-output rename safety is verified with an executed regression before direct image registration is enabled.",
+        "Current behavior tests and typechecks pass using a permitted route; existing settings and unrelated work are preserved and no unauthorized subprocess, restart, activation, commit or push occurs."
+      ],
+      "phases": [
+        {
+          "id": "access",
+          "objective": "Establish an authorized baseline and supported verification path before edits.",
+          "status": "blocked",
+          "tasks": [
+            {
+              "id": "baseline-access",
+              "description": "Inspect scoped Git status/diffs and source ownership without violating the no-subprocess restriction.",
+              "status": "blocked",
+              "blocker": "Repository instructions require Git baseline before edits. The shell starts a process; the current exposed catalog has no native local Git-status/diff tool. No subprocess exception was explicitly granted."
+            },
+            {
+              "id": "verification-access",
+              "description": "Establish a supported current-source test/typecheck runner and TUI observation under the restriction.",
+              "status": "blocked",
+              "evidence": "Enumerated the current Code Mode catalog through every page and inspected execution/test/local-filesystem candidates. No supported local TypeScript runner or local Git interface is exposed; Playwright arbitrary-code execution is browser-oriented and was previously found capable of launching a browser.",
+              "blocker": "Requires an explicitly approved bounded subprocess exception or an externally provisioned supported in-process capability; do not install or activate a substitute without authority."
+            }
+          ],
+          "blocker": "The approved plan retained the no-subprocess rule. Current tools cannot satisfy the required pre-edit Git baseline and current-source verification under that rule."
+        },
+        {
+          "id": "repair",
+          "objective": "Repair the remaining monitor and connector behavior with regression coverage.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "monitor-repair",
+              "description": "Bound discovery across process threads; cover non-leader children, exits, malformed/oversized proc data and PID reuse; document best-effort sampling.",
+              "status": "pending"
+            },
+            {
+              "id": "connector-repair",
+              "description": "Verify target SDK compatibility and implement selective cancellation with server/TUI prompt cleanup, no backend dispatch after cancellation and no rejection of unrelated permissions.",
+              "status": "pending"
+            },
+            {
+              "id": "image-repair",
+              "description": "Resolve output-directory rename authorization safety and execute the currently skipped regression before enabling direct images.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "checks",
+          "objective": "Verify actual updated source, not earlier test results.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "source-checks",
+              "description": "Run current monitor and connector behavior tests/typechecks and relevant repository checks through the approved route; audit test coverage and distinguish fixtures from live evidence.",
+              "status": "pending"
+            },
+            {
+              "id": "source-docs",
+              "description": "Update package guides and docs/features.md to match verified behavior and outstanding runtime limits.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "activation",
+          "objective": "Identify this TUI's exact config and prepare separately authorized additive activation.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "activation-preview",
+              "description": "Confirm effective configuration and runtime identity; preserve existing goal/goal-docs/voice settings; preview exact additive changes and selective rollback, including reload/subprocess effects.",
+              "status": "pending"
+            },
+            {
+              "id": "activation-apply",
+              "description": "Apply only after separate exact activation authority and a path compatible with subprocess/restart restrictions; never disable unrelated voice work as a workaround.",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "acceptance",
+          "objective": "Demonstrate both integrations in this chat and audit all constraints.",
+          "status": "pending",
+          "tasks": [
+            {
+              "id": "live-monitor",
+              "description": "Observe numeric CPU/RAM samples and footer/panel behavior in this chat without unauthorized process launch.",
+              "status": "pending"
+            },
+            {
+              "id": "live-connector",
+              "description": "Verify connector tool availability and a proven pre-credential non-message probe without ChatGPT backend dispatch.",
+              "status": "pending"
+            },
+            {
+              "id": "final-audit",
+              "description": "Map every criterion to current source checks or actual runtime evidence; report remaining failures without claiming completion.",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "decisions": [
+        "User approved implementation and goal tracking in Build. This does not explicitly amend the prior no-subprocess rule or separately approve exact live activation.",
+        "Prior closed goal 1db89531-6b9a-4205-a310-e18320834cfe revision 11 preserves earlier work and findings; do not repeat or overwrite it.",
+        "No new repository or runtime source edits until the required Git baseline is available through a permitted path. No credentials, sign-in, real ChatGPT messages, shared restart, commit or push."
+      ],
+      "revision": 1,
+      "updatedAt": 1793229326,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "Track the user's newly approved implementation request with the full agreed scope and explicit prerequisite gates; preserve the earlier closed goal as history.",
+          "timestamp": 1793229326
+        }
+      ]
+    },
+    "planRevision": 1,
+    "createdAt": 1793229302,
+    "updatedAt": 1793240280,
+    "closedAt": 1793229335,
+    "completionEvidence": null,
+    "blocker": "The user approved implementation based on a plan that explicitly retained the no-subprocess restriction. A fresh enumeration of all current Code Mode catalog pages found no supported local Git baseline or TypeScript runner. Repository instructions require scoped Git status/diffs before edits; available shell/package-check commands start processes. No safe implementation can begin until the user explicitly grants a narrow exception for local Git and fake-backed verification processes, or a supported in-process equivalent is provided externally. This is an authority/capability impasse, not a request to abandon the repair plan. Live activation and any shared restart remain separate gates. Earlier source work and the new complete implementation plan remain preserved.",
+    "stopReason": "blocked",
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793229302
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’ll track this as a new goal because the previous one is closed. Your approval covers implementation, but the plan explicitly retained the no-subprocess restriction and separate live-activation gate; I won’t silently waive either.",
+        "timestamp": 1793229303
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): Track the user's newly approved implementation request with the full agreed scope and explicit prerequisite gates; preserve the earlier closed goal as history.",
+        "timestamp": 1793229326
+      },
+      {
+        "type": "unmet",
+        "detail": "The user approved implementation based on a plan that explicitly retained the no-subprocess restriction. A fresh enumeration of all current Code Mode catalog pages found no supported local Git baseline or TypeScript runner. Repository instructions require scoped Git status/diffs before edits; available shell/package-check commands start processes. No safe implementation can begin until the user...",
+        "timestamp": 1793229335
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "I’ll track this as a new goal because the previous one is closed. Your approval covers implementation, but the plan explicitly retained the no-subprocess restriction and separate live-activation gate; I won’t silently waive either.",
+        "timestamp": 1793229303
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "05d385a23976969bdaab044b1664e89f32e64b31d39ae4c78fe0239308a24e60",
+  "generatedFiles": {
+    "plan.md": "ef520f560e447636fa52f26d20c3719b1467ec8db957d33edb1299f789c29b51",
+    "HANDOFF.md": "08a1a73172d12f5f4b3c7c12c4648d683ff27ec00b2fb9864e9b76db245145fc",
+    "work-history.md": "c0d8a449e599158617746554925f06e48a3878b05bdf139189fd464c7183408d"
+  }
+}

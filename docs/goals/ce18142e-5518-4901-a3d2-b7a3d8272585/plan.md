@@ -1,0 +1,98 @@
+# Plan — `ce18142e-5518-4901-a3d2-b7a3d8272585`
+
+- Goal ID: `ce18142e-5518-4901-a3d2-b7a3d8272585`
+- Source session ID: `ses_e7b2588f9ffex9fhCMGyFF15LJ`
+- Source directory: `/home/james/repos/computer-use`
+- Exported at: `2026-10-29T08:52:16.392Z`
+- Repository identity: `github.com/jtmb/computer-use`
+- Worktree identity: `main`
+- Relative scope: `.`
+- Repository metadata status: `git`
+- Repository metadata gaps: `none`
+- Status: `unmet`
+- Plan revision: `7`
+- Record: `archive`
+
+## Goal objective
+
+> Reduce end\-to\-end latency of the existing local OpenCode voice plugin and its manual transcript\-review workflow, without changing the OpenCode executable/frontend, adding native\-composer integration, auto\-sending manual dictation, or sacrificing accuracy, offline/in\-memory privacy, session isolation, cancellation or cleanup\. Reuse the already\-verified Sherpa recognizer and prior acoustic evidence; profile and optimize cold readiness, recognition finalization, response sentence buffering and speech startup with numeric\-only timing evidence and behavior regressions\. Prepare the existing opt\-in Sherpa rollout while preserving separate approval gates for active dependency/model installation, native configuration deployment, TUI reload/shared restart, live message submission and commit/push; verify source improvements independently of any blocked live rollout\.
+
+## Persisted plan
+
+Plan revision: `7` · updated 2026-10-29T08:42:32.000Z
+
+> Optimize the existing review\-based voice plugin and add a settings\-configurable microphone toggle plus15\-second recognized\-speech inactivity auto\-off; keep host unchanged and rollout approvals separate\.
+
+### Completion criteria
+
+- Numeric\-only baseline and after\-change timings identify latency stages without logging audio or transcript content\.
+- Verified source improvements reduce a measured startup or first\-speech delay while retaining recognition accuracy, manual review, session cancellation and cleanup\.
+- Opt\-in Sherpa rollout is prepared and actual installed/loaded/live status is honestly verified or explicitly blocked on separate approval\.
+- Relevant regression, type/lint and integration checks pass; remaining provider/live\-workflow limitations are explicit\.
+
+### Phase `baseline` — completed
+
+> Preserve existing work and identify measured latency bottlenecks\.
+
+**Verification:**
+
+> Actual native timing baseline and source review agree on unnecessary eager model work\. Prior recognition/acoustic tests remain retained, not re\-executed as discovery\.
+
+- **`inspect` · completed:**
+  > Inspect scoped diffs, startup/sentence paths and existing timing evidence; establish exact source ownership and a bounded baseline\.
+  - Evidence:
+    > Scoped status/diffs preserve prior source and untracked tests\. Production startup/capture/controller paths eagerly loaded Sherpa, large Vosk wake model and Piper before ready; replies waited for full sentences\. Network\-disabled/read\-only\-root native probe measured construct17906\.97ms, manual stream122\.87ms, first synthesis512\.70ms, warm synthesis277\.31ms, wake recognizer258\.93ms; no devices, saved audio or user prompts\.
+
+### Phase `optimize` — completed
+
+> Implement targeted latency improvements and requested microphone controls without degrading safeguards\.
+
+**Verification:**
+
+> Startup/response and microphone units are all source\-verified\. Numeric offline native model timings, negative\-before/positive\-after regressions, full39TS\+58Python suite and formatter/whitespace checks pass\. README/ACCEPTANCE retain first\-use preparation cost and loaded/human/provider limitations\. No dependency/config deployment, explicit reload, shared restart, live submission, physical microphone or binary edits performed\.
+
+- **`startup` · completed:**
+  > Decouple unnecessary speech\-output work from microphone readiness and verify real startup improvement\.
+  - Evidence:
+    > Speech caches optional Vosk wake and CPU Piper under independent locks; Vosk default remains eager and original wake grammar retained\. Model regressions failed before change, pass after; deferred loading, shared voice identity and retry covered\. Isolated constructor4394\.01ms vs initial17906\.97ms; first synthesis moved to5275\.91ms, warm321\.14ms\. Eager\-equivalent control10181\.28ms shows cache variation\. Faster ready only, not claimed faster live reply\. ACCEPTANCE\.md retains all numeric results and caveat\.
+- **`response` · completed:**
+  > Bound first\-speech buffering and add content\-free timing instrumentation with cancellation/regression coverage\.
+  - Evidence:
+    > First long\-prose chunk now emitted at completed word boundaries near120 chars, subsequent240; early\-speech regressions failed before fixes and pass, exact words/code/reasoning filtering and interruption/session suppression preserved\. New session\-bound prepare\_speech warms Piper on existing owned playback loop before review/submit, never plays/submits unreviewed text, cancellation nonblocking, failure retryable\. Python prewarm regressions failed before change and pass after\. Maintained scripts/latency\_probe\.py plus tests report numeric model stages only\. Native offline/read\-only\-root prepared run: construct4372\.161ms, stream102\.047ms, prepare5099\.926ms, first synthesis379\.112ms, warm287\.585ms, wake3382\.790ms\. Preparation cost is not hidden unless real review/provider work overlaps; live end\-to\-end remains unverified\. npm run check passes34TS\+51Python, strict types/lint; changed Python format and whitespace pass; evidence in ACCEPTANCE\.md\.
+- **`microphone_controls` · completed:**
+  > Add a settings\-configurable listening\-toggle hotkey and a15\-second no\-recognized\-speech timeout\. Off must stop microphone capture, not silently return to background wake listening or submit a message; synchronize visible mic state and cover shortcut changes, idle timer reset, stale events/session changes and cleanup\.
+  - Evidence:
+    > Implemented stored hotkey presets \(unassigned/F9/F10/Ctrl\+G\), reactive owned keymap command voice\.microphone\.toggle and shared mouse/shortcut toggle\. Native microphone\_off stops capture without submitting/muting playback; controller and worker latch off across queued configure/session refresh until explicit listen\.15s wall\-clock timeout arms only when capture ready; changed recognition resets it, noise/\[unk\]/stale partials do not\. Control loop also checks timeout during blocked native decode\. Real owned\-child/reader test verifies termination, stale output suppression and valid playback token\. Epoch/request\-tagged readiness/timeout events protect rapid toggles\. UI/controller tests choosing/changing/unbinding/saved shortcut and stale events pass\. Regressions failed before implementation and queued\-reconfigure latch fix\. npm run check39TS\+58Python, strict types/lint; seven Python format checks and whitespace pass\. README and ACCEPTANCE updated; live key delivery/loading not claimed\.
+
+### Phase `verify` — blocked
+
+> Verify combined source and prepare approved rollout\.
+
+**Verification:**
+
+> Source/tests/docs and independent native\-worker integration are verified\. Real active\-environment/configuration inspections establish that rollout has not occurred, rather than assuming a live speedup from source\-only evidence\. All independent planned implementation/check work is complete and prior acoustic evidence preserved\.
+
+**Blocker:**
+
+> Separate installation/configuration/owned\-TUI reload and prompted live acceptance authority is missing; changing the running setup would cross the retained deployment gates\.
+
+- **`checks` · completed:**
+  > Run behavior\-relevant suites and numeric native probes; update acceptance evidence and rollout guidance\.
+  - Evidence:
+    > Combined npm run check passes39TypeScript\+58Python, strictSDK/Python types and lint; sevenPython formatterchecks and child/parent scoped whitespace pass\. Parent \./scripts/health\-check\.sh PASSED\. Fresh real native JSON/main probe exercises prewarm and same\-session mic off/on during blocked decode: ready7763\.521ms, restart\-to\-partial2471\.540ms including artificial stall, complete known phrase once, network refused, zero live owned children/feeders/worker threads\. Only numeric/count results printed, protocol text retained in memory\. Fresh ELF/wrapper hashes match preserved baselines\. README, ACCEPTANCE prompt\-to\-artifact crosswalk and targeted parent feature row updated, preserving unrelated dirty/untracked work\. Bounded test\-quality review covers model locks/retries, buffering filtering, worker clock/control/pipe, UI settings and adjacent serializer/registration tests; no coverage deleted\. No live provider/physical/hotkey acceptance claimed\.
+- **`rollout` · blocked:**
+  > Verify active Sherpa installation/configuration and loaded workflow only with separate rollout authority, otherwise record exact blocker\.
+  - Evidence:
+    > Fresh importlib\.metadata inspection: neither sherpa\-onnx nor sherpa\-onnx\-core installed in active \.venv; pinned streaming model absent\. Canonical global/cli\.json and active pilot cli\.json still plain voice\-plugin path without backend override\. Model \-\-dry\-run \-\-with\-streaming keeps original4assets and proposes pinned4streaming files\. Read\-only JSONC backend\-entry previews verified only the voice entry changes to package\+options\.recognitionBackend=sherpa while unrelated configuration semantics remain exact\. Installation/config/owned\-TUI reload/live submission approvals were not inferred; no setup/deployment/restart was performed\.
+  - Blocker:
+    > Actual faster\-recognizer activation and loaded/human/end\-to\-end acceptance cannot proceed without the explicitly separate approval to install optional pinned dependencies/model, select Sherpa in canonical/native configuration, and reload only the owning TUI\. Any live test\-message submission remains separately deliberate\. Source implementation and all independent verification are finished; active worker/source generation and provider/human timing cannot be established by tests or read\-only configuration inspection\.
+
+### Decisions
+
+- User rejected source\-run frontend/native composer work and explicitly requested latency implementation tracked by a new goal\. Previous terminal unmet goals remain archived unchanged\.
+- Existing dirty/untracked voice source is prior work and must be preserved\. Do not install/activate/reload the active plugin merely from general source implementation approval\.
+- User added settings\-configurable microphone listening\-toggle hotkey and originally30 seconds without recognized speech automatically turning listening off\. Retain the new mic controls alongside latency work; never substitute speaker mute or auto\-submission\.
+- User then delegated choosing15 vs30 seconds\. Choose15 seconds wall\-clock inactivity from actual listening readiness/last recognized speech, not PCM/noise arrival\. This supersedes the original30\-second requirement\. Timeout/off never submits or silently resumes wake listening\.
+- Source\-only response improvements are verified; actual human/provider timing and loaded\-runtime acceptance require the separately gated rollout\.
+- Final audit distinguishes verified source delivery \(latency changes, configurable mic toggle and15s timeout\) from the requested faster loaded workflow\. Do not claim that running OpenCode is now faster: active environment still lacks Sherpa and configuration remains Vosk\. No OpenCode executable/frontend/wrapper edit, explicit reload/shared restart, live message/human test, commit or publication was performed\. Further meaningful rollout work requires the separate user approvals\.
+

@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "renderVersion": 1,
+  "source": {
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "directory": "/home/james/repos/computer-use",
+    "exportedAt": "2026-10-29T18:03:09.591Z",
+    "repository": {
+      "kind": "git",
+      "identity": "github.com/jtmb/computer-use",
+      "worktree": "main",
+      "scope": ".",
+      "gaps": []
+    }
+  },
+  "goal": {
+    "id": "a0c27e5c-32aa-4018-8ecc-551b4b26b7cb",
+    "sessionID": "ses_e78fdcc9affeNOlKMRek7Yobo3",
+    "objective": "Implement and locally verify the critical-review fixes in /home/james/repos/opencode-goal-plugin on top of the preserved uncommitted implementation: reliable repeated fast continuation and stall wake-ups in V1/V2; structured exhaustion/alternative validation; long-objective audit support; resumable permission-denial waits; conservative preservation of legacy explicit limits; separation of transport liveness from meaningful progress; leaner stop-tool schemas; and expanded multi-continuation plus wait/restart/resume coverage and accurate documentation of verification limits. Preserve explicit limits, permissions, Plan mode, pause/cancel and completed work. Do not deploy, activate live runtime, publish, commit or push.",
+    "status": "complete",
+    "plan": {
+      "summary": "Fix the reviewed correctness and compatibility gaps, then verify behavior without touching the live runtime or publishing.",
+      "completionCriteria": [
+        "Fast and stalled continuations retain wake-ups in both server paths, including zero configured interval.",
+        "Stop audits reject available authorized alternatives, support long objectives and resumable permission denials, and state their evidence limitations accurately.",
+        "Legacy explicit limits are preserved; repeated activity is distinguished from meaningful progress without hidden default handback caps.",
+        "Stop schema duplication is reduced and lifecycle coverage includes multiple automatic continuations plus waiting/restart/resume.",
+        "Lint, typecheck, full tests, build, package checks and isolated V2 smoke pass; no deployment, publication, commit or push."
+      ],
+      "phases": [
+        {
+          "id": "scheduler",
+          "objective": "Fix lost continuation wake-ups.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "schedule",
+              "description": "Inspect preserved diff, fix effective-interval wake-ups in V1/V2 and add fast-turn regressions.",
+              "status": "completed",
+              "evidence": "V1 now retains timed wake-ups after deferred reservation; V2 no longer gates wake-up on the raw positive interval. Three fast-execution regressions passed, exercising repeated continuations with zero and positive intervals."
+            }
+          ],
+          "verification": "bun test test/server.test.ts test/server-v2.test.ts --test-name-pattern 'fast executions': 3 pass, 0 fail."
+        },
+        {
+          "id": "audit",
+          "objective": "Repair stop audit contract and compatibility.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "contract",
+              "description": "Add structured alternative outcomes, long scope support, permission waits and compact schema with regressions.",
+              "status": "completed",
+              "evidence": "New stop attempts require structured alternative disposition and reject available alternatives; legacy audit fields remain parseable. Scope supports long objectives; actual permission denial can wait. V2 schema shares audit definition once instead of three copies. Audit/state tests: 81 pass; targeted V2 tests: 7 pass; typecheck passed. Schema size assertion added for final gates."
+            }
+          ],
+          "verification": "Read-only review reproductions now have regression coverage for long objective, available alternative and permission waiting; targeted audit/state/V2 checks pass."
+        },
+        {
+          "id": "progress",
+          "objective": "Preserve limits and distinguish useful progress.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "migration-progress",
+              "description": "Implement conservative legacy migration and repeated-activity accounting with regressions.",
+              "status": "completed",
+              "evidence": "Legacy persisted limits default to preserved provenance rather than erasure. Successful repeated output still clears transport failures but bounded SHA-256 fingerprints prevent it counting repeatedly as objective progress; assistant wording alone and decision-only plan churn no longer reset stalls. Audit/state tests: 84 pass; typecheck and lint passed."
+            }
+          ],
+          "verification": "New regressions cover identical polling with changing narration, decision-only churn and legacy custom limits; existing tool/plan progress tests pass after requiring a verified task result."
+        },
+        {
+          "id": "verification",
+          "objective": "Verify integration and documentation.",
+          "status": "completed",
+          "tasks": [
+            {
+              "id": "smoke-docs",
+              "description": "Expand multi-continuation and wait/restart/resume tests and document limits of deterministic verification.",
+              "status": "completed",
+              "evidence": "Native V2 smoke now requires two automatic continuations. A fresh subprocess test reloads the paused audited goal, refuses continuation while paused, and explicitly resumes the same persisted ID with audit/blocker preserved. README and prompts document alternative dispositions, bounded progress fingerprints, legacy-limit preservation and the limits of scripted/model-independent validation."
+            },
+            {
+              "id": "gates",
+              "description": "Run complete quality gates, audit combined diff and record exact outcomes and scope boundaries.",
+              "status": "completed",
+              "evidence": "Final bun test: 405 pass, 0 fail across 11 files; tsc --noEmit and eslint passed; build and pack:dry-run passed. Isolated OpenCode v2.1.1 smoke passed with continuationCalls=2, prematureStopRejected=true, remainingWorkExecuted=true and status complete. Final git diff --check clean; pinned detached HEAD unchanged; no staged files, deployment, publish, commit or push."
+            }
+          ],
+          "verification": "All quality gates passed against the reviewed combined source including untracked audit/fixture/test files; deterministic runtime evidence is explicitly distinguished from real-model compliance. First smoke invocation failed only because nested bun was absent from PATH; rerun with the existing Bun directory in PATH passed."
+        }
+      ],
+      "decisions": [],
+      "revision": 5,
+      "updatedAt": 1793293975,
+      "changes": [
+        {
+          "revision": 1,
+          "reason": "Record the user-approved review remediation scope before implementation.",
+          "timestamp": 1793293288
+        },
+        {
+          "revision": 2,
+          "reason": "Scheduler remediation verified in both paths; advance to audit contract fixes.",
+          "timestamp": 1793293356
+        },
+        {
+          "revision": 3,
+          "reason": "Audit changes pass targeted validation and V2 tool regressions; advance to progress and migration work.",
+          "timestamp": 1793293471
+        },
+        {
+          "revision": 4,
+          "reason": "Progress and migration fixes verified with targeted tests and static gates; advance to integration coverage and full verification.",
+          "timestamp": 1793293636
+        },
+        {
+          "revision": 5,
+          "reason": "Expanded lifecycle coverage, documentation, full quality gates and final combined-diff audit are verified.",
+          "timestamp": 1793293975
+        }
+      ]
+    },
+    "planRevision": 5,
+    "createdAt": 1793293271,
+    "updatedAt": 1793296984,
+    "closedAt": 1793293982,
+    "completionEvidence": "Implemented and verified the critical-review fixes in /home/james/repos/opencode-goal-plugin while preserving the prior uncommitted implementation. V1/V2 retain wake-ups for repeated fast/stalled turns including interval zero. Stop audits require explicit alternative dispositions and reject available alternatives; long scopes and resumable permission-denial waits are supported; the V2 audit schema is no longer triplicated. Legacy limits are preserved conservatively. Transport liveness is separate from progress: bounded result/plan fingerprints prevent identical polling, narration changes and decision-only churn from resetting stalls. Expanded regression coverage includes multi-continuation scheduling and fresh-process wait/reload/resume. README/prompts state structural-evidence and deterministic-smoke limitations. Final verification: 405 tests passed, 0 failed; lint/typecheck/build/package dry-run passed; isolated OpenCode v2.1.1 smoke passed with two automatic continuations, premature-stop rejection, remaining-work execution and verified completion. git diff --check passed; pinned baseline HEAD remains unchanged with intended local changes only. No deployment, live activation, publication, commit or push.",
+    "blocker": null,
+    "stopReason": null,
+    "history": [
+      {
+        "type": "created",
+        "detail": "Goal set with default continuation limits.",
+        "timestamp": 1793293271
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 1): Record the user-approved review remediation scope before implementation.",
+        "timestamp": 1793293288
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Created a new unbudgeted goal for the review fixes. I’ll fix scheduling first, then audit compatibility and progress detection, and finish with expanded lifecycle tests and the full local checks. Deployment, publication, commit, and push remain out of scope.",
+        "timestamp": 1793293298
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 2): Scheduler remediation verified in both paths; advance to audit contract fixes.",
+        "timestamp": 1793293356
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The scheduler fix passes three new regressions covering repeated fast continuations in V1 and V2, including interval zero. Next I’m adding structured alternative outcomes to the audit. Legacy audits must remain readable from disk, while new stop attempts will need an explicit ...",
+        "timestamp": 1793293388
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 3): Audit changes pass targeted validation and V2 tool regressions; advance to progress and migration work.",
+        "timestamp": 1793293471
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 4): Progress and migration fixes verified with targeted tests and static gates; advance to integration coverage and full verification.",
+        "timestamp": 1793293636
+      },
+      {
+        "type": "checkpoint",
+        "detail": "Implementation is underway under the new goal. Fixed and targeted-tested scheduling, audit validation, long objectives, permission waits, legacy limits, and repeated-activity detection. **84 targeted tests, lint, and typecheck pass.** Remaining: expanded lifecycle smoke tests,...",
+        "timestamp": 1793293641
+      },
+      {
+        "type": "autoContinue",
+        "detail": "Auto-continue 1 reserved.",
+        "timestamp": 1793293643
+      },
+      {
+        "type": "checkpoint",
+        "detail": "I’m continuing with lifecycle coverage and documentation. The isolated smoke will now require two automatic continuations, and I’ll add a separate-process persistence test for waiting and resuming the same goal. Then I’ll run the full local checks.",
+        "timestamp": 1793293673
+      },
+      {
+        "type": "checkpoint",
+        "detail": "The full suite passes: **405 tests, 0 failures**, with lint and typecheck clean. The rebuilt bundle also passed the isolated OpenCode v2.1.1 smoke with **two automatic continuations**, rejected the premature wait, and completed the remaining work. The separate-process wait/res...",
+        "timestamp": 1793293952
+      },
+      {
+        "type": "updated",
+        "detail": "Goal plan updated (revision 5): Expanded lifecycle coverage, documentation, full quality gates and final combined-diff audit are verified.",
+        "timestamp": 1793293975
+      },
+      {
+        "type": "completed",
+        "detail": "Implemented and verified the critical-review fixes in /home/james/repos/opencode-goal-plugin while preserving the prior uncommitted implementation. V1/V2 retain wake-ups for repeated fast/stalled turns including interval zero. Stop audits require explicit alternative dispositions and reject available alternatives; long scopes and resumable permission-denial waits are supported; the V2 audit sch...",
+        "timestamp": 1793293982
+      }
+    ],
+    "checkpoints": [
+      {
+        "summary": "Created a new unbudgeted goal for the review fixes. I’ll fix scheduling first, then audit compatibility and progress detection, and finish with expanded lifecycle tests and the full local checks. Deployment, publication, commit, and push remain out of scope.",
+        "timestamp": 1793293298
+      },
+      {
+        "summary": "The scheduler fix passes three new regressions covering repeated fast continuations in V1 and V2, including interval zero. Next I’m adding structured alternative outcomes to the audit. Legacy audits must remain readable from disk, while new stop attempts will need an explicit ...",
+        "timestamp": 1793293388
+      },
+      {
+        "summary": "Implementation is underway under the new goal. Fixed and targeted-tested scheduling, audit validation, long objectives, permission waits, legacy limits, and repeated-activity detection. **84 targeted tests, lint, and typecheck pass.** Remaining: expanded lifecycle smoke tests,...",
+        "timestamp": 1793293641
+      },
+      {
+        "summary": "I’m continuing with lifecycle coverage and documentation. The isolated smoke will now require two automatic continuations, and I’ll add a separate-process persistence test for waiting and resuming the same goal. Then I’ll run the full local checks.",
+        "timestamp": 1793293673
+      },
+      {
+        "summary": "The full suite passes: **405 tests, 0 failures**, with lint and typecheck clean. The rebuilt bundle also passed the isolated OpenCode v2.1.1 smoke with **two automatic continuations**, rejected the premature wait, and completed the remaining work. The separate-process wait/res...",
+        "timestamp": 1793293952
+      }
+    ],
+    "sourceKind": "archive",
+    "historyNotice": "This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned."
+  },
+  "historyNotice": "Only retained archived goals are available. The plugin also bounds archives globally, so full historical completeness cannot be proven. This is one retained archived goal. The goal plugin bounds archived records, so older records may have been pruned.",
+  "contentFingerprint": "ef77ba6165d59cec12615916fa5342e1cc39f08be1046fab8062a762cc86375b",
+  "generatedFiles": {
+    "plan.md": "8cbb061893156668974e056df814cfc6d87fa056cac41e856f84a11b192e494c",
+    "HANDOFF.md": "de816ec5ab139ae319b8e312cfc014a7cd58c812589c0369d63b674a828562e6",
+    "work-history.md": "1a1fe0e1a6b41905fabfe614eed88c3e0d45e7aa61c4ca388e49180cf9e25a76"
+  }
+}

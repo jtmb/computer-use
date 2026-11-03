@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-01T07:23:55Z",
+  "scope": "Exact retained pandas dependency/declaration metadata only, not a resumed or partitioned notice review, dependency resolver or runtime acceptance.",
+  "wheel": {
+    "source": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/pandas/pandas-3.1.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+    "bytes": 12029136,
+    "sha256": "e4455cdcc03e42c17233184e8e4ea65c3ed2925d8b1d9d7dd8e6fced3f6e43c1",
+    "inventorySHA256": "505ed0a6650efaf1d83913bb92d2acbcf107c783c869f638d230c0742ce72cd5",
+    "entries": 1720,
+    "declaredExpandedBytes": 43774982,
+    "beforeAfterMatch": true
+  },
+  "metadata": {
+    "member": "pandas-3.1.0.dist-info/METADATA",
+    "bytes": 18156,
+    "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+    "completeRead": true,
+    "completedExistingReaderCRCSizeAndSourceChecks": true,
+    "Metadata-Version": "2.4",
+    "Name": "pandas",
+    "Version": "3.1.0",
+    "Requires-Python": ">=3.11",
+    "License": null,
+    "License-Expression": "BSD-3-Clause",
+    "License-File": ["LICENSE", "LICENSES/BOTTLENECK_LICENCE", "LICENSES/DATEUTIL_LICENSE", "LICENSES/HAVEN_LICENSE", "LICENSES/HAVEN_MIT", "LICENSES/KLIB_LICENSE", "LICENSES/MUSL_LICENSE", "LICENSES/NUMPY_LICENSE", "LICENSES/PACKAGING_LICENSE", "LICENSES/PSF_LICENSE", "LICENSES/PYPERCLIP_LICENSE", "LICENSES/PYUPGRADE_LICENSE", "LICENSES/SAS7BDAT_LICENSE", "LICENSES/STATSBASE_JL_LICENSE", "LICENSES/ULTRAJSON_LICENSE", "LICENSES/XSIMD_LICENSE", "subprojects/fast_float-8.2.10/LICENSE-APACHE", "subprojects/fast_float-8.2.10/LICENSE-BOOST", "subprojects/fast_float-8.2.10/LICENSE-MIT"],
+    "Provides-Extra": ["test", "pyarrow", "performance", "computation", "fss", "aws", "gcp", "excel", "parquet", "feather", "iceberg", "hdf5", "spss", "postgresql", "mysql", "sql-other", "html", "xml", "plot", "output-formatting", "clipboard", "compression", "timezone", "all"],
+    "Requires-DistTotal": 82,
+    "Requires-DistWithoutExtraMarker": ["numpy>=2.0.2; python_version < \"3.14\"", "numpy>=2.3.3; python_version >= \"3.14\"", "python-dateutil>=2.9.0", "tzdata; sys_platform == \"win32\"", "tzdata; sys_platform == \"emscripten\""],
+    "Requires-DistWithExtraMarkerCount": 77,
+    "requirementProjection": "Lexical grouping on the extra marker for declaration comparison only, not PEP508 environment evaluation or resolver execution. Full optional requirement strings are not exported or claimed reviewed here; the selected METADATA digest binds the complete stored member."
+  },
+  "candidateReconciliation": {
+    "directRecord": "docs/document-authoring-candidates-2026-10-30.json",
+    "transitiveRecord": "docs/document-authoring-transitive-candidates-2026-10-31.json",
+    "versionRequiresPythonWheelIdentityAndExtrasMatch": true,
+    "fiveBaseRequirementStringsMatchExactly": true,
+    "licenseExpressionMatchesPriorDeclaration": true,
+    "extrasSelected": [],
+    "finding": "The five non-extra requirement strings exactly match the saved base projection, including separate Python-version numpy bounds and platform-conditional tzdata. This is declaration consistency, not complete transitive closure, installed resolution, glibc/ABI/import or format acceptance. The graph already discloses omitted extra strings for direct nodes."
+  },
+  "record": {
+    "member": "pandas-3.1.0.dist-info/RECORD",
+    "declaredBytes": 152207,
+    "read": false,
+    "whyNotRead": "Its declared size exceeds both the65536byte whole-job selected text ceiling and the47380bytes left after METADATA. No slice, skipped output, larger default or reset was used.",
+    "metadataBoundToRecordDigest": false
+  },
+  "noticeBoundary": {
+    "originalSixteenMemberSelectionRefusalPreserved": true,
+    "noticePayloadsSelectedOrRead": 0,
+    "declaredLicenseFileCount": 19,
+    "finding": "The SPDX expression and nineteen License-File names are publisher declarations, not the complete notice texts or permissions. They do not substitute for the refused notice selection, authorize a smaller batch or approve native/transitive/bundled rights. No notice payload is read, abbreviated or approved."
+  },
+  "historicalLxmlMetadataOverlap": {
+    "receipt": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/receipt.json",
+    "receiptBytes": 2300,
+    "receiptSHA256": "3aa4d9e2a8a7e45f8f64f3931faf6297c112eb5d01141036d476642a97629672",
+    "retainedMetadataCopy": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/lxml/member-0-METADATA.txt",
+    "bytes": 3279,
+    "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef",
+    "receiptEntryMatchesActualRetainedCopy": true,
+    "finding": "Lxml METADATA was already acquired and read in the historical notice review. The later exact-wheel reconciliation added explicit RECORD binding and candidate comparison; it was not first content acquisition. Its returned payload overlaps that historical member, so no unique-content count may add the reread."
+  },
+  "supportingFacts": [
+    { "path": "docs/document-authoring-candidates-2026-10-30.json", "bytes": 8679, "sha256": "304601a716b1b04a1f967676b4325249ffede866837d620940afff2a89c58a7f" },
+    { "path": "docs/document-authoring-transitive-candidates-2026-10-31.json", "bytes": 54657, "sha256": "de0d2d81288c59da8602601c147614a3c35529440b919cbadd8c5254a46133f1" },
+    { "path": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/receipt.json", "bytes": 2300, "sha256": "3aa4d9e2a8a7e45f8f64f3931faf6297c112eb5d01141036d476642a97629672" },
+    { "path": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/static-review.json", "bytes": 5412, "sha256": "98c9ac6da31256fbae9c83ec72f8843806afc249e177a606487848b9e5cb7af5" },
+    { "path": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/lxml/member-0-METADATA.txt", "bytes": 3279, "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef" },
+    { "path": "scripts/office_package.py", "bytes": 15279, "sha256": "f4bb5e09557661a85d94359393a2ed935bd92ebf0bf4fe216dd5d95fd480c5bc" }
+  ],
+  "acquisition": {
+    "interpreter": "/usr/bin/python3 -I -B",
+    "reader": "scripts/office_package.py, unchanged inspected canonical source",
+    "selectedPayloadMembers": 1,
+    "selectedPayloadBytes": 18156,
+    "remaining": 47380,
+    "selectedAggregateCeiling": 65536,
+    "selectedMemberCeiling": 16,
+    "archiveBytes": 16777216,
+    "directoryBytes": 262144,
+    "entries": 5000,
+    "memberBytes": 16777216,
+    "expandedBytes": 67108864,
+    "perCallSeconds": 5,
+    "jobSeconds": 20,
+    "archiveMetadataAndSourceHashCalls": 2,
+    "supportingReservedBytesIncludingProbes": 89612,
+    "supportingPerFileCap": 65536,
+    "supportingAggregateCap": 2097152,
+    "elapsedMs": 380,
+    "qualification": "Original pandas16MiB archive/64KiB selected-text limits, not a raise of the separate lxml8MiB job. Source hashing/ZIP directory checks are separate from selected payload bytes. Supporting reads reserve remaining bytes before acquisition with regular/single-link/no-follow/identity rechecks. Cooperative deadlines do not preempt syscalls or measure internal allocations, and sampled identities are not atomic hostile-writer protection."
+  },
+  "actions": { "tests": 0, "candidateImports": 0, "candidateExecution": 0, "networkRequests": 0, "pypiRequests": 0, "installs": 0, "noticePayloadReads": 0, "extractedFiles": 0, "models": 0, "workers": 0, "peerActions": 0 },
+  "acceptance": { "selectedMetadataCRCSizeSourceChecksCompleted": true, "candidateDeclarationConsistencyObserved": true, "recordBindingVerified": false, "fullNoticesReviewed": false, "transitiveClosureResolved": false, "fullRightsApproved": false, "nativeHashesOrABIVerified": false, "securityApproved": false, "authoringReady": false, "installationAuthorized": false },
+  "remaining": ["Retain original pandas notice selection refusal and full rights/native/transitive obligations; no partition or abbreviated approval.", "Full dependency/security/ABI/XML and representative author/render/reopen/human outcomes still need their own real evidence and applicable authority; metadata consistency does not supply them."]
+}

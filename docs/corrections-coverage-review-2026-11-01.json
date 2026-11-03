@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-01",
+  "goalID": "21e84866-7bc3-4c1e-99a6-c679287fccc2",
+  "scheduledAtPlanRevision": 238,
+  "status": "Performed read-only branch-to-existing-assertion review; no current behavioral acceptance.",
+  "trigger": "The actual revision237 waiting reviewer requires a current coverage/test-quality review of the latest memory/title/RPC/monitor corrections. The goal remains active238. This is the tenth actual continuation verdict, not an accepted waiting transition, fifth abort or another parent preparation verdict.",
+  "scope": "Read existing canonical source, existing owning tests, adjacent handoff cancellation assertions, inert saved before/after source and the retained four-red monitor log. Document distinct coverage, omissions, stale harness expectations and an adjacent aggregate-observer limitation. Do not add, edit, import or execute tests or production modules, recreate a missing fixture, run a compiler/model/GUI or touch the independent computer/browser integration.",
+  "guidance": [
+    "docs/test-quality-audit.md:250-288 retains earlier monitor results and four genuine parent reds;290-328 owns cadence/checklist. Only these bounded reference lines and earlier selected introductory lines were read, not the entire shared document.",
+    ".opencode/skills/development-conventions/references/testing/patterns.md:67-84: assertions must distinguish actual failures; avoid replacing the implementation with mocks or conflating wiring with outcomes. Its generic new-test rule does not override the user's no-more-tests restriction.",
+    "docs/maintainer-policy.md:29-64,66-89,98-117; docs/session-consolidation-2026-10-29.md:133-174: current behavior, source contracts and operational/model/human evidence are different; parent-only/no-tests and separate consequential gates remain."
+  ],
+  "canonicalSourceAndTestBinding": [
+    { "path": ".opencode/plugins/memory/core.ts", "bytes": 31241, "sha256": "f93491310cb81e9c1b804755a9489b473c5f5037a58021e3e9c87b77edf38e61" },
+    { "path": ".opencode/plugins/memory/retrieval.ts", "bytes": 7583, "sha256": "85c8c4096729c2a4a24c48d09c76241cdb1ac1f100376b56dca37f9769c76441" },
+    { "path": ".opencode/plugins/memory/filesystem.ts", "bytes": 8322, "sha256": "5ea32787982f944ab56373166e5b1ad2e8d53bcae8e1d1d24421e223892d25a7" },
+    { "path": ".opencode/plugins/memory/memory.test.ts", "bytes": 39771, "sha256": "2382d7f7adc0f3f073cb8141389e646a5cf40931576b7b0481c88868978b2b2d" },
+    { "path": ".opencode/plugins/goal-docs/goal-tool-titles.ts", "bytes": 4870, "sha256": "e6542839d4887b8f9f3e816b8373b5fbf9ecef8935f32b59deaf4d3f8fe68ac3" },
+    { "path": ".opencode/plugins/goal-docs/goal-tool-titles.test.ts", "bytes": 10912, "sha256": "042da98410be084f268ed2b4773518755838596832a818cf95faa4947b58a7a7" },
+    { "path": ".opencode/plugins/goal-docs/rpc-handlers.ts", "bytes": 3202, "sha256": "22504b2bd4893d0b5079728576ebfb6043e94c9e2fcc7d8b80295701251cadd3" },
+    { "path": ".opencode/plugins/goal-docs/session.ts", "bytes": 9138, "sha256": "cce6e4a1472caff992fb508cfa0a5f551bafe26355578543ed436e477d833105" },
+    { "path": ".opencode/plugins/goal-docs/goal-docs.test.ts", "bytes": 86969, "sha256": "5b027f8e530a3ef4e9626c118cca7aa8cd84351a0e0c9c7f81d2cd59d9b9c0ea" },
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.mjs", "bytes": 117534, "sha256": "95596d4084d5ffcc7af4cd7216ca288b6abcc01a9172f35c3a3c6b0921388ab5" },
+    { "path": "tools/opencode-native-row/full-graph-diagnostics.test.mjs", "bytes": 109230, "sha256": "cf09d67baa96b3ece2da75d8bddc57676bfb96944824cd4f853524737dffef73" }
+  ],
+  "historicalSourceBinding": {
+    "root": "/home/james/Documents/computer-use-native-host-20261029/direct-blockers-parent-tz3RSN",
+    "files": [
+      { "path": "memory-core.before.ts", "bytes": 29094, "sha256": "c84aa986025fb845ace8cefbb51bed2599fd69fc1ff3918fb64411ffa3740c2e" },
+      { "path": "memory-read-validation.before.core.ts", "bytes": 30425, "sha256": "d2fe040531bb669d0598a6e25a350df483ed505edf2af7f03f95a60c2ba791ca" },
+      { "path": "memory-scan-accounting.before.core.ts", "bytes": 29457, "sha256": "82046731d58fd3c2652050bc76cc1a3c4c91207fcbdf06f092e17bedff32fc7f" },
+      { "path": "memory-read-completion.after.ts", "bytes": 29457, "sha256": "82046731d58fd3c2652050bc76cc1a3c4c91207fcbdf06f092e17bedff32fc7f" },
+      { "path": "goal-title-receipt-budget.before.ts", "bytes": 4243, "sha256": "823e3b6ea61fa5fb62a7506b7b7c0396d91028507b21863e6674f1db23b8666e" },
+      { "path": "rpc-handlers.before.ts", "bytes": 2564, "sha256": "ddf0fe58f01b43a32c61570dfbee3d594ce189f53c3bae7fad758f9acfaacb0c" },
+      { "path": "session.before.ts", "bytes": 9019, "sha256": "a58095b27a64ec59bf046a43aa57c429b7a6ab19204b6361825097eaaf527140" },
+      { "path": "monitor-before.txt", "bytes": 116572, "sha256": "7c67c1893a888d5f2887f0a4fbab2c2dd23ed489a49afea2a9831720007d0092" },
+      { "path": "monitor-after.txt", "bytes": 117534, "sha256": "95596d4084d5ffcc7af4cd7216ca288b6abcc01a9172f35c3a3c6b0921388ab5" }
+    ],
+    "qualification": "Saved files are inert historical source, not imported fixtures or newly reconstructed originals. Current monitor bytes equal the saved after snapshot. The memory before snapshot spans multiple later corrections; intermediate snapshots and existing fact records distinguish their order."
+  },
+  "branchCoverage": [
+    {
+      "id": "M1-read-validation-order",
+      "source": ".opencode/plugins/memory/core.ts:126-177,648-655; retrieval.ts:15-17",
+      "changedBranch": "After context/abort/operation/scope checks, validate list limit, exact-read ID and search fields before session/root/permission/filesystem dependency work. Zero tokenizer terms fail before tag/kind/repoFirst validation; Unicode letters/numbers use the existing tokenizer and original query text remains unchanged.",
+      "existingAssertions": "memory.test.ts:179-215 exercises explicit global/both/missing scopes;349-380 valid filtered ranked/cited search;586-595 rejects coercible kind arrays and accepts each string kind.436-464 checks codepoint-safe body excerpts, not non-ASCII/numeric query validation.",
+      "gap": "No direct zero-token/punctuation/emoji query rejection before dependency counters or injected root/session/permission faults; no lexical-versus-filter error-precedence assertion, boundary query length/Unicode/numeric-query matrix or direct early malformed list-limit/read-ID dependency assertion in this inspected suite. Kind-array rejection with a normal query cannot distinguish old late validation from the new early path.",
+      "evidenceLevel": "Static mapping only; valid-result assertions are present, not rerun."
+    },
+    {
+      "id": "M2-permission-await-and-cache",
+      "source": ".opencode/plugins/memory/core.ts:212-238,251-291",
+      "changedBranch": "Single-input native permission assertion; abort before cached read/external authorization reuse and after an awaited assertion before marking it cached. Session lookup still receives its supported signal options.",
+      "existingAssertions": "memory.test.ts:218-247 preserves native read/edit error identity, zero protected note reads/opens and unchanged note;179-215 verifies explicit external scope authorization. Harness:82-96 resolves assertions immediately and records selected input fields only.",
+      "gap": "No pending permission promise cancelled before resolution, post-await/cache-insertion negative path, already-aborted cached assertion/global reuse boundary or exact argument-count assertion. A one-parameter JavaScript fake silently ignores an unsupported second argument, so existing payload tests would not establish the correction.",
+      "limit": "No per-call abort parameter or ability to preempt an already pending native permission assertion is established."
+    },
+    {
+      "id": "M3-read-completion-cancellation",
+      "source": ".opencode/plugins/memory/core.ts:397-405,443-462,571-575,667-685",
+      "changedBranch": "Recheck cancellation after scan read resolution/rejection, exact stat/read completion, write-preview current-result consumption and top-level exact/scan completion.",
+      "existingAssertions": "memory.test.ts:370-379 aborts during readBounded then delegates to the signal-aware live reader;250-276 and624-724 retain distinct CAS/race/cleanup assertions. The filesystem reader itself checks signal before its reads at filesystem.ts:50-66.",
+      "gap": "The during-scan case can reject inside the underlying reader without exercising the newly added post-await guards. No inspected test makes a dependency ignore the signal and resolve a valid read, resolve a missing exact-path result, or reject with an ordinary skippable error after cancellation; no assertion excludes a successful response/preview token from those completion races.",
+      "limit": "The review does not claim rollback of already committed mutations or zero I/O after every possible cancellation instant."
+    },
+    {
+      "id": "M4-shared-scan-charge",
+      "source": ".opencode/plugins/memory/core.ts:295-440; filesystem.ts:50-66",
+      "changedBranch": "Reserve readLimit+1 before dispatch, preserve conservative charges for failed/unknown reads, validate returned byte counts, refund unused allowance only on successful bounded returns, share file/byte budgets across scopes, reserve growth-probe space and preserve prior directory truncation.",
+      "existingAssertions": "memory.test.ts:328-346 grows a real note, checks8KiB passedLimit/truncation/output size;775-810 checks successful aggregate scanned<=64, successful bytes<=512KiB, truncation and response size across repo/global.563-583 keeps malformed-note skip distinct from exact-read rejection.",
+      "gap": "No assertions for chargedBytes/failedReadChargeBytes, cumulative failed-growth/UTF8/ENOENT/type-error allowance across both scopes, invalid returned counts, last-byte growth-probe refusal before dispatch, success refund accounting, or retention of a pre-existing directory-truncated flag at a later exhausted scope. Successful bytes/scanned counters do not measure conservative failed-read charges or candidate slots. No failed allowance is experimentally refunded or consumed in this review."
+    },
+    {
+      "id": "T1-wrapper-normalization",
+      "source": ".opencode/plugins/goal-docs/goal-tool-titles.ts:37-60",
+      "changedBranch": "Reject any nonnull wrapper error and oversized wrapper output/state/metadata state before trim/lowercase/regex normalization; both character and UTF8 byte limits apply.",
+      "existingAssertions": "goal-tool-titles.test.ts:122-129 checks failed/read-only tools do not refresh;168-190 rejects error/malformed/reused/conflicting payloads and accepts normal text/structured goal receipts.",
+      "gap": "No direct oversized state, metadata state or wrapper-output normalization boundary, nonnull non-string/empty wrapper-error matrix, or equal-character/different-UTF8-size assertions. Structured success remains a shallow receipt-shape check, not recursive size auditing or a host acquisition guarantee."
+    },
+    {
+      "id": "T2-array-prejoin-budget",
+      "source": ".opencode/plugins/goal-docs/goal-tool-titles.ts:62-95",
+      "changedBranch": "Reject more than128parts, charge all separators including empty/nontext slots, bound each part against remaining characters and UTF8 bytes before join, then bound strings before JSON parsing.",
+      "existingAssertions": "goal-tool-titles.test.ts:182-189 rejects one plain ASCII content string of2000001characters and accepts ordinary JSON text/structured receipts.",
+      "gap": "No128-part separator/exact-total/overflow or129-part assertion, empty/nontext separator case, multi-byte UTF8 versus character case, or instrumentation proving refusal before array join/normalization/parse allocation. Merely reading the test file does not allocate or execute its oversized fixture."
+    },
+    {
+      "id": "T3-adjacent-hook-success-and-exclusions",
+      "source": ".opencode/plugins/goal-docs/goal-tool-titles.ts:98-110",
+      "existingAssertions": "goal-tool-titles.test.ts:105-165 retains actual controller wiring, latest scoped goal state, requested title update, manual-title exclusion, child/Plan/reviewer/inactive exclusions and hook disposal.168-190 exercises the real receipt hook directly rather than mocking successfulGoalMutation itself.",
+      "limit": "These are existing local/controller assertions, not actual loaded native conditional-title CAS or manual-title race/ABA acceptance. The changed parser branches above still lack decisive existing regressions."
+    },
+    {
+      "id": "R1-native-caller-signal",
+      "source": ".opencode/plugins/goal-docs/rpc-handlers.ts:5-35,37-79",
+      "changedBranch": "Optional native caller context combines distinct caller/lifecycle signals per invocation; same signal and caller-only/lifecycle-only/no-context cases preserve direct-call compatibility; export, handoff and opened all forward callOptions.",
+      "existingAssertions": "goal-docs.test.ts:763-809 calls the real handlers for bounded export success/failure and all three output contracts, always without native caller context.812-825 checks only a pre-aborted plugin lifecycle passed to handoff.",
+      "gap": "No caller-only or distinct two-signal cancellation, identical-signal branch, mid-call cancellation, export/opened cancellation propagation or per-invocation isolation assertion. Pre-aborted lifecycle-only handoff would not detect dropping the new native caller context."
+    },
+    {
+      "id": "R2-edit-permission-contract",
+      "source": ".opencode/plugins/goal-docs/session.ts:25-31,136-158",
+      "changedBranch": "Use pinned single-input edit assertion and check abort before Plan/API validation and after native assertion settles.",
+      "existingAssertions": "goal-docs.test.ts:703-721 checks one invocation, exact first payload, Plan/API absence/denial and cross-repo rejection. Its assert(input) fake does not capture the number of arguments.",
+      "gap": "No exact one-argument check, pre-aborted no-assert/error-order case or cancellation of an outstanding assertion followed by resolution/rejection. No native pending-prompt preemption or trusted-human approval is supplied by these source changes."
+    },
+    {
+      "id": "R3-adjacent-handoff-cancellation",
+      "source": ".opencode/plugins/goal-docs/goal-docs.test.ts:1373-1425",
+      "existingAssertions": "Direct coordinateHandoff cancellation after target creation retains one target/no first prompt; interruption after possible admission reuses the same prompt ID/text with one admitted message on retry.",
+      "limit": "Useful separate side-effect/idempotency boundaries are preserved. These calls bypass createGoalDocsRpcHandlers and do not establish native caller-context forwarding, pending permission cancellation or rollback of an already admitted action. No fixture or assertion was removed as a duplicate."
+    },
+    {
+      "id": "N1-live-thread-RSS",
+      "source": "tools/opencode-native-row/full-graph-diagnostics.mjs:281-384,528-578,645-708",
+      "changedBranch": "A live thread with no VmRSS remains unknown until measured RSS or positive Z/X exit; group directory/status/retry work is charged. Bind descendant group conclusions to that descendant's observed start time, not the root's expected start time.",
+      "existingAssertions": "full-graph-diagnostics.test.mjs:1166-1280 covers positive shared-mm plus child RSS, not double-counting a sibling, all-zombie groups, incomplete/denied/malformed groups, reused leader and multithreaded descendant identity;1346-1394 contains an actual bounded C-thread helper test.",
+      "gap": "Stale live-no-RSS zero expectation is H1 below. No dedicated staged no-RSS-to-measured/positive-exit-versus-still-live matrix or complete new group-operation counter/deadline assertion was found. The real helper test compiles/spawns and is read only, not eligible for execution under no-tests."
+    },
+    {
+      "id": "N2-observer-budget-and-rebind",
+      "source": "tools/opencode-native-row/full-graph-diagnostics.mjs:389-472,479-498",
+      "changedBranch": "Initial stat and final rebind are charged, with reduce-only fixed entry/time overrides, finite/nonbackward injected clock checks and independent real wall deadline. Unavailable/gone group conclusions require a final leader start-identity rebind.",
+      "existingAssertions": "full-graph-diagnostics.test.mjs:1045-1120 checks identity grammar, proc byte/entry bounds and root RSS recheck;1282-1343 checks missing task directory, reused final leader, injected exhausted clock and maxEntries1. The four retained reds map to the missing/gone group assertions1298-1307.",
+      "gap": "H2/H3 below retain stale directory/work counts. No direct above-fixed observer/sampler override, NaN/backward clock, frozen injected clock versus wall deadline or final-rebind budget-exhaustion assertions were found. The ordinary negative deadline assertion also has the stale message H5. Cooperative deadlines cannot preempt a blocked synchronous read."
+    },
+    {
+      "id": "N3-positive-exit-and-ownership",
+      "source": "tools/opencode-native-row/full-graph-diagnostics.mjs:499-527,583-629,634-638,714-754",
+      "changedBranch": "Do not poison seen before PPID ownership validation; missing child status/task-directory/children reads require fresh positive exit, not blind omission. Reject a live final rebind as exit; keep root and descendant identities distinct.",
+      "existingAssertions": "full-graph-diagnostics.test.mjs:439-448 rejects one reparented child;1122-1163 distinguishes missing/same-start zombie/live/malformed/denied/reused child;1282-1307 checks zombie group missing-directory/reuse. The old unbound status-ENOENT fixture is H4.",
+      "gap": "No same-PID stale-unowned-first/valid-owned-later traversal, child-status ENOENT with a still-live/reused/unknown stat matrix, normal live-leader task-directory ENOENT or vanished-thread children ENOENT/reparenting matrix was found in this inspected suite. Existing single reparented and zombie-group cases do not cover all new branches."
+    },
+    {
+      "id": "N4-adjacent-supervisor-forest",
+      "source": "tools/opencode-native-row/full-graph-diagnostics.mjs:1980-2333",
+      "existingAssertions": "full-graph-diagnostics.test.mjs:1396-1454 checks cumulative registry size, descendant identity change and shared forest sample entries/deadline;1457-1499 measures retained descendant RSS before root exit;1501-1553 checks unknown-versus-confirmed post-exit sample failures;1555-1723 covers actual lifecycle, floor, closure, unknown and reused non-signalling.",
+      "gap": "Injected forest tests supply sampleTree workEntries and an immediate observeOwned seam; they do not charge the real tri-state observer's added stat/group/rebind I/O or test aggregate registry-observer cost. Actual subprocess/lifecycle tests remain unexecuted. See the separate limitation below; no historical root-monitor failure is assigned a cause by this reading."
+    }
+  ],
+  "staticHarnessContradictions": [
+    {
+      "id": "H1-live-no-RSS-is-not-zero",
+      "priority": "safety-contract",
+      "test": "tools/opencode-native-row/full-graph-diagnostics.test.mjs:1242-1247",
+      "finding": "The existing fixture keeps the sibling at S/R and returns Name/State without VmRSS, yet expects rssMiB0. Current source344-384 counts that sibling as still live and returns unknown; root sampling532-547 refuses instead of claiming zero. The test's explanatory claim that this status proves no attached mm conflicts with the corrected safety rule.",
+      "disposition": "Documented only; do not restore unsafe zero behavior or edit/run the test. Not a newly observed failing run."
+    },
+    {
+      "id": "H2-initial-stat-now-consumes-bound",
+      "priority": "stale-expectation",
+      "test": "tools/opencode-native-row/full-graph-diagnostics.test.mjs:1338-1342",
+      "finding": "At maxEntries1, current observer439-442 charges before and after initial stat. The second charge returns unknown before observeThreadGroup directory I/O. The test still expects readdirs1, whereas this branch text implies0; threadReads0 remains aligned.",
+      "disposition": "Static control-flow contradiction, not an executed counter result or permission to weaken budgets."
+    },
+    {
+      "id": "H3-child-zombie-work-count",
+      "priority": "stale-expectation",
+      "test": "tools/opencode-native-row/full-graph-diagnostics.test.mjs:1149-1158",
+      "finding": "The zombie branch still expects workEntries5. Manual trace of the current fixture/source charges root visit, root children, child visit, fresh child stat, group directory, pre-rebind and post-rebind: seven account calls. Missing-child branch has four and is not conflated with this stale zombie expectation. This is a textual trace, not a simulated/executed fixture result.",
+      "disposition": "Retain exact count assertion and distinct identity assertions unchanged; future authorized reconciliation must account for the extra safety operations rather than delete failure coverage."
+    },
+    {
+      "id": "H4-ENOENT-status-fixture-lacks-exit-proof",
+      "priority": "stale-fixture",
+      "test": "tools/opencode-native-row/full-graph-diagnostics.test.mjs:387-396",
+      "finding": "The fixture throws ENOENT only for child status and returns empty text for /proc/7/stat, but still expects successful omission/rss2. Current low-level processGone610-612 classifies empty stat as unknown, so637 cannot silently omit it. A missing status alone is no longer positive exit evidence; this fixture does not model a confirmed missing process.",
+      "disposition": "Documented only, distinct from actual kernel exit behavior. No fixture repair, new test run or positive exit manufactured."
+    },
+    {
+      "id": "H5-deadline-error-message",
+      "priority": "stale-message-assertion",
+      "test": "tools/opencode-native-row/full-graph-diagnostics.test.mjs:451",
+      "finding": "The expected /non-negative number/ text no longer matches the current485-486 refusal wording, non-negative and no larger than the fixed limit. The refusal remains fail-closed; this is message/harness drift, not evidence that negative deadlines are accepted.",
+      "disposition": "Unchanged and unexecuted; do not relabel a source-text comparison as a new red test."
+    }
+  ],
+  "adjacentSourceLimit": {
+    "source": "tools/opencode-native-row/full-graph-diagnostics.mjs:2013-2014,2053-2081,2097-2120,2161-2183,2199-2226",
+    "observation": "Each observeRegistry/signalling/retained-identity call invokes observe(pid,start) with a fresh default observer budget. The forest shares remaining workEntries/deadline among sampleTree calls, but does not pass a common remaining observer budget or receive observer work counts. Therefore the inspected code does not establish one aggregate entry/time envelope for all registry observation plus forest sampling/cleanup; the registry is separately size-bounded and each real observer is locally bounded.",
+    "testLimit": "The cumulative-forest test's immediate observeOwned callback cannot measure these actual observer reads. No large registry/slow observer aggregate bound or real final-rebind consumption is asserted there.",
+    "qualification": "This is an adjacent source/coverage limitation, unchanged in the reviewed before/current supervisor region, not a newly executed overrun, demonstrated new regression, exact historical failure cause or authorization to redesign cleanup/change guards. The current read-only unit records it unresolved and does not claim a global hard sampling deadline."
+  },
+  "retainedGenuineFailures": {
+    "path": "/home/james/Documents/computer-use-native-host-20261029/archive-cancel-parent-fSGyL2/monitor-parent-red.log",
+    "bytes": 3903,
+    "sha256": "f8f3f5f01e21bf369ef8303fc45078d9f7b99febe4bdd13b41e42f494c5f576e",
+    "reportedResult": "Historical four failures, zero passes/skips/cancellations; not rerun or relabelled.",
+    "cases": [
+      { "name": "missing task directory cannot attest group exit while leader identity still exists", "historicalActual": "missing", "historicalExpected": "unknown", "currentAssertionLocator": "full-graph-diagnostics.test.mjs:1298-1299" },
+      { "name": "missing task directory cannot make an identity-bound root RSS sample zero", "historicalActual": "Missing expected exception", "currentAssertionLocator": "full-graph-diagnostics.test.mjs:1300-1301" },
+      { "name": "gone-group ownership classification rebinds the leader identity before declaring missing", "historicalActual": "missing", "historicalExpected": "reused", "currentAssertionLocator": "full-graph-diagnostics.test.mjs:1304-1305" },
+      { "name": "gone-group root sampling rejects reuse at its final identity boundary", "historicalActual": "Missing expected exception", "currentAssertionLocator": "full-graph-diagnostics.test.mjs:1306-1307" }
+    ],
+    "missingOriginalFixture": "Earlier238metadata observation returned ENOENT for /tmp/opencode/monitor-gone-regressions.test.mjs. It was not recreated. The retained log is authentic failure evidence; similar current test categories are not an authenticated reconstruction of that exact missing source or a current green result.",
+    "otherHistory": "Earlier15/15,52/53,60/61, host-admission/self-sample refusals, full2827-input RSS failures and35/36unknown remain distinct historical evidence. No claim this review reruns, fixes the original root failure or supplies full types/native acceptance. Independent personality/CUA reported runs in the shared audit are not adopted as this chat's evidence."
+  },
+  "performedReadJobs": {
+    "sourceBinding": { "observedAt": "2026-11-01T19:23:05.297Z", "files": 21, "actualBodyBytes": 801040, "reservedIncludingCommandAllowance": 866597, "elapsedMs": 20 },
+    "inertTextDiffs": {
+      "observedAt": "2026-11-01T19:23:19.716Z",
+      "reservedInputsAndOutputAllowances": 655157,
+      "elapsedMs": 23,
+      "results": [
+        { "name": "memory", "bytes": 14378, "sha256": "ce0a0941f679ce52a383c411400670fe218b86a9e7fd56746867416b0e00133c" },
+        { "name": "title", "bytes": 3443, "sha256": "e6abb82acffbe71fbf98bbb775155266d7acda3e58535d90c0a6b98b17ef98ce" },
+        { "name": "RPC", "bytes": 2850, "sha256": "18f9ce5a4c2710c3df700caf5ea2bd78e8104f42e9a949618cd643a0dfde9d43" },
+        { "name": "permission", "bytes": 1447, "sha256": "2ea4a9e098941fb4baed7b3e659920cc9511726065ecd0a6f2faeced76ae7231" },
+        { "name": "monitor", "bytes": 15977, "sha256": "baae4585d0b81fb01c7773f3659e98929008ec0e5f1c6260f8e7f6c14e94048d" }
+      ],
+      "qualification": "diff exit1 means differing text, not a behavioral test failure. No module imports or code evaluation."
+    },
+    "dedicatedReads": "Separate scoped Read/Grep calls inspect branch/assertion text, including the complete810-line memory and190-line title suites and selected goal-docs/monitor ranges. Full-file hashes do not mean every unrelated branch was semantically audited. Dedicated reads are not claimed inside the shell jobs' counters or one cross-job total/deadline/RSS allowance.",
+    "unchangedLimits": { "fileBytes": 262144, "jobBytes": 2097152, "chunkBytes": 65536, "deadlineMs": 10000 }
+  },
+  "writeSafetyAndScopeFailure": {
+    "preimagesObservedAt": "2026-11-01T19:27:17.996Z",
+    "lifecycleRecord": { "bytes": 54519, "sha256": "f39c85ff8d9f767949ef106ad6b5ee2936de4078ac735b3a108d10006c7db7c5" },
+    "preservationRecordUnedited": { "bytes": 77627, "sha256": "c16d5bb611ab4396958d778176b1013bfc767001ecf5f1c4ca523e1bc472dbd7" },
+    "newDestinationWasAbsent": true,
+    "scopedGitStatus": "New record absent, lifecycle and selected canonical source/tests untracked; scoped tracked numstat empty. Existing untracked source is preserved, not omitted from review or overwritten as disposable.",
+    "staged179BSHA256": "91d6022a66f661ad993f27b3d2c1ee1997dd8ac2261c2830ef213e22ccb1c805",
+    "rawIndex29854BSHA256": "5079c677173948cc67aff2f6bdbe56718e34542391ff75deb9a2d96245902e7d",
+    "parentHEAD": "70e0477496e25655911341a07e00d55b2a5a61d9",
+    "nativePin": "ba546ec1598a70db2570e9c6258028d955ba8f58",
+    "initialWriteCheckFailure": "An initial full-file fingerprint attempt stops at metadata because docs/test-quality-audit.md is263607B, above unchanged262144B scope. Two small owning documents had matched before that refusal; no shared-guide body was acquired by that command, no write or Git command occurred. This is a real scope refusal, not a new software-test failure or missing permission.",
+    "changedPremise": "Metadata-only diagnosis at19:26:42Z identifies the oversized shared guide. The new19:27:17Z job fingerprints only eligible exact owners/index, uses metadata only for that unedited guide and checks scoped Git identity. It does not partition the oversized guide, change caps, reclassify it, or omit any compiler/test/source input from a run.",
+    "sharedGuideMetadataOnly": { "path": "docs/test-quality-audit.md", "bytes": 263607, "dev": "2050", "ino": "5419280", "mtimeNs": "1793559500970676967", "ctimeNs": "1793559500970676967", "fullBodyHash": null, "edited": false },
+    "successfulWriteCheckReservedBytes": 489683,
+    "successfulWriteCheckElapsedMs": 29
+  },
+  "remaining": "The requested static coverage review is performed and its gaps/contradictions are concrete. Latest memory/title/RPC/monitor behavior remains UNTESTED. No old green is upgraded, no genuine red disappears, no test is repaired/deleted to hide a contradiction, and no independent-integration result is adopted. Filling the documented regression/strict/native/model/GUI/human acceptance gaps needs permitted verification; an adjacent aggregate-observer guarantee is not established by this reading. Authentic missing original inventories/indexes/historical baselines, actual native builds/rights/runtime and exact archive/deployment/security/private/callback/device/demo gates remain as in the retained full plan. No task/phase/criterion or goal is completed by this documentary review.",
+  "actions": { "testsAdded": 0, "testsEdited": 0, "testsImportedOrExecuted": 0, "productionImportsOrBehavioralProbes": 0, "fixturesGeneratedChangedOrRecreated": 0, "sourceEdits": 0, "modelsOrChildren": 0, "compilersBuildsOrTypechecks": 0, "independentIntegrationReadsWritesOrAdoption": 0, "privateBodiesOrSettingsValues": 0, "runtimeSecurityPermissionDeploymentChanges": 0, "assetBinaryHashReplays": 0, "commits": 0, "pushes": 0 }
+}

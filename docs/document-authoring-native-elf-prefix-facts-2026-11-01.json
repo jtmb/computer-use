@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-01T06:31:49Z",
+  "scope": "Static ELF header/program/note prefixes from seven exact retained lxml wheel members; no candidate loading, full-member extraction or dynamic/version-table acceptance.",
+  "wheel": {
+    "source": "/home/james/Documents/computer-use-native-host-20261029/remaining-wheel-notices-nCRdUp/lxml/lxml-6.1.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 5099355,
+    "sha256": "c6c0c13128a32eb04a51357e56a094e13aa8e6d3d1884de2e9ae923f6915e1a8",
+    "inventorySHA256": "2ee0e93a54e831f0aa51553545ce339f441ee5f3b8cabf3e05385b71cc2a6b10",
+    "entries": 188,
+    "declaredExpandedBytes": 11458742,
+    "beforeAfterMatch": true
+  },
+  "method": {
+    "interpreter": "/usr/bin/python3 -I -B",
+    "containerReader": "scripts/office_package.py, unchanged inspected canonical source",
+    "containerValidation": "Existing inspect_package before/after and the same held-descriptor _package validation around each selected prefix; source/inventory identities match the retained record.",
+    "payloadRead": "One forward read of4096bytes per exact member; cumulative allowance reserved before each read. No ZipExtFile.seek, skipped output, full-member decompression or secondary binary tool was used to reach later ranges.",
+    "observation": "The bounded parent script parses only the returned ELF64 little-endian header/program structures and in-prefix GNU note fields. It is a one-off artifact observation, not a tested reusable ELF parser or runtime acceptance.",
+    "fullSelectedMemberCRCVerified": false,
+    "binaryCopiesSaved": false
+  },
+  "commonObservedFields": {
+    "elfClass": 64,
+    "endian": "little",
+    "elfType": 3,
+    "machine": 62,
+    "osabi": 0,
+    "flags": 0,
+    "programHeaders": 9,
+    "loadSegments": 4,
+    "sectionHeaders": 26,
+    "zipMethod": 8,
+    "gnuNoteOwner": "GNU",
+    "gnuNoteType": 3,
+    "gnuNoteDescriptorBytes": 20,
+    "interpretation": "ELFCLASS64/ELFDATA2LSB, ET_DYN, EM_X86_64. OSABI0 is unspecified/no extensions, not a Linux/glibc/CPython compatibility verdict. The GNU/type3 descriptor is recorded as bytes, not an authenticity or ABI certificate."
+  },
+  "members": [
+    {
+      "member": "lxml/_elementpath.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 200944,
+      "compressedBytes": 78657,
+      "prefixBytes": 4096,
+      "prefixSHA256": "da5808cac89a586112ee997c4e5a5ff00c78489900e99c42162514d882f02b0b",
+      "gnuType3DescriptorHex": "bf5bf8680ddfafa869474fedaddef434a1882c31",
+      "dynamicOffset": 187664,
+      "dynamicBytes": 464,
+      "dynamicEnd": 188128,
+      "sectionHeaderOffset": 199280
+    },
+    {
+      "member": "lxml/builder.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 120928,
+      "compressedBytes": 49720,
+      "prefixBytes": 4096,
+      "prefixSHA256": "060091bc97f284f28b4bbf91125a88333fbb1be4d25ac053156f7181a8cedd3a",
+      "gnuType3DescriptorHex": "02dab31ffae6bf2bc07e2901008a6439a199fb75",
+      "dynamicOffset": 113944,
+      "dynamicBytes": 464,
+      "dynamicEnd": 114408,
+      "sectionHeaderOffset": 119264
+    },
+    {
+      "member": "lxml/etree.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 5112760,
+      "compressedBytes": 2464186,
+      "prefixBytes": 4096,
+      "prefixSHA256": "0fed0aa5f34f2793d98372f539ea9e1987c621da9d4878db2f84b9a2ee87a333",
+      "gnuType3DescriptorHex": "524eba3806bfb67d9f89b3e8bfa634a52f505945",
+      "dynamicOffset": 4994928,
+      "dynamicBytes": 496,
+      "dynamicEnd": 4995424,
+      "sectionHeaderOffset": 5111096
+    },
+    {
+      "member": "lxml/objectify.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 2875840,
+      "compressedBytes": 1540162,
+      "prefixBytes": 4096,
+      "prefixSHA256": "56cc68e1d7a04cf5ef67098195b825e55470a018c2fb137ac2603367f3b6f85f",
+      "gnuType3DescriptorHex": "f51526de4eb901dee665d829cb27c0afadea64e7",
+      "dynamicOffset": 2849328,
+      "dynamicBytes": 496,
+      "dynamicEnd": 2849824,
+      "sectionHeaderOffset": 2874176
+    },
+    {
+      "member": "lxml/sax.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 173920,
+      "compressedBytes": 73374,
+      "prefixBytes": 4096,
+      "prefixSHA256": "11af10e85f732c27c0a2f40269d8bc32bff2f68f4547159e1d41825aff587a35",
+      "gnuType3DescriptorHex": "c9e416f500734fac0426034b6424986f796b0bbb",
+      "dynamicOffset": 167192,
+      "dynamicBytes": 464,
+      "dynamicEnd": 167656,
+      "sectionHeaderOffset": 172256
+    },
+    {
+      "member": "lxml/html/_difflib.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 521120,
+      "compressedBytes": 216592,
+      "prefixBytes": 4096,
+      "prefixSHA256": "ba5128ad204f0f8a88f27552099de605946a8d83d0efbfd339e8a8c18e2f672f",
+      "gnuType3DescriptorHex": "17cbb604bec236df6e4021c02a3669399bc39a06",
+      "dynamicOffset": 502984,
+      "dynamicBytes": 464,
+      "dynamicEnd": 503448,
+      "sectionHeaderOffset": 519456
+    },
+    {
+      "member": "lxml/html/diff.cpython-314-x86_64-linux-gnu.so",
+      "declaredBytes": 332752,
+      "compressedBytes": 142073,
+      "prefixBytes": 4096,
+      "prefixSHA256": "d54fec1b0b16ae02a4ce7a333362ad425a1fc1f2bf139a3d0bd77c3426bb12c9",
+      "gnuType3DescriptorHex": "954a6b18ffe2e167479351dfda32b68734d4d1ce",
+      "dynamicOffset": 322808,
+      "dynamicBytes": 464,
+      "dynamicEnd": 323272,
+      "sectionHeaderOffset": 331088
+    }
+  ],
+  "acquisition": {
+    "selectedMembers": 7,
+    "selectedPayloadBytes": 28672,
+    "selectedAllowanceRemaining": 36864,
+    "selectedAggregateCeiling": 65536,
+    "selectedMemberCeiling": 16,
+    "archiveBytes": 8388608,
+    "directoryBytes": 262144,
+    "entries": 5000,
+    "memberBytes": 16777216,
+    "expandedBytes": 67108864,
+    "perCallSeconds": 5,
+    "jobSeconds": 20,
+    "elapsedMs": 100,
+    "archiveMetadataAndSourceHashCalls": 2,
+    "selectedPrefixCalls": 7,
+    "qualification": "Payload counts refer to returned decompressed ELF prefixes. Full source hashing reads the5099355byte archive twice within the existing per-call8MiB archive bound; directory/local-header validation is separate. This is not a claim that total archive acquisition was28672bytes or that internal stdlib allocations were measured."
+  },
+  "rangeAssessment": {
+    "allDynamicEndsExceedWholeJobPayloadCeiling": true,
+    "smallestDynamicEnd": 114408,
+    "largestDynamicEnd": 4995424,
+    "smallestSectionHeaderOffset": 119264,
+    "dynamicOrVersionTablesRead": false,
+    "neededLibrariesResolved": false,
+    "whyStopped": "All selected members are deflated. Even reaching the smallest complete dynamic segment by a forward decompressed read would exceed this job's65536byte total, before string/version tables. No skipped output is treated as free, allowance is not reset and no full-member read uses the helper's larger default. This qualifies this job's sequential approach, not every possible future static-inspection design."
+  },
+  "primaryReferences": {
+    "checkedOn": "2026-11-01",
+    "elfHeader": "https://gabi.xinuos.com/elf/02-eheader.html",
+    "programHeader": "https://gabi.xinuos.com/elf/07-pheader.html",
+    "dynamicLinking": "https://gabi.xinuos.com/elf/08-dynamic.html",
+    "assignedMachines": "https://gabi.xinuos.com/elf/a-emachine.html",
+    "finding": "ELF/program fields and PT_DYNAMIC locate stored dynamic metadata; DT_NEEDED names index DT_STRTAB. Static dependency declarations would still differ from actual loader resolution, and archive libraries may also be statically incorporated.",
+    "qualification": "Four separate public specification fetches followed the local artifact observation. These are tool-managed reads with no pre-fetch byte-bound or immutable revision claim; they sent no private data and did not replenish the spent PyPI allowance."
+  },
+  "actions": {
+    "artifactNetworkRequests": 0,
+    "candidateImports": 0,
+    "candidateExecution": 0,
+    "xmlParses": 0,
+    "extractedFiles": 0,
+    "installs": 0,
+    "tests": 0,
+    "peerActions": 0
+  },
+  "acceptance": {
+    "selectedELFHeadersObserved": true,
+    "fullMemberCRCVerified": false,
+    "dynamicDependenciesVerified": false,
+    "nativeLinkedVersionsVerified": false,
+    "abiVerified": false,
+    "securityApproved": false,
+    "fullRightsApproved": false,
+    "authoringReady": false,
+    "installationAuthorized": false
+  },
+  "qualification": "Source/inventory equality and prefix hashes bind selected observations, not an authenticated distribution signature, atomic lock or hostile-writer guarantee. Native linked versions, glibc/CPython ABI, bundled/backported library identity, rights/security/XML and author/render/reopen/human gates remain unresolved. The prior resource/notice records and failures are unchanged."
+}
