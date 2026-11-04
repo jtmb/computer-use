@@ -10,8 +10,9 @@
 // Pure selection logic is exported for tests; the CLI gathers real facts.
 
 import { accessSync, constants, readdirSync, statSync } from "node:fs"
-import { basename, join } from "node:path"
-import { execFileSync } from "node:child_process"
+import { basename, dirname, join } from "node:path"
+import { execFileSync, spawnSync } from "node:child_process"
+import { fileURLToPath } from "node:url"
 
 export const OVERRIDE_VALUES = ["auto", "chrome", "msedge", "brave", "chromium", "firefox", "webkit"]
 export const SUPPORTED_LABEL = "chrome, msedge, brave, chromium, firefox, webkit"
@@ -269,6 +270,7 @@ function gather({ override = null } = {}) {
 function main(argv) {
   const json = argv.includes("--json")
   const tokens = argv.includes("--tokens")
+  const apply = argv.includes("--apply")
   const override = process.env.PLAYWRIGHT_MCP_BROWSER ?? null
   let selection
   try {
@@ -279,6 +281,11 @@ function main(argv) {
       process.exit(1)
     }
     throw error
+  }
+  if (apply) {
+    const restart = join(dirname(fileURLToPath(import.meta.url)), "restart-playwright-mcp.sh")
+    const result = spawnSync(restart, ["--directory", process.cwd()], { stdio: "inherit" })
+    if (result.status !== 0) process.exit(result.status ?? 1)
   }
   if (tokens) {
     process.stdout.write(`profile=${selection.profileKey}\n`)

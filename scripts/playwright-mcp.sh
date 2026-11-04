@@ -52,6 +52,43 @@ BROWSER_ARGS=("${SELECTION[@]:1}")
 USER_DATA_DIR="${PLAYWRIGHT_USER_DATA_DIR:-$HOME/.local/share/opencode/playwright-$PROFILE_KEY}"
 echo "playwright-mcp: launching browser profile=$PROFILE_KEY" >&2
 
+# A background service can inherit a display and an Xauthority file that no
+# longer belong to the active login; Chrome then dies with "Authorization
+# required" on its first navigation. Verify the display, try the current
+# session's cookie when the inherited one is stale, and fall back to headless
+# rather than failing a tool call.
+DISPLAY_ARGS=()
+DISPLAY_OK=false
+if [[ "${PLAYWRIGHT_MCP_HEADLESS:-auto}" == "1" || "${PLAYWRIGHT_MCP_HEADLESS:-auto}" == "true" ]]; then
+  DISPLAY_OK=false
+elif [[ -n "${DISPLAY:-}" ]]; then
+  if command -v xset >/dev/null 2>&1 && xset -display "$DISPLAY" q >/dev/null 2>&1; then
+    DISPLAY_OK=true
+  elif command -v xset >/dev/null 2>&1; then
+    shopt -s nullglob
+    CANDIDATES=("${XAUTHORITY:-}" /run/user/"$(id -u)"/.mutter-Xwaylandauth.* /run/user/"$(id -u)"/gdm/Xauthority)
+    shopt -u nullglob
+    for CANDIDATE in "${CANDIDATES[@]}"; do
+      [[ -f "$CANDIDATE" ]] || continue
+      if XAUTHORITY="$CANDIDATE" xset -display "$DISPLAY" q >/dev/null 2>&1; then
+        XAUTHORITY="$CANDIDATE"
+        export XAUTHORITY
+        DISPLAY_OK=true
+        echo "playwright-mcp: using current X authority $CANDIDATE" >&2
+        break
+      fi
+    done
+    unset CANDIDATE CANDIDATES
+  fi
+fi
+if [[ "${PLAYWRIGHT_MCP_HEADLESS:-auto}" == "0" || "${PLAYWRIGHT_MCP_HEADLESS:-auto}" == "false" ]]; then
+  DISPLAY_OK=true
+fi
+if [[ "$DISPLAY_OK" != true ]]; then
+  DISPLAY_ARGS=(--headless)
+  echo "playwright-mcp: no usable display; starting headless" >&2
+fi
+
 # The browser MCP needs no provider credentials. Pass only what it genuinely
 # uses so unrelated secrets in the parent environment cannot reach it.
 ENVIRONMENT=(
@@ -70,6 +107,7 @@ unset NAME VALUE
 
 exec /usr/bin/env -i "${ENVIRONMENT[@]}" "$NODE" "$MCP" \
   "${BROWSER_ARGS[@]}" \
+  "${DISPLAY_ARGS[@]}" \
   --user-data-dir "$USER_DATA_DIR" \
   --viewport-size 1440x900 \
   --output-dir "$OUTPUT_DIR"
