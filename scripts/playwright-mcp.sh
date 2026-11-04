@@ -5,8 +5,8 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 NODE="${OPENCODE_NODE_BIN:-$HOME/.opencode/bin/node}"
 MCP="$ROOT/tools/browser/node_modules/@playwright/mcp/cli.js"
+SELECT="$ROOT/scripts/playwright-browser-select.mjs"
 BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-$HOME/.cache/ms-playwright}"
-USER_DATA_DIR="${PLAYWRIGHT_USER_DATA_DIR:-$HOME/.local/share/opencode/playwright-firefox}"
 OUTPUT_DIR="${PLAYWRIGHT_OUTPUT_DIR:-/tmp/opencode/playwright-mcp}"
 
 if [[ ! -x "$NODE" ]]; then
@@ -38,6 +38,20 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
+# Choose a browser Playwright can actually launch instead of hard-coding one.
+# The default browser wins when it is drivable; otherwise the first installed
+# supported browser is used. System Firefox alone is never chosen because
+# Playwright needs its own patched build.
+if ! SELECTION_TEXT="$(PLAYWRIGHT_BROWSERS_PATH="$BROWSERS_PATH" "$NODE" "$SELECT" --tokens)"; then
+  echo "playwright-mcp: no Playwright-drivable browser was found" >&2
+  exit 1
+fi
+mapfile -t SELECTION <<< "$SELECTION_TEXT"
+PROFILE_KEY="${SELECTION[0]#profile=}"
+BROWSER_ARGS=("${SELECTION[@]:1}")
+USER_DATA_DIR="${PLAYWRIGHT_USER_DATA_DIR:-$HOME/.local/share/opencode/playwright-$PROFILE_KEY}"
+echo "playwright-mcp: launching browser profile=$PROFILE_KEY" >&2
+
 # The browser MCP needs no provider credentials. Pass only what it genuinely
 # uses so unrelated secrets in the parent environment cannot reach it.
 ENVIRONMENT=(
@@ -55,7 +69,7 @@ done
 unset NAME VALUE
 
 exec /usr/bin/env -i "${ENVIRONMENT[@]}" "$NODE" "$MCP" \
-  --browser firefox \
+  "${BROWSER_ARGS[@]}" \
   --user-data-dir "$USER_DATA_DIR" \
   --viewport-size 1440x900 \
   --output-dir "$OUTPUT_DIR"

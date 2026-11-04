@@ -7,6 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 NODE_BIN="$HOME/.local/share/fnm/aliases/default/bin"
 PROJECT="$(cd "$SCRIPT_DIR/../tools/browser" && pwd)"
 MCP="$PROJECT/node_modules/.bin/playwright-mcp"
+SELECT="$SCRIPT_DIR/playwright-browser-select.mjs"
 OUTPUT="/tmp/opencode/playwright-headless"
 
 if [ ! -x "$NODE_BIN/node" ]; then
@@ -21,6 +22,16 @@ fi
 
 mkdir -p "$OUTPUT"
 chmod 700 "$OUTPUT"
+
+# Pick a browser the pinned runtime can drive; never assume Firefox exists.
+if ! SELECTION_TEXT="$(PLAYWRIGHT_BROWSERS_PATH="$PROJECT/browsers" "$NODE_BIN/node" "$SELECT" --tokens)"; then
+  echo "playwright-headless: no Playwright-drivable browser was found" >&2
+  exit 1
+fi
+mapfile -t SELECTION <<< "$SELECTION_TEXT"
+PROFILE_KEY="${SELECTION[0]#profile=}"
+BROWSER_ARGS=("${SELECTION[@]:1}")
+echo "playwright-headless: launching browser profile=$PROFILE_KEY" >&2
 
 # Headless work needs no provider credentials. Reduce the environment to the
 # browser runtime's actual inputs before exec.
@@ -41,7 +52,7 @@ unset NAME VALUE
 
 exec /usr/bin/env -i "${ENVIRONMENT[@]}" \
   "$MCP" \
-  --browser firefox \
+  "${BROWSER_ARGS[@]}" \
   --headless \
   --isolated \
   --image-responses omit \
