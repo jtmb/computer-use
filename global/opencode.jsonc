@@ -250,6 +250,11 @@
   "plugins": [
     { "package": "/home/james/repos/opencode-goal-plugin", "options": { "goal_engine": "enhanced" } },
     { "package": "/home/james/repos/computer-use/tools/personality", "options": { "defaultID": "personality-plain-english" } },
-    "-opencode.goal"
+    "-opencode.goal",
+    { "package": "/home/james/repos/computer-use/.opencode/plugins/computer-use" },
+    { "package": "/home/james/repos/computer-use/.opencode/plugins/goal-docs" },
+    { "package": "/home/james/repos/computer-use/.opencode/plugins/memory" },
+    { "package": "/home/james/repos/computer-use/tools/self-learning" },
+    { "package": "/home/james/repos/computer-use/tools/chatgpt-direct" }
   ]
 }
