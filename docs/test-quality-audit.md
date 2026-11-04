@@ -1,5 +1,37 @@
 # Test-quality audit and cadence
 
+## Onboarding integration boundary — 2026-11-04
+
+Completion review added the previously untested CLI layer: a real private TUI
+now exposes the goal plugin's palette commands, including after installing a
+fresh production dependency closure without copying node_modules. The host is
+Bun 1.4.2. Voice registration is explicit and gated on installed dependencies
+plus a real sandboxed, device-free model check; an inherited sandbox marker is
+not accepted. PTY lifecycle tests preserve failure coverage for missing
+observation, overflow, error exit and forced cleanup. The real voice model/PCM
+check passed; no microphone or speaker was opened.
+
+Six old-source failures reproduce checkout-path, missing-dependency,
+double-deployment and private-Node assumptions; four more reproduce selector
+path/cache-revision defects. New coverage retains preview, backup collision,
+unmanaged-file, symlink/hardlink and late-arrival refusal cases. Operational
+acceptance separately checks the real host registry and local browser navigation
+in an owned private service, not a fake model. See the
+[dated record](deployments/2026-11-04-onboarding.md).
+
+The integration review caught ESM-versus-CommonJS false missing-dependency checks,
+startup readiness being observed too early, and CLI truncation of a large skill
+catalog. A bounded read-only observer now returns registry IDs after activation,
+without exporting skill bodies. A private HOME alone also failed to rule out OS
+keyring access; final tests skip authentication checks and disable only the test
+profile's GitHub wrapper while still verifying its pinned runtime installation.
+
+Broad CI exposed a stale plugin-list expectation and a deleted scratch-consumer
+dependency. The exact plugin expectation is updated without altering lockdown
+checks. A maintained capture transport replaces the disposable-file dependency;
+its actual pre-read refusal and cleanup are tested. No failed historical capture,
+permission guard, acquisition envelope or distinct negative case is discarded.
+
 **Current personality/CUA outcome — 2026-11-01:** actual browser, compositor
 typing and process-bound app workflows now pass. Supported per-helper
 accessibility recovery supersedes the earlier shared-restart diagnosis. The final

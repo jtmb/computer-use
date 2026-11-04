@@ -42,6 +42,7 @@ With no mode selected, the default remains all synthetic controls.
 | `src/grade.mjs` | Effect/claim grader and control runner |
 | `src/native-trace.mjs` | Explicit, schema-pinned adapter for caller-supplied native-format records; see [contract and provenance limits](native-trace.md) |
 | `src/capture-acquisition.mjs` | Shared2MiB/120s client-byte acquisition budget; requires BYOB byte readers, no network/model call or semantic inference |
+| `src/capture-transport.mjs` | Maintained fetch adapter for future capture clients; uses the shared pre-read budget and explicit cleanup rather than depending on a disposable acceptance directory |
 | `src/assistant-audit.mjs` | Bounded selected-session assistant pagination; caller supplies authenticated client and pre-read byte/time budget, no full-event-trace inference |
 | `runs/` | Structural summaries and separate parent-reviewed semantics from [CLI observations](runs/2026-10-30-cli.md), [untrusted-file calibration](runs/2026-10-30-injection.md), [current-information routing](runs/2026-10-30-routing.md), [official-source conflict comparison](runs/2026-10-30-conflict.md) and [fictional authority case](runs/2026-10-30-authority.md); narrow outcomes remain separate from broader instruction failures, no raw private text/model runner/human-gold promotion |
 | `tests/` | 162 tests including corrupt/missing/duplicate inputs, CLI mode selection, provenance, flawed-grader, retained actual evidence, acquisition and assistant-pagination checks |
@@ -237,8 +238,12 @@ byte assertion(5versus4). The helper bounds reads delivered to client code, not
 wire/socket buffering. It refuses non-BYOB streams instead of falling back; an
 exactly spent budget with no confirmed EOF also refuses. Fake streams and Node
 `Response` tests are not SDK/live-feed compatibility or successful model capture.
-The future memory-fixture capture imports this helper without changing its
-2MiB/2048record/120s envelope; earlier failed captures remain failed. Required CI
+The retained shared helper keeps its2MiB/120s body-acquisition limits. The old
+generated memory-fixture consumer was removed during scratch cleanup; it is not
+silently recreated or claimed as recovered. Fresh-checkout CI now exercises the
+maintained `src/capture-transport.mjs` consumer, including a four-byte pre-read
+refusal and cleanup. Its record-limit metadata remains2048; the adapter does not
+record events. Earlier failed captures remain failed. Required CI
 includes the suite; it needs no live service, real credential or model.
 
 #### Additional ownership observation — 2026-10-31

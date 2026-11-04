@@ -9,7 +9,8 @@
 //
 // Pure selection logic is exported for tests; the CLI gathers real facts.
 
-import { accessSync, constants, readdirSync, statSync } from "node:fs"
+import { accessSync, constants, statSync } from "node:fs"
+import { createRequire } from "node:module"
 import { basename, dirname, join } from "node:path"
 import { execFileSync, spawnSync } from "node:child_process"
 import { fileURLToPath } from "node:url"
@@ -91,40 +92,23 @@ export function findInstalled({ pathValue = process.env.PATH ?? "" } = {}) {
   return installed
 }
 
-export function findBundled(browsersPath) {
+function expectedBrowserPaths() {
+  try {
+    const playwright = createRequire(import.meta.url)("../tools/browser/node_modules/playwright-core")
+    return Object.fromEntries(["chromium", "firefox", "webkit"].map(name => [name, playwright[name].executablePath()]))
+  } catch { return {} }
+}
+
+export function findBundled(browsersPath, expected = expectedBrowserPaths()) {
   const bundled = { chromium: null, firefox: null, webkit: null }
   if (typeof browsersPath !== "string" || browsersPath.length === 0) return bundled
-  let entries
-  try {
-    entries = readdirSync(browsersPath)
-  } catch {
-    return bundled
-  }
-  const newest = (pattern) => entries.filter((name) => pattern.test(name)).sort().reverse()
-
-  for (const directory of newest(/^chromium-\d+$/)) {
-    for (const layout of ["chrome-linux64", "chrome-linux"]) {
-      const candidate = join(browsersPath, directory, layout, "chrome")
-      if (isExecutable(candidate)) {
-        bundled.chromium = candidate
-        break
-      }
-    }
-    if (bundled.chromium) break
-  }
-  for (const directory of newest(/^firefox-\d+$/)) {
-    const candidate = join(browsersPath, directory, "firefox", "firefox")
-    if (isExecutable(candidate)) {
-      bundled.firefox = candidate
-      break
-    }
-  }
-  for (const directory of newest(/^webkit-\d+$/)) {
-    const candidate = join(browsersPath, directory, "pw_run.sh")
-    if (isExecutable(candidate)) {
-      bundled.webkit = candidate
-      break
-    }
+  // A cached build for another Playwright version is not a usable fallback.
+  for (const name of ["chromium", "firefox", "webkit"]) {
+    const parts = (expected[name] ?? "").split("/")
+    const revision = parts.findIndex(part => part.startsWith(`${name}-`))
+    if (revision === -1) continue
+    const candidate = join(browsersPath, ...parts.slice(revision))
+    if (isExecutable(candidate)) bundled[name] = candidate
   }
   return bundled
 }
@@ -155,13 +139,13 @@ function candidateFor(kind, installed, bundled, reasons) {
   switch (kind) {
     case "chrome":
       if (installed.chrome) {
-        return { engine: "chrome", args: ["--browser", "chrome"], profileKey: "chrome", executablePath: null }
+        return { engine: "chrome", args: ["--browser", "chrome", "--executable-path", installed.chrome], profileKey: "chrome", executablePath: installed.chrome }
       }
       reasons.push("Google Chrome is not installed")
       return null
     case "msedge":
       if (installed.msedge) {
-        return { engine: "msedge", args: ["--browser", "msedge"], profileKey: "msedge", executablePath: null }
+        return { engine: "msedge", args: ["--browser", "msedge", "--executable-path", installed.msedge], profileKey: "msedge", executablePath: installed.msedge }
       }
       reasons.push("Microsoft Edge is not installed")
       return null
@@ -186,7 +170,7 @@ function candidateFor(kind, installed, bundled, reasons) {
         }
       }
       if (bundled.chromium) {
-        return { engine: "chromium", args: [], profileKey: "chromium", executablePath: bundled.chromium }
+        return { engine: "chromium", args: ["--executable-path", bundled.chromium], profileKey: "chromium", executablePath: bundled.chromium }
       }
       reasons.push("Chromium is not installed and Playwright has no bundled Chromium")
       return null

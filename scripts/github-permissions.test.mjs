@@ -87,6 +87,11 @@ test("source change does not enable autoaccept or weaken the MCP lockdown wrappe
       options: { defaultID: "personality-plain-english" },
     },
     "-opencode.goal",
+    { package: path.resolve(root, ".opencode/plugins/computer-use") },
+    { package: path.resolve(root, ".opencode/plugins/goal-docs") },
+    { package: path.resolve(root, ".opencode/plugins/memory") },
+    { package: path.resolve(root, "tools/self-learning") },
+    { package: path.resolve(root, "tools/chatgpt-direct") },
   ])
   const wrapper = await readFile(path.join(root, "scripts/github-mcp.sh"), "utf8")
   assert.match(wrapper, /--lockdown-mode/)

@@ -48,6 +48,11 @@ export const REPO_CONTRACT_TESTS = [
   "scripts/github-permissions.test.mjs",
   "scripts/verification-receipt.test.mjs",
   "scripts/playwright-browser-select.test.mjs",
+  "scripts/playwright-launcher.test.mjs",
+  "scripts/onboard.test.mjs",
+  "scripts/onboarding-preflight.test.mjs",
+  "scripts/verify-onboarding.test.mjs",
+  "scripts/voice-onboarding-preflight.test.mjs",
 ]
 
 const NEW_TESTS = ["scripts/ci-offline.test.mjs", "scripts/codeowners-contract.test.mjs"]
@@ -140,6 +145,7 @@ export function buildSteps(options) {
       kind: "required",
       dependencies: ["python3"],
       commands: [
+        ["python3", ["scripts/test_onboarding_tui_probe.py"]],
         ["python3", ["scripts/test_jsonc_config_edit.py"]],
         ["python3", ["scripts/test_mcp_config.py"]],
         ["python3", ["scripts/test_mcp_config_transaction.py"]],

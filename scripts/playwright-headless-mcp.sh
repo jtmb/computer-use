@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
-# Start the pinned Playwright MCP in an isolated headless Firefox browser.
+# Start the pinned Playwright MCP in an isolated headless browser.
 set -euo pipefail
 umask 077
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-NODE_BIN="$HOME/.local/share/fnm/aliases/default/bin"
+NODE="${OPENCODE_NODE_BIN:-$(command -v node || true)}"
 PROJECT="$(cd "$SCRIPT_DIR/../tools/browser" && pwd)"
-MCP="$PROJECT/node_modules/.bin/playwright-mcp"
+MCP="$PROJECT/node_modules/@playwright/mcp/cli.js"
 SELECT="$SCRIPT_DIR/playwright-browser-select.mjs"
 OUTPUT="/tmp/opencode/playwright-headless"
 
-if [ ! -x "$NODE_BIN/node" ]; then
-  echo "playwright-headless: fnm default Node is unavailable: $NODE_BIN/node" >&2
+if [[ "$NODE" != /* || ! -f "$NODE" || ! -x "$NODE" ]]; then
+  echo "playwright-headless: Node.js is unavailable: $NODE" >&2
   exit 1
 fi
-if [ ! -x "$MCP" ]; then
+NODE_OWNER="$(stat -c '%u' "$NODE" 2>/dev/null || true)"
+if [[ "$NODE_OWNER" != "$(id -u)" && "$NODE_OWNER" != "0" ]]; then
+  echo "playwright-headless: Node.js must be owned by this user or root: $NODE" >&2
+  exit 1
+fi
+if [ ! -f "$MCP" ]; then
   echo "playwright-headless: runtime is not installed: $MCP" >&2
   echo "Run: ./scripts/onboard.sh --with-browser to provision it." >&2
   exit 1
@@ -24,7 +29,7 @@ mkdir -p "$OUTPUT"
 chmod 700 "$OUTPUT"
 
 # Pick a browser the pinned runtime can drive; never assume Firefox exists.
-if ! SELECTION_TEXT="$(PLAYWRIGHT_BROWSERS_PATH="$PROJECT/browsers" "$NODE_BIN/node" "$SELECT" --tokens)"; then
+if ! SELECTION_TEXT="$(PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-$HOME/.cache/ms-playwright}" "$NODE" "$SELECT" --tokens)"; then
   echo "playwright-headless: no Playwright-drivable browser was found" >&2
   exit 1
 fi
@@ -37,9 +42,9 @@ echo "playwright-headless: launching browser profile=$PROFILE_KEY" >&2
 # browser runtime's actual inputs before exec.
 ENVIRONMENT=(
   "HOME=$HOME"
-  "PATH=$NODE_BIN:/usr/local/bin:/usr/bin:/bin"
+  "PATH=/usr/local/bin:/usr/bin:/bin"
   "LANG=${LANG:-C.UTF-8}"
-  "PLAYWRIGHT_BROWSERS_PATH=$PROJECT/browsers"
+  "PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-$HOME/.cache/ms-playwright}"
   "TMPDIR=${TMPDIR:-/tmp/opencode}"
 )
 for NAME in LC_ALL LC_CTYPE XDG_RUNTIME_DIR; do
@@ -51,7 +56,7 @@ done
 unset NAME VALUE
 
 exec /usr/bin/env -i "${ENVIRONMENT[@]}" \
-  "$MCP" \
+  "$NODE" "$MCP" \
   "${BROWSER_ARGS[@]}" \
   --headless \
   --isolated \

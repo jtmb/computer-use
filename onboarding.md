@@ -37,7 +37,9 @@ not mandatory prompts for every setup.
 | Scope | “Do you want the tracked global config, only a subset, or just the repository-local setup?” | Preview the tracked global bundle without writing. `onboard.sh --apply` deploys the full bundle; a narrower global scope uses the deployer’s `--only` option. |
 | Paths | “Should I use the current checkout and the active OpenCode v2 config directory shown in the preview?” | Use the verified checkout and the deployer’s resolved target. Do not assume a home-directory path; show the actual source and target first. |
 | Model | “Keep the configured model, or select one from `opencode models`?” | Keep the tracked top-level model unchanged. Do not change nested agent models. |
-| Browser dependency | “Should I install the optional Playwright MCP package?” | No install. `--with-browser` is opt-in and only installs when combined with `--apply`. |
+| Runtime dependencies | “Should I install libraries needed by the global tools?” | No install. `--with-tools` and `--with-browser` install only with `--apply`; missing required libraries block publication instead of yielding false success. |
+| GitHub runtime | “Provision the checksum-pinned local GitHub MCP?” | No install. `--with-github` provisions only the executable on apply, never authenticates. |
+| Voice | “Enable the voice TUI after its separate setup?” | Off. `--with-voice` requires installed dependencies and a sandboxed device-free model check before registration; no automatic microphone activation during ordinary onboarding. |
 | ChatGPT connector | “Enable the optional OAuth-backed ChatGPT connector, knowing prompts/queries leave this machine on use?” | No install or configuration change. `--with-chatgpt` previews it; only an approved `--apply` installs/configures it before deployment. Existing settings are not silently removed. |
 | UI integrations | “Add the reviewed fallback status and CPU/RAM displays?” | Leave off unless selected. They require an additive configuration preview; the main onboarding script does not configure them. See [Remaining optional runtime work](#remaining-optional-runtime-work). |
 
@@ -99,8 +101,12 @@ then `$HOME/.opencode-v2-pilot/config`. `onboard.sh` calls the deployer without
 arguments, so its preview is the source of truth for the resolved target. The
 deployer also supports `--config-dir DIR` and `--only
 opencode.jsonc,cli.json,commands,agents`; use the exact reviewed target and
-selected entries for both preview and apply. `onboard.sh` itself has no
-target-directory or scope flag.
+selected entries for both preview and apply. `onboard.sh --config-dir DIR`
+forwards an explicit destination; narrow scope selection stays deployer-only.
+Both JSON templates are rendered for the actual checkout, including skill,
+MCP and TUI plugin paths. The separate goal checkout defaults to the sibling
+`../opencode-goal-plugin`; set `OPENCODE_GOAL_PLUGIN_DIR` to an absolute path
+when it lives elsewhere. It must already have a built `dist/server.js`.
 
 If a model was selected, its preview identifies the config file and proposed
 top-level model. `setup-model.sh` validates model IDs against `opencode models`
@@ -117,11 +123,18 @@ model change (if any), and warnings. Clearly say that this is still a preview.
 
 In interactive mode, show the preview and obtain the user’s explicit approval
 before configuration writes or dependency installation. In particular, full
-deployment replaces the target `commands/` and `agents/` directories with the
-tracked versions after backing up existing selected entries. It also replaces
+deployment updates managed command and agent files after preservation preflight
+and backup; it refuses unmanaged entries instead of deleting them. It replaces
 selected config files. The global templates include permission settings, so
 review them rather than silently changing security behavior. Adding
-`--with-browser` to an apply run invokes `npm --prefix tools/browser install`.
+`--with-browser` to an apply run invokes the locked `npm ci --ignore-scripts`
+install in `tools/browser`. `--with-tools` installs the browser backend and
+self-learning tool's locked production dependencies. Preflight
+checks declared paths and runtime libraries before publishing config. OpenCode
+provides its plugin host SDK; do not install a substitute host SDK into the profile.
+When no compatible installed browser is found, `--with-browser` also provisions
+Playwright Chromium, or the explicitly selected Firefox/WebKit build. It never
+installs browser system packages or disables sandboxing to hide a launch failure.
 
 Applying the normal onboarding script also performs a live web-search query,
 unless `--no-search` is supplied. Disclose that network check before applying;
@@ -190,7 +203,8 @@ restricted to this checkout or `/tmp/opencode/testfixtures`, never a deployed
 global config target. It accepts **strict JSON only** and refuses comments,
 trailing commas, duplicates, unsafe paths and concurrent edits rather than
 stripping or overwriting them. Main onboarding always uses the default source
-target; do not invent a main-script config-target flag.
+source target. `--config-dir` selects only the deployment destination, not the
+source file that this optional merge edits.
 
 Before applying, the deployer creates a timestamped `backup-YYYYMMDD-HHMMSS/`
 under the target and copies existing selected entries there. It then copies the
@@ -219,6 +233,17 @@ commands include `opencode debug config`, `opencode models`,
 `opencode api get /api/websearch/provider`, and `opencode service status`.
 Report the actual result of each command; do not infer success from the source
 existing or a unit test passing.
+
+For a clean-profile check, run
+`node scripts/verify-onboarding.mjs --opencode /absolute/path/to/raw/opencode`.
+It owns separate HOME/XDG roots, database, port and project, reads the runtime's
+actual registries through a test-only observer, performs local MCP navigation
+and stops its owned service. The real TUI also starts in a bounded private
+pseudo-terminal, with goal palette commands observed after actual plugin setup.
+Voice is off by default; see [voice prerequisites](setup.md#optional-voice-tui).
+Add `--with-github` for a pinned-runtime install
+inside that private home. See [the isolated acceptance scope](setup.md#isolated-runtime-acceptance)
+for the exact limits. It never borrows the live profile's credentials.
 
 The health check and source tests do not prove that every skill works in a real
 app, the TUI rendered every plugin, a desktop/browser action succeeded, or a
@@ -257,16 +282,18 @@ combination is appropriate for a particular setup:
 
 | Script | Supported options |
 | --- | --- |
-| [`onboard.sh`](scripts/onboard.sh) | `--apply`, `--model ID`, `--interactive`, `--with-browser`, `--with-chatgpt`, `--search`, `--no-search`, `--strict`, `--help` |
-| [`deploy-global-config.sh`](scripts/deploy-global-config.sh) | `--apply`, `--config-dir DIR`, `--only NAME[,NAME]`, `--help` |
+| [`onboard.sh`](scripts/onboard.sh) | `--apply`, `--model ID`, `--interactive`, `--config-dir DIR`, `--with-browser`, `--with-tools`, `--with-github`, `--with-chatgpt`, `--with-voice`, `--search`, `--no-search`, `--no-auth-check`, `--strict`, `--help` |
+| [`deploy-global-config.sh`](scripts/deploy-global-config.sh) | `--apply`, `--config-dir DIR`, `--only NAME[,NAME]`, `--with-voice`, `--help` |
 | [`setup-model.sh`](scripts/setup-model.sh) | `--model ID`, `--list`, `--apply`, `--config FILE`, `--no-deploy`, `--allow-unknown`, `--help` |
 | [`setup-chatgpt.py`](scripts/setup-chatgpt.py) | `--config FILE`, `--apply`, `--install-dependencies`, `--help` |
 
 ## Remaining optional runtime work
 
 The project config currently declares `github` and `playwright` MCP servers
-([`opencode.json`](opencode.json)); ChatGPT is absent from the default source
-configuration and selected only by the explicit workflow above. The broader
+([`opencode.json`](opencode.json)); the optional ChatGPT MCP companion is absent
+from default source configuration and selected only by the workflow above.
+The separately maintained ChatGPT direct plugin is already declared globally.
+The broader
 ChatGPT references in `mcp_runtime.py` alone are not a complete configured
 integration. These packages have source; their default activation and live
 acceptance **remain off/pending**:

@@ -3,7 +3,14 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-NODE="${OPENCODE_NODE_BIN:-$HOME/.opencode/bin/node}"
+NODE="${OPENCODE_NODE_BIN:-}"
+if [[ -z "$NODE" ]]; then
+  if [[ -x "$HOME/.opencode/bin/node" ]]; then
+    NODE="$HOME/.opencode/bin/node"
+  else
+    NODE="$(command -v node || true)"
+  fi
+fi
 MCP="$ROOT/tools/browser/node_modules/@playwright/mcp/cli.js"
 SELECT="$ROOT/scripts/playwright-browser-select.mjs"
 BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-$HOME/.cache/ms-playwright}"

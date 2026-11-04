@@ -1,11 +1,14 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises"
+import path from "node:path"
 
 import {
   BrowserSelectionError,
   desktopKind,
   readDefaultDesktop,
   chooseBrowser,
+  findBundled,
   SUPPORTED_LABEL,
 } from "./playwright-browser-select.mjs"
 
@@ -59,7 +62,7 @@ test("the default browser wins when Playwright can drive it", () => {
     installed: { chrome, firefoxSystem: "/usr/bin/firefox" },
   })
   assert.equal(selection.engine, "chrome")
-  assert.deepEqual(selection.args, ["--browser", "chrome"])
+  assert.deepEqual(selection.args, ["--browser", "chrome", "--executable-path", chrome])
   assert.equal(selection.profileKey, "chrome")
   assert.match(selection.source, /default browser/)
 })
@@ -100,14 +103,29 @@ test("Brave and system Chromium launch through an explicit executable path", () 
 test("Microsoft Edge uses its supported channel", () => {
   const selection = chooseBrowser({ defaultEntry: "microsoft-edge.desktop", installed: { msedge: edge } })
   assert.equal(selection.engine, "msedge")
-  assert.deepEqual(selection.args, ["--browser", "msedge"])
+  assert.deepEqual(selection.args, ["--browser", "msedge", "--executable-path", edge])
 })
 
-test("with no default, bundled Chromium is used without extra flags", () => {
+test("with no default, bundled Chromium uses its verified executable rather than assuming a Chrome channel", () => {
   const selection = chooseBrowser({ defaultEntry: null, installed: {}, bundled: { chromium: bundledChromium } })
   assert.equal(selection.engine, "chromium")
-  assert.deepEqual(selection.args, [])
+  assert.deepEqual(selection.args, ["--executable-path", bundledChromium])
   assert.equal(selection.executablePath, bundledChromium)
+})
+
+test("cached browsers from another Playwright revision are not accepted as installed", async t => {
+  const directory = await mkdtemp("/tmp/opencode/browser-revision-")
+  t.after(() => rm(directory, { recursive: true, force: true }))
+  const make = async revision => {
+    const dir = path.join(directory, `firefox-${revision}`, "firefox")
+    await mkdir(dir, { recursive: true })
+    await writeFile(path.join(dir, "firefox"), "#!/bin/sh\n", { mode: 0o700 })
+  }
+  await make(1541)
+  const expected = { firefox: "/cache/firefox-1542/firefox/firefox" }
+  assert.equal(findBundled(directory, expected).firefox, null)
+  await make(1542)
+  assert.equal(findBundled(directory, expected).firefox, path.join(directory, "firefox-1542/firefox/firefox"))
 })
 
 test("Safari cannot be automated and maps to bundled WebKit with a reason", () => {

@@ -9,6 +9,11 @@ MODEL=""
 INTERACTIVE=0
 WITH_BROWSER=0
 WITH_CHATGPT=0
+WITH_TOOLS=0
+WITH_GITHUB=0
+WITH_VOICE=0
+CONFIG_DIR=""
+CHECK_AUTH=1
 SKIP_SEARCH=0
 FORCE_SEARCH=0
 STRICT=0
@@ -17,7 +22,8 @@ WARNINGS=0
 usage() {
   cat <<'EOF'
 Usage: onboard.sh [--apply] [--model provider/model] [--interactive]
-                  [--with-browser] [--with-chatgpt] [--search] [--no-search] [--strict]
+                  [--with-browser] [--with-tools] [--with-github] [--with-chatgpt] [--with-voice] [--config-dir DIR]
+                  [--search] [--no-search] [--no-auth-check] [--strict]
 
 Checks OpenCode v2, deploys the tracked global config, optionally configures a
 model, installs the browser MCP dependency, and verifies web search.
@@ -29,10 +35,15 @@ Options:
   --apply          Deploy the global config and any selected model
   --model ID       Set the global model without prompting
   --interactive    Prompt for a model from the available list
-  --with-browser   Run npm --prefix tools/browser install
+  --with-browser   Install the pinned MCP and provision Chromium if no browser is available
+  --with-tools     Install dependencies for the global browser backend and self-learning tool
+  --with-github    Provision the checksum-pinned GitHub MCP runtime (does not sign in)
+  --with-voice     Enable the voice TUI after separate installed-model/dependency preflight
   --with-chatgpt   Opt in to the ChatGPT package/source config before deployment
+  --config-dir DIR Deploy to this config directory rather than the discovered profile
   --search         Run the live web search check even in a dry run
   --no-search      Skip the live web search check
+  --no-auth-check  Skip gh authentication checks (for credential-free isolated verification)
   --strict         Exit nonzero when the run records warnings
   -h, --help       Show this help
 EOF
@@ -66,9 +77,19 @@ while [ "$#" -gt 0 ]; do
       ;;
     --interactive) INTERACTIVE=1; shift ;;
     --with-browser) WITH_BROWSER=1; shift ;;
+    --with-tools) WITH_TOOLS=1; shift ;;
+    --with-github) WITH_GITHUB=1; shift ;;
+    --with-voice) WITH_VOICE=1; shift ;;
     --with-chatgpt) WITH_CHATGPT=1; shift ;;
+    --config-dir)
+      [ "$#" -ge 2 ] || fail "--config-dir requires a directory"
+      CONFIG_DIR="$2"
+      export OPENCODE_GLOBAL_CONFIG_DIR="$CONFIG_DIR"
+      shift 2
+      ;;
     --search) FORCE_SEARCH=1; shift ;;
     --no-search) SKIP_SEARCH=1; shift ;;
+    --no-auth-check) CHECK_AUTH=0; shift ;;
     --strict) STRICT=1; shift ;;
     -h|--help) usage; exit 0 ;;
     *) usage >&2; fail "unknown option: $1" ;;
@@ -105,7 +126,7 @@ done
 printf 'layout=ok\n'
 
 step "Check OpenCode service"
-if opencode service status >/dev/null 2>&1; then
+if SERVICE_STATUS="$(opencode service status 2>/dev/null)" && [[ "$SERVICE_STATUS" =~ ^https?://[^[:space:]/]+/?$ ]]; then
   printf 'service=ok\n'
 else
   warn "service is not healthy; configuration can still be deployed"
@@ -128,25 +149,53 @@ else
   printf 'chatgpt=not selected; no install or configuration change (existing settings preserved)\n'
 fi
 
-step "Deploy global configuration"
-if [ "$APPLY" -eq 1 ]; then
-  printf 'note: full deployment replaces tracked agents/ and commands/; local-only entries are backed up\n'
-  "$ROOT/scripts/deploy-global-config.sh" --apply
-else
-  "$ROOT/scripts/deploy-global-config.sh"
+step "Runtime dependencies and source preflight"
+if [ "$WITH_GITHUB" -eq 1 ]; then
+  if [ "$APPLY" -eq 1 ]; then
+    python3 "$ROOT/scripts/mcp_runtime.py" github-runtime --profile native --apply
+  else
+    printf 'github=would provision checksum-pinned runtime (rerun with --apply)\n'
+  fi
 fi
+if [ "$WITH_TOOLS" -eq 1 ]; then
+  if [ "$APPLY" -eq 1 ]; then
+    npm --prefix "$ROOT/tools/computer-use-browser" ci --omit=dev --ignore-scripts
+    npm --prefix "$ROOT/tools/self-learning" ci --omit=dev --ignore-scripts --legacy-peer-deps
+  else
+    printf 'tools=would install pinned package dependencies (rerun with --apply)\n'
+  fi
+fi
+if [ "$WITH_BROWSER" -eq 1 ]; then
+  if [ "$APPLY" -eq 1 ]; then
+    npm --prefix "$ROOT/tools/browser" ci --ignore-scripts
+    if ! node "$ROOT/scripts/playwright-browser-select.mjs" --json; then
+      case "${PLAYWRIGHT_MCP_BROWSER:-auto}" in
+        firefox|webkit) browser_install="$PLAYWRIGHT_MCP_BROWSER" ;;
+        auto|chromium|"") browser_install=chromium ;;
+        *) fail "explicit browser is unavailable; install it before deployment" ;;
+      esac
+      node "$ROOT/tools/browser/node_modules/playwright/cli.js" install "$browser_install"
+    fi
+  else
+    printf 'browser=would install (rerun with --apply)\n'
+  fi
+fi
+command -v node >/dev/null 2>&1 || fail "Node.js is required for the global tools and preflight"
+preflight_args=(--root "$ROOT")
+[ "$APPLY" -eq 1 ] && preflight_args+=(--required)
+node "$ROOT/scripts/onboarding-preflight.mjs" "${preflight_args[@]}" || fail "required runtime components are missing; nothing deployed"
 
 step "Model selection"
 if [ -n "$MODEL" ]; then
-  args=(--model "$MODEL")
+  args=(--model "$MODEL" --no-deploy)
   [ "$APPLY" -eq 1 ] && args+=(--apply)
   "$ROOT/scripts/setup-model.sh" "${args[@]}"
 elif [ "$INTERACTIVE" -eq 1 ]; then
   [ -t 0 ] || fail "--interactive requires a terminal"
   if [ "$APPLY" -eq 1 ]; then
-    "$ROOT/scripts/setup-model.sh" --apply
+    "$ROOT/scripts/setup-model.sh" --apply --no-deploy
   else
-    "$ROOT/scripts/setup-model.sh"
+    "$ROOT/scripts/setup-model.sh" --no-deploy
   fi
 else
   CURRENT_MODEL="$(python3 - "$ROOT/global/opencode.jsonc" <<'PY'
@@ -160,8 +209,23 @@ PY
   printf 'model=%s (unchanged; pass --model or --interactive to change)\n' "${CURRENT_MODEL:-<none>}"
 fi
 
+step "Deploy global configuration"
+deploy_args=()
+[ "$WITH_VOICE" -eq 1 ] && deploy_args+=(--with-voice)
+if [ "$APPLY" -eq 1 ]; then
+  printf 'note: selected files are backed up; unmanaged agents/commands are preserved and require reconciliation\n'
+  "$ROOT/scripts/deploy-global-config.sh" --apply "${deploy_args[@]}"
+else
+  "$ROOT/scripts/deploy-global-config.sh" "${deploy_args[@]}"
+fi
+
 step "GitHub CLI"
-if command -v gh >/dev/null 2>&1; then
+if ! python3 "$ROOT/scripts/mcp_runtime.py" github-runtime --profile native >/dev/null 2>&1; then
+  warn "GitHub MCP runtime is missing or untrusted; rerun with --with-github"
+fi
+if [ "$CHECK_AUTH" -eq 0 ]; then
+  printf 'gh=not checked (--no-auth-check)\n'
+elif command -v gh >/dev/null 2>&1; then
   if gh auth status >/dev/null 2>&1; then
     printf 'gh=authenticated\n'
   else
@@ -174,13 +238,19 @@ fi
 step "Browser MCP dependency"
 if [ "$WITH_BROWSER" -eq 1 ]; then
   if [ "$APPLY" -eq 1 ]; then
-    npm --prefix "$ROOT/tools/browser" install
+    [ -f "$ROOT/tools/browser/node_modules/@playwright/mcp/cli.js" ] \
+      || fail "browser dependency is still missing after install"
     printf 'browser=installed\n'
   else
     printf 'browser=would install (rerun with --apply)\n'
   fi
 else
-  printf 'browser=skipped (pass --with-browser to install)\n'
+  if [ -f "$ROOT/tools/browser/node_modules/@playwright/mcp/cli.js" ]; then
+    printf 'browser=dependency present (install skipped)\n'
+  else
+    warn "browser dependency is missing but the Playwright MCP is declared globally; rerun with --with-browser"
+    printf 'browser=skipped (pass --with-browser to install)\n'
+  fi
 fi
 
 step "Web search"

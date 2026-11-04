@@ -20,7 +20,16 @@ From the repository root:
 
 That deploys the tracked global configuration and, with `--apply`, verifies web
 search with one live query. Add `--with-browser` to install the Playwright MCP
-dependency as well. Omit `--apply` at any time for a dry run that writes
+dependency and `--with-tools` to install the browser backend and self-learning
+libraries. Browser setup uses an installed compatible browser first; if none is
+available it provisions Playwright Chromium (or an explicitly selected
+Firefox/WebKit build). On a fresh checkout use both flags:
+
+```sh
+./scripts/onboard.sh --apply --with-tools --with-browser
+```
+
+Omit `--apply` at any time for a dry run that writes
 nothing; a dry run also skips the live search unless you add `--search`.
 ChatGPT is separately opt-in with `--with-chatgpt`; it is not installed or added
 to source configuration by default. See [the optional workflow](#optional-chatgpt-connector).
@@ -32,9 +41,16 @@ to source configuration by default. See [the optional workflow](#optional-chatgp
   tests and repository health check; npm for `--with-browser`
 - `gh`, only for the GitHub MCP tools
 - Network access for the live search verification
+- A separately maintained, **built** goal-plugin checkout at
+  `../opencode-goal-plugin`, or its absolute path in `OPENCODE_GOAL_PLUGIN_DIR`.
+  Preflight checks `dist/server.js`; it does not clone an unpinned substitute.
+- Only for optional voice: initialize its pinned checkout with
+  `git submodule update --init -- voice-assistant`, then run its own setup below.
 
 The script never writes credentials. It does not authenticate GitHub, connect a
 search account, or store secrets; those remain interactive actions you own.
+For the GitHub tools, add `--with-github` to provision the checksum-pinned local
+MCP executable before deployment. It does not sign in or copy a saved login.
 
 Optional native chat-bar development has its own
 [pinned dependency inventory and bootstrap limits](tools/opencode-orchestration/README.md#bootstrap-dependency-inventory).
@@ -50,7 +66,11 @@ replace the client or restart sessions automatically.
 3. Only with `--with-chatgpt`, previews its source merge; on apply, installs its
    pinned dependencies and requires launcher preflight before merging source.
    A failure stops before global deployment. No account or ChatGPT tool is used.
-4. Deploys `global/opencode.jsonc`, `global/cli.json`, `global/commands/`, and
+4. Checks local plugin, skill and launcher paths plus required runtime libraries
+   before publishing configuration. Missing required components make apply fail,
+   not silently report success. Selected dependency installs happen first.
+5. Optionally selects the model in source without a second deployment.
+6. Deploys `global/opencode.jsonc`, `global/cli.json`, `global/commands/`, and
     `global/agents/` with `scripts/deploy-global-config.sh`. Selected files
     are copied only after a preservation preflight: unmanaged target entries
     and symlink/hardlinked/nonregular targets refuse before backup or writes.
@@ -58,10 +78,72 @@ replace the client or restart sessions automatically.
     is not deletion authority. Existing directories and unselected entries are
     left in place; there is no whole-directory deletion. A late unmanaged arrival
     is preserved and makes final verification fail rather than being deleted.
-5. Optionally sets the global model.
-6. Reports GitHub CLI authentication.
-7. Optionally installs `tools/browser` dependencies.
-8. Verifies the websearch provider list and runs one live query on `--apply`.
+7. Reports GitHub CLI authentication.
+8. Reports browser dependency presence.
+9. Verifies the websearch provider list and runs one live query on `--apply`.
+
+The deployer renders **both** server and CLI paths for the actual checkout,
+including absolute skill and MCP paths and the sibling goal-plugin location.
+Goal mode, personality, desktop/browser, goal-docs, memory, self-learning and
+ChatGPT direct are declared globally, not only discovered inside this project.
+Skills reference canonical source rather than deployed copies; keep the checkout
+in place. The optional ChatGPT **MCP companion** remains a separate opt-in.
+
+### Optional voice TUI
+
+Voice is off by default so ordinary onboarding cannot activate a microphone or
+register an unprepared audio plugin. After its separately selected setup:
+
+```sh
+cd voice-assistant
+./setup.sh --with-streaming
+cd ..
+./scripts/onboard.sh --apply --with-voice
+```
+
+The voice setup installs its locked JavaScript/Python dependencies and verified
+speech assets; it is not part of `--with-tools`. Voice registration then requires
+the installed environment, JavaScript dependency, platform executables and the
+real sandboxed `--recognition-only --recognizer-backend sherpa` model check.
+This check never opens audio devices. Missing/failed prerequisites stop before
+configuration publication. Physical recording/playback acceptance remains
+separate. Repeat `--with-voice` on later full deployments to retain this selected
+registration; no live voice configuration is changed by source edits alone.
+
+`--config-dir DIR` selects the deployment destination. It does not redirect the
+CLI's service discovery; use the verifier below for a fully isolated run.
+
+## Isolated runtime acceptance
+
+```sh
+node scripts/verify-onboarding.mjs --opencode /absolute/path/to/raw/opencode
+```
+
+Use the actual Linux executable, not a profile shim. The verifier creates a
+private HOME, config, data, cache, state, database, service port and empty project
+under `/tmp/opencode/`. It runs onboarding, checks every expected plugin, skill
+and key command, and reads the real tool registry through a test-only observer
+plugin. It navigates a local page through the real Playwright MCP, stops its
+owned service in cleanup and retains a JSON receipt. It neither registers
+substitute tools nor copies credentials or invokes a model.
+It also launches the real terminal UI in an owned bounded pseudo-terminal and
+observes the goal plugin's actual registered palette commands. Voice stays off
+in this test; its opt-in guards are tested separately.
+This is filesystem/service isolation, not a separate OS account or security
+sandbox. The verifier skips `gh` authentication checks and disables the GitHub
+wrapper **only in its test profile** so it cannot use the user's system keyring.
+Add `--with-github` to this verifier to also exercise the real checksum-pinned
+GitHub runtime download/install inside its private home, still without signing in.
+
+This proves server/tool loading, goal TUI plugin startup and browser navigation,
+not pixel-perfect layout, microphone/audio, desktop extension activation or
+authenticated account access.
+GitHub's checksum-pinned runtime and the user's own `gh` login remain separate
+prerequisites. Preview the runtime with
+`python3 scripts/mcp_runtime.py github-runtime --profile native`; add `--apply`
+only for an authorized install. The user runs `gh auth login` themselves.
+
+## Deployment preservation
 
 Deployment backs up replaced files to
 `<config-dir>/backup-YYYYMMDD-HHMMSS/` before writing. Use `--strict` when a
@@ -79,7 +161,9 @@ deployment/retirement authority and rollback remain separate gates.
 
 ## Optional ChatGPT connector
 
-ChatGPT is **not installed, configured or loaded by default**. Preview the opt-in:
+The optional ChatGPT **MCP companion** is not installed, configured or loaded by
+default. This is separate from the globally declared ChatGPT direct plugin.
+Preview the companion opt-in:
 
 ```sh
 ./scripts/onboard.sh --with-chatgpt --no-search

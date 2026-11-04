@@ -17,14 +17,18 @@ else
 fi
 APPLY=0
 ONLY=""
+WITH_VOICE=0
+CANONICAL_ROOT="/home/james/repos/computer-use"
+GOAL_PLUGIN_ROOT="${OPENCODE_GOAL_PLUGIN_DIR:-$(dirname "$ROOT")/opencode-goal-plugin}"
 
 usage() {
   cat <<'EOF'
-Usage: deploy-global-config.sh [--apply] [--config-dir DIR] [--only NAME[,NAME]]
+Usage: deploy-global-config.sh [--apply] [--config-dir DIR] [--only NAME[,NAME]] [--with-voice]
 
 Without --apply, prints the planned file changes and validates the source.
 With --apply, backs up the target files and copies the tracked global config.
 Selected target aliases and unmanaged directory entries are refused before writes.
+--with-voice opts in to the voice TUI only after its installed prerequisites pass.
 
 --only restricts the deployment to comma-separated entries from:
   opencode.jsonc, cli.json, commands, agents
@@ -39,6 +43,7 @@ fail() {
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --apply) APPLY=1; shift ;;
+    --with-voice) WITH_VOICE=1; shift ;;
     --config-dir)
       [ "$#" -ge 2 ] || fail "--config-dir requires a directory"
       TARGET="$2"
@@ -77,6 +82,12 @@ else
 fi
 
 [ -d "$SOURCE" ] || fail "tracked global config is missing: $SOURCE"
+if [ "$WITH_VOICE" -eq 1 ]; then
+  [[ " ${NAMES[*]} " == *" cli.json "* ]] || fail "--with-voice requires cli.json in the selected scope"
+  voice_check=--check
+  [ "$APPLY" -eq 1 ] && voice_check=--verify-models
+  bash "$ROOT/scripts/voice-onboarding-preflight.sh" "$voice_check"
+fi
 [ -n "$TARGET" ] || fail "target config directory is empty"
 case "$TARGET" in
   /|//|.) fail "refusing unsafe target: $TARGET" ;;
@@ -161,11 +172,61 @@ print(f"source={source}")
 print(f"target={target}")
 PY
 
+# Render in memory: previews must not create files, even temporary ones. Both
+# server and TUI paths must refer to this checkout, not the template author's home.
+render_config() {
+  python3 - "$SOURCE/$1" "$ROOT" "$CANONICAL_ROOT" "$GOAL_PLUGIN_ROOT" "$WITH_VOICE" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+path, root, canonical, goal_root, with_voice = sys.argv[1:]
+text = Path(path).read_text(encoding="utf-8")
+prefixes = [(canonical, root), ("~/repos/computer-use", root),
+            ("/home/james/repos/opencode-goal-plugin", str(Path(goal_root).absolute()))]
+
+def render(value):
+    if isinstance(value, str):
+        for old, new in prefixes:
+            if value == old or value.startswith(old + "/"):
+                return new + value[len(old):]
+        return value
+    if isinstance(value, list):
+        return [render(item) for item in value]
+    if isinstance(value, dict):
+        return {key: render(item) for key, item in value.items()}
+    return value
+
+original = json.loads(text)
+rendered = render(original)
+if Path(path).name == "cli.json" and with_voice == "1":
+    rendered.setdefault("plugins", []).append({"package": str(Path(root) / "voice-assistant"),
+                                                "options": {"recognitionBackend": "sherpa"}})
+sys.stdout.write(text if rendered == original else json.dumps(rendered, indent=2) + "\n")
+PY
+}
+
+SERVER_CONFIG="$(render_config opencode.jsonc)"
+CLI_CONFIG="$(render_config cli.json)"
+config_content() {
+  case "$1" in
+    opencode.jsonc) printf '%s\n' "$SERVER_CONFIG" ;;
+    cli.json) printf '%s\n' "$CLI_CONFIG" ;;
+  esac
+}
+
 changed=0
 for name in "${NAMES[@]}"; do
   src="$SOURCE/$name"
   dst="$TARGET/$name"
-  if [ -e "$dst" ] && diff -qr --exclude='*.bak.*' "$src" "$dst" >/dev/null 2>&1; then
+  if [[ "$name" = *.json* ]]; then
+    matches=false
+    if [ -f "$dst" ] && diff -q <(config_content "$name") "$dst" >/dev/null 2>&1; then matches=true; fi
+  else
+    matches=false
+    if [ -e "$dst" ] && diff -qr --exclude='*.bak.*' "$src" "$dst" >/dev/null 2>&1; then matches=true; fi
+  fi
+  if [ "$matches" = true ]; then
     printf 'unchanged: %s\n' "$name"
   else
     printf 'update: %s\n' "$name"
@@ -206,6 +267,10 @@ for name in "${NAMES[@]}"; do
         done
       )
       ;;
+    opencode.jsonc|cli.json)
+      cp -a --remove-destination -- "$SOURCE/$name" "$TARGET/$name"
+      config_content "$name" > "$TARGET/$name"
+      ;;
     *)
       cp -a --remove-destination -- "$SOURCE/$name" "$TARGET/$name"
       ;;
@@ -213,7 +278,11 @@ for name in "${NAMES[@]}"; do
 done
 
 for name in "${NAMES[@]}"; do
-  diff -qr --exclude='*.bak.*' "$SOURCE/$name" "$TARGET/$name" >/dev/null || fail "verification failed for $name"
+  if [[ "$name" = *.json* ]]; then
+    diff -q <(config_content "$name") "$TARGET/$name" >/dev/null || fail "verification failed for $name"
+  else
+    diff -qr --exclude='*.bak.*' "$SOURCE/$name" "$TARGET/$name" >/dev/null || fail "verification failed for $name"
+  fi
 done
 
 printf 'deploy-global-config: deployed %s\n' "$TARGET"

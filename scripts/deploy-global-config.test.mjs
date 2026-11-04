@@ -180,6 +180,75 @@ test("an unselected customized directory is neither validated as owned nor repla
   assert.equal(await readFile(path.join(f.target, "opencode.jsonc"), "utf8"), '{"fixture":"before"}\n')
 })
 
+test("deployment renders server, skill, MCP and TUI paths for the actual checkout", async t => {
+  const f = await fixture(t)
+  const server = {
+    skills: ["~/repos/computer-use/.opencode/skills"],
+    plugins: [{ package: "/home/james/repos/computer-use/.opencode/plugins/memory" },
+      { package: "/home/james/repos/opencode-goal-plugin" }],
+    mcp: { servers: { playwright: { command: ["/home/james/repos/computer-use/scripts/playwright-mcp.sh"] } } },
+  }
+  const cli = { plugins: ["/home/james/repos/computer-use/voice-assistant", "/home/james/repos/opencode-goal-plugin"] }
+  await writeFile(path.join(f.directory, "global/opencode.jsonc"), JSON.stringify(server))
+  await writeFile(path.join(f.directory, "global/cli.json"), JSON.stringify(cli))
+  const before = (await readdir(f.directory)).sort()
+  const preview = f.run()
+  assert.equal(preview.status, 0, preview.stderr)
+  assert.deepEqual((await readdir(f.directory)).sort(), before, "preview must not create scratch files")
+  assert.equal(await readFile(path.join(f.target, "cli.json"), "utf8"), '{"fixture":"before"}\n')
+  const apply = f.run(["--apply"])
+  assert.equal(apply.status, 0, apply.stderr)
+  const deployed = JSON.parse(await readFile(path.join(f.target, "opencode.jsonc"), "utf8"))
+  assert.deepEqual(deployed.skills, [path.join(f.directory, ".opencode/skills")])
+  assert.equal(deployed.plugins[0].package, path.join(f.directory, ".opencode/plugins/memory"))
+  assert.equal(deployed.plugins[1].package, path.join(path.dirname(f.directory), "opencode-goal-plugin"))
+  assert.deepEqual(deployed.mcp.servers.playwright.command, [path.join(f.directory, "scripts/playwright-mcp.sh")])
+  assert.deepEqual(JSON.parse(await readFile(path.join(f.target, "cli.json"), "utf8")).plugins,
+    [path.join(f.directory, "voice-assistant"), path.join(path.dirname(f.directory), "opencode-goal-plugin")])
+  const second = f.run(["--apply"])
+  assert.equal(second.status, 0, second.stderr)
+  assert.match(second.stdout, /already matches/)
+})
+
+test("path rendering JSON-escapes spaces, quotes and shell metacharacters without executing them", async t => {
+  const f = await fixture(t)
+  const relocated = path.join(f.directory, 'checkout with "quotes" & # $chars')
+  await mkdir(relocated)
+  for (const name of ["scripts", "global"]) {
+    const { cp } = await import("node:fs/promises")
+    await cp(path.join(f.directory, name), path.join(relocated, name), { recursive: true })
+  }
+  await writeFile(path.join(relocated, "global/cli.json"), JSON.stringify({ plugins: ["/home/james/repos/computer-use/voice-assistant"] }))
+  const result = spawnSync("bash", [path.join(relocated, "scripts/deploy-global-config.sh"), "--config-dir", f.target, "--apply"], {
+    env: { PATH: "/usr/bin:/bin", HOME: f.directory }, encoding: "utf8", timeout: 5000,
+  })
+  assert.equal(result.status, 0, result.stderr)
+  assert.deepEqual(JSON.parse(await readFile(path.join(f.target, "cli.json"), "utf8")).plugins,
+    [path.join(relocated, "voice-assistant")])
+})
+
+test("voice is added only by explicit opt-in after its installed prerequisites pass", async t => {
+  const f = await fixture(t)
+  await writeFile(path.join(f.directory, "scripts/voice-onboarding-preflight.sh"), '#!/bin/bash\n[[ "$1" = --verify-models ]]\n')
+  const result = f.run(["--apply", "--with-voice", "--only", "cli.json"])
+  assert.equal(result.status, 0, result.stderr)
+  assert.deepEqual(JSON.parse(await readFile(path.join(f.target, "cli.json"), "utf8")).plugins, [
+    { package: path.join(f.directory, "voice-assistant"), options: { recognitionBackend: "sherpa" } },
+  ])
+})
+
+test("failed voice preflight blocks publication before backup or writes", async t => {
+  const f = await fixture(t)
+  await writeFile(path.join(f.directory, "scripts/voice-onboarding-preflight.sh"), "#!/bin/bash\nexit 9\n")
+  const result = f.run(["--apply", "--with-voice"])
+  assert.equal(result.status, 9)
+  assert.deepEqual((await readdir(f.target)).sort(), f.originalNames)
+  assert.equal(await readFile(path.join(f.target, "cli.json"), "utf8"), '{"fixture":"before"}\n')
+  const wrongScope = f.run(["--with-voice", "--only", "commands"])
+  assert.notEqual(wrongScope.status, 0)
+  assert.match(wrongScope.stderr, /requires cli.json/)
+})
+
 for (const kind of ["directory", "symlink"]) {
   test(`an existing backup ${kind} is never reused or changed`, async t => {
     const f = await fixture(t, { fixedStamp: true })

@@ -2,6 +2,7 @@ import assert from "node:assert/strict"
 import test from "node:test"
 import { readFile } from "node:fs/promises"
 import { CAPTURE_BYTE_LIMIT, CAPTURE_DURATION_MS, createCaptureAcquisition } from "../src/capture-acquisition.mjs"
+import { createCaptureTransport } from "../src/capture-transport.mjs"
 
 function bytesResponse(text) {
   const source = new TextEncoder().encode(text)
@@ -77,12 +78,25 @@ test("the earlier after-read transform demonstrates why rejection alone is not a
 })
 
 test("future fixture capture uses the shared pre-read helper and keeps the original envelope", async () => {
-  const source = await readFile(new URL("../../../.acceptance-fixtures/memory-model-KZru3M/capture.mjs", import.meta.url), "utf8")
+  const source = await readFile(new URL("../src/capture-transport.mjs", import.meta.url), "utf8")
   assert.ok(source.includes("return acquisition.wrapResponse(response)"))
   assert.ok(source.includes("acquisition.close()"))
-  assert.ok(source.includes("bytes: acquisition.bytes, byteLimit: 2097152"))
-  assert.ok(source.includes("recordLimit: 2048, durationLimitMs: 120000"))
+  const transport = createCaptureTransport(async () => bytesResponse("bounded").response)
+  try {
+    assert.equal(await (await transport.fetch("http://fixture.invalid/")).text(), "bounded")
+    assert.deepEqual(transport.metrics(), { bytes: 7, byteLimit: 2097152, recordLimit: 2048, durationLimitMs: 120000 })
+  } finally { transport.close() }
+  await assert.rejects(transport.fetch("http://fixture.invalid/"), /closed/)
   assert.equal(source.includes("pipeThrough(new TransformStream"), false)
+})
+
+test("the maintained capture transport still refuses before a fifth byte under a reduced test allowance", async t => {
+  const fixture = bytesResponse("oversized")
+  const transport = createCaptureTransport(async () => fixture.response, { byteLimit: 4 })
+  t.after(() => transport.close())
+  await assert.rejects((await transport.fetch("http://fixture.invalid/")).text(), { code: "byte-limit" })
+  assert.equal(fixture.acquired, 4)
+  assert.equal(transport.metrics().bytes, 4)
 })
 
 test("concurrent response bodies share pre-read accounting rather than each spending the full cap", async t => {

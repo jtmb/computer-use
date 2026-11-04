@@ -43,7 +43,7 @@
       "github": {
         "type": "local",
         "command": [
-          "/home/shak/repos/computer-use/scripts/github-mcp.sh"
+          "/home/james/repos/computer-use/scripts/github-mcp.sh"
         ],
         "disabled": false,
         "timeout": {
@@ -53,7 +53,7 @@
       "playwright": {
         "type": "local",
         "command": [
-          "/home/shak/repos/computer-use/scripts/playwright-mcp.sh"
+          "/home/james/repos/computer-use/scripts/playwright-mcp.sh"
         ],
         "disabled": false,
         "timeout": {
