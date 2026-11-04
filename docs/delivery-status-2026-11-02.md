@@ -120,3 +120,19 @@ Final state check at closure: `./scripts/health-check.sh` reports **PASSED**;
 the only merge commit in history is `b47765e` from 2026-10-26, predating this
 delivery; 48 commits were made during this delivery; the 389 pre-existing dirty
 entries were left untouched.
+
+## Housekeeping — 2026-11-04
+
+Removed stale branches and local snapshots after confirming `main` already
+carries newer versions of their content:
+
+| Removed | Tip | Why it was safe |
+| --- | --- | --- |
+| `agent-memory-review` (local and remote) | `8ffffe4` | `main` has the same memory plugin plus 919 newer lines (acceptance tests, expanded suite, core fixes) |
+| `docs/readme-splice-maintenance` / local PR branch (both) | `11cbb76` | `main` has an expanded `readme-maintenance` skill, an additional layout reference, and the identical `splice.png` blob `fa88e96` |
+| `consolidated-delivery` (local; already merged) | `c71b8cc` | Contained in `main` |
+
+Also deleted three stale `opencode.json.backup-*` files (older plugin lists; the
+committed configuration is authoritative) and the generated
+`.acceptance-fixtures` directory. The repository now has one branch, `main`,
+one worktree, and a clean working tree.
