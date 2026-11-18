@@ -1,25 +1,5 @@
 ---
-{
-  "version": 1,
-  "owner": "opencode-memory",
-  "id": "agent-inbox",
-  "scope": "repo",
-  "title": "Remove the custom agent inbox",
-  "tags": [
-    "agents",
-    "coordination",
-    "decisions",
-    "inbox",
-    "removal"
-  ],
-  "kind": "decision",
-  "updated": "2026-10-31",
-  "verified": "2026-10-30",
-  "sources": [
-    "docs/session-consolidation-2026-10-29.md#approved-implementation-continuation--2026-10-30",
-    "docs/deployments/2026-10-29-goal-plugin.md"
-  ]
-}
+{"version": 1, "owner": "opencode-memory", "scope": "repo", "id": "agent-inbox", "title": "Remove the custom agent inbox", "tags": ["agents", "coordination", "decisions", "inbox", "removal"], "kind": "decision", "updated": "2026-10-31", "verified": "2026-10-30", "sources": ["docs/session-consolidation-2026-10-29.md#approved-implementation-continuation--2026-10-30", "docs/deployments/2026-10-29-goal-plugin.md"]}
 ---
 
 Current decision — 2026-10-30: remove the custom agent inbox/mailbox feature, including its UI, delivery/settings exposure, automatic injection and mandatory inbox reads. Use native child-completion notifications for delegated results; do not substitute peer traffic in the human prompt queue. Preserve already stored message history inert unless its deletion is separately authorized.

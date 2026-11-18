@@ -1,3 +1,6 @@
+---
+{"version": 1, "owner": "opencode-memory", "scope": "repo", "id": "maintenance-plan", "title": "Memory staleness and pruning plan", "tags": ["memory", "maintenance", "pruning"], "kind": "policy", "updated": "2026-11-02", "verified": "2026-11-02", "sources": [".opencode/plugins/memory/README.md", "AGENTS.md"]}
+---
 # Memory staleness and pruning plan
 
 **Status: policy/design, 2026-10-27.** No pruning, archive operation, scheduler,
@@ -115,3 +118,6 @@ write/readback failures; interrupted moves; and lossless restore with conflicts.
 Use real isolated filesystem fixtures and injected I/O failures, not production
 notes. Documentation checks prove only this policy's coverage, not those future
 features or live maintenance acceptance.
+
+Format converted to version 1 on 2026-11-18; the dates reflect the last repository change, not a new fact check.
+

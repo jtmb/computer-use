@@ -1,26 +1,5 @@
 ---
-{
-  "version": 1,
-  "owner": "opencode-memory",
-  "id": "coordination-workflow",
-  "scope": "repo",
-  "title": "Background-agent model preferences",
-  "tags": [
-    "agents",
-    "delegation",
-    "models",
-    "workflow"
-  ],
-  "kind": "preference",
-  "updated": "2026-10-28",
-  "verified": "2026-10-28",
-  "sources": [
-    "User model/delegation preferences, 2026-10-28",
-    "User request to remember DeepSeek availability, 2026-10-28; verified with the runtime models tool",
-    "AGENTS.md#goal-progress-and-backlog",
-    ".opencode/skills/agent-orchestration/SKILL.md"
-  ]
-}
+{"version": 1, "owner": "opencode-memory", "scope": "repo", "id": "coordination-workflow", "title": "Background-agent model preferences", "tags": ["agents", "delegation", "models", "workflow"], "kind": "preference", "updated": "2026-10-28", "verified": "2026-10-28", "sources": ["AGENTS.md#goal-progress-and-backlog", ".opencode/skills/agent-orchestration/SKILL.md"]}
 ---
 
 When delegation is explicitly authorized, use GPT-6 Luna at xhigh effort for implementation by default. Partition independent work among up to 10 background agents, subject to actual runtime admission limits and non-overlapping ownership; do not create agents just to fill the cap.
@@ -32,3 +11,6 @@ DeepSeek is also available for delegated work. Verified on 2026-10-28: `deepseek
 Use ordinary parent-owned background subagents, not a dedicated independent reviewer/worker-chat ceremony. The parent coordinates, independently verifies results, and alone manages goals. Successor handoff remains a separate mechanism.
 
 This records model/workflow preferences, not standing permission for future sessions or deployments. Preserve separate commit, push, publication, deployment/activation, and security-change approval gates.
+
+Recorded from the user's 2026-10-28 model/delegation preferences and DeepSeek availability request. Those two citations are conversation evidence; no repository file records them.
+
