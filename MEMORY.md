@@ -8,3 +8,5 @@
 - Older general background-agent preference (not this continuation's model choice): Luna xhigh, Sol medium/high when needed, subject to actual runtime admission. [Model and workflow preferences](docs/memory/coordination-workflow.md)
 - Parent-only goal planning and progress: [AGENTS.md](AGENTS.md#goal-progress-and-backlog) and the goal tools. Do not duplicate plans or status here.
 - Add topic links only when a concise, reusable note is actually needed.
+
+- [Memory staleness and pruning plan](docs/memory/maintenance-plan.md)
