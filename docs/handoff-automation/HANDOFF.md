@@ -28,7 +28,7 @@ prompt with a document link/path and sends it to one new independent chat with
 
 Baseline: 82 goal-docs tests and strict installed SDK 2.1.1 typechecking passed.
 See [the simplification audit](../handoff-simplification-audit.md) and
-[plugin documentation](../../.opencode/plugins/goal-docs/README.md).
+plugin documentation (now `~/repos/plugins/goal-docs/README.md`).
 
 ## Ownership and approvals
 

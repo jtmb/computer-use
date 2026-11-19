@@ -14,11 +14,10 @@ external-work locators, not native OpenCode behavior or a deployment approval.
 - AT-SPI implementation: [desktop-control.py](../scripts/desktop-control.py).
   Native bridge: [GNOME package](../tools/gnome-window-control/README.md);
   browser backend: [computer-use-browser](../tools/computer-use-browser/README.md).
-  [tools/browser/](../tools/browser/package.json) instead pins the external Playwright MCP.
-- Wrappers: [scripts/](../scripts/); pins: [mcp-versions.json](../config/mcp-versions.json).
-  Source config registers GitHub and Playwright wrappers; declaration is not live connection.
+- Helpers: [scripts/](../scripts/). Source config registers no MCP servers; the GitHub
+  and Playwright launchers moved to `~/repos/veyra-monorepo/mcp-servers/` on 2026-11-19.
 - Do not edit deployed copies under `~/.config/opencode/` or another runtime profile.
-  [Setup](../setup.md) and [onboarding](../onboarding.md) own preview/apply/backup/rollback.
+  [Setup](../setup.md) owns preview/apply/rollback for the plugin and GNOME bridge.
 
 Parent `/home/james/AGENTS.md` describes `~/scripts/skills/` while this checkout's
 instructions/config select `.opencode/skills/`. This conflict is recorded, not

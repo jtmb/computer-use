@@ -372,7 +372,7 @@ unattributed; this child-path fix is not their proven cause or a full-type pass.
 Version-matched Go1.26.4 runtime/debug review confirms `GOMEMLIMIT` is soft and
 excludes non-Go/tree overhead; no additional knob or full run is authorized by
 that research. Raw evidence is in Documents`compiler-teardown-parent-nwstm7`;
-the [owning guide](../tools/opencode-native-row/full-graph-diagnostics.md#soft-limit-review-and-child-teardown-correction--parent-2026-10-31)
+the owning guide (removed 2026-11-19; see Git tag `pre-split`)
 preserves all earlier exhausted full routes and limits.
 
 Final strengthened monitor-focused selection passes15/15 (nine top-level plus
@@ -1800,7 +1800,7 @@ Observed owner/path/fingerprint and no edit-authority claim match actual native
 content. Parent explicitly released its own reservation after terminal release,
 then read an active:false historical snapshot with changed fingerprint; no record
 deletion, message/ACK/policy update, activation/restart or inferred loading cause.
-[Exact native IDs and remaining matrix](../tools/session-coordination/ACCEPTANCE.md#actual-ownership-visibility-failure--2026-10-30).
+Exact native IDs and remaining matrix (removed 2026-11-19; see Git tag `pre-split`).
 
 ## Actual conflict comparison — 2026-10-30 UTC
 
@@ -1858,7 +1858,7 @@ excluding files or altering flags. Strict2827file/four-overlay equivalence passe
 nine mirror/comparator negative controls pass separately. One previously unrun
 original-guard1536MiB full direct-CLI diagnostic attempt then reached1537.801MiB
 and was killed at70.874s, with no diagnostic output. This remains a resource
-failure, not a typecheck result or a reason to raise guards. [Exact receipts](../tools/opencode-native-row/session-active.md#fresh-current-tree-route-and-actual1536mib-full-cli-result--2026-10-30-utc)
+failure, not a typecheck result or a reason to raise guards. Exact receipts (removed 2026-11-19; see Git tag `pre-split`)
 preserve the first assertion failure and the actual terminal evidence.
 
 The actual source-error compiler control emitted exactly TS2322 but returned1;
@@ -1868,7 +1868,7 @@ library-only check requiring exact native exit1 and exact TS2304 with full libra
 checking; it passed without rerunning source/positive/full-host controls. EEXIST
 publication controls prevent receipt overwrite before a second compiler spawn.
 Both runs stay inside the original512MiB RSS/1280MiB floor/1792MiB prelaunch/90s
-envelope. [Durable evidence](../tools/opencode-native-row/session-active.md#unfinished-negative-controls-completed--2026-10-30-utc)
+envelope. Durable evidence (removed 2026-11-19; see Git tag `pre-split`)
 is not full-host acceptance.
 
 The earlier startup omission now has two red/green source contracts and a minimal
@@ -2519,7 +2519,7 @@ discovery reports 37 passes and three opt-in runtime skips; current health passe
 An actual read-only native CLI discovery confirms the current service/chat ID.
 An in-memory mutation removing the production identity guard accepts a wrong PID,
 while production rejects it; no production/source file was changed. The bounded
-[acceptance checklist](../tailscale/docs/gateway-acceptance.md) maps requirements
+acceptance checklist (now `~/repos/plugins/tailscale/docs/gateway-acceptance.md`) maps requirements
 to source/local evidence and retains every native/remote/deployment gate.
 
 Important limits: host-network runtime and effective foreground Serve JSON remain
@@ -2659,7 +2659,7 @@ omitted source root; corrected `tsconfig.types.json` did not run after the failu
 Actual65.200791 s/peak888.222656 MiB/minimum available1,729.386719 MiB remained
 within1,024 MiB RSS/768 MiB heap/1,280 MiB system-floor/90-second guards.
 Durable scripts/results receipt SHA1c7d953ca40412fe492f5dcfa6d61879029c97ca8fa36b1ed42bb0d884fc495f
-and error details are linked from the [observation guide](../tools/opencode-native-row/provider-observation.md).
+and error details are linked from the observation guide (removed 2026-11-19; see Git tag `pre-split`).
 This does not complete full-host checking, loaded rows, provider execution or
 native participant/model acceptance. All children released ownership; no live
 profile/deployment/restart/credential operation occurred.
@@ -2706,7 +2706,7 @@ refused at2,245.253906 MiB. Guards stayed768 MiB heap/1,024 MiB owned RSS/1,280 
 available floor/90 seconds per worker. No type shard ran, so sharded type acceptance
 is unverified; no full-host/provider/native/live acceptance follows. Exact output
 receipts, reproducible selectors and the still-required checks are in the
-[compatibility guide](../tools/opencode-native-row/declaration-compatibility.md).
+compatibility guide (removed 2026-11-19; see Git tag `pre-split`).
 
 **Subsequent type-config completion:** fresh available memory2,904 MiB permitted
 the first four actual type shards; each completed the same35-root/1,334-file graph
@@ -3415,7 +3415,7 @@ This is a source/fixture audit, not a complete repository or live test audit.
 | --- | --- |
 | [Onboarding docs](../scripts/onboarding-docs.test.mjs) | The old flag check accepted a flag if it appeared in **any** of three scripts, so a flag documented for the wrong script could pass. Replaced with per-owner option-table validation against actual `bash SCRIPT --help` output and a negative wrong-owner fixture. Seven tests passed independently; help execution does not apply setup or call live search. Default-off/source wording tests remain source contracts, not deployment proof. |
 | [Repository memory docs](../scripts/repo-memory.test.mjs) | Nine tests passed, including local link/anchor containment and the new maintenance-policy boundary. Prose assertions are intentionally documentation contracts; they do not implement or verify archive/restore. No redundant failure case was removed. |
-| [Scoped memory](../.opencode/plugins/memory/memory.test.ts) | Twelve original passes missed late-body terms, metadata-secret screening and malformed global citations. Eighteen corrected tests passed after real comparative ranking, exact citation and I/O failure fixtures were added. Parent reproduction then found a long **single** paragraph still returned an excerpt without its query. Further correction remains pending; passing short-paragraph fixtures are not full retrieval acceptance. The documented pathname cleanup race is not solved by the fixture suite. |
+| Scoped memory (now `~/repos/plugins/archive/memory/memory.test.ts`) | Twelve original passes missed late-body terms, metadata-secret screening and malformed global citations. Eighteen corrected tests passed after real comparative ranking, exact citation and I/O failure fixtures were added. Parent reproduction then found a long **single** paragraph still returned an excerpt without its query. Further correction remains pending; passing short-paragraph fixtures are not full retrieval acceptance. The documented pathname cleanup race is not solved by the fixture suite. |
 | [Memory retirement](../scripts/test_memory_retirement.py) | Fourteen corrected tests passed independently. Real temporary Git repositories, a linked worktree, positive init/remember/readback, nested cwd and a no-write real-checkout preview now cover gaps missed by the original eleven tests. Installer transport is mocked, but actual archive checksum/target and synthetic executable verification run. Missing `setup-opencode-jsonc.py` means file-based config verification remains untested. |
 | [Health check](../scripts/health-check.test.mjs) | The real health shell runs with fake OpenCode/Node executables at the I/O boundary. Tests distinguish bad/duplicate/missing/location-mismatched inventory and failed source suites. Useful subprocess behavior coverage, not proof of a live service; retain those distinct cases. Scratch fixture cleanup is a review opportunity, not permission to delete existing scratch data. |
 | [Desktop authorization](../.opencode/plugins/computer-use/contract.test.ts) | The registered adapter is exercised with fake backend/permission I/O. The fixture policy matcher is not OpenCode's actual permission engine: keep registration/zero-backend-call assertions and do not report these as native runtime-policy acceptance. |
@@ -3460,7 +3460,7 @@ not any unavailable live acceptance or incoming setup-helper verification.
 
 At the next integration boundary, the parent reviewed the actual shell flow,
 source helper and runtime generator, not only documentation claims. Five new
-[Bash subprocess tests](../scripts/onboard.test.mjs) exercise opt-out, explicit
+Bash subprocess tests (removed 2026-11-19; see Git tag `pre-split`) exercise opt-out, explicit
 preview, selected apply ordering and helper failure before deployment, in real
 temporary checkouts with only external executables/helpers faked. The accepted
 17 source-merge fixtures remain separate: they test actual JSON/filesystem/

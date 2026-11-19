@@ -1,7 +1,10 @@
 # AGENTS.md — computer-use
 
-Canonical source for Splice's OpenCode v2 configuration, skills and integrations:
-`~/repos/computer-use`. This is an index with always-applicable safeguards.
+Canonical source for Splice's computer-use OpenCode v2 plugin (the `desktop`, `web`
+and `cua` tools) and its backends under `tools/`. The repository skills still live
+here for now. Other plugins and MCPs moved out on 2026-11-19; see
+[setup](setup.md#moved-out-of-this-repository-2026-11-19). This is an index with
+always-applicable safeguards.
 
 ## Start Here
 
@@ -129,7 +132,7 @@ Source is `.opencode/skills/<name>/SKILL.md`; source presence is not runtime ava
 | OpenCode DB backup/maintenance | `opencode-db-maintenance` |
 
 Read [maintainer policy](docs/maintainer-policy.md) before source-layout, verification
-or deployment work; [setup](setup.md)/[onboarding](onboarding.md) own installation.
+or deployment work; [setup](setup.md) owns installation.
 [Documentation index](docs/README.md) distinguishes active guides from historical evidence.
 
 ## Verification

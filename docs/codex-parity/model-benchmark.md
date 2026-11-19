@@ -76,7 +76,7 @@ fail: `/tmp/opencode`, `/home/james/repos` and the canonical checkout are0775.
 The validator permits only scratch/repository descendants and checks full ancestry,
 so a private child directory cannot hide an unsafe ancestor. No runner, browser,
 provider request, fallback root or permission change was used. Separate native
-[compiler control results](../../tools/opencode-native-row/session-active.md#unfinished-negative-controls-completed--2026-10-30-utc)
+compiler control results (removed 2026-11-19; see Git tag `pre-split`)
 are not benchmark evidence.
 
 ## Run flow (gated; not yet executed)

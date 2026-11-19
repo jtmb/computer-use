@@ -51,7 +51,7 @@ at `ba546ec1598a70db2570e9c6258028d955ba8f58`:
   record. `schema/src/session-message.ts:215–239` retains selection separately.
 - Unpatched `ai/src/protocols/open-responses.ts:1346–1358` emits response ID/tier
   but not reported model/effort. The separate
-  [producer follow-up](../../tools/opencode-native-row/provider-observation.md)
+  producer follow-up (removed 2026-11-19; see Git tag `pre-split`)
   now passes33 actual offline native protocol cases after six unpatched failures.
   It must not promote response reports to execution proof or infer absent effort.
 

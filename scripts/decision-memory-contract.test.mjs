@@ -9,7 +9,6 @@ const read = (name) => readFile(path.join(root, name), "utf8")
 const skillPath = ".opencode/skills/task-memory/SKILL.md"
 const usagePath = ".opencode/skills/task-memory/README.md"
 const protocolPath = "docs/memory/README.md"
-const pluginPath = ".opencode/plugins/memory/README.md"
 const unwrap = (text) => text.split("\n").map((line) => line.trim()).filter(Boolean).join(" ")
 
 // Keywords fail when guidance is removed; these are source contracts only, not model acceptance.
@@ -99,9 +98,10 @@ test("removing any contract clause fails instead of passing on prechange wording
   }
 })
 
-test("decision metadata matches the tool's actual version-1 schema", async () => {
-  const plugin = unwrap(await read(pluginPath))
-  assert.match(plugin, /The exact version-1 keys are `version`, `owner`, `id`, `scope`, `title`, `tags`, `kind`, `updated`, `verified`, and `sources`\./)
+// The memory tool was archived on 2026-11-19, so the protocol document is now the
+// schema source of record.
+test("decision metadata matches the documented version-1 schema", async () => {
+  assert.match(unwrap(protocolRaw), /`version`, `owner`, `id`, `scope`, `title`, `tags`, `kind`, `updated`, `verified` and `sources`/)
   const documented = [skillRaw, usageRaw, protocolRaw].join("\n")
   assert.doesNotMatch(documented, /"(?:status|supersedes|supersededBy|expires|pinned)"\s*:/,
     "decision notes must not show unsupported metadata as a JSON field")

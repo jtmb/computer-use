@@ -253,9 +253,9 @@ Use the exposed supported current-session rename tool and inspect its result;
 do not assume the visible name changed because a goal hook exists in source.
 Preserve known user-chosen custom titles unless goal-driven renaming is authorized.
 
-The existing [native mutation hook](../.opencode/plugins/goal-docs/goal-tool-titles.ts)
+The existing native mutation hook (now `~/repos/plugins/goal-docs/goal-tool-titles.ts`)
 already selects mutating tools and rejects read/error/reused/conflicting results.
-Its [automatic controller](../.opencode/plugins/goal-docs/README.md#ordinary-root-goal-task-titles)
+Its automatic controller (now `~/repos/plugins/goal-docs/README.md`)
 still requires conditional-title host support. This instruction change does not
 weaken that guard, deploy the native artifact or prove automatic runtime behavior.
 The user-requested direct rename on 2026-11-01 succeeded through the exposed tool;

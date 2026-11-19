@@ -70,7 +70,7 @@ not the missing scratch receipt; [consolidation](main-consolidation.md#restart-c
 records exact provenance and restart limits. Full-host verification remains an
 engineering item, not a reason to narrow the graph or abandon independent work.
 
-The later [response-observation work](../../tools/opencode-native-row/provider-observation.md)
+The later response-observation work (removed 2026-11-19; see Git tag `pre-split`)
 adds genuine native producer33/consumer82 passing cases with meaningful unpatched
 failures and unchanged upstream source. A complete AI-package first config finished
 all diagnostic groups for1,268 files but failed six Bun/gaxios declaration errors;
@@ -79,7 +79,7 @@ all six exact diagnostics without loading the producer. That is neither a smalle
 acceptance graph nor a strict pass. Dependency compatibility remains engineering
 work; no pin, library bypass, profile or loaded runtime was changed.
 
-The later [declaration compatibility preparation](../../tools/opencode-native-row/declaration-compatibility.md)
+The later declaration compatibility preparation (removed 2026-11-19; see Git tag `pre-split`)
 backports a published gaxios callable-contract fix and selects authentic Node26
 declarations explicitly. Meaningful parameter/return/library negatives remain
 detected. The entire AI source config now has a compatibility result of218 roots/
@@ -143,7 +143,7 @@ separate from the unverified guarantee of transfer before native compaction.
 
 ## Coordination activation preflight
 
-**Parent implementation refresh:** the [new source-readiness record](../../tools/session-coordination/READINESS.md)
+**Parent implementation refresh:** the new source-readiness record (removed 2026-11-19; see Git tag `pre-split`)
 now contains an independently passing 83-test suite and actual strict check of
 19 TypeScript roots with library checking enabled. The guarded checker pins
 authentic declaration bytes; the project-only activation preview performed no
@@ -151,7 +151,7 @@ config/state writes. The compiler failure and old script contract below remain
 historical diagnosis, not current readiness. Native activation, participant and
 rendered outcomes remain separately unverified.
 
-Verified package root: [`tools/session-coordination/`](../../tools/session-coordination/), not a similarly named tool or the global skill. Its `package.json` defines:
+Verified package root: `tools/session-coordination/` (removed 2026-11-19; see Git tag `pre-split`), not a similarly named tool or the global skill. Its `package.json` defines:
 
 ```sh
 # From /home/james/repos/computer-use/tools/session-coordination

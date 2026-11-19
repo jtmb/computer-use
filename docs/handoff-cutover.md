@@ -16,7 +16,7 @@ procedure below remains the gate for other targets and subsequent live testing.
 ## Source layout and authority
 
 - The project-local companion is under
-  [`.opencode/plugins/goal-docs/`](../.opencode/plugins/goal-docs/README.md).
+  `.opencode/plugins/goal-docs/` (now `~/repos/plugins/goal-docs/README.md`).
   Its server is RPC-only; the intended initiating TUI owns one command with both
   palette and `/handoff` access. Colocated `index.ts` and `tui.ts` are discovered
   together. Do not add competing CLI/project registrations; any separately
@@ -129,7 +129,7 @@ the legacy command and local modifications in a backup beside the target before
 any approved retirement or replacement. Retain unrelated runtime commands.
 
 **Do not use a whole-directory deployment as an implicit one-command cutover.**
-[`deploy-global-config.sh`](../scripts/deploy-global-config.sh) with
+`deploy-global-config.sh` (removed 2026-11-19; see Git tag `pre-split`) with
 `--only commands --apply` replaces the entire deployed commands directory. It can
 remove unrelated local entries; this guide does not authorize that operation.
 

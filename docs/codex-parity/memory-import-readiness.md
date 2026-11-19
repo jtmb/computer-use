@@ -494,7 +494,7 @@ absence from lexical retrieval and the index; that stronger claim is not accepte
 This supervised mechanism trial is not unprompted/general routing, human gold,
 matched overhead, a corpus candidate promotion or a repair of old failures.
 
-The source-qualified [parent review](../../.acceptance-fixtures/memory-model-KZru3M/capture-attempts/preread-20261031-a1/parent-review.json)
+The source-qualified parent review (removed 2026-11-19; see Git tag `pre-split`)
 and structural report preserve IDs/counts/limits, not raw events/messages/reasoning.
 
 Parent reconciled the returned source analysis with pinned2.1.1 code and completed

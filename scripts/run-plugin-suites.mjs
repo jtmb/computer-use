@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Runs both OpenCode plugin test suites from a fixed, explicit directory list.
+ * Runs the computer-use plugin and backend test suites from a fixed, explicit directory list.
  *
  * The plugin directories have no package.json, so their tests are discovered by
  * filename. Doing the discovery here keeps offline CI free of shell globbing and
@@ -14,20 +14,11 @@ import { fileURLToPath } from "node:url"
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const suites = [
   { directory: ".opencode/plugins/computer-use", extension: ".test.ts" },
-  { directory: ".opencode/plugins/goal-docs", extension: ".test.ts" },
-  { directory: ".opencode/plugins/memory", extension: ".test.ts" },
-  // Personality's native-host and model-fixture suites need real hosts, so only
-  // the offline unit suites run here.
-  { directory: "tools/personality", extension: ".test.mjs", only: ["core.test.mjs", "entry.test.mjs", "wiring.test.mjs"] },
-  { directory: "tools/self-learning", extension: ".test.mjs" },
   { directory: "tools/computer-use-browser/test", extension: ".test.ts" },
   { directory: "tools/computer-use-runtime/test", extension: ".test.ts" },
   { directory: "tools/computer-use-runtime", extension: ".test.mjs" },
   { directory: "tools/computer-use-browser", extension: ".test.mjs" },
   { directory: "tools/gnome-window-control", extension: ".test.mjs" },
-  { directory: "tools/chatgpt-direct/test", extension: ".test.mjs" },
-  { directory: "voice-assistant/test", extension: ".test.ts" },
-  { directory: "tools/chatgpt-connector/test", extension: ".test.ts" },
 ]
 let failed = 0
 

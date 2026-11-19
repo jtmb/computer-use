@@ -6,7 +6,7 @@ loaded directly from `./<name>/`; the global config points at
 
 OpenCode watches skills and configuration. Verify discovery at the intended
 location before assuming a running chat loaded a change. Project-only discovery
-does not prove global visibility. [Skills-only source registration](../../scripts/deploy-global-skills.py)
+does not prove global visibility. Skills-only source registration (removed 2026-11-19; see Git tag `pre-split`)
 previews a bounded global update without replacing models/permissions/plugins;
 apply only with deployment authority. Do not restart every chat merely to refresh
 instructions. Global source registration is not optional-plugin activation.

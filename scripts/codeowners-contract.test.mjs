@@ -6,8 +6,8 @@ const source = await readFile(new URL("../.github/CODEOWNERS", import.meta.url),
 const protectedPaths = [
   "AGENTS.md", "opencode.json", "global/cli.json",
   ".opencode/skills/README.md", ".opencode/plugins/example/index.ts",
-  "config/mcp-versions.json", "scripts/ci-offline.mjs",
-  "tools/session-coordination/tool.ts", "evals/agent-rules/case.json",
+  "scripts/ci-offline.mjs",
+  "tools/computer-use-browser/src/index.ts", "evals/agent-rules/case.json",
   "docs/golden-corpus/README.md", ".github/workflows/ci.yml",
   ".github/CODEOWNERS", "future-unclassified-source.txt",
 ]

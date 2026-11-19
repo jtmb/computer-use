@@ -17,7 +17,7 @@ re-review changed content rather than applying a stale preview. A hash is not
 approval or a lock. Validate the complete bundle and preserve conflicting changes
 on failure. Deployment is separate; never persist private transcripts or secrets.
 
-For this repository, the optional [experimental source](../../../tools/self-learning/README.md)
+For this repository, the optional experimental source (now `~/repos/plugins/self-learning/README.md`)
 documents an unverified plugin adapter; it is not an available tool merely
 because its source exists. The [coverage audit](../../../docs/computer-use-tool-coverage-audit.md)
 separates executable tools from skill instructions. Consumers must discover

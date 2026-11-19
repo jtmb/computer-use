@@ -5,10 +5,31 @@ import path from "node:path"
 import { PassThrough } from "node:stream"
 import { fileURLToPath } from "node:url"
 import test from "node:test"
-import { pumpBounded } from "../.opencode/plugins/memory/acceptance/native-host.mjs"
+
+// Read a child stream in bounded blocks so a runaway fixture cannot flood memory.
+function pumpBounded(stream, destination, onChunk, onRefusal, maxBytes = 65536, shared = { remaining: maxBytes }) {
+  let bytes = 0
+  let stopped = false
+  stream.on("readable", () => {
+    while (!stopped) {
+      const remaining = Math.min(maxBytes - bytes, shared.remaining)
+      if (remaining <= 0) { stopped = true; onRefusal(); break }
+      const block = stream.read(Math.min(4096, remaining))
+      if (block === null) break
+      assert.ok(block.length <= remaining, "stream exceeded the requested raw read size")
+      bytes += block.length
+      shared.remaining -= block.length
+      destination.write(block)
+      onChunk(block)
+    }
+  })
+  stream.once("end", () => destination.end())
+  stream.once("error", () => { stopped = true; onRefusal(); destination.end() })
+  return () => bytes
+}
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
-const required = ["computer-use.desktop", "local.goal-mode.server", "computer-use.goal-docs"]
+const required = ["computer-use.desktop"]
 const active = () => ({
   location: { directory: root },
   data: required.map((id) => ({ id, state: { status: "active" } })),
@@ -28,7 +49,6 @@ printf '%s\n' "$*" >> "$HEALTH_TEST_DIRECTORY/command-calls.txt"
 case "$*" in
   --version) echo 'opencode v2.1.1' ;;
   'service status') printf '%s\n' "$HEALTH_TEST_SERVICE_STATUS"; exit "$HEALTH_TEST_SERVICE_EXIT" ;;
-  'mcp list') printf 'github connected\nplaywright connected\n' ;;
   'debug config') echo '.opencode/skills' ;;
   'api get ${route}')
     cat "$HEALTH_TEST_DIRECTORY/inventory.json"
@@ -81,18 +101,16 @@ exit "$HEALTH_TEST_TESTS_EXIT"
   }
 }
 
-test("healthy location-scoped plugins pass and both source suites are requested", async () => {
+test("healthy location-scoped plugin passes and its source suite is requested", async () => {
   const result = await runHealth(active())
   assert.equal(result.status, 0, result.output)
   assert.match(result.output, /Health check PASSED/)
-  assert.match(result.output, /not live handoff acceptance/)
   assert.match(result.calls, /computer-use\/contract\.test\.ts/)
-  assert.match(result.calls, /goal-docs\/.*\.test\.ts/)
 })
 
-test("a failed companion cannot be hidden by passing unit tests", async () => {
+test("a failed plugin cannot be hidden by passing unit tests", async () => {
   const inventory = active()
-  inventory.data[2].state = { status: "failed", error: "fixture private detail" }
+  inventory.data[0].state = { status: "failed", error: "fixture private detail" }
   const result = await runHealth(inventory)
   assert.equal(result.status, 1)
   assert.match(result.output, /inactive plugin/)
@@ -126,7 +144,6 @@ test("failed unit suites cannot produce a healthy result", async () => {
   const result = await runHealth(active(), { testsExit: 1 })
   assert.equal(result.status, 1)
   assert.match(result.output, /computer-use plugin tests failed/)
-  assert.match(result.output, /goal-docs companion tests failed/)
   assert.doesNotMatch(result.output, /Health check PASSED/)
 })
 
@@ -149,11 +166,10 @@ for (const scenario of [
   }
 }
 
-test("documented endpoint permits status-only discovery without requesting either source suite", async () => {
+test("documented endpoint permits status-only discovery without requesting the source suite", async () => {
   const result = await runHealth(active(), { args: ["--status-only"] })
   assert.equal(result.status, 0, result.output)
   assert.equal(result.commands.filter(command => command.startsWith("api get ")).length, 1)
-  assert.ok(result.commands.includes("mcp list"))
   assert.ok(result.commands.includes("debug config"))
   assert.equal(result.calls, "")
   assert.match(result.output, /Status diagnostics PASSED/)

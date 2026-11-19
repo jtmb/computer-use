@@ -780,7 +780,7 @@ native host compatibility.
 
 These are source/fixture outcomes, not a strict AI/full-host pass, loaded rows,
 real provider reports or native participant acceptance. See the
-[observation guide](../../tools/opencode-native-row/provider-observation.md).
+observation guide (removed 2026-11-19; see Git tag `pre-split`).
 PR access, benchmark isolation/model measurements, loaded/visible/human outcomes,
 real archive recovery, genuine demo and conditional old-folder removal remain
 unfinished. No activation/deployment/shared restart/logout/security/permission
@@ -808,7 +808,7 @@ type-config route refused before spawn at2,011.242188 MiB; the separately select
 unfinished type config later refused at2,245.253906 MiB. No type shard executed,
 cap/floor change, automatic retry or whole-package pass was claimed.
 
-The [compatibility guide](../../tools/opencode-native-row/declaration-compatibility.md)
+The compatibility guide (removed 2026-11-19; see Git tag `pre-split`)
 and portable entrypoints retain all218/35 roots, all external declarations and
 whole config/options/syntax/global checks; proposed four-part semantic/declaration
 coverage is disjoint and exact, not a reduced program. Type-config completion,

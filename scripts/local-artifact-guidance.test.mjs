@@ -1,5 +1,6 @@
 import assert from "node:assert/strict"
 import { readFile, stat } from "node:fs/promises"
+import os from "node:os"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import test from "node:test"
@@ -182,8 +183,13 @@ test("image prompting matches the one-argument route and forbids invented contro
   assert.deepEqual(unsafeExamples(body), [])
 })
 
-test("the image reference agrees with the active connector schema", async () => {
-  const connector = await readFile(path.join(root, "tools/chatgpt-connector/src/mcp.ts"), "utf8")
+// The connector moved to its own plugin repository on 2026-11-19; compare against
+// it when that checkout is present (override with CHATGPT_PLUGIN_ROOT).
+const chatgptPlugin = process.env.CHATGPT_PLUGIN_ROOT ?? path.join(os.homedir(), "repos/plugins/chatgpt")
+
+test("the image reference agrees with the active connector schema", async t => {
+  const connector = await readFile(path.join(chatgptPlugin, "chatgpt-connector/src/mcp.ts"), "utf8").catch(() => null)
+  if (connector === null) return t.skip(`ChatGPT plugin checkout not found at ${chatgptPlugin}`)
   assert.match(connector, /const MAX_IMAGE_PROMPT_LENGTH = 4000/)
   assert.match(connector, /name: "generate_image"/)
   assert.match(connector, /maxLength: MAX_IMAGE_PROMPT_LENGTH/)

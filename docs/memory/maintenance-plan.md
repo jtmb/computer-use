@@ -9,7 +9,7 @@ and external stores remain untouched. This is not a memory note or goal export.
 
 ## Existing tool versus proposed maintenance
 
-The [memory plugin contract](../../.opencode/plugins/memory/README.md) defines
+The memory plugin contract (now `~/repos/plugins/archive/memory/README.md`) defines
 `list`, `search`, `read`, `remember`, and `forget`. Repository scope is default;
 global scope must be explicitly selected. `both` is read-only selection, not a
 bulk-write scope. Invoking-session/worktree resolution and native permissions

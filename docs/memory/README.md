@@ -1,7 +1,7 @@
 # Repository-local memory protocol
 
 This protocol is guidance, not a memory service or automatic prompt injection. It does not require an external provider.
-The [scoped `memory` tool source](../../.opencode/plugins/memory/README.md) is
+The scoped `memory` tool source (now `~/repos/plugins/archive/memory/README.md`) is
 present with isolated fixture tests. A current-session read-only repository list
 was observed on 2026-10-27; that is not real-note write or global-store acceptance.
 This protocol alone does not install a tool or establish another runtime's state.
@@ -63,7 +63,7 @@ rules or a way to preempt a pending native prompt; already-started filesystem
 effects are not rolled back. Further source guards check awaited exact/scan results
 and terminal read/skip boundaries before returning note data or issuing a preview
 token. They do not relabel a completed write as unperformed. See the
-[permission boundary](../../.opencode/plugins/memory/README.md#permission-cancellation-boundary--untested-source-correction).
+permission boundary (now `~/repos/plugins/archive/memory/README.md`).
 
 ## Retrieval and size
 
@@ -95,7 +95,7 @@ paragraph, plus its best distinct match. It neither verifies that author's claim
 nor creates a semantic freshness/status field. Other kinds and unlabelled decisions
 keep matching-only excerpts; a limited excerpt still requires a source/whole-note
 read when necessary. See the
-[exact source boundary](../../.opencode/plugins/memory/README.md#retrieval-and-safety-limits).
+exact source boundary (now `~/repos/plugins/archive/memory/README.md`).
 No stored note, source ranking score, scope or resource allowance is changed by
 this correction, and no new model or live-retrieval acceptance is claimed.
 
@@ -104,7 +104,7 @@ exact-read IDs and search arguments before session/store discovery or permission
 Whitespace-only search text is rejected there, not after scanning notes. Valid
 read defaults, ranking, caps and authorization remain; write/preview validation
 is unchanged. Invalid read arguments now take precedence over session/permission
-errors. See the [source boundary](../../.opencode/plugins/memory/README.md#read-argument-validation--untested-source-correction);
+errors. See the source boundary (now `~/repos/plugins/archive/memory/README.md`);
 no regression, typecheck, live memory or model acceptance is claimed.
 
 The later lexical-query follow-up also rejects nonblank queries with no searchable
@@ -128,7 +128,7 @@ Per-scope coverage keeps `bytes` as successful-read bytes and adds `chargedBytes
 is no longer mistaken for candidate overflow; 65 candidates still exceed the
 unchanged cap. Other truncation and skipped-file warnings must still be considered
 before treating a no-match as complete coverage. See the
-[accounting contract](../../.opencode/plugins/memory/README.md#scan-accounting--untested-source-correction).
+accounting contract (now `~/repos/plugins/archive/memory/README.md`).
 No tests, live memory calls, fresh-chat/model trials or global-store operations
 validate this change yet; permissions, preview/write boundaries and all resource
 caps remain unchanged.
@@ -182,7 +182,7 @@ Project instructions in `AGENTS.md` (or the repository's equivalent authoritativ
 The placeholders below are not factual notes. Create a note only when needed and replace them with verified, reusable information.
 This plain Markdown example is for an explicitly authorized **manual file
 workflow**. The tool preserves/skips unmanaged Markdown; tool-managed notes need
-the versioned JSON frontmatter shown in its [storage contract](../../.opencode/plugins/memory/README.md#storage-and-note-format).
+the versioned JSON frontmatter shown in its storage contract (now `~/repos/plugins/archive/memory/README.md`).
 The tool does not update `MEMORY.md`; maintain a compact topic link separately
 only when the repository convention and memory-write authority call for it.
 

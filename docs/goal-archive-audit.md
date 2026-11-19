@@ -17,7 +17,7 @@ permission request, archive preview/apply/rollback or generated-file edit follow
 The earlier historical483f mismatch/provenance and exact operation/backup/host
 gates remain. The adjacent ordinary RPC cancellation forwarding and edit-assertion
 boundary corrections are explicitly **untested** and documented in the
-[companion guide](../.opencode/plugins/goal-docs/README.md#rpc-caller-cancellation--untested-source-correction);
+companion guide (now `~/repos/plugins/goal-docs/README.md`);
 they do not repair or authorize an archive.
 
 ## Selected active-goal export observation — 2026-10-31

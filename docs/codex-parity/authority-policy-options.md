@@ -45,7 +45,7 @@ This governs where work may be saved, not commit or push authority.
 > Do not call the `question` tool or ask the same thing in prose. Make reasonable,
 > reversible assumptions and verify them; record a blocker and continue independent work instead
 > when authority/data is missing. Delegation off/unknown stays off without an opt-in question.
-> Read [the autonomy contract](.opencode/skills/development-conventions/references/autonomous-work.md)
+> Read the autonomy contract (removed 2026-11-19; see Git tag `pre-split`)
 > when this mode applies; it governs skills' interactive ask/confirm wording.
 > Do not change operator mode, enable blanket autoaccept, self-grant permissions,
 > bypass native deny/ask, broaden scope or infer commit/push authority from auto mode.
@@ -63,9 +63,9 @@ This governs where work may be saved, not commit or push authority.
 `AGENTS.md:114-124` — Verification:
 > ## Verification
 >
-> Run behavior-relevant checks; [maintainer policy](docs/maintainer-policy.md) owns exact
+> Run behavior-relevant checks; maintainer policy (removed 2026-11-19; see Git tag `pre-split`) owns exact
 > commands including `./scripts/health-check.sh` for harness integration changes.
-> Follow [test-quality cadence](docs/test-quality-audit.md#when-to-review): after five
+> Follow test-quality cadence (removed 2026-11-19; see Git tag `pre-split`): after five
 > accepted units, phase/integration boundaries, before release, escaped regressions,
 > SDK/schema/fixture drift/flakiness and weekly during active work. Record findings,
 > preserve distinct failure coverage; no scheduler or test/data deletion is authorized.
@@ -88,7 +88,7 @@ This governs where work may be saved, not commit or push authority.
 
 `docs/maintainer-policy.md:3-5`:
 > Repository-specific operations; reusable skills must discover consumer equivalents.
-> Read the root [AGENTS.md](../AGENTS.md) first. This file owns layout/commands and
+> Read the root AGENTS.md (removed 2026-11-19; see Git tag `pre-split`) first. This file owns layout/commands and
 > external-work locators, not native OpenCode behavior or a deployment approval.
 
 `docs/maintainer-policy.md:52-71` — Source, archive and approval boundaries:
@@ -99,7 +99,7 @@ This governs where work may be saved, not commit or push authority.
 > source work; a stat-cache change alone is not proof content was staged differently.
 > No blanket staging, destructive cleanup or unrequested source reformatting.
 >
-> Goal records live through supported tools. Generated [goal bundles](goals/) contain
+> Goal records live through supported tools. Generated goal bundles (removed 2026-11-19; see Git tag `pre-split`) contain
 > plan, HANDOFF, work-history and snapshot, indexed with an ownership manifest.
 > They are bounded historical exports, not every transcript/revision or proof all
 > work is complete. Validate source identity, status/revision/freshness and the
@@ -111,7 +111,7 @@ This governs where work may be saved, not commit or push authority.
 > Sending/publication, deletion, account/security/permission changes, reboot,
 > deployment/extension activation/shared restart/logout, commit and push keep their
 > separate applicable authority. Reuse exact existing approval; auto mode does not
-> create missing authority. [Autonomy contract](../.opencode/skills/development-conventions/references/autonomous-work.md).
+> create missing authority. Autonomy contract (removed 2026-11-19; see Git tag `pre-split`).
 
 ### Autonomy contract
 
@@ -156,7 +156,7 @@ This governs where work may be saved, not commit or push authority.
 > including Git questions, clarification forms or "continue?" prompts. Use existing
 > authority and reasonable reversible defaults. If essential authority or data is
 > missing, record the blocker and continue independent work instead of asking.
-> Explicitly read [the shared autonomy contract](../development-conventions/references/autonomous-work.md).
+> Explicitly read the shared autonomy contract (removed 2026-11-19; see Git tag `pre-split`).
 > Native policy, mode restrictions and task scope remain effective; do not
 > self-grant permissions or enable autoaccept as a workaround.
 

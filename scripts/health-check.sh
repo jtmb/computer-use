@@ -49,10 +49,7 @@ else
   exit 1
 fi
 
-required_plugins=(computer-use.desktop local.goal-mode.server)
-if [ -f .opencode/plugins/goal-docs/index.ts ]; then
-  required_plugins+=(computer-use.goal-docs)
-fi
+required_plugins=(computer-use.desktop)
 plugin_route="$(python3 -c 'import sys, urllib.parse; print("/api/plugin?location%5Bdirectory%5D=" + urllib.parse.quote(sys.argv[1], safe=""))' "$ROOT")"
 if plugin_list="$(opencode api get "$plugin_route" 2>/dev/null)"; then
   if plugin_check="$(printf '%s' "$plugin_list" | python3 -c '
@@ -81,15 +78,6 @@ else
   bad "cannot read the location-scoped server plugin inventory"
 fi
 
-mcp_list="$(opencode mcp list 2>/dev/null || true)"
-for mcp in github playwright; do
-  if printf '%s\n' "$mcp_list" | grep -Eq "^[^[:alnum:]]*$mcp[[:space:]]+connected"; then
-    ok "MCP connected: $mcp"
-  else
-    bad "MCP not connected: $mcp"
-  fi
-done
-
 config="$(opencode debug config 2>/dev/null || true)"
 if printf '%s' "$config" | grep -Fq '.opencode/skills'; then
   ok "effective config includes the repository skill path"
@@ -98,8 +86,6 @@ else
 fi
 
 for f in \
-  scripts/github-mcp.sh \
-  scripts/playwright-mcp.sh \
   scripts/desktop-control.py \
   scripts/assistant-memory.py \
   scripts/opencode-db-maintain.py \
@@ -132,13 +118,6 @@ elif command -v node >/dev/null 2>&1; then
     ok "computer-use plugin logic and contract tests pass"
   else
     bad "computer-use plugin tests failed; run node --test .opencode/plugins/computer-use/*.test.ts (requires TypeScript-capable Node)"
-  fi
-  if [ -f .opencode/plugins/goal-docs/index.ts ]; then
-    if node --test .opencode/plugins/goal-docs/*.test.ts >/dev/null 2>&1; then
-      ok "goal-docs companion tests pass (not live handoff acceptance)"
-    else
-      bad "goal-docs companion tests failed; run node --test .opencode/plugins/goal-docs/*.test.ts"
-    fi
   fi
 else
   bad "node is unavailable; cannot run the computer-use plugin tests"

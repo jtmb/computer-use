@@ -43,9 +43,9 @@ metadata; variable-height rows must not break selection or scrolling.
 ## Source verification and current runtime boundary
 
 The earlier worker returned terminal and released its source scope. Parent
-correction in [native-row.patch](../../tools/opencode-native-row/native-row.patch)
+correction in native-row.patch (removed 2026-11-19; see Git tag `pre-split`)
 has SHA-256 `2825d876035054ee46f71f7d9c6815918bad32569242832e31174325633f86fe`;
-the [worker original](../../tools/opencode-native-row/native-row.worker.patch)
+the worker original (removed 2026-11-19; see Git tag `pre-split`)
 remains separately preserved at
 `bed8bbd1032b26b76a4186d42ce2a2a313bffa34fdfbf38db33c32b1ca6497e6`.
 Saved terminal outcomes now require a qualifying `time.idle`; running state stays
@@ -60,7 +60,7 @@ clone at the exact official pin, leaving the selected upstream checkout unchange
 It did not rerun native renderer tests or compilers and does not relabel those
 historical outcomes as fresh canonical evidence.
 
-The additional [active-session bridge](../../tools/opencode-native-row/session-active.md)
+The additional active-session bridge (removed 2026-11-19; see Git tag `pre-split`)
 is a distinct source integration. Its public-type/runtime-fixture evidence is not
 whole-host semantic acceptance: the bounded TypeScript 6 check exhausted its 2 GiB
 heap, and three TypeScript 7 trials reached the unchanged 1 GiB RSS guard after
@@ -73,7 +73,7 @@ No deployment, activation, shared restart, upstream edit or publication occurred
 
 ## Response observation producer follow-up — 2026-10-29
 
-The separate [producer patch and native procedure](../../tools/opencode-native-row/provider-observation.md)
+The separate producer patch and native procedure (removed 2026-11-19; see Git tag `pre-split`)
 now preserve bounded final-response model/effort reports in existing native
 metadata without modifying the accepted base row/bridge patches. Parent actual
 protocol execution produced six unpatched failures, then33/33 patched native

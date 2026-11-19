@@ -69,7 +69,6 @@ test("inventory names all current scripts, demo Python sources, tools, and comma
     "opencode.json",
     "global/opencode.jsonc",
     "global/cli.json",
-    "config/mcp-versions.json",
     ...(await sourceFiles("global/commands")),
   ]) assert.ok(text.includes(`../${file}`), file)
 })
@@ -97,13 +96,6 @@ test("comparison attributes OpenCode v2 capabilities upstream and local integrat
     return [area, { base, repository }]
   }))
 
-  const agent = cells.get("Agent and coding workflow")
-  assert.ok(agent)
-  for (const capability of ["Sessions", "agents", "model and reasoning-effort/variant selection", "coding tools", "permission rules"]) {
-    assert.ok(agent.base.includes(capability), capability)
-  }
-  assert.match(agent.repository, /no replacement agent, model selector, or permission engine/)
-
   const extensibility = cells.get("Extensibility and instructions")
   assert.ok(extensibility)
   for (const capability of ["MCP servers", "skill discovery/loading", "commands", "plugin loading"]) {
@@ -112,26 +104,15 @@ test("comparison attributes OpenCode v2 capabilities upstream and local integrat
   assert.match(extensibility.repository, /curated set of local skill bundles/)
   assert.match(extensibility.repository, /not new loader mechanisms/)
 
-  const mcp = cells.get("MCP integrations")
-  assert.ok(mcp)
-  assert.match(mcp.repository, /pinned versions, and launch wrappers/)
-  assert.match(mcp.repository, /external dependencies, not implementations authored here/)
-
   const desktop = cells.get("Desktop and windows")
   assert.ok(desktop)
   assert.match(desktop.repository, /GNOME AT-SPI/)
   assert.match(desktop.repository, /optional .*window bridge/)
   assert.match(desktop.repository, /not a claim that no other OpenCode extension can do computer use/)
 
-  const goal = cells.get("Goal/session conveniences")
-  assert.ok(goal)
-  assert.match(goal.base, /plan agent.*experimental todo tool/)
-  assert.match(goal.repository, /goal-docs companion/)
-  assert.match(goal.repository, /does not replace the goal substrate/)
-
-  const operations = cells.get("Setup and operations")
-  assert.ok(operations)
-  assert.match(operations.repository, /onboarding\/config deployment, health, backup\/maintenance, and demo helpers/)
+  const browser = cells.get("Browser")
+  assert.ok(browser)
+  assert.match(browser.repository, /not as an MCP server/)
   for (const match of section.matchAll(/\]\((https?:[^)]+)\)/g)) {
     assert.match(match[1], /^https:\/\/opencode\.ai\/v2\/docs\//, match[1])
   }
@@ -144,15 +125,9 @@ test("inventory links resolve and source/runtime/unfinished states stay explicit
     if (/^(?:https?:|#)/.test(match[1])) continue
     await stat(path.resolve(root, "docs", match[1].split("#")[0]))
   }
-  for (const word of ["current working tree", "not proof of deployment", "Held / blocked", "do not invoke", "quarantined", "Unverified"]) {
+  for (const word of ["current working tree", "not proof of deployment", "Held / blocked", "do not invoke", "Unverified"]) {
     assert.ok(text.includes(word), word)
   }
-  assert.match(text, /copy_session_id/)
-  assert.match(text, /explicit continuation\/model invocation remains unapproved and unverified/)
-  assert.match(text, /wsl-interop.*source directory/s)
-  assert.ok(text.includes("../scripts/setup-opencode-jsonc.py"))
-  assert.ok(text.includes("../scripts/mcp_config_transaction.py"))
-  assert.ok(text.includes("No real config apply or runtime activation"))
   for (const tool of [
     "desktop_apps",
     "desktop_tree",
@@ -163,14 +138,7 @@ test("inventory links resolve and source/runtime/unfinished states stay explicit
     "desktop_window_act",
     "desktop_layout",
   ]) assert.ok(text.includes(`\`${tool}\``), tool)
-  for (const command of [
-    "/deploy",
-    "/handoff",
-    "/handoff_resume",
-    "/promote-skills",
-    "/copy_session_id",
-    "/session-context",
-  ]) assert.ok(text.includes(command), command)
+  for (const command of ["/checkout", "/document-code", "/handoff_resume", "/promote-skills"]) assert.ok(text.includes(command), command)
   assert.doesNotMatch(text, /ses_[A-Za-z0-9]+|53eacb15/)
   assert.match(await read("README.md"), /docs\/features\.md/)
   assert.ok((await read("README.md")).split("\n").length <= 170)

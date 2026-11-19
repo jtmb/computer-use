@@ -40,7 +40,7 @@ export function buildReceipt({ root, nativeRoot, voiceRoot, checks, date }) {
       stagedDiffBytes: staged.length,
       stagedDiffSha256: createHash("sha256").update(staged).digest("hex"),
     },
-    frozenNative: { root: nativeRoot, head: git(["rev-parse", "HEAD"], nativeRoot) },
+    frozenNative: nativeRoot ? { root: nativeRoot, head: git(["rev-parse", "HEAD"], nativeRoot) } : null,
     voiceRepository: voiceRoot ? { root: voiceRoot, head: git(["rev-parse", "HEAD"], voiceRoot) } : null,
     checks,
     limits: [
@@ -52,8 +52,10 @@ export function buildReceipt({ root, nativeRoot, voiceRoot, checks, date }) {
 
 function main() {
   const root = process.env.RECEIPT_ROOT ?? process.cwd()
-  const nativeRoot = process.env.RECEIPT_NATIVE_ROOT ?? "/home/james/repos/opencode-native-row"
-  const voiceRoot = process.env.RECEIPT_VOICE_ROOT ?? path.join(root, "voice-assistant")
+  // The native-row patches and voice submodule left this repository on 2026-11-19;
+  // record them only when a caller points at a checkout explicitly.
+  const nativeRoot = process.env.RECEIPT_NATIVE_ROOT ?? null
+  const voiceRoot = process.env.RECEIPT_VOICE_ROOT ?? null
   const output = process.env.RECEIPT_OUTPUT ?? path.join(root, "docs", "final-verification.json")
   const checks = {
     health: process.env.RECEIPT_HEALTH ?? "not supplied",

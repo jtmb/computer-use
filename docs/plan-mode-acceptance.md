@@ -70,7 +70,7 @@ According to the **read-only export**:
 
 4. **Explicit blockers and gates:** Screenshot capture findings and the fresh-session screenshot test remain deferred pending a new capture contract. The motion-preview approval is missing. Live Plan-mode/client behavior and runtime policy acceptance remain unverified; source-only changes are not proof of runtime behavior. Final regression and criteria audits remain pending. No commit, push, publication, merge, or runtime rollout is authorized by this plan; those actions require their applicable separate approvals. Do not close the goal while required criteria remain blocked.
 
-[Open the actual plan export](docs/goals/53eacb15-7fd9-4c20-b4d4-038111b68e6f/plan.md)
+Open the actual plan export (removed 2026-11-19; see Git tag `pre-split`)
 ```
 
 **Content result:** The response supplied an ordered inline summary of the

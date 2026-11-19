@@ -20,7 +20,7 @@ Evidence for action IDs and ordering:
 [official V2 permissions](https://opencode.ai/v2/docs/permissions) specifies
 `<server>_<tool>` MCP actions and last-matching-rule wins. The actual repo-scoped
 Build policy and complete available GitHub MCP tool schemas were read before
-the source edit. The [wrapper](../scripts/github-mcp.sh) still passes
+the source edit. The wrapper (now `~/repos/veyra-monorepo/mcp-servers/github/github-mcp.sh`) still passes
 `--lockdown-mode`.
 
 ## Verification actually performed
@@ -71,7 +71,7 @@ remain refused by server lockdown; the prior diff request was also refused.
 GitGuardian reports success, while combined commit status has zero contexts.
 Neither check result proves review completeness or code safety.
 
-The [configured pin](../config/mcp-versions.json) selects GitHub MCP v1.12.1.
+The configured pin (now `~/repos/veyra-monorepo/mcp-servers/github/mcp-versions.json`) selects GitHub MCP v1.12.1.
 Inspection of that tag's upstream
 [PR guard](https://github.com/github/github-mcp-server/blob/v1.12.1/pkg/github/pullrequests.go),
 [author check](https://github.com/github/github-mcp-server/blob/v1.12.1/pkg/github/lockdown.go)

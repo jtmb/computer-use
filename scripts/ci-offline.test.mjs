@@ -18,14 +18,14 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const read = (file) => readFile(path.join(root, file), "utf8")
 
-test("inbox retirement and decision-memory source regressions are required offline checks", () => {
-  for (const file of ["scripts/inbox-retirement.test.mjs", "scripts/decision-memory-contract.test.mjs", "scripts/inbox-guidance.test.mjs"])
+test("decision-memory and moved-unit skill contracts are required offline checks", () => {
+  for (const file of ["scripts/decision-memory-contract.test.mjs", "scripts/personality-skills-contract.test.mjs", "scripts/self-learning-skill-contract.test.mjs", "scripts/credential-hygiene.test.mjs"])
     assert.ok(REPO_CONTRACT_TESTS.includes(file), `${file} must run in the required repo-contracts step`)
 })
 
 test("plugin, tool and Python coverage steps cannot be dropped from offline CI", () => {
   const steps = buildSteps(parseArgs([]))
-  const required = ["plugin-types", "goal-docs-types", "tool-plugin-types", "plugin-suites", "python-script-tests"]
+  const required = ["plugin-types", "plugin-suites", "python-script-tests"]
   for (const id of required) {
     const step = steps.find(value => value.id === id)
     assert.ok(step, `${id} must exist`)
@@ -40,8 +40,7 @@ test("document metadata evidence accounting is a required offline contract", () 
   assert.ok(REPO_CONTRACT_TESTS.includes("scripts/document-security-contract.test.mjs"))
 })
 
-test("coverage reader budget and lineage regressions are required offline checks", () => {
-  assert.ok(REPO_CONTRACT_TESTS.includes("scripts/request-coverage-audit.test.mjs"))
+test("repo-contract fixtures keep their FIFO prerequisite", () => {
   const step = buildSteps(parseArgs([])).find(value => value.id === "repo-contracts")
   assert.ok(step.dependencies.includes("mkfifo"), "the real FIFO reader control requires its executable")
 })
@@ -73,13 +72,6 @@ test("checkout safety suites are required offline checks using only isolated Git
     "scripts/checkout-command.test.mjs", "scripts/checkout-preflight.test.mjs"]]])
 })
 
-test("title staging and readonly-input safety tests are required without native checkout or compiler prerequisites", () => {
-  const step = buildSteps(parseArgs([])).find(value => value.id === "title-stage-tests")
-  assert.equal(step?.kind, "required")
-  assert.deepEqual(step.dependencies, ["node", "mkfifo"])
-  assert.deepEqual(step.commands, [[process.execPath, ["--test", "--test-reporter=spec", "tools/opencode-title-cas/typecheck-stage.test.mjs", "tools/opencode-title-cas/readonly-input.test.mjs", "tools/opencode-title-cas/overlay-set.test.mjs", "tools/opencode-title-cas/patch-provenance.test.mjs", "tools/opencode-title-cas/input-budget.test.mjs", "tools/opencode-title-cas/overlay-input.test.mjs"]]])
-})
-
 test("private staging preservation and pre-read capture limits are required offline checks", () => {
   const steps = buildSteps(parseArgs([]))
   const corpus = steps.find(step => step.id === "corpus-tests")
@@ -93,22 +85,6 @@ test("private staging preservation and pre-read capture limits are required offl
   assert.deepEqual(staging.commands, [
     ["python3", ["-s", "-B", "-m", "unittest", "discover", "-s", "scripts", "-p", "test_private_secret_stage.py", "-v"]],
   ])
-})
-
-test("aggregate monitor guards are required offline without compiler or process prerequisites", () => {
-  const step = buildSteps(parseArgs([])).find(value => value.id === "monitor-budget-tests")
-  assert.ok(step, "the aggregate monitor regression suite must not be omitted")
-  assert.equal(step.kind, "required")
-  assert.deepEqual(step.dependencies, ["node"])
-  assert.deepEqual(step.commands, [[process.execPath, ["--test", "--test-concurrency=1", "--test-reporter=spec",
-    "tools/opencode-native-row/full-graph-monitor-budget.test.mjs"]]])
-})
-
-test("memory native-host safety tests are required without launching the native host", () => {
-  assert.ok(REPO_CONTRACT_TESTS.includes(".opencode/plugins/memory/acceptance/native-host.test.mjs"),
-    "the isolated native-host helper safety suite must not be omitted")
-  assert.ok(!REPO_CONTRACT_TESTS.includes(".opencode/plugins/memory/acceptance/native-host.mjs"),
-    "the actual native launch is explicitly selected, never a default offline step")
 })
 
 test("health service-readiness source regressions are required with fake commands only", () => {
@@ -369,7 +345,6 @@ test("clean checkout mode marks git checks not applicable instead of green", () 
 test("default CI requires the canonical corpus and ownership guards without opt-in discovery", () => {
   const steps = buildSteps(parseArgs([]))
   assert.ok(REPO_CONTRACT_TESTS.includes("scripts/local-artifact-guidance.test.mjs"), "adopted skill routing and converter boundaries remain checked")
-  assert.ok(REPO_CONTRACT_TESTS.includes("scripts/deploy-global-config.test.mjs"), "deployment preservation regressions remain required")
   assert.ok(REPO_CONTRACT_TESTS.includes("tools/gnome-window-control/fresh-shell-acceptance.test.mjs"), "private-Shell boundary regressions remain required without running a compositor")
   for (const command of ["bash", "python3", "cp", "cmp", "diff", "mkdir", "rm", "date", "env", "mktemp", "chmod", "basename", "dirname", "tee", "seq"])
     assert.ok(steps.find(step => step.id === "repo-contracts").dependencies.includes(command), `shell fixture prerequisite ${command}`)

@@ -7,7 +7,7 @@ live acceptance. Follow task-triggered owners rather than loading every guide.
 
 - [Consolidated session work](session-consolidation-2026-10-29.md): current
   single-chat continuation owner, source sessions, retained work and open gates.
-- [Setup](../setup.md), [LLM onboarding](../onboarding.md), [features](features.md):
+- [Setup](../setup.md) and [features](features.md):
   installation and honest native-v2 versus custom/external capability inventory.
 - [Maintainer policy](maintainer-policy.md): layout, checks, deployment boundaries,
   historical external-work locators and unresolved parent-source conflict.
@@ -22,8 +22,8 @@ live acceptance. Follow task-triggered owners rather than loading every guide.
 - [Local document viewing](local-documents.md): operative selected-file procedure.
 - [Office ZIP inspection](local-office-packages.md): bounded metadata/member reads,
   not XML, converter isolation or authoring acceptance.
-- [Docker web on demand](../tailscale/docs/web-on-demand.md) and its
-  [reviewed migration](../tailscale/docs/existing-instance-gateway.md): source for
+- Docker web on demand (now `~/repos/plugins/tailscale/docs/web-on-demand.md`) and its
+  reviewed migration (now `~/repos/plugins/tailscale/docs/existing-instance-gateway.md`): source for
   `/web` access to the existing instance; deployment/native/remote checks pending.
 - [Codex runtime architecture](codex-parity/codex-runtime-architecture.md):
   installed Codex surfaces, the persistent `cua` interaction model, and the
@@ -42,14 +42,14 @@ live acceptance. Follow task-triggered owners rather than loading every guide.
   [test-quality cadence](test-quality-audit.md#when-to-review).
 - [README identity/layout](readme-layout.md), [simultaneous demo workflow](demo/simultaneous-workflow.md).
 - [Skill catalog](../.opencode/skills/README.md): exact skill routes and bundle guides.
-- [Personality tool](../tools/personality/README.md): Plain-English default,
+- Personality tool (now `~/repos/plugins/personality/README.md`): Plain-English default,
   per-chat styles, safe skill saving, context reminders and global activation limits.
 
 ## Evidence, not general authority
 
 - [Parity acceptance](codex-parity/acceptance.md), [post-login input failure](codex-parity/acceptance-live-login.md),
   [efficiency limits](codex-parity/efficiency.md), [private-entry status](codex-parity/private-entry-status.md).
-- [Handoff automation](handoff-automation/acceptance.md), [coordination acceptance](../tools/session-coordination/ACCEPTANCE.md),
+- [Handoff automation](handoff-automation/acceptance.md), coordination acceptance (removed 2026-11-19; see Git tag `pre-split`),
   [Plan/client acceptance](plan-mode-acceptance.md): source, runtime and model outcomes differ.
 - [Older evidence map](completion-evidence-map.md), [ownership registry](parallel-run-coordination.md),
   [prior consolidated plan](consolidated-plan.md): preserve historical decisions;
