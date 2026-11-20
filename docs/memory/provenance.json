@@ -1,0 +1,45 @@
+{
+  "notes": {
+    "agent-inbox": {
+      "applied": "2026-11-18T10:28:30+00:00",
+      "note_sha256": "de18046afedaf8273defc45cef1ce63ba105436bc1f5f471dc28162c0cfa8df4",
+      "sources": {
+        "docs/deployments/2026-10-29-goal-plugin.md": "5f757b90d219bc2638679696e5652533d408a3d362e3f158bc20c1f02da1d2ec",
+        "docs/session-consolidation-2026-10-29.md#approved-implementation-continuation--2026-10-30": "8a61bf24a5741964e2f8b8fe4e137275f8feb0a2a57bf93cf5e76ba946159e8a"
+      },
+      "updated": "2026-10-31",
+      "verified": "2026-10-30"
+    },
+    "coordination-workflow": {
+      "applied": "2026-11-18T10:28:30+00:00",
+      "note_sha256": "958ebdb4508c0442e205a0259fa10bfabc6a23ece8e90b05b9cf2c594d6c4420",
+      "sources": {
+        ".opencode/skills/agent-orchestration/SKILL.md": "4d7c57d58ac9bc12aaf2f1fc6bdf8fcb67c0c37507b1ece0fecc86c9d6ab0dd0",
+        "AGENTS.md#goal-progress-and-backlog": "8e95e25e64475a827851609c71b276a2049b482832e4d1d89760b965fd5b375f"
+      },
+      "updated": "2026-10-28",
+      "verified": "2026-10-28"
+    },
+    "maintenance-plan": {
+      "applied": "2026-11-18T10:28:30+00:00",
+      "note_sha256": "a0b6475bd0320c9d97a2d2f65a1f21c429bcad15dae3e939e335a4e8db1a9ae6",
+      "sources": {
+        ".opencode/plugins/memory/README.md": "72ca6d1ed8556f4bed145e9df45d169e32d9bb080fbbefd016dc21b2ee3dee61",
+        "AGENTS.md": "8e95e25e64475a827851609c71b276a2049b482832e4d1d89760b965fd5b375f"
+      },
+      "updated": "2026-11-02",
+      "verified": "2026-11-02"
+    },
+    "orchestration-method": {
+      "applied": "2026-11-18T10:28:30+00:00",
+      "note_sha256": "d9be07ebaddf7a8676b23e321032f8bfce26a08f6a2ebbfd4cfffdb0bef3e833",
+      "sources": {
+        ".opencode/skills/agent-orchestration/SKILL.md#orchestration-method": "4d7c57d58ac9bc12aaf2f1fc6bdf8fcb67c0c37507b1ece0fecc86c9d6ab0dd0",
+        "docs/session-consolidation-2026-10-29.md#resumed-everyday-use-work--2026-11-02": "8a61bf24a5741964e2f8b8fe4e137275f8feb0a2a57bf93cf5e76ba946159e8a"
+      },
+      "updated": "2026-11-02",
+      "verified": "2026-11-02"
+    }
+  },
+  "version": 1
+}
